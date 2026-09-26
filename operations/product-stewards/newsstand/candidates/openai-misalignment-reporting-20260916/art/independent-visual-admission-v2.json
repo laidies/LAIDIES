@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "openai-misalignment-reporting-20260916-art",
+  "stage": "INDEPENDENT_VISUAL_ADMISSION",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root",
+    "role": "Independent visual reviewer",
+    "reviewedAt": "2026-09-19T17:18:38.744480+00:00",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true,
+    "independentFromMaker": true,
+    "calibration": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/art/root-calibration.json",
+      "sha256": "73ce0f82e8b797ca00f875057959dd377f2dab1977a8f1b475871187fde439ed"
+    }
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/art/producer-contract-v3.json",
+    "sha256": "2f1688659ca1522727c5db4e3fdd85b516a3e32f5af87f6ad01f61bf1d948b6b"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/art/permission-boundary-v1.png",
+    "sha256": "9884ae39bedbce0af34a5f6b780db5346ce50cfc9c91e1650666c3a40251f2b3",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/article.md",
+    "sha256": "f49a22e7d82870ecfb810ee5d63099fa4db9084fa8f7b6ed786d864f968fca0e",
+    "kind": "TEXT",
+    "locator": "LAiDIES Read and What This Means for You",
+    "exactTextOrSilentPurpose": "The article distinguishes generated content from an outside action and asks the reader to check destination, information and review before an upload."
+  },
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/art/rendered-sizes.png",
+    "sha256": "9ca99f4fd8e0aa8dea122979c5f9ed546be8b4f08013e7cc094c7a918d0607eb"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "Laptop document, outward sheet and noticeboard correspond to the article upload-to-external-destination distinction.",
+      "artifactLocator": "Full pixels and 720px/360px proof."
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Strong navy outlines and tactile cyan/coral halftone match the viewed approved editorial reference; no glossy technology rendering.",
+      "artifactLocator": "Full pixels and approved reference."
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No town building or character identity is asserted.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "Laptop screen faces keyboard; desk supports objects. Floating sheet and miniature divider are explicit editorial metaphor, not physical reportage.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "Screen, sheet and noticeboard papers are blank; no generated lettering.",
+      "artifactLocator": "Laptop, sheet and board pixels."
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "Ordinary contemporary laptop and stationery; no historical claim.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "The four central objects carry the metaphor; peripheral stationery/plant remain subordinate.",
+      "artifactLocator": "Full composition."
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "Actual supplied720/360 proof inspected: laptop, sheet and noticeboard remain distinct with no edge crop.",
+      "artifactLocator": "art/rendered-sizes.png."
+    }
+  ],
+  "visibleDefects": [],
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT"
+  },
+  "limitations": [
+    "Private independent art review only; actual live placement still needs browser verification.",
+    "The floating sheet and desk divider are editorial metaphors, not a real software interface or depiction of the reported event."
+  ],
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/art/producer-self-review-v4.json",
+    "sha256": "bf9b5e7aba2e1ee0fc6226c4baf3b4a75d67c63e2d4d50a92544c88a18b548ee"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "priorReview": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/art/independent-visual-admission.json",
+      "sha256": "3c9090e1420a9f2657e1207d8db4eedb39ad2c6bafbf32525fd1ec22967520aa"
+    },
+    "reason": "Re-read final novice-facing article and re-viewed exact720/360art proof; unchanged image remains aligned to answer versus external action. Prior future-dated maker receipt superseded by actual-timev4."
+  }
+}

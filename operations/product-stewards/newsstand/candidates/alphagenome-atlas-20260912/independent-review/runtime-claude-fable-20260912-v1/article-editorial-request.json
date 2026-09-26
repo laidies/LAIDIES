@@ -1,0 +1,2372 @@
+{
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "reader": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "reverseBrief": {
+            "type": "object",
+            "properties": {
+              "humanQuestion": {
+                "type": "string",
+                "minLength": 15
+              },
+              "promisedPayoff": {
+                "type": "string",
+                "minLength": 15
+              },
+              "centralMentalModel": {
+                "type": "string",
+                "minLength": 15
+              },
+              "dailyLifeConnection": {
+                "type": "string",
+                "minLength": 15
+              },
+              "surfaceJob": {
+                "type": "string",
+                "minLength": 15
+              },
+              "desiredReaderFeeling": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "humanQuestion",
+              "promisedPayoff",
+              "centralMentalModel",
+              "dailyLifeConnection",
+              "surfaceJob",
+              "desiredReaderFeeling"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "plainClarity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerValue": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "laidiesVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "engagingEnjoyable": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "surfaceFit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "dailyLifeConnection": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationBenchmark": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "explainBack": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "unseenTransfer": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "usefulAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "analogyIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "plainClarity",
+              "readerValue",
+              "laidiesVoice",
+              "engagingEnjoyable",
+              "surfaceFit",
+              "dailyLifeConnection",
+              "communicationBenchmark",
+              "explainBack",
+              "unseenTransfer",
+              "usefulAction",
+              "analogyIntegrity"
+            ],
+            "additionalProperties": false
+          },
+          "newsChecks": {
+            "type": "object",
+            "properties": {
+              "incidentExplained": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "termsExplainedInContext": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerConsequenceSpecific": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "noInternalNotesOrInventedAdvice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "incidentExplained",
+              "termsExplainedInContext",
+              "readerConsequenceSpecific",
+              "noInternalNotesOrInventedAdvice"
+            ],
+            "additionalProperties": false
+          },
+          "families": {
+            "type": "object",
+            "properties": {
+              "glossaryAccumulation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "templateRepetition": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "decorativeAnalogy": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "referenceConfetti": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "missingMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "genericAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "jargonBeforeMeaning": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "disconnectedSystem": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "factlessConfidence": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "staleUnreviewableClaims": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "corporateSludge": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "joylessInstruction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "benchmarkNameDrop": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "curiosityWithoutPayoff": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "familiarExampleWithoutTechnicalReturn": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationPastiche": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "entertainmentBeforeUnderstanding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismCompressedBehindHook": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "prematureClickBeforeMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "inflatedTakeawayEnding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "purposeTooNarrow": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismBeforeMotivation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "workedExampleOvertakesBookPurpose": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "technicalExplainerVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "glossaryAccumulation",
+              "templateRepetition",
+              "decorativeAnalogy",
+              "referenceConfetti",
+              "missingMechanism",
+              "genericAction",
+              "jargonBeforeMeaning",
+              "disconnectedSystem",
+              "factlessConfidence",
+              "staleUnreviewableClaims",
+              "corporateSludge",
+              "joylessInstruction",
+              "benchmarkNameDrop",
+              "curiosityWithoutPayoff",
+              "familiarExampleWithoutTechnicalReturn",
+              "communicationPastiche",
+              "entertainmentBeforeUnderstanding",
+              "mechanismCompressedBehindHook",
+              "prematureClickBeforeMechanism",
+              "inflatedTakeawayEnding",
+              "purposeTooNarrow",
+              "mechanismBeforeMotivation",
+              "workedExampleOvertakesBookPurpose",
+              "technicalExplainerVoice"
+            ],
+            "additionalProperties": false
+          },
+          "explainBack": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "unseenTransfer": {
+            "type": "object",
+            "properties": {
+              "scenario": {
+                "type": "string",
+                "minLength": 15
+              },
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "scenario",
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "reverseBrief",
+          "outcomes",
+          "newsChecks",
+          "families",
+          "explainBack",
+          "unseenTransfer",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      },
+      "facts": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "claims": {
+            "type": "object",
+            "properties": {
+              "release": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "deepmind-atlas-blog-20260908",
+                        "alphagenome-atlas-primary-20260908",
+                        "nature-alphagenome-atlas-20260909"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "scale": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "deepmind-atlas-blog-20260908",
+                        "alphagenome-atlas-primary-20260908",
+                        "nature-alphagenome-atlas-20260909"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "case": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "deepmind-atlas-blog-20260908",
+                        "alphagenome-atlas-primary-20260908",
+                        "nature-alphagenome-atlas-20260909"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "experiment": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "deepmind-atlas-blog-20260908",
+                        "alphagenome-atlas-primary-20260908",
+                        "nature-alphagenome-atlas-20260909"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "limit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "deepmind-atlas-blog-20260908",
+                        "alphagenome-atlas-primary-20260908",
+                        "nature-alphagenome-atlas-20260909"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "release",
+              "scale",
+              "case",
+              "experiment",
+              "limit"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "factualIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "freshnessReviewability": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "datedChange": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "consequenceAndUncertainty": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "factualIntegrity",
+              "freshnessReviewability",
+              "datedChange",
+              "consequenceAndUncertainty"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "claims",
+          "outcomes",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "reader",
+      "facts"
+    ],
+    "additionalProperties": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an independent editorial reviewer. Inspect the exact artifact before judging. Be specific, proportionate and honest. A real defect, insufficient evidence and an execution failure are different. Return final structured judgments only; never invent human observations."
+    },
+    {
+      "role": "user",
+      "content": "Read the COMPLETE ARTIFACT first:\n{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"<a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-1-the-problem-how-do-you-measure-good\\\">AI Fundamentals 101: Testing and Evaluation</a> explains why a result on one evaluation does not prove reliability for every real task. That is the useful lens for a research score and a later biological check.\",\"closing_note\":null,\"cocktail_party\":\"“Atlas can turn a giant DNA list into a research shortlist. The score says what might be worth testing; the experiment still has to do the proving.”\",\"concepts\":[\"DNA variant\",\"precomputed prediction\",\"variant prioritization\",\"biological validation\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"AlphaGenome Atlas lets researchers look up predicted effects of DNA changes.\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"Existing LAiDIES NewsStand evidence-checking illustration\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"alphagenome-atlas-20260912\",\"laidies_read\":\"<p>One example shows the sequence in real life. In a rare epilepsy case, the report’s ranking put an overlooked DNM1 DNA change at the top. The prediction said it could make cells join a gene message differently. Researchers then tested 265 nearby DNA letters in five kinds of laboratory-grown cells. Twelve variants produced the predicted kind of longer gene message.</p><p>That is a research lead followed by one laboratory check—not a personal diagnosis. The report says Atlas and its ranking score predict molecular effects and are only part of the evidence needed for clinical diagnoses. It also calls for evaluation across diverse genetic ancestries.</p>\",\"lastCheckedAt\":\"2026-09-12T17:53:42.278499Z\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"alphagenome-atlas-20260912\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:alphagenome-atlas-20260912\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"deepmind-atlas-blog-20260908\",\"label\":\"Google DeepMind — AlphaGenome Atlas\",\"publisherType\":\"primary-research-announcement\",\"url\":\"https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/\"},{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"alphagenome-atlas-primary-20260908\",\"label\":\"Google DeepMind — AlphaGenome Atlas technical report\",\"publisherType\":\"primary-research-report\",\"url\":\"https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/alphagenome-atlas.pdf\"},{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"nature-alphagenome-atlas-20260909\",\"label\":\"Nature News — DeepMind genome atlas coverage\",\"publisherType\":\"independent-news\",\"url\":\"https://www.nature.com/articles/d41586-026-02835-4\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"Google DeepMind\",\"AlphaGenome\",\"genomics\"],\"the_story\":\"<p>On September 8, Google DeepMind introduced AlphaGenome Atlas: a research resource where scientists can look up predicted molecular effects of every possible one-letter DNA change in the human genome, instead of calculating each prediction afresh. The Atlas includes about nine billion such changes.</p><p>That can speed the first sorting step. A DNA variant is a difference in a DNA sequence. If a study has many variants to investigate, the Atlas can point researchers toward changes that may affect biology, so they can decide what to examine more closely.</p>\",\"themes\":[\"AI research\",\"genomics\",\"evaluation\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-12T17:53:42.278499Z\",\"watch_fors\":null,\"what_this_means\":\"<p>The news is faster access to a research starting point. It does not replace testing a candidate in the relevant biological setting. When you read a gene-prediction headline, ask: what did it predict, what experiment followed, and what would still need to happen before it could inform someone’s care?</p>\"}\n\n\nEXACT PASSAGE REFERENCES:\n[P001] AlphaGenome Atlas lets researchers look up predicted effects of DNA changes.\n\n[P002] On September 8, Google DeepMind introduced AlphaGenome Atlas: a research resource where scientists can look up predicted molecular effects of every possible one-letter DNA change in the human genome, instead of calculating each prediction afresh. The Atlas includes about nine billion such changes.\n\n[P003] That can speed the first sorting step. A DNA variant is a difference in a DNA sequence. If a study has many variants to investigate, the Atlas can point researchers toward changes that may affect biology, so they can decide what to examine more closely.\n\n[P004] One example shows the sequence in real life. In a rare epilepsy case, the report’s ranking put an overlooked DNM1 DNA change at the top. The prediction said it could make cells join a gene message differently. Researchers then tested 265 nearby DNA letters in five kinds of laboratory-grown cells. Twelve variants produced the predicted kind of longer gene message.\n\n[P005] That is a research lead followed by one laboratory check—not a personal diagnosis. The report says Atlas and its ranking score predict molecular effects and are only part of the evidence needed for clinical diagnoses. It also calls for evaluation across diverse genetic ancestries.\n\n[P006] The news is faster access to a research starting point. It does not replace testing a candidate in the relevant biological setting. When you read a gene-prediction headline, ask: what did it predict, what experiment followed, and what would still need to happen before it could inform someone’s care?\n\n[P007] “Atlas can turn a giant DNA list into a research shortlist. The score says what might be worth testing; the experiment still has to do the proving.”\n\n[P008] AI Fundamentals 101: Testing and Evaluation explains why a result on one evaluation does not prove reliability for every real task. That is the useful lens for a research score and a later biological check.\n\nAssess this complete dated NEWS article for What changes when researchers can look up predicted DNA-variant effects instead of calculating them one at a time, and why is that not a personal answer? Show the precomputed lookup, then the prediction-to-laboratory-check sequence in ordinary language without diagnosis or cure language.. Check every material factual claim against the supplied source excerpts, retaining attribution and limits. Independently judge reader comprehension and editorial craft. Supply an actual causal explain-back and invent and solve a new transfer scenario absent from this article. These are AI editorial analyses, never observed humans. Do not inherit the maker's conclusions; none are supplied.\n\nRUBRIC AND EVIDENCE:\n{\"communicationAuthority\":{\"benchmarkId\":\"HANNAH_FRY_COMMUNICATION_LENS_V2\",\"benchmark\":{\"path\":\"operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md\",\"sha256\":\"7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3\"},\"mode\":\"PROPORTIONAL\",\"surfaceAdaptation\":\"The notice makes research prioritization concrete and then bounds it with the required biological check.\",\"imitationBoundary\":\"ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA\",\"dimensions\":{\"humanQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Readers need to know whether a longer agent workflow changes their project choice.\",\"plannedEvidence\":\"The useful question is whether you have a bounded job that can continue while your laptop is closed and that you can inspect when it returns.\"},\"usefulCuriosity\":{\"disposition\":\"NOT_APPLICABLE\",\"reason\":\"A delayed reveal would not help this short news notice.\"},\"invisibleProcessConcrete\":{\"disposition\":\"APPLY\",\"reason\":\"Planning, cloud continuation and local testing are otherwise invisible.\",\"plannedEvidence\":\"A Project runs on a cloud computer... Cursor says the coordinator starts a local agent.\"},\"familiarTechnicalMovement\":{\"disposition\":\"APPLY\",\"reason\":\"Personal site/app and larger work project cases return to the coordinator mechanism.\",\"plannedEvidence\":\"That could suit a personal website or app, or a work project.\"},\"limitationsConsequences\":{\"disposition\":\"APPLY\",\"reason\":\"Vendor claims alone do not prove a quality outcome.\",\"plannedEvidence\":\"It is not a promise that the result will be right.\"},\"humourSurprise\":{\"disposition\":\"NOT_APPLICABLE\",\"reason\":\"No humour is needed.\"},\"betterNextQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"The reader needs a bounded decision test.\",\"plannedEvidence\":\"whether you have a bounded job that can continue while your laptop is closed and that you can inspect when it returns.\"}},\"explanationArc\":{\"mode\":\"PROPORTIONAL\",\"retainedMoves\":[\"human question\",\"visible mechanism\",\"limitation and next question\"],\"adaptation\":\"The article answers a current release question in under 300 words rather than using a substantial lesson arc.\"}},\"failureDefinitions\":{\"glossaryAccumulation\":\"Separate definitions accumulate without connecting how the system works.\",\"templateRepetition\":\"Repeated paragraph scaffolds replace a developing explanation.\",\"decorativeAnalogy\":\"A familiar comparison adds flavour but fails to explain a specific causal mechanism.\",\"referenceConfetti\":\"Pop-culture or other references accumulate without a useful explanatory job.\",\"missingMechanism\":\"The reader gets labels or conclusions without the necessary causal steps.\",\"genericAction\":\"Advice such as verify or be careful lacks a concrete useful action for this case.\",\"jargonBeforeMeaning\":\"Necessary technical language is left unexplained in its first meaningful context.\",\"disconnectedSystem\":\"Parts are named separately without showing how information or effects move between them.\",\"factlessConfidence\":\"Certainty exceeds the evidence actually available.\",\"staleUnreviewableClaims\":\"A material time-sensitive claim cannot be traced and checked for its stated date.\",\"corporateSludge\":\"Vague corporate or motivational language obscures the concrete meaning.\",\"joylessInstruction\":\"The prose becomes a dry checklist or terminology manual with little human interest.\",\"benchmarkNameDrop\":\"Mentioning a communication benchmark or famous explainer substitutes for clear explanation.\",\"curiosityWithoutPayoff\":\"A hook raises curiosity but never delivers the promised explanation.\",\"familiarExampleWithoutTechnicalReturn\":\"A familiar example never reconnects to the actual technical mechanism.\",\"communicationPastiche\":\"Wording, persona or mannerisms imitate a communicator instead of original clear explanation.\",\"entertainmentBeforeUnderstanding\":\"Humour or spectacle gets in the way of understanding.\",\"mechanismCompressedBehindHook\":\"The hook occupies the piece while the causal explanation is rushed.\",\"prematureClickBeforeMechanism\":\"The conclusion or reveal is asserted before its explanation earns understanding.\",\"inflatedTakeawayEnding\":\"The ending inflates a bounded finding into a grand claim or moral.\",\"purposeTooNarrow\":\"The scope is narrower than the supplied reader job; one task becomes the whole purpose.\",\"mechanismBeforeMotivation\":\"Technical machinery begins before the artifact establishes the destination-level human reason for this knowledge. Stakes inside one worked example do not satisfy this when the destination promises broader cross-context orientation; the reader must first see why the knowledge matters beyond that example.\",\"workedExampleOvertakesBookPurpose\":\"One worked example crowds out the broader foundational orientation the book promises.\",\"technicalExplainerVoice\":\"The organising perspective is specialist taxonomy or workflow inspection instead of the reader orientation promised by the destination. Judge what the prose asks the reader to care about, not just friendly vocabulary: for a broad foundational opening, second-person warmth and a lived example do not clear this defect when tracing technical operations remains the main reason for learning, without the promised practical and civic orientation. In a bounded news report or how-to, explaining its specific mechanism can be exactly the right perspective.\"},\"outcomeDefinitions\":{\"plainClarity\":\"A smart reader without technical AI training can follow each sentence.\",\"readerValue\":\"The reader gains a useful understanding or decision beyond the headline.\",\"laidiesVoice\":\"Warm, candid, adult, conversational LAiDIES voice; no condescension or borrowed persona.\",\"engagingEnjoyable\":\"The human question and explanation sustain interest; humour is earned rather than mandatory.\",\"factualIntegrity\":\"Material claims are supported by the actual sources and correctly attributed.\",\"freshnessReviewability\":\"The event, reporting date and limitations make time-sensitive claims checkable.\",\"surfaceFit\":\"A dated news article answers what happened and why it matters within its proper scope.\",\"datedChange\":\"Old events are distinguished from newly reported evidence or responses.\",\"consequenceAndUncertainty\":\"Consequences are concrete and uncertainty survives the explanation.\",\"dailyLifeConnection\":\"A familiar work/life situation helps the professional reader understand the mechanism.\",\"communicationBenchmark\":\"Human purpose, concrete causality and a useful next question; no imitation of Hannah Fry.\",\"explainBack\":\"The mechanism supports an accurate answer to a causal question in ordinary language.\",\"unseenTransfer\":\"The mechanism can be applied to a genuinely new concrete situation absent from the article.\",\"usefulAction\":\"A specific proportionate action follows from the explanation where applicable.\",\"analogyIntegrity\":\"Each comparison maps the mechanism accurately and retains relevant limits.\"},\"newsCheckDefinitions\":{\"incidentExplained\":\"The actual incident and relevant causal sequence are understandable.\",\"termsExplainedInContext\":\"Necessary AI terms gain plain meaning at first meaningful use.\",\"readerConsequenceSpecific\":\"The consequence is grounded in a recognizable specific reader situation.\",\"noInternalNotesOrInventedAdvice\":\"No internal LAiDIES operating notes, commercially distinctive process details, or unsupported advice appear.\"},\"claims\":[{\"claimId\":\"release\",\"claim\":\"On September 8, Google DeepMind introduced AlphaGenome Atlas: a research resource where scientists can look up predicted molecular effects of every possible one-letter DNA change in the human genome, instead of calculating each prediction afresh.\",\"sourceIds\":[\"deepmind-atlas-blog-20260908\"]},{\"claimId\":\"scale\",\"claim\":\"The Atlas includes about nine billion such changes.\",\"sourceIds\":[\"deepmind-atlas-blog-20260908\"]},{\"claimId\":\"case\",\"claim\":\"In a rare epilepsy case, the report’s ranking put an overlooked DNM1 DNA change at the top. The prediction said it could make cells join a gene message differently.\",\"sourceIds\":[\"alphagenome-atlas-primary-20260908\"]},{\"claimId\":\"experiment\",\"claim\":\"Researchers then tested 265 nearby DNA letters in five kinds of laboratory-grown cells. Twelve variants produced the predicted kind of longer gene message.\",\"sourceIds\":[\"alphagenome-atlas-primary-20260908\"]},{\"claimId\":\"limit\",\"claim\":\"The report says Atlas and its ranking score predict molecular effects and are only part of the evidence needed for clinical diagnoses.\",\"sourceIds\":[\"alphagenome-atlas-primary-20260908\"]}],\"sources\":[{\"id\":\"deepmind-atlas-blog-20260908\",\"url\":\"https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/\",\"publisher\":\"Google DeepMind\",\"publishedAt\":\"2026-09-08\",\"accessedAt\":\"2026-09-12T17:59:41.664254Z\",\"passage\":\"We’ve used AlphaGenome to predict the molecular impact of every possible single-letter change in the human genome. All nine billion of them.\",\"additionalPassage\":\"AlphaGenome Atlas is available to researchers around the world, with coding and non-coding variations available.\",\"limitations\":\"Official announcement; it describes the resource and availability, not diagnosis, patient benefit or clinical deployment.\"},{\"id\":\"alphagenome-atlas-primary-20260908\",\"url\":\"https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/alphagenome-atlas.pdf\",\"publisher\":\"AlphaGenome Atlas team\",\"publishedAt\":\"2026-09-08\",\"accessedAt\":\"2026-09-12T17:59:41.664254Z\",\"passage\":\"we calculated the difference between reference and alternate allele predictions for all ~9 billion SNVs in hg38 using AlphaGenome.\",\"additionalPassage\":\"For a proband with epileptic encephalopathy (Fig. 3B), the top ranked variant by AVI was a heterozygous noncoding VUS in intron 10 of DNM1 (chr9:128225994:G>A, HGVS: NM_004408.4:c.1335+1605G>A) affecting a brain-specific transcript isoform encoding for the dynamin protein. Prediction of RNA-seq track coverage of the reference and alternative alleles showed that the variant creates a brain-specific cryptic splice acceptor site resulting in a 13 amino acid (aa) in-frame extension of exon 10a (Fig. 3C).\\nWe then performed high-throughput experiments in which the 265 nucleotides upstream of exon 10a were mutagenized and assayed in a minigene reporter assay across 5 cell lines (40) (fig. S9D, Table S3, Data S1 and Methods)). We identified 12 intronic variants that led to in-frame exon extensions\\nAtlas and AVI are research tools that predict molecular effects, and therefore can only act as part of the evidence chain leading to clinical diagnoses, and are not sufficient evidence on their own.\",\"limitations\":\"Technical report with research examples and laboratory work. It does not establish a patient-ready diagnostic, treatment improvement, patient benefit, broad clinical deployment or independent replication.\"},{\"id\":\"nature-alphagenome-atlas-20260909\",\"url\":\"https://www.nature.com/articles/d41586-026-02835-4\",\"publisher\":\"Nature News\",\"publishedAt\":\"2026-09-09\",\"accessedAt\":\"2026-09-12T17:59:41.664254Z\",\"passage\":\"DeepMind’s new genome ‘atlas’ charts effects of all nine billion human gene mutations AI model AlphaGenome forecasts the consequences of altering every single DNA letter in the human genome.\",\"limitations\":\"Independent reporting confirms the news event and scale; it is not used for patient or laboratory claims.\"}]}\n\nReturn reader and facts objects matching the supplied output schema. Give concise specific reasons with actual paragraph references. Clear failure-family judgments may use an empty reference list for absence across the whole artifact. Present/uncertain families and every outcome/claim require supporting paragraphs. Each fact must use source IDs belonging to that claim. Each reader/facts learningDisposition must be NO_NEW_DEFECT only if that part has no failed or uncertain assessment; otherwise use candidate repair or evidence gap. You are independent from artifact maker OpenAI /root. Attest truthfully to reading the complete artifact first and independence. Do not inspect earlier verdicts or diagnose paperwork."
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  },
+  "max_completion_tokens": 8500,
+  "temperature": 0.05,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "gpt-6-sol-luna-20260922",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "b5b54244789a715a0bcc11fd031581912e28a25fe4835e74ddbbe4db47e7808c",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can't OpenAI's announcement tell me whether GPT-6 Sol will appear in my own ChatGPT model picker?",
+      "response": "Because availability is decided downstream of the announcement by three things: which service you are actually in (ordinary Chat does not carry these models, Work and Codex do), your plan and workspace settings (a shared work account's configuration can add or remove model choices), and a gradual rollout (even eligible accounts may not see the models yet). The announcement describes product surfaces; only your own picker reflects all three factors at once.",
+      "expectedEvidence": "A correct answer must chain service placement (P002), plan/workspace dependence (P005) and gradual rollout (P005), concluding that the personal picker is the decisive check (P007).",
+      "assessment": "The article supplies every link of this causal chain explicitly, so a reader can reproduce the answer in ordinary language without outside knowledge."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, whose costs could the lower Luna price actually affect, and what should the designer check before expecting anything in her own account?",
+      "response": "The lower figures are per-token API prices, so only the client's developer-billed chatbot usage could get cheaper; her Plus subscription is a flat plan fee on a different billing surface and is unchanged by API pricing. Whether Luna even appears for her depends on her service, plan and workspace settings and the gradual rollout, so she should open her own service's model picker before promising anything.",
+      "expectedEvidence": "Application of the API-versus-subscription boundary (P003, P010) and the plan/workspace/rollout availability chain (P005, P007) to actors not in the article.",
+      "assessment": "The article's mechanism resolves this new situation completely and unambiguously, demonstrating genuine transfer beyond its own examples."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The September 22 introduction, its product surfaces, and its pricing context are laid out as an understandable sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI introduced GPT-6 Sol and Luna on September 22. Its release notes place them in ChatGPT Work and Codex, and say they are separate from the models in ordinary Chat.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "API (P003), workspace (P005) and model picker (P010) each get a plain-language definition at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "A model picker is the list of AI models an account can choose. The <a href=\\\"/library.html#ai-fundamentals-101::%40ch-4-4-2-what-a-token-actually-is\\\"><strong>AI Fundamentals 101 lesson on tokens</strong></a> explains why text processed can be a usage meter rather than a monthly subscription price.",
+          "locator": "P010"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are grounded in a specific situation: personal Chat versus employer Work, routine drafting tasks, and one's own picker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A model name can appear in more than one OpenAI service. You might use Chat personally and Work through an employer, and the lists of available models can differ.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>OpenAI says GPT-6 Sol can take on difficult work tasks. For a routine email, summary or document draft, another available model may be a sensible alternative; compare it with Sol or Luna in your own service before treating a new name as an automatic upgrade.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal LAiDIES operating notes appear, and all advice follows from sourced boundaries rather than invention.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>OpenAI’s performance and cost comparisons are its own evaluation claims. They do not promise that a particular task will be faster, cheaper or better for you.</p>",
+          "locator": "P008"
+        }
+      ]
+    }
+  }
+}

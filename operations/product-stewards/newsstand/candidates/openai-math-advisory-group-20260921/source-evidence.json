@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "newsstand-source-evidence-v1",
+  "candidateId": "openai-math-advisory-group-20260921",
+  "checkedAt": "2026-09-21T13:44:26-07:00",
+  "checkedAtBasis": "Latest filesystem receipt time of the two normal-web original-source captures. Both captures say Crawled: today; the web tool supplied no response-completion timestamp.",
+  "currentStatus": "INDEPENDENT_ADVISORY_GROUP_ESTABLISHED_NO_DECISION_POWER",
+  "freshnessFinding": "OpenAI and the group published matching current descriptions on September 21. The group advises on presentation, review, release and the field impact of AI mathematics; OpenAI retains company decisions, and the group does not advise OpenAI on the pace of internal mathematics progress.",
+  "distinctCoverageFinding": "The September 11 Navier–Stokes story explains one claimed result and the stages from release to independent checking and acceptance. This candidate covers a new governance response for handling many reported results and does not repeat the proof explanation.",
+  "priorCoverage": [
+    {
+      "id": "navier-stokes-claim-20260911",
+      "article": {
+        "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/article.md",
+        "sha256": "5e1a58e8c67b0b186d67c2f1cca06af6f33e61ef615000a8c1a462da673ab735"
+      },
+      "story": {
+        "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/story.json",
+        "sha256": "bcfe7e549c8f1851847eab2a20ffdb8d26c609b51519bf2fce43c497ff8d89f8"
+      }
+    }
+  ],
+  "records": [
+    {
+      "id": "openai-math-advisory-announcement-20260921",
+      "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+      "publisher": "OpenAI",
+      "authority": "Company announcement describing why it sought advice, the group’s remit and OpenAI’s stated internal-model claims",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260921/openai-current.json",
+        "sha256": "2a203e072f62d38cdbf0e0c4ff7743ef5b0c6183bd3ab329165957962424a54a"
+      },
+      "passages": [
+        {
+          "locator": "L21",
+          "excerpt": "On August 28, we began training a new internal model. In addition to resolving the Navier–Stokes Millennium Prize problem, this model has now resolved more than 100 long-standing open problems across most areas of mathematics."
+        },
+        {
+          "locator": "L21",
+          "excerpt": "The pace of its progress in mathematics has surprised the mathematicians within OpenAI. This has led to internal discussions on the best way to inform the community of the rapid progress to prepare and adapt the field."
+        },
+        {
+          "locator": "L24",
+          "excerpt": "To that end, we’re working with mathematicians who have established an independent mathematics advisory group. This group will serve as a bridge to the mathematical community and broader public, giving mathematicians a voice in how we move forward."
+        },
+        {
+          "locator": "L25",
+          "excerpt": "The group will advise on the review and communication of emerging results: they will help OpenAI assess their significance, advise on how to coordinate their dissemination, and advise on academic and professional standards of mathematical research. It will also advise on how our tools can support mathematical research and learning."
+        },
+        {
+          "locator": "L26",
+          "excerpt": "The group will operate independently from OpenAI. The group will have the freedom to offer advice we have not requested, comment on OpenAI’s impact on mathematics, and make its advice public."
+        },
+        {
+          "locator": "L26",
+          "excerpt": "Its members will not be paid by OpenAI, and the group can change its membership as it sees fit. Importantly, the group will not be responsible for advising us on how to pace our internal progress on mathematics."
+        }
+      ],
+      "limitations": [
+        "OpenAI’s statement is authoritative for its announcement and intentions, not independent validation that its model resolved more than 100 problems.",
+        "Do not infer that advice is binding or that the group controls model training, release decisions or internal research pace.",
+        "Do not infer that the group has reviewed any named result unless a recommendation says so."
+      ]
+    },
+    {
+      "id": "agmai-purpose-and-current-task-20260921",
+      "url": "https://agmai.org/",
+      "publisher": "Advisory Group on Mathematics and Artificial Intelligence",
+      "authority": "The independent group’s own statement of purpose, limits, membership and current task",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260921/followed-originals.json",
+        "sha256": "e36c2f5fb1843dafb767a73fd8345276ecf205cb28123cf57fe0ee498ffbd6cd"
+      },
+      "passages": [
+        {
+          "locator": "L9",
+          "excerpt": "The purpose of this group is to advise AI companies on their interactions with mathematical research and with the mathematical community, including the responsible presentation and release of mathematical results."
+        },
+        {
+          "locator": "L11",
+          "excerpt": "This group operates independently of any AI company and members do not accept payment for this work. We will publish our recommendations to AI companies on this website."
+        },
+        {
+          "locator": "L11",
+          "excerpt": "Although we will give advice, we do not have decision making power at any AI company, and the responsibility for the decisions made by any company will rest with that company."
+        },
+        {
+          "locator": "L23",
+          "excerpt": "This group came together after OpenAI approached some of its members about establishing an external advisory board. In agreement with OpenAI, they decided to create an independent group and invite others to join."
+        },
+        {
+          "locator": "L28",
+          "excerpt": "We are currently facing the very specific challenge of advising OpenAI on how to coordinate the release of a large number of significant results in mathematics that they report have been produced by their internal model."
+        },
+        {
+          "locator": "L30",
+          "excerpt": "We welcome input from the mathematical community on this question."
+        }
+      ],
+      "limitations": [
+        "The group attributes the reported results to OpenAI; it does not validate them in this statement.",
+        "Independent operation and unpaid membership do not give the group formal company authority.",
+        "The public-input invitation is directed to the mathematical community; do not turn it into a general consumer action."
+      ]
+    }
+  ],
+  "nextAction": "Proceed with a narrow governance story. Keep all capability claims attributed and require fresh source and independent editorial review before publication."
+}

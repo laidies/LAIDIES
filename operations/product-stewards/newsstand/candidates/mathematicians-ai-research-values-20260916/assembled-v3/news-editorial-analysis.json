@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "mathematicians-ai-research-values-20260916",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "228a0c542e360da3689aa25401ad94d21906ba688e5dbe7c608c144e516896e9",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why are leading mathematicians worried even when an AI produces a mathematically correct proof, and what causal step is being skipped?",
+      "response": "Because a benchmark only tests whether a correct output is produced on a chosen task. In mathematics the correct answer starts, rather than finishes, the valuable work: people must isolate the genuinely new idea, connect it to and credit prior work, and explain it until students can learn from it. When AI output arrives faster than that human process runs, two things degrade: the community's ability to judge which results matter, and the training by which people learn to formulate good questions. The correctness is not in dispute; the transmission of understanding is what gets skipped.",
+      "expectedEvidence": "The answer should use P004's benchmark definition and the proof-still-requires-people step, P002's list of displaced activities (explanation, attribution, discussion, teaching), and P005's pace-versus-judgment concern, while retaining P003/P005 limits that this is an attributed argument and one expert's assessment.",
+      "assessment": "The article fully supports this explain-back: the causal chain from benchmark scope through skipped human work to learning risk is stated in the reader's own vocabulary, with attribution and limits intact, so the reconstruction required no outside material."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "The formula's output is verifiably correct for the sample. Using the article's mechanism, what work remains before this answer is safe to rely on, and how would she do it?",
+      "response": "Correct output on the sample is a benchmark-style result: it shows performance on one chosen task, not understanding. The remaining work is the article's slower half: she should hide the formula and explain in her own words what each term does and what assumptions (compounding period, payment timing, rate convention) it encodes; then change one condition, say monthly to fortnightly payments, and rebuild the calculation herself before comparing against the AI version. If she cannot explain or adapt it, colleagues adapting the shared model inherit a correct-looking artifact nobody can vet, the workplace analogue of a proof whose decisive idea no one can identify or teach.",
+      "expectedEvidence": "A correct application maps P004's benchmark scope (sample match ≠ understanding), P006's transfer test (explain each step, notice a bad assumption, solve a changed version) and P007's two-pass procedure onto the new domain, and preserves the article's proportionate stance of using rather than rejecting the tool.",
+      "assessment": "The mechanism transfers cleanly with no strain: the article's answer-versus-understanding distinction and its two-pass check generate a specific, correct course of action in a domain the article never mentions, which is strong evidence the explanation taught a portable model rather than a memorized example."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "Who (25 Fields medalists), when (September 11), what they argue, and the causal concern (benchmarks pulling attention from explanation and teaching) are all clear.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A benchmark is a defined test used to compare performance on a chosen task. A correct proof may still require people to identify its useful idea, connect earlier work and explain it.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions. That is his assessment, not a settled measure of what AI understands.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Fields Medal glossed as 'a leading mathematics award' and benchmark defined at first meaningful use as 'a defined test used to compare performance on a chosen task.'",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A benchmark is a defined test used to compare performance on a chosen task. A correct proof may still require people to identify its useful idea, connect earlier work and explain it.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a specific recognizable situation: an AI solving a percentage problem for you and whether that became knowledge you can use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes leak into reader-facing prose; the class-notes library pointer is a reader feature, and the advice in P007 is a proportionate application, not invented expert instruction.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "Use the Library test below to ask which capability a benchmark measured and whether it matches the result you need. Background: <a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-5-evals-custom-tests-for-your-specific-needs\\\">AI Fundamentals 101 §12.5 — Evals: Custom Tests for Your Specific Needs</a>.",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>This is an attributed argument, not evidence that AI cannot produce correct mathematics or a rule for researchers or students.</p>",
+          "locator": "P003"
+        }
+      ]
+    }
+  }
+}

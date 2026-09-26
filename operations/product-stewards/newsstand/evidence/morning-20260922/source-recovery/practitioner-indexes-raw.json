@@ -1,0 +1,39 @@
+{
+  "schema": "newsstand-normal-web-capture.v1",
+  "recordedAt": "2026-09-22T14:11:22Z",
+  "transport": "normal web tool",
+  "captures": [
+    {
+      "practitioner": "Allie K. Miller",
+      "url": "https://www.aiwithallie.com/",
+      "ref": "turn1027view0",
+      "result": "Internal Error: URL is not accessible via this tool",
+      "fullContentRecovered": false,
+      "note": "One normal current-route attempt. Alternate /archive also returned Internal Error (turn1029view3). No retry or bypass. The already preserved Sept. 17 full newsletter remains the newest known recovered item, but it is not a Sept. 22 capture."
+    },
+    {
+      "practitioner": "Ethan Mollick",
+      "url": "https://www.oneusefulthing.org/archive",
+      "ref": "turn1028view3",
+      "contentType": "text/html",
+      "totalLines": 192,
+      "inspection": "index",
+      "exactReturnedEvidence": [
+        "L12-L14: The Overhang / Using your deep knowledge, wide knowledge, taste, and agency — Sep 18",
+        "L24: August 2026",
+        "L26-L30: Agency and Agents / From the Hugging Face Incident to Twilight Factories — Aug 31"
+      ],
+      "fullContentRecovered": false,
+      "limit": "Archive index inspected through its current head. The Sept. 18 article body was not reread in this bounded lane."
+    }
+  ],
+  "pilotCheck": {
+    "command": "node scripts/check-practitioner-signal-pilot.mjs --newsstand-only --as-of 2026-09-22",
+    "result": "NEWSSTAND SOURCE ROUTES PASS desks=6 sources=8 research_completion_certified=false"
+  },
+  "failedCommandPreserved": {
+    "command": "node operations/product-stewards/newsstand/scripts/check-practitioner-signal-pilot.mjs --newsstand-only --as-of 2026-09-22",
+    "result": "MODULE_NOT_FOUND",
+    "repair": "Ran repository-root scripts/check-practitioner-signal-pilot.mjs successfully."
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "newsstand-source-recovery-proposal-v1",
+  "leadId": "us-china-ai-incident-alert-20260920",
+  "event": "Reported proposed US-China AI incident-notification system",
+  "observedAt": "2026-09-25T20:04:23Z",
+  "scope": "Bounded recovery of official remarks or full attributed reporting; no coverage or candidate admission.",
+  "status": "SOURCE_HOLD_OFFICIAL_REMARKS_AND_FULL_AP_BODY_UNRECOVERED",
+  "sourceObservations": [
+    {
+      "sourceType": "original-attributed-report",
+      "publisher": "Associated Press",
+      "url": "https://apnews.com/article/bessent-ai-xi-trump-china-trade-2c7f54f07e755f506d9db9b91df282bd",
+      "checkedAt": "2026-09-25T20:04:23Z",
+      "disposition": "NORMAL_ACCESS_FAILED",
+      "evidence": "raw-web-tool-results.json#turn1204view0",
+      "missingInput": "The full AP article body, including its attribution and qualification."
+    },
+    {
+      "sourceType": "attributed-report-result",
+      "publisher": "Associated Press",
+      "url": "https://apnews.com/article/2c7f54f07e755f506d9db9b91df282bd",
+      "checkedAt": "2026-09-25T20:04:23Z",
+      "disposition": "PARTIAL_RESULT_ONLY",
+      "evidence": "raw-web-tool-results.json#turn1206news12",
+      "supportedClaim": "AP's returned result attributes to Bessent a U.S. proposal for a notification mechanism covering AI incidents that could affect national security.",
+      "limit": "A result excerpt is not a complete AP report."
+    },
+    {
+      "sourceType": "attributed-report-result",
+      "publisher": "Associated Press",
+      "url": "https://apnews.com/article/d08e003cf5b5f0a5630aa7e9dba0d2f3",
+      "checkedAt": "2026-09-25T20:04:23Z",
+      "disposition": "PARTIAL_RESULT_ONLY",
+      "evidence": "raw-web-tool-results.json#turn1206news13",
+      "supportedClaim": "AP's returned result attributes a proposal to Bessent and ties it to an AI incident reaching a national-security level.",
+      "limit": "No complete body, agreed definition, operating protocol, or official response was available."
+    },
+    {
+      "sourceType": "official-discovery",
+      "publishers": ["U.S. Treasury", "White House"],
+      "checkedAt": "2026-09-25T20:04:23Z",
+      "disposition": "NO_RELEVANT_PRIMARY_REMARKS_LOCATED",
+      "evidence": "raw-web-tool-results.json#turn1206search2-turn1206search21",
+      "missingInput": "An official Bessent transcript/readout, joint statement, or attributable Chinese government response."
+    }
+  ],
+  "claimBoundary": [
+    "The available evidence supports only that the United States reportedly proposed a mechanism.",
+    "It does not support an agreement, Chinese acceptance, a signed pact, an installed hotline, operational incident thresholds, deadlines, or public notification requirements."
+  ],
+  "candidateDisposition": "NO_NEW_CANDIDATE_CREATED",
+  "reason": "The canonical lead already exists and the unavailable full AP/official material prevents a source-bound proposal-status candidate.",
+  "nextRecoveryStep": "When a current official Treasury, White House, Chinese government, or AP body route becomes normally accessible, inspect it once for the exact proposal language and any response. Retain this failed exact AP attempt; do not bypass it or turn the result snippets into a complete report.",
+  "nextCheck": "2026-09-26T20:04:23Z"
+}

@@ -1,0 +1,85 @@
+{
+  "status": "CALIBRATION_PASSED",
+  "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+  "scope": "Blind editorial calibration only; no publication, source accuracy or human comprehension claim.",
+  "providerRoute": "claude",
+  "effort": "medium",
+  "protocolSha256": "7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "policy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "notRun": [],
+  "evaluations": [
+    {
+      "exemplarId": "CQX-BAD-002",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md",
+        "sha256": "1cc8aa5f9653105924f69f708601836454cce8b49cbc0655e7f621a7e5d159e7"
+      },
+      "sample": "sample-1cc8aa5f96",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "disagreementsWithHistoricalTags": [],
+      "passed": true,
+      "checkedBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-review-v1/sample-1cc8aa5f96-checked.json",
+        "sha256": "c35c8fa384a758f47bf75df1f482d8f690169da099ccd0e422081ec97712b8e7"
+      },
+      "rawBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-review-v1/sample-1cc8aa5f96-provider.raw.json",
+        "sha256": "897dd86b67fcacbb7f1d479951e1d088d9a12aa788c018f17ad0e5e98f6a02b9"
+      }
+    },
+    {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/news-002-approved-frozen.json",
+        "sha256": "102a4299dcb922f6fcdad44bdf30257f42ebfe6a381efe378bf99fc1fb3c7f83"
+      },
+      "sample": "sample-102a4299dc",
+      "expected": "PASS",
+      "actual": "PASS",
+      "disagreementsWithHistoricalTags": [],
+      "passed": true,
+      "checkedBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-review-v1/sample-102a4299dc-checked.json",
+        "sha256": "c0b1af37c1e0181ff0473875b206f85233b0422c252c3607f54323c4d3d352e7"
+      },
+      "rawBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-review-v1/sample-102a4299dc-provider.raw.json",
+        "sha256": "4610962eb896204cc38ab130e6b356497beb195de96d2a8c7b62042fe0ce4487"
+      }
+    },
+    {
+      "exemplarId": "CQX-BAD-001",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt",
+        "sha256": "c3af0bae62222b53499ee1645428c9171b3bb2104ac445ba8c2a3032847a32dc"
+      },
+      "sample": "sample-c3af0bae62",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "disagreementsWithHistoricalTags": [
+        "glossaryAccumulation",
+        "decorativeAnalogy",
+        "referenceConfetti",
+        "missingMechanism",
+        "genericAction",
+        "jargonBeforeMeaning",
+        "disconnectedSystem",
+        "joylessInstruction"
+      ],
+      "passed": true,
+      "checkedBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-review-v1/sample-c3af0bae62-checked.json",
+        "sha256": "ff18e1a38bac61c15ed1a50b5cfd240c688ed04abd0ef5d0319f9990f345cb19"
+      },
+      "rawBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-review-v1/sample-c3af0bae62-provider.raw.json",
+        "sha256": "205fc64841a450ea21e76f7d362dc9ba1510de7d5a8177be0d92815d971d3701"
+      }
+    }
+  ]
+}

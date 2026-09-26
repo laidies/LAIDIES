@@ -1,0 +1,156 @@
+RatHat: AI-Powered Mobile Threat is Here for Your Credentials & Bank Accounts (https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts)
+citeturn867view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"turn866view0","lineno":212}); Total lines: 324
+L165:   * Spyware Capabilities: Beyond orchestration, the APK has powerful direct-access capabilities:
+L166:     * Credential Theft: An advanced WebView overlay injection engine targets specific apps, primarily to steal banking credentials.
+L167:     * Screen and Input Capture: A combination of MediaProjection Screen streaming and a Lock-screen credential capture mechanism.
+L169:     * Device Admin & Anti-Uninstall: The app can request Device Admin rights, which grants it the capability to wipe the device if an uninstall attempt is made.
+L170:   * Generative AI UI-Automation Engine: This is a particularly unique feature. The malware serializes the device's live Accessibility tree to XML and communicates with one of the world’s most popular Generative AI assistants (Figure 4). This AI is used for non-malicious actions including:
+L171:     * Resolving a named target's centre coordinates on the screen as JSON to direct synthetic clicks.
+L172:     * Resolving a target's actual on-screen text from the XML (without translating).
+L173:     * Signaling automatic navigation commands like SCROLL_DOWN.
+L174: cite42†Image: image9-2 L175: Fig.4: AI Prompts used by RatHat indicating potential of China-based threat actors
+L176: ### The Local Privileged Executor: liblocal-service.so Go Agent
+L177: 
+L178: The malware includes a sophisticated agent written in Go, which is dropped and executed by the APK once a shell is acquired via the local ADB daemon. It is shipped disguised as a native library (liblocal-service.so) and staged to /data/local/tmp.
+L179: 
+L180: The agent is the command-and-control brain executing commands from an ADB shell context, bypassing security limitations that the user-facing app faces.
+L181: It is responsible for applying critical system-level persistence and power management exemptions. These are crucial for steady-state operation but are absent from the APK's DEX file, existing only within the Go binary. These commands are visible in the Go agent's strings:
+L182:   * dumpsys deviceidle whitelist +%s: Exempts the app from Doze mode (battery saving).
+L183:   * am set-standby-bucket %s active: Puts the app in the "active" standby bucket, prioritizing its background execution.
+L184:   * pm disable-user --user 0 %s: Allows the operator to disable arbitrary packages on the system.
+L185:   * pm uninstall -k --user 0 %s: Allows full uninstallation of security or other packages.
+L186: ### The Stealth Persistence Tunnel: libmedia_codec.so FRP Client
+L187: 
+L188: The third main part is the reverse-proxy client, frpc (derived from fatedier/frp). This is also a Go binary, shipped disguised as libmedia_codec.so. Once staged to /data/local/tmp/frpc, its only function is to establish a secure, persistent reverse tunnel back to the C2 server. It connects back to the attacker using configuration data (IP, Port, and Token) fetched from the C2 server by the Go Agent (main.fetchFrpcConfigFromServer).
+L189: This connection is used by attackers to have access to the ADB daemon: it's a general-purpose road into the device that carries whatever the operator wants, independent of the malware's own feature set.
+L190: ### Operational Flow
+L191: 
+L192: The infection and operational flow illustrates the precise sequence through which these components interact.
+L193: Initially, the Android application secures Accessibility service access and employs synthetic tap gestures to enable Developer Options and access the Wireless Debugging pairing interface. Subsequently, the application leverages its Accessibility service to extract the local pairing PIN and dynamic port from the user interface.
+L194: Utilizing the embedded libadb-android library, the application authenticates against the local device's ADB daemon, thereby securing shell-level access to the /data/local/tmp directory.
+L195: Via this established ADB connection, the application executes commands to stage and launch both the Go Agent and the FRP Client.
+L196: 
+L197: The application interacts with the active Go Agent over a local loopback HTTP interface. Operating within its elevated shell context, the Go Agent executes key system commands—including pm grant and deviceidle—to grant the application persistent operation and WRITE_SECURE_SETTINGS permissions.
+L198: Finally, the Go Agent retrieves the FRP tunnel configuration from the C2 server, enabling the FRP Client to establish a persistent, active reverse tunnel to the operator.
+L199: ## Persistence
+L200: 
+L201: The App intercepts the uninstall confirmation dialog and renders a fake failure overlay styled as Google Play, cancelling the uninstallation. But even if the user manages to uninstall it, there is another mechanism in place: the local-service is running outside the package lifecycle, so it is not removed when the app is uninstalled.
+L202: After the uninstallation, the attacker still has a shell on the device. The service checks if the app is still installed and if the presence is not confirmed, then the app is reinstalled.
+L203: 
+L204: The service launches the following commands that allow the reinstallation of the apk, granting every runtime permission automatically and re-granting the accessibility without interacting with the UI:
+L205: > pm install -r -g -i com.android.packageinstaller /data/local/tmp/app.apk
+L206: > settings put secure enabled_accessibility_services '%s'
+L207: > settings put secure accessibility_enabled 1
+L208: 
+L209: 
+L210: 
+L211: On the other side, until the app is present and running, it runs a heartbeat that redeploys and relaunches local-service if it stops responding, rescanning the ADB port ladder and re-enabling debugging settings if needed.
+L212: ## C&C Communication Channels
+L213: 
+L214: The malware establishes persistent, real-time command-and-control channels to execute remote commands and exfiltrate telemetry, though they rely on fundamentally different networking protocols.
+L215: 
+L216: The Android App registers over HTTP, then holds a WebSocket open with heartbeats. Requests are authenticated with HMAC-SHA256 over a device key derived from deviceKeySalt.
+L217: 
+L218: Using the embedded Go Agent (liblocal-service.so), the malware spins up an HTTP server bound to 127.0.0.1:7910.
+L219: Additionally, as said before, it deploys a masqueraded native library (libmedia_codec.so), which is actually a cite43†Fast Reverse Proxy Client (frpc)†github.com , to expose the internal loopback server and local device interfaces to the internet, bypassing NAT and firewall restrictions.
+L220: ### Communication Endpoints
+L221: Endpoint  | Caller  | Data Carried / Description
+L222: --- | --- | ---
+L223: /api/node/register  | App  | Device enrolment and fingerprint
+L224: /api/data/credentials  | App  | Overlay-harvested credentials
+L225: /api/sync/cipher  | App  | Lock-screen credential sync
+L226: /api/data/messages  | App  | SMS bodies
+L227: /api/data/app-list  | App  | Installed-application inventory
+L228: /api/fs/upload-from-device
+L229: /api/fs/download-for-device  | App  | File transfer in both directions
+L230: /api/adbk/upload  | App  | The device's ADB cert.pem and private.key (multipart, with deviceId = android_id)
+L231: /api/adbk/port  | App  | {"deviceId","ip":"127.0.0.1","port":N} the live wireless-debugging port
+L232: /api/data/cipher  | Both  | Lock-screen PIN, pattern, and password material. Managed by agent via main.syncCipherToServer so exfiltration survives app removal
+L233: /api/data/form  | Both  | Overlay form submissions
+L234: /api/node/logs  | Both  | Log upload, including anti-analysis findings
+L235: /api/v2/dev/inj/global-configs  | Both  | Overlay template distribution
+L236: /api/v2/dev/tasks?deviceId=%s
+L237: /api/v2/dev/task/response  | Agent  | Work queue and results, a command channel independent of the app's WebSocket
+L238: /api/v2/dev/cacheTasks?deviceId=%s
+L239: /api/v2/dev/cacheTaskResult  | Agent  | Offline queue (main.startupSyncServerCacheTasks) that drains buffered tasks, executing downtime commands on reconnect
+L240: /api/v2/dev/message  | Agent  | Free-form messaging (main.postMessageToServer), including initial start check-in
+L241: /api/v2/dev/localServiceHeartbeat  | Agent  | Agent liveness check, separate from the app's heartbeat
+L242: /api/v2/dev/data/screen-monitor  | Agent  | Shell-level screen monitoring, independent of MediaProjection and its consent dialog
+L243: /api/v2/dev/upload/video
+L244: /api/vid/upload?deviceId=%s  | Agent  | Chunked video upload pipeline (handleBeginVideoUpload → handleAppendVideoChunk → handleFinishVideoUpload)
+L245: /api/tun/config  | Agent  | FRP tunnel configuration, main.fetchFrpcConfigFromServer retrieves FrpsAddr, FrpsPort, and FrpsToken
+L246: /api/tun/deployed  | Agent  | Reports active tunnel status via main.notifyTunnelDeployed
+L247: /api/sapp  | Agent  | Evasion list via main.fetchSensitiveAppsFromServer, suspends Accessibility processing on sensitive packages without updating the build
+L248: /api/bapp  | Agent  | Block list (main.fetchBlackAppsFromServer)
+L249: /api/bin/%s/minicap.so?sdk=%s
+L250: /api/bin/%s/minicap?brand=%s
+L251: /api/bin/noarch/minicap.apk  | Agent  | Screen-capture tooling selected by device ABI, SDK level, and brand
+L252: /api/v2/dev/agentVersion?deviceId=%s&currentVersion=%s  | Agent  | Self-update check staged to /data/local/tmp/local-service.update
+L253: /api/v2/dev/install-log  | Agent  | Install telemetry
+L254: ## Espionage and Keylogging
+L255: 
+L256: Keylogging remains a staple technique across Remote Access Trojans (RATs). While malware authors employ various strategies to harvest keystrokes, exploiting Android's Accessibility service to track screen activity and exfiltrate data to command-and-control (C&C) servers is among the most prevalent.
+L257: 
+L258: To achieve this, RatHat implements the 3 specialized mechanisms described below.
+L259: ### Accessibility text-event keylogger
+L260: 
+L261: UniversalInputMonitor consumes accessibility text-change events and reconstructs what was typed, tracking beforeText, eventText, nodeText, hintText, fieldId and pkg per event. It classifies credential fields using the localised PASSWORD_KEYWORDS, PIN_KEYWORDS and ENTER_PASSWORD_KEYWORDS categories, and specifically handles masked_input, reconstructing content from a field showing only dots, with password_field, new_field and per-character char_ records.
+L262: ### Browser URL Harvesting
+L263: 
+L264: KeystrokeCapture reads address bars by resource ID: com.android.chrome:id/url_bar, com.brave.browser:id/url_bar, com.opera.browser:id/url_field, com.opera.mini.native:id/url_field, com.microsoft.emmx:id/url_bar, com.duckduckgo.mobile.android:id/omnibarTextInput, com.sec.android.app.sbrowser:id/location_bar_edit_text, plus AOSP and ColorOS browsers.
+L265: ### Raw /dev/input from Go Agent
+L266: 
+L267: This is the most capable of the three, and it's a genuine hardware-level keylogger. The class driving it is named AdbTouchCapture.
+L268: 
+L269: This logging is executed by the Go Agent and it is able to record where the finger touched the screen.
+L270: 
+L271: cite44†Image: image7-3 L272: Fig.5: Go Agent keylogging
+L273: The malware is leveraging the fact that it is executed in a shell environment and is using the tool getevent. The command getevent is a standard Android debugging tool that reads (Figure 5) the raw device file the kernel writes to. Its output looks like this:
+L274: 
+L275: [ 12345.678901] /dev/input/event2: EV_ABS ABS_MT_POSITION_X 0000021c
+L276: [ 12345.678901] /dev/input/event2: EV_ABS ABS_MT_POSITION_Y 00000658
+L277: [ 12345.678901] /dev/input/event2: EV_SYN SYN_REPORT 00000000
+L278: That's it: a X, a Y, and a timestamp. No text, no app name, no idea what was on screen. Just "someone touched pixel (540, 1624) at this moment."
+L279: 
+L280: Normal apps cannot read /dev/input/*; the permissions don't allow it. Shell UID 2000 can. That's a large part of why the malware goes through the whole Wireless Debugging self-pairing dance in the first place, this capability is one of the prizes.
+L281: A raw coordinate is useless on its own. What makes it a keylogger is the second half: the malware ships locateValues.json, which contains the keypad layouts for every major phone brand, where key "0" sits, where "5" sits, the geometry of the pattern-lock grid.
+L282: 
+L283: So touch at (540, 1624) + "this is a Samsung PIN pad" = "5"
+L284: The same trick is used for pattern unlock: the sequence of touch points is matched against the 3×3 dot grid to recover the pattern. That's what the Point and DotAlign helper classes in the cipher package do, and it's why the malware tags recovered credentials with a type called PASSWORD_QUALITY_TOUCH_POINTS: it knows this credential came from geometry rather than from text.
+L285: This approach seems to be quite complex and very powerful since it is able to bypass the protections that Android put in place for the other techniques:
+L286: 
+L287:   * FLAG_SECURE on a window: Blocks screenshots and accessibility reads. Doesn't touch the input driver.
+L288:   * Usage of a custom keyboard: The app never hands text to the system but the fingers still hit the screen.
+L289:   * Lock screen protection: Deliberately hides PIN digits from accessibility. Coordinates are unaffected.
+L290: ## Injection Overlay Technique
+L291: 
+L292: RatHat is able to steal the credentials of some banking/crypto applications: the malware monitors the foreground application and, upon detecting a targeted package, triggers the corresponding HTML injection mechanism.
+L293: 
+L294: The malicious HTML content is supplied by the attacker and is associated with the targeted application, allowing the malware to present a deceptive interface over the legitimate application to capture sensitive banking credentials as shown in Figure 6.
+L295: cite45†Image: Screenshot 2026-09-15 at 12.05.18 PM L296: Fig.6: Malware targeting banking apps
+L297: 
+L298: RatHat malware focuses also on payment applications like WeChat and Alipay, deploying deceptive screen overlays (Figure 7) that are directly embedded in its code to steal user PINs.
+L299: 
+L300: cite46†Image: Screenshot 2026-09-15 at 12.05.49 PM L301: Fig.7: RatHat targeting payment apps
+L302: ## Zimperium vs. RatHat
+L303: 
+L304: RatHat’s multi-tiered architecture, reliance on out-of-lifecycle daemons, and use of real-time GenAI decision loops illustrate why traditional, signature-based mobile security controls are insufficient. Both Zimperium’s cite8†Mobile Threat Defense (MTD) and cite7†Mobile Runtime Protection (zDefend) provide comprehensive zero-day coverage against RatHat across every stage of the attack chain.
+L305: ### Zimperium Mobile Threat Defense (MTD)
+L306: 
+L307: For enterprise mobile devices, Zimperium MTD detects and neutralizes RatHat through on-device, dynamic machine learning models:
+L308:   * Zero-Day Malware Detection: Powered by the on-device z9 engine, MTD flags the dropper and secondary payloads without relying on cloud-tethered lookups or static signatures, not being affected by the bundle manipulation tailored to prevent the analysis.
+L309:   * Privilege Escalation & ADB Abuse: MTD monitors runtime behavioral indicators, alerting on anomalous Accessibility Service exploitation, synthetic developer option activation, and local loopback pairing attempts targeting the device's internal ADB daemon.
+L310:   * Network & Phishing Protection: MTD’s on-device web protection blocks malicious domains used in the initial smishing and malvertising distribution stages, while isolating active C2 communications and FRP reverse-proxy tunnels. This would effectively prevent malicious actors from remotely controlling the device.
+L311: ### Zimperium Mobile Runtime Protection (zDefend)
+L312: 
+L313: For financial institutions, e-wallets, and payment providers targeted by RatHat’s credential-harvesting overlays and input scraping:
+L314:   * Overlay detection: zDefend detects fraudulent HTML injection screens and synthetic UI clicks, preventing malicious overlays from intercepting user credentials and PINs.
+L315:   * Untrusted Environment & Tooling Detection: zDefend identifies when a banking or payment application is executing in an environment compromised by active Accessibility scraping, screen capture utilities, or elevated debugging services, allowing the app to terminate sensitive sessions or trigger real-time mitigation before credentials can be exfiltrated.
+L316:   * Tamper & Hooking Mitigation: Detects unauthorized system manipulation and dynamic instrumentation, protecting application integrity even on compromised endpoints with shell-level access.
+L317: ## IOCs
+L318: 
+L319: RatHat IOCs can be found in cite47†this repository†github.com .
+L320: 
+L321: cite48†Threat Research cite49†zLabs cite50†Threat Intelligence L322: 
+L323: ### Latest News
+

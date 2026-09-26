@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "laidies-newsstand-combined-editorial-raw.v1",
+  "candidateId": "china-amodei-response-20260915",
+  "storySha256": "75e2cefed25ae3e5c2504ba5a86ea548947e227fdd5e045ac1e8436f18bd6aff",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "verdict": "PASS",
+  "findings": {
+    "reader": "A tight, well-bounded news report: it answers what China actually said on September 14 with accurate attributed quotes, distinguishes Amodei's proposal from the ministry's position, and teaches the concrete evidence test (requirement, scope, enforcement) that would establish an implemented rule. All failure families are clear; explain-back and a new transfer scenario both succeed on the article's mechanism alone.",
+    "facts": "All five claims verify against the supplied excerpts: the September 14 ministry Q&A supports the date, the cooperation language and the fear-mongering criticism verbatim; El País supports the Amodei chip-restriction attribution; and the transcript contains nothing resembling an agreement or implemented rule, validating the article's bounded-effect limit. Attribution and limitations are preserved throughout."
+  },
+  "readerProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/editorial-review-v1/article-editorial-provider.raw.json",
+    "sha256": "850176b30b3a69f29f5e0c25410f3d57e2ef64da36a2a7952fd0795b58c521b4"
+  },
+  "factualJudgment": {
+    "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/editorial-review-v1/article-editorial-judgment.json",
+    "sha256": "f4380e821c5d28f7eb593974c628e0a81af3eb5248571ea67bd11c446acd595d"
+  },
+  "factualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/editorial-review-v1/article-editorial-provider.raw.json",
+    "sha256": "850176b30b3a69f29f5e0c25410f3d57e2ef64da36a2a7952fd0795b58c521b4"
+  },
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  }
+}

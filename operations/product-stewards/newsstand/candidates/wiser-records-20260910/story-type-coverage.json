@@ -1,0 +1,84 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "health-science",
+  "overlays": [
+    "legal-policy",
+    "company-business"
+  ],
+  "universalAnswers": {
+    "whatHappened": "On September 8, EFF released CMS records from litigation over WISeR, a six-state Original Medicare pilot using AI-assisted vendor review for selected prior-authorization requests.",
+    "plainLanguageIdentity": "Prior authorization means a provider asks before treatment for assurance that Medicare will pay. WISeR vendors use AI and other technology in that payment review; CMS says a licensed clinician determines any recommendation not to pay.",
+    "evidenceBasis": "The exact CMS program page, selected primary record pages, EFF release article and independent KFF background were reopened on September 10.",
+    "evidenceLimits": "The bounded record review does not prove AI caused every delay, every non-affirmation was improper, all 443 pages support one conclusion or June conditions continued unchanged through September.",
+    "readerRelevance": "For a reader or family member using Original Medicare in one of six states, the extra payment review can affect whether a selected procedure is scheduled with advance payment assurance.",
+    "affectedPeople": "People using Original Medicare and their providers in Arizona, New Jersey, Ohio, Oklahoma, Texas and Washington; Medicare Advantage members are outside this model.",
+    "changesNow": "The new event is public access to primary operational records and a correction to a widely repeated claim, not a new Medicare rule or a verified September policy change.",
+    "uncertainty": "The records do not show which stage applied to the single oldest request, the final outcome of every non-affirmation, the contribution of AI to each case or current September vendor performance.",
+    "readerAction": "If a selected request is delayed, ask which stage it is in—vendor response, decision letter or correction—and what Medicare review, resubmission or appeal route is available.",
+    "betterQuestion": "What happened at each review stage, who made the non-payment recommendation, and what happened after resubmission or appeal?"
+  },
+  "typeAnswers": {
+    "health-science": {
+      "aiRole": "A participating company uses AI and other technology to assess whether documentation meets Medicare criteria for selected services; the sources do not disclose enough to attribute every case result to an AI output.",
+      "professionalRole": "CMS says appropriately licensed clinicians determine all recommendations for non-payment and validate determinations; treating clinicians still decide clinical care with their patients.",
+      "evidenceLevel": "Operational records and status tables from an active six-year CMS payment model, plus attributed patient, clinician, agency and vendor accounts—not a clinical trial or proof of patient benefit.",
+      "benefitClaim": "CMS says WISeR aims to reduce unsupported care, speed decisions and reduce administrative burden; this candidate reports those as program aims, not measured success.",
+      "risksAndFalseResults": "A mistaken or slow payment recommendation can delay scheduling, increase paperwork or shift costs; the reviewed records do not quantify AI error or prove that every delay caused patient harm.",
+      "availability": "The active model applies to selected Original Medicare services in Arizona, New Jersey, Ohio, Oklahoma, Texas and Washington through assigned vendors; it does not apply to Medicare Advantage.",
+      "readerBoundary": "The article explains a payment-review process and is not medical or insurance advice; an affected person should use her provider and official Medicare routes for her specific request."
+    },
+    "legal-policy": {
+      "legalStatus": "EFF released records obtained through ongoing public-records litigation; the records document an existing CMS pilot and do not themselves create a new law, rule or court finding about WISeR's performance.",
+      "jurisdiction": "WISeR covers selected services in Original Medicare in six named states and excludes Medicare Advantage, inpatient-only services, emergencies and services whose delay would pose substantial risk.",
+      "parties": "CMS runs the model; six technology companies participate by state; Medicare contractors, providers and licensed clinical reviewers handle parts of the process; EFF is the litigating advocacy source that released the documents.",
+      "allegationVsFinding": "EFF's conclusions are advocacy claims. The exact tables and letters are primary records; notably, page 322 does not support EFF's claim of more than 20,000 denials.",
+      "currentEffect": "The release gives the public direct evidence to examine but does not change current coverage or payment policy; CMS says the model remains active.",
+      "unresolvedQuestions": "The records reviewed do not establish current September performance, causal responsibility for each delay, final patient outcomes or the full effect of quality safeguards.",
+      "nextMilestone": "Recheck for further CMS records, official program changes, audits, corrective actions or updated public performance data before publication and on any material new development."
+    },
+    "company-business": {
+      "businessChange": "WISeR is the first CMS Innovation Center model in which technology companies are the only model participants, assigning one vendor to each participating state.",
+      "companyMotive": "CMS pays participants from spending it considers averted through reviews, while vendors also face quality scoring and audits; this creates both savings incentives and accountability requirements.",
+      "payer": "CMS funds participant payments using a methodology tied to averted Original Medicare expenditures and quality multipliers.",
+      "beneficiary": "The vendors can receive a share of qualifying averted spending; CMS says taxpayers and patients should benefit from reduced inappropriate care.",
+      "incentives": "Payment is tied to qualifying non-affirmed cases not later affirmed or successfully appealed, and adjusted to 100, 95 or 90 percent according to quality score. The records do not prove how that incentive affected any individual decision.",
+      "customerEffectNow": "Original Medicare providers in covered states can seek prior authorization or face post-service pre-payment review for selected services; delays can affect scheduling and payment assurance.",
+      "financialContext": "Page 99 supplies exact quality multipliers and a quarterly audit design; the candidate does not estimate vendor revenue or call every non-affirmation an earned payment."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "On September 8, the Electronic Frontier Foundation published internal Centers for Medicare & Medicaid Services records about WISeR, Medicare’s AI-assisted prior-authorization pilot.",
+    "actualMeaningExact": "They show one vendor expected to launch without full functionality and later reports tracked requests still waiting after days or weeks.",
+    "mechanismExact": "Prior authorization means a provider asks before treatment for assurance that Medicare will pay. In WISeR, a participating company uses AI and other technology to review whether documentation meets Medicare rules; CMS says a licensed clinician determines any recommendation not to pay.",
+    "familiarExampleExact": "The useful distinction is between a payment checkpoint and a treatment decision: a payment review can delay care, but it is not the same as an AI choosing a treatment.",
+    "jargon": [
+      {
+        "term": "prior authorization",
+        "plainMeaning": "a provider asks before treatment for assurance that Medicare will pay"
+      },
+      {
+        "term": "affirmation",
+        "plainMeaning": "an advance decision that the request meets Medicare's requirements"
+      },
+      {
+        "term": "non-affirmation",
+        "plainMeaning": "it was not approved at that point; it may later be corrected, resubmitted or appealed"
+      },
+      {
+        "term": "Original Medicare",
+        "plainMeaning": "the federal fee-for-service program, distinct from private Medicare Advantage plans"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "AI-assisted health-insurance prior authorization and human accountability",
+        "learningPayoff": "The article supplies the complete relevant explanation because no governed LAiDIES lesson directly covers this payment-review mechanism.",
+        "disposition": "gap",
+        "owner": "NewsStand and Learning ecosystem steward",
+        "trigger": "Add a direct link only after an admitted lesson covers automated benefit decisions, human review and challenge routes.",
+        "recordPath": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/learning-gap.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "proseReview": {
+    "reviewIssues": 0,
+    "reviewCycles": 1
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 3,
+    "reviewIssues": 3,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "stage": "producer",
+      "issues": 3,
+      "cycles": 2,
+      "note": "Headline, meaning and paragraph rendering repairs retained in predecessor."
+    },
+    {
+      "stage": "source-preflight",
+      "note": "Root rejected synthetic excerpts, wrong source schema and AP excerpt mismatch before provider invocation; repaired in preserved source predecessor."
+    },
+    {
+      "stage": "reporting-preflight",
+      "note": "Root actual run-pilot rejected missing valid story type and translation record before provider call; repaired b2cfa811."
+    },
+    {
+      "stage": "independent",
+      "review": "runtime-claude-fable-20260912-v1",
+      "verdict": "PASS",
+      "issues": 0,
+      "cycles": 1
+    }
+  ],
+  "evidencePacket": {
+    "rounds": 3,
+    "gaps": 2,
+    "repaired": 2,
+    "checkedClaims": 5,
+    "exactSourceExcerpts": 5
+  }
+}

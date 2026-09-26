@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "laidies.newsstand-review-metrics.v1",
+  "candidateId": "trump-ai-guardrails-response-20260914",
+  "proseReview": {
+    "reviewIssues": 0,
+    "reviewCycles": 2
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "stage": "producer",
+      "verdict": "PASS",
+      "note": "Producer exact-prose review after source, qualification, policy-versus-product and admitted-visual checks."
+    },
+    {
+      "stage": "independent-editorial-v4-final",
+      "verdict": "PASS",
+      "note": "Fresh complete review after required public-source ID and checked-date metadata was added to the complete candidate record."
+    }
+  ],
+  "evidencePacket": {
+    "rounds": 4,
+    "gaps": 3,
+    "checkedClaims": 3,
+    "suppliedSourcePassages": 5,
+    "note": "Two complete editorial reviews: v1 reader PASS/facts HOLD, then v4 PASS after exact record metadata binding. Two source-passage gaps and one public-source binding gap were repaired; all prior attempts are retained."
+  }
+}

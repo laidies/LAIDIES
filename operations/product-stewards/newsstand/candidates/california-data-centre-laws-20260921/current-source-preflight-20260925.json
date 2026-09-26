@@ -1,0 +1,42 @@
+{
+  "schema": "newsstand-current-source-preflight-receipt-v1",
+  "candidateId": "california-data-centre-laws-20260921",
+  "sourceReviewedAt": "2026-09-25T14:11:53.470Z",
+  "eventDatesPreserved": true,
+  "publicProseChanged": false,
+  "providerCalled": false,
+  "result": "PRE_REVIEW_PASS",
+  "currentEvidence": {
+    "path": "operations/product-stewards/newsstand/evidence/morning-20260925/candidate-refresh/web-source-capture.json",
+    "sha256": "610a096e89ef8e1064b9f555a59fea06d49f2a0558a0cf386322565292198439"
+  },
+  "bindings": {
+    "sourceEvidence": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/source-evidence.json",
+      "sha256": "3ce53144624233df5d138138fb1daf00d1e618999dd986ac673706c92f0c495a"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/article.md",
+      "sha256": "23940a3bde7fc92fce7c4921aba70658a067c3cd84d669e35812dff4bd626aa9"
+    },
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/story.json",
+      "sha256": "f1d88b942e99c684dc318bd7994692d1ae4c36860516a2d0fc2a6499e0ca0070"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/review-text.json",
+      "sha256": "b3cdfc4da29b309b8e63f422c874aa9a2a342c819a0e8fd6f3d12b7e62087a03"
+    },
+    "producerReview": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/producer-publication-review.json",
+      "sha256": "11eded5d050c82792abcce00ec7236ca07262712109f54c9ac798204c50dd198"
+    }
+  },
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-preflight-v4-current-sources-20260925/ --preflight-only",
+  "stdout": "{\"status\":\"PRE_REVIEW_PASS\",\"candidateDir\":\"operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/\",\"scope\":\"Validation-only pre-review gate; no provider request, editorial judgment, admission or publication.\"}",
+  "nextReviewCommand": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-review-v4-current-sources-20260925/",
+  "externalReview": {
+    "status": "PENDING_PROVIDER_AUTH",
+    "called": false
+  }
+}

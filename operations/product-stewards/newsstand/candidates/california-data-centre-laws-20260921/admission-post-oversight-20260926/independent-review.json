@@ -1,0 +1,1063 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "california-data-centre-laws-20260921",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/california_order_producer",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-26T15:29:22.065Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/review-text.json",
+      "sha256": "1378defb09ac4e93ef73214b050d38640a1dd6b9e45e357ee2e8bcc85908a625"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/publication-manifest.json",
+      "sha256": "b879397c3628ee0d3f2531f84aa4e07fdbc5d4b551074455a121c0a6588f6bb7"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/rendered-article.html",
+      "sha256": "484889ab35457ad91d4b854c86f2288b4a7eda593f1017c106b88e9ef6d78721"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Are these new California data-centre laws going to lower my electricity bill now?",
+    "promisedPayoff": "A clear separation between what was enacted on September 21 (assessment and reporting duties) and what would actually change a resident's bill (a later adopted rate).",
+    "centralMentalModel": "Enactment starts a process: SB 1168 orders the CPUC to assess rate-structure opportunities inside a proceeding; AB 1577 creates permit-stage estimates and post-energization state reporting published in aggregate; only a later commission decision changes bills.",
+    "dailyLifeConnection": "The household electricity bill and a proposed data-centre project in one's own locality, where local permit records now carry usage estimates.",
+    "surfaceJob": "A dated daily news brief answering what two of seven signed laws actually change for residents today, explicitly bounded to those two laws.",
+    "desiredReaderFeeling": "Informed and calm: the laws are real progress on process and visibility, without inflated expectation of an immediate saving."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Technical terms are defined inline: rate structures as 'rules used to divide charges among customer groups' (P003) and 'anonymized and aggregated' as 'combined so the public release does not expose one customer's protected data' (P006); sentences are short and direct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>SB 1168 tells the California Public Utilities Commission to assess opportunities for rate structures — the rules used to divide charges among customer groups. The assessment must consider data centres’ reasonable share of transmission and distribution costs, their proportionate share of load and procurement costs, and pressure on residential customers.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader learns the exact evidentiary trail for any future bill claim — a commission proceeding and an approved rate — plus where local project facts will live.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult and direct ('Your bill did not change today'); no condescension, hype or borrowed persona anywhere.",
+      "artifactEvidence": [
+        {
+          "excerpt": "California started data-centre rate and reporting work. Your bill did not change today.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“California started a process for possible data-centre rates and new reporting. The laws are real; an approved rate, household saving and facility-level public dossier are not here yet.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The bill-question hook is answered immediately and the mechanism sustains interest without gimmicks; humour is rightly absent given legal timing distinctions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "California started data-centre rate and reporting work. Your bill did not change today.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated news article stating what happened September 21, what it changes, and its explicit scope boundary to two of seven bills.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "California started data-centre rate and reporting work. Your bill did not change today.",
+          "locator": "P001"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Grounded in the household electricity bill and a locally proposed project whose permit records now carry estimates.",
+      "artifactEvidence": [
+        {
+          "excerpt": "California started data-centre rate and reporting work. Your bill did not change today.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>AB 1577 creates a different kind of visibility. Covered data centres — facilities with at least 10 megawatts of electrical capacity — must supply estimates when seeking a discretionary local approval. Once a facility is connected to power, owners report specified information to the state, with further reporting at least annually.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Answer-first, concrete causality (assessment vs adopted tariff), limits beside claims, and a better next question (watch the rate case) — with no imitation of any communicator's voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "California started data-centre rate and reporting work. Your bill did not change today.",
+          "locator": "P001"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The mechanism supports an accurate ordinary-language answer to why bills did not change despite a 'ratepayer protection' law being signed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>SB 1168 tells the California Public Utilities Commission to assess opportunities for rate structures — the rules used to divide charges among customer groups. The assessment must consider data centres’ reasonable share of transmission and distribution costs, their proportionate share of load and procurement costs, and pressure on residential customers.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>",
+          "locator": "P007"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "A neighbour says: 'California just signed a law to protect ratepayers from data centres, so why is my October bill identical?' What is the causal answer?",
+        "response": "Because SB 1168 only orders the Public Utilities Commission to assess opportunities for rate structures inside a new or existing proceeding. An assessment is a study step, not a tariff. Bills change only after the commission finishes a proceeding and approves an actual rate dividing costs among customer groups, and no such rate has been adopted. AB 1577 changes visibility, not prices: covered facilities file estimates at permitting and report to the state after energization, published only in anonymized aggregate.",
+        "expectedEvidence": "The answer should cite the operative verb 'assess opportunities', the proceeding-then-rate sequence, and the distinction between reporting duties and price changes, as in P003, P004 and P007.",
+        "assessment": "The article's mechanism fully supports this answer in ordinary language; the operative-verb framing in P004 does the decisive work. Pass."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The threshold, exclusion, permit-estimate and aggregate-publication rules transfer directly to a novel proposed-facility scenario not in the article.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>AB 1577 creates a different kind of visibility. Covered data centres — facilities with at least 10 megawatts of electrical capacity — must supply estimates when seeking a discretionary local approval. Once a facility is connected to power, owners report specified information to the state, with further reporting at least annually.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>",
+          "locator": "P007"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using only this article's mechanism, what can the resident expect to find, where, and what will not be publicly available?",
+        "response": "Because the facility exceeds 10 MW and is private, AB 1577 covers it. At the discretionary permit stage the owner must submit usage estimates to the county, so local permit records will hold planning facts. After energization the owner reports specified information to the Energy Commission, then at least annually. The public will see that data only in anonymized, aggregated annual publications — no facility-level dossier — and statewide load-trend analysis first appears in the 2029 integrated energy policy report. Any bill effect would still require a separate CPUC proceeding and approved rate.",
+        "expectedEvidence": "Correct application of the 10 MW threshold and exclusions (P005, P007), permit-stage vs post-energization reporting (P005), and aggregate-only publication with 2029 timing (P006).",
+        "assessment": "The article supplies every element needed to solve this novel scenario, including the negative result (no facility-level public data). The mechanism transfers cleanly. Pass."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Specific and proportionate: check local permit records for planning facts, and for bill claims look for the later commission proceeding and an approved rate.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The article uses no analogies; its only comparison-like move is the literal contrast between an assessment duty and an adopted tariff, which maps the mechanism exactly.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“California started a process for possible data-centre rates and new reporting. The laws are real; an approved rate, household saving and facility-level public dossier are not here yet.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim traces to chaptered statutory text or the official announcement with correct attribution; the one inferential claim (no immediate bill effect) is flagged as bounded and matches the operative language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>SB 1168 tells the California Public Utilities Commission to assess opportunities for rate structures — the rules used to divide charges among customer groups. The assessment must consider data centres’ reasonable share of transmission and distribution costs, their proportionate share of load and procurement costs, and pressure on residential customers.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Signing date (September 21), check date (September 26) and primary statutory sources make every time-sensitive claim traceable and re-checkable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article distinguishes the September 21 enactment from future events — proceedings, approved rates, energization reports and the 2029 report — so old and pending changes never blur.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (permit records, aggregate publications, a possible future rate) while uncertainty survives: no tariff selected, no saving calculated, no facility-level dossier promised.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "“California started a process for possible data-centre rates and new reporting. The laws are real; an approved rate, household saving and facility-level public dossier are not here yet.”",
+          "locator": "P008"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Definitions appear only in service of the causal path; nothing accumulates as a detached glossary.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Each section advances the explanation — event, SB 1168 mechanism, AB 1577 mechanism, limits and action — without repeated scaffolds.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogies are used at all; explanation stays literal throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references; only statutes, commissions and dates.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal steps from enactment through proceeding to a possible adopted rate, and from permit estimate to aggregate publication, are all present.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The action is concrete: look for the commission proceeding and an approved rate, and use local permit records for project facts.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Every technical term ('rate structures', 'anonymized and aggregated', the 10 MW coverage threshold) is explained at first meaningful use; the 2029 report is explained by its function.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "CPUC, Energy Commission, local agencies and facility owners are shown exchanging specific information at specific stages.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is carefully bounded: 'assess opportunities' is flagged as the important phrase and no outcome is promised.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Signing date, check date and statutory sources make every time-sensitive claim traceable.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Prose is concrete and plain; no motivational or vague corporate language.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Restrained but human: the reader's bill anxiety frames the piece, so it never becomes a terminology manual.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark or famous explainer is mentioned anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline question is answered in the first sentence and then fully explained.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The bill and local-project examples return to the technical mechanism of proceedings, thresholds and aggregate publication.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation of any communicator's wording, persona or mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle; understanding leads throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The hook is one sentence; the causal explanation occupies most of the piece.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The 'bill did not change' conclusion is immediately earned by the operative-verb analysis and process sequence.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending narrows rather than inflates: look for the proceeding and rate, not the signing headline.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The two-law scope is explicitly declared as a boundary, not silently substituted for the seven-bill story.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human reason (your electricity bill) is established in the headline before any statutory machinery.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No worked example dominates; this is a bounded news brief that stays on purpose.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "For a bounded news report, explaining the specific statutory mechanism is exactly the right organising perspective, and it stays anchored to reader consequences.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+        "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "two-of-seven",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Approved by Governor September 21, 2026. Filed with Secretary of State September 21, 2026.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          },
+          {
+            "excerpt": "Approved by Governor September 21, 2026. Filed with Secretary of State September 21, 2026.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "Governor Newsom today signed seven bills to strengthen California’s approach to data centers — requiring data centers to report about water and electricity use.",
+            "locator": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/"
+          }
+        ],
+        "scopeAndFreshness": "Both chaptering records show approval and filing on September 21, 2026, and the governor's announcement states seven data-centre bills were signed that day; the article's two-of-seven framing and scope boundary match exactly."
+      },
+      {
+        "claimId": "sb-assess-opportunities",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>SB 1168 tells the California Public Utilities Commission to assess opportunities for rate structures — the rules used to divide charges among customer groups. The assessment must consider data centres’ reasonable share of transmission and distribution costs, their proportionate share of load and procurement costs, and pressure on residential customers.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          },
+          {
+            "excerpt": "As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          },
+          {
+            "excerpt": "Ensure data centers pay their reasonable share of costs associated with transmission and distribution needs, regardless of whether the data centers interconnect at the transmission or distribution level.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          },
+          {
+            "excerpt": "Ensure data centers pay for their proportionate share of load increases and procurements needed to reliably serve their loads while maintaining consistency with the applicable integrated resource planning requirements.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          },
+          {
+            "excerpt": "Alleviate cost pressures on residential ratepayers, including, but not limited to, customers enrolled in the California Alternate Rates for Energy program described in Section 739.1 and the Family Electric Rate Assistance program described in Section 739.12.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          }
+        ],
+        "scopeAndFreshness": "The chaptered text's 'the commission shall assess opportunities for rate structures' plus the three enumerated duties (reasonable transmission/distribution share, proportionate load and procurement share, alleviating residential cost pressure) map one-to-one onto P003's summary."
+      },
+      {
+        "claimId": "no-immediate-bill-result",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          },
+          {
+            "excerpt": "As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          }
+        ],
+        "scopeAndFreshness": "The operative statutory language is an assessment duty inside a proceeding; nothing in the supplied text adopts a tariff or calculates a saving, so the article's negative claim is a sound bounded inference that it states as a limit rather than a finding."
+      },
+      {
+        "claimId": "ab-local-and-state-reporting",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>AB 1577 creates a different kind of visibility. Covered data centres — facilities with at least 10 megawatts of electrical capacity — must supply estimates when seeking a discretionary local approval. Once a facility is connected to power, owners report specified information to the state, with further reporting at least annually.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Upon applying for a discretionary permit, entitlement, or land use authorization required for the construction or operation of a data center, the owner or operator of the data center shall submit to the applicable local agency an estimate of all of the following information, to the extent applicable to the proposed facility:",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "The commission shall establish a process for the owner or operator of a data center to submit all of the following information to the commission upon energization of the data center and following any substantive change to information previously submitted pursuant to this paragraph:",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "The commission shall establish a process for the owner or operator of a data center to submit all of the following information to the commission at least annually following energization, disaggregated by month over the reporting period unless otherwise specified by the commission.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          }
+        ],
+        "scopeAndFreshness": "The chaptered text requires estimates upon applying for a discretionary permit, submission to the commission upon energization and after substantive changes, and at-least-annual reporting thereafter — each element matching P005's description."
+      },
+      {
+        "claimId": "ab-publication-timing",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The commission shall annually publish the information submitted pursuant to subdivision (b) in an anonymized and aggregated format on its internet website.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "Beginning with the 2029 integrated energy policy report required pursuant to subdivision (a) of Section 25302, and in subsequent biennial reports required pursuant to subdivision (a) of Section 25302 thereafter as determined by the commission, the commission shall include an assessment of electrical load trends for data centers.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          }
+        ],
+        "scopeAndFreshness": "The statute requires annual publication in anonymized and aggregated format and a data-centre load-trend assessment beginning with the 2029 integrated energy policy report, exactly as P006 states, with the aggregate-not-dossier limit retained."
+      },
+      {
+        "claimId": "ab-threshold-exclusions-privacy",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "<p>AB 1577 creates a different kind of visibility. Covered data centres — facilities with at least 10 megawatts of electrical capacity — must supply estimates when seeking a discretionary local approval. Once a facility is connected to power, owners report specified information to the state, with further reporting at least annually.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<p>The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "“Data center” does not include a facility with an electrical capacity of less than 10 megawatts.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "This section does not apply to a publicly funded research facility, public safety facility, publicly funded national security facility, publicly owned facility, or other utility facility, including, but not limited to, a facility operated for the purpose of providing telecommunications services to the public by a terrestrial facilities-based telecommunications, cable, or internet service provider.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "The State Energy Resources Conservation and Development Commission or a local agency shall not disclose information submitted pursuant to Section 65909.3 of this code or to subdivision (b) of Section 25302.10 of the Public Resources Code in a manner that would result in the disclosure of personally identifiable information or energy consumption data for a specific data center customer.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          }
+        ],
+        "scopeAndFreshness": "The definition excludes facilities under 10 MW, the exclusion clause names public research, public safety, national-security, publicly owned and utility facilities, and the privacy provision bars customer-specific disclosure — all reflected in P005–P007, with the caution that these limits attach to AB 1577 only."
+      }
+    ],
+    "reviewedThrough": "2026-09-26",
+    "nextTrigger": "CPUC proceeding or rate action, Energy Commission implementation guidance, correction, statutory amendment or publication after September 26.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 2,
+    "reviewIssues": 2,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First NewsStand candidate on enacted California SB 1168 and AB 1577 as a paired rate-assessment and reporting mechanism."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All outcomes and news checks pass and all failure families are clear; explain-back and transfer both resolve from the article's own mechanism, so no repair candidate or evidence gap exists on the reader side."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=2; evidence gaps repaired=1; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/admission-post-oversight-20260926/news-editorial-analysis.json",
+      "sha256": "990b1d0c8d13aa32a3e05af1c0e953fa768ca038d81215a7c792e517d53b81fe"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/admission-post-oversight-20260926/independent-raw-report.json",
+    "sha256": "84d76e68bd1ef981fb0b2277b220b92f863eaf094603af8ce85a95000b9b656b"
+  }
+}

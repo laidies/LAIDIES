@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "newsstand-source-budget-audit-v1",
+  "checkedAt": "2026-09-26T15:12:00Z",
+  "candidateId": "openai-agent-australia-medicare-20260924",
+  "budget": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/source-budget-final.json",
+    "sha256": "b79984561de8f7eb9aa35cd723e49d2346187dcbd2fa639b152a741481f546fd"
+  },
+  "story": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/story.json",
+    "sha256": "d98cfbad7b3bfd5146f9f2ff377acdbc9d0bb74bdd84f1e86f5b266e7bf9f1f3"
+  },
+  "recount": [
+    {
+      "allocationId": 1,
+      "field": "headline",
+      "sourceId": "australian-pm",
+      "declared": 11,
+      "actual": 11,
+      "match": true
+    },
+    {
+      "allocationId": 2,
+      "field": "the_story",
+      "sourceId": "australian-pm",
+      "declared": 18,
+      "actual": 18,
+      "match": true
+    },
+    {
+      "allocationId": 3,
+      "field": "the_story",
+      "sourceId": "australian-pm",
+      "declared": 23,
+      "actual": 23,
+      "match": true
+    },
+    {
+      "allocationId": 4,
+      "field": "the_story",
+      "sourceId": "australian-pm",
+      "declared": 11,
+      "actual": 11,
+      "match": true
+    },
+    {
+      "allocationId": 5,
+      "field": "the_story",
+      "sourceId": "australian-pm",
+      "declared": 21,
+      "actual": 21,
+      "match": true
+    },
+    {
+      "allocationId": 6,
+      "field": "laidies_read",
+      "sourceId": "australian-pm",
+      "declared": 12,
+      "actual": 12,
+      "match": true
+    },
+    {
+      "allocationId": 7,
+      "field": "laidies_read",
+      "sourceId": "australian-pm",
+      "declared": 17,
+      "actual": 17,
+      "match": true
+    },
+    {
+      "allocationId": 8,
+      "field": "what_this_means",
+      "sourceId": "australian-pm",
+      "declared": 20,
+      "actual": 20,
+      "match": true
+    },
+    {
+      "allocationId": 9,
+      "field": "what_this_means",
+      "sourceId": "australian-pm",
+      "declared": 23,
+      "actual": 23,
+      "match": true
+    },
+    {
+      "allocationId": 10,
+      "field": "cocktail_party",
+      "sourceId": "australian-pm",
+      "declared": 13,
+      "actual": 13,
+      "match": true
+    },
+    {
+      "allocationId": 11,
+      "field": "cocktail_party",
+      "sourceId": "australian-pm",
+      "declared": 14,
+      "actual": 14,
+      "match": true
+    },
+    {
+      "allocationId": 12,
+      "field": "laidies_read",
+      "sourceId": "bleepingcomputer",
+      "declared": 26,
+      "actual": 26,
+      "match": true
+    },
+    {
+      "allocationId": 13,
+      "field": "what_this_means",
+      "sourceId": "LAiDIES-authored",
+      "declared": 11,
+      "actual": 11,
+      "match": true
+    },
+    {
+      "allocationId": 14,
+      "field": "class_notes",
+      "sourceId": "LAiDIES-authored",
+      "declared": 30,
+      "actual": 30,
+      "match": true
+    }
+  ],
+  "totals": {
+    "australian-pm": 183,
+    "bleepingcomputer": 26
+  },
+  "limits": {
+    "australian-pm": 200,
+    "bleepingcomputer": 200
+  },
+  "withinLimits": true,
+  "rootFoundDefect": {
+    "reportedBy": "/root",
+    "finding": "No source-budget file was visible before visual binding, so the PM allowance had not been auditable across headline, repeated explanations and cocktail wording.",
+    "resolution": "Created exact contiguous all-field allocation and reduced PM-derived visitor wording under the 200-word limit without removing the government-confirmed sequence, notification timeline, privacy limit or investigation status."
+  }
+}

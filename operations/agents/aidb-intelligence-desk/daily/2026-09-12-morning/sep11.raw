@@ -1,0 +1,411 @@
+{
+  "id": "2026-09-11",
+  "date": "2026-09-11",
+  "weekday": "Friday",
+  "type": "daily",
+  "title": "What to Use the Latest AI Tools For",
+  "slug": "what-to-use-the-latest-ai-tools-for",
+  "canonicalUrl": "https://aidailybrief.ai/e/2026-09-11",
+  "dek": "Two episodes' worth of releases this week, and the second batch is less about individual features than about where everything is headed: voice as the new interface and complex model architectures that optimize for good-enough-and-cheap. NLW walks through eight or nine launches with a simple frame — who's it for, and what should you actually do with it.",
+  "durationMin": 32,
+  "sponsors": [
+    {
+      "name": "KPMG",
+      "url": "https://kpmg.com/us/aiamplifiers"
+    },
+    {
+      "name": "Blitzy",
+      "url": "https://blitzy.com"
+    },
+    {
+      "name": "Robots and Pencils",
+      "url": "https://robotsandpencils.com"
+    },
+    {
+      "name": "Hyperagent",
+      "url": "https://hyperagent.com/aidailybrief"
+    }
+  ],
+  "listen": {
+    "all": "https://pod.link/1680633614",
+    "spotify": "https://open.spotify.com/show/7gKwwMLFLc6RmjmRpbMtEO",
+    "apple": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+    "youtube": "https://www.youtube.com/@AIDailyBrief",
+    "adFree": "https://patreon.com/aidailybrief",
+    "youtubeEpisode": null,
+    "spotifyEpisode": "https://open.spotify.com/episode/1qSaMC0f5Z4Pctl66BwjGK"
+  },
+  "thesis": {
+    "tag": "The One Idea",
+    "headline": "Sometimes a launch matters for what you can do with it — sometimes for what it tells you you'll all be doing soon.",
+    "sub": "This week's second wave of releases points at two clear trends: we're going to manage more of our computer interactions by voice, and model stacks are increasingly optimized for cost and good-enough capability rather than pure frontier performance. NLW's practical read: start shifting your workflows to voice now, and pay attention to verticalized tools that understand how specific kinds of people actually work — because that's where the industry is pushing everyone anyway."
+  },
+  "numbers": [
+    {
+      "value": "300K",
+      "label": "Customer requests Moonshot relayed to Anthropic over 10 days, mostly to Opus",
+      "accent": "red"
+    },
+    {
+      "value": "$0.05/min",
+      "label": "OpenAI GPT Live 1 audio pricing in the API",
+      "accent": "green"
+    },
+    {
+      "value": "38GW",
+      "label": "Microsoft's global data-center capacity target by 2032, up from 12GW today",
+      "accent": "amber"
+    },
+    {
+      "value": "70%",
+      "label": "NVIDIA growth Jensen Huang says supply lets him confidently deliver",
+      "accent": "cyan"
+    },
+    {
+      "value": "$8.5M",
+      "label": "Cost of one NVLink-connected NVIDIA GPU system, per Huang",
+      "accent": "amber"
+    },
+    {
+      "value": "$48B",
+      "label": "Cognition's valuation after raising $2B while staying independent",
+      "accent": "green"
+    },
+    {
+      "value": "64%",
+      "label": "Cost reduction of Cognition's SWE-2 vs comparable frontier coding models",
+      "accent": "green"
+    },
+    {
+      "value": "6x",
+      "label": "More PRs merged by Cursor Projects testers",
+      "accent": "cyan"
+    }
+  ],
+  "nuggets": [
+    {
+      "id": "anthropic-distillation-attacks",
+      "segment": "headlines",
+      "type": "insight",
+      "category": "policy",
+      "functions": [
+        "engineering",
+        "legal"
+      ],
+      "ts": "01:20",
+      "headline": "Anthropic says it disrupted distillation attacks from Alibaba, DeepSeek, and Xiaomi",
+      "body": "A new Anthropic misuse report details networks of fraudulent accounts used to extract reasoning traces from Claude models for use as training data. The report deliberately focused on the most notable and novel threats rather than typical misuse.",
+      "sources": []
+    },
+    {
+      "id": "moonshot-relay",
+      "segment": "headlines",
+      "type": "insight",
+      "category": "models",
+      "functions": [
+        "engineering"
+      ],
+      "ts": "01:20",
+      "headline": "Moonshot allegedly relayed 300K user queries to Claude",
+      "body": "Anthropic claims DeepSeek and Kimi K3 Meeker (Moonshot) routed requests to Claude and served the responses to their own users — over a 10-day period Moonshot relayed almost 300,000 requests, mostly to Opus. Anthropic frames it not as spoofing capability but as gathering realistic queries for a distillation pipeline, which exposed sensitive Chinese government and corporate data on multiple occasions.",
+      "sources": []
+    },
+    {
+      "id": "chikungunya-block",
+      "segment": "headlines",
+      "type": "insight",
+      "category": "policy",
+      "functions": [
+        "legal"
+      ],
+      "ts": "02:00",
+      "headline": "Anthropic's classifier blocked gain-of-function grant work",
+      "body": "In May, a classifier blocked work on a grant application seeking to identify enhancing mutations of the chikungunya virus and select for virulence in live animals. Anthropic flagged it as potentially malicious because the research was intended for a military research institute, though it noted innocent vaccine-development applications.",
+      "sources": []
+    },
+    {
+      "id": "altman-open-to-slowdown",
+      "segment": "headlines",
+      "type": "insight",
+      "category": "policy",
+      "functions": [
+        "exec"
+      ],
+      "ts": "04:00",
+      "headline": "Altman tells staff he's open to an AI slowdown",
+      "body": "At an all-hands, Sam Altman said OpenAI could pace development of new models, likely in coordination with other labs, while worrying not all rivals would agree. It appears to be the first time Altman has signaled willingness to slow down, following chief scientist Jakub Pachocki's call for voluntary slowdowns and Paul Christiano joining OpenAI's board.",
+      "sources": []
+    },
+    {
+      "id": "altman-strongest-evidence",
+      "segment": "headlines",
+      "type": "quote",
+      "category": "policy",
+      "functions": [
+        "exec"
+      ],
+      "ts": "04:30",
+      "headline": "For me, this is the strongest evidence yet of the urgency.",
+      "body": "Altman said this after OpenAI reportedly found a solution to a Millennium Prize problem, adding he did not expect a result of that magnitude so soon and that the world has extremely capable models now.",
+      "attribution": "Sam Altman, OpenAI CEO",
+      "sources": []
+    },
+    {
+      "id": "openai-pauses-pro",
+      "segment": "headlines",
+      "type": "insight",
+      "category": "compute",
+      "functions": [
+        "product",
+        "finance"
+      ],
+      "ts": "05:15",
+      "headline": "OpenAI hits a compute wall and pauses $200 Pro subscriptions",
+      "body": "After GPT-6 Astra's release drove unprecedented demand, OpenAI paused new $200 Pro plan subscriptions — the smallest step to protect existing users' service. All other plans and the API remain available. As Matt Schumer put it, \"The era of subsidized tokens is ending. Prepare accordingly.\"",
+      "sources": []
+    },
+    {
+      "id": "microsoft-triples-capacity",
+      "segment": "headlines",
+      "type": "insight",
+      "category": "compute",
+      "functions": [
+        "exec",
+        "finance"
+      ],
+      "ts": "07:15",
+      "headline": "Microsoft plans to triple data-center capacity to 38GW by 2032",
+      "body": "After being the most conservative hyperscaler and canceling leases in early 2025, Microsoft now targets 38 gigawatts globally (up from 12), with AI's share growing to a third and CPUs added for agentic workflows. NLW's read: AI infrastructure is nowhere near overbuilt, with at least five more years of elevated CapEx expected.",
+      "sources": []
+    },
+    {
+      "id": "jensen-70-percent",
+      "segment": "headlines",
+      "type": "quote",
+      "category": "compute",
+      "functions": [
+        "finance"
+      ],
+      "ts": "08:20",
+      "headline": "Even though our demand is much greater than 70%, our supply allows us to confidently deliver 70%.",
+      "body": "Jensen Huang doubled down on growth forecasts at a Goldman conference, noting it's the first time in a year he's discussed forward estimates. He stressed one GPU system is now $8.5M — two million parts, NVLink-connected — and rack-scale orders are growing 27% month over month.",
+      "attribution": "Jensen Huang, NVIDIA CEO",
+      "sources": []
+    },
+    {
+      "id": "doj-groq-probe",
+      "segment": "headlines",
+      "type": "insight",
+      "category": "business",
+      "functions": [
+        "legal",
+        "exec"
+      ],
+      "ts": "09:30",
+      "headline": "DOJ investigates NVIDIA's $20B Groq deal",
+      "body": "The DOJ is probing whether NVIDIA's non-exclusive licensing deal with Groq — which also brought Groq's CEO and COO to NVIDIA — was structured to circumvent antitrust review. Senators had called the wave of acqui-hire-style deals (Google/Character, Google/Windsurf, Meta/Scale) \"de facto mergers\" designed to bypass scrutiny.",
+      "sources": []
+    },
+    {
+      "id": "meta-muse-launch",
+      "segment": "headlines",
+      "type": "insight",
+      "category": "business",
+      "functions": [
+        "product",
+        "finance"
+      ],
+      "ts": "10:00",
+      "headline": "Meta's Muse agent draws Wall Street's approval more than users'",
+      "body": "Muse hit 83,000 iOS downloads on launch day — modest for Meta (Threads did 4.3M) but enough for second place in the App Store. The bigger signal was on Wall Street: the stock jumped 6% and JP Morgan upgraded to buy, viewing Meta's ~4 billion users as a decisive distribution advantage.",
+      "sources": []
+    },
+    {
+      "id": "gpt-live-api",
+      "segment": "main",
+      "type": "insight",
+      "category": "models",
+      "functions": [
+        "engineering",
+        "product",
+        "customer-service"
+      ],
+      "ts": "14:20",
+      "headline": "OpenAI ships GPT Live 1 to the API",
+      "body": "The full-duplex voice model can talk and listen at once, handles noisy environments and interruptions, and hands off tasks to a backend reasoning model — demonstrated controlling a robot and display mid-conversation. Priced at five cents per minute for audio plus standard API pricing for the backend model.",
+      "sources": []
+    },
+    {
+      "id": "voice-is-the-shift",
+      "segment": "main",
+      "type": "take",
+      "category": "models",
+      "functions": [
+        "sales",
+        "marketing",
+        "customer-service"
+      ],
+      "ts": "16:20",
+      "headline": "Start shifting to voice now — the industry is pushing you there anyway",
+      "body": "NLW argues the move from typing to talking is a generational shift held back mostly by historically bad native voice recognition like Siri. Beyond obvious wins for contact centers and missed-call service businesses, he sees openings for B2B sales inbound (talk through needs before a demo), language learning, tutoring, and job-interaction simulation.",
+      "sources": []
+    },
+    {
+      "id": "devin-voice",
+      "segment": "main",
+      "type": "insight",
+      "category": "models",
+      "functions": [
+        "engineering"
+      ],
+      "ts": "17:20",
+      "headline": "Cognition ships Devin Voice: \"you say it, Devin ships it\"",
+      "body": "Built on GPT Live for the voice layer and Cognition's new SWE-2 model on the back end, Devin Voice makes interruptible, natural voice a first-class way to code. Cognition's Nader Dabit says 90% of his day-to-day work is now done by voice.",
+      "sources": []
+    },
+    {
+      "id": "whisper-flow-tip",
+      "segment": "main",
+      "type": "take",
+      "category": "models",
+      "functions": [
+        "ops",
+        "product"
+      ],
+      "ts": "18:35",
+      "headline": "NLW's practical voice tip: set up Whisper Flow and go for a walk",
+      "body": "Even outside Devin, NLW implores listeners to intentionally shift to voice — via ChatGPT's native voice feature or a tool like Whisper Flow on your computer. His claim: you'll gain speed and be able to do more of your work while doing other things, like walking.",
+      "sources": []
+    },
+    {
+      "id": "swe-2-good-enough",
+      "segment": "main",
+      "type": "insight",
+      "category": "models",
+      "functions": [
+        "engineering",
+        "finance"
+      ],
+      "ts": "19:30",
+      "headline": "Cognition's SWE-2 shows how far \"good enough\" has climbed",
+      "body": "A post-trained version of Kimi K3 optimized purely for coding, SWE-2 scored 50% on Frontier Code 1.1 — near-frontier — at a 64% cost reduction, and is even cheaper than SWE-1.7. Effort levels let users dial down cost further; it's for teams building a model stack that aligns capability with need to keep costs down.",
+      "sources": []
+    },
+    {
+      "id": "deepseek-flash",
+      "segment": "main",
+      "type": "insight",
+      "category": "models",
+      "functions": [
+        "engineering",
+        "finance"
+      ],
+      "ts": "21:00",
+      "headline": "DeepSeek's V4.1 Flash outperforms its own Pro model at a quarter the cost",
+      "body": "The 552-billion-parameter model is priced at the bottom of the market ($0.30/M input, $1.20/M output) and, per Artificial Analysis, beats DeepSeek's full-size Pro on the intelligence index at a quarter of the cost. NLW pegs it for teams with basic but highly recurring, compute-intensive tasks building a holistic architecture.",
+      "sources": []
+    },
+    {
+      "id": "openai-smb-plugins",
+      "segment": "main",
+      "type": "insight",
+      "category": "enterprise",
+      "functions": [
+        "ops",
+        "sales"
+      ],
+      "ts": "22:40",
+      "headline": "OpenAI bundles a Small Business Plugin Collection",
+      "body": "A pack of common tools — Dropbox, HubSpot, Canva, Figma, Shopify, DocuSign, PayPal, QuickBooks, Stripe, Gusto, Slack, and more — collected for SMBs in ChatGPT. As one commenter noted, v1 plugins died as API wrappers behind a chat box; in the agentic era the agent can run the whole workflow, though distribution remains unsolved.",
+      "sources": []
+    },
+    {
+      "id": "chatgpt-for-finance",
+      "segment": "main",
+      "type": "insight",
+      "category": "enterprise",
+      "functions": [
+        "finance"
+      ],
+      "ts": "24:00",
+      "headline": "ChatGPT for finance ships with premium data feeds built in",
+      "body": "Updated for GPT-6 and living inside ChatGPT Work, the product bundles data connectors and skills (DeLupa, LSEG News, Crunchbase) so analysts skip MCP setup, with enterprise security and governance. Built with Morgan Stanley and Evercore, it targets financial models, research, and client materials — VP Nick Turley says it's taught to \"research like an analyst and back up its conclusions like an analyst.\"",
+      "sources": []
+    },
+    {
+      "id": "power-tool-not-replacement",
+      "segment": "main",
+      "type": "take",
+      "category": "enterprise",
+      "functions": [
+        "finance",
+        "hr"
+      ],
+      "ts": "25:30",
+      "headline": "Finance AI is a power tool for junior bankers, not a replacement",
+      "body": "NLW argues senior bankers won't build their own models and decks just because agents got better — accountability and iteration still fall to juniors. The real signal: firms like UBS now require prospective junior bankers to demonstrate AI proficiency as a hiring requirement.",
+      "sources": []
+    },
+    {
+      "id": "chatgpt-data-agent",
+      "segment": "main",
+      "type": "insight",
+      "category": "enterprise",
+      "functions": [
+        "ops",
+        "product"
+      ],
+      "ts": "26:15",
+      "headline": "OpenAI's new data agent lets you talk to your proprietary data",
+      "body": "For ChatGPT Work, the agent connects to Redshift, Datadog, BigQuery, ClickHouse, Databricks, MongoDB, and Snowflake to ingest data and generate insights on metrics like conversions and retention — no extra tools needed. Tableau integration brings trusted business semantics into where employees already work.",
+      "sources": []
+    },
+    {
+      "id": "verticalization-trend",
+      "segment": "main",
+      "type": "take",
+      "category": "enterprise",
+      "functions": [
+        "product",
+        "exec",
+        "sales"
+      ],
+      "ts": "27:00",
+      "headline": "The real OpenAI trend: verticalization that understands how specific people work",
+      "body": "Taken together, OpenAI's updates hone in on specific business users, connecting the tools and context they need to make moving workflows into ChatGPT easier and more inviting. It's an industry-wide pattern — GrokBot also added native Salesforce, HubSpot, Gong, Clay, and Granola integrations for sales teams.",
+      "sources": []
+    },
+    {
+      "id": "cursor-projects",
+      "segment": "main",
+      "type": "insight",
+      "category": "models",
+      "functions": [
+        "engineering",
+        "ops"
+      ],
+      "ts": "28:00",
+      "headline": "Cursor Projects turns a folder into a persistent project architecture",
+      "body": "Beyond accumulating context, Projects houses scheduled tasks, long-running agents, and orchestration — a persistent coordinator thread that plans and delegates to sub-agents rather than ending each session. Testers merged 6x as many PRs, with merge rates up 30%; the persistent-thread pattern matters for non-developers too.",
+      "sources": []
+    },
+    {
+      "id": "monothreads-compaction",
+      "segment": "main",
+      "type": "take",
+      "category": "models",
+      "functions": [
+        "engineering"
+      ],
+      "ts": "29:30",
+      "headline": "The rise of the monothread: compaction has gotten good enough to just keep going",
+      "body": "NLW notes that context-window handoffs that plagued 2025 workflows have eased dramatically — Block's Kensar describes threads that build entire sync protocols and deploy across repos without breaking. NLW keeps everything for the AI Daily Brief website in one long-running thread that's never hit context issues.",
+      "sources": []
+    }
+  ],
+  "credits": {
+    "host": "Nathaniel Whittemore",
+    "show": "The AI Daily Brief",
+    "signoff": "Until next time, peace"
+  }
+}

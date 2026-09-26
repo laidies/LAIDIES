@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "newsstand-raw-web-receipt-v1",
+  "capturedAt": "2026-09-25T20:04:23Z",
+  "purpose": "Bounded recovery of primary or full attributed reporting for us-china-ai-incident-alert-20260920.",
+  "results": [
+    {
+      "toolReference": "turn1204view0",
+      "method": "normal web open",
+      "url": "https://apnews.com/article/bessent-ai-xi-trump-china-trade-2c7f54f07e755f506d9db9b91df282bd",
+      "outcome": "INACCESSIBLE",
+      "returnedSummary": "AP exact article was unavailable through the normal web tool with an Internal Error. No alternate transport was attempted."
+    },
+    {
+      "toolReference": "turn1206news12",
+      "method": "web news result",
+      "url": "https://apnews.com/article/2c7f54f07e755f506d9db9b91df282bd",
+      "outcome": "PARTIAL_ATTRIBUTED_AP_RESULT",
+      "returnedSummary": "The result identifies an AP report dated 2026-09-21 and attributes to Treasury Secretary Scott Bessent a U.S. proposal for a notification mechanism concerning AI incidents that could affect national security, after New York talks with Chinese Vice Premier He Lifeng. The full article body was not returned."
+    },
+    {
+      "toolReference": "turn1206news13",
+      "method": "web news result",
+      "url": "https://apnews.com/article/d08e003cf5b5f0a5630aa7e9dba0d2f3",
+      "outcome": "PARTIAL_ATTRIBUTED_AP_RESULT",
+      "returnedSummary": "A separate AP result says Bessent described a proposed notification mechanism for an AI incident reaching a national-security level. The full article body and any official transcript were not returned."
+    },
+    {
+      "toolReference": "turn1206search2, turn1206search6, turn1206search21",
+      "method": "bounded official-source discovery",
+      "targets": ["home.treasury.gov", "whitehouse.gov"],
+      "outcome": "NO_RELEVANT_PRIMARY_REMARKS_LOCATED",
+      "returnedSummary": "Returned official results concerned unrelated Iranian and older AI-policy material; they did not supply Bessent's relevant remarks, a joint readout, or Chinese acceptance."
+    }
+  ],
+  "preservationLimit": "This JSON records the actual tool-returned outcomes and concise result content. It is not a substitute for the unavailable AP article body or an official transcript."
+}

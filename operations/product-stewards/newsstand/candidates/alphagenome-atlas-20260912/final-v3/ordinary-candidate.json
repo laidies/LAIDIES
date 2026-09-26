@@ -1,0 +1,215 @@
+{
+  "schemaVersion": "newsstand-ordinary-story-candidate-v2",
+  "candidateStatus": "READY_FOR_ISSUE_ADMISSION",
+  "candidateId": "alphagenome-atlas-20260912",
+  "editionDate": "2026-09-12",
+  "story": {
+    "id": "alphagenome-atlas-20260912",
+    "slug": "alphagenome-atlas-20260912",
+    "edition": "daily",
+    "status": "hold",
+    "publishedAt": null,
+    "updatedAt": "2026-09-12T18:37:54.000Z",
+    "lastCheckedAt": "2026-09-12T18:37:54.000Z",
+    "sourceApproval": {
+      "record": "newsstand:source-approval:alphagenome-atlas-20260912",
+      "status": "independent-review-required"
+    },
+    "correction": null,
+    "correctionHistory": [],
+    "retraction": null,
+    "predecessorStoryIds": [],
+    "successorStoryIds": [],
+    "relationshipType": null,
+    "bigPicture": null,
+    "thread": null,
+    "thread_subtitle": null,
+    "thread_entry": null,
+    "headline": "AlphaGenome Atlas lets researchers look up predicted effects of DNA changes.",
+    "heroVisual": {
+      "src": "/assets/newsstand/design-20260830/latest-checking.png",
+      "alt": "Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.",
+      "credit": "Existing LAiDIES NewsStand evidence-checking illustration"
+    },
+    "the_story": "<p>On September 8, Google DeepMind introduced AlphaGenome Atlas: a research resource where scientists can look up predicted molecular effects of every possible one-letter DNA change in the human genome, instead of calculating each prediction afresh. The Atlas includes about nine billion such changes.</p><p>That can speed the first sorting step. A DNA variant is a difference in a DNA sequence. If a study has many variants to investigate, the Atlas can point researchers toward changes that may affect biology, so they can decide what to examine more closely.</p>",
+    "laidies_read": "<p>One research example shows the sequence. In a rare epilepsy case, the report ranked an overlooked DNA change at the top and predicted that it could change how cells assemble a gene message. Researchers then tested a nearby stretch of DNA in laboratory-grown cells. Some changes produced the longer message the prediction had highlighted.</p><p>That is a research lead followed by a laboratory check—not a personal diagnosis. The report says Atlas and its ranking score predict molecular effects and are only part of the evidence needed for clinical diagnoses. It also calls for evaluation across diverse genetic ancestries.</p>",
+    "what_this_means": "<p>The news is faster access to a research starting point. It does not replace testing a candidate in the relevant biological setting. When you read a gene-prediction headline, ask: what did it predict, what experiment followed, and what would still need to happen before it could inform someone’s care?</p>",
+    "cocktail_party": "“Atlas can turn a giant DNA list into a research shortlist. The score says what might be worth testing; the experiment still has to do the proving.”",
+    "watch_fors": null,
+    "closing_note": null,
+    "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%40ch-12-12-1-the-problem-how-do-you-measure-good\">AI Fundamentals 101: Testing and Evaluation</a> explains why a result on one evaluation does not prove reliability for every real task. That is the useful lens for a research score and a later biological check.",
+    "sources": [
+      {
+        "id": "deepmind-atlas-blog-20260908",
+        "label": "Google DeepMind — AlphaGenome Atlas",
+        "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+        "publisherType": "primary-research-announcement",
+        "accessedAt": "2026-09-12",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "alphagenome-atlas-primary-20260908",
+        "label": "Google DeepMind — AlphaGenome Atlas technical report",
+        "url": "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/alphagenome-atlas.pdf",
+        "publisherType": "primary-research-report",
+        "accessedAt": "2026-09-12",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "nature-alphagenome-atlas-20260909",
+        "label": "Nature News — DeepMind genome atlas coverage",
+        "url": "https://www.nature.com/articles/d41586-026-02835-4",
+        "publisherType": "independent-news",
+        "accessedAt": "2026-09-12",
+        "approvalStatus": "reviewed"
+      }
+    ],
+    "aidb_credit": null,
+    "themes": [
+      "AI research",
+      "genomics",
+      "evaluation"
+    ],
+    "concepts": [
+      "DNA variant",
+      "precomputed prediction",
+      "variant prioritization",
+      "biological validation"
+    ],
+    "tags": [
+      "Google DeepMind",
+      "AlphaGenome",
+      "genomics"
+    ],
+    "saint_lane": null,
+    "badge": "THE LATEST"
+  },
+  "storyTypeCoverage": {
+    "schema": "laidies.newsstand-story-type-coverage.v1",
+    "primaryType": "health-science",
+    "overlays": [
+      "research-benchmark"
+    ],
+    "universalAnswers": {
+      "whatHappened": "On September 8 Google DeepMind introduced AlphaGenome Atlas, a lookup resource for predicted molecular effects of every possible single-letter DNA change.",
+      "plainLanguageIdentity": "A DNA variant is a difference in a DNA sequence; Atlas estimates possible biological effects and helps researchers sort variants for follow-up.",
+      "evidenceBasis": "Google DeepMind’s announcement, the technical report’s ranked-case and laboratory passages, and Nature’s September 9 independent reporting support the resource, scale and bounded research sequence.",
+      "evidenceLimits": "The report describes a research ranking and laboratory work, not proof of diagnosis, treatment improvement, patient benefit or independent replication.",
+      "readerRelevance": "Readers can distinguish a rapid research shortlist from a personal health answer when they encounter AI-and-genetics headlines.",
+      "affectedPeople": "The research concerns scientists studying genetic variation and readers of health headlines; it establishes no personal clinical recommendation.",
+      "changesNow": "Researchers can look up precomputed predictions for around nine billion single-letter variants, rather than calculate each prediction afresh.",
+      "uncertainty": "Cell-type relevance, ancestry representation and experimental validation remain important limits; no general clinical result is established.",
+      "readerAction": "Ask what a gene predictor estimated, which biological setting it covered, and what real-world test followed.",
+      "betterQuestion": "Did the research prioritize a variant for study, or show that using it changes diagnosis or treatment outcomes?"
+    },
+    "typeAnswers": {
+      "health-science": {
+        "aiRole": "AlphaGenome estimates regulatory effects from DNA sequence and AVI ranks variants using 18 input features; neither makes a personal medical decision.",
+        "professionalRole": "Researchers still choose follow-up questions and conduct biological validation; the report describes laboratory tests of a nearby stretch of DNA after a ranked research case.",
+        "evidenceLevel": "An 83-page technical research report with benchmarks, one rare-disease case and one laboratory experiment, not an approval or routine clinical service.",
+        "benefitClaim": "The report measures prioritization and interpretation of variants; it does not measure improved diagnosis, treatment, or patient outcomes.",
+        "risksAndFalseResults": "A prediction may be wrong or irrelevant in a particular cell type or person, so treating it as a diagnosis could create false certainty; this is a boundary rather than a measured patient harm.",
+        "availability": "Scores and an interface are made available for research exploration; no patient-ready diagnostic or access pathway is verified.",
+        "readerBoundary": "This research explanation is not medical advice and is not a reason to interpret a personal genetic result or change care."
+      },
+      "research-benchmark": {
+        "researchQuestion": "Can precomputed AlphaGenome predictions help prioritize and interpret non-coding DNA variants across the human genome?",
+        "method": "The team computed predictions for about nine billion possible single-letter variants and evaluated research examples; the article does not turn a laboratory count into a success rate.",
+        "result": "The report presents a ranked research case and laboratory evidence for some nearby changes; this is not automatic diagnosis or improved treatment.",
+        "sponsorAndInterests": "Google DeepMind researchers and academic collaborators authored the report; the primary report is the basis for research claims.",
+        "independentReplication": "No independent replication has been verified for this candidate; Nature coverage is independent reporting, not a replication study.",
+        "realWorldTransfer": "Precomputed scores can speed a research search, but a useful variant still needs validation in the relevant biological setting before any clinical conclusion.",
+        "limitations": "The reported case and laboratory example are bounded. The article makes no fraction-of-variants validation claim; cell-type, ancestry and experimental-validation limits remain."
+      }
+    },
+    "translation": {
+      "schema": "laidies.newsstand-reader-translation.v1",
+      "newsVersionExact": "On September 8, Google DeepMind introduced AlphaGenome Atlas: a research resource where scientists can look up predicted molecular effects of every possible one-letter DNA change in the human genome, instead of calculating each prediction afresh.",
+      "actualMeaningExact": "The news is faster access to a research starting point.",
+      "mechanismExact": "If a study has many variants to investigate, the Atlas can point researchers toward changes that may affect biology, so they can decide what to examine more closely.",
+      "familiarExampleExact": "Atlas can turn a giant DNA list into a research shortlist. The score says what might be worth testing; the experiment still has to do the proving.",
+      "jargon": [
+        {
+          "term": "DNA variant",
+          "plainMeaning": "A DNA variant is a difference in a DNA sequence."
+        }
+      ],
+      "learningConnections": [
+        {
+          "concept": "A result on one evaluation does not prove reliability for every real task.",
+          "learningPayoff": "AI Fundamentals 101 chapter 12 distinguishes a research score from proof it works in every biological or clinical setting.",
+          "disposition": "link",
+          "destination": "/library.html#ai-fundamentals-101::%40ch-12-12-1-the-problem-how-do-you-measure-good"
+        }
+      ]
+    }
+  },
+  "storySha256": "1e13d3e8d21dcd1df09d81e488c7ada4c7398fa71b1c28b78a175e3b6017eb01",
+  "publicationBase": {
+    "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/publication-base-cursor.js",
+    "sha256": "15b95c8c9962b60970257b02af5ae151db9cb91f637219570dd7a9712b1b27c9"
+  },
+  "sourceText": {
+    "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/review-text.json",
+    "sha256": "91a689314eed0ee5be56bdc81f01336f8c53242b7bcad7bccb4f27bf3e6b747f"
+  },
+  "claimMap": {
+    "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/final-v3/publication-claim-map.json",
+    "sha256": "8a6dda070afc639b6aa9e9edc16b26f001094cf3a165584305c6a5487daff543"
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/producer-contract.json",
+    "sha256": "62f25fc4e9930e8a1db1762c8695a56b0a83481f55041f97f57be1db3d9b9ae0"
+  },
+  "draftPreparation": {
+    "writerInput": {
+      "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/writer-input-current.json",
+      "sha256": "11b5104a1a0345cfd71ba89cc803ae88e65960e8db1bb00f5835ce9b1de69333"
+    },
+    "observations": {
+      "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/producer-observations.json",
+      "sha256": "8dd4fcd0cd533d2a709f2a8ae60b836e24fbb68bdbe98f5e2f7494afa81af53d"
+    }
+  },
+  "sources": [
+    {
+      "id": "deepmind-atlas-blog-20260908",
+      "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/editorial-input.json",
+        "sha256": "00541f03eee2e6d93a679128e6fa69d6963b892694f0e123afdee55609bf9286"
+      }
+    },
+    {
+      "id": "alphagenome-atlas-primary-20260908",
+      "url": "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/alphagenome-atlas.pdf",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/editorial-input.json",
+        "sha256": "00541f03eee2e6d93a679128e6fa69d6963b892694f0e123afdee55609bf9286"
+      }
+    },
+    {
+      "id": "nature-alphagenome-atlas-20260909",
+      "url": "https://www.nature.com/articles/d41586-026-02835-4",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/editorial-input.json",
+        "sha256": "00541f03eee2e6d93a679128e6fa69d6963b892694f0e123afdee55609bf9286"
+      }
+    }
+  ],
+  "reviewEvidence": {
+    "producer": {
+      "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/producer-publication-review.json",
+      "sha256": "3417a1687ceda3acb1673bcce08b3204bc6cb6ed84f2507161b64cb0535adcd1"
+    },
+    "independent": {
+      "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/final-v3/independent-review.json",
+      "sha256": "a41772c7f17d7e93f5f3462c0c86709a80b49563642ddcb664de9f410c3089d3"
+    },
+    "independentRawReport": {
+      "path": "operations/product-stewards/newsstand/candidates/alphagenome-atlas-20260912/final-v3/independent-raw-report.json",
+      "sha256": "46a331cef90fcdd3c0341d09713cb408a931c03e88ec2c4f2acd5d40d54bd484"
+    }
+  },
+  "lineage": null
+}

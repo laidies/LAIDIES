@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "laidies.newsstand-source-evidence.v1",
+  "candidateId": "gpt-live-downstream-20260911",
+  "reviewedThrough": "2026-09-11",
+  "records": [
+    {
+      "id": "openai-gpt-live-release",
+      "url": "https://openai.com/index/introducing-gpt-live-1-in-the-api/",
+      "authority": "OpenAI primary release for the September 10 API launch, product positioning, telephony examples, developer availability and voice-layer price.",
+      "passages": [
+        "September 10, 2026: OpenAI says it is launching GPT-Live-1 in the API for developers building voice-enabled apps and business workflows.",
+        "OpenAI describes GPT-Live-1 as capable of listening and speaking at the same time, with deeper reasoning and actions delegated to models and tools paired with it.",
+        "Traditional voice agents stitch together speech-to-text, a reasoning model, and text-to-speech. Each handoff adds latency and creates more opportunities to lose timing, context, or the natural rhythm of a conversation.",
+        "OpenAI lists telephony support for phone calls from restaurant reservations to customer support.",
+        "OpenAI says GPT-Live-1 is available in the API at $0.05 per minute for the front-end voice layer; the backend model and agent harness remain separate parts of the product.",
+        "OpenAI presents smoother interruption handling, background-noise handling and longer-session reliability as product strengths and reports its own evaluations and customer statements."
+      ],
+      "limitation": "This is vendor primary evidence. It establishes the release, architecture, availability, price boundary and OpenAI's claims; it does not independently prove downstream transaction success or universal rollout. Direct curl returned 403, while the complete page was reopened through the browsing layer on September 11."
+    },
+    {
+      "id": "openai-gpt-live-docs",
+      "url": "https://developers.openai.com/api/docs/guides/live",
+      "authority": "Current official developer documentation for the division between the live voice conversation and the backend task system.",
+      "passages": [
+        "GPT-Live handles a spoken conversation while a backend agent looks up information, uses tools, and completes tasks. It can listen while speaking, a capability called full duplex.",
+        "GPT-Live handles conversation; the backend handles delegated tasks, including reasoning, tools and business rules.",
+        "The application owns permissions, confirmations, private function execution and durable task state. Interrupting speech does not automatically cancel backend work.",
+        "GPT-Live voice sessions are billed by duration, while backend model and tool usage is billed separately."
+      ],
+      "limitation": "This is technical documentation, not evidence that a restaurant reservation or service appointment was completed correctly. Exact Markdown was captured on September 11."
+    },
+    {
+      "id": "yelp-hatch-businesswire",
+      "url": "https://www.businesswire.com/news/home/20260909348516/en/",
+      "authority": "Yelp-authored September 10 company release for integration into Yelp Host and Hatch and the company's initial production observations.",
+      "passages": [
+        "Yelp announced that it integrated GPT-Live-1 into Yelp Host, its voice AI solution for restaurants, and Hatch, its communications platform for service businesses.",
+        "Yelp describes GPT-Live-1 as the front-end voice layer that interacts directly with callers while Yelp Host and Hatch supply business data and operational intelligence.",
+        "The company says callers can interrupt, change topics mid-sentence or speak to people in the background while the voice system adapts.",
+        "Yelp says initial production testing showed improved call handling and fewer call transfers, but the release provides no sample size, method, geographic rollout or independent evaluation.",
+        "Yelp says this is reflected in more Yelp Host callers speaking in full, natural sentences during early testing, rather than short voice commands.",
+        "The release says Yelp Host has handled more than one million calls since launching in October 2025. That is product history spanning the period before this September 2026 integration announcement, not a GPT-Live-1 performance count."
+      ],
+      "limitation": "This is an adopting company's press release, distributed by Business Wire and captured from a full publisher-linked mirror after the direct URL returned 403. Product benefits and test results remain company claims, not independent outcomes."
+    }
+  ]
+}

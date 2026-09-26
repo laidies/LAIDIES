@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "laidies.newsstand-review-metrics.v1",
+  "candidateId": "nvidia-groq-inquiry-20260912",
+  "proseReview": {
+    "reviewIssues": 2,
+    "reviewCycles": 3
+  },
+  "evidencePacket": {
+    "rounds": 2,
+    "gaps": 1,
+    "repaired": 1,
+    "checkedClaims": 4,
+    "exactSourceExcerpts": 2
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 2,
+    "reviewCycles": 3,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "stage": "source-packet",
+      "note": "Root replaced paraphrases mislabeled as exact excerpts and passed actual resolver before first provider."
+    },
+    {
+      "stage": "independent-v1",
+      "verdict": "ROOT_RECONCILIATION_HOLD",
+      "issues": 1,
+      "note": "Unsupported rivalry and ownership implications in reviewer transfer; prose clarified nonexclusive use."
+    },
+    {
+      "stage": "independent-v2",
+      "verdict": "ROOT_RECONCILIATION_HOLD",
+      "issues": 1,
+      "note": "Reviewer transfer inferred legal classification and merger-review status without sufficient facts. Article itself retained limits."
+    },
+    {
+      "stage": "independent-v3",
+      "verdict": "PASS",
+      "issues": 0,
+      "note": "Reviewer instruction repaired; exact article unchanged. Root read complete response; faithful explain-back and transfer preserve unknowns."
+    },
+    {
+      "stage": "writer-binding-repair",
+      "note": "Converted object map to array expected by ordinary candidate validator; same source bytes and unchanged prose."
+    }
+  ],
+  "predecessorMetrics": {
+    "schemaVersion": "laidies.newsstand-production-review-metrics.v1",
+    "candidateId": "nvidia-groq-inquiry-20260912",
+    "updatedAt": "2026-09-12T19:00:09.000Z",
+    "producer": {
+      "reviewCycles": 2,
+      "issues": 0,
+      "repeatedKnownDefects": 0,
+      "objectiveDefectsFirstFoundAtReview": 0,
+      "status": "SUCCESSOR_PRODUCER_READY"
+    },
+    "independent": {
+      "reviewCycles": 1,
+      "issues": 1,
+      "status": "V1_ROOT_RECONCILIATION_HOLD",
+      "runs": [
+        {
+          "version": "v1",
+          "providerVerdict": "PASS",
+          "rootVerdict": "ROOT_RECONCILIATION_HOLD",
+          "issue": "Unfaithful explain-back and transfer invented a rival relationship and implied loss of technology.",
+          "raw": {
+            "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/independent-review/runtime-claude-fable-20260912-v1/article-editorial-provider.raw.json",
+            "sha256": "8e4ed746ece18381f2b1b1319d6c5cdab0f468b088de19a79e04e031d7cb0376"
+          },
+          "rootReconciliation": {
+            "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/independent-review/runtime-claude-fable-20260912-v1/root-reconciliation.json",
+            "sha256": "deed2ad7a501d0e2317d97d1db129d4e42f0284a74c0c7017b0e26df32552142"
+          }
+        }
+      ]
+    },
+    "preProviderRepairs": [
+      {
+        "kind": "source-packet-mapping",
+        "status": "RESOLVED",
+        "providerCall": false,
+        "check": "Actual editorial packet resolution passes and metadata-only source input is rejected."
+      }
+    ],
+    "historyPreserved": true,
+    "note": "V1 evidence remains immutable. The successor has producer review only; v2 independent review has not run."
+  }
+}

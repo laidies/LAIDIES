@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "newsstand-pre-review-inspection-v1",
+  "candidateId": "claude-opus-5-5-20260924",
+  "checkedAt": "2026-09-24T23:11:17.685Z",
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/preflight-v4/ --preflight-only",
+  "exitCode": 1,
+  "status": "HOLD_MISSING_STORY_SPECIFIC_IMAGE_ONLY",
+  "actualOutput": {
+    "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/preflight-v4-output.txt",
+    "sha256": "6bc943f9edbcae9c3daa716fcb0141631085591afcbdbd2b2babbe0fb1eccd63"
+  },
+  "producerPackage": {
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/article.md",
+      "sha256": "c81bf577aef9b5087b9192f8a7053e3377b71d9876c130e64298bd29144abab6"
+    },
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/story.json",
+      "sha256": "39fc575e7c39ca66d9eacc733b72ed01af337b0dbd34ad83dedea6baea836c24"
+    },
+    "producerContract": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/producer-contract.json",
+      "sha256": "7f15c4d572d16dd73fb360b764c8d0043e1ab213e470ec2d900761436a77eb5a"
+    },
+    "producerReview": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/producer-publication-review.json",
+      "sha256": "d2a6486a746443180ed1d16f1e86ce1f0408c08e9908a8b88889957e8b30b889"
+    },
+    "sourceBudget": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/source-budget-final.json",
+      "sha256": "3118091b710eee2fdd3dd6f083890ca141a438d9975ef3cc02a2f8d40d29156a"
+    }
+  },
+  "objectiveFindings": [
+    "Producer contract integrity passed before drafting.",
+    "Story-type coverage and model-release utility checks passed after producer repair.",
+    "Producer prose review passed.",
+    "The unmodified full pre-review gate reports exactly one remaining error: published story image is missing or incomplete."
+  ],
+  "providerCallTaken": false,
+  "publicationActionTaken": false,
+  "nextAction": "Produce and role-distinctly admit story-specific art that explains subscription limits versus API token billing, bind it to the package, then rerun this exact pre-review command with a fresh output directory."
+}

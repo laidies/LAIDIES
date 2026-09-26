@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "newsstand-candidate-refresh-readiness-v1",
+  "checkedAt": "2026-09-25T14:11:53.470Z",
+  "editorialDate": "2026-09-25",
+  "reviewer": "/root/california_order_producer",
+  "result": "THREE_PRE_REVIEW_PASS_EXTERNAL_REVIEWS_PENDING",
+  "sourceEvidence": {
+    "path": "operations/product-stewards/newsstand/evidence/morning-20260925/candidate-refresh/web-source-capture.json",
+    "sha256": "610a096e89ef8e1064b9f555a59fea06d49f2a0558a0cf386322565292198439"
+  },
+  "candidates": [
+    {
+      "candidateId": "california-ai-oversight-order-20260920",
+      "receipt": {
+        "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/current-source-preflight-20260925.json",
+        "sha256": "2b2916d8e0fc9fcf2f1f843849212be26edd980c04b2a0b576dc1461b22457c6"
+      },
+      "article": {
+        "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/article.md",
+        "sha256": "fe8727dab6cc0f720d8be1ec1dbdf39ed7e71af543652cdd07a143f17352e6df"
+      },
+      "story": {
+        "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/story.json",
+        "sha256": "68044b60265abca6830ce90efa0a7fbee4b335bdbc1f254d6d3ebcd200d5487f"
+      },
+      "reviewText": {
+        "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/review-text.json",
+        "sha256": "7f77e832d1a995b8f01aa7db1242030dac4480c5caf35c5c0128692b6dcb4ce7"
+      },
+      "preflight": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/editorial-preflight-v12-current-sources-20260925/ --preflight-only",
+      "review": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/editorial-review-v12-current-sources-20260925/",
+      "proseChanged": false
+    },
+    {
+      "candidateId": "california-data-centre-laws-20260921",
+      "receipt": {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/current-source-preflight-20260925.json",
+        "sha256": "31884ff3966cc0a22901a378a0a4a89479e34759f3c173d5e6651f7228cf355f"
+      },
+      "article": {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/article.md",
+        "sha256": "23940a3bde7fc92fce7c4921aba70658a067c3cd84d669e35812dff4bd626aa9"
+      },
+      "story": {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/story.json",
+        "sha256": "f1d88b942e99c684dc318bd7994692d1ae4c36860516a2d0fc2a6499e0ca0070"
+      },
+      "reviewText": {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/review-text.json",
+        "sha256": "b3cdfc4da29b309b8e63f422c874aa9a2a342c819a0e8fd6f3d12b7e62087a03"
+      },
+      "preflight": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-preflight-v4-current-sources-20260925/ --preflight-only",
+      "review": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-review-v4-current-sources-20260925/",
+      "proseChanged": false
+    },
+    {
+      "candidateId": "weekly-changes-need-different-verbs-20260923",
+      "receipt": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/current-source-preflight-20260925.json",
+        "sha256": "6654a4114ab1e22c878390e4af50ece0496945630cb67f0d9ae5dd4c879c8c7d"
+      },
+      "article": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/article.md",
+        "sha256": "8b5bd6323aa6d1c0f809f1ab07cc09e13076ef00c8eab08f2e519fade0208095"
+      },
+      "story": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/story.json",
+        "sha256": "f86189f365bdaedf5f1be137a67a7676f6c7bbe31f8fea1ad0dea923d4d0a497"
+      },
+      "reviewText": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/review-text.json",
+        "sha256": "7d9d1e679684d1270df7fd5652506cc152c029536e84ad7ec0388b3f1ee1f092"
+      },
+      "preflight": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/weekly-20260923/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-preflight-v8-current-sources-20260925/ --preflight-only",
+      "review": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/weekly-20260923/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v8-current-sources-20260925/",
+      "proseChanged": true
+    }
+  ],
+  "findings": [
+    "California oversight article and rendered prose bytes remained unchanged.",
+    "California data-centre article and rendered prose bytes remained unchanged.",
+    "Weekly was updated for the September 24 Senate-calendar action, corrected to the exact BleepingComputer URL, and rebound to the current public predecessor hash."
+  ],
+  "notDone": [
+    "No provider review call.",
+    "No independent admission.",
+    "No canonical, shared or public write.",
+    "No publication."
+  ]
+}

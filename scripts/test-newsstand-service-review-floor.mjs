@@ -43,7 +43,7 @@ assert.match(inspect(missing), /review issues did not decrease/);
 const badBinding = clean(); badBinding.reviewFloorPolicy.sha256 = "0".repeat(64);
 assert.match(inspect(badBinding), /reviewFloorPolicy: SHA-256 mismatch/);
 const wrongScope = clean(); wrongScope.surface = "NEWSSTAND_BIG_PICTURE";
-assert.match(inspect(wrongScope), /reviewFloorPolicy: limited to NEWSSTAND_RECURRING_SERVICE_COLUMNS/);
+assert.match(inspect(wrongScope), /reviewFloorPolicy: surface is outside bounded floor policies/);
 const premature = clean(); premature.reviewedAt = "2026-09-06T17:09:59.000Z";
 assert.match(inspect(premature), /reviewFloorPolicy: review predates this approval/);
 const nonzeroIssues = clean(); nonzeroIssues.ratchet.reviewIssues = 1;

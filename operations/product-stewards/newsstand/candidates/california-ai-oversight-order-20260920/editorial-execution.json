@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-09-20T14:15:41.443Z",
+  "completedAt": "2026-09-20T14:15:41.485Z",
+  "exitCode": 1,
+  "command": [
+    "node",
+    "operations/product-stewards/newsstand/review-runtime/run-pilot.mjs",
+    "article",
+    "claude",
+    "--candidate-dir",
+    "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/",
+    "--calibration",
+    "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/",
+    "--output",
+    "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/editorial-review-v1/"
+  ],
+  "stdout": "",
+  "stderr": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Repair pre-review package before calling the independent editor:\n- prepared draft: california-ai-oversight-order-20260920 published story image is missing or incomplete\n- prepared draft: Producer observations bind a different draft\n- prepared draft: Reader answer missing from prose: exists\n- prepared draft: Reader answer missing from prose: changed\n- prepared draft: Reader answer missing from prose: dates\n- prepared draft: Reader answer missing from prose: caution\n- prepared draft: Term meaning missing from prose: frontier model\n- prepared draft: Term meaning missing from prose: independent verification organization\n+ actual - expected\n\n+ [\n+   'prepared draft: california-ai-oversight-order-20260920 published story image is missing or incomplete',\n+   'prepared draft: Producer observations bind a different draft',\n+   'prepared draft: Reader answer missing from prose: exists',\n+   'prepared draft: Reader answer missing from prose: changed',\n+   'prepared draft: Reader answer missing from prose: dates',\n+   'prepared draft: Reader answer missing from prose: caution',\n+   'prepared draft: Term meaning missing from prose: frontier model',\n+   'prepared draft: Term meaning missing from prose: independent verification organization'\n+ ]\n- []\n\n    at assertArticlePreReviewPackage (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:43:9)\n    at async file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:156:2 {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: [\n    'prepared draft: california-ai-oversight-order-20260920 published story image is missing or incomplete',\n    'prepared draft: Producer observations bind a different draft',\n    'prepared draft: Reader answer missing from prose: exists',\n    'prepared draft: Reader answer missing from prose: changed',\n    'prepared draft: Reader answer missing from prose: dates',\n    'prepared draft: Reader answer missing from prose: caution',\n    'prepared draft: Term meaning missing from prose: frontier model',\n    'prepared draft: Term meaning missing from prose: independent verification organization'\n  ],\n  expected: [],\n  operator: 'deepStrictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.18.0\n"
+}

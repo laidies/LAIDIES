@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "agents-api-20260911",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "33e88eaa30958262471d65d5c147245aeb1a346c47a1650606483a730d7a0779",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can an app built on this service truthfully report a task as 'completed' even though the message it was supposed to send never went out?",
+      "response": "Because 'completed' is a status the managed harness assigns when a turn of work ends, while the actual sending happens through a separate tool the app maker supplied. The model's response and the harness's bookkeeping can finish cleanly even if an individual tool call — the one that sends the message — failed along the way. OpenAI's own documentation says a completed turn does not guarantee every tool succeeded, so the label records that the work cycle ended, not that each external action inside it landed.",
+      "expectedEvidence": "The answer must distinguish turn completion (harness status) from individual tool success, identify tools as app-maker-supplied and separately fallible, and cite the documented caveat rather than asserting general unreliability.",
+      "assessment": "The article supports this fully: P004 gives the model/harness/tool split, P006 quotes the caveat and interprets the label correctly, so an attentive reader can reconstruct the causal chain in ordinary language."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mechanism, what should the owner check before assuming the VAT filing and the accountant email actually happened, and what should she ask about the app beforehand?",
+      "response": "Apply the access/completion/record triad. Access: check which services the app is connected to — bank feed, tax portal, email — since the app maker chose those tools and filing versus emailing are separate capabilities that can fail independently. Completion: treat the checkmark as meaning only that the work cycle ended; the harness status does not prove the tax-portal submission tool or the email tool succeeded. Record: open the tax portal for a submission receipt with a reference number and check the sent-mail record, rather than trusting the in-app summary. Beforehand, she should also read the app's terms on retained session data, since the service keeps session state regardless of where the app's own tools run.",
+      "expectedEvidence": "A correct answer separates harness completion status from per-tool outcomes, names independent confirmation records for each consequential action, and applies the retention-versus-environment distinction to a new domain.",
+      "assessment": "The article's mechanism transfers cleanly: P004/P006 supply the completion-versus-tool logic, P008 the retention distinction, and P009–P010 the verification triad, all applicable without stretching to this unseen bookkeeping case."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The release event, who it serves, what OpenAI manages versus what app makers supply, and the stated boundaries form a coherent causal picture.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released its Agents API in public beta on September 10. It gives developers a managed way to build software that keeps a task’s history, uses connected tools and resumes later. An API is a connection one piece of software uses to call another. This is not a new button in ChatGPT.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A model produces each response. A harness is the surrounding software that keeps the task history, tools, coordination and recovery organized. OpenAI manages that harness; an app maker supplies the tools and decides where the work runs.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "API ('a connection one piece of software uses to call another'), harness, and completed turn are each defined precisely where first needed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released its Agents API in public beta on September 10. It gives developers a managed way to build software that keeps a task’s history, uses connected tools and resumes later. An API is a connection one piece of software uses to call another. This is not a new button in ChatGPT.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A model produces each response. A harness is the surrounding software that keeps the task history, tools, coordination and recovery organized. OpenAI manages that harness; an app maker supplies the tools and decides where the work runs.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A longer task can still finish badly. OpenAI’s documentation says a completed turn does not guarantee every tool succeeded. A “completed” label means the turn ended; it is not evidence that each file, search, message or booking inside the task succeeded.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are anchored in a specific recognizable situation — a sent message, a recorded appointment, a booking that must be separately confirmed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine a future app asked to compare three repair quotes, check your calendar and prepare an appointment shortlist. The model might analyse the quotes. The harness would keep the steps and tool results together. The app maker would decide which tools to provide, so reading a calendar and sending a booking would be different capabilities. This is an illustration, not a product available to you today.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>If an app says it completed a multi-step task, open the promised output and separately confirm any action that matters, such as a sent message or recorded appointment. Check which connected services the app may reach and what its terms say about retained session data.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; all advice derives directly from the documented completion caveat and retention boundary rather than invention.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If an app says it completed a multi-step task, open the promised output and separately confirm any action that matters, such as a sent message or recorded appointment. Check which connected services the app may reach and what its terms say about retained session data.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>A longer task can still finish badly. OpenAI’s documentation says a completed turn does not guarantee every tool succeeded. A “completed” label means the turn ended; it is not evidence that each file, search, message or booking inside the task succeeded.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The service keeps session state so work can continue later. Its current documentation lists United States data residency only and says running the work environment elsewhere does not make it a no-retention service. Where the app’s tools run and how the service retains session data are separate questions.</p>",
+          "locator": "P008"
+        }
+      ]
+    }
+  }
+}

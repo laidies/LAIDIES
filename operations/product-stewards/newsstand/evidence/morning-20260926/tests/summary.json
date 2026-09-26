@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-09-26T14:07:44.417212+00:00",
+  "checks": [
+    {
+      "name": "test-compose-daily-edition",
+      "exitCode": 0,
+      "tail": "osition_rejected=1 duplicate_rejected=1 quiet_conflict_rejected=1 quiet_coverage=pass missing_route=blocked unknown_url=blocked wrong_day=blocked tampered_binding=blocked missing_release=blocked unavailable_channel=blocked legacy_snapshot_migrated=1 unbound_snapshot_rejected=1 sha256=051d247da98f21959375dbc8d9ca645881297833dde871eb738b008ac0ed174a\n"
+    },
+    {
+      "name": "test-promote-daily-edition",
+      "exitCode": 0,
+      "tail": "d=1 checksum_tamper_rejected=1 self_approval_rejected=1 conflict_rejected=1 stored_tamper_rejected=1 duplicate_date_rejected=1 raw_object_mismatch_rejected=1 future_review_rejected=1 claimed_reviewer_rejected=1 unsafe_quiet_rejected=1 post_rule_quiet_bypass_rejected=1 envelope_sha256=051d247da98f21959375dbc8d9ca645881297833dde871eb738b008ac0ed174a\n"
+    },
+    {
+      "name": "test-publish-daily-edition",
+      "exitCode": 0,
+      "tail": "DAILY CANONICAL PUBLICATION TEST PASS idempotent=1 stories_preserved=1 big_picture_preserved=1 missing_service_rejected=1 old_service_rejected=1 held_weekly_rejected=1 duplicate_front_rejected=1 envelope_tamper_rejected=1 membership_tamper_rejected=1 reviewer_tamper_rejected=1\n"
+    },
+    {
+      "name": "test-newsstand-ordinary-publication",
+      "exitCode": 0,
+      "tail": "vate/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-ordinary-fixture-kYWpP8/scripts/promote-daily-edition.mjs:558:57\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.18.0\n"
+    },
+    {
+      "name": "test-build-newsstand-derivatives",
+      "exitCode": 0,
+      "tail": "NEWSSTAND DERIVATIVE TEST PASS deterministic=1 held_feed=0 held_archive=0 front_paige_persistent=1 weekly_held=1 bad_service_rejected=1\nHOMEPAGE ACTIVITY DERIVATIVE: exact current selection and five negative exposure checks passed\nRELEVANCE: unreviewed new announcement rejected; current lead and chronological archive verified\n"
+    },
+    {
+      "name": "test-newsstand-service-continuity",
+      "exitCode": 0,
+      "tail": "SERVICE CONTINUITY TEST PASS prior_seven=1 invalid_carried_omitted=1 original_dates=1 quiet=1 next_day=1 successor=1 wednesday=1 idempotent=1 archive=1 reader=1 adversarial=1 fixture=/private/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-carry-test-JvhS21 SYNTHETIC_ONLY\n"
+    },
+    {
+      "name": "test-newsstand-next-cycle",
+      "exitCode": 0,
+      "tail": "NEWSSTAND NEXT CYCLE PASS tomorrow=2026-09-26 quiet=1 service=1 idempotent=1 weekly_days=6,7,8,14 original_dates=1 held_successor=1 exact_successor=1 retraction_notice_only=1 no_public_write=1 fixture=/private/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-next-cycle-test-DiSMk5\n"
+    }
+  ]
+}

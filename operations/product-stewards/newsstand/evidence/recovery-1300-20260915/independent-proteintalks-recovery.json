@@ -1,0 +1,47 @@
+{
+  "recordKind": "SOURCE_BOUND_PRIVATE_RESEARCH_CANDIDATE",
+  "researcherPrincipal": "/root/puzzle_visual_reconcile",
+  "recordedAt": "2026-09-15 20:08:51 UTC",
+  "productionStatus": "NOT_DRAFTED_NOT_REVIEWED_NOT_ADMITTED",
+  "publicWrites": false,
+  "id": "proteintalks-20260909",
+  "disposition": "PARTIAL_RECOVERY_RETAIN_PRIMARY_METHODS_HOLD",
+  "sameEventAs": "nature-breast-cancer-drug-prediction-20260909",
+  "sources": [
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42717098/",
+      "capture": "independent-capture-enumeration.json",
+      "role": "PRIMARY_BIBLIOGRAPHIC_ABSTRACT_SEARCH_SURFACE",
+      "limitation": "Normal open returned0lines; abstract/authors/conflicts obtained through normal search, not full paper."
+    },
+    {
+      "url": "https://github.com/guomics-lab/PTV-1",
+      "capture": "independent-capture-methods.json",
+      "role": "AUTHOR_ANALYSIS_REPOSITORY",
+      "limitation": "README inspected; not all model code, train/test protocols or results."
+    },
+    {
+      "url": "https://www.lavanguardia.com/neo/ia/20260914/11634020/ia-crea-celula-virtual-probar-farmacos-cancer-administrarlos-epm.html",
+      "capture": "independent-capture-methods.json",
+      "role": "INDEPENDENT_PUBLISHER_REPORT",
+      "readScope": "Complete core article body",
+      "derivedWordBudget": 200
+    }
+  ],
+  "recovered": [
+    "PubMed identifies authors, affiliations and declared commercial conflicts.",
+    "Author README identifies drug features, differential expression, PertScore and mFuzz preprocessing.",
+    "Sept14 LaVanguardia explains limited protein-response model, retrospective biopsy/organoid evaluation and need for prospective treatment-outcome testing; no independent expert quotation or replication."
+  ],
+  "readerBoundary": "Lab drug prediction and retrospective stratification are not proof that prospective AI-guided patient treatment improves outcomes. Do not translate reported88% unseen-drug laboratory classification into88% correct patient therapy.",
+  "missingInputs": [
+    "Complete accessible primary methods/results and train/test conditions",
+    "Verification of benchmark scope and clinical claims against exact full primary excerpts"
+  ],
+  "failedDistinctRoute": {
+    "url": "https://guomics.com/resources/proteintalks/",
+    "capture": "independent-capture-fullsources.json",
+    "status": "NORMAL_OPEN_INTERNAL_ERROR_NOT_RETRIED"
+  },
+  "nextRecoveryStep": "Seek a distinct legitimate author/institution manuscript or full methods/results resource, preserving exact blocked Nature routes. Do not change transport/host to circumvent access."
+}

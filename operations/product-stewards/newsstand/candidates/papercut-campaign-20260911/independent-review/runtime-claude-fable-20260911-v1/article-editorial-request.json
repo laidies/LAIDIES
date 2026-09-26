@@ -1,0 +1,3444 @@
+{
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "reader": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "reverseBrief": {
+            "type": "object",
+            "properties": {
+              "humanQuestion": {
+                "type": "string",
+                "minLength": 15
+              },
+              "promisedPayoff": {
+                "type": "string",
+                "minLength": 15
+              },
+              "centralMentalModel": {
+                "type": "string",
+                "minLength": 15
+              },
+              "dailyLifeConnection": {
+                "type": "string",
+                "minLength": 15
+              },
+              "surfaceJob": {
+                "type": "string",
+                "minLength": 15
+              },
+              "desiredReaderFeeling": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "humanQuestion",
+              "promisedPayoff",
+              "centralMentalModel",
+              "dailyLifeConnection",
+              "surfaceJob",
+              "desiredReaderFeeling"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "plainClarity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerValue": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "laidiesVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "engagingEnjoyable": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "surfaceFit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "dailyLifeConnection": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationBenchmark": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "explainBack": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "unseenTransfer": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "usefulAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "analogyIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "plainClarity",
+              "readerValue",
+              "laidiesVoice",
+              "engagingEnjoyable",
+              "surfaceFit",
+              "dailyLifeConnection",
+              "communicationBenchmark",
+              "explainBack",
+              "unseenTransfer",
+              "usefulAction",
+              "analogyIntegrity"
+            ],
+            "additionalProperties": false
+          },
+          "newsChecks": {
+            "type": "object",
+            "properties": {
+              "incidentExplained": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "termsExplainedInContext": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerConsequenceSpecific": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "noInternalNotesOrInventedAdvice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "incidentExplained",
+              "termsExplainedInContext",
+              "readerConsequenceSpecific",
+              "noInternalNotesOrInventedAdvice"
+            ],
+            "additionalProperties": false
+          },
+          "families": {
+            "type": "object",
+            "properties": {
+              "glossaryAccumulation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "templateRepetition": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "decorativeAnalogy": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "referenceConfetti": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "missingMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "genericAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "jargonBeforeMeaning": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "disconnectedSystem": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "factlessConfidence": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "staleUnreviewableClaims": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "corporateSludge": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "joylessInstruction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "benchmarkNameDrop": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "curiosityWithoutPayoff": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "familiarExampleWithoutTechnicalReturn": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationPastiche": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "entertainmentBeforeUnderstanding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismCompressedBehindHook": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "prematureClickBeforeMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "inflatedTakeawayEnding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "purposeTooNarrow": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismBeforeMotivation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "workedExampleOvertakesBookPurpose": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "technicalExplainerVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "glossaryAccumulation",
+              "templateRepetition",
+              "decorativeAnalogy",
+              "referenceConfetti",
+              "missingMechanism",
+              "genericAction",
+              "jargonBeforeMeaning",
+              "disconnectedSystem",
+              "factlessConfidence",
+              "staleUnreviewableClaims",
+              "corporateSludge",
+              "joylessInstruction",
+              "benchmarkNameDrop",
+              "curiosityWithoutPayoff",
+              "familiarExampleWithoutTechnicalReturn",
+              "communicationPastiche",
+              "entertainmentBeforeUnderstanding",
+              "mechanismCompressedBehindHook",
+              "prematureClickBeforeMechanism",
+              "inflatedTakeawayEnding",
+              "purposeTooNarrow",
+              "mechanismBeforeMotivation",
+              "workedExampleOvertakesBookPurpose",
+              "technicalExplainerVoice"
+            ],
+            "additionalProperties": false
+          },
+          "explainBack": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "unseenTransfer": {
+            "type": "object",
+            "properties": {
+              "scenario": {
+                "type": "string",
+                "minLength": 15
+              },
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "scenario",
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "reverseBrief",
+          "outcomes",
+          "newsChecks",
+          "families",
+          "explainBack",
+          "unseenTransfer",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      },
+      "facts": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "claims": {
+            "type": "object",
+            "properties": {
+              "scale": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "report-timeline": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "vendor-confirmation-limit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "papercut-identity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "server-directory": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "domain-admin-count": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "domain-admin-meaning": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "coordination-tools": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "harness-model": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "harness-meaning": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "agent-meaning": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "parallel-speed": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "uneven-results": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "papercut-nonverification": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "bleeping-boundary": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "motive-outcome": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "maintenance-releases": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "current-status": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "reader-action": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "admin-action": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "next-evidence": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "greynoise-papercut-report",
+                        "papercut-security-bulletin",
+                        "bleepingcomputer-papercut-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "scale",
+              "report-timeline",
+              "vendor-confirmation-limit",
+              "papercut-identity",
+              "server-directory",
+              "domain-admin-count",
+              "domain-admin-meaning",
+              "coordination-tools",
+              "harness-model",
+              "harness-meaning",
+              "agent-meaning",
+              "parallel-speed",
+              "uneven-results",
+              "papercut-nonverification",
+              "bleeping-boundary",
+              "motive-outcome",
+              "maintenance-releases",
+              "current-status",
+              "reader-action",
+              "admin-action",
+              "next-evidence"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "factualIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "freshnessReviewability": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "datedChange": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "consequenceAndUncertainty": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "factualIntegrity",
+              "freshnessReviewability",
+              "datedChange",
+              "consequenceAndUncertainty"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "claims",
+          "outcomes",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "reader",
+      "facts"
+    ],
+    "additionalProperties": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an independent editorial reviewer. Inspect the exact artifact before judging. Be specific, proportionate and honest. A real defect, insufficient evidence and an execution failure are different. Return final structured judgments only; never invent human observations."
+    },
+    {
+      "role": "user",
+      "content": "Read the COMPLETE ARTIFACT first:\n{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"An AI agent coordinates tools and repeated steps rather than stopping at one answer. <a href=\\\"/library.html#ai-fundamentals-101::%40ch-2-2-4-agentic-ai-the-layer-that-acts\\\">AI Fundamentals 101: Agentic AI — The Layer That Acts</a> explains the difference.\",\"closing_note\":null,\"cocktail_party\":\"“GreyNoise says an attacker used AI agents to coordinate attacks on vulnerable PaperCut servers. PaperCut confirms incidents, but not the research firm’s exact count or AI attribution.”\",\"concepts\":[\"AI agent\",\"harness\",\"domain administrator\",\"source confirmation\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"Researchers say AI agents helped attack 395 organizations through PaperCut servers\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"LAiDIES NewsStand evidence-checking illustration\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"papercut-campaign-20260911\",\"laidies_read\":\"<p>GreyNoise says the actor combined AI coordination with existing offensive tools and vulnerabilities in internet-facing PaperCut servers. GreyNoise describes Codex as the <strong>harness</strong> coordinating the work and DeepSeek—not an OpenAI model—as the model powering the agents. A harness is the coordinating software around a model that starts, routes and monitors agent jobs. An <strong>AI agent</strong> is software that can plan and carry out several steps with tools instead of stopping at one answer.</p><p>That division of labour is the AI change: many agent jobs could work in parallel, while the vulnerable server remained the opening. GreyNoise says that once the campaign launched, at least 11 organizations were compromised in 26 seconds. Results were uneven: domain-administrator control reached only 12 organizations overall, and a web firewall stopped one attempt.</p><p>PaperCut’s September 10 bulletin says it has not independently verified GreyNoise’s indicators and did not receive them through customer reports. It does confirm active exploitation and customer incidents. BleepingComputer reported the figures as GreyNoise’s findings, not a separate count. GreyNoise says the actor’s motive is unknown; data theft or ransomware are possible later uses of access, not established outcomes.</p><p>PaperCut published maintenance releases 26.0.5, 25.0.13 and 24.1.10 on September 10 and recommends them for all NG/MF customers. The company says most application servers are patched or behind a firewall, while public unpatched servers remain targets.</p>\",\"lastCheckedAt\":\"2026-09-11T08:24:00-07:00\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"papercut-campaign-20260911\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:papercut-campaign-20260911\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"greynoise-papercut-report\",\"label\":\"GreyNoise — Agents Gone Wild: an AI-orchestrated campaign against PaperCut NG/MF\",\"publisherType\":\"security-research-primary\",\"url\":\"https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"papercut-security-bulletin\",\"label\":\"PaperCut — NG/MF urgent security advisory\",\"publisherType\":\"vendor-primary-bulletin\",\"url\":\"https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"bleepingcomputer-papercut-report\",\"label\":\"BleepingComputer — AI-powered attack exploited PaperCut flaws\",\"publisherType\":\"reporting\",\"url\":\"https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"PaperCut\",\"GreyNoise\",\"Codex\",\"DeepSeek\",\"cybersecurity\"],\"the_story\":\"<p>GreyNoise says hundreds of AI agents helped an attacker compromise at least 440 PaperCut installations at 395 organizations in 48 countries. Its September 9 report describes a campaign that began on August 31. PaperCut confirms active exploitation and customer incidents, but it has not confirmed GreyNoise’s totals or AI attribution.</p><p>PaperCut NG/MF is self-hosted software for managing an organization’s printing, copying and scanning. A person may only see a school or office printer, while PaperCut can run on a server connected to the organization’s Windows directory. GreyNoise says the attacker reached domain-administrator control at 12 organizations. <strong>Domain administrator</strong> means a powerful permission that can manage connected Windows accounts and systems across an organization.</p>\",\"themes\":[\"cybersecurity\",\"AI agents\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-11T08:24:00-07:00\",\"watch_fors\":null,\"what_this_means\":\"<p>If you use a printer but do not manage the system, this is not an update to install on your own laptop. Ask the organization whether it runs PaperCut NG/MF and whether its application server has moved to a current maintenance release. If you administer PaperCut, use the vendor bulletin and your organization’s incident-response process rather than acting on an unverified indicator alone.</p><p>The next useful evidence is independent confirmation of GreyNoise’s counts and attribution, plus verified consequences at affected organizations. Ask how AI coordination changed the speed and scale around an existing software weakness.</p>\"}\n\n\nEXACT PASSAGE REFERENCES:\n[P001] Researchers say AI agents helped attack 395 organizations through PaperCut servers\n\n[P002] GreyNoise says hundreds of AI agents helped an attacker compromise at least 440 PaperCut installations at 395 organizations in 48 countries. Its September 9 report describes a campaign that began on August 31. PaperCut confirms active exploitation and customer incidents, but it has not confirmed GreyNoise’s totals or AI attribution.\n\n[P003] PaperCut NG/MF is self-hosted software for managing an organization’s printing, copying and scanning. A person may only see a school or office printer, while PaperCut can run on a server connected to the organization’s Windows directory. GreyNoise says the attacker reached domain-administrator control at 12 organizations. Domain administrator means a powerful permission that can manage connected Windows accounts and systems across an organization.\n\n[P004] GreyNoise says the actor combined AI coordination with existing offensive tools and vulnerabilities in internet-facing PaperCut servers. GreyNoise describes Codex as the harness coordinating the work and DeepSeek—not an OpenAI model—as the model powering the agents. A harness is the coordinating software around a model that starts, routes and monitors agent jobs. An AI agent is software that can plan and carry out several steps with tools instead of stopping at one answer.\n\n[P005] That division of labour is the AI change: many agent jobs could work in parallel, while the vulnerable server remained the opening. GreyNoise says that once the campaign launched, at least 11 organizations were compromised in 26 seconds. Results were uneven: domain-administrator control reached only 12 organizations overall, and a web firewall stopped one attempt.\n\n[P006] PaperCut’s September 10 bulletin says it has not independently verified GreyNoise’s indicators and did not receive them through customer reports. It does confirm active exploitation and customer incidents. BleepingComputer reported the figures as GreyNoise’s findings, not a separate count. GreyNoise says the actor’s motive is unknown; data theft or ransomware are possible later uses of access, not established outcomes.\n\n[P007] PaperCut published maintenance releases 26.0.5, 25.0.13 and 24.1.10 on September 10 and recommends them for all NG/MF customers. The company says most application servers are patched or behind a firewall, while public unpatched servers remain targets.\n\n[P008] If you use a printer but do not manage the system, this is not an update to install on your own laptop. Ask the organization whether it runs PaperCut NG/MF and whether its application server has moved to a current maintenance release. If you administer PaperCut, use the vendor bulletin and your organization’s incident-response process rather than acting on an unverified indicator alone.\n\n[P009] The next useful evidence is independent confirmation of GreyNoise’s counts and attribution, plus verified consequences at affected organizations. Ask how AI coordination changed the speed and scale around an existing software weakness.\n\n[P010] “GreyNoise says an attacker used AI agents to coordinate attacks on vulnerable PaperCut servers. PaperCut confirms incidents, but not the research firm’s exact count or AI attribution.”\n\n[P011] An AI agent coordinates tools and repeated steps rather than stopping at one answer. AI Fundamentals 101: Agentic AI — The Layer That Acts explains the difference.\n\nAssess this complete dated NEWS article for What did AI actually do in the PaperCut attacks, what was harmed and what is independently confirmed? See the coordinator-model-tools-server chain and separate GreyNoise's claims from PaperCut's confirmations.. Check every material factual claim against the supplied source excerpts, retaining attribution and limits. Independently judge reader comprehension and editorial craft. Supply an actual causal explain-back and invent and solve a new transfer scenario absent from this article. These are AI editorial analyses, never observed humans. Do not inherit the maker's conclusions; none are supplied.\n\nRUBRIC AND EVIDENCE:\n{\"communicationAuthority\":{\"benchmarkId\":\"HANNAH_FRY_COMMUNICATION_LENS_V2\",\"benchmark\":{\"path\":\"operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md\",\"sha256\":\"7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3\"},\"mode\":\"PROPORTIONAL\",\"surfaceAdaptation\":\"Answer the ordinary public-interest question first, make the coordinator-model-tools-server chain visible, and keep reported counts, vendor confirmation, current remediation and unknown motive adjacent to the relevant claims.\",\"imitationBoundary\":\"ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA\",\"dimensions\":{\"humanQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish AI coordination from the underlying software weakness and distinguish a research report from vendor-confirmed facts.\",\"plannedEvidence\":\"The exact story uses the familiar visible-printer versus connected-server boundary, then traces the harness, model and tools without operational attack detail.\"},\"usefulCuriosity\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish AI coordination from the underlying software weakness and distinguish a research report from vendor-confirmed facts.\",\"plannedEvidence\":\"The exact story uses the familiar visible-printer versus connected-server boundary, then traces the harness, model and tools without operational attack detail.\"},\"invisibleProcessConcrete\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish AI coordination from the underlying software weakness and distinguish a research report from vendor-confirmed facts.\",\"plannedEvidence\":\"The exact story uses the familiar visible-printer versus connected-server boundary, then traces the harness, model and tools without operational attack detail.\"},\"familiarTechnicalMovement\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish AI coordination from the underlying software weakness and distinguish a research report from vendor-confirmed facts.\",\"plannedEvidence\":\"The exact story uses the familiar visible-printer versus connected-server boundary, then traces the harness, model and tools without operational attack detail.\"},\"limitationsConsequences\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish AI coordination from the underlying software weakness and distinguish a research report from vendor-confirmed facts.\",\"plannedEvidence\":\"The exact story uses the familiar visible-printer versus connected-server boundary, then traces the harness, model and tools without operational attack detail.\"},\"humourSurprise\":{\"disposition\":\"NOT_APPLICABLE\",\"reason\":\"Help a beginner distinguish AI coordination from the underlying software weakness and distinguish a research report from vendor-confirmed facts.\",\"plannedEvidence\":\"The exact story uses the familiar visible-printer versus connected-server boundary, then traces the harness, model and tools without operational attack detail.\"},\"betterNextQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish AI coordination from the underlying software weakness and distinguish a research report from vendor-confirmed facts.\",\"plannedEvidence\":\"The exact story uses the familiar visible-printer versus connected-server boundary, then traces the harness, model and tools without operational attack detail.\"}},\"explanationArc\":{\"mode\":\"PROPORTIONAL\",\"retainedMoves\":[\"dated research report\",\"plain PaperCut identity\",\"AI coordinator chain\",\"reported harm and vendor confirmation\",\"current security release\",\"bounded reader question\"],\"adaptation\":\"The event leads; the mechanism and evidence boundary take the centre; the landing gives role-specific action without assuming the reader administers systems.\"},\"analogyChecks\":[],\"discoveryChecks\":[{\"question\":\"Did an OpenAI model power the agents?\",\"answer\":\"GreyNoise says no: it describes Codex as the harness and DeepSeek as the model powering the agents.\"},{\"question\":\"Did PaperCut verify 395 victim organizations?\",\"answer\":\"No. PaperCut confirms active exploitation and customer incidents but says it has not independently verified GreyNoise’s indicators.\"},{\"question\":\"Did the report prove ransomware or data theft occurred?\",\"answer\":\"No. GreyNoise says the actor’s motive and follow-on objective remain unclear.\"}]},\"failureDefinitions\":{\"glossaryAccumulation\":\"Separate definitions accumulate without connecting how the system works.\",\"templateRepetition\":\"Repeated paragraph scaffolds replace a developing explanation.\",\"decorativeAnalogy\":\"A familiar comparison adds flavour but fails to explain a specific causal mechanism.\",\"referenceConfetti\":\"Pop-culture or other references accumulate without a useful explanatory job.\",\"missingMechanism\":\"The reader gets labels or conclusions without the necessary causal steps.\",\"genericAction\":\"Advice such as verify or be careful lacks a concrete useful action for this case.\",\"jargonBeforeMeaning\":\"Necessary technical language is left unexplained in its first meaningful context.\",\"disconnectedSystem\":\"Parts are named separately without showing how information or effects move between them.\",\"factlessConfidence\":\"Certainty exceeds the evidence actually available.\",\"staleUnreviewableClaims\":\"A material time-sensitive claim cannot be traced and checked for its stated date.\",\"corporateSludge\":\"Vague corporate or motivational language obscures the concrete meaning.\",\"joylessInstruction\":\"The prose becomes a dry checklist or terminology manual with little human interest.\",\"benchmarkNameDrop\":\"Mentioning a communication benchmark or famous explainer substitutes for clear explanation.\",\"curiosityWithoutPayoff\":\"A hook raises curiosity but never delivers the promised explanation.\",\"familiarExampleWithoutTechnicalReturn\":\"A familiar example never reconnects to the actual technical mechanism.\",\"communicationPastiche\":\"Wording, persona or mannerisms imitate a communicator instead of original clear explanation.\",\"entertainmentBeforeUnderstanding\":\"Humour or spectacle gets in the way of understanding.\",\"mechanismCompressedBehindHook\":\"The hook occupies the piece while the causal explanation is rushed.\",\"prematureClickBeforeMechanism\":\"The conclusion or reveal is asserted before its explanation earns understanding.\",\"inflatedTakeawayEnding\":\"The ending inflates a bounded finding into a grand claim or moral.\",\"purposeTooNarrow\":\"The scope is narrower than the supplied reader job; one task becomes the whole purpose.\",\"mechanismBeforeMotivation\":\"Technical machinery begins before the artifact establishes the destination-level human reason for this knowledge. Stakes inside one worked example do not satisfy this when the destination promises broader cross-context orientation; the reader must first see why the knowledge matters beyond that example.\",\"workedExampleOvertakesBookPurpose\":\"One worked example crowds out the broader foundational orientation the book promises.\",\"technicalExplainerVoice\":\"The organising perspective is specialist taxonomy or workflow inspection instead of the reader orientation promised by the destination. Judge what the prose asks the reader to care about, not just friendly vocabulary: for a broad foundational opening, second-person warmth and a lived example do not clear this defect when tracing technical operations remains the main reason for learning, without the promised practical and civic orientation. In a bounded news report or how-to, explaining its specific mechanism can be exactly the right perspective.\"},\"outcomeDefinitions\":{\"plainClarity\":\"A smart reader without technical AI training can follow each sentence.\",\"readerValue\":\"The reader gains a useful understanding or decision beyond the headline.\",\"laidiesVoice\":\"Warm, candid, adult, conversational LAiDIES voice; no condescension or borrowed persona.\",\"engagingEnjoyable\":\"The human question and explanation sustain interest; humour is earned rather than mandatory.\",\"factualIntegrity\":\"Material claims are supported by the actual sources and correctly attributed.\",\"freshnessReviewability\":\"The event, reporting date and limitations make time-sensitive claims checkable.\",\"surfaceFit\":\"A dated news article answers what happened and why it matters within its proper scope.\",\"datedChange\":\"Old events are distinguished from newly reported evidence or responses.\",\"consequenceAndUncertainty\":\"Consequences are concrete and uncertainty survives the explanation.\",\"dailyLifeConnection\":\"A familiar work/life situation helps the professional reader understand the mechanism.\",\"communicationBenchmark\":\"Human purpose, concrete causality and a useful next question; no imitation of Hannah Fry.\",\"explainBack\":\"The mechanism supports an accurate answer to a causal question in ordinary language.\",\"unseenTransfer\":\"The mechanism can be applied to a genuinely new concrete situation absent from the article.\",\"usefulAction\":\"A specific proportionate action follows from the explanation where applicable.\",\"analogyIntegrity\":\"Each comparison maps the mechanism accurately and retains relevant limits.\"},\"newsCheckDefinitions\":{\"incidentExplained\":\"The actual incident and relevant causal sequence are understandable.\",\"termsExplainedInContext\":\"Necessary AI terms gain plain meaning at first meaningful use.\",\"readerConsequenceSpecific\":\"The consequence is grounded in a recognizable specific reader situation.\",\"noInternalNotesOrInventedAdvice\":\"No internal LAiDIES operating notes, commercially distinctive process details, or unsupported advice appear.\"},\"claims\":[{\"claimId\":\"scale\",\"claim\":\"at least 440 PaperCut installations at 395 organizations in 48 countries\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"report-timeline\",\"claim\":\"September 9 report describes a campaign that began on August 31\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"vendor-confirmation-limit\",\"claim\":\"PaperCut confirms active exploitation and customer incidents, but it has not confirmed GreyNoise’s totals or AI attribution\",\"sourceIds\":[\"papercut-security-bulletin\"]},{\"claimId\":\"papercut-identity\",\"claim\":\"self-hosted software for managing an organization’s printing, copying and scanning\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"server-directory\",\"claim\":\"PaperCut can run on a server connected to the organization’s Windows directory\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"domain-admin-count\",\"claim\":\"domain-administrator control at 12 organizations\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"domain-admin-meaning\",\"claim\":\"a powerful permission that can manage connected Windows accounts and systems across an organization\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"coordination-tools\",\"claim\":\"combined AI coordination with existing offensive tools and vulnerabilities in internet-facing PaperCut servers\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"harness-model\",\"claim\":\"DeepSeek—not an OpenAI model—as the model powering the agents\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"harness-meaning\",\"claim\":\"the coordinating software around a model that starts, routes and monitors agent jobs\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"agent-meaning\",\"claim\":\"software that can plan and carry out several steps with tools instead of stopping at one answer\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"parallel-speed\",\"claim\":\"at least 11 organizations were compromised in 26 seconds\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"uneven-results\",\"claim\":\"domain-administrator control reached only 12 organizations overall, and a web firewall stopped one attempt\",\"sourceIds\":[\"greynoise-papercut-report\"]},{\"claimId\":\"papercut-nonverification\",\"claim\":\"has not independently verified GreyNoise’s indicators and did not receive them through customer reports\",\"sourceIds\":[\"papercut-security-bulletin\"]},{\"claimId\":\"bleeping-boundary\",\"claim\":\"reported the figures as GreyNoise’s findings, not a separate count\",\"sourceIds\":[\"bleepingcomputer-papercut-report\"]},{\"claimId\":\"motive-outcome\",\"claim\":\"actor’s motive is unknown; data theft or ransomware are possible later uses of access, not established outcomes\",\"sourceIds\":[\"greynoise-papercut-report\",\"bleepingcomputer-papercut-report\"]},{\"claimId\":\"maintenance-releases\",\"claim\":\"maintenance releases 26.0.5, 25.0.13 and 24.1.10 on September 10\",\"sourceIds\":[\"papercut-security-bulletin\"]},{\"claimId\":\"current-status\",\"claim\":\"most application servers are patched or behind a firewall, while public unpatched servers remain targets\",\"sourceIds\":[\"papercut-security-bulletin\"]},{\"claimId\":\"reader-action\",\"claim\":\"Ask the organization whether it runs PaperCut NG/MF and whether its application server has moved to a current maintenance release\",\"sourceIds\":[\"papercut-security-bulletin\"]},{\"claimId\":\"admin-action\",\"claim\":\"use the vendor bulletin and your organization’s incident-response process rather than acting on an unverified indicator alone\",\"sourceIds\":[\"papercut-security-bulletin\"]},{\"claimId\":\"next-evidence\",\"claim\":\"independent confirmation of GreyNoise’s counts and attribution, plus verified consequences\",\"sourceIds\":[\"greynoise-papercut-report\",\"papercut-security-bulletin\"]}],\"sources\":[{\"id\":\"greynoise-papercut-report\",\"url\":\"https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf\",\"authority\":\"GreyNoise primary threat-research report for what its sensors and investigation observed, including its attribution, AI-tool distinction, victim count, timing, access level and uncertainty.\",\"passages\":[\"September 9, 2026\",\"GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.\",\"On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (\",\"PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.\",\"Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.\",\"The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.\",\"In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.\",\"It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.\"],\"limitation\":\"GreyNoise is the source of the specific campaign counts and AI attribution. PaperCut says it has not independently verified GreyNoise’s indicators and did not receive them from customer reports. The report does not establish motive or a completed data-theft or ransomware outcome.\",\"source\":{\"url\":\"https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf\",\"passage\":\"September 9, 2026\\n\\nGreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.\\n\\nOn 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (\\n\\nPaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.\\n\\nOnce the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.\\n\\nThe adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.\\n\\nIn at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.\\n\\nIt is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.\\n\",\"passageLocator\":\"https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf\",\"additionalPassage\":\"September 9, 2026\\nGreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.\\nOn 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (\\nPaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.\\nOnce the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.\\nThe adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.\\nIn at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.\\nIt is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.\\nAuthority: GreyNoise primary threat-research report for what its sensors and investigation observed, including its attribution, AI-tool distinction, victim count, timing, access level and uncertainty.\\nLimitation: GreyNoise is the source of the specific campaign counts and AI attribution. PaperCut says it has not independently verified GreyNoise’s indicators and did not receive them from customer reports. The report does not establish motive or a completed data-theft or ransomware outcome.\",\"additionalPassageLocator\":\"https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf\"}},{\"id\":\"papercut-security-bulletin\",\"url\":\"https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/\",\"authority\":\"PaperCut primary security bulletin for confirmed active exploitation, customer incidents, current maintenance releases, component scope and its explicit non-verification of GreyNoise findings.\",\"passages\":[\"Last updated September 10, 2026\",\"10 Sep 2026, 2:00pm (AEST) : Security maintenance releases published. These replace all emergency patches. Download links below.\",\"PaperCut Software security response team is investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF.\",\"Security maintenance releases are now available and are the recommended build for all customers. We are aware of confirmed customer incidents and continue to treat this matter with the highest priority. We will update this security bulletin as verified information becomes available.\",\"PaperCut NG/MF 26.0.5, 25.0.13 and 24.1.10 are now available.\",\"Third-party researchers have also published indicators of compromise, including this analysis from GreyNoise . We have not verified these independently and they do not come from reports made to us, so validate anything you act on against your own environment\",\"Reports of new compromises have slowed considerably over the past week, and the majority of customers now have their Application Server either behind a firewall or on a patched build.\",\"Servers that remain publicly reachable and unpatched continue to be targeted, and post-compromise behaviour observed in the second wave has been more sophisticated than in the first days of this incident.\",\"Mobility Print and Print Deploy server components are not affected and do not need to be updated.\",\"Our client software (including the User Client, Print Deploy client, and Mobility Print installer) is not affected and does not require an update.\"],\"limitation\":\"PaperCut confirms exploitation and customer incidents but does not confirm GreyNoise’s specific campaign counts, AI attribution or indicators. Its majority-patched and slowing-compromise statements are vendor status reports, not an independent census.\",\"source\":{\"url\":\"https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/\",\"passage\":\"Last updated September 10, 2026\\n\\n10 Sep 2026, 2:00pm (AEST) : Security maintenance releases published. These replace all emergency patches. Download links below.\\n\\nPaperCut Software security response team is investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF.\\n\\nSecurity maintenance releases are now available and are the recommended build for all customers. We are aware of confirmed customer incidents and continue to treat this matter with the highest priority. We will update this security bulletin as verified information becomes available.\\n\\nPaperCut NG/MF 26.0.5, 25.0.13 and 24.1.10 are now available.\\n\\nThird-party researchers have also published indicators of compromise, including this analysis from GreyNoise . We have not verified these independently and they do not come from reports made to us, so validate anything you act on against your own environment\\n\\nReports of new compromises have slowed considerably over the past week, and the majority of customers now have their Application Server either behind a firewall or on a patched build.\\n\\nServers that remain publicly reachable and unpatched continue to be targeted, and post-compromise behaviour observed in the second wave has been more sophisticated than in the first days of this incident.\\n\\nMobility Print and Print Deploy server components are not affected and do not need to be updated.\\n\\nOur client software (including the User Client, Print Deploy client, and Mobility Print installer) is not affected and does not require an update.\\n\",\"passageLocator\":\"https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/\",\"additionalPassage\":\"Last updated September 10, 2026\\n10 Sep 2026, 2:00pm (AEST) : Security maintenance releases published. These replace all emergency patches. Download links below.\\nPaperCut Software security response team is investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF.\\nSecurity maintenance releases are now available and are the recommended build for all customers. We are aware of confirmed customer incidents and continue to treat this matter with the highest priority. We will update this security bulletin as verified information becomes available.\\nPaperCut NG/MF 26.0.5, 25.0.13 and 24.1.10 are now available.\\nThird-party researchers have also published indicators of compromise, including this analysis from GreyNoise . We have not verified these independently and they do not come from reports made to us, so validate anything you act on against your own environment\\nReports of new compromises have slowed considerably over the past week, and the majority of customers now have their Application Server either behind a firewall or on a patched build.\\nServers that remain publicly reachable and unpatched continue to be targeted, and post-compromise behaviour observed in the second wave has been more sophisticated than in the first days of this incident.\\nMobility Print and Print Deploy server components are not affected and do not need to be updated.\\nOur client software (including the User Client, Print Deploy client, and Mobility Print installer) is not affected and does not require an update.\\nAuthority: PaperCut primary security bulletin for confirmed active exploitation, customer incidents, current maintenance releases, component scope and its explicit non-verification of GreyNoise findings.\\nLimitation: PaperCut confirms exploitation and customer incidents but does not confirm GreyNoise’s specific campaign counts, AI attribution or indicators. Its majority-patched and slowing-compromise statements are vendor status reports, not an independent census.\",\"additionalPassageLocator\":\"https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/\"}},{\"id\":\"bleepingcomputer-papercut-report\",\"url\":\"https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/\",\"authority\":\"BleepingComputer independent reporting on the GreyNoise report and PaperCut response.\",\"passages\":[\"September 10, 2026\",\"A threat actor, likely Russian-speaking, used hundreds of AI agents to develop and launch a global exploitation campaign targeting vulnerable PaperCut NG/MF servers.\",\"Attack and threat intelligence company GreyNoise says the campaign began on August 31, combining OpenAI’s Codex and DeepSeek models with commodity offensive tools.\",\"GreyNoise data indicates that the operation compromised at least 440 PaperCut instances linked to 395 distinct organizations across 48 countries.\",\"The attacker harvested credentials from 280 victims, obtained operating system or domain secrets from 147, and obtained administrator privileges at 12 organizations.\",\"GreyNoise could not determine the attacker’s campaign objective, but the access could be used for data theft or ransomware operations.\",\"System administrators are advised to apply PaperCut’s emergency security updates addressing CVE-2026-81578 and CVE-2026-82078 immediately, and follow the vendor’s recommendations in this bulletin.\"],\"limitation\":\"Independent reporting contextualizes and attributes the GreyNoise findings; it does not independently verify GreyNoise’s victim counts, AI attribution or campaign motive. Its Codex wording is less precise than GreyNoise’s explicit harness-versus-model distinction; the primary source governs that distinction.\",\"source\":{\"url\":\"https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/\",\"passage\":\"{\\n  \\\"url\\\": \\\"https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/\\\",\\n  \\\"accessedAt\\\": \\\"2026-09-11T08:24:00-07:00\\\",\\n  \\\"transport\\\": {\\n    \\\"curl\\\": {\\n      \\\"status\\\": 403,\\n      \\\"result\\\": \\\"blocked\\\"\\n    },\\n    \\\"webBrowsingLayer\\\": {\\n      \\\"result\\\": \\\"complete article read\\\",\\n      \\\"lines\\\": \\\"4-44\\\"\\n    }\\n  },\\n  \\\"passages\\\": [\\n    \\\"September 10, 2026\\\",\\n    \\\"A threat actor, likely Russian-speaking, used hundreds of AI agents to develop and launch a global exploitation campaign targeting vulnerable PaperCut NG/MF servers.\\\",\\n    \\\"Attack and threat intelligence company GreyNoise says the campaign began on August 31, combining OpenAI’s Codex and DeepSeek models with commodity offensive tools.\\\",\\n    \\\"GreyNoise data indicates that the operation compromised at least 440 PaperCut instances linked to 395 distinct organizations across 48 countries.\\\",\\n    \\\"The attacker harvested credentials from 280 victims, obtained operating system or domain secrets from 147, and obtained administrator privileges at 12 organizations.\\\",\\n    \\\"GreyNoise could not determine the attacker’s campaign objective, but the access could be used for data theft or ransomware operations.\\\",\\n    \\\"System administrators are advised to apply PaperCut’s emergency security updates addressing CVE-2026-81578 and CVE-2026-82078 immediately, and follow the vendor’s recommendations in this bulletin.\\\"\\n  ],\\n  \\\"limitation\\\": \\\"Independent reporting contextualizes and attributes the GreyNoise findings; it does not independently verify GreyNoise’s victim counts, AI attribution or campaign motive. Its Codex wording is less precise than GreyNoise’s explicit harness-versus-model distinction; the primary source governs that distinction.\\\"\\n}\\n\",\"passageLocator\":\"https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/\",\"additionalPassage\":\"September 10, 2026\\nA threat actor, likely Russian-speaking, used hundreds of AI agents to develop and launch a global exploitation campaign targeting vulnerable PaperCut NG/MF servers.\\nAttack and threat intelligence company GreyNoise says the campaign began on August 31, combining OpenAI’s Codex and DeepSeek models with commodity offensive tools.\\nGreyNoise data indicates that the operation compromised at least 440 PaperCut instances linked to 395 distinct organizations across 48 countries.\\nThe attacker harvested credentials from 280 victims, obtained operating system or domain secrets from 147, and obtained administrator privileges at 12 organizations.\\nGreyNoise could not determine the attacker’s campaign objective, but the access could be used for data theft or ransomware operations.\\nSystem administrators are advised to apply PaperCut’s emergency security updates addressing CVE-2026-81578 and CVE-2026-82078 immediately, and follow the vendor’s recommendations in this bulletin.\\nAuthority: BleepingComputer independent reporting on the GreyNoise report and PaperCut response.\\nLimitation: Independent reporting contextualizes and attributes the GreyNoise findings; it does not independently verify GreyNoise’s victim counts, AI attribution or campaign motive. Its Codex wording is less precise than GreyNoise’s explicit harness-versus-model distinction; the primary source governs that distinction.\",\"additionalPassageLocator\":\"https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/\"}}]}\n\nReturn reader and facts objects matching the supplied output schema. Give concise specific reasons with actual paragraph references. Clear failure-family judgments may use an empty reference list for absence across the whole artifact. Present/uncertain families and every outcome/claim require supporting paragraphs. Each fact must use source IDs belonging to that claim. Each reader/facts learningDisposition must be NO_NEW_DEFECT only if that part has no failed or uncertain assessment; otherwise use candidate repair or evidence gap. You are independent from artifact maker OpenAI /root. Attest truthfully to reading the complete artifact first and independence. Do not inspect earlier verdicts or diagnose paperwork."
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  },
+  "max_completion_tokens": 8500,
+  "temperature": 0.05,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

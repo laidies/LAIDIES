@@ -1,0 +1,349 @@
+An operational perturbation proteomics-based virtual cell model | Nature (https://www.nature.com/articles/s41586-026-11001-9)
+citeturn875search0 [wordlim: 200] Published: last week; Crawled: today; Here we generated more than 38 million temporal protein-abundance measurements from systematically perturbed breast cancer cell lines, and developed ProteinTalks, a virtual cell model. ... Together, ProteinTalks shows how scalable pretraining of transferable dynamic representations enables operational, dynamics-aware, proteomics-based virtual cell models to advance in silico drug discovery.
+## Abstract
+
+Artificial intelligence-empowered virtual cell models represent an emerging approach for in silico drug discovery^{1,2,3}, yet most existing approaches lack large-scale, time-resolved perturbation proteomics data and interpretable frameworks for predicting therapeutic responses. Here we generated more than 38 million temporal protein-abundance measurements from systematically perturbed breast cancer cell lines, and developed ProteinTalks, a virtual cell model. Central to ProteinTalks is the synergy of this large-scale dynamic proteomic resource and the model architecture, enabling a new pretraining framework that learns transferable dynamical latent representations from temporal proteome trajectories. By modelling how proteins respond conditionally to different perturbations, this approach enables the model to function as an operational tool for diverse drug discovery tasks: predicting drug efficacy and synergy, discovering new drug combinations, probing proteins associated with drug resistance, stratifying patient responses and prioritizing drug candidates for patient organoids. It also shows robust transferability, extending beyond cell lines to patient-derived organoids and clinical biopsies, generally achieving higher performance than the selected benchmark implementations under the evaluated protocols. Together, ProteinTalks shows how scalable pretraining of transferable dynamic representations enables operational, dynamics-aware, proteomics-based virtual cell models to advance in silico drug discovery.
+
+Fig. 1: Overview of ProteinTalks workflow.
+
+Image
+
+Fig. 2: Longitudinal proteomic responses to drug perturbation.
+
+Image
+
+Fig. 3: ProteinTalks architecture, training strategy and performance benchmarking.
+
+Image
+
+Fig. 4: Exploring the interpretability of the ProteinTalks model.
+
+Image
+
+Fig. 5: Assessing the clinical relevance of ProteinTalks.
+
+Image
+
+## Data availability
+
+Raw mass spectrometry proteomics data have been deposited in the ProteomeXchange Consortium available via iProX (IPX0007409000). The PTDS protein matrix and associated resources are available for academic and non-commercial use through the open-access platform db.prottalks.com. Other data used are available from the Kyoto Encyclopedia of Genes and Genomes pathway at https://www.genome.jp/kegg/pathway.html (ref. ^{57}), from Metascape at https://metascape.org/gp/ (ref. ^{58}), from STRING at https://cn.string-db.org/ (ref. ^{59}) and from Ingenuity Pathway Analysis at http://www.ingenuity.com (ref. ^{60}).
+
+--------------------------------------------------------------------------------
+New AI Model Predicts How Cancer Cells Respond to Drugs (https://en.westlake.edu.cn/news_events/westlakenews/research/202609/t20260918_69874.html)
+citeturn875search1 [wordlim: 200] Published: last week; Crawled: yesterday; Research ... The study, titled "An operational perturbation proteomics-based virtual cell model," was published online in Nature on Sept. ... Building on these measurements, they developed ProteinTalks, which encodes baseline proteomes and drug targets into a latent representation, models continuous-time evolution with a neural ODE, and predicts proteomes at 6, 24, and 48 hours. ... Unlike methods that interpolate trajectories in a predefined representation space, ProteinTalks learns the representation and perturbation-conditioned temporal dynamics jointly. ... This produces a compact, task-aligned framework that directly addresses the underlying biological question: how a measured protein state changes in response to a defined perturbation and how that change relates to treatment outcome. ... Published online: 9 September 2026. https://doi.org/10.1038/s41586-026-11001-9
+
+10
+
+2026/09
+
+# New AI Model Predicts How Cancer Cells Respond to Drugs
+
+Category
+
+Research
+
+Author
+
+Image
+
+Professor Tiannan Guo from Westlake University and collaborators reported ProteinTalks, a virtual cell model with potential clinical applications that learns the dynamics of proteomic responses to drug perturbations in cancer cells. The study, titled "An operational perturbation proteomics-based virtual cell model," was published online in Nature on Sept. 9.
+
+Recent foundation models trained on gene expression data can characterize cellular states and predict responses to drug treatment. However, proteins are the principal executors of cellular function. Whether AI models learning drug-induced proteomic dynamics can predict responses more accurately remains unclear, largely because time-resolved perturbation proteomics data are limited.
+
+The Guomics team focused on triple-negative breast cancer (TNBC), an aggressive subtype with limited treatment options and a vast space of candidate drug combinations—an ideal yet challenging testbed.
+
+The team first used dense time-course sampling to identify key phases of drug response, then strategically measured proteomic changes at three representative time points in 16 TNBC and 2 non-TNBC breast cancer cell lines treated with 63 FDA-approved drugs and 59 combinations.
+
+Building on these measurements, they developed ProteinTalks, which encodes baseline proteomes and drug targets into a latent representation, models continuous-time evolution with a neural ODE, and predicts proteomes at 6, 24, and 48 hours. A phenotype head then combines baseline and predicted proteomes with drug molecular features to predict single-drug efficacy or combination synergy. Unlike methods that interpolate trajectories in a predefined representation space, ProteinTalks learns the representation and perturbation-conditioned temporal dynamics jointly. The ProteinTalks model contains three orders of magnitude fewer model parameters and training data points than the evaluated static transcriptomic foundation models. This produces a compact, task-aligned framework that directly addresses the underlying biological question: how a measured protein state changes in response to a defined perturbation and how that change relates to treatment outcome.
+
+The model was independently evaluated for drug sensitivity prediction on 81 untrained anticancer compounds across four TNBC cell lines, achieving an AUROC of 0.89 and accuracy of 0.85 without additional training on those compounds. (AUROC measures how well a model distinguishes effective from ineffective drugs, with 1.0 being perfect.) To test whether the model could transfer to other cancer types, the team further used limited additional training data from melanoma, colorectal, lung and pancreatic cancer cell lines treated with 708 repurposed compounds. ProteinTalks reached a mean AUROC of 0.77 and outperformed the selected transcriptomics benchmarks in the same analysis.
+
+The team then adapted ProteinTalks using transcriptomic data from breast cancer patient-derived xenografts. In a zero-shot test—without further training on the target tumor types—the adapted model was evaluated on 140 non-breast-cancer patient-derived xenografts and achieved a mean AUROC improvement of 24% over three transcriptomic foundation models.
+
+In a retrospective cohort of 501 previously untreated patients with TNBC, ProteinTalks-derived scores based on baseline tumor proteomes and planned treatment regimens stratified patients by overall and recurrence-free survival. This provides preliminary support for proteome-based prognostic stratification and requires prospective validation.
+
+In three TNBC patient-derived organoids, ProteinTalks screened approximately 3,000 compounds and identified candidates to which the organoids showed greater sensitivity than to cisplatin, the standard chemotherapy used as the benchmark in these assays.
+
+ProteinTalks is not a digital twin of a cell. It aims at addressing a defined, operational task: using a baseline proteome and a specified drug perturbation to predict how protein states evolve and how those trajectories relate to drug response. Its broader contribution lies in providing a practical framework for linking time-resolved perturbation proteomics to predictive virtual cell modeling. As time-resolved data spanning multiple molecular and biological scales continue to accumulate, the technical approach underlying ProteinTalks may help advance virtual-cell models that more faithfully represent biological processes.
+
+Reference: Sun, R., Qian, L., Li, Y. et al. An operational perturbation proteomics-based virtual cell model. Nature. Published online: 9 September 2026. https://doi.org/10.1038/s41586-026-11001-9
+
+Lab website: https://www.guomics.com
+
+ProteinTalks database: https://db.prottalks.com/--------------------------------------------------------------------------------
+Una IA crea una “célula virtual” para probar fármacos contra el cáncer antes de administrarlos (https://www.lavanguardia.com/neo/ia/20260914/11634020/ia-crea-celula-virtual-probar-farmacos-cancer-administrarlos-epm.html)
+citeturn875search2 [wordlim: 200] Published: 5 days ago; Crawled: 4 days ago; 14/09/2026 08:27 ... El sistema, bautizado como ProteinTalks, utiliza inteligencia artificial para aprender cómo miles de proteínas cambian cuando una célula cancerosa recibe distintos medicamentos y, a partir de ahí, intentar predecir la eficacia de tratamientos que no ha visto anteriormente.
+
+# Una IA crea una “célula virtual” para probar fármacos contra el cáncer antes de administrarlos
+
+## IA
+
+## La IA aprende cómo responden las células tumorales a distintos tratamientos y permite ensayar virtualmente fármacos y combinaciones antes de llevarlos al laboratorio o a muestras de pacientes
+
+Image: ProteinTalks crea una representación virtual de cómo responden las células tumorales a distintos fármacos para ayudar a priorizar los tratamientos más prometedores.&nbsp;
+
+ProteinTalks crea una representación virtual de cómo responden las células tumorales a distintos fármacos para ayudar a priorizar los tratamientos más prometedores. 
+
+ACN
+
+Arnau Ruiz
+
+14/09/2026 08:27
+
+El audio de esta noticia está generado mediante Inteligencia Artificial
+
+Antes de administrar un fármaco contra el cáncer, los médicos pueden conocer su mecanismo de acción, la genética del tumor o cómo ha funcionado en otros pacientes. Lo que resulta mucho más difícil es anticipar exactamente cómo reaccionará toda la maquinaria molecular de unas células concretas durante las horas posteriores al tratamiento.
+
+Un equipo internacional presenta ahora en Nature una aproximación diferente: crear una versión virtual de esa respuesta celular. El sistema, bautizado como ProteinTalks, utiliza inteligencia artificial para aprender cómo miles de proteínas cambian cuando una célula cancerosa recibe distintos medicamentos y, a partir de ahí, intentar predecir la eficacia de tratamientos que no ha visto anteriormente.
+
+### Más de 38 millones de mediciones para enseñar a la IA
+
+La expresión “célula virtual” puede llevar a pensar en una simulación completa de una célula humana, pero ProteinTalks todavía está lejos de eso. Su objetivo es mucho más específico: modelar la respuesta de las proteínas a los tratamientos contra el cáncer.
+
+Image: El modelo se entrenó con más de 38 millones de mediciones de proteínas tomadas antes y después de exponer células de cáncer de mama a distintos fármacos.&nbsp;
+
+El modelo se entrenó con más de 38 millones de mediciones de proteínas tomadas antes y después de exponer células de cáncer de mama a distintos fármacos. 
+--------------------------------------------------------------------------------
+AI Tool ProteinTalks Predicts Personalized Breast Cancer Drug Responses | SciTech Pulse (https://www.scitechpulse.com/en/news/ai-virtual-cell-proteintalks-breast-cancer)
+citeturn875search3 [wordlim: 200] Published: last week; Crawled: 6 days ago; 12 September 2026 at 7:56 pm ... Described in a Nature study led by Rui Sun, ProteinTalks functions as an AI "[Button: virtual cell]" — a computer simulation of a living cell's behavior. ... ProteinTalks outperformed AI models based on gene activity and traditional machine-learning methods. ... Tracking these protein changes pinpointed AKR1C3 as a key driver of drug resistance: knocking down the protein restored cancer cells' sensitivity to the chemotherapy drug docetaxel, a finding confirmed with a [Button: cytotoxicity assay], a lab test that measures how well a treatment kills cells.
+
+AI
+
+# AI Tool ProteinTalks Predicts Personalized Breast Cancer Drug Responses
+
+A new AI system called ProteinTalks tracks how proteins in cancer cells change after drug treatment to predict drug responses, uncovering new drug combinations and resistance mechanisms in triple-negative breast…
+
+12 September 2026 at 7:56 pm
+
+🔊 Listen to this article
+
+## At a glance
+
+  * ▸ProteinTalks was trained on more than 38 million protein measurements across 5,585 proteins from 18 breast cancer cell lines.
+  * ▸It predicted responses to 81 anticancer compounds it had never seen and found 4 drug pairs that work better together against triple-negative breast cancer.
+  * ▸The tool linked the protein AKR1C3 to resistance against the chemotherapy drug docetaxel.
+  * ▸Screening 3,000+ repurposed drugs against organoids from 501 triple-negative breast cancer patients turned up personalized drug candidates.
+
+## Step by step
+
+  1. 1
+
+Measure proteins before and after drug
+
+↓
+  2. 2
+
+Train AI on time-resolved protein data
+--------------------------------------------------------------------------------
+ИИ собрал цифровую клетку и начал тестировать лекарства без пробирок (https://www.securitylab.ru/news/577174.php)
+citeturn875search4 [wordlim: 200] Published: last week; Crawled: last week; 17:33 / 10 сентября, 2026 2400 ... ProteinTalks обучилась на 38 млн измерений и научилась прогнозировать реакцию опухолевых клеток на терапию.
+# ИИ собрал цифровую клетку и начал тестировать лекарства без пробирок
+
+17:33 / 10 сентября, 2026 2400
+
+клетка протеомика лекарство опухоль белок
+
+ИИ собрал цифровую клетку и начал тестировать лекарства без пробирок
+
+ProteinTalks обучилась на 38 млн измерений и научилась прогнозировать реакцию опухолевых клеток на терапию.
+
+Image: image
+
+Исследователи создали ProteinTalks, виртуальную модель клетки, которая прогнозирует реакцию клеток рака молочной железы на лекарства по изменениям тысяч белков. Систему обучили более чем на 38 млн измерений, а при проверке на препаратах, которых не было в обучающей выборке, модель правильно предсказала клеточный ответ примерно в 88% случаев. --------------------------------------------------------------------------------
+README.md · kgrabko/JiRackTernary_1b at f6eb82feb3f665e9511b912e70a53044e57fe846 (https://huggingface.co/kgrabko/JiRackTernary_1b/blame/f6eb82feb3f665e9511b912e70a53044e57fe846/README.md)
+citeturn875search5 [wordlim: 200] Crawled: last month; **Buffered Routing Embedding (BRE):** Minimizes data movement between HBM and compute units, specifically optimized for ROCm environments. ...     > **Note:** The current `.pt` file is **~6 GB** due to heavy embedded metadata for research tracking. ...     - `NDA.md`: Confidentiality agreement for commercial evaluators.
+    *Current Checkpoint: Feb 26, 2026 (Logic Verification Mode)*
+    
+    **User:** Hello  
+    **JiRack:** What are you’re talking to? Can I help with that?  
+    *(Gen Time: 54.10s on CPU)*
+    
+    **User:** Tell me a joke  
+    **JiRack:** What is it? Do you want to hear jokes about how the punch line works, and why I’m called “a dickhead”?  
+    *(Gen Time: 86.79s on CPU)*
+    
+    > **Note:** The current `.pt` file is **~6 GB** due to heavy embedded metadata for research tracking. The final production version will be cleaned and compressed to **~1.5 GB - 2.0 GB**.
+    
+    ---
+    
+    ## 📂 Repository Contents
+    - `JiRackTernaryPyTorch_1b.py`: Core architecture file.
+    - `invention_description.md`: Detailed technical breakdown for patent examiners.
+    - `performance_data.md`: Benchmarks on ROCm/AMD hardware.
+    - `NDA.md`: Confidentiality agreement for commercial evaluators.
+    
+    ## 📧 Contact & Licensing
+    For joint venture opportunities, hardware integration, or licensing inquiries:
+    - **Email:** [grabko@cmsmanhattan.com](mailto:grabko@cmsmanhattan.com)
+    - **Phone:** +1 (516) 777-0945
+    - **Location:** New York, USA--------------------------------------------------------------------------------
+gouthamsk/mistral-embedded-c-instruct-v0.4.gguf · Hugging Face (https://huggingface.co/gouthamsk/mistral-embedded-c-instruct-v0.4.gguf)
+citeturn875search6 [wordlim: 200] Crawled: 2 months ago; Port 11 is an AI-powered Learning Management System (LMS) designed with the primary objective of preparing students for the professional job market with in-demand skills in Application Development, VLSI Design, Embedded System Design etc. ... Additionally, the model should, on a macro level, understand the course structure and manage the course without the need for a human evaluator. ... AI model should score the test in binary, checking if the answer is right or wrong, and the answer is sent to a human evaluator for human evaluation.
+Teachers, companies, or colleges can create courses and assignments that are evaluated by AI, eliminating the need for human evaluators. Additionally, each assignment is monitored by Proctoring AI, which tracks eye movement, audio, and spatial context, feeding this data into a database for evaluation
+
+## Objective
+
+Create a subject-expert AI model that can evaluate the user’s answer and give hints and suggestions. The model should be able to evaluate individual users based on their overall course performance. Additionally, the model should, on a macro level, understand the course structure and manage the course without the need for a human evaluator.
+
+### Phase 1 Objective
+
+Fine-tune the existing pre-trained LLM to evaluate user code logic, score it, and provide different levels of hints based on expertise in a single subject. ( In Phase 1, we are only considering a single subject expert on an embedded system of ESP MCU)
+
+AI model should score the test in binary, checking if the answer is right or wrong, and the answer is sent to a human evaluator for human evaluation.
+
+### Phase 2 Objective
+
+Re-train the fine-tuned model using collected human-evaluated data through Direct Optimization Training. This approach will enable the model to provide a range-based scoring system for user answers, rather than a binary one.
+
+Provide an API for ordinary users, such as course creators, to develop custom subject expert models that can be integrated into various courses based on user preferences. Additionally, implement a system that allows these custom models to enhance their performance through the integration of human evaluation data (Automated DPO training).
+
+### Phase 3 Objective
+
+Create an ensemble model with custom models created from Phase 2, to make a mixture of subject experts that can together evaluate any course without a need for the course creator’s intervention eliminating human evaluation.
+
+--------------------------------------------------------------------------------
+ONCOLOGÍA DE PRECISIÓN / Una "célula virtual" manejada con IA diseña tratamientos personalizados contra el cáncer de mama - España Times (https://espanatimes.com/2026/09/14/oncologia-de-precision-una-celula-virtual-manejada-con-ia-disena-tratamientos-personalizados-contra-el-cancer-de-mama/)
+citeturn875search7 [wordlim: 200] Published: 5 days ago; Crawled: 5 days ago; septiembre 14, 2026 ... La diferencia con muchos sistemas anteriores está precisamente en esa dimensión temporal: en lugar de limitarse a relacionar genes o características moleculares con una respuesta final, ProteinTalks intenta aprender cómo evolucionan las proteínas durante el tratamiento.
+
+# ONCOLOGÍA DE PRECISIÓN / Una «célula virtual» manejada con IA diseña tratamientos personalizados contra el cáncer de mama
+
+Por
+
+Muhammad Ali
+
+-
+
+septiembre 14, 2026
+
+2
+
+0
+
+Una nueva herramienta de inteligencia artificial llamada ProteinTalks logra predecir con exactitud si un fármaco será eficaz contra una línea celular cancerosa, encontrar nuevas combinaciones de fármacos e identificar proteínas relacionadas con la resistencia a los fármacos. Todo esto permite diseñar tratamientos personalizados para atacar el cáncer de mama con mayor éxito.
+
+La inteligencia artificial empieza a ingresar en una de las partes más difíciles de la oncología: anticipar qué tratamiento funcionará mejor en un tumor concreto. Un equipo de investigadores ha desarrollado un modelo de IA concebido como una «célula virtual» capaz de recrear cómo cambian las proteínas de una célula cancerosa después de recibir un fármaco. El objetivo es ir más allá de las fotografías estáticas del tumor y observar su respuesta como un proceso dinámico.
+
+## Evolución de las proteínas durante el tratamiento
+
+El estudio, publicado en la revista Nature, se apoya en un volumen de datos poco habitual. Los investigadores analizaron 18 líneas celulares de cáncer de mama expuestas a 63 fármacos anticancerosos aprobados y a 59 combinaciones de dos medicamentos.
+
+Midieron los niveles de proteínas antes del tratamiento y a las 6, 24 y 48 horas, hasta reunir más de 38 millones de mediciones correspondientes a 5.585 proteínas. Con esos datos entrenaron al modelo ProteinTalks para aprender las trayectorias que siguen las células cuando un tratamiento altera su funcionamiento.
+
+La diferencia con muchos sistemas anteriores está precisamente en esa dimensión temporal: en lugar de limitarse a relacionar genes o características moleculares con una respuesta final, ProteinTalks intenta aprender cómo evolucionan las proteínas durante el tratamiento.
+
+## Descubrir nuevas combinaciones terapéuticas
+
+Según la investigación, el modelo superó a varios métodos de referencia basados en actividad génica y aprendizaje automático tradicional en las pruebas realizadas. 
+## Una pieza vital en la oncología de precisión
+
+Además, ProteinTalks se empleó para priorizar candidatos entre más de 3.000 fármacos reutilizados y después comprobar su actividad directamente en organoides derivados de pacientes, pequeñas estructuras celulares que reproducen características del tumor original. Algunos candidatos mostraron actividad a dosis inferiores a las de la quimioterapia estándar.
+
+Por el momento, los resultados proceden de modelos celulares, organoides y análisis de biopsias, y la utilidad clínica deberá demostrarse en estudios prospectivos y ensayos con pacientes. La propia investigación presenta ProteinTalks como una herramienta para acelerar el descubrimiento y la evaluación de tratamientos, no como un sustituto de la decisión médica.
+
+Sin embargo, en vez de preguntar únicamente qué medicamento funciona, la «célula virtual» permite explorar qué ocurre dentro de un tumor cuando ese medicamento entra en acción, qué proteínas cambian, qué combinaciones pueden potenciar el efecto y qué mecanismos podrían explicar la resistencia.
+
+Si esta capacidad se valida clínicamente, la IA podría convertirse en una pieza importante de la oncología de precisión, logrando acercarse un poco más a la combinación adecuada para cada tumor.--------------------------------------------------------------------------------
+Americans are increasingly concerned about the environmental consequences of AI - AP-NORC (https://apnorc.org/projects/americans-are-increasingly-concerned-about-the-environmental-consequences-of-ai/)
+citeturn875search8 [wordlim: 200] Published: 3 days ago; Crawled: today; The public is also concerned about the impact of data centers on electricity prices, power outages, and water supply and supports policies regulating their development. ... This nationwide poll was conducted by The AP-NORC Center and the Energy Policy Institute at the University of Chicago (EPIC) from July 7 – 24, 2026, using TrueNorth®, which combines a sample from AmeriSpeak, the probability-based panel of NORC at the University of Chicago, with a non-probability panel sample. ... (September, 2026). https://apnorc.org/projects/americans-are-increasingly-concerned-about-the-environmental-consequences-of-ai/
+
+#### Stay in touch
+
+Environment, Energy, and Resilience
+
+# Americans are increasingly concerned about the environmental consequences of AI
+
+The public is also concerned about the impact of data centers on electricity prices, power outages, and water supply and supports policies regulating their development.
+
+Topline Results
+
+Report
+
+Press Release
+
+Image
+
+September 16, 2026
+
+A new poll from The Associated Press-NORC Center for Public Affairs Research and the Energy Policy Institute at the University of Chicago (EPIC) finds that 53% of Americans are extremely or very concerned about the environmental impacts of AI, up from 41% who said the same in 2025. Younger adults ages 18-29 have become particularly concerned, increasing from 38% last year to 60% today and moving from levels similar to other age groups to the highest level of concern.
+
+Forty-seven percent of Americans think AI will do more to hurt rather than help the environment, up from 33% who said the same in 2025. 
+--------------------------------------------------------------------------------
+#artificialintelligence #ai #cancerresearch #breastcancer #precisionmedicine #drugdiscovery #oncology #proteomics #biotechnology #healthtech | Carl Baillargeon (https://fr.linkedin.com/posts/carlbaillargeon_artificialintelligence-ai-cancerresearch-activity-7505943905859682304-22Od)
+citeturn875search9 [wordlim: 200] Published: 3 days ago; Crawled: yesterday; 16 septembre 2026 👉 Et si une cellule virtuelle pouvait aider à prédire, pour chaque cancer du sein, quel traitement a le plus de chances d’être efficace? ... ✔ Des chercheurs ont développé ProteinTalks, un nouvel outil d’intelligence artificielle qui exploite la dynamique des protéines pour modéliser le comportement des cellules cancéreuses et prédire leur réponse aux médicaments. ... Lire: https://lnkd.in/g-ApVXjB #ArtificialIntelligence #AI #CancerResearch #BreastCancer #PrecisionMedicine #DrugDiscovery #Oncology #Proteomics #Biotechnology #HealthTech
+
+# Post de Carl Baillargeon
+
+Carl Baillargeon
+
+2 j.
+
+16 septembre 2026 👉 Et si une cellule virtuelle pouvait aider à prédire, pour chaque cancer du sein, quel traitement a le plus de chances d’être efficace? Les cellules cancéreuses ne sont pas toutes identiques — et leur réponse aux médicaments peut varier considérablement. Identifier le traitement le plus adapté à une cellule tumorale donnée demeure donc un défi majeur pour la médecine de précision. ✔ Des chercheurs ont développé ProteinTalks, un nouvel outil d’intelligence artificielle qui exploite la dynamique des protéines pour modéliser le comportement des cellules cancéreuses et prédire leur réponse aux médicaments. L’outil permet notamment de : • prédire l’efficacité d’un médicament sur une lignée cellulaire cancéreuse; • identifier de nouvelles combinaisons thérapeutiques potentiellement efficaces; • repérer les protéines associées à la résistance aux traitements. Cette approche ouvre une piste intéressante vers des cellules virtuelles capables de mieux anticiper la réponse tumorale, avec le potentiel d’accélérer la découverte de traitements et de contribuer à une approche plus personnalisée du cancer du sein. 🙂 Une autre nouvelle encourageante du Groupe UIG. Lire: https://lnkd.in/g-ApVXjB #ArtificialIntelligence #AI #CancerResearch #BreastCancer #PrecisionMedicine #DrugDiscovery #Oncology #Proteomics #Biotechnology #HealthTech--------------------------------------------------------------------------------
+AI създаде цифрова клетка и започна да тества лекарства без епруветки - kaldata.com (https://www.kaldata.com/it-%D0%BD%D0%BE%D0%B2%D0%B8%D0%BD%D0%B8/%D0%B8%D0%B7%D0%BA%D1%83%D1%81%D1%82%D0%B2%D0%B5%D0%BD-%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D1%82/ai-%D1%81%D1%8A%D0%B7%D0%B4%D0%B0%D0%B4%D0%B5-%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B0-%D0%BA%D0%BB%D0%B5%D1%82%D0%BA%D0%B0-%D0%B8-%D0%B7%D0%B0%D0%BF%D0%BE%D1%87%D0%BD%D0%B0-%D0%B4%D0%B0-%D1%82-704479.html?amp=1)
+citeturn875search10 [wordlim: 200] Published: last week; Crawled: 6 days ago; 17:15 | 11.09.2026 ... Изследователи са създали ProteinTalks – виртуален модел на клетка, който прогнозира реакцията на раковите клетки на млечната жлеза към лекарства въз основа на промените в хиляди протеини.
+
+Начало IT Новини Изкуствен интелект AI създаде цифрова клетка и започна да тества лекарства без епруветки
+
+  * IT Новини
+  * Изкуствен интелект
+
+# AI създаде цифрова клетка и започна да тества лекарства без епруветки
+
+от
+
+Емил Василев
+
+-
+
+17:15 | 11.09.2026
+
+0
+
+Изследователи са създали ProteinTalks – виртуален модел на клетка, който прогнозира реакцията на раковите клетки на млечната жлеза към лекарства въз основа на промените в хиляди протеини. Системата е била обучена с над 38 милиона измервания, а при тестване с лекарства, които не са били включени в обучителната извадка, моделът правилно е предсказал клетъчния отговор в около 88% от случаите. --------------------------------------------------------------------------------
+Weekly BioML Digest [September 16, 2026] (https://www.biomldigest.com/weekly-bioml-digest-september-16-2026/)
+citeturn875search11 [wordlim: 200] Published: 3 days ago; Crawled: today; # Weekly BioML Digest [September 16, 2026] ... Machine Learning × Computational Biology paper compilation ... ProteinTalks pretrains on 38M time-resolved proteomics measurements to learn transferable dynamical cell representations, enabling drug efficacy/synergy prediction, resistance probing, and patient stratification across cell lines and organoids. ... Yiming Xue, Xiaojian Liu, Weimin Zhu, Shengfan Wang, Hong-Bin Shen, Xiaoyong Pan — Nucleic acids research, 2026-09-07ProRB unifies sequence-only prediction of protein–RNA affinity, bidirectional interface contacts, and protein-binding RNA design via adaptive cross-modal attention over language-model embeddings, revealing interpretable motif-centric binding logic.
+
+# Weekly BioML Digest [September 16, 2026]
+
+Image: Weekly BioML Digest [September 16, 2026]
+
+Machine Learning × Computational Biology paper compilation
+
+> Sorry for the late post this week, I had a battle with arXiv API.
+
+> Hey! It's your weekly digest of machine learning papers in CompBio and Drug Discovery.
+
+Feedback? Email me at biomldigest@gmail.com.
+
+## 📚 Peer-Reviewed Journals (Top 20)
+
+1198 matched filters -> 20 selected after LLM relevance + novelty ranking.
+
+  * 🌿 An operational perturbation proteomics-based virtual cell model
+Sun, Rui, Qian, Liujia, ..., Zhu, Yi, Guo, Tiannan — Nature, 2026-09-09
+ProteinTalks pretrains on 38M time-resolved proteomics measurements to learn transferable dynamical cell representations, enabling drug efficacy/synergy prediction, resistance probing, and patient stratification across cell lines and organoids.
+
+  * 🌿 Breaking timescales with generative sampling of conformational transitions
+--------------------------------------------------------------------------------
+MONDAY, NOVEMBER 10, 2025 (https://2025.hupo.org/wp-content/uploads/2025/11/HUPO-2025-Pocket-Program_web.pdf)
+citeturn875search12 [wordlim: 200] Published: 10 months ago; Crawled: 10 months ago; MONDAY, NOVEMBER 10, 2025 ... 17:08 OS09.03: ProteinTalks: Exploring the Potential of AI Virtual Cells Based on Perturbation Proteomics for Clinical Applications ... 17:21 OS09.04: Proteomic Signatures in Glioblastoma: A Dual-Cohort Study From the Clinical Mass Spectrometry Center Munich (CLINSPECT-M) ... 17:10 OS11.09: A Smarter Way to Compare Healthy and Diseased Biological Samples: Saving Time in Protein Analysis
+--------------------------------------------------------------------------------
+5.2 AI ACROSS SCIENTIFIC DOMAINS | SCIENCE | AI INDEX REPORT 2026 (https://research.spbstu.ru/userfiles/files/doc/stanford_ai_index_2026_%28423_pgs%29.pdf)
+citeturn875search13 [wordlim: 200] Published: 5 months ago; 5.2 AI ACROSS SCIENTIFIC DOMAINS | SCIENCE | AI INDEX REPORT 2026 ... <td><u>ProteinTalks-DB</u></td> ... BioML-bench provides the first end-to-end evaluation of AI agents on biomedical machine learning tasks that span protein engineering to drug discovery, and it found that on average agents underperform human baselines.These results are consistent with the pattern observed across other scientific domains in this chapter.AI systems perform well on isolated subtasks but struggle when required to execute the multistep workflows that actual biological research demands (Figure 5.2.6).
+--------------------------------------------------------------------------------
+1554  生命科学  第37卷 (https://lifescience.sinh.ac.cn/webadmin/upload/20260112110155_4049_7297.pdf)
+citeturn875search14 [wordlim: 200] Published: 8 months ago; ProteinTalks[30] 是该领域的开创性工作。研究者首先在约 1.6 万个癌细胞系样本中获得了约 3 800 万个药物扰动后的蛋白质测量值。
+--------------------------------------------------------------------------------
+World Bank Document (https://documents1.worldbank.org/curated/en/594471520840951445/pdf/Azerbaijan-Social-Protection-Development-Project-INT-redacted-report.pdf)
+citeturn875search15 [wordlim: 200] Crawled: 10 months ago; When INT presented this evidence in a follow-up interview, the General Director responded that while Company D should be responsible for the Manufacturer B MAF, the Project Manager should know how the Manufacturer E and Manufacturer F MAFs were obtained. ... The World Bank imposed sanctions on Company A, Company A’s Project Manager, and Company A’s General Director, extending to any legal entities directly or indirectly controlled by any of them.
+--------------------------------------------------------------------------------
+CSIAM Trans. Life Sci. (https://global-sci.com/csiam-ls/article/download/23804/37019/39285)
+citeturn875search16 [wordlim: 200] Published: 5 months ago; Sci., x (2026), pp. ... Perturbation analysis quantiﬁes causal changes in protein expression and PTMs under ... teinTalks is a neural ODE–based perturbation proteomics foundation model trained on ... ProteinTalks improves drug
+--------------------------------------------------------------------------------
+02
+Welcome Message
+03
+Organization Committee
+05
+Co (https://cnhupo.org.cn/wp-content/uploads/2025/10/aohupo-prog_20251003-1209.pdf)
+citeturn875search17 [wordlim: 200] Published: 7 months ago; Time 11:10-11:20 | Speaker and Title Rui Sun Westlake University, China Title: ProteinTalks: An AI Virtual Cell Foundation Model Extended to Clinical Application ... Time 11:50-12:00 | Speaker and Title Siyu He Sichuan University, China Title: Global Analysis of Protein Modifications Reveals Faecalibacterium-mediated PRDX6 Acetylation Protecting Against Primate Gut Inflammaging
+

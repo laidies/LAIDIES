@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "newsstand-authority-correction-addendum-v1",
+  "candidateId": "california-ai-oversight-order-20260920",
+  "correctedAt": "2026-09-20T20:12:48.250Z",
+  "status": "CORRECTED",
+  "rejectedAttempt": {
+    "commit": "7ea8b657bc5ace8f4a23d041d7590947f0951512",
+    "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/assembled-current-authority/ordinary-candidate.json",
+    "disposition": "INVALID_FOR_ADMISSION",
+    "reason": "It treated the stale shared iCloud reader contract as current and stubbed validatePublishedStoryImage. That weakened the actual current NewsStand gate and may not be used."
+  },
+  "currentAuthority": {
+    "ownedReaderContract": {
+      "path": "content/newsstand-reader-contract.js",
+      "sha256": "1ad2e39123cdc91e49b2df48459b125b2a9b4932f32cb7ef6d6764c6a48efe88",
+      "requiresPublishedStoryImage": true
+    },
+    "liveVerification": {
+      "reportedBy": "/root",
+      "url": "https://laidies.ai/content/newsstand-reader-contract.js",
+      "sha256": "1ad2e39123cdc91e49b2df48459b125b2a9b4932f32cb7ef6d6764c6a48efe88"
+    },
+    "historyFinding": "git show 078444d8^:content/newsstand-reader-contract.js contains the same heroVisual src/alt requirement; 078444d8 extracted the helper rather than creating the requirement."
+  },
+  "repair": {
+    "asset": {
+      "path": "assets/newsstand/california-ai-oversight-order-20260920.png",
+      "sha256": "47ac2b416eeaf8031be788494f732d782ee5c11f66bfdb4ee3668bf8b2041aec"
+    },
+    "visualAdmission": {
+      "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/art/independent-review.json",
+      "sha256": "687b68a60f2591a39326b5d8dc0a53fcd5d6bad32db3764bc62a86bbb165ee15"
+    },
+    "heroVisual": {
+      "src": "/assets/newsstand/california-ai-oversight-order-20260920.png",
+      "alt": "A blue-pencil sketch of a proposed emergency shutoff button on graph paper beside a pencil and eraser, with a California outline.",
+      "credit": "Illustration: LAiDIES"
+    },
+    "validatorPolicy": "Run the normal unmodified validator and assembler. No exception, stub or no-image path remains."
+  }
+}

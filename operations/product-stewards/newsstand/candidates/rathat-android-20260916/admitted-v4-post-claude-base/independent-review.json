@@ -1,0 +1,964 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "rathat-android-20260916",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/evening_sources",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-19T17:51:50.759Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/review-text.json",
+      "sha256": "cb878a29ecec8f91670d9187dd920fc86bc92900c508038b155a8d84dd3097fc"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/publication-manifest.json",
+      "sha256": "e8166517480d886184260eb6f7b676931730b899c34e1ee9284bc30fd551d505"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/rendered-article.html",
+      "sha256": "4436fcac1cbdb3b07b53e8ff432d087262843ba113e1d944db5ac87e5245f5e6"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-19T17:37:53.606Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are introduced only where they do causal work inside the running example, not as a definition list.",
+            "artifactLocator": "P022, P028"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances the single narrative rather than repeating a paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than ornamental comparisons; the lone 'osmosis' quip supports the point about absent input.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references accumulate anywhere in the opening.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from missing context to weak output to repaired input is traced step by step.",
+            "artifactLocator": "P021, P029, P043"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case: attach the benefits guide, state constraints, inspect the returned commute evidence, and the four closing questions are operational.",
+            "artifactLocator": "P040, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "The text repeatedly shows how information moves between product, context, model, tools and output, culminating in an explicit flow map.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are hedged appropriately, including that the revised answer is not proof Juniper is objectively better and that failures may have multiple causes.",
+            "artifactLocator": "P043, P046"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No material time-sensitive external claims are made; the scenario is hypothetical.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is plain and concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived job-offer decision with the Tuesday physiotherapy detail keeps human interest present through the instruction.",
+            "artifactLocator": "P012"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example repeatedly reconnects to the technical machinery of context, inference and tool operations.",
+            "artifactLocator": "P024, P033"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original plain explanation without imitated persona, mannerisms or borrowed structure.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "There is no spectacle or humour that competes with the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the causal explanation receives the large majority of the chapter.",
+            "artifactLocator": "P003"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The improved comparison arrives only after the missing-context and tool mechanisms have been established.",
+            "artifactLocator": "P041, P043"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending stays a bounded distinction about model, product and system rather than a grand moral.",
+            "artifactLocator": "P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the failed-result diagnostic transformation; judging hype or panic in public claims and informed workplace/civic participation are never established as reader payoffs before the machinery.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model component machinery begins immediately after the hook, and the stakes stay inside the one job-offer example rather than first establishing the promised cross-context practical and civic reasons for this knowledge.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single job-offer walkthrough fills essentially the entire opening while the book's broader foundational orientation is deferred to a future chapter list rather than delivered.",
+            "artifactLocator": "P011, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, the organising perspective is locating which technical component failed in a pipeline; the promised orientation toward judging public claims and participating in decisions about AI is absent.",
+            "artifactLocator": "P006, P044, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "P011"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "That distinction matters because an answer can fail in different places. The model may generate a false claim. The right document may never reach the model. A search may return an old policy. A tool may not have permission to open the file. The product may hide which source supported a sentence. Or the answer may be accurate while still being wrong for *your* priorities.",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "This is the repair pattern to remember. When an AI answer is weak, do not begin by asking it to sound more certain. Find the weak part of the system.",
+            "locator": "P044"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Nine successive term definitions dominate the chapter; one-line placement sentences and the handover thread supply some system connection, but the connective tissue stays thin relative to the accumulated definitions.",
+            "artifactLocator": "P003, P019, P027"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every entry repeats the identical scaffold—definition, analogy with 'Where it stops:', 'In real life.', boundary sentence—so a fixed template substitutes for a developing explanation.",
+            "artifactLocator": "P004, P008, P016"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (team, Walkman, toolbox, librarian) maps to a specific component role and explicitly states where the comparison stops, so they carry explanatory weight rather than flavour.",
+            "artifactLocator": "P016, P020, P036"
+          },
+          "referenceConfetti": {
+            "state": "uncertain",
+            "observation": "Clueless, the Walkman and an unintroduced 'Miss Jeeves' accumulate as period pop references; each is given a mapping job, but Miss Jeeves arrives without context and the density edges toward confetti.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placements (context assembled, model transforms, tools connect around it) are supplied, and deeper mechanism like tokens is explicitly deferred to Chapter 2 rather than omitted.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, such as checking names, dates and small labels against originals rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Technical terms are defined at first meaningful use, and 'tokens' is flagged with an explicit forward pointer rather than left unexplained.",
+            "artifactLocator": "P023, P015"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences trace how the request, assembled context, model output and tools relate, so the named parts are connected into a flow.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are hedged proportionately ('may', 'does not prove') and the prose repeatedly limits rather than overclaims.",
+            "artifactLocator": "P024, P030"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are made that would require tracing to a source.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is plain and concrete throughout, with no motivational or corporate filler obscuring meaning.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "uncertain",
+            "observation": "The warm second person and playful analogies partially offset it, but the rigid definition-per-entry format still reads in stretches like a terminology manual.",
+            "artifactLocator": "P019, P031"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked anywhere in the artifact as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The chapter raises no unresolved hooks; its opening claim that the distinction 'tells you what to fix' is served by the subsequent parts map.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison explicitly returns to the technical component via its 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P012, P016"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is its own plain register with no imitation of a named communicator's persona, mannerisms or structure.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and pop references are brief and subordinate to the definitions; nothing obstructs understanding.",
+            "artifactLocator": "P012"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no attention-grabbing hook consuming the piece; explanation occupies essentially all of the text.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "Boundary conclusions in each entry follow their definitions and placements rather than preceding them.",
+            "artifactLocator": "P026, P034"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a bounded, precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the fix-your-own-AI-result task; the promised transformations of judging public hype/panic and informed civic/workplace participation never appear.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "This opening launches directly into system taxonomy at P002–P003 without first establishing the three destination-level reader transformations, and the reader job forbids assuming an unseen preface supplied them.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-draft example carries every 'In real life' beat, crowding out the broader cross-context orientation—public claims, decisions, civic stakes—the book promises.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing components and workflow ('tells you what to fix', what 'reaches the model'), not the promised practical and civic orientation.",
+            "artifactLocator": "P002, P014, P018"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman: essential to what happens, but not the cassette you chose, the buttons you pressed or the headphones you hear through. Where it stops: models perform learned mathematical transformations; generative models such as LLMs use probabilities to produce content, while other model types may classify, rank, forecast or detect.",
+            "locator": "P016"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The product receives your request and assembles what reaches the model.",
+            "locator": "P014"
+          },
+          {
+            "excerpt": "The model sits inside the product, after context is assembled and before the output returns to you.",
+            "locator": "P018"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller ID analogy is genuinely load-bearing: it explains the specific causal limit of a label (origin, not truth) and is cashed out against a concrete train-closure case in P007.",
+        "Time-sensitive claims are precisely dated and sourced to Article 50 with the December 2, 2026 transition distinguished from a general delay (P002, P005), making the report checkable at its stated date.",
+        "The next action in P009 is concrete and case-specific—check the source's date, exact line, stations and day—rather than a generic 'verify' instruction.",
+        "Uncertainty is handled honestly: P003 notes named systems may be inaccurate, and P010 warns an absent label proves nothing and disclaims compliance completeness."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "A surprise text, ad or pop-up wants me to install an Android app — is my phone already in danger, and what should I actually do?",
+    "promisedPayoff": "Understand the real infection route of the RatHat report so you know the warning sign is the install-and-grant request, not the message itself, and get bounded Google-supported checks.",
+    "centralMentalModel": "Android malware in this report needs a chain of your own actions — manual download outside Play, then granting Accessibility/restricted settings — so each link is a checkpoint where you can stop it.",
+    "dailyLifeConnection": "Anyone who gets delivery texts, ad pop-ups or QR prompts recognizes the moment a link pressures them to install an app.",
+    "surfaceJob": "A dated daily news article explaining a September 16 vendor malware report and the proportionate consumer response.",
+    "desiredReaderFeeling": "Calm and equipped: not panicked about a 'new virus', able to recognize the exact suspicious moment and act."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Each sentence is followable without technical training; APK-vs-Play distinction, Accessibility and restricted settings are all rendered in ordinary language at first use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>An app file downloaded from a link is not the same as an app installed from Google Play. <strong>Play Protect</strong> is Google’s built-in app safety check: Google says it scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader gains the decision rule: the install-plus-extra-control request is the warning sign, and the checkpoints where refusal stops the chain.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "“The warning sign is not ‘Android has a new virus.’ It is: a surprise link wants you to install an app and hand it extra control.”",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>This report describes a malware family and a deceptive installation chain. It does not prove a message has infected your phone, or mean a legitimate accessibility tool is suspicious simply because it uses Accessibility.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid adult register ('stop and find the app', 'that is why this is a review step') with no condescension, panic or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "“The warning sign is not ‘Android has a new virus.’ It is: a surprise link wants you to install an app and hand it extra control.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The reframe from 'new virus' to 'a surprise link wants extra control' sustains interest, and the cocktail-party line lands a memorable earned click without forced humour.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A new Android threat asks people to install a fake app. The important warning comes first.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "“The warning sign is not ‘Android has a new virus.’ It is: a surprise link wants you to install an app and hand it extra control.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated news article answering what happened (Sept 16 Zimperium report), how it works, and what it means for the reader — squarely inside its scope, with the safety answer appropriately placed early.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The mechanism is anchored in the recognizable moment a text, ad or pop-up pushes an app install — a situation the professional reader routinely encounters.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "“The warning sign is not ‘Android has a new virus.’ It is: a surprise link wants you to install an app and hand it extra control.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose first (headline puts the warning first), concrete causal chain in the centre (P002–P003), earned click (P008) and a bounded landing (P007) — mechanics applied with no imitation of any communicator.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This report describes a malware family and a deceptive installation chain. It does not prove a message has infected your phone, or mean a legitimate accessibility tool is suspicious simply because it uses Accessibility.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "“The warning sign is not ‘Android has a new virus.’ It is: a surprise link wants you to install an app and hand it extra control.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The article's causal chain (deceptive page → manual APK → Accessibility grant → screen reading and app control) supports an accurate plain-language answer to why the grant, not the message, is the dangerous step.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.</p>",
+          "locator": "P003"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why does the RatHat report say the danger comes from granting Accessibility access, rather than from receiving the phishing text itself?",
+        "response": "The text or ad only opens a deceptive download page; nothing happens until the person manually downloads and installs the app file outside Google Play. Even then the app is limited until the person grants Accessibility access, which lets it read whatever is on screen — like banking passwords — and tap and type inside other apps on the person's behalf. Each step needs the person's consent, so the message alone cannot infect the phone; the grant is what hands over control.",
+        "expectedEvidence": "An accurate answer must reproduce the chain in P002 (message → deceptive page → manual install outside Play), the capability description in P003 (read screen, interact with apps), and the P002/P007 boundary that a message alone cannot infect.",
+        "assessment": "The article's mechanism fully supports this answer in ordinary language; every causal link and the boundary condition are stated in P002, P003 and P007, so explain-back passes."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The mechanism generalizes: the chain-of-consent model applies to a novel QR-code parking-app scenario not in the article, yielding the same checkpoints (install source, developer identity, access request).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p>",
+          "locator": "P006"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using the article's mechanism, which steps in this parking scenario are the warning signs, and what should the person do at each one?",
+        "response": "The first warning sign is the sideload pressure: a claim that a mainstream city payment app must be installed from a direct APK link matches the deceptive-download-page route, so the person should stop and search Google Play or the city's official website instead. If the app is already installed, the Accessibility request is the second checkpoint: a parking-payment app has no plausible need to read the screen or act inside other apps, so under the trust-the-developer rule the person should refuse, keep Play Protect on and follow its instruction if it flags the app. Nothing about scanning the QR code alone infected the phone.",
+        "expectedEvidence": "Correct transfer applies P002's manual-install-outside-Play route, P006's find-it-on-Play-or-official-site and check-the-developer actions, and P005's needs-based test for whether an access request is plausible for the app's job.",
+        "assessment": "The mechanism transfers cleanly: the chain-of-consent model identifies both checkpoints and the proportionate action in a situation nowhere in the article, so unseen transfer passes."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Actions are specific and proportionate: find the app via Play or the official site, withhold Accessibility/restricted-settings approval until the developer is checked, keep Play Protect on and follow its instruction.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>An app file downloaded from a link is not the same as an app installed from Google Play. <strong>Play Protect</strong> is Google’s built-in app safety check: Google says it scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The only figurative move — restricted settings as Android's 'extra pause' — maps the mechanism accurately (a review checkpoint, not a block) and retains the legitimate-use limit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim is attributed to Zimperium or Google and stays within the supplied excerpts; no invented prevalence, remote-infection or guarantee claims appear.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>An app file downloaded from a link is not the same as an app installed from Google Play. <strong>Play Protect</strong> is Google’s built-in app safety check: Google says it scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The September 16 report date is stated in the text, all three sources carry September 19 access dates, and the artifact records a lastCheckedAt timestamp, making the time-sensitive claims checkable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "This is a single newly reported disclosure; P002 anchors it to the September 16 Zimperium report and nothing conflates it with older events or ongoing infections.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This report describes a malware family and a deceptive installation chain. It does not prove a message has infected your phone, or mean a legitimate accessibility tool is suspicious simply because it uses Accessibility.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (screen reading and app control if Accessibility is granted) while uncertainty survives: P007 explicitly says the report does not prove a message infected any phone or make legitimate accessibility tools suspicious.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>This report describes a malware family and a deceptive installation chain. It does not prove a message has infected your phone, or mean a legitimate accessibility tool is suspicious simply because it uses Accessibility.</p>",
+          "locator": "P007"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Definitions are woven into the infection chain rather than stacked as a glossary.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop the explanation sequentially; no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The lone 'extra pause' comparison does causal work explaining the review checkpoint.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "A single relevant class cross-reference; no accumulation of pop-culture or gratuitous references.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The full causal chain from lure to Accessibility abuse is stated with each step's role.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Advice is concrete and case-specific (find via Play/official site, check developer before granting, follow Play Protect's instruction), not 'be careful'.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Every technical term is explained at or before first meaningful use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Parts (download source, Play Protect, restricted settings, Accessibility) are shown interacting within one chain.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is calibrated: 'it says', 'Zimperium says', and P007 explicitly bounds what the report proves.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Report date, source access dates and lastCheckedAt make all time-sensitive claims traceable.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete throughout; no vague corporate or motivational filler.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The reframing hook and conversational asides keep it from becoming a dry checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is mentioned anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's promised warning is delivered explicitly in the story and cocktail line.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The familiar text/ad/pop-up situation reconnects directly to the technical install-and-grant mechanism.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Voice is original LAiDIES register; no imitation of a communicator's persona or mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle competes with the explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The hook is one headline line; the causal chain occupies the bulk of the piece.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The safety-critical answer appears first, which the benchmark permits for news; the mechanism then fully supports it.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending narrows rather than inflates, stating exactly what the report does not prove.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers the full supplied job: the report, the no-remote-infection boundary, and bounded Google-supported checks.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human stake (a fake-app install request) is established in the headline before any technical machinery.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not applicable in form and not present: the single incident is the article's proper scope.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "For a bounded news report, explaining this specific mechanism is the right perspective, and it stays organized around reader decisions.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+        "sha256": "ad4fcd2cb32e457415c9ee2e5a5db5784e701dba0d3c2e0640761e0e87005c91"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "reported-route",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>This report describes a malware family and a deceptive installation chain. It does not prove a message has infected your phone, or mean a legitimate accessibility tool is suspicious simply because it uses Accessibility.</p>",
+            "locator": "P007"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+          "sha256": "ad4fcd2cb32e457415c9ee2e5a5db5784e701dba0d3c2e0640761e0e87005c91"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Zimperium says RatHat is primarily distributed through targeted smishing and malvertising that leads victims to deceptive third-party download portals, then lures them into manually downloading malicious APKs.",
+            "locator": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts"
+          },
+          {
+            "excerpt": "Zimperium says a critical dependency is Accessibility Service activation, acquired through a localized lure.",
+            "locator": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts"
+          }
+        ],
+        "scopeAndFreshness": "P002 matches the Zimperium excerpt: RatHat spread via text phishing/malicious ads leading to deceptive download pages, beginning with manual APK download outside Play. Attribution ('Zimperium reported/says') and the no-remote-infection limit are retained."
+      },
+      {
+        "claimId": "accessibility",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+          "sha256": "ad4fcd2cb32e457415c9ee2e5a5db5784e701dba0d3c2e0640761e0e87005c91"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Zimperium says RatHat is primarily distributed through targeted smishing and malvertising that leads victims to deceptive third-party download portals, then lures them into manually downloading malicious APKs.",
+            "locator": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts"
+          },
+          {
+            "excerpt": "Zimperium says a critical dependency is Accessibility Service activation, acquired through a localized lure.",
+            "locator": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts"
+          },
+          {
+            "excerpt": "Google says not to allow restricted settings unless you trust the app developer.",
+            "locator": "https://support.google.com/android/answer/12623953?hl=en"
+          },
+          {
+            "excerpt": "Google says some legitimate disability-support apps might ask to turn on accessibility settings; with that access, an app can read screen content and interact with apps on a person's behalf.\nGoogle advises an unsure reader to use the organization’s official website or search an app store they trust, such as Google Play.",
+            "locator": "https://support.google.com/android/answer/12623953?hl=en"
+          }
+        ],
+        "scopeAndFreshness": "P003 attributes the Accessibility-persuasion step to Zimperium and correctly describes what the setting permits (read screen, interact on the person's behalf), matching Google's restricted-settings excerpt; P005 preserves the legitimate-disability-tool caveat so the claim's scope is intact."
+      },
+      {
+        "claimId": "google-guidance",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>An app file downloaded from a link is not the same as an app installed from Google Play. <strong>Play Protect</strong> is Google’s built-in app safety check: Google says it scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+          "sha256": "ad4fcd2cb32e457415c9ee2e5a5db5784e701dba0d3c2e0640761e0e87005c91"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Google Play Protect checks apps and devices for harmful behavior, including potentially harmful apps from other sources; it can warn, deactivate or remove harmful apps.",
+            "locator": "https://support.google.com/googleplay/answer/2812853?hl=en"
+          },
+          {
+            "excerpt": "Google recommends always keeping Google Play Protect on.",
+            "locator": "https://support.google.com/googleplay/answer/2812853?hl=en"
+          },
+          {
+            "excerpt": "Google says not to allow restricted settings unless you trust the app developer.",
+            "locator": "https://support.google.com/android/answer/12623953?hl=en"
+          },
+          {
+            "excerpt": "Google says some legitimate disability-support apps might ask to turn on accessibility settings; with that access, an app can read screen content and interact with apps on a person's behalf.\nGoogle advises an unsure reader to use the organization’s official website or search an app store they trust, such as Google Play.",
+            "locator": "https://support.google.com/android/answer/12623953?hl=en"
+          }
+        ],
+        "scopeAndFreshness": "P004 accurately states Google's Play Protect description (scans apps from Play and other sources; can warn, disable or remove) and the keep-it-on recommendation; P005/P006 restate the restricted-settings rule of not allowing unless the developer is trusted, without turning guidance into a guarantee."
+      }
+    ],
+    "reviewedThrough": "2026-09-19",
+    "nextTrigger": "Reopen Zimperium for a correction or Google for a material Play Protect/restricted-settings guidance change.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior candidate receipt is reused; this is a private candidate for Zimperium’s September 16 RatHat report."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All reader outcomes and news checks pass and every failure family is clear; there is no failed or uncertain assessment to route into the learning loop."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=2; evidence gaps repaired=1; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/admitted-v4-post-claude-base/news-editorial-analysis.json",
+      "sha256": "001d9c6b4e39d6ea218e023ac68ae3ffce3e674b0d6972b6ce0c457bf8c1d945"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/admitted-v4-post-claude-base/independent-raw-report.json",
+    "sha256": "da0fe3ea02f46c65976cd8f9ca34584e55cc99a7b80f526af68b5fe9128b8950"
+  }
+}

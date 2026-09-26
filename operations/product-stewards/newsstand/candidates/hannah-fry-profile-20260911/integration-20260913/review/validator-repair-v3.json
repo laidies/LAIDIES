@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "laidies.luminairy-validator-repair-receipt.v2",
+  "checkedAt": "2026-09-13T15:56:14.640Z",
+  "supersedes": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/validator-repair-v2.json",
+    "sha256": "2caca1f19eb8bef79e37a1e3008c557824994d4969415f5b7276b389939e29a2"
+  },
+  "script": {
+    "path": "scripts/validate-luminairy-claims.mjs",
+    "sha256": "321167f6e1fae8f9fe0f76d6e9a4ec21e7385f7cd73b006df9a6b8445e06838c"
+  },
+  "result": "PASS",
+  "preservedChecks": [
+    "LUMINAIRY_PROFILES_PATH override",
+    "actual source-packet SHA check in every mode",
+    "resource status and content-free lander exclusion",
+    "full-mode CSS/image/Saint-song checks"
+  ],
+  "successorRule": "Any Hannah r7 receipt requires authority-v2, even if a tampered historic resource record is altered to the current profile hash.",
+  "positiveRuns": [
+    "frozen five-file base with actual read-only source/resource inputs: PASS",
+    "integration with actual source/resource and authority-v2 inputs: PASS"
+  ],
+  "negativeRuns": [
+    {
+      "case": "tampered source packet",
+      "result": "PASS fail-closed",
+      "output": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/validator-tampered-source.out",
+      "sha256": "d758616892943b575fc10047bb1d66b38cca1d0665a2c80b72fedf2c9cb0b021"
+    },
+    {
+      "case": "tampered historic resource admission hash",
+      "result": "PASS fail-closed",
+      "output": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/validator-tampered-historic-resource-v2.out",
+      "sha256": "0212a73b1169a57f4981b2c9f5a20ca467a41e26f55eb55b73611cd3cc43a5ae"
+    },
+    {
+      "case": "historic resource altered to current profile hash with authority omitted",
+      "result": "PASS fail-closed",
+      "output": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/validator-current-resource-missing-authority.out",
+      "sha256": "1ec4238d3ebd0d90598a8ef53f747b9b60e7bbf846a9d3e3249fea3fd6dd0fb8"
+    }
+  ],
+  "fixtureScope": "LUMINAIRY_CLAIMS_ONLY=1 explicitly skips CSS, image, and Saint-song byte existence because the frozen five-file fixtures lack those bytes. Source packet, resource record, profiles, claims, receipts, signatures, and authority remain checked."
+}

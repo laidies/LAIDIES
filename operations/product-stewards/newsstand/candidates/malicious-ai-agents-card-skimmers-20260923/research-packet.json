@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "laidies.newsstand-private-research-packet.v1",
+  "candidateId": "malicious-ai-agents-card-skimmers-20260923",
+  "status": "SOURCE_BOUND_RESEARCH_READY_NO_PUBLIC_PROSE",
+  "sourceEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/malicious-ai-agents-card-skimmers-20260923/source-evidence.json",
+    "sha256": "683d0ada5c187edbd575b3c9aa6c67682feb52db2462c8f11ed67a57881f7acb"
+  },
+  "claimList": {
+    "path": "operations/product-stewards/newsstand/candidates/malicious-ai-agents-card-skimmers-20260923/claim-list.json",
+    "sha256": "2e45c6fce2c339d7ef7d4e43a20e2b419123de6d9cbe93b9af42f9d3ea62d225"
+  },
+  "attempts": {
+    "path": "operations/product-stewards/newsstand/candidates/malicious-ai-agents-card-skimmers-20260923/attempts.json",
+    "sha256": "56334279203521c1f31a5b13d7242842a373efadef02d4447b68571620510697"
+  },
+  "readerQuestion": "What is actually known about the reported AI-assisted retail card-skimming campaign, and does it establish a personal action for shoppers today?",
+  "readerRelevance": {
+    "concrete": "The reports describe payment-card theft from online retailers and ongoing skimmer activity, which may matter to people who shop online.",
+    "boundary": "Neither report identifies a consumer-facing retailer list, a named card-issuer notice, or a reader-specific exposure route.",
+    "actionDisposition": "NO_INCIDENT_SPECIFIC_PERSONAL_ACTION_YET. Do not invent card-cancellation, retailer-avoidance, software-patch, or generic safety advice without an affected-party notice or a documented reader exposure.",
+    "audienceConsequence": "A responsible piece could help readers distinguish a reported broad threat from proof that their own card was exposed."
+  },
+  "factsVersusAssertions": {
+    "directlyVerifiedByThisResearch": [
+      "BleepingComputer and Gambit published accessible reports on September 23 and September 22 respectively.",
+      "BleepingComputer links Gambit as the underlying report.",
+      "Gambit labels its own material an interim report and states explicit evidence and uncertainty categories."
+    ],
+    "reportedAsGambitObservations": [
+      "Recovered staging-server material, live skimmer checks, server logs, campaign timing, card-record quantity, and tool roles."
+    ],
+    "reportedEstimatesOrInferences": [
+      "Total spending range, marginal per-target economics, broader campaign size beyond directly verified cases, actor attribution, and implications of agent tempo."
+    ],
+    "notEstablished": [
+      "Independent replication by LAiDIES",
+      "a complete victim or consumer exposure list",
+      "whether any particular reader or their issuer is affected",
+      "the full campaign scope or attribution",
+      "a specific safe action beyond following an affected-party notice if one exists"
+    ]
+  },
+  "editorialDisposition": "KEEP as a source-bound ordinary-news research candidate. It can be developed only after a producer contract limits all quantities to their source, separates Gambit’s direct observations from its estimates, explains the human-plus-AI role without operational detail, and retains the absence of a named consumer action.",
+  "concreteProductionNextAction": "A producer must create and pass an exact NEWSSTAND_DAILY producer contract before writing any prose. The contract must name the reader question, use both reports, preserve source attribution and uncertainty, state that no personal exposure is established, and explicitly exclude tactical attack details and invented advice.",
+  "nextCheck": [
+    "Affected-retailer or payment-issuer advisories that establish a specific consumer consequence.",
+    "A public update from Gambit that revises the interim counts or evidence status.",
+    "Independent reporting or affected-party confirmation that corroborates or narrows reported scope."
+  ],
+  "safetyBoundary": "No exploit chains, indicators of compromise, payloads, credentials, persistence, evasion, target-selection instructions, or detailed remediation recipes are included.",
+  "publicProseWritten": false,
+  "reviewOrAdmissionClaimed": false,
+  "canonicalOrPublicWriteClaimed": false
+}

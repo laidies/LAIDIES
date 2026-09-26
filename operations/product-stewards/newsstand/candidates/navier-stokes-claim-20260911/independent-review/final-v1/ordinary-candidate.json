@@ -1,0 +1,260 @@
+{
+  "schemaVersion": "newsstand-ordinary-story-candidate-v2",
+  "candidateStatus": "READY_FOR_ISSUE_ADMISSION",
+  "candidateId": "navier-stokes-claim-20260911",
+  "editionDate": "2026-09-11",
+  "story": {
+    "id": "navier-stokes-claim-20260911",
+    "slug": "navier-stokes-claim-20260911",
+    "edition": "daily",
+    "status": "hold",
+    "publishedAt": null,
+    "updatedAt": "2026-09-11T16:09:49.235Z",
+    "lastCheckedAt": "2026-09-11T16:09:49.235Z",
+    "sourceApproval": {
+      "record": "newsstand:source-approval:navier-stokes-claim-20260911",
+      "status": "independent-review-required"
+    },
+    "correction": null,
+    "correctionHistory": [],
+    "retraction": null,
+    "predecessorStoryIds": [],
+    "successorStoryIds": [],
+    "relationshipType": null,
+    "bigPicture": null,
+    "thread": null,
+    "thread_subtitle": null,
+    "thread_entry": null,
+    "headline": "OpenAI published an AI-generated Navier–Stokes proof. Independent checking comes next",
+    "heroVisual": {
+      "src": "/assets/newsstand/design-20260830/latest-checking.png",
+      "alt": "Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.",
+      "credit": "LAiDIES NewsStand evidence-checking illustration"
+    },
+    "the_story": "<p>On September 8, OpenAI published a 166-page manuscript and a public repository it describes as Lean formalizations. The company says an internal AI system solved the Navier–Stokes existence and smoothness problem, one of mathematics’ Millennium Prize Problems.</p><p>The Navier–Stokes equations are mathematical rules used to describe how fluids move. The open question asks whether a smooth three-dimensional flow must stay smooth, or whether it can reach a point where its speed grows without bound in a finite time. That point is called a <strong>singularity</strong>.</p><p>OpenAI’s manuscript says it constructs a smooth, forced fluid that starts at rest, develops unbounded speed in finite time and keeps finite energy. Nature reported the announcement as OpenAI’s claim. LAiDIES inspected the manuscript’s abstract and first twelve pages and the public repository; we did not check the 166-page proof theorem by theorem or run the formalization.</p>",
+    "laidies_read": "<p>OpenAI says about 10,000 concurrent AI agents worked on the result. That is the company’s account of how the proof was produced, not an independently measured result.</p><p>A <strong>Lean formalization</strong> is a proof rewritten so software can check each encoded step against formal rules. Think of a referee checking every recorded move against a rulebook. That can expose an invalid move. Mathematicians must still judge whether the encoded statement and assumptions match the original problem, whether the whole argument is sound and whether the result earns broad acceptance.</p><p>Those are separate stages. OpenAI has made a manuscript and formalization public. Clay Mathematics Institute rules say a proposed solution must appear in a qualifying outlet, wait at least two years and receive general acceptance before Clay will consider it. None of those later stages is established by this announcement. OpenAI says it does not intend to claim the prize.</p><p>There is also an unresolved attribution question around concurrent research. Mathematician Tristan Buckmaster says he asked whether private Codex sessions containing his group’s drafts had been used. His statement explicitly says he does not know whether the data was used and is not accusing anyone. OpenAI’s September 10 update says its own investigation found those prompts could not have influenced its result, including through training. The supplied record does not independently resolve the two accounts.</p>",
+    "what_this_means": "<p>The change now is that specialists can inspect public materials behind a dramatic “AI solved it” headline. Independent verification, community acceptance and any prize decision have not happened in the evidence reviewed here.</p><p>For this claim, or a future headline saying AI discovered a treatment, ask which stage has happened: announcement, released evidence, independent checking, broad acceptance or formal recognition. Then match the headline’s certainty to that stage.</p>",
+    "cocktail_party": "“OpenAI has published an AI-generated Navier–Stokes proof and a formalization. That makes the claim inspectable; it does not make independent verification, community acceptance or a prize decision complete.”",
+    "watch_fors": null,
+    "closing_note": null,
+    "class_notes": "OpenAI says thousands of agents worked concurrently on the result. <a href=\"/library.html#ai-fundamentals-101::%40ch-2-2-4-agentic-ai-the-layer-that-acts\">AI Fundamentals 101: Agentic AI — The Layer That Acts</a> explains how agents can coordinate tools and multiple steps.",
+    "sources": [
+      {
+        "id": "openai-announcement",
+        "label": "OpenAI — A solution to the Navier–Stokes existence and smoothness problem",
+        "url": "https://openai.com/index/navier-stokes-solution/",
+        "publisherType": "company-primary-announcement",
+        "accessedAt": "2026-09-11",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "openai-paper",
+        "label": "OpenAI — Finite time blowup for Navier–Stokes",
+        "url": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf",
+        "publisherType": "primary-research-manuscript",
+        "accessedAt": "2026-09-11",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "openai-lean-repository",
+        "label": "OpenAI — NavierStokesAndEuler Lean repository",
+        "url": "https://github.com/openai/NavierStokesAndEuler",
+        "publisherType": "primary-research-repository",
+        "accessedAt": "2026-09-11",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "buckmaster-statement",
+        "label": "Tristan Buckmaster — statement on concurrent work",
+        "url": "https://cims.nyu.edu/~tristanb/statement.pdf",
+        "publisherType": "primary-participant-statement",
+        "accessedAt": "2026-09-11",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "clay-prize-rules",
+        "label": "Clay Mathematics Institute — Millennium Prize rules",
+        "url": "https://www.claymath.org/millennium-problems/rules/",
+        "publisherType": "primary-prize-rules",
+        "accessedAt": "2026-09-11",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "nature-report",
+        "label": "Nature — OpenAI claims proof of Navier–Stokes Millennium Problem",
+        "url": "https://www.nature.com/articles/d41586-026-02842-5",
+        "publisherType": "independent-science-reporting",
+        "accessedAt": "2026-09-11",
+        "approvalStatus": "reviewed"
+      }
+    ],
+    "aidb_credit": null,
+    "themes": [
+      "research",
+      "mathematics"
+    ],
+    "concepts": [
+      "Navier–Stokes equations",
+      "singularity",
+      "Lean formalization",
+      "verification stages"
+    ],
+    "tags": [
+      "OpenAI",
+      "Navier–Stokes",
+      "mathematics",
+      "AI agents"
+    ],
+    "saint_lane": null,
+    "badge": "THE LATEST"
+  },
+  "storyTypeCoverage": {
+    "schema": "laidies.newsstand-story-type-coverage.v1",
+    "primaryType": "research-benchmark",
+    "overlays": [],
+    "universalAnswers": {
+      "whatHappened": "OpenAI published a 166-page manuscript and a public Lean repository on September 8 that it says solve the Navier–Stokes Millennium Problem.",
+      "plainLanguageIdentity": "The Navier–Stokes equations are mathematical rules used to describe how fluids move; the open question asks whether a smooth three-dimensional flow can break down in finite time.",
+      "evidenceBasis": "The complete OpenAI announcement, the manuscript abstract and first twelve pages, the public repository, Buckmaster's complete statement, Clay's prize rules and accessible Nature reporting were reopened September 11.",
+      "evidenceLimits": "LAiDIES did not check the 166-page proof theorem by theorem or run the formalization. Nature reported the announcement rather than issuing a peer-review or community-acceptance decision.",
+      "readerRelevance": "A dramatic AI-breakthrough headline can collapse an announcement, public evidence, independent checking, community acceptance and formal recognition into one false moment of certainty.",
+      "affectedPeople": "The immediate consequences concern researchers, mathematical credit and public understanding; the supplied record establishes no changed product, treatment, law or prize.",
+      "changesNow": "A manuscript and formalization are public for specialists to inspect; independent verification, broad acceptance and any Clay consideration remain later stages.",
+      "uncertainty": "The proof's correctness, community acceptance and the competing accounts about whether private Codex prompts could have influenced the work are not independently resolved in the supplied record.",
+      "readerAction": "For a breakthrough headline, identify whether the evidence has reached announcement, public release, independent checking, broad acceptance or formal recognition.",
+      "betterQuestion": "Which verification stage has actually happened, and does the headline's certainty match it?"
+    },
+    "typeAnswers": {
+      "research-benchmark": {
+        "researchQuestion": "Can a smooth, forced, three-dimensional fluid governed by the Navier–Stokes equations start at rest and develop unbounded velocity in finite time while retaining bounded energy?",
+        "method": "OpenAI says an internal system involving about 10,000 concurrent agents produced an analytical manuscript and a Lean formalization; LAiDIES did not reproduce either result.",
+        "result": "The manuscript claims such a finite-time singularity construction and says it establishes alternatives C and D in the official problem statement.",
+        "sponsorAndInterests": "OpenAI produced and announced the work to demonstrate progress in its AI models; it says it does not intend to claim the Millennium Prize.",
+        "independentReplication": "No independent reproduction or broad mathematical acceptance is established in the supplied sources. Nature records the company claim and early reactions, not a peer-review decision.",
+        "realWorldTransfer": "The announcement shows public materials from one high-level mathematical claim; it does not establish that AI can solve research problems generally or change an ordinary user's product today.",
+        "limitations": "The proof was not checked theorem by theorem, the formalization was not run by LAiDIES, Clay's consideration conditions have not been met, and the attribution dispute is unresolved by independent evidence."
+      }
+    },
+    "translation": {
+      "schema": "laidies.newsstand-reader-translation.v1",
+      "newsVersionExact": "OpenAI published a 166-page manuscript and a public repository it describes as Lean formalizations.",
+      "actualMeaningExact": "The Navier–Stokes equations are mathematical rules used to describe how fluids move.",
+      "mechanismExact": "A Lean formalization is a proof rewritten so software can check each encoded step against formal rules.",
+      "familiarExampleExact": "Think of a referee checking every recorded move against a rulebook.",
+      "jargon": [
+        {
+          "term": "Navier–Stokes equations",
+          "plainMeaning": "mathematical rules used to describe how fluids move"
+        },
+        {
+          "term": "singularity",
+          "plainMeaning": "a point where its speed grows without bound in a finite time"
+        },
+        {
+          "term": "Lean formalization",
+          "plainMeaning": "a proof rewritten so software can check each encoded step against formal rules"
+        }
+      ],
+      "learningConnections": [
+        {
+          "concept": "many AI agents coordinating research tasks",
+          "learningPayoff": "AI Fundamentals 101 explains how agentic systems can coordinate tools and multiple steps rather than stop at one answer.",
+          "disposition": "link",
+          "destination": "/library.html#ai-fundamentals-101::%40ch-2-2-4-agentic-ai-the-layer-that-acts"
+        }
+      ]
+    }
+  },
+  "storySha256": "4b040648b19bf0ea83497f95ec515788cfed88c09dc9b0575e590c0047d888d2",
+  "publicationBase": {
+    "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/publication-base.js",
+    "sha256": "961718a01ed22e5b8787a3ab4302ae9ac93d961ede30639e88d626798cdcd789"
+  },
+  "sourceText": {
+    "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/review-text.json",
+    "sha256": "9ff1e8fce88bcfed193807a038b55989f7059b5f828dbb51f75fe1009a9b2916"
+  },
+  "claimMap": {
+    "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/independent-review/final-v1/publication-claim-map.json",
+    "sha256": "51e0fc0537c15afb2cb47c90da90e422f90b3458706547f3477d96c54fe3a2cb"
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/producer-contract.json",
+    "sha256": "83e497280e52f7b3b012dcdbfa8580c555801ae049f5c51689d83453eb6b9526"
+  },
+  "draftPreparation": {
+    "writerInput": {
+      "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/writer-input-current.json",
+      "sha256": "856cd8d1d64796940a840990cf766a7ea6ea1c267fd2839550d3d6cc4750656a"
+    },
+    "observations": {
+      "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/producer-observations.json",
+      "sha256": "4607b994d6d1753cbc50e66475e2240e6f05f9194eb8b6dad365829fc62a603e"
+    }
+  },
+  "sources": [
+    {
+      "id": "openai-announcement",
+      "url": "https://openai.com/index/navier-stokes-solution/",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+        "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+      }
+    },
+    {
+      "id": "openai-paper",
+      "url": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+        "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+      }
+    },
+    {
+      "id": "openai-lean-repository",
+      "url": "https://github.com/openai/NavierStokesAndEuler",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+        "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+      }
+    },
+    {
+      "id": "buckmaster-statement",
+      "url": "https://cims.nyu.edu/~tristanb/statement.pdf",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+        "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+      }
+    },
+    {
+      "id": "clay-prize-rules",
+      "url": "https://www.claymath.org/millennium-problems/rules/",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+        "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+      }
+    },
+    {
+      "id": "nature-report",
+      "url": "https://www.nature.com/articles/d41586-026-02842-5",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+        "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+      }
+    }
+  ],
+  "reviewEvidence": {
+    "producer": {
+      "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/producer-publication-review.json",
+      "sha256": "f35f06091de59ec4753145692959e173e5ec7d1fbf2a60630c511ba80a466092"
+    },
+    "independent": {
+      "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/independent-review/final-v1/independent-review.json",
+      "sha256": "7f6c305920cebb8de25264758d7591f9bc46b4b59617c216f61f294b481448a2"
+    },
+    "independentRawReport": {
+      "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/independent-review/final-v1/independent-raw-report.json",
+      "sha256": "1ab5040fdfd7c5909d4445b28bc69ee2924618936bdca86b8c62da92b08ef6d5"
+    }
+  },
+  "lineage": null
+}

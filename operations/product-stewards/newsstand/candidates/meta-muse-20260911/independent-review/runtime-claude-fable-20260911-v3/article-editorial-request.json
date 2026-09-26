@@ -1,0 +1,3095 @@
+{
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "reader": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "reverseBrief": {
+            "type": "object",
+            "properties": {
+              "humanQuestion": {
+                "type": "string",
+                "minLength": 15
+              },
+              "promisedPayoff": {
+                "type": "string",
+                "minLength": 15
+              },
+              "centralMentalModel": {
+                "type": "string",
+                "minLength": 15
+              },
+              "dailyLifeConnection": {
+                "type": "string",
+                "minLength": 15
+              },
+              "surfaceJob": {
+                "type": "string",
+                "minLength": 15
+              },
+              "desiredReaderFeeling": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "humanQuestion",
+              "promisedPayoff",
+              "centralMentalModel",
+              "dailyLifeConnection",
+              "surfaceJob",
+              "desiredReaderFeeling"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "plainClarity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerValue": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "laidiesVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "engagingEnjoyable": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "surfaceFit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "dailyLifeConnection": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationBenchmark": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "explainBack": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "unseenTransfer": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "usefulAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "analogyIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "plainClarity",
+              "readerValue",
+              "laidiesVoice",
+              "engagingEnjoyable",
+              "surfaceFit",
+              "dailyLifeConnection",
+              "communicationBenchmark",
+              "explainBack",
+              "unseenTransfer",
+              "usefulAction",
+              "analogyIntegrity"
+            ],
+            "additionalProperties": false
+          },
+          "newsChecks": {
+            "type": "object",
+            "properties": {
+              "incidentExplained": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "termsExplainedInContext": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerConsequenceSpecific": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "noInternalNotesOrInventedAdvice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "incidentExplained",
+              "termsExplainedInContext",
+              "readerConsequenceSpecific",
+              "noInternalNotesOrInventedAdvice"
+            ],
+            "additionalProperties": false
+          },
+          "families": {
+            "type": "object",
+            "properties": {
+              "glossaryAccumulation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "templateRepetition": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "decorativeAnalogy": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "referenceConfetti": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "missingMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "genericAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "jargonBeforeMeaning": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "disconnectedSystem": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "factlessConfidence": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "staleUnreviewableClaims": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "corporateSludge": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "joylessInstruction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "benchmarkNameDrop": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "curiosityWithoutPayoff": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "familiarExampleWithoutTechnicalReturn": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationPastiche": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "entertainmentBeforeUnderstanding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismCompressedBehindHook": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "prematureClickBeforeMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "inflatedTakeawayEnding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "purposeTooNarrow": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismBeforeMotivation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "workedExampleOvertakesBookPurpose": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "technicalExplainerVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "glossaryAccumulation",
+              "templateRepetition",
+              "decorativeAnalogy",
+              "referenceConfetti",
+              "missingMechanism",
+              "genericAction",
+              "jargonBeforeMeaning",
+              "disconnectedSystem",
+              "factlessConfidence",
+              "staleUnreviewableClaims",
+              "corporateSludge",
+              "joylessInstruction",
+              "benchmarkNameDrop",
+              "curiosityWithoutPayoff",
+              "familiarExampleWithoutTechnicalReturn",
+              "communicationPastiche",
+              "entertainmentBeforeUnderstanding",
+              "mechanismCompressedBehindHook",
+              "prematureClickBeforeMechanism",
+              "inflatedTakeawayEnding",
+              "purposeTooNarrow",
+              "mechanismBeforeMotivation",
+              "workedExampleOvertakesBookPurpose",
+              "technicalExplainerVoice"
+            ],
+            "additionalProperties": false
+          },
+          "explainBack": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "unseenTransfer": {
+            "type": "object",
+            "properties": {
+              "scenario": {
+                "type": "string",
+                "minLength": 15
+              },
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "scenario",
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "reverseBrief",
+          "outcomes",
+          "newsChecks",
+          "families",
+          "explainBack",
+          "unseenTransfer",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      },
+      "facts": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "claims": {
+            "type": "object",
+            "properties": {
+              "launch": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "availability": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "free-paid": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "future-items": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "agent-identity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "sentinel": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "permission-scope": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "approval-limit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "error-boundary": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "current-access": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "training-optout": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "confidential-future": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "reader-action": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "independent-limit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "meta-muse-launch",
+                        "meta-muse-safety",
+                        "ap-meta-muse-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "launch",
+              "availability",
+              "free-paid",
+              "future-items",
+              "agent-identity",
+              "sentinel",
+              "permission-scope",
+              "approval-limit",
+              "error-boundary",
+              "current-access",
+              "training-optout",
+              "confidential-future",
+              "reader-action",
+              "independent-limit"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "factualIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "freshnessReviewability": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "datedChange": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "consequenceAndUncertainty": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "factualIntegrity",
+              "freshnessReviewability",
+              "datedChange",
+              "consequenceAndUncertainty"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "claims",
+          "outcomes",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "reader",
+      "facts"
+    ],
+    "additionalProperties": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an independent editorial reviewer. Inspect the exact artifact before judging. Be specific, proportionate and honest. A real defect, insufficient evidence and an execution failure are different. Return final structured judgments only; never invent human observations."
+    },
+    {
+      "role": "user",
+      "content": "Read the COMPLETE ARTIFACT first:\n{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"An agent uses tools and a planning loop to act instead of stopping at an answer. <a href=\\\"/library.html#ai-fundamentals-101::%40ch-2-2-4-agentic-ai-the-layer-that-acts\\\">AI Fundamentals 101: Agentic AI — The Layer That Acts</a> explains that shift and why connected actions change the safety question.\",\"closing_note\":null,\"cocktail_party\":\"“Meta’s Muse can act through connected apps, so the useful question is which service and action you permitted. Its stronger Confidential VM privacy promise is planned for later this year.”\",\"concepts\":[\"personal AI agent\",\"connector permissions\",\"Secure VM\",\"Confidential VM\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"Meta launched Muse to act across your apps. Check which doors you open.\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"LAiDIES NewsStand evidence-checking illustration\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"meta-muse-20260911\",\"laidies_read\":\"<p>Muse runs in a Secure VM—a <strong>virtual machine</strong>, or a dedicated cloud computer where Muse works and stores its data. Muse proposes an action; a separate control layer called Sentinel checks its permission and network request before it reaches a connected service.</p><p>A fresh approval does not appear before everything. Meta says a person can let Muse read email without letting it send. Permissions may be one-time, limited to a task or session, time-bounded or permanent; Sentinel chooses which options to offer. Previously allowed, read-only or low-risk actions may proceed without interruption. Email and purchase prompts are Meta’s design, not a guarantee that Muse always behaves correctly.</p><p>Meta’s safety post says the agent will make mistakes and that <strong>prompt injection</strong>—malicious instructions hidden in material an agent reads—remains an open problem. AP confirmed the launch and explained the agent-versus-chatbot distinction, but did not test Muse’s safeguards or reliability.</p><p>Today’s Secure VM isolates each person’s agent and data and hides credentials from the agent. Meta says it may still access data to operate, support or secure the service. It also says interaction records may train later models after personal details are removed unless the person opts out. Confidential VM, intended to block even Meta’s access cryptographically, remains with trusted testers and is planned for later this year.</p>\",\"lastCheckedAt\":\"2026-09-11T07:40:00-07:00\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"meta-muse-20260911\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:meta-muse-20260911\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"meta-muse-launch\",\"label\":\"Meta — Introducing Muse, a personal AI agent\",\"publisherType\":\"company-primary-release\",\"url\":\"https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"meta-muse-safety\",\"label\":\"Meta AI Research — Security and safety for AI agents: Our approach with Muse\",\"publisherType\":\"company-primary-technical\",\"url\":\"https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"ap-meta-muse-report\",\"label\":\"Associated Press — Meta launches personal AI agent, Muse\",\"publisherType\":\"reporting\",\"url\":\"https://apnews.com/article/meta-muse-ai-agent-3a4572eb4cf4e95d8a0dfdad6e6ca065\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"Meta\",\"Muse\",\"personal agent\",\"privacy\",\"app permissions\"],\"the_story\":\"<p>Meta launched Muse, a <strong>personal AI agent</strong>, in the United States on September 8. It is rolling out through iOS, Android and muse.ai; Meta also says people can message it in WhatsApp. Most use is free, with subscriptions for more, but the reviewed launch material gives no exact limit or price.</p><p>Unlike a chatbot that stops after suggesting or drafting, Muse is designed to keep taking steps through a browser and connected services. Meta says it can continue after the app closes. AI glasses support, Shop Pay, 1Password support and a stronger privacy mode are later plans.</p><p>A personal AI agent is software that can plan and take several actions toward a personal goal rather than only answer once. In Meta’s example, Muse could turn an Instagram recipe into a grocery list without email access; sending the dinner invitation requires connected email and permission to send.</p>\",\"themes\":[\"model capabilities\",\"consumer products\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-11T07:40:00-07:00\",\"watch_fors\":null,\"what_this_means\":\"<p>Before connecting a service, decide what this task needs: read access, action access or no access. If Muse offers a one-time or task-limited permission, use it when a lasting grant is unnecessary. Meta says its audit trail and connection settings let you inspect actions and change or remove access.</p><p>The next useful evidence is independent testing of real actions and safeguards, plus general availability of Confidential VM. For now, ask whether a privacy claim describes today’s Secure VM or the later system meant to keep data inaccessible even to Meta.</p>\"}\n\n\nEXACT PASSAGE REFERENCES:\n[P001] Meta launched Muse to act across your apps. Check which doors you open.\n\n[P002] Meta launched Muse, a personal AI agent, in the United States on September 8. It is rolling out through iOS, Android and muse.ai; Meta also says people can message it in WhatsApp. Most use is free, with subscriptions for more, but the reviewed launch material gives no exact limit or price.\n\n[P003] Unlike a chatbot that stops after suggesting or drafting, Muse is designed to keep taking steps through a browser and connected services. Meta says it can continue after the app closes. AI glasses support, Shop Pay, 1Password support and a stronger privacy mode are later plans.\n\n[P004] A personal AI agent is software that can plan and take several actions toward a personal goal rather than only answer once. In Meta’s example, Muse could turn an Instagram recipe into a grocery list without email access; sending the dinner invitation requires connected email and permission to send.\n\n[P005] Muse runs in a Secure VM—a virtual machine, or a dedicated cloud computer where Muse works and stores its data. Muse proposes an action; a separate control layer called Sentinel checks its permission and network request before it reaches a connected service.\n\n[P006] A fresh approval does not appear before everything. Meta says a person can let Muse read email without letting it send. Permissions may be one-time, limited to a task or session, time-bounded or permanent; Sentinel chooses which options to offer. Previously allowed, read-only or low-risk actions may proceed without interruption. Email and purchase prompts are Meta’s design, not a guarantee that Muse always behaves correctly.\n\n[P007] Meta’s safety post says the agent will make mistakes and that prompt injection—malicious instructions hidden in material an agent reads—remains an open problem. AP confirmed the launch and explained the agent-versus-chatbot distinction, but did not test Muse’s safeguards or reliability.\n\n[P008] Today’s Secure VM isolates each person’s agent and data and hides credentials from the agent. Meta says it may still access data to operate, support or secure the service. It also says interaction records may train later models after personal details are removed unless the person opts out. Confidential VM, intended to block even Meta’s access cryptographically, remains with trusted testers and is planned for later this year.\n\n[P009] Before connecting a service, decide what this task needs: read access, action access or no access. If Muse offers a one-time or task-limited permission, use it when a lasting grant is unnecessary. Meta says its audit trail and connection settings let you inspect actions and change or remove access.\n\n[P010] The next useful evidence is independent testing of real actions and safeguards, plus general availability of Confidential VM. For now, ask whether a privacy claim describes today’s Secure VM or the later system meant to keep data inaccessible even to Meta.\n\n[P011] “Meta’s Muse can act through connected apps, so the useful question is which service and action you permitted. Its stronger Confidential VM privacy promise is planned for later this year.”\n\n[P012] An agent uses tools and a planning loop to act instead of stopping at an answer. AI Fundamentals 101: Agentic AI — The Layer That Acts explains that shift and why connected actions change the safety question.\n\nAssess this complete dated NEWS article for What can Muse do now, which connected services can it reach and is its strongest privacy promise already available? See the agent-to-permission-to-service chain and separate current Secure VM protections from the planned Confidential VM.. Check every material factual claim against the supplied source excerpts, retaining attribution and limits. Independently judge reader comprehension and editorial craft. Supply an actual causal explain-back and invent and solve a new transfer scenario absent from this article. These are AI editorial analyses, never observed humans. Do not inherit the maker's conclusions; none are supplied.\n\nRUBRIC AND EVIDENCE:\n{\"communicationAuthority\":{\"benchmarkId\":\"HANNAH_FRY_COMMUNICATION_LENS_V2\",\"benchmark\":{\"path\":\"operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md\",\"sha256\":\"7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3\"},\"mode\":\"PROPORTIONAL\",\"surfaceAdaptation\":\"Answer the ordinary consumer encounter first, make the agent-to-Sentinel-to-connected-service mechanism visible and keep present protections, future promises and acknowledged failure beside the relevant claims.\",\"imitationBoundary\":\"ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA\",\"dimensions\":{\"humanQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish an agent's proposed action, the permission governing the connected service and the privacy boundary around its cloud workspace.\",\"plannedEvidence\":\"The exact story uses one recipe-and-invitation task, then transfers the mechanism to calendar access and a travel purchase.\"},\"usefulCuriosity\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish an agent's proposed action, the permission governing the connected service and the privacy boundary around its cloud workspace.\",\"plannedEvidence\":\"The exact story uses one recipe-and-invitation task, then transfers the mechanism to calendar access and a travel purchase.\"},\"invisibleProcessConcrete\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish an agent's proposed action, the permission governing the connected service and the privacy boundary around its cloud workspace.\",\"plannedEvidence\":\"The exact story uses one recipe-and-invitation task, then transfers the mechanism to calendar access and a travel purchase.\"},\"familiarTechnicalMovement\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish an agent's proposed action, the permission governing the connected service and the privacy boundary around its cloud workspace.\",\"plannedEvidence\":\"The exact story uses one recipe-and-invitation task, then transfers the mechanism to calendar access and a travel purchase.\"},\"limitationsConsequences\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish an agent's proposed action, the permission governing the connected service and the privacy boundary around its cloud workspace.\",\"plannedEvidence\":\"The exact story uses one recipe-and-invitation task, then transfers the mechanism to calendar access and a travel purchase.\"},\"humourSurprise\":{\"disposition\":\"NOT_APPLICABLE\",\"reason\":\"Help a beginner distinguish an agent's proposed action, the permission governing the connected service and the privacy boundary around its cloud workspace.\",\"plannedEvidence\":\"The exact story uses one recipe-and-invitation task, then transfers the mechanism to calendar access and a travel purchase.\"},\"betterNextQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish an agent's proposed action, the permission governing the connected service and the privacy boundary around its cloud workspace.\",\"plannedEvidence\":\"The exact story uses one recipe-and-invitation task, then transfers the mechanism to calendar access and a travel purchase.\"}},\"explanationArc\":{\"mode\":\"PROPORTIONAL\",\"retainedMoves\":[\"dated United States launch\",\"ordinary app connection\",\"agent-to-Sentinel permission mechanism\",\"Meta's error admission\",\"current-versus-future privacy boundary\",\"specific access decision\"],\"adaptation\":\"The launch and encounter lead; the permission and privacy mechanism receives the centre; the landing narrows the access decision.\"},\"analogyChecks\":[],\"discoveryChecks\":[{\"question\":\"Does Muse need access to every app to be useful?\",\"answer\":\"No. Each connected service is a separate decision, and the task may need read access, action access or no access.\"},{\"question\":\"Does Muse ask before every action?\",\"answer\":\"No. Meta says previously allowed, read-only or low-risk actions may proceed without interruption; Sentinel governs the permission scope.\"},{\"question\":\"Can Meta access the data inside today's Secure VM?\",\"answer\":\"Meta says employee access is restricted by policy, but current operations still permit access needed to support, secure or operate Muse. The cryptographic block is a future Confidential VM claim.\"}]},\"failureDefinitions\":{\"glossaryAccumulation\":\"Separate definitions accumulate without connecting how the system works.\",\"templateRepetition\":\"Repeated paragraph scaffolds replace a developing explanation.\",\"decorativeAnalogy\":\"A familiar comparison adds flavour but fails to explain a specific causal mechanism.\",\"referenceConfetti\":\"Pop-culture or other references accumulate without a useful explanatory job.\",\"missingMechanism\":\"The reader gets labels or conclusions without the necessary causal steps.\",\"genericAction\":\"Advice such as verify or be careful lacks a concrete useful action for this case.\",\"jargonBeforeMeaning\":\"Necessary technical language is left unexplained in its first meaningful context.\",\"disconnectedSystem\":\"Parts are named separately without showing how information or effects move between them.\",\"factlessConfidence\":\"Certainty exceeds the evidence actually available.\",\"staleUnreviewableClaims\":\"A material time-sensitive claim cannot be traced and checked for its stated date.\",\"corporateSludge\":\"Vague corporate or motivational language obscures the concrete meaning.\",\"joylessInstruction\":\"The prose becomes a dry checklist or terminology manual with little human interest.\",\"benchmarkNameDrop\":\"Mentioning a communication benchmark or famous explainer substitutes for clear explanation.\",\"curiosityWithoutPayoff\":\"A hook raises curiosity but never delivers the promised explanation.\",\"familiarExampleWithoutTechnicalReturn\":\"A familiar example never reconnects to the actual technical mechanism.\",\"communicationPastiche\":\"Wording, persona or mannerisms imitate a communicator instead of original clear explanation.\",\"entertainmentBeforeUnderstanding\":\"Humour or spectacle gets in the way of understanding.\",\"mechanismCompressedBehindHook\":\"The hook occupies the piece while the causal explanation is rushed.\",\"prematureClickBeforeMechanism\":\"The conclusion or reveal is asserted before its explanation earns understanding.\",\"inflatedTakeawayEnding\":\"The ending inflates a bounded finding into a grand claim or moral.\",\"purposeTooNarrow\":\"The scope is narrower than the supplied reader job; one task becomes the whole purpose.\",\"mechanismBeforeMotivation\":\"Technical machinery begins before the artifact establishes the destination-level human reason for this knowledge. Stakes inside one worked example do not satisfy this when the destination promises broader cross-context orientation; the reader must first see why the knowledge matters beyond that example.\",\"workedExampleOvertakesBookPurpose\":\"One worked example crowds out the broader foundational orientation the book promises.\",\"technicalExplainerVoice\":\"The organising perspective is specialist taxonomy or workflow inspection instead of the reader orientation promised by the destination. Judge what the prose asks the reader to care about, not just friendly vocabulary: for a broad foundational opening, second-person warmth and a lived example do not clear this defect when tracing technical operations remains the main reason for learning, without the promised practical and civic orientation. In a bounded news report or how-to, explaining its specific mechanism can be exactly the right perspective.\"},\"outcomeDefinitions\":{\"plainClarity\":\"A smart reader without technical AI training can follow each sentence.\",\"readerValue\":\"The reader gains a useful understanding or decision beyond the headline.\",\"laidiesVoice\":\"Warm, candid, adult, conversational LAiDIES voice; no condescension or borrowed persona.\",\"engagingEnjoyable\":\"The human question and explanation sustain interest; humour is earned rather than mandatory.\",\"factualIntegrity\":\"Material claims are supported by the actual sources and correctly attributed.\",\"freshnessReviewability\":\"The event, reporting date and limitations make time-sensitive claims checkable.\",\"surfaceFit\":\"A dated news article answers what happened and why it matters within its proper scope.\",\"datedChange\":\"Old events are distinguished from newly reported evidence or responses.\",\"consequenceAndUncertainty\":\"Consequences are concrete and uncertainty survives the explanation.\",\"dailyLifeConnection\":\"A familiar work/life situation helps the professional reader understand the mechanism.\",\"communicationBenchmark\":\"Human purpose, concrete causality and a useful next question; no imitation of Hannah Fry.\",\"explainBack\":\"The mechanism supports an accurate answer to a causal question in ordinary language.\",\"unseenTransfer\":\"The mechanism can be applied to a genuinely new concrete situation absent from the article.\",\"usefulAction\":\"A specific proportionate action follows from the explanation where applicable.\",\"analogyIntegrity\":\"Each comparison maps the mechanism accurately and retains relevant limits.\"},\"newsCheckDefinitions\":{\"incidentExplained\":\"The actual incident and relevant causal sequence are understandable.\",\"termsExplainedInContext\":\"Necessary AI terms gain plain meaning at first meaningful use.\",\"readerConsequenceSpecific\":\"The consequence is grounded in a recognizable specific reader situation.\",\"noInternalNotesOrInventedAdvice\":\"No internal LAiDIES operating notes, commercially distinctive process details, or unsupported advice appear.\"},\"claims\":[{\"claimId\":\"launch\",\"claim\":\"in the United States on September 8\",\"sourceIds\":[\"meta-muse-launch\",\"ap-meta-muse-report\"]},{\"claimId\":\"availability\",\"claim\":\"It is rolling out through iOS, Android and muse.ai\",\"sourceIds\":[\"meta-muse-launch\"]},{\"claimId\":\"free-paid\",\"claim\":\"Most use is free, with subscriptions for more\",\"sourceIds\":[\"meta-muse-launch\"]},{\"claimId\":\"future-items\",\"claim\":\"AI glasses support, Shop Pay, 1Password support and a stronger privacy mode are later plans\",\"sourceIds\":[\"meta-muse-launch\",\"meta-muse-safety\"]},{\"claimId\":\"agent-identity\",\"claim\":\"software that can plan and take several actions toward a personal goal rather than only answer once\",\"sourceIds\":[\"meta-muse-launch\",\"ap-meta-muse-report\"]},{\"claimId\":\"sentinel\",\"claim\":\"a separate control layer called Sentinel checks its permission and network request\",\"sourceIds\":[\"meta-muse-launch\",\"meta-muse-safety\"]},{\"claimId\":\"permission-scope\",\"claim\":\"Permissions may be one-time, limited to a task or session, time-bounded or permanent\",\"sourceIds\":[\"meta-muse-safety\"]},{\"claimId\":\"approval-limit\",\"claim\":\"low-risk actions may proceed\",\"sourceIds\":[\"meta-muse-safety\"]},{\"claimId\":\"error-boundary\",\"claim\":\"the agent will make mistakes\",\"sourceIds\":[\"meta-muse-safety\"]},{\"claimId\":\"current-access\",\"claim\":\"Meta says it may still access data to operate, support or secure the service\",\"sourceIds\":[\"meta-muse-safety\"]},{\"claimId\":\"training-optout\",\"claim\":\"interaction records may train later models after personal details are removed unless the person opts out\",\"sourceIds\":[\"meta-muse-launch\",\"meta-muse-safety\"]},{\"claimId\":\"confidential-future\",\"claim\":\"Confidential VM, intended to block even Meta’s access cryptographically, remains with trusted testers and is planned for later this year\",\"sourceIds\":[\"meta-muse-launch\",\"meta-muse-safety\"]},{\"claimId\":\"reader-action\",\"claim\":\"decide what this task needs: read access, action access or no access\",\"sourceIds\":[\"meta-muse-launch\",\"meta-muse-safety\"]},{\"claimId\":\"independent-limit\",\"claim\":\"but did not test Muse’s safeguards or reliability\",\"sourceIds\":[\"ap-meta-muse-report\"]}],\"sources\":[{\"id\":\"meta-muse-launch\",\"url\":\"https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/\",\"authority\":\"Meta primary release for Muse's September 8 launch, current United States availability, access routes, product actions, pricing boundary and announced roadmap.\",\"passages\":[\"September 8, 2026\",\"Muse is a personal AI agent. It doesn’t just answer questions, it actually does the work.\",\"Muse is designed around the way people already communicate, so talking to it works just like messaging another person, in the Muse app or directly in WhatsApp.\",\"It can open a browser, fill out forms, and negotiate on their behalf.\",\"For tasks that take more time, Muse keeps working after people close the app, and comes back when something changes or when it needs approval, like before it sends an email or makes a purchase.\",\"People choose which apps Muse connects to and exactly how much access it gets.\",\"For things like email, people choose what Muse can do, whether it reads their mail or can also send on their behalf.\",\"Muse shows people a complete audit trail of everything it has done and plans to do.\",\"People can also opt out of their interactions being used to train Meta’s AI models.\",\"Later this year, Meta will introduce Muse Confidential VM, where the whole VM, including a person’s data and conversations with Muse, is encrypted with a key only they hold, so not even Meta can access it.\",\"Muse is rolling out in the US on iOS, Android, and muse.ai , and coming soon to AI glasses.\",\"It’s free for most of what people need, with subscription plans for people who want to do more.\",\"Shop Pay is coming soon as another way to pay, along with 1Password support so Muse can use logins a person already has.\"],\"limitation\":\"This is Meta's product announcement. It establishes what Meta launched and promised, but does not independently establish reliability, security outcomes, adoption or a universal ability to complete every named task.\",\"source\":{\"url\":\"https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/\",\"passage\":\"September 8, 2026 Muse is a personal AI agent. It doesn’t just answer questions, it actually does the work. Muse is designed around the way people already communicate, so talking to it works just like messaging another person, in the Muse app or directly in WhatsApp. It can open a browser, fill out forms, and negotiate on their behalf. For tasks that take more time, Muse keeps working after people close the app, and comes back when something changes or when it needs approval, like before it sends an email or makes a purchase. People choose which apps Muse connects to and exactly how much access it gets. For things like email, people choose what Muse can do, whether it reads their mail or can also send on their behalf. Muse shows people a complete audit trail of everything it has done and plans to do. People can also opt out of their interactions being used to train Meta’s AI models. Later this year, Meta will introduce Muse Confidential VM, where the whole VM, including a person’s data and conversations with Muse, is encrypted with a key only they hold, so not even Meta can access it. Muse is rolling out in the US on iOS, Android, and muse.ai , and coming soon to AI glasses. It’s free for most of what people need, with subscription plans for people who want to do more. Shop Pay is coming soon as another way to pay, along with 1Password support so Muse can use logins a person already has.\",\"passageLocator\":\"https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/\",\"additionalPassage\":\"Meta primary release for Muse's September 8 launch, current United States availability, access routes, product actions, pricing boundary and announced roadmap. Limitation: This is Meta's product announcement. It establishes what Meta launched and promised, but does not independently establish reliability, security outcomes, adoption or a universal ability to complete every named task.\",\"additionalPassageLocator\":\"https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/\"}},{\"id\":\"meta-muse-safety\",\"url\":\"https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse\",\"authority\":\"Meta primary technical account of the launch architecture, permissions, current data practices, acknowledged fallibility and planned Confidential VM.\",\"passages\":[\"It was also the first time we’d handed our inboxes, our calendars, and a shell to a piece of software and let it run unattended — which didn’t always work out as planned.\",\"No matter how strong the model is at the core, any agent like this will still make mistakes, and it will sometimes be attacked via the data it reads.\",\"Muse can and will still make mistakes, but we expect they’ll be much less frequent and cause much less damage due to the safety systems we’ve built in.\",\"Muse clients (the iOS and Android apps, the web UI) connect directly to your VM via a secure transport layer.\",\"Sentinel is the sole permission authority for connector actions and network egress.\",\"Muse proposes actions, but only Sentinel can grant permission to perform action.\",\"Muse has support for obtaining one-time, session-scoped, task-scoped, time-bounded, or perpetual permission.\",\"Sentinel decides which grant types to present for the user to choose between and ensures that subsequent invocations match the granted scope exactly.\",\"Read-only, previously allowed, or demonstrably low-risk actions can proceed without interruption.\",\"It restricts access to your data by Meta personnel through operational policies. It does not prevent Meta from accessing data when necessary to support, secure or operate the service.\",\"If you do not want your data to be used in model training at all, you can opt-out via a simple switch in Muse settings.\",\"Muse Confidential VM is intended to cryptographically and verifiably prevent Meta from accessing data in your VM.\",\"We’re already using this system with a small group of trusted testers\",\"Muse isn’t immune to attack. Prompt injection remains an open problem in the industry — and Muse will sometimes make mistakes.\"],\"limitation\":\"This is Meta's own engineering explanation, not an independent audit or proof that the controls always work. The Confidential VM is described as a future capability under testing.\",\"source\":{\"url\":\"https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse\",\"passage\":\"It was also the first time we’d handed our inboxes, our calendars, and a shell to a piece of software and let it run unattended — which didn’t always work out as planned. No matter how strong the model is at the core, any agent like this will still make mistakes, and it will sometimes be attacked via the data it reads. Muse can and will still make mistakes, but we expect they’ll be much less frequent and cause much less damage due to the safety systems we’ve built in. Muse clients (the iOS and Android apps, the web UI) connect directly to your VM via a secure transport layer. Sentinel is the sole permission authority for connector actions and network egress. Muse proposes actions, but only Sentinel can grant permission to perform action. Muse has support for obtaining one-time, session-scoped, task-scoped, time-bounded, or perpetual permission. Sentinel decides which grant types to present for the user to choose between and ensures that subsequent invocations match the granted scope exactly. Read-only, previously allowed, or demonstrably low-risk actions can proceed without interruption. It restricts access to your data by Meta personnel through operational policies. It does not prevent Meta from accessing data when necessary to support, secure or operate the service. If you do not want your data to be used in model training at all, you can opt-out via a simple switch in Muse settings. Muse Confidential VM is intended to cryptographically and verifiably prevent Meta from accessing data in your VM. We’re already using this system with a small group of trusted testers Muse isn’t immune to attack. Prompt injection remains an open problem in the industry — and Muse will sometimes make mistakes.\",\"passageLocator\":\"https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse\",\"additionalPassage\":\"Meta primary technical account of the launch architecture, permissions, current data practices, acknowledged fallibility and planned Confidential VM. Limitation: This is Meta's own engineering explanation, not an independent audit or proof that the controls always work. The Confidential VM is described as a future capability under testing.\",\"additionalPassageLocator\":\"https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse\"}},{\"id\":\"ap-meta-muse-report\",\"url\":\"https://apnews.com/article/meta-muse-ai-agent-3a4572eb4cf4e95d8a0dfdad6e6ca065\",\"authority\":\"Associated Press independent reporting on the launch, ordinary task examples, agent-versus-chatbot distinction and unresolved adoption question.\",\"passages\":[\"Meta launched on Tuesday a personal artificial intelligence agent, Muse\",\"which for now is only available in the U.S.\",\"People can message the agent in a separate app, called Muse, or message it in WhatsApp.\",\"Tech companies are touting AI agents as the next step after chatbots\",\"The question is, will people actually use it?\"],\"limitation\":\"AP confirms the event and supplies independent context, but does not test Meta's security architecture or the reliability of actions. Direct curl returned 403; the complete page was read through the web browsing layer and recorded in source/ap-web-observation.json.\",\"source\":{\"url\":\"https://apnews.com/article/meta-muse-ai-agent-3a4572eb4cf4e95d8a0dfdad6e6ca065\",\"passage\":\"Meta launched on Tuesday a personal artificial intelligence agent, Muse which for now is only available in the U.S. People can message the agent in a separate app, called Muse, or message it in WhatsApp. Tech companies are touting AI agents as the next step after chatbots The question is, will people actually use it?\",\"passageLocator\":\"https://apnews.com/article/meta-muse-ai-agent-3a4572eb4cf4e95d8a0dfdad6e6ca065\",\"additionalPassage\":\"Associated Press independent reporting on the launch, ordinary task examples, agent-versus-chatbot distinction and unresolved adoption question. Limitation: AP confirms the event and supplies independent context, but does not test Meta's security architecture or the reliability of actions. Direct curl returned 403; the complete page was read through the web browsing layer and recorded in source/ap-web-observation.json.\",\"additionalPassageLocator\":\"https://apnews.com/article/meta-muse-ai-agent-3a4572eb4cf4e95d8a0dfdad6e6ca065\"}}]}\n\nReturn reader and facts objects matching the supplied output schema. Give concise specific reasons with actual paragraph references. Clear failure-family judgments may use an empty reference list for absence across the whole artifact. Present/uncertain families and every outcome/claim require supporting paragraphs. Each fact must use source IDs belonging to that claim. Each reader/facts learningDisposition must be NO_NEW_DEFECT only if that part has no failed or uncertain assessment; otherwise use candidate repair or evidence gap. You are independent from artifact maker OpenAI /root. Attest truthfully to reading the complete artifact first and independence. Do not inspect earlier verdicts or diagnose paperwork."
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  },
+  "max_completion_tokens": 8500,
+  "temperature": 0.05,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

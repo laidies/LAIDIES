@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "newsstand-source-recovery-review-v1",
+  "reviewedAt": "2026-09-24T20:26:29.931Z",
+  "reviewedBy": "independent-source-reconciliation-1300-20260924",
+  "url": "https://www.aais.pku.edu.cn/info/1355/20361.htm",
+  "originalCheckedAt": "2026-09-21T23:27:06.918Z",
+  "originalNotRetried": true,
+  "originalCapture": {
+    "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260921/remaining-route-rechecks.json",
+    "sha256": "aeb1b39c54717bf26bef18b25118c3f2165365a1ed69e85ba6fe2eb877bddda6"
+  },
+  "assessment": "Retained blocked route was not reopened. Distinct primary DOI was identified, but normal open reached Nature authentication; full results/methods were unavailable. Related preprint URL was identified, but normal open returned 403.",
+  "missingInput": "ProteinTalks DOI, preprint, journal/publisher record, or other primary research identifier.",
+  "nextCheckAt": "2026-09-25T14:00:00Z",
+  "nextRecoveryStep": "Use a reliable citation or author publication list to locate the underlying record; do not renew the PKU URL.",
+  "recoverySources": [
+    {
+      "url": "https://www.nature.com/articles/s41586-026-11001-9",
+      "status": "BLOCKED",
+      "checkedAt": "2026-09-24T18:38:06Z",
+      "assessment": "Distinct primary DOI was identified, but normal open reached Nature authentication; full results/methods were unavailable.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1000-20260924/source-recovery/pku-primary-recovery-raw.json",
+        "sha256": "066179206240ad27616108707ec39e8d19173ef12b402b3e46fde1101a2a645f"
+      }
+    },
+    {
+      "url": "https://www.biorxiv.org/content/10.1101/2025.02.07.637070v2",
+      "status": "BLOCKED",
+      "checkedAt": "2026-09-24T18:38:06Z",
+      "assessment": "Related preprint URL was identified, but normal open returned 403.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1000-20260924/source-recovery/pku-primary-recovery-raw.json",
+        "sha256": "066179206240ad27616108707ec39e8d19173ef12b402b3e46fde1101a2a645f"
+      }
+    }
+  ]
+}

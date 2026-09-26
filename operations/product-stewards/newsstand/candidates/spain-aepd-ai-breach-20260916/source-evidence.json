@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "newsstand-source-evidence.v1",
+  "candidateId": "spain-aepd-ai-breach-20260916",
+  "sources": [
+    {
+      "id": "aepd-original-notification",
+      "publisher": "Spanish Data Protection Agency (AEPD)",
+      "url": "https://www.aepd.es/prensa-y-comunicacion/blog/primera-notiviacion-brecha-datos-personales-causada-por-ataque-ejecutado-mediante-agente-ia",
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260925/aepd/original-text.txt",
+      "sha256": "1f4f04565a0ff7a3cd23cc17a94698f2ab4a24d1859fd4c75c94339f56837bb7",
+      "authority": "Primary regulator blog post",
+      "supports": [
+        "AEPD received a first notification alleging an agent-assisted personal-data breach.",
+        "The organisation alleged that an agent searched for weaknesses, logged in, modified personal data and accessed invoices.",
+        "AEPD says it must analyse the notification and one notification cannot establish a trend.",
+        "A model or provider compromise is not established."
+      ],
+      "limits": [
+        "No completed investigation.",
+        "No named organisation or model.",
+        "No confirmed exposure of any reader or named person."
+      ]
+    },
+    {
+      "id": "aepd-current-index",
+      "publisher": "AEPD",
+      "url": "https://www.aepd.es/prensa-y-comunicacion/blog",
+      "path": "operations/product-stewards/newsstand/evidence/evening-20260925/aepd-production/current-follow-up.json",
+      "sha256": "065532377a61dcf3743d31184fb76c2782532ab65894a11f466665d0abae9415",
+      "authority": "Current official index check",
+      "supports": [
+        "The original notification remains listed dated September 14.",
+        "The bounded current index did not surface a completed investigation or correction."
+      ],
+      "limits": [
+        "Index absence does not prove no later finding exists."
+      ]
+    }
+  ],
+  "sourceDerivedWordLimits": [
+    {
+      "sourceId": "aepd-original-notification",
+      "limit": 200
+    },
+    {
+      "sourceId": "aepd-current-index",
+      "limit": 50
+    }
+  ]
+}

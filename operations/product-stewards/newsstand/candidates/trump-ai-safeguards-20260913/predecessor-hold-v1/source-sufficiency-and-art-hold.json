@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "laidies-newsstand-candidate-source-sufficiency-audit.v1",
+  "checkedAt": "2026-09-13T20:10:26.770Z",
+  "candidateId": "trump-ai-safeguards-20260913",
+  "decision": "HOLD",
+  "clauseAudit": [
+    {
+      "prose": "Trump downplayed slowing AI because of competition with China.",
+      "support": [
+        "AP index excerpt"
+      ],
+      "status": "SUPPORTED_WITH_LIMITED_RETRIEVAL"
+    },
+    {
+      "prose": "Johnson expressed a need for guardrails while not wanting Congress to lead regulation.",
+      "support": [
+        "AP index excerpt",
+        "Axios index excerpt"
+      ],
+      "status": "SUPPORTED_WITH_LIMITED_RETRIEVAL"
+    },
+    {
+      "prose": "Johnson would like a meeting with Trump, lawmakers and AI leaders.",
+      "support": [
+        "Axios index excerpt"
+      ],
+      "status": "SUPPORTED_WITH_LIMITED_RETRIEVAL"
+    },
+    {
+      "prose": "No new binding federal AI safeguard exists.",
+      "support": [],
+      "status": "UNSUPPORTED_AS_A_BROAD_ABSENCE_CLAIM",
+      "reason": "The limited reporting excerpts do not establish the absence of every new federal action. The article may only say the cited remarks and proposed meeting do not themselves create a legal duty."
+    },
+    {
+      "prose": "A meeting or comment alone does not create a duty.",
+      "support": [
+        "ordinary legal-status distinction; article should avoid representing this as a report-specific factual finding"
+      ],
+      "status": "REQUIRES_PLAIN_LANGUAGE_REWRITE"
+    }
+  ],
+  "artAuthority": {
+    "result": "NO_IMAGELESS_EXCEPTION_FOUND",
+    "evidence": [
+      "content/newsstand-reader-contract.js validatePublishedStoryImage requires a complete hero for published/corrected stories.",
+      "scripts/test-prepare-newsstand-draft.mjs explicitly rejects heroVisual:null before review.",
+      "The NewsStand runbook only bans reuse of a specific rejected image and generic MAiVEN/TRAiLBLAZER artwork; it does not grant an imageless exception."
+    ],
+    "consequence": "heroVisual:null cannot reach independent review or publication. Do not attach unrelated generic art."
+  },
+  "access": {
+    "ap": "Exact URL produced Cloudflare challenge in this candidate; root separately observed non-retryable safety error. No bypass attempted.",
+    "axios": "Exact URL produced Cloudflare challenge. No bypass attempted."
+  },
+  "requiredNextActions": [
+    "Obtain an accessible AP or comparable independent full report / primary transcript that supports each consequential September 13 claim and legal-status wording.",
+    "Rewrite reader prose to say the remarks and proposed meeting are not themselves a legal rule; remove “supplied reporting/evidence” and any global absence claim.",
+    "Obtain an admitted, article-specific hero visual or an authoritative contract change; do not weaken the image guard or reuse generic/blocked art."
+  ],
+  "notDone": [
+    "No independent Claude review was requested.",
+    "No shared coverage, recovery queue, canonical story, or public asset was changed."
+  ]
+}

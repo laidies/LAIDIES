@@ -1,0 +1,144 @@
+
+Gemini 3.8 Live  |  Gemini API  |  Google AI for Developers (https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live)
+citeturn741view1 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"turn739view1","lineno":80}); Total lines: 148
+L0: [Button: ]
+L1: 
+L2: [Input: Search]
+L3: 
+L4: `/`
+L5: 
+L6:   * English
+L7:   * Deutsch
+L8:   * Español – América Latina
+L9:   * Français
+L10:   * Indonesia
+L11:   * Italiano
+L12:   * Polski
+L13:   * Português – Brasil
+L14:   * Shqip
+L15:   * Tiếng Việt
+L16:   * Türkçe
+L17:   * Русский
+L18:   * עברית
+L19:   * العربيّة
+L20:   * فارسی
+L21:   * हिंदी
+L22:   * বাংলা
+L23:   * ภาษาไทย
+L24:   * 中文 – 简体
+L25:   * 中文 – 繁體
+L26:   * 日本語
+L27:   * 한국어
+L28: cite0†Get API key†aistudio.google.com cite1†Cookbook†github.com cite2†Community†discuss.ai.google.dev Sign in
+L29: 
+L30: cite3†Docs cite4†API reference L31: 
+L32: [Input: Filter]
+L33: 
+L34: [Button: ]
+L35: 
+L36:   * Get started
+L37: 
+L38:   * Models
+L39:   * Robotics
+L40: 
+L41:   * Core capabilities
+L42: 
+L43:   * Image
+L44: 
+L45:   * Video
+L46: 
+L47:   * Speech and audio
+L48: 
+L49:   * Thinking
+L50: 
+L51:   * Agents
+L52: 
+L53:   * Tools
+L54: 
+L55:   * Live API
+L56: 
+L57:   * Get started
+L58: 
+L59:   * cite5†Thinking L60:   * Optimization
+L61: 
+L62:   * Guides
+L63: 
+L64:   * File input
+L65: 
+L66:   * Logs and datasets
+L67: 
+L68:   * Safety
+L69: 
+L70:   * Frameworks
+L71: 
+L72:   * Resources
+L73: 
+L74:   * Migration
+L75: 
+L76:   * cite6†Status†aistudio.google.com L77:   * Google AI Studio
+L78: 
+L79:   * Google Cloud Platform
+L80: 
+L81:   * Policies
+L82: 
+L83: [Button: Send feedback ]
+L84: # Gemini 3.8 Live
+L85: 
+L86: Gemini 3.8 Live is the default option for most low-latency voice agent experiences and real-time dialogue without reasoning-induced delays. It supports interleaved reasoning, asynchronous function calling, full session client content updates, and built-in audio streaming.
+L87: 
+L88: cite7†Try in Google AI Studio†aistudio.google.com L89: 
+L90: ## Documentation
+L91: 
+L92: Visit the cite8†Live API guide for full coverage of features and capabilities.
+L93: ## gemini-3.8-live
+L94: Property  | Description
+L95: --- | ---
+L96: id_card Model code  | `gemini-3.8-live`
+L97: save Supported data types  | Inputs Text, images, audio, video Output Text and audio
+L98: token_auto Token limits^{cite9†[*] }  | Input token limit 131,072 Output token limit 65,536
+L99: handyman Capabilities  | cite10†Audio generation Supported cite11†Caching Not supported cite12†Code execution Not supported cite13†File search Not supported cite14†Function calling Supported cite15†Grounding with Google Maps Not supported cite16†Image generation Not supported cite8†Live API Supported cite17†Search grounding Supported cite18†Structured outputs Not supported cite19†Thinking Supported (interleaved reasoning) cite20†URL context Not supported
+L100: speed Consumption options  | cite21†Batch API Not supported
+L101: 123 Versions  | Read the cite22†model version patterns for more details.
+L102:   * Stable: `gemini-3.8-live`
+L103: calendar_month Latest update  | September 2026
+L104: id_card Model card  | cite23†Model card†deepmind.google L105: ## Migrating from Gemini 3.1 Flash Live
+L106: 
+L107: Gemini 3.8 Live delivers ultra-low latency audio-to-audio interactions and expands support for asynchronous workflows. When migrating from `gemini-3.1-flash-live-preview`, review the following updates:
+L108:   * Model string: Update your model string from `gemini-3.1-flash-live-preview` to `gemini-3.8-live`.
+L109:   * Thinking level: `thinking_level` is not supported for `gemini-3.8-live`. Omit `thinking_level` (or `thinking_config`) from your session setup.
+L110:   * Asynchronous function calling: Async execution (`behavior: NON_BLOCKING`) is now the default function calling mode. You can still use synchronous blocking mode for backwards compatibility by setting `behavior: BLOCKING` on your tool declarations. Function scheduling (`SILENT`, `WHEN_IDLE`, `INTERRUPTED`) is supported.
+L111:   * Client content updates: `send_client_content` is supported throughout the entire session lifecycle with explicit roles (`user` or `model`). Setting `turn_complete=true` unconditionally interrupts active model generation. If you send content without `turn_complete`, the server waits for subsequent messages before responding.
+L112:   * Proactive audio: Proactive audio is now permanently enabled. Setting `proactive_audio: false` returns an error.
+L113:   * Affective dialogue: Affective dialogue is removed from the API. Remove any `enable_affective_dialog` configurations from your code.
+L114:   * Turn coverage: Defaults to `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`. Video frames are sent to the model by default, so only send frames when needed to manage context and cost.
+L115:   * Response modalities: Audio is the supported response modality. Enable output audio transcription if your application requires a text transcript.
+L116: For a feature comparison across all Live API models, see the cite24†Model comparison table.
+L117: 
+L118: [Button: Send feedback ]
+L119: 
+L120: Except as otherwise noted, the content of this page is licensed under the cite25†Creative Commons Attribution 4.0 License†creativecommons.org , and code samples are licensed under the cite26†Apache 2.0 License†www.apache.org . For details, see the cite27†Google Developers Site Policies†developers.google.com . Java is a registered trademark of Oracle and/or its affiliates.
+L121: Last updated 2026-09-15 UTC.
+L122: 
+L123:   * cite28†Terms†policies.google.com L124:   * cite29†Privacy†policies.google.com L125: 
+L126:   * English
+L127:   * Deutsch
+L128:   * Español – América Latina
+L129:   * Français
+L130:   * Indonesia
+L131:   * Italiano
+L132:   * Polski
+L133:   * Português – Brasil
+L134:   * Shqip
+L135:   * Tiếng Việt
+L136:   * Türkçe
+L137:   * Русский
+L138:   * עברית
+L139:   * العربيّة
+L140:   * فارسی
+L141:   * हिंदी
+L142:   * বাংলা
+L143:   * ภาษาไทย
+L144:   * 中文 – 简体
+L145:   * 中文 – 繁體
+L146:   * 日本語
+L147:   * 한국어

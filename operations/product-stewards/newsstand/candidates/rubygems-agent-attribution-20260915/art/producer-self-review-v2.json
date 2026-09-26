@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "rubygems-agent-attribution-20260915-art",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root",
+    "reviewedAt": "2026-09-15T14:19:32.793341+00:00",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/art/producer-contract-v2.json",
+    "sha256": "011dd95cfa11d13f9d159fe3ad97e4d7d2ad4b8802e5439f868738b819d98e1e"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/art/illustration-v2.png",
+    "sha256": "d981644cf4e5b82d58fb9102cb0812e0de3bc61c53401995c174f6ea244471c9",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/story.json",
+    "sha256": "0c68746f8299e7aab53665e6c75a27be6c2d5f443fb44afba1c87f15321bee5f",
+    "kind": "TEXT",
+    "locator": "headline",
+    "exactTextOrSilentPurpose": "RubyGems confirms a package-spam incident. It cannot confirm who made the code."
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "Parts cabinet and separately set-aside red packages depict removal and review, with no human attacker or corporate attribution.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Navy ink hatching, halftone and bright cyan/red/orange accents on warm paper fit the bound editorial print reference.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No people, named characters, town buildings or corporate logos appear.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "Cabinet drawers support boxes and the orange tray supports separate packages; desk objects have coherent contact and perspective.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "Repaired image removes all papers, ruler and book-spine markings. Blank drawer labels and abstract cube pictograms only; no lettering visible.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "Contemporary conceptual workshop props carry no period or wardrobe claim.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "Only cabinet, package boxes, separate tray, lamp and plant remain on a clear desk. No decorative diagrams remain.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "At displayed 1536x1024 cabinet and orange tray are distinct; no tiny labels are required to follow the visual.",
+      "artifactLocator": "full rendered illustration"
+    }
+  ],
+  "visibleDefects": [],
+  "limitations": [
+    "Conceptual illustration, not a depiction of an actual incident or document. Independent visual admission pending."
+  ],
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/art/illustration-v2.png",
+    "sha256": "d981644cf4e5b82d58fb9102cb0812e0de3bc61c53401995c174f6ea244471c9"
+  },
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First candidate illustration for this exact story and visual job."
+  },
+  "revisionOf": {
+    "artifact": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/art/illustration-v1.png",
+      "sha256": "310fa2a011dc49f3d8bc9d92a712c1d0c17cb67532178bb064efbb2b182e064b"
+    },
+    "review": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/art/independent-review.json",
+      "sha256": "8b7096416e32a2227bbc515f01d8e8c841c819c948a5b993607d7f827702a3eb"
+    },
+    "repair": "Removed paper, ruler and books carrying invented marks. Same first candidate, second render iteration; first failed review retained."
+  },
+  "iterationMetrics": {
+    "reviewIssuesFound": 2,
+    "renderIteration": 2,
+    "independentReviewCyclesCompleted": 1
+  }
+}

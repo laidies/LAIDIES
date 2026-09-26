@@ -1,0 +1,36 @@
+{
+  "diagnosedAt": "2026-09-13T16:58:00Z",
+  "diagnostician": "independent:/root/crossword_row_review",
+  "scope": "Read-only diagnosis of live NewsStand archive search. No public or canonical path was edited.",
+  "liveEvidence": {
+    "newsstandUrl": "https://laidies.ai/newsstand",
+    "archiveIndexUrl": "https://laidies.ai/content/newsstand-archive-index.json",
+    "archiveIndexSha256": "ec3041ed0414e9ef2b8515703d9ffcea02881220185026b13f68eb61587b36b6",
+    "localArchiveIndexSha256": "ec3041ed0414e9ef2b8515703d9ffcea02881220185026b13f68eb61587b36b6",
+    "archiveSchema": "newsstand-archive-v1",
+    "archiveItemCount": 76,
+    "petsItem": {
+      "id": "story:chatgpt-pets-20260913",
+      "headline": "What does a ChatGPT pet actually do?",
+      "summary": "Say you are planning a birthday dinner in a notes app and want ChatGPT to suggest a grocery list.",
+      "themes": ["consumer products", "desktop controls"],
+      "concepts": ["project context", "quick chat"]
+    },
+    "liveBrowserReproduction": "A fresh headless Chrome visit to the live URL, with blank date/theme/concept filters, entered exact query 'pets' and returned '0 back issues found.'"
+  },
+  "cause": "Certain search terms available in an admitted story are deliberately absent from its archive-index projection. The current search haystack is headline, summary, edition, desk, date, themes, concepts and status. For the Pets item, the singular headline 'pet' and its summary/themes/concepts do not contain the plural query 'pets'. Its approved story tags contain 'Pets', but tags, source labels and story text are omitted from archiveItemSearchText. This is not a stale archive-index or cache failure, and blank filters rule out a narrowed search.",
+  "proposedRepairReview": {
+    "proposal": "For a non-retracted indexed story whose corresponding current story passes contract.accessDecision(data, story, {scope:'search'}, now), append storySearchText(story) to archiveItemSearchText(item).",
+    "assessment": "ACCEPT. It fulfils the visitor promise to search a tag or source, makes exact 'pets' find the admitted Pets story, and keeps archive projection, ordering, rendering, date/theme/concept filtering and admission enforcement unchanged.",
+    "requiredGuards": [
+      "Resolve the story only from a story: archive id.",
+      "Do not add full-story text for a retracted item.",
+      "Require the same search-scope contract access decision before adding the text.",
+      "Do not use this richer text to manufacture archive items absent from the admitted index."
+    ]
+  },
+  "limits": [
+    "This diagnosis does not by itself test the forthcoming code change.",
+    "A separately observed early-load race can make an archive search run before the index arrives, but the live fresh reproduction occurred after normal network-idle loading and still returned zero; it is not the cause of this Pets result."
+  ]
+}

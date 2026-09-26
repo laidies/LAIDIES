@@ -1,0 +1,89 @@
+{
+  "schema": "newsstand-normal-web-capture.v1",
+  "recordedAt": "2026-09-22T14:11:22Z",
+  "transport": "normal web tool",
+  "captures": [
+    {
+      "channel": "publisher agent index",
+      "url": "https://aidailybrief.ai/agent.json",
+      "ref": "turn1027view2",
+      "generated": "2026-09-22T10:47:05.833Z",
+      "headEdition": "2026-09-20",
+      "exactReturnedEvidence": [
+        "L13: generated: 2026-09-22T10:47:05.833Z",
+        "L21-L35: 2026-09-20 — 7 Ways How We Use AI Is Changing — html/json/transcript routes listed"
+      ],
+      "fullContentRecovered": false,
+      "note": "First publisher snapshot did not contain a Sept. 21 edition."
+    },
+    {
+      "channel": "publisher agent index",
+      "url": "https://aidailybrief.ai/agent.json",
+      "ref": "turn1028view2",
+      "generated": "2026-09-22T14:07:44.902Z",
+      "headEdition": "2026-09-21",
+      "exactReturnedEvidence": [
+        "L13: generated: 2026-09-22T14:07:44.902Z",
+        "L21-L34: 2026-09-21 — The State of the AI Debate — 27 minutes — html/markdown/json/transcript routes listed",
+        "L37-L51: 2026-09-20 — 7 Ways How We Use AI Is Changing — 26 minutes — html/markdown/json/transcript routes listed"
+      ],
+      "fullContentRecovered": false,
+      "note": "The publisher index changed during the observation window. Exact generated timestamps preserve that fact."
+    },
+    {
+      "channel": "Apple Podcasts",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "ref": "turn1029view2",
+      "contentType": "text/html",
+      "totalLines": 637,
+      "inspection": "episode listing and description",
+      "exactReturnedEvidence": [
+        "L21: Latest Episode",
+        "L24-L29: The State of the AI Debate — 17h ago — 27m; description names AI Force, kill switches, China, Anthropic IPO delay, biology lab and data-center debt",
+        "L30-L34: 7 Ways How We Use AI Is Changing — 2d ago — 26m"
+      ],
+      "fullContentRecovered": false,
+      "limit": "Apple provides episode descriptions, not a transcript or complete spoken edition."
+    },
+    {
+      "channel": "publisher alternate full-text",
+      "url": "https://aidailybrief.ai/llms-full.txt",
+      "ref": "turn1029view0",
+      "result": "Internal Error; total lines 1",
+      "fullContentRecovered": false
+    },
+    {
+      "channel": "publisher alternate edition markdown",
+      "url": "https://aidailybrief.ai/e/2026-09-21.md",
+      "ref": "turn1029view1",
+      "result": "Internal Error; total lines 1",
+      "fullContentRecovered": false
+    },
+    {
+      "channel": "newsletter",
+      "url": "https://aidailybrief.beehiiv.com/",
+      "result": "NOT_OPENED",
+      "fullContentRecovered": false,
+      "note": "Preserved prior UNAVAILABLE_NONRETRYABLE_NOT_OPENED classification; this lane did not retry it."
+    }
+  ],
+  "editionDisposition": [
+    {
+      "date": "2026-09-21",
+      "title": "The State of the AI Debate",
+      "status": "METADATA_ONLY",
+      "reason": "Publisher index plus Apple description agree on identity, but no full edition or transcript was recovered."
+    },
+    {
+      "date": "2026-09-20",
+      "title": "7 Ways How We Use AI Is Changing",
+      "status": "METADATA_ONLY_PRIOR_EVIDENCE_BLOCKED",
+      "reason": "Index and Apple description available; known full-content routes remain unrecovered and were not retried."
+    },
+    {
+      "date": "2026-09-22",
+      "status": "NO_EDITION_LISTED_AS_OF_CAPTURE",
+      "reason": "Latest publisher-generated index observed at 2026-09-22T14:07:44.902Z headed with Sept. 21; this is time-bounded, not a claim that no later edition will appear."
+    }
+  ]
+}

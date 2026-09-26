@@ -1,0 +1,636 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "census-ai-graduates-20260915",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/aft_school_story",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/aft_school_story",
+    "principalId": "/root/aft_school_story",
+    "role": "Producer exact complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-16T00:02:11.241Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/publication-manifest.json",
+      "sha256": "5d5bb024808b05d9e47627311d18f7e0892c9bfa9b9b9894a2f3ccb063d03f00"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/review-text.json",
+      "sha256": "31df8e916a3b078fd56442a1b0084e4463d104263e2af284724a45b95c2338ef"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/rendered-article.html",
+      "sha256": "1b572e094776203723d67f00624eaf9474e74fb07642bf6456af1008cd32d9b2"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/aft_school_story",
+    "reviewedAt": "2026-09-15T23:13:39.848Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What does this study show about a graduate’s difficult first-job search, and does it prove AI caused the difficulty?",
+    "promisedPayoff": "Understand the relative employment and earnings estimates, what exposure measures, and why a group result cannot diagnose one graduate or dictate a new major.",
+    "centralMentalModel": "A comparison across degree groups and time is evidence about patterns; exposure is a task-capability estimate, not an observed replacement count.",
+    "dailyLifeConnection": "A graduate and parent trying to make sense of applications that do not turn into a first job.",
+    "surfaceJob": "September15 bounded Daily research report on a September2026 working paper; do not invent a September15 publication date.",
+    "desiredReaderFeeling": "I can ask about the right graduate group, time window and actual first-job destinations."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: “AI exposure” estimates how much AI could help with tasks in occupations associated with a major. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "“AI exposure” estimates how much AI could help with tasks in occupations associated with a major.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: It does not count jobs AI actually replaced. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It does not count jobs AI actually replaced.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: Picture a graduate and parent looking at a spreadsheet of unanswered applications. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Picture a graduate and parent looking at a spreadsheet of unanswered applications.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: “Five points” and “five percent” answer different questions. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "“Five points” and “five percent” answer different questions.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: They cannot rule out coinciding field-specific changes. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "They cannot rule out coinciding field-specific changes.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: Employment records run through September 2025. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Employment records run through September 2025.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: A graduate study finds a tougher start in AI-exposed majors. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A graduate study finds a tougher start in AI-exposed majors.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: A September working paper Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A September working paper",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: That is a group comparison, not an annual pay cut for every graduate. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a group comparison, not an annual pay cut for every graduate.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: Picture a graduate and parent looking at a spreadsheet of unanswered applications. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Picture a graduate and parent looking at a spreadsheet of unanswered applications.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: Ask the career office for the group, time window and destinations behind its answer. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask the career office for the group, time window and destinations behind its answer.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: It does not count jobs AI actually replaced. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It does not count jobs AI actually replaced.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What does this study show about a graduate’s difficult first-job search, and does it prove AI caused the difficulty?",
+        "probeResponse": "The researchers compare groups by estimated task exposure against2022 differences. The worsening relative outcomes support an AIrole but cannot isolate coincidingfieldchanges, coverallgraduateactivities or diagnoseoneperson.",
+        "expectedEvidence": "Group comparison with estimated exposure and retainedcoincidingchanges.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: That is a group comparison, not an annual pay cut for every graduate. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a group comparison, not an annual pay cut for every graduate.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Does13%lowergroup earnings establishonegraduatepaycut?",
+        "probeResponse": "A thirteenpercent lower group earnings estimate does not establish that a newgraduate’s ownpay fell; ask which earnings window and which comparison group.",
+        "expectedEvidence": "Group/comparison/window distinguishpersonalhistory.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: Ask the career office for the group, time window and destinations behind its answer. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask the career office for the group, time window and destinations behind its answer.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: These illustrative rates are not the study’s starting employment rates. Scope, comparator and limits retained; no causal personal diagnosis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "These illustrative rates are not the study’s starting employment rates.",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Actual read avoids glossaryAccumulation: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Actual read avoids templateRepetition: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Actual read avoids decorativeAnalogy: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Actual read avoids referenceConfetti: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Actual read avoids missingMechanism: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Actual read avoids genericAction: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Actual read avoids jargonBeforeMeaning: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Actual read avoids disconnectedSystem: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Actual read avoids factlessConfidence: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Actual read avoids staleUnreviewableClaims: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Actual read avoids corporateSludge: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Actual read avoids joylessInstruction: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Actual read avoids benchmarkNameDrop: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Actual read avoids curiosityWithoutPayoff: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Actual read avoids familiarExampleWithoutTechnicalReturn: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Actual read avoids communicationPastiche: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Actual read avoids entertainmentBeforeUnderstanding: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Actual read avoids mechanismCompressedBehindHook: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Actual read avoids prematureClickBeforeMechanism: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Actual read avoids inflatedTakeawayEnding: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Actual read avoids purposeTooNarrow: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Actual read avoids mechanismBeforeMotivation: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Actual read avoids workedExampleOvertakesBookPurpose: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Actual read avoids technicalExplainerVoice: task exposure, comparator, arithmetic and limits connected to graduate conversation; no doom, generic glossary or majorranking.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-input.json",
+        "sha256": "2236d157c65d85746d95994e1aac8108df5f8a8c9f2d15a7978f379c2f7124bc"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "sample",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A September working paper by Census Bureau researchers follows bachelor’s graduates from 2016–2024 at participating US institutions—about 29% of degrees in those years. Employment records run through September 2025.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "census-paper"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "opped in our fxed effects models involving \nmajor-college dummy variables, but we drop them at the onset to exclude them from all analyses. \nOur fltered sample consists of 6,665,500 graduate records, capturing approximately 29% of all \nbachelor’s degrees conferred from 2016 to 2024.\n4 \n2The PSEO data categorize majors by their Classifcation of Instructional Program code as defned by the U.S. \nDepartment of Education. We crosswalk these codes to the felds of degree utilized by the Census Bureau for the \nAmerican Community Survey. \n3In future work, we hope to include degree levels beyond the bachelor’s level; however, data limitations force us \nto restrict our attention to bachelor’s graduates",
+            "locator": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf"
+          }
+        ],
+        "scopeAndFreshness": "September15 captured workingpaper, selected sample and observational comparison; arithmetic uses illustrative rates.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-input.json",
+          "sha256": "2236d157c65d85746d95994e1aac8108df5f8a8c9f2d15a7978f379c2f7124bc"
+        }
+      },
+      {
+        "claimId": "period",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Employment records run through September 2025.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "census-paper"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "aphic and \nresidence information obtained from a variety of administrative and survey sources.\n9 \nAll but two states – Alaska and Michigan – have data available for every quarter between Q1 \n2016 and Q3 2025. To minimize classifying employed individuals from Alaska and Michigan as \nunemployed, and to mitigate compositional changes from Alaska and Michigan workers appearing \nfor some years of the sample, we exclude from our sample any individuals who are employed \nin Alaska or Michigan during the analyzed time period and any individuals residing in Alaska or \nMichigan during the analyzed time period. Thus, employment rates should be interpreted precisely \nas the likelihood of having UI-covere",
+            "locator": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf"
+          }
+        ],
+        "scopeAndFreshness": "September15 captured workingpaper, selected sample and observational comparison; arithmetic uses illustrative rates.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-input.json",
+          "sha256": "2236d157c65d85746d95994e1aac8108df5f8a8c9f2d15a7978f379c2f7124bc"
+        }
+      },
+      {
+        "claimId": "exposure",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "It does not count jobs AI actually replaced.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "census-paper"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "nguage model to classify detailed work activities and tasks in the Department of Labor’s \noccupation database (O*NET) as either AI-exposed or not. They determine exposure by asking \nwhether GPT-4 can reduce the time it takes to complete the task by at least half, giving a full point \nif yes and half a point if GPT-4 could reduce the time by half if it had access to additional software. \nOccupational exposure measures are the sum of task exposures. Their preferred weighting scheme, \nknown as GPT-4 Beta, gives core tasks (as indicated in O*NET) twice the weight as supplemental \ntasks. The GPT-4 Beta measure is used as a primary measure of occupational exposure in several \nrecent analyses of em",
+            "locator": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf"
+          }
+        ],
+        "scopeAndFreshness": "September15 captured workingpaper, selected sample and observational comparison; arithmetic uses illustrative rates.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-input.json",
+          "sha256": "2236d157c65d85746d95994e1aac8108df5f8a8c9f2d15a7978f379c2f7124bc"
+        }
+      },
+      {
+        "claimId": "employment",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "after accounting for their 2022 difference",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "census-paper"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "arket outcomes following the introduction of these \ntechnologies relative to their fellow graduates in less-exposed majors. \nWe fnd that graduates in the top decile of AI-exposed majors experienced a fve-percentage \npoint decline in their likelihood of employment in the quarter after graduation in comparison to \ngraduates in the bottom six deciles of AI exposure. They also saw declines in associated quarterly \nearnings of about thirteen percent relative to the least exposed felds, attenuating to about fve \npercent after two years. Taking into account the role of partial employment during a quarter, our \nestimates for the most exposed graduates are comparable in magnitude to the effects of en",
+            "locator": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf"
+          }
+        ],
+        "scopeAndFreshness": "September15 captured workingpaper, selected sample and observational comparison; arithmetic uses illustrative rates.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-input.json",
+          "sha256": "2236d157c65d85746d95994e1aac8108df5f8a8c9f2d15a7978f379c2f7124bc"
+        }
+      },
+      {
+        "claimId": "earnings",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Initial earnings were about 13% lower in the main full-quarter job—a job spanning the whole quarter—two quarters after graduation.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "census-paper"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "uarter employment. To be considered \nfull-quarter employed, a worker must have positive earnings in the previous, current, and subse-\nquent quarter; because of this structure, we measure this outcome two quarters after graduation. \nIn each plotted exposure decile, the pre-COVID pandemic coeffcients are positive and often \nstatistically different from zero: an average coeffcient of one log point for decile seven, fve log \npoints for deciles eight and nine, and three log points for decile ten. Thus, real earnings in 2022 \namong more exposed graduates had already begun to decline in comparison to those of less exposed \ngraduates. This could refect a weaker post-COVID pandemic recovery through 2",
+            "locator": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf"
+          }
+        ],
+        "scopeAndFreshness": "September15 captured workingpaper, selected sample and observational comparison; arithmetic uses illustrative rates.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-input.json",
+          "sha256": "2236d157c65d85746d95994e1aac8108df5f8a8c9f2d15a7978f379c2f7124bc"
+        }
+      },
+      {
+        "claimId": "causal-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "They cannot rule out coinciding field-specific changes.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "census-paper"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "rom-\nhome, changes in graduate supply, and increases in self-employment or graduate school enroll-\nment. These exercises do not readily explain the timing or concentration of our estimates, although \nour design cannot rule out other time-varying shocks to particular felds that coincide with the dif-\nfusion of generative AI. Taken together, the timing of the estimated changes, their concentration \nat the top of the exposure distribution, and the accompanying sectoral reallocation are consistent \nwith an important role for generative AI in shaping the labor market entry of recent graduates. \nThe longer-run consequences remain uncertain. Increased job switching and attenuated earn-\nings effects",
+            "locator": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf"
+          }
+        ],
+        "scopeAndFreshness": "September15 captured workingpaper, selected sample and observational comparison; arithmetic uses illustrative rates.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-input.json",
+          "sha256": "2236d157c65d85746d95994e1aac8108df5f8a8c9f2d15a7978f379c2f7124bc"
+        }
+      },
+      {
+        "claimId": "missing",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Their employment records omit self-employment and graduate school",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "census-paper"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "osure (Lambert and Schindler, 2026). Our estimates are also ro-\nbust to alternative measures of AI exposure (e.g., the usage-based measure of Handa et al., 2025). \nAdditionally, although increases in self-employment or graduate school attainment might explain \na substantial portion of declines in initial employment, we fnd evidence that these patterns may be \nmore consistent with weak labor demand than with increased opportunity. \nThe remainder of the paper proceeds as follows. Section 2 describes the PSEO, ACS, and \nLEHD data and the construction of our major-level AI exposure measure. Section 3 presents the \nempirical strategy. Section 4 reports the main employment, earnings, industry, and",
+            "locator": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf"
+          }
+        ],
+        "scopeAndFreshness": "September15 captured workingpaper, selected sample and observational comparison; arithmetic uses illustrative rates.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-input.json",
+          "sha256": "2236d157c65d85746d95994e1aac8108df5f8a8c9f2d15a7978f379c2f7124bc"
+        }
+      },
+      {
+        "claimId": "representation",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "the college sample is not nationally representative",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "census-paper"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": " this particular research. \nNonetheless, if the effects of AI are heterogeneous by institution type, then our estimates of AI’s \nimpacts may only be representative of this subset of institutions, and not the full postsecondary \nlandscape.\n5 \n2.2 GenAI Exposure \nThere are multiple measures of AI exposure in the nascent literature, but the measure developed \nin Eloundou et al. (2024) has become a widely used benchmark. Eloundou et al. use the GPT-4 \nlarge language model to classify detailed work activities and tasks in the Department of Labor’s \noccupation database (O*NET) as either AI-exposed or not. They determine exposure by asking \nwhether GPT-4 can reduce the time it takes to complete the",
+            "locator": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf"
+          }
+        ],
+        "scopeAndFreshness": "September15 captured workingpaper, selected sample and observational comparison; arithmetic uses illustrative rates.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-input.json",
+          "sha256": "2236d157c65d85746d95994e1aac8108df5f8a8c9f2d15a7978f379c2f7124bc"
+        }
+      },
+      {
+        "claimId": "review",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "this working paper has not undergone the review given Census publications",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "census-paper"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "for Economic Studies (CES) produces a wide range of \neconomic analyses to improve the statistical programs of the U.S. Census Bureau. Many of these \nanalyses take the form of CES research papers. The papers have not undergo ne the review \naccorded Census Bureau publications and no endorsement should be inferred. Any opinions and \nconclusions expressed herein are those of the author(s) and do not represent the views of the \nU.S. Census Bureau. All results have been reviewed to ensure that no confidential information is \ndisclosed. Republication in whole or part must be cleared with the authors. \nPapers in the series are posted on www.census.gov/library/working-papers/series/ces-wp.html. \nFor ",
+            "locator": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf"
+          }
+        ],
+        "scopeAndFreshness": "September15 captured workingpaper, selected sample and observational comparison; arithmetic uses illustrative rates.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-input.json",
+          "sha256": "2236d157c65d85746d95994e1aac8108df5f8a8c9f2d15a7978f379c2f7124bc"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-15",
+    "nextTrigger": "Paperrevision, independentreplication or publicationafterSeptember15.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First exact prose forCES26-56; prior named source research was not a prose/review attempt."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Knowncausal, percentagepoint, population and individualprediction risks prevented. Missing exactlearninglesson recorded asownedgap."
+  },
+  "limitations": [
+    "Producer AI simulated explain-back and transfer; no human comprehension test.",
+    "Independent existing art source/mobile companion admission; integrated runtime crop unverified."
+  ]
+}

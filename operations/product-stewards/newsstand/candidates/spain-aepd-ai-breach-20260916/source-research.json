@@ -1,0 +1,45 @@
+{
+  "candidateId": "spain-aepd-ai-breach-20260916",
+  "status": "SOURCE_BOUND_RESEARCH_NOT_ADMITTED",
+  "checkedAt": "2026-09-25T20:05:52.533572+00:00",
+  "originalUrl": "https://www.aepd.es/prensa-y-comunicacion/blog/primera-notiviacion-brecha-datos-personales-causada-por-ataque-ejecutado-mediante-agente-ia",
+  "originalEventDate": "2026-09-14",
+  "secondaryReportDate": "2026-09-16",
+  "retrieval": [
+    {
+      "method": "web open",
+      "result": "Page shell only, no article text extracted"
+    },
+    {
+      "method": "normal urllib HTTPS GET same original URL",
+      "httpStatus": 200,
+      "result": "Full Spanish article recovered; no access-control failure or bypass"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260925/aepd/original.html",
+      "sha256": "5ebf718c7ecef21aa7483d53711546a39354914513eb5a41e5f6b458c169d312"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260925/aepd/original-text.txt",
+      "sha256": "1f4f04565a0ff7a3cd23cc17a94698f2ab4a24d1859fd4c75c94339f56837bb7"
+    }
+  ],
+  "findings": [
+    "AEPD reports receipt of its first notification alleging an AI-agent data breach; this is not its completed investigative finding.",
+    "The affected organisation alleges vulnerability searches, successful login, personal-data modification and invoice access.",
+    "The regulator explicitly says the notification requires analysis; one notification cannot establish a statistical trend.",
+    "Use of a model does not establish that the model provider was compromised or designed the tool for malicious use."
+  ],
+  "readerJob": "Explain the difference between a reported agent-assisted breach and a confirmed investigation, and why existing security permissions still matter. No claim that readers’ personal accounts were affected.",
+  "missingEvidence": "No completed investigation, named model, affected organisation or personal reader exposure established in these sources. These limit reporting; do not manufacture them.",
+  "nextAction": "Prepare ordinary safety-incident reporting contract and brief with allegation attribution; check for subsequent AEPD findings before drafting. Then producer review, story-specific art, qualified editorial review and current-date issue admission. Broader Front Paige may link only after independent admission.",
+  "publicMutation": false,
+  "subsequentFindingCheck": {
+    "checkedAt": "2026-09-25T20:06:46.882608+00:00",
+    "method": "Official AEPD current blog index plus two domain-restricted searches for agent breach and investigation",
+    "finding": "No subsequent completed investigation located in this bounded check; absence of a result is not proof none exists.",
+    "latestIndexDate": "2026-09-21"
+  }
+}

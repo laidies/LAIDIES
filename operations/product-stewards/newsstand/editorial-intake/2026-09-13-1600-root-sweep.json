@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "laidies-newsstand-source-sweep.v1",
+  "invokedAt": "2026-09-13T23:00:53.423Z",
+  "scope": "16:00 scheduled recovery; fresh bounded provider observations, not exhaustive discovery.",
+  "sourceChecks": [
+    {
+      "url": "https://openai.com/news/",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-13T23:03:04Z",
+      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
+      "status": "CHECKED",
+      "assessment": "Latest displayed dated entry is September11 storage engineering; no newer displayed item.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-1.json"
+    },
+    {
+      "url": "https://www.anthropic.com/news",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-13T23:03:04Z",
+      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
+      "status": "CHECKED",
+      "assessment": "September10 misuse report remains latest dated newsroom item; exact event already published.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-1.json"
+    },
+    {
+      "url": "https://deepmind.google/blog/",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-13T23:03:04Z",
+      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
+      "status": "CHECKED",
+      "assessment": "September entries remain Gemini3.8Flash/Cyber, AlphaGenome Atlas, WeatherNext3, proactive cyber defence and agentic video. No new displayed title relative to13:00.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-1.json"
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-13T23:03:04Z",
+      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
+      "status": "CHECKED",
+      "assessment": "Latest dated entry remains September3 Lyria3.5 public preview.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-1.json"
+    },
+    {
+      "url": "https://gemini.google/release-notes/",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-13T23:03:04Z",
+      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
+      "status": "CHECKED",
+      "assessment": "September10 Windows app remains latest dated entry, already published as gemini-windows-20260913.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-2.json"
+    },
+    {
+      "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-13T23:04:32Z",
+      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
+      "status": "CHECKED",
+      "assessment": "Direct statement accessible; embedded evaluator commitment and proposed coordination correspond to existing pacing story. No new distinct event identified.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/dario.json"
+    },
+    {
+      "url": "https://x.com/cognition/status/2098142686486356185",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-13T23:03:04Z",
+      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
+      "status": "BLOCKED",
+      "assessment": "Exact source returned internal error; no source text recovered.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-2.json",
+      "nextCheckAt": "2026-09-14T03:00:00Z",
+      "missingInput": "Accessible dated primary announcement; previous lead hold remains."
+    },
+    {
+      "url": "https://x.com/bot/status/2098183353665261979",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-13T23:03:04Z",
+      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
+      "status": "BLOCKED",
+      "assessment": "Exact source returned internal error; no source text recovered.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-2.json",
+      "nextCheckAt": "2026-09-14T03:00:00Z",
+      "missingInput": "Accessible dated primary announcement; previous lead hold remains."
+    }
+  ],
+  "newEligibleLeads": [],
+  "nextReviewAt": "2026-09-14T03:00:00Z",
+  "limits": "Bounded observed indexes are not exhaustive discovery. Root direct AP URL remains safety-blocked; independent full search response was saved and read for context. Candidate not admitted.",
+  "independentAudit": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-sweep.json",
+  "recoveredLead": "trump-ai-safeguards-20260913"
+}

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "trump-ai-guardrails-response-20260914-art",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root",
+    "reviewedAt": "2026-09-14T22:38:13.952626+00:00",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/art/producer-contract-final.json",
+    "sha256": "d6fe31495d30ff768d7d765263a55c19680baf953d0f3f1ee4b930677bcea8bb"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/art/trump-public-discussion-v1.png",
+    "sha256": "245fa496a7286f1ef9c09a636cde4ffcfb8cd2726fe8c1c88a9645b74058cc4a",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/story.json",
+    "sha256": "c6eb23250aa376d612a27d02af8ac04236b67cd9209a5993aeb5ec3549a8086c",
+    "kind": "TEXT",
+    "locator": "the_story",
+    "exactTextOrSilentPurpose": "The AP report does not identify a new federal rule"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "Two opposing blank speech forms surround a computing module: discussion about AI, no law or control state implied.",
+      "artifactLocator": "full image"
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Detailed ink/halftone with coral/cyan/yellow and paper fits editorial reference.",
+      "artifactLocator": "full image"
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No people, character identity, town, official mark or flag.",
+      "artifactLocator": "full image"
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "Speech forms are visibly supported graphic props; central module sits on coherent plinth.",
+      "artifactLocator": "full image"
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "No letters, text or logos present.",
+      "artifactLocator": "full image"
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "Generic contemporary computing metaphor, no historical props.",
+      "artifactLocator": "full image"
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "Speech forms represent discussion; module identifies its subject.",
+      "artifactLocator": "full image"
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "1536x1024 frame clearly separates three dominant objects; inset framing.",
+      "artifactLocator": "full image"
+    }
+  ],
+  "visibleDefects": [],
+  "limitations": [
+    "Headline and factual qualification updated; image still communicates public discussion without claiming any rule or control state."
+  ],
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/art/trump-public-discussion-v1.png",
+    "sha256": "245fa496a7286f1ef9c09a636cde4ffcfb8cd2726fe8c1c88a9645b74058cc4a"
+  },
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First rendered candidate; unused stop-button concept rejected before rendering."
+  }
+}

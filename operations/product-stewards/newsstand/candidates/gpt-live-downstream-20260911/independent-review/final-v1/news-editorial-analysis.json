@@ -1,0 +1,76 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "gpt-live-downstream-20260911",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "1f0ad92512d85fffebf244d59d3f12a8cf8b5d6702a3ec4ea155bb09e11eea10",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can a GPT-Live-1 call sound perfectly smooth and agreeable, yet my table for five still not exist when I arrive?",
+      "response": "Because two separate systems are at work. GPT-Live-1 is only the front-end voice layer: it listens and speaks simultaneously (full duplex), so it handles your interruption when you change four to five. But it does not check availability or write anything down. A separate backend application queries the restaurant's data, applies its rules and uses the booking tool—and per OpenAI's documentation, that application, not the voice, owns confirmations and the lasting record. If the backend never writes the updated booking, the voice's fluent agreement changes nothing, which is why you repeat date, time and party size and ask for the confirmation.",
+      "expectedEvidence": "An accurate answer must name the voice/backend split, full duplex as a conversational capability only, the application's ownership of confirmations and durable records (P004), and the resulting end-of-call check (P008).",
+      "assessment": "The article's mechanism fully supports this causal answer in ordinary language; nothing had to be imported from outside the text."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using only this article's mechanism, what likely happened and what should the caller have done before hanging up?",
+      "response": "The full-duplex voice layer handled the mid-sentence change conversationally, but the backend scheduling application either never received or never wrote the revised request; the voice does not own the durable record, so its verbal agreement is not the appointment. The caller should have repeated the final details—Thursday, 3 p.m., exam plus cleaning—and asked the system to read back its confirmed record, requesting a person if it could not.",
+      "expectedEvidence": "Correct transfer applies P004's application-owns-the-record boundary and P008's read-back-and-confirm routine to a scenario absent from the article.",
+      "assessment": "The mechanism transfers cleanly to this new medical-scheduling case with no strain, confirming the explanation generalizes beyond restaurants and repairs."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The September 10 release, same-day Yelp integration and the causal architecture behind the caller experience are all understandable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released GPT-Live-1 to developers through its API on September 10. The same day, Yelp said it had integrated the voice model into Yelp Host, which answers restaurant calls, and Hatch, which handles calls for service businesses such as repair companies.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Front-end voice layer, full duplex and the application's ownership of confirmations are each explained where first needed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are grounded in specific caller situations: reservations, order changes and repair appointments with named details to confirm.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone. It does not mean every restaurant, repair company or ChatGPT account changed. Yelp did not disclose which callers, locations or customers have received the new integration.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; the confirmation advice follows directly from the documented application-owns-the-record boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p>",
+          "locator": "P008"
+        }
+      ]
+    }
+  }
+}

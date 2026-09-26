@@ -1,0 +1,43 @@
+{
+  "schema": "newsstand-normal-web-access-receipt.v1",
+  "checkedAt": "2026-09-15T03:09:00Z",
+  "scope": "Exact AP short-URL reconciliation requested after the evening independent check. No alternate transport or retry follows these results.",
+  "normalWebAttemptOutput": [
+    {
+      "url": "https://apnews.com/article/3da458d2c078da3e60900728d59f1ae8",
+      "toolResult": "Internal Error (): URL https://apnews.com/article/3da458d2c078da3e60900728d59f1ae8 is not safe to open (non-retryable error).",
+      "disposition": "ACCESS_ROUTE_UNAVAILABLE_AFTER_NORMAL_OPEN; do not retry."
+    },
+    {
+      "url": "https://apnews.com/article/98316b0d64de17191f33c0fbf1d37858",
+      "toolResult": "Internal Error (): URL https://apnews.com/article/98316b0d64de17191f33c0fbf1d37858 is not safe to open (non-retryable error).",
+      "disposition": "ACCESS_ROUTE_UNAVAILABLE_AFTER_NORMAL_OPEN; do not retry."
+    }
+  ],
+  "preexistingSuccessfulNormalWebEvidence": {
+    "leadReconciliation": {
+      "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-ap-new-leads.json",
+      "sha256": "c450b4b9302e90856e0408c9733050bdf7f29a73613f42d7d06cfaac0a74a844",
+      "assertion": "Records full-reporting normal-web opens for both canonical AP articles at 2026-09-14T22:04:55Z and maps their event identities."
+    },
+    "normalWebPassages": {
+      "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-ap-new-leads-captures/normal-web-passages.json",
+      "sha256": "02a176d5264aaa97fc0db8dccbc2e0cb9e4317f41ba8d875e36c8888500a0388",
+      "china": "Foreign Ministry response and a planned September 24 Trump-Xi discussion; no completed agreement or policy change.",
+      "riskDebate": "Explainer restates existing Anthropic/Coxon context and does not establish a discrete new event."
+    },
+    "transportFailureBodies": [
+      {
+        "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-ap-new-leads-captures/china-anthropic.body",
+        "sha256": "f6196808480c5c19c004eb9078031daf1a0f1fef01bdc20fe89ef458f33b5e06",
+        "meaning": "403 Cloudflare challenge, not article content."
+      },
+      {
+        "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-ap-new-leads-captures/risk-debate.body",
+        "sha256": "c049ae40f698f1294a018e2ae2f1141a5e3ae3e4382203f9edfda531280ba3d5",
+        "meaning": "403 Cloudflare challenge, not article content."
+      }
+    ]
+  },
+  "conclusion": "The exact short URLs are now access-unavailable; this is not an absence-of-evidence finding because the preserved normal-web observations identify the China response and the risk explainer."
+}

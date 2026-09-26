@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "newsstand-coverage-successor-proposal-v1",
+  "proposalOnly": true,
+  "observedAt": "2026-09-25T20:04:50Z",
+  "editor": "/root/california_order_producer",
+  "predecessor": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "sha256": "887ff18f942418cdd07161b7abbf0fd438226d977caf54d78525b039f411ce27"
+  },
+  "evidence": {
+    "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260925/source-refresh/raw-source-observations.json",
+    "sha256": "6cbf29ef12abbcbdcab5eedcdef073dbd693a01644946345dd726ac32a65fcf3"
+  },
+  "aidbInventory": {
+    "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260925/source-refresh/aidb-edition-inventory-v2.json",
+    "sha256": "168a952b824717d9b28ead60e6ff4c76dc7a61d3d1ce7147387d3074cc9dd984"
+  },
+  "aidbSelection": {
+    "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260925/source-refresh/aidb-selection.json",
+    "sha256": "88f17b920627a7a658f1d3d39dcc87ba749f2a87c157b68dd09dc69b27cbceaf"
+  },
+  "successor": {
+    "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260925/source-refresh/proposed-coverage-progress.json",
+    "sha256": "faa6fbdfa5ba833502f161623913df75d30f6d7879264f5888d7439bc961fcf5"
+  },
+  "sourceChecksUpdated": [
+    "https://apnews.com/hub/artificial-intelligence",
+    "https://www.nature.com/subjects/machine-learning",
+    "https://www.ftc.gov/industry/technology/artificial-intelligence",
+    "https://www.eff.org/issues/ai",
+    "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+    "https://openai.com/news/",
+    "https://www.anthropic.com/news",
+    "https://ai.google.dev/gemini-api/docs/changelog",
+    "https://aidailybrief.ai/agent.json",
+    "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+    "https://aidailybrief.ai/e/2026-09-23",
+    "https://aidailybrief.ai/e/2026-09-23.md",
+    "https://aidailybrief.ai/e/2026-09-23/transcript.md"
+  ],
+  "leadResults": [
+    {
+      "leadId": "openai-agent-australia-medicare-20260924",
+      "disposition": "EXISTING_CANDIDATE_NO_DUPLICATE",
+      "sourceUrl": "https://www.nature.com/articles/d41586-026-03024-z",
+      "reason": "The Nature item matches the existing named Medicare candidate and adds no separate event identity."
+    },
+    {
+      "leadId": "typesafe-jev-system-one-20260915",
+      "disposition": "EXISTING_HOLD_METADATA_UPDATE_ONLY",
+      "sourceUrl": "https://podcasts.apple.com/us/podcast/how-people-are-actually-using-jev/id1680633614?i=1000791661738",
+      "reason": "The Apple description is relevant practitioner metadata but is not a full transcript or independent evaluation of Jev's performance, cost or reliability claims."
+    },
+    {
+      "leadId": "anthropic-claude-code-cloud-credits-20260923",
+      "disposition": "NEW_EVIDENCE_HOLD",
+      "sourceUrl": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-rolls-out-up-to-250-in-free-claude-code-credits-but-only-for-cloud-sessions/",
+      "reason": "Concrete time-limited reader consequence is reported, but the linked provider claim route is restricted and no official eligibility/terms record was recovered."
+    },
+    {
+      "leadId": "chatgpt-pro-max-unannounced-plan-20260925",
+      "disposition": "NEW_EVIDENCE_HOLD",
+      "sourceUrl": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-is-preparing-a-500-chatgpt-pro-max-plan-with-faster-codex/",
+      "reason": "The report explicitly says the plan is unannounced, unavailable on an unknown date and missing confirmed limits; hardware linkage is speculation."
+    },
+    {
+      "leadId": "nature-lab-device-agent-interoperability-20260924",
+      "disposition": "NEW_EVIDENCE_HOLD",
+      "sourceUrl": "https://www.nature.com/articles/d41586-026-02990-8",
+      "reason": "The accessible Nature lead paragraph does not identify enough primary platform/methods evidence to assess validation, scope or ordinary-reader consequence."
+    },
+    {
+      "leadId": "alphafold-virus-complex-database-20260924",
+      "disposition": "NEW_EVIDENCE_HOLD",
+      "sourceUrl": "https://www.nature.com/articles/d41586-026-03022-1",
+      "reason": "Nature says the predictions need experimental confirmation and describes limitations including omitted sugars and larger complexes; no original database/methods record was inspected. No health or pandemic-preparedness outcome can be inferred."
+    }
+  ],
+  "addedLeadIds": [
+    "anthropic-claude-code-cloud-credits-20260923",
+    "chatgpt-pro-max-unannounced-plan-20260925",
+    "nature-lab-device-agent-interoperability-20260924",
+    "alphafold-virus-complex-database-20260924"
+  ],
+  "updatedLeadIds": [
+    "typesafe-jev-system-one-20260915"
+  ],
+  "duplicateExistingIds": [
+    "openai-agent-australia-medicare-20260924"
+  ],
+  "aidbResult": "HOLD_AIDB_RELEASE_REVIEW",
+  "fullTranscriptReviewed": false,
+  "canonicalWrites": 0,
+  "publicWrites": 0,
+  "completeness": "PARTIAL: all eight current source indexes across six desks were inspected. AP was navigation-heavy. The AIDB September 25 podcast identity is metadata-only; no full transcript was reviewed, and the publisher index still ends at September 24."
+}

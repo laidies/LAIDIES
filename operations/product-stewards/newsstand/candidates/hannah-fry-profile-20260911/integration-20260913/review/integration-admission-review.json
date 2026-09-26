@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "laidies.luminairy-private-integration-independent-review.v1",
+  "reviewedAt": "2026-09-13T15:47:10.879Z",
+  "reviewer": "/root/evening_sources",
+  "scope": "Private five-file Hannah Fry successor integration only. No canonical, public, or deployment write.",
+  "decision": "HOLD_PENDING_EXPLICIT_HISTORIC_RESOURCE_PROFILE_BINDING",
+  "independence": {
+    "integrationMaker": "/root",
+    "reviewerDistinctFromIntegrationMaker": true,
+    "signerRelationship": "The reviewer is the r7 signing custodian. Signature validity is checked deterministically; this review is independent of the root integration, not a second approval of the signing act."
+  },
+  "boundedDiffEvidence": {
+    "command": "node operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/compare-five-files.mjs",
+    "resultPath": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/five-file-comparison.json",
+    "resultSha256": "07e6a67756e0fb5941d9f0f1d195d34935f388b6fb41ddb0f47942182c0c0f5a",
+    "status": "PASS",
+    "findings": [
+      "All five intended input files exist in frozen live base and private integration.",
+      "The 42 non-Hannah profiles, claims, and receipts are byte-identical.",
+      "Hannah is exact final-v10; only about changes from the frozen live base.",
+      "The new Hannah claim hash and r7 receipt are exact; prior trusted keys remain and r7 is appended.",
+      "HTML changes only the gate cache-buster; gate changes only add the pinned r7 JWK."
+    ],
+    "metadataAssessment": "claims.generatedOn and both manifest root keyId values are deliberately retained frozen-manifest provenance/default metadata. The new Hannah receipt selects r7 and records reviewedOn 2026-09-13; retained root keyId is not used to validate the new receipt."
+  },
+  "runtimeGateEvidence": {
+    "command": "node operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/run-runtime-gate.mjs",
+    "resultPath": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/runtime-gate-results.json",
+    "resultSha256": "fca70ee424ecb5e5e23a02b697d60c71a1598951ae6bf8c75cab29f62bb07034",
+    "execution": "Actual integration gate loaded in a Node VM with actual integration profiles, claims, receipts, and WebCrypto verification.",
+    "results": {
+      "validAll43": "PASS: returns 43 admitted profiles",
+      "tamperedHannahProfile": "PASS fail-closed: HOLD profile bytes do not match admission; no dataset returned",
+      "tamperedHannahSignature": "PASS fail-closed: HOLD trusted editorial receipt invalid; no dataset returned"
+    }
+  },
+  "successorAuthorityEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/successor-profile-authority.json",
+    "sha256": "ed01dbbfa83369d130d977268fab3e623b17536fb59fcdd989def043589a9ddc",
+    "schemaVersion": "laidies.luminairy-successor-profile-authority.v1",
+    "decision": "ACCEPT_EXACT_REVIEWED_ABOUT_SUCCESSOR",
+    "allDeclaredInputAndFivePublicFileHashesMatch": true,
+    "resourceEvidenceTreatment": "The unchanged historic resource evidence hash is retained as a historical resource-link record. The successor authority separately binds final-v10 prose evidence and independent prose review; it does not represent the old resource record as newly written prose evidence.",
+    "historicResourceRecordAudit": {
+      "status": "HOLD",
+      "source": "Read-only preserved 2026-09-02 resource record in an earlier local worktree",
+      "resourceRecordAdmissionProfileSha256": "1638a86a2329121796d159ad169c95a7c030934d2049e190b2a59a837a0c0287",
+      "finding": "The current authority binds the resource-evidence digest but does not bind this prior profile hash. Add the exact historicResourceAdmissionProfileSha256 field and validate it against the preserved record before accepting the successor."
+    }
+  },
+  "limitations": [
+    "This is private admission evidence only; it is not publication, canonical mutation, or live verification.",
+    "The standalone repository validator still required compatibility repair for r5/r7 and successor-authority semantics at the time this review was written.",
+    "The authority currently lacks the historic resource record’s admission.profileSha256, so the requested explicit successor-versus-prior-profile binding remains unverified."
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "honeybook-plugin-20260912",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "c85884e3a02afce4f4c0d765e386d17b8a7ee89ee5e7ceaf892a1e0f4c39d955",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can't a proposal that ChatGPT prepares from my HoneyBook templates reach my client without me, and why can it only see some of my records?",
+      "response": "Two gates stand in the way. At connection time you grant access resource by resource, so the plugin can only read the parts of HoneyBook you approved — nothing is handed over by default. Then anything it builds lands in your account as a draft; the sending step is a separate human action, so no client sees anything until you review and approve it. Disconnecting later happens in ChatGPT settings and leaves your HoneyBook account untouched.",
+      "expectedEvidence": "An accurate causal answer should cite the resource-selection step at connection and the draft-until-approved boundary, both of which the article states in P004 and reinforces in P005 and P006.",
+      "assessment": "The article supports this answer fully: P004 supplies both gates (chosen resources, draft until review and approval, disconnect path) and P005 names the reader as the deciding party, so a reader can reconstruct the causal chain in ordinary language."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Which of her two requests can the plugin act on, and what happens to the result before her client sees anything?",
+      "response": "The overdue-payment request works: payments are within the resources she approved, so ChatGPT can read the balance and prepare a payment request — which lands as a draft she must review and approve before it goes to the client. The contract request should fail or require her to expand permissions, because she excluded contracts at connection and nothing is reachable by default; she would need to re-grant that resource rather than assume the plugin can see everything.",
+      "expectedEvidence": "The article's mechanism — resource-by-resource approval at connection (P004), drafts held for review (P004, P006), and the user as final decider (P005) — is exactly what resolves the scenario.",
+      "assessment": "The mechanism transfers cleanly to this new situation absent from the article: a reader who absorbed P004–P006 can predict both the blocked contract request and the draft-gated payment request without any extra facts."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The September 9 announcement and the causal sequence — connect account, permitted read, prepared draft, human approval — are fully understandable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 9, HoneyBook announced a plugin that connects its client-management service to ChatGPT. An existing HoneyBook user can connect her account, then ask ChatGPT about the projects, contracts, invoices and payments stored there. OpenAI’s official listing says the plugin requires a HoneyBook account.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>HoneyBook says anything the plugin builds stays a draft. Nothing sends, changes or reaches a client until you review and approve it. When connecting, you choose which HoneyBook resources it can reach, and you can disconnect it later in ChatGPT settings without changing your HoneyBook account.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Plugin' is defined by what it connects at first use, and 'draft' is explained by what cannot happen until review and approval.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 9, HoneyBook announced a plugin that connects its client-management service to ChatGPT. An existing HoneyBook user can connect her account, then ask ChatGPT about the projects, contracts, invoices and payments stored there. OpenAI’s official listing says the plugin requires a HoneyBook account.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>HoneyBook says anything the plugin builds stays a draft. Nothing sends, changes or reaches a client until you review and approve it. When connecting, you choose which HoneyBook resources it can reach, and you can disconnect it later in ChatGPT settings without changing your HoneyBook account.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a specific existing HoneyBook user asking about overdue payments and receiving a prepared next step she must approve.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The useful change is that ChatGPT can answer from the HoneyBook records you allow it to reach. You could ask which payments are overdue, where a project stands or have a proposal prepared from a saved template.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>For an existing HoneyBook user, one conversation can move from “what is happening?” to a prepared next step. The boundary is read, draft, review, approve. The plugin can prepare work from the connected account; you remain the person who decides whether that HoneyBook change or client message happens.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process details appear, and all guidance (choose resources, review drafts, disconnect in settings) is source-supported.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>HoneyBook says anything the plugin builds stays a draft. Nothing sends, changes or reaches a client until you review and approve it. When connecting, you choose which HoneyBook resources it can reach, and you can disconnect it later in ChatGPT settings without changing your HoneyBook account.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-13-13-3-the-autonomy-spectrum\\\">AI Fundamentals 101: The Autonomy Spectrum</a> explains “propose, then approve”: a system prepares an action, and an authorised person confirms before it happens. That is the useful pattern in HoneyBook’s stated draft boundary.",
+          "locator": "P007"
+        }
+      ]
+    }
+  }
+}

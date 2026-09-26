@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "trump-ai-safeguards-20260913-art-v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root/crossword_row_review",
+    "reviewedAt": "2026-09-13T23:29:00Z",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/art/producer-contract.json",
+    "sha256": "b11c6e844e353108224d4d10ce57985654746a122985d89634a1e2c738b25370"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/art/trump-policy-remarks-v1.png",
+    "sha256": "89f83857ca5aa8477de01b4757ecdc4c66a797a18540ae6c146d667225fd587b",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/article.md",
+    "sha256": "eab546744b93d8becbb3c69cf346a0790f243a837c5f93fd94a45661fb487021",
+    "kind": "TEXT",
+    "locator": "The LAiDIES Read",
+    "exactTextOrSilentPurpose": "A statement or planned meeting is different from a named policy action."
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "The microphone and loose sheet represent public remarks; the distinct blank formal document identifies the separate category of a formal action without depicting a signed rule.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Detailed deep-ink linework, cyan/coral/yellow/paper palette and halftone texture fit the approved adult editorial pop-art grammar; setting is neutral.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No person, named character, town place, party symbol, flag, company mark or politician appears.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "Microphone is mounted to the podium; the papers have coherent planes and the loose sheet is visibly wind-lifted.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "No readable generated text, pseudo-text, label, logo or watermark is visible.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "Every object supports the remarks-versus-formal-action teaching contrast; no decorative character or unrelated prop appears.",
+      "artifactLocator": "Full pixels."
+    }
+  ],
+  "visibleDefects": [],
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT"
+  },
+  "limitations": [
+    "Producer review only. An independent visual reviewer must inspect the exact pixels and companion before publication.",
+    "The blank formal document is an explanatory contrast, not evidence that a rule exists."
+  ]
+}

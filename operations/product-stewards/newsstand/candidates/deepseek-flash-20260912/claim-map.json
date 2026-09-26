@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "laidies.newsstand-claim-map.v1",
+  "candidateId": "deepseek-flash-20260912",
+  "claims": [
+    {
+      "claimId": "image",
+      "status": "VERIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/source-evidence.json",
+        "sha256": "f5830fa3ab508234aa922453560ac62fd69ef5f4a8e718a9cf7ae7f4150b295a"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "DeepSeek V4.1 Flash is now available on AI Gateway with native image understanding.",
+          "locator": "https://vercel.com/changelog/deepseek-v4-1-flash-now-available-on-ai-gateway"
+        },
+        {
+          "excerpt": "News September 10, 2026. Introducing DeepSeek-V4.1-Flash: smarter, faster, more efficient. Introducing the smallest model in our new architecture family, with native visual understanding.",
+          "locator": "https://deepseek.com/en/news/deepseek-v4-1-flash/"
+        }
+      ],
+      "scopeAndFreshness": "The dated DeepSeek announcement establishes September10 launch and visual understanding; Vercel corroborates image understanding and its separate September9 gateway availability."
+    },
+    {
+      "claimId": "route",
+      "status": "VERIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/source-evidence.json",
+        "sha256": "f5830fa3ab508234aa922453560ac62fd69ef5f4a8e718a9cf7ae7f4150b295a"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "Starting at 04:00 UTC on Sept 14, 2026, all deepseek-v4-pro requests will route to V4.1-Flash at V4.1-Flash rates. This will continue until V4.1-Pro launches.",
+          "locator": "https://deepseek.com/en/news/deepseek-v4-1-flash/"
+        }
+      ],
+      "scopeAndFreshness": "DeepSeek announcement supports only the named API route and timing."
+    },
+    {
+      "claimId": "partner",
+      "status": "VERIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "Vercel had made the model available through its AI Gateway a day earlier.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/source-evidence.json",
+        "sha256": "f5830fa3ab508234aa922453560ac62fd69ef5f4a8e718a9cf7ae7f4150b295a"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "DeepSeek V4.1 Flash is now available on AI Gateway with native image understanding.",
+          "locator": "https://vercel.com/changelog/deepseek-v4-1-flash-now-available-on-ai-gateway"
+        }
+      ],
+      "scopeAndFreshness": "Vercel statement is one partner route, not proof of all apps."
+    }
+  ]
+}

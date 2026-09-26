@@ -1,0 +1,542 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "altman-slowdown-report-20260912",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/remaining_build_review",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/remaining_build_review",
+    "principalId": "/root/remaining_build_review",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-12T17:09:39.866Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/publication-manifest.json",
+      "sha256": "cbe0db550c0a2f91b4fb4169afdbdf0d7d9dcde468d38abd0efa83ae195458cb"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/review-text.json",
+      "sha256": "20fdd8d59a9a4ad96195563541e5440dabeb8f89f1cee88b3c38f1a8e90005a4"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/rendered-article.html",
+      "sha256": "a4a6950df997d52fb2bb55c7775b5a4ce1ddcc5dfb8488e36af9f6ebf0649012"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/remaining_build_review",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    },
+    "reuseDisclosure": "Reused the existing reviewer’s checksum-bound global exemplar calibration; no calibration provider call was made for this candidate. The current producer review is an exact read-through of this candidate only.",
+    "reusedAt": "2026-09-12T17:09:39.866Z"
+  },
+  "reverseBrief": {
+    "humanQuestion": "Does Anthropic’s new proposal mean AI development is actually slowing?",
+    "promisedPayoff": "Understand what Anthropic says it will do itself, what outside evaluators could check, and why that is not an industry-wide slowdown.",
+    "centralMentalModel": "Outside evaluators can test a company’s stated safety practice, but a company proposal does not create a shared rule or prove an industry action.",
+    "dailyLifeConnection": "A reader sees a sweeping safety headline and wants to know what will actually change.",
+    "surfaceJob": "A short September 12 report on Amodei’s direct proposal and Anthropic’s stated evaluator-access commitment.",
+    "desiredReaderFeeling": "I can distinguish a company’s future accountability practice from a multi-company agreement."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Does an outside evaluator mean AI has slowed?",
+        "probeResponse": "No. It can check one company’s practice. A shared pace would need other companies and an agreement.",
+        "expectedEvidence": "Evaluator access and an industry slowdown remain separate."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What shows an audit promise became real?",
+        "probeResponse": "A named evaluator, access terms, and published findings are stronger evidence than the announcement itself.",
+        "expectedEvidence": "The reader asks for observable accountability."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "I reread the exact current Amodei candidate and checked proposal, stated commitment, access limits, and absent industry agreement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a proposed accountability tool, not a shared industry rule.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete article avoids glossaryAccumulation; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete article avoids templateRepetition; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete article avoids decorativeAnalogy; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete article avoids referenceConfetti; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete article avoids missingMechanism; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete article avoids genericAction; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete article avoids jargonBeforeMeaning; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete article avoids disconnectedSystem; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete article avoids factlessConfidence; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete article avoids staleUnreviewableClaims; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete article avoids corporateSludge; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete article avoids joylessInstruction; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete article avoids benchmarkNameDrop; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete article avoids curiosityWithoutPayoff; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete article avoids familiarExampleWithoutTechnicalReturn; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete article avoids communicationPastiche; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete article avoids entertainmentBeforeUnderstanding; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete article avoids mechanismCompressedBehindHook; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete article avoids prematureClickBeforeMechanism; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete article avoids inflatedTakeawayEnding; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete article avoids purposeTooNarrow; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete article avoids mechanismBeforeMotivation; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete article avoids workedExampleOvertakesBookPurpose; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete article avoids technicalExplainerVoice; its report attribution, mechanism, limits, and evidence threshold remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/source-evidence.json",
+        "sha256": "4e84066b166b808289c6eb8306d0ea00c81ced9520b22f8a6f73a17358301f50"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "amodei-proposal",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic CEO Dario Amodei published a proposal to slow the pace of improving AI capabilities while safety work catches up.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceIds": [
+          "dario-amodei-pace-frontier-2026-09"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/source-evidence.json",
+          "sha256": "4e84066b166b808289c6eb8306d0ea00c81ced9520b22f8a6f73a17358301f50"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic is unilaterally committing to embedded third-party evaluators with ongoing, employee-like access. Reviewers should have the right to publish key findings without editorial control, subject to narrow security-sensitive, legally privileged, commercially sensitive, or third-party-confidential redactions.",
+            "locator": "https://darioamodei.com/post/we-must-pace-the-frontier"
+          }
+        ],
+        "scopeAndFreshness": "This is Amodei’s proposal and Anthropic’s stated future commitment. Industry-wide and global coordination are proposed, not agreed; his risk forecasts are his stated concerns, not established outcomes."
+      },
+      {
+        "claimId": "anthropic-commitment",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "His first step is one Anthropic says it will take itself: invite an outside evaluation team with ongoing access similar to employees who assess risk.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceIds": [
+          "dario-amodei-pace-frontier-2026-09"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/source-evidence.json",
+          "sha256": "4e84066b166b808289c6eb8306d0ea00c81ced9520b22f8a6f73a17358301f50"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic is unilaterally committing to embedded third-party evaluators with ongoing, employee-like access. Reviewers should have the right to publish key findings without editorial control, subject to narrow security-sensitive, legally privileged, commercially sensitive, or third-party-confidential redactions.",
+            "locator": "https://darioamodei.com/post/we-must-pace-the-frontier"
+          }
+        ],
+        "scopeAndFreshness": "This is Amodei’s proposal and Anthropic’s stated future commitment. Industry-wide and global coordination are proposed, not agreed; his risk forecasts are his stated concerns, not established outcomes."
+      },
+      {
+        "claimId": "access-boundary",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Amodei says that team would have desks, badges, laptops, and mostly comparable access to relevant tools and workspaces. He says privacy, legal, and contract exceptions would remain.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceIds": [
+          "dario-amodei-pace-frontier-2026-09"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/source-evidence.json",
+          "sha256": "4e84066b166b808289c6eb8306d0ea00c81ced9520b22f8a6f73a17358301f50"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic is unilaterally committing to embedded third-party evaluators with ongoing, employee-like access. Reviewers should have the right to publish key findings without editorial control, subject to narrow security-sensitive, legally privileged, commercially sensitive, or third-party-confidential redactions.",
+            "locator": "https://darioamodei.com/post/we-must-pace-the-frontier"
+          }
+        ],
+        "scopeAndFreshness": "This is Amodei’s proposal and Anthropic’s stated future commitment. Industry-wide and global coordination are proposed, not agreed; his risk forecasts are his stated concerns, not established outcomes."
+      },
+      {
+        "claimId": "publication-rights",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Amodei says reviewers should be able to publish key findings without Anthropic editing them, with narrow redactions for security, legal, commercial, or third-party confidential information.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceIds": [
+          "dario-amodei-pace-frontier-2026-09"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/source-evidence.json",
+          "sha256": "4e84066b166b808289c6eb8306d0ea00c81ced9520b22f8a6f73a17358301f50"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic is unilaterally committing to embedded third-party evaluators with ongoing, employee-like access. Reviewers should have the right to publish key findings without editorial control, subject to narrow security-sensitive, legally privileged, commercially sensitive, or third-party-confidential redactions.",
+            "locator": "https://darioamodei.com/post/we-must-pace-the-frontier"
+          }
+        ],
+        "scopeAndFreshness": "This is Amodei’s proposal and Anthropic’s stated future commitment. Industry-wide and global coordination are proposed, not agreed; his risk forecasts are his stated concerns, not established outcomes."
+      },
+      {
+        "claimId": "not-agreement",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Amodei calls for other companies and governments to coordinate; neither source announces an agreement or a slowdown.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceIds": [
+          "ap-amodei-pace-2026-09-12"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/source-evidence.json",
+          "sha256": "4e84066b166b808289c6eb8306d0ea00c81ced9520b22f8a6f73a17358301f50"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Amodei offered a plan to increase checks on the industry; one part Anthropic is undertaking by itself already, while others require coordination among industry and governments.",
+            "locator": "https://apnews.com/article/d59552edcb27892d8ee4d98a48397706"
+          }
+        ],
+        "scopeAndFreshness": "AP reports a proposal and stated concern, not an industry agreement or implemented slowdown."
+      }
+    ],
+    "reviewedThrough": "2026-09-12",
+    "nextTrigger": "Reopen if Anthropic names evaluators, publishes findings, changes access terms, or a cross-company agreement is announced.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "The published Coxon warning is related prior coverage, not a predecessor candidate for this distinct later attributed report."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The producer record explicitly separates anonymous-source reporting, interest, agreement, implementation, and product change; no current defect remains."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "Anthropic’s evaluator arrangement is a stated near-future commitment, not completed access.",
+    "No industry agreement or slowdown is announced in the reviewed sources."
+  ],
+  "limits": "Producer self-review only. Independent editorial and factual admission remain required."
+}

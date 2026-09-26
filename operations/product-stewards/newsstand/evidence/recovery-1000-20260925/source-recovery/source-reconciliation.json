@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "newsstand-source-recovery-proposal-v1",
+  "observedAt": "2026-09-25T17:03:10Z",
+  "editorialDate": "2026-09-25",
+  "mode": "PROPOSAL_ONLY_NO_CANONICAL_WRITE",
+  "reviewer": "/root/california_order_producer",
+  "inputBindings": [
+    {
+      "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+      "sha256": "887ff18f942418cdd07161b7abbf0fd438226d977caf54d78525b039f411ce27"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/evening-20260924/due-source-recovery/source-reconciliation.json",
+      "sha256": "4ce7d3463aa5271fa55717eb79516c7bb4a277f623a96bceb0a3a87dc2e142d0"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1000-20260925/source-recovery/search-evidence.json",
+      "sha256": "65f066626255472f1530f6c923cb107c88349d01d6a6d2f7b0edef4fe6ace163"
+    }
+  ],
+  "leadProposals": [
+    {
+      "leadId": "proteintalks-20260909",
+      "eventIdentity": "proteintalks-nature-breast-cancer-20260909",
+      "proposedStatus": "EVIDENCE_BLOCKED",
+      "proposedSourceCheck": {
+        "checkedAt": "2026-09-25T17:03:10Z",
+        "status": "OFFICIAL_CODE_REPOSITORY_PARTIAL_METHODS_ONLY",
+        "assessment": "The official guomics-lab/PTV-1 repository confirms analysis-code availability and identifies several preprocessing and scoring scripts. Its visible README does not provide the complete model splits, benchmark definitions, independent replication or prospective clinical evidence required for the lead's stronger claims."
+      },
+      "proposedMissingInput": "Complete admissible primary methods/results and supplementary reporting for every training/evaluation split and benchmark definition, plus independent replication and prospective clinical-limit evidence.",
+      "proposedNextCheck": "The code-repository route is now inspected. If the family remains active, inspect the already identified official iProX accession IPX0007409000 once for dataset scope and metadata; do not retry Nature, bioRxiv or Westlake."
+    },
+    {
+      "leadId": "nature-breast-cancer-drug-prediction-20260909",
+      "eventIdentity": "proteintalks-nature-breast-cancer-20260909",
+      "proposedStatus": "EVIDENCE_BLOCKED",
+      "proposedSourceCheck": {
+        "checkedAt": "2026-09-25T17:03:10Z",
+        "status": "OFFICIAL_CODE_REPOSITORY_PARTIAL_METHODS_ONLY",
+        "assessment": "This is the same underlying study as proteintalks-20260909. The official repository supports a narrow analysis-code claim but does not establish the full evaluation design or clinical validity."
+      },
+      "proposedMissingInput": "Complete admissible primary methods/results and supplementary reporting for every training/evaluation split and benchmark definition, plus independent replication and prospective clinical-limit evidence.",
+      "proposedNextCheck": "Keep this row reconciled to the shared study family. If still active, inspect official iProX accession IPX0007409000 once; do not retry the blocked article routes."
+    },
+    {
+      "leadId": "devin-voice-20260911",
+      "eventIdentity": "devin-voice-20260911",
+      "proposedStatus": "EVIDENCE_BLOCKED",
+      "proposedSourceCheck": {
+        "checkedAt": "2026-09-25T17:03:10Z",
+        "status": "NO_DISTINCT_OFFICIAL_RELEASE_RECORD_FOUND",
+        "assessment": "A current bounded Cognition/Devin-domain search returned no official dated Devin Voice launch or changelog record. Existing operation documentation remains insufficient for launch date, launch scope, price or model claims."
+      },
+      "proposedMissingInput": "Accessible exact dated Cognition launch record identifying launch scope; price and model remain unknown unless an official source states them.",
+      "proposedNextCheck": "Recheck only if a distinct official Cognition changelog or release-note URL is discovered. Do not retry the X post or treat undated feature documentation as launch evidence."
+    },
+    {
+      "leadId": "grokbot-sales-integrations",
+      "eventIdentity": "grokbot-sales-integrations",
+      "proposedStatus": "EVIDENCE_BLOCKED",
+      "proposedSourceCheck": {
+        "checkedAt": "2026-09-25T17:03:10Z",
+        "status": "OFFICIAL_PRIOR_CAPABILITY_EVIDENCE_SEP10_EVENT_UNVERIFIED",
+        "assessment": "Official August 11 and August 16 pages establish Grok Bot's launch and show Salesforce, Granola and Gong workflows before September 10. They do not establish a September 10 integration release or when HubSpot and Clay support became available. The claimed later event therefore remains unverified and partly overlaps older official capability evidence."
+      },
+      "proposedMissingInput": "Exact dated xAI primary announcement establishing which integrations, if any, were newly announced September 10 and separating them from capabilities already documented in August.",
+      "proposedNextCheck": "Recheck only a newly indexed xAI September 10 company update or changelog. If none emerges, evaluate the canonical row for false-premise or duplicate disposition rather than restating the August guide as September news."
+    },
+    {
+      "leadId": "embedded-evaluator-independence-20260915",
+      "eventIdentity": "openai-hugging-face-embedded-evaluator-commitment-20260915",
+      "proposedStatus": "EVIDENCE_BLOCKED",
+      "proposedSourceCheck": {
+        "checkedAt": "2026-09-25T17:03:10Z",
+        "status": "ORIGINAL_EVENT_UNVERIFIED_SEPARATE_ANTHROPIC_AGREEMENT_CONFIRMED",
+        "assessment": "No official OpenAI or Hugging Face company page or agreement was found for the September commitment. A distinct official Anthropic page dated September 18 confirms an Accenture embedded-evaluation partnership, states the work areas and expected investment, describes employee-comparable access, and says many operating details remain unsettled. That later development is material but does not validate the original OpenAI/Hugging Face lead."
+      },
+      "proposedMissingInput": "For this exact lead, an accessible OpenAI or Hugging Face company announcement/terms or completed agreement remains missing. The Anthropic/Accenture partnership requires a separate event identity and independent reporting before any public claim about practical independence.",
+      "proposedNextCheck": "Retain this row's hold unless a distinct OpenAI or Hugging Face company record appears; do not retry the blocked X posts. The September 18 Anthropic/Accenture development is already covered and needs no new lead.",
+      "relatedMaterialDevelopment": {
+        "existingLeadId": "anthropic-evaluator-20260918",
+        "sourceUrl": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+        "disposition": "ALREADY_COVERED_WEEKLY_SEPTEMBER19",
+        "publishedStoryId": "weekly-promises-and-proof-20260916",
+        "claimLimits": "The source confirms a partnership and stated design. It does not prove operational independence, effectiveness, completed access arrangements or outcomes."
+      }
+    }
+  ],
+  "summary": {
+    "eventFamiliesInspected": 4,
+    "canonicalLeadRowsCovered": 5,
+    "canonicalRowsResolved": 0,
+    "holdsRetained": 5,
+    "newOfficialMaterialDevelopments": 0,
+    "existingCoveredDevelopmentConfirmed": 1,
+    "canonicalWrites": 0,
+    "publicProduction": 0,
+    "claim": "Bounded due-source recovery only; no exhaustive-source or quiet-news conclusion."
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "schema": "newsstand-source-recovery-proposal.v1",
+  "cycle": "2026-09-24T10:00 America/Vancouver",
+  "triggerAt": "2026-09-24T17:01:58Z",
+  "packetBoundAt": "2026-09-24T11:42:15-07:00",
+  "authority": "proposal only; no canonical coverage, edition cursor, candidate, or public artifact was changed",
+  "result": "PARTIAL: all eight prescribed indexes and AIDB discovery were captured; inaccessible AIDB editions/transcripts and retained restricted sources prevent a complete research cycle.",
+  "routeGuard": {
+    "path": "route-guard.txt",
+    "sha256": "6dc893fb846e7ddf7d5180e1596cf43955da4d8028987441c9c937f26ee70e6d",
+    "result": "PASS; desks=6 sources=8; research_completion_certified=false"
+  },
+  "sourceChecks": [
+    {
+      "source": "FTC AI",
+      "url": "https://www.ftc.gov/news-events/topics/competition/competition-matters/artificial-intelligence",
+      "status": "CHECKED_NO_NEW_SEP24_ITEM",
+      "receipt": "roster-and-aidb-raw.json",
+      "receiptSha256": "641c0820a5213928a05a1b25fc571d44a9bc785a1a90e85e5343abbebd794f60",
+      "checkedDuringTrigger": "2026-09-24T17:01:58Z"
+    },
+    {
+      "source": "AP AI",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "status": "CHECKED_WITH_NEW_POLICY_SPEECH_EXCLUDED",
+      "receipt": "material-leads-raw.json",
+      "receiptSha256": "4b4937cb5b34bd405d2c0310419ce6f9b82869ee110523a7ee089e9bc75957c2",
+      "checkedDuringTrigger": "2026-09-24T17:01:58Z"
+    },
+    {
+      "source": "Nature machine learning",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "status": "CHECKED_NO_SEP24_MARKER",
+      "receipt": "roster-and-aidb-raw.json",
+      "receiptSha256": "641c0820a5213928a05a1b25fc571d44a9bc785a1a90e85e5343abbebd794f60",
+      "checkedDuringTrigger": "2026-09-24T17:01:58Z",
+      "restriction": "The separate /subjects/machine-learning/nature endpoint remains NONRETRYABLE authentication restricted and was not reopened."
+    },
+    {
+      "source": "EFF updates",
+      "url": "https://www.eff.org/updates",
+      "status": "CHECKED_NO_SEP24_MARKER",
+      "receipt": "roster-and-aidb-raw.json",
+      "receiptSha256": "641c0820a5213928a05a1b25fc571d44a9bc785a1a90e85e5343abbebd794f60",
+      "checkedDuringTrigger": "2026-09-24T17:01:58Z"
+    },
+    {
+      "source": "BleepingComputer AI",
+      "url": "https://www.bleepingcomputer.com/tag/artificial-intelligence/",
+      "status": "CHECKED_NO_UNDISPOSITIONED_SEP24_ITEM",
+      "receipt": "roster-and-aidb-raw.json",
+      "receiptSha256": "641c0820a5213928a05a1b25fc571d44a9bc785a1a90e85e5343abbebd794f60",
+      "checkedDuringTrigger": "2026-09-24T17:01:58Z"
+    },
+    {
+      "source": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "status": "CHECKED_NO_SEP24_MARKER",
+      "receipt": "roster-and-aidb-raw.json",
+      "receiptSha256": "641c0820a5213928a05a1b25fc571d44a9bc785a1a90e85e5343abbebd794f60",
+      "checkedDuringTrigger": "2026-09-24T17:01:58Z"
+    },
+    {
+      "source": "Anthropic News",
+      "url": "https://www.anthropic.com/news",
+      "status": "CHECKED_NEW_KEEP",
+      "receipt": "opus-and-un-raw.json",
+      "receiptSha256": "b9945e8914ffb42f20c5e203e52e5b2e624cd6cdef7f146a5d1456f46d570f18",
+      "checkedDuringTrigger": "2026-09-24T17:01:58Z"
+    },
+    {
+      "source": "Gemini API changelog",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "status": "CHECKED_NO_SEP24_MARKER",
+      "receipt": "roster-and-aidb-raw.json",
+      "receiptSha256": "641c0820a5213928a05a1b25fc571d44a9bc785a1a90e85e5343abbebd794f60",
+      "checkedDuringTrigger": "2026-09-24T17:01:58Z"
+    }
+  ],
+  "materialLeads": [
+    {
+      "id": "anthropic-claude-opus-5-5-20260922",
+      "disposition": "KEEP_SOURCE_BOUND_CANDIDATE",
+      "publishedDate": "2026-09-22",
+      "originalUrl": "https://www.anthropic.com/claude-opus-5-5",
+      "scope": "Anthropic says Opus 5.5 is available across its platforms and cloud partners; its stated API price is $4 input/$20 output per million tokens, with plan-limit changes and rate reset described for subscription users.",
+      "readerQuestion": "Which access or cost terms apply to the reader's actual Claude plan or API use?",
+      "limits": "Pricing, speed, and capability statements are vendor claims. The source does not establish every individual-chat plan's availability or provide a household saving.",
+      "evidence": [
+        "opus-and-un-raw.json",
+        "opus-claims-raw.json"
+      ],
+      "nextAction": "Producer must bind an exact audience/plan scope and compare with the already researched GPT-6 Sol/Luna release before drafting."
+    },
+    {
+      "id": "ap-un-security-council-ai-20260923",
+      "disposition": "EXCLUDED_POLICY_SPEECH_NO_OPERATIVE_CHANGE",
+      "publishedDate": "2026-09-23",
+      "originalUrl": "https://apnews.com/article/ai-artificial-intelligence-un-security-council-64519ea66b38e2600026f4481ad7f211",
+      "scope": "Full AP article body inspected: company leaders and governments stated positions at a UN Security Council meeting; it reports possible future G20 discussion, not a binding decision.",
+      "readerQuestion": "No immediate action or new applicable rule is evidenced.",
+      "limits": "Do not describe this as a UN AI rule, enacted governance, or a required change.",
+      "evidence": [
+        "material-leads-raw.json",
+        "opus-and-un-raw.json"
+      ],
+      "nextAction": "Retain as an excluded attributable event; revisit only on a concrete adopted measure."
+    },
+    {
+      "id": "aidb-2026-09-23-opus-5-5-vs-gpt-6-sol-and-luna",
+      "disposition": "HOLD_AIDB_RELEASE_REVIEW",
+      "publishedDate": "2026-09-23",
+      "originalUrl": "https://aidailybrief.ai/e/2026-09-23",
+      "podcastUrl": "https://podcasts.apple.com/us/podcast/opus-5-5-vs-gpt-6-sol-and-luna/id1680633614?i=1000791349868",
+      "scope": "Publisher index and Apple listing identify a 31-minute episode; Apple notes are metadata/description only.",
+      "limits": "No complete transcript or audio review occurred. Do not use episode notes as a transcript or treat this as an admitted article source.",
+      "evidence": [
+        "aidb-edition-inventory.json",
+        "aidb-podcast-episode-raw.json",
+        "aidb-selection.json"
+      ],
+      "nextAction": "Recover an accessible complete edition/transcript before a content decision."
+    }
+  ],
+  "aidb": {
+    "inventoryPath": "aidb-edition-inventory.json",
+    "inventorySha256": "9362d2e3f8cb699cc8bd8ea6ef340ed9cd5a84c39c700eca8501ad0ca80774fb",
+    "selectorPath": "aidb-selection.json",
+    "selectorSha256": "9b0749d2708a1820a8a419a789deeaaba7a7e019647417ed3bac510bccbe9e2b",
+    "expectedSep24": {
+      "edition": "Internal Error",
+      "transcript": "Internal Error",
+      "attemptedNormalRoute": true
+    },
+    "unresolvedSep23": {
+      "edition": "Internal Error",
+      "transcript": "Internal Error",
+      "attemptedNormalRoute": true
+    },
+    "status": "Seven released visible editions (Sep23,22,21,20,18,17,16) remain incomplete; selector returned HOLD_AIDB_RELEASE_REVIEW. No cursor advance proposed."
+  },
+  "recoveryReviews": [
+    {
+      "source": "Cognition original X event",
+      "originalObservedAt": "2026-09-21T23:27:06.918Z",
+      "originalStatus": "NONRETRYABLE",
+      "exactOriginalNotRetried": true,
+      "distinctRecoveryUrl": "https://cognition.com/blog",
+      "result": "Current official blog inspected; it exposes Sep22 Latin America expansion, Sep15 AWS partnership, Sep11 Fusion and other posts, but no evidence maps the blocked event ID to one of them.",
+      "receipt": "alternate-recovery-finds-raw.json",
+      "missingInput": "Original event identity or an attributable publisher record.",
+      "nextRecoveryStep": "Wait for a future distinct publisher-origin record; do not retry the prohibited X route."
+    },
+    {
+      "source": "Blocked X bot event",
+      "originalStatus": "NONRETRYABLE",
+      "exactOriginalNotRetried": true,
+      "result": "No event identity or legitimate publisher target is exposed in the retained source row; no substitute claim was made.",
+      "missingInput": "Attributable original publisher and event identity.",
+      "nextRecoveryStep": "Hold without route retry until a distinct attributable origin is known."
+    },
+    {
+      "source": "Peking University/ProteinTalks source",
+      "originalStatus": "NONRETRYABLE",
+      "exactOriginalNotRetried": true,
+      "distinctRecoveryUrls": [
+        "https://www.nature.com/articles/s41586-026-11001-9",
+        "https://www.biorxiv.org/content/10.1101/2025.02.07.637070v2"
+      ],
+      "result": "Search recovery established DOI 10.1038/s41586-026-11001-9 and a related bioRxiv URL. Normal opens then returned Nature authentication restriction and bioRxiv 403; neither full underlying primary was accessible.",
+      "receipt": "pku-primary-recovery-raw.json",
+      "receiptSha256": "066179206240ad27616108707ec39e8d19173ef12b402b3e46fde1101a2a645f",
+      "missingInput": "Accessible full primary results/methods and institutional statement.",
+      "nextRecoveryStep": "Retain the original hold; do not bypass the failed routes."
+    },
+    {
+      "source": "Mollick feed/home",
+      "originalStatus": "NONRETRYABLE",
+      "exactOriginalNotRetried": true,
+      "distinctRecoveryUrl": "https://www.oneusefulthing.org/archive",
+      "result": "Current archive inspected; no September marker was found.",
+      "receipt": "alternate-recovery-raw.json",
+      "receiptSha256": "6b24d0a00cae657aefeaae422aa1662e41d9b81b8cde73d56a5a9ad76f12c9a8",
+      "missingInput": "Current attributable post record.",
+      "nextRecoveryStep": "Keep original blocked time; retry only a permitted archive/index when next due."
+    },
+    {
+      "source": "AIDB Beehiiv landing",
+      "originalStatus": "NONRETRYABLE",
+      "exactOriginalNotRetried": true,
+      "distinctRecoveryUrl": "https://podcasts.apple.com/us/podcast/opus-5-5-vs-gpt-6-sol-and-luna/id1680633614?i=1000791349868",
+      "result": "Apple publisher-linked episode metadata was captured, but not a newsletter or transcript.",
+      "receipt": "aidb-podcast-episode-raw.json",
+      "receiptSha256": "1d6435095622a5dde438a8bf250d902c97cae2549ceaaf2cca687049565ff67e",
+      "missingInput": "Accessible newsletter or complete edition transcript.",
+      "nextRecoveryStep": "Keep Beehiiv block timestamp; use only permitted publisher-linked channels when they yield material."
+    },
+    {
+      "source": "Reuters exact route",
+      "originalStatus": "NONRETRYABLE",
+      "exactOriginalNotRetried": true,
+      "result": "No distinct source was found that identifies the retained Reuters event. AP's separate UN Security Council report is not substituted as corroboration.",
+      "missingInput": "Attributable independent report about the same event.",
+      "nextRecoveryStep": "Retain original block and event-specific source gap."
+    }
+  ],
+  "proposedCoverageChanges": [
+    {
+      "change": "ADD_LEAD_FOR_ADMISSION",
+      "leadId": "anthropic-claude-opus-5-5-20260922",
+      "disposition": "KEEP_SOURCE_BOUND_CANDIDATE",
+      "noCanonicalWritePerformed": true
+    },
+    {
+      "change": "RETAIN_AIDB_HOLD",
+      "leadId": "aidb-2026-09-23-opus-5-5-vs-gpt-6-sol-and-luna",
+      "disposition": "HOLD_AIDB_RELEASE_REVIEW",
+      "noCursorAdvanceProposed": true
+    },
+    {
+      "change": "RETAIN_EXCLUSION",
+      "leadId": "ap-un-security-council-ai-20260923",
+      "disposition": "EXCLUDED_POLICY_SPEECH_NO_OPERATIVE_CHANGE"
+    },
+    {
+      "change": "RETAIN_EXISTING_BLOCK_TIMES",
+      "appliesTo": [
+        "Cognition original X event",
+        "Blocked X bot event",
+        "Peking University/ProteinTalks source",
+        "Mollick feed/home",
+        "AIDB Beehiiv landing",
+        "Reuters exact route"
+      ],
+      "reason": "Fresh distinct recovery evidence exists where named; no original prohibited route was retried and no blocked timestamp is renewed."
+    }
+  ]
+}

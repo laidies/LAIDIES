@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "laidies.newsstand-claim-map.v1",
+  "candidateId": "altman-slowdown-report-20260912",
+  "claims": [
+    {
+      "claimId": "reported-discussion",
+      "status": "QUALIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "Bloomberg reported September 11 that Sam Altman told an OpenAI staff meeting the company could potentially pace its most advanced AI work with several other labs.",
+          "locator": "the_story.P001"
+        }
+      ],
+      "sourceIds": [
+        "bloomberg-law-reprint-2026-09-11"
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/source-evidence.json",
+        "sha256": "fde317141dfaabc2a2ce901cb770aa34c85c6001684b403d0f84f0d457d4fcd6"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "It reports that, at a company-wide meeting that week, Altman said OpenAI could potentially pace development with several other labs; people familiar with the private details requested anonymity. It says some labs may not agree.",
+          "locator": "https://news.bloomberglaw.com/business-and-practice/openai-is-open-to-slowing-cutting-edge-ai-altman-tells-staff"
+        }
+      ],
+      "scopeAndFreshness": "Qualified Bloomberg report; an internal discussion, not an official announcement."
+    },
+    {
+      "claimId": "anonymous-limit",
+      "status": "QUALIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "The people familiar with the private meeting were unnamed.",
+          "locator": "the_story.P001"
+        }
+      ],
+      "sourceIds": [
+        "bloomberg-law-reprint-2026-09-11"
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/source-evidence.json",
+        "sha256": "fde317141dfaabc2a2ce901cb770aa34c85c6001684b403d0f84f0d457d4fcd6"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "people familiar with the private details requested anonymity",
+          "locator": "https://news.bloomberglaw.com/business-and-practice/openai-is-open-to-slowing-cutting-edge-ai-altman-tells-staff"
+        }
+      ],
+      "scopeAndFreshness": "The report’s unnamed sources limit certainty about the private meeting."
+    },
+    {
+      "claimId": "not-implementation",
+      "status": "QUALIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "That is a report of a discussion, not evidence that OpenAI has slowed work. It names no participating labs, agreement, timeline, or ChatGPT change.",
+          "locator": "the_story.P002"
+        }
+      ],
+      "sourceIds": [
+        "bloomberg-law-reprint-2026-09-11"
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/source-evidence.json",
+        "sha256": "fde317141dfaabc2a2ce901cb770aa34c85c6001684b403d0f84f0d457d4fcd6"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "This is attributed reporting of an internal discussion. It does not establish an announced pause, a pact, a timeline, or a product-policy change. The accessible reprint locks the remainder of the article.",
+          "locator": "https://news.bloomberglaw.com/business-and-practice/openai-is-open-to-slowing-cutting-edge-ai-altman-tells-staff"
+        }
+      ],
+      "scopeAndFreshness": "Editorial scope statement constrained by Bloomberg’s reported limits; it claims no implementation."
+    },
+    {
+      "claimId": "anthropic-interest",
+      "status": "QUALIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "Reuters, reporting Bloomberg’s account, said an Anthropic spokesperson was interested in working with the industry on release pace; interest is not a deal.",
+          "locator": "laidies_read.P003"
+        }
+      ],
+      "sourceIds": [
+        "reuters-licensed-republication-2026-09-10"
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/source-evidence.json",
+        "sha256": "fde317141dfaabc2a2ce901cb770aa34c85c6001684b403d0f84f0d457d4fcd6"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "Reuters reports Bloomberg said Altman told staff OpenAI was open to slowing development amid safety concerns and might pace development with other labs. Reuters says an Anthropic spokesperson expressed interest in working with the industry on the pace of releasing new tools.",
+          "locator": "https://www.investing.com/news/stock-market-news/altman-tells-staff-openai-is-open-to-slowing-ai-development-bloomberg-news-reports-4897183"
+        }
+      ],
+      "scopeAndFreshness": "Reuters relays Bloomberg for the staff-meeting account; the named spokesperson’s interest is not an agreement."
+    },
+    {
+      "claimId": "pachocki-context",
+      "status": "QUALIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "OpenAI Chief Scientist Jakub Pachocki separately wrote September 6 that OpenAI would withhold further scaling as needed; that earlier post does not confirm the reported meeting.",
+          "locator": "what_this_means.P004"
+        }
+      ],
+      "sourceIds": [
+        "openai-pachocki-alien-mind-2026-09-06"
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/source-evidence.json",
+        "sha256": "fde317141dfaabc2a2ce901cb770aa34c85c6001684b403d0f84f0d457d4fcd6"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "Pachocki writes that OpenAI will seek to align, monitor, and build defenses against more powerful systems and will unilaterally withhold further scaling as needed; he says broader interventions will also be needed.",
+          "locator": "https://openai.com/index/an-alien-mind/"
+        }
+      ],
+      "scopeAndFreshness": "Separate official context from September 6; it does not verify the reported meeting."
+    }
+  ]
+}

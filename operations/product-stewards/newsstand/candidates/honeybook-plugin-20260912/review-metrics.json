@@ -1,0 +1,42 @@
+{
+  "proseReview": {
+    "reviewIssues": 0,
+    "reviewCycles": 2
+  },
+  "evidencePacket": {
+    "rounds": 2,
+    "gaps": 1,
+    "repaired": 1,
+    "checkedClaims": 6,
+    "exactSourceExcerpts": 6
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 0,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "stage": "producer",
+      "note": "Root read the complete exact article. Sol prepared the draft and mechanical bindings."
+    },
+    {
+      "stage": "independent",
+      "review": "runtime-claude-fable-20260912-v1",
+      "verdict": "ROOT_FACTUAL_EVIDENCE_HOLD",
+      "issues": 1,
+      "note": "Reader judgment passed on the unchanged article; root held factual admission because stored passages were paraphrases and one factual synthesis was excluded from source accounting."
+    },
+    {
+      "stage": "root-evidence-repair",
+      "note": "Root reopened both official pages. Exact HTTP-extracted source captures, literal excerpt guards and complete source accounting now await a facts-only v2 review."
+    },
+    {
+      "stage": "independent-v3",
+      "verdict": "ROOT_RECONCILIATION_ACCEPT",
+      "note": "Fresh complete review after metadata prevented v2 reader reuse; zero new review issues."
+    }
+  ]
+}

@@ -1,0 +1,521 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "gpt-6-sol-luna-20260922",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer full-text fidelity repair and self-review",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-26T15:01:43.333Z",
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-26T14:37:48.704Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/publication-manifest.json",
+      "sha256": "6fba677813ca4baa4b0a2a95c461fa45a6d236d950766d05dbcc16c5f2e7d99b"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/review-text.json",
+      "sha256": "b5b54244789a715a0bcc11fd031581912e28a25fe4835e74ddbbe4db47e7808c"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/rendered-article.html",
+      "sha256": "4800f535e5791ed29eeca87b39d7babfd6c046b0166fdc95c4f47c27fe75ba85"
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Are GPT-6 Sol and Luna something I can choose in my ChatGPT account, and do their lower API prices change what I pay?",
+    "promisedPayoff": "Separate ordinary Chat, Work/Codex and API billing so a reader knows what the announcement does and does not establish for her account.",
+    "centralMentalModel": "A model name can appear in several product surfaces, each with its own access rules and meter: ordinary Chat, Work/Codex, and developer API usage.",
+    "dailyLifeConnection": "A reader sees lower model prices and a new model name, then wonders whether her own chat has changed or whether a work account offers a different picker.",
+    "surfaceJob": "A narrow Daily product brief on OpenAI’s Sep22 Sol/Luna availability and scope.",
+    "desiredReaderFeeling": "I can identify my product surface, know why a price table may not be my bill, and ask the right account-specific question."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "An API is the developer-facing connection that lets software send work to a model and pay for the text it processes.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: Those figures are not a ChatGPT subscription price. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those figures are not a ChatGPT subscription price.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: You might use Chat personally and Work through an employer, and the lists of available models can differ. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You might use Chat personally and Work through an employer, and the lists of available models can differ.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: A model name can appear in more than one OpenAI service. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A model name can appear in more than one OpenAI service.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: OpenAI’s performance and cost comparisons are its own evaluation claims. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI’s performance and cost comparisons are its own evaluation claims.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: OpenAI introduced GPT-6 Sol and Luna on September 22. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI introduced GPT-6 Sol and Luna on September 22.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: GPT-6 Sol and Luna: where the price applies The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "GPT-6 Sol and Luna: where the price applies",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: OpenAI introduced GPT-6 Sol and Luna on September 22. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI introduced GPT-6 Sol and Luna on September 22.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: Its rollout is gradual, so an announcement cannot show what a particular account can select. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Its rollout is gradual, so an announcement cannot show what a particular account can select.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: You might use Chat personally and Work through an employer, and the lists of available models can differ. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You might use Chat personally and Work through an employer, and the lists of available models can differ.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: First identify the service you use: Chat, Work or Codex. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "First identify the service you use: Chat, Work or Codex.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: Those figures are not a ChatGPT subscription price. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those figures are not a ChatGPT subscription price.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Do lower API prices prove that a personal ChatGPT subscription price changed?",
+        "probeResponse": "No. API token rates pay for software use by processed text, while Chat, Work and Codex use their own plan and workspace access rules.",
+        "expectedEvidence": "Keep developer API billing separate from subscription and account access."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: First identify the service you use: Chat, Work or Codex. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "First identify the service you use: Chat, Work or Codex.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A future model announcement lists a low API rate. Does that prove a colleague can pick it in a work account?",
+        "probeResponse": "No. First identify the product surface and check the workspace plan and current picker; a developer rate does not establish that account’s available models.",
+        "expectedEvidence": "Transfer the product-surface and billing distinction to a different model announcement."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Exact complete producer read: A model name can appear in more than one OpenAI service. The article keeps the product-surface, account-access and provider-claim limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A model name can appear in more than one OpenAI service.",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Exact complete producer read found no glossaryAccumulation in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Exact complete producer read found no templateRepetition in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Exact complete producer read found no decorativeAnalogy in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Exact complete producer read found no referenceConfetti in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Exact complete producer read found no missingMechanism in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Exact complete producer read found no genericAction in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Exact complete producer read found no jargonBeforeMeaning in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Exact complete producer read found no disconnectedSystem in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Exact complete producer read found no factlessConfidence in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Exact complete producer read found no staleUnreviewableClaims in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Exact complete producer read found no corporateSludge in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Exact complete producer read found no joylessInstruction in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Exact complete producer read found no benchmarkNameDrop in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Exact complete producer read found no curiosityWithoutPayoff in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Exact complete producer read found no familiarExampleWithoutTechnicalReturn in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Exact complete producer read found no communicationPastiche in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Exact complete producer read found no entertainmentBeforeUnderstanding in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Exact complete producer read found no mechanismCompressedBehindHook in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Exact complete producer read found no prematureClickBeforeMechanism in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Exact complete producer read found no inflatedTakeawayEnding in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Exact complete producer read found no purposeTooNarrow in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Exact complete producer read found no mechanismBeforeMotivation in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Exact complete producer read found no workedExampleOvertakesBookPurpose in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Exact complete producer read found no technicalExplainerVoice in the final bounded product-access explanation; the paragraph-level mechanism and limits remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+        "sha256": "29a705d4a56bddee264e9c9cec8aaafd879adf39b08a581da461a73b2821976c"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "work-codex-not-chat",
+        "claim": "Its release notes place them in ChatGPT Work and Codex, and say they are separate from the models in ordinary Chat.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Its release notes place them in ChatGPT Work and Codex, and say they are separate from the models in ordinary Chat.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "openai-chatgpt-release-notes"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re introducing GPT-6 Sol and GPT-6 Luna in ChatGPT Work and Codex. These models are separate from the models available in Chat.",
+            "locator": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+          }
+        ],
+        "scopeAndFreshness": "Official release note inspected September 26; product-surface statement, not a particular account picker.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+          "sha256": "29a705d4a56bddee264e9c9cec8aaafd879adf39b08a581da461a73b2821976c"
+        }
+      },
+      {
+        "claimId": "api-not-subscription",
+        "claim": "Those figures are not a ChatGPT subscription price.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Those figures are not a ChatGPT subscription price.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "openai-sol-luna-release"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Prices are per 1 million tokens. GPT‑6 Sol can take on difficult work tasks while giving you more room to iterate with higher usage limits and lower cost.",
+            "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+          }
+        ],
+        "scopeAndFreshness": "Per-token API pricing explains the billing boundary; it does not quote a ChatGPT subscription price.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+          "sha256": "29a705d4a56bddee264e9c9cec8aaafd879adf39b08a581da461a73b2821976c"
+        }
+      },
+      {
+        "claimId": "plan-workspace-boundary",
+        "claim": "OpenAI says model and reasoning choices depend on a plan and workspace settings.",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says model and reasoning choices depend on a plan and workspace settings.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "openai-chatgpt-release-notes"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Available models and reasoning effort options depend on your plan and workspace settings.",
+            "locator": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+          }
+        ],
+        "scopeAndFreshness": "Official settings boundary, not a live account check.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+          "sha256": "29a705d4a56bddee264e9c9cec8aaafd879adf39b08a581da461a73b2821976c"
+        }
+      },
+      {
+        "claimId": "provider-task-positioning",
+        "claim": "OpenAI says GPT-6 Sol can take on difficult work tasks.",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says GPT-6 Sol can take on difficult work tasks.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "openai-sol-luna-release"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Prices are per 1 million tokens. GPT‑6 Sol can take on difficult work tasks while giving you more room to iterate with higher usage limits and lower cost.",
+            "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+          }
+        ],
+        "scopeAndFreshness": "Provider task positioning only; article does not promise a reader outcome.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+          "sha256": "29a705d4a56bddee264e9c9cec8aaafd879adf39b08a581da461a73b2821976c"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-26T14:37:48.690Z",
+    "nextTrigger": "OpenAI changes Sol or Luna availability, rollout, plan/workspace conditions or API prices; or a source correction appears.",
+    "correctionOwner": "/root/morning_aidb_20260920"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 3,
+    "reviewCycles": 4,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound ordinary candidate covers the September 22 Sol/Luna product-surface and API-price distinction."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The recurring HTML-to-Markdown separator defect was repaired before this receipt; the final exact prose retains product-surface, billing and account-access limits."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer self-review only; it is not independent editorial admission.",
+    "No observed human-comprehension evidence is claimed.",
+    "No account-specific picker or performance comparison was tested.",
+    "Predecessor actual reviewer identified a superlative fidelity repair; preserved raw review remains unmodified.",
+    "Predecessor actual reviewer identified a superlative fidelity repair; preserved raw review remains unmodified."
+  ]
+}

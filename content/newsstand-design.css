@@ -1283,7 +1283,7 @@
 .ns-redesign .ns-play-desk__puzzle { padding:0; background:transparent; border:0; box-shadow:none; }
 .ns-redesign .ns-play-desk__puzzle h2 { margin:8px 0 18px; font-size:clamp(30px,3vw,44px); }
 .ns-redesign .ns-crossword-preview { display:block; width:min(100%,480px); margin:0 0 18px; }
-.ns-redesign .ns-crossword-preview img { display:block; width:100%; height:auto; border:2px solid #11183b; box-sizing:border-box; }
+.ns-redesign .ns-crossword-preview img, .ns-redesign .ns-crossword-preview svg { display:block; width:100%; height:auto; border:2px solid #11183b; box-sizing:border-box; }
 .ns-redesign .ns-play-desk__puzzle > p:not(.ns-kicker) { font-size:17px; margin:12px 0; }
 .ns-redesign .ns-play-desk__puzzle .ns-play-action { margin:8px 0; }
 .ns-redesign .ns-house-ads { gap:28px; }
@@ -1353,6 +1353,42 @@
 .ns-redesign .ns-play-desk { padding:24px clamp(16px,2vw,28px) 0; box-sizing:border-box; }
 .ns-redesign .ns-play-desk__puzzle { min-width:0; }
 .ns-redesign .ns-crossword-preview { width:min(100%,320px); margin:16px 0; }
-.ns-redesign .ns-crossword-preview img { background:#fffdfb; border:1px solid #11183b; }
+.ns-redesign .ns-crossword-preview img, .ns-redesign .ns-crossword-preview svg { background:#fffdfb; border:1px solid #11183b; }
 .ns-redesign .ns-play-desk__puzzle h2 { font-size:clamp(28px,2.4vw,36px); }
 .ns-redesign .ns-play-desk__puzzle .ns-play-action { background:#fffdfb; }
+
+/* Source-attributed excerpt and product-led newspaper house advertisements. */
+.ns-redesign .ns-overheard { padding:24px clamp(20px,3vw,40px); }
+.ns-redesign .ns-overheard blockquote { max-width:48ch; margin:14px 0; }
+.ns-redesign .ns-overheard p { max-width:72ch; font-size:17px; line-height:1.5; margin:10px 0; }
+.ns-redesign .ns-overheard .ns-overheard__source { font-size:14px; }
+.ns-redesign .ns-overheard > a { color:#003b9e; font-weight:700; text-underline-offset:4px; }
+.ns-redesign .ns-house-ad { background:#fffdfb; padding:22px; box-shadow:none; }
+.ns-redesign .ns-house-ad--library { border:4px double #11183b; }
+.ns-redesign .ns-house-ad--library .ns-kicker { border-bottom:3px solid #003b9e; padding-bottom:12px; }
+.ns-redesign .ns-house-ad h3 { font-size:clamp(28px,2.5vw,38px); text-shadow:none; line-height:1.08; }
+.ns-redesign .ns-house-ad--library h3 { color:#003b9e; }
+.ns-redesign .ns-house-ad--claio { text-align:center; border:2px solid #11183b; }
+.ns-redesign .ns-house-ad--claio .ns-kicker { padding:12px 8px; background:#ff2ea6; margin:-22px -22px 20px; }
+.ns-redesign .ns-house-ad--claio h3 { color:#11183b; }
+.ns-redesign .ns-ad-products { display:flex; justify-content:center; align-items:center; height:240px; margin:18px 0; }
+.ns-redesign .ns-ad-products img { width:48%; height:100%; object-fit:contain; min-width:0; }
+.ns-redesign .ns-ad-products img:first-child { transform:rotate(-5deg); }
+.ns-redesign .ns-ad-products img:last-child { transform:rotate(5deg); }
+.ns-redesign .ns-ad-products--cards img:first-child { margin-right:-10px; }
+.ns-redesign .ns-house-ad--claio a { background:#ff9b3d; display:inline-block; }
+.ns-redesign .ns-house-ad p.ns-ad-credit { font-size:11px; text-transform:uppercase; letter-spacing:.07em; margin:18px 0 0; }
+@media(max-width:480px) {
+ .ns-redesign .ns-house-ad { padding:20px; }
+ .ns-redesign .ns-house-ad--claio .ns-kicker { margin:-20px -20px 18px; }
+ .ns-redesign .ns-ad-products { height:230px; }
+}
+
+/* Keep the front rail compact without silently dropping recent reporting. */
+.ns-redesign .ns-latest-more { margin-top:18px; }
+.ns-redesign .ns-latest-more summary { cursor:pointer; padding:12px; border:2px solid #11183b; background:#fffdfb; color:#003b9e; font-weight:700; }
+.ns-redesign .ns-latest-more summary:focus-visible { outline:3px solid #ff2ea6; outline-offset:3px; }
+.ns-redesign .ns-latest-more .ns-latest-image { display:none; }
+.ns-redesign .ns-latest-more .ns-front-story { grid-template-columns:1fr; }
+
+.ns-latest-more[open] > summary { margin-bottom: 20px; }

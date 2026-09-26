@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "laidies-newsstand-source-evidence.v1",
+  "candidateId": "openai-agent-australia-medicare-20260924",
+  "sources": [
+    {
+      "id": "australian-pm",
+      "url": "https://www.pm.gov.au/media/press-conference-new-york",
+      "authority": "Australian government primary transcript",
+      "passages": [
+        "On June 18, OpenAI's research team used an internal model to conduct internet based research into public medicine spending.",
+        "After encountering repeated blocks, the model attempted alternative ways to obtain the info that it wanted, and this led to unauthorised access into some other areas.",
+        "It accessed public and non-public information within the portal, and Services Australia also advises that it engaged, in order to do this, it engaged in writing files as well to the internal server.",
+        "No personal information is believed to have been accessed at this stage, but investigations are ongoing.",
+        "It took until 10 September before there was any notification at all. That came through to a public mailbox.",
+        "Thursday 24 September 2026. Thanks for joining me. I want to update Australians on an incident in which an artificial intelligence agent has infiltrated an Australian Government website."
+      ],
+      "limit": "Government account is current but investigation is ongoing.",
+      "raw": {
+        "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/source-refresh-20260926.json",
+        "sha256": "63b8acafce9188600eb24160a2190b6e3587e54ac3ac85c2c3f7fd173158a658",
+        "locator": "sources.0"
+      },
+      "accessedAt": "2026-09-26"
+    },
+    {
+      "id": "transluce",
+      "url": "https://transluce.org/agent-activity",
+      "authority": "Independent research organisation report",
+      "passages": [
+        "The agents also tried on three occasions to hack public data providers, including an Australian government website.",
+        "We note that the extent of the observed activity is minor, attempting a low number of probe payloads and we observe no evidence of exploitation.",
+        "Overall, the evidence is consistent with, but does not prove, that the agents may have learned this behavior over one or more training runs."
+      ],
+      "limit": "Public artifact analysis is incomplete and does not establish full activity or causation.",
+      "raw": {
+        "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/source-refresh-20260926.json",
+        "sha256": "63b8acafce9188600eb24160a2190b6e3587e54ac3ac85c2c3f7fd173158a658",
+        "locator": "sources.1"
+      },
+      "accessedAt": "2026-09-26"
+    },
+    {
+      "id": "bleepingcomputer",
+      "url": "https://www.bleepingcomputer.com/news/security/openai-hacked-australian-medicare-govt-site-probed-data-providers/",
+      "authority": "Independent reporting with attributed OpenAI spokesperson quote",
+      "passages": [
+        "initial review suggests that much of the activity described in Transluce’s report overlaps with cases at varying stages of investigation in our ongoing review of misaligned model activity.",
+        "Our review found no evidence of patient records being accessed. The information accessed included aggregate health statistics and internal file names."
+      ],
+      "limit": "This is a reported spokesperson quote, not a direct OpenAI incident statement.",
+      "raw": {
+        "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/source-refresh-20260926.json",
+        "sha256": "63b8acafce9188600eb24160a2190b6e3587e54ac3ac85c2c3f7fd173158a658",
+        "locator": "sources.2"
+      },
+      "accessedAt": "2026-09-26"
+    }
+  ],
+  "capturedOn": "2026-09-26",
+  "checkedAt": "2026-09-26T14:52:19Z",
+  "reviewedOn": "2026-09-26",
+  "freshness": "The Australian transcript, Transluce report and BleepingComputer report remain materially unchanged. Australia still says the affected system was a statistics portal, no personal information is believed accessed at this stage, and the investigation remains open; the OpenAI response remains attributed reporting.",
+  "freshnessFinding": "The Australian transcript, Transluce report and BleepingComputer report remain materially unchanged. Australia still says the affected system was a statistics portal, no personal information is believed accessed at this stage, and the investigation remains open; the OpenAI response remains attributed reporting.",
+  "freshnessEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/source-refresh-20260926.json",
+    "sha256": "63b8acafce9188600eb24160a2190b6e3587e54ac3ac85c2c3f7fd173158a658"
+  }
+}

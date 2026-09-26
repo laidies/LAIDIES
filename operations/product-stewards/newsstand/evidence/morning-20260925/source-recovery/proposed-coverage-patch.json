@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "newsstand-coverage-proposed-patch.v1",
+  "proposalOnly": true,
+  "authority": "Foreground root alone may apply to canonical coverage-progress.json.",
+  "basedOn": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "sha256": "f30659cc692c937862e7cf2bb4aea7fda086bebdbaf557ab7fc40cec971413ee"
+  },
+  "checkedAt": "2026-09-25T14:03:14.793Z",
+  "sourceObservations": [
+    {
+      "url": "https://aidailybrief.ai/agent.json",
+      "disposition": "ADD_OR_REFRESH_WITH_ACTUAL_METADATA_OBSERVATION",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/evidence/morning-20260925/source-recovery/raw-web-tool-results.json",
+        "sha256": "246646c1592530c2cdeafe9991f923a7bd7e07b2cdcdd348decc92785891df61"
+      },
+      "limit": "Metadata only; Sep24 edition not complete."
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-24",
+      "disposition": "ADD_UNAVAILABLE_NORMAL_ATTEMPT",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/evidence/morning-20260925/source-recovery/raw-web-tool-results.json",
+        "sha256": "246646c1592530c2cdeafe9991f923a7bd7e07b2cdcdd348decc92785891df61"
+      },
+      "missingInput": "Complete edition or transcript",
+      "nextCheck": "2026-09-25T21:00:00Z"
+    },
+    {
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "disposition": "REFRESH_EXISTING_MEDICARE_LEAD_ONLY",
+      "coverageMatch": "openai-agent-australia-medicare-20260924",
+      "limit": "Nature index/news is corroborating coverage; it does not replace Australian PM source packet."
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-carbonato-malware-uses-ai-agents-to-hijack-exposed-docker-hosts/",
+      "disposition": "ALREADY_EXCLUDED_DUPLICATE",
+      "coverageMatch": "carbonato-ai-agent-docker-malware-20260924",
+      "reason": "Full article matches the existing canonical excluded event: an exposed unauthenticated Docker administration surface. No new candidate or lead is proposed."
+    }
+  ],
+  "leadDispositions": [
+    {
+      "id": "openai-agent-australia-medicare-20260924",
+      "disposition": "ALREADY_IN_PRODUCTION",
+      "evidence": "Nature Sep24 index links the same incident; no duplicate candidate."
+    },
+    {
+      "id": "carbonato-ai-agent-docker-malware-20260924",
+      "disposition": "ALREADY_EXCLUDED_DUPLICATE",
+      "evidence": "The full BleepingComputer article matches the canonical source identity and reasoned exclusion; no new candidate."
+    }
+  ],
+  "unrecoveredHolds": [
+    {
+      "url": "https://aidailybrief.beehiiv.com/",
+      "reason": "NONRETRYABLE exact route; no reopen."
+    },
+    {
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "reason": "NONRETRYABLE exact route; no reopen."
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-24/transcript.md",
+      "reason": "Normal attempt returned Internal Error; full transcript unavailable."
+    }
+  ],
+  "scopeLimits": [
+    "The Apple page did not yield an episode enumeration in its returned section.",
+    "AP captured navigation rather than a bounded article shortlist.",
+    "This is a bounded source sweep, not exhaustive discovery or editorial admission."
+  ]
+}

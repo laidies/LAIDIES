@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "laidies-newsstand-combined-editorial-raw.v1",
+  "candidateId": "gpt-6-sol-luna-20260922",
+  "storySha256": "48f89eff77490c4bb7ad697befbe6decc586c8df271ffa341f364475f79a1dbe",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "verdict": "PASS",
+  "findings": {
+    "reader": "A well-bounded news explainer: it dates the announcement, cleanly separates Chat, Work/Codex and API billing, defines API, workspace and model picker at first use, keeps provider claims attributed and uncertain, and ends with a concrete, proportionate account check. No failure families present; the mechanism transfers to unseen situations.",
+    "facts": "All material claims check out against the supplied OpenAI release and release-notes excerpts: Work/Codex placement separate from Chat, per-token API pricing distinct from subscription billing, the plan/workspace settings boundary, and Sol's attributed task positioning. Dates, limits and uncertainty are preserved; the sole omission (Free/Go desktop access to Luna) is non-contradictory."
+  },
+  "readerProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-review-20260926-fidelity/article-editorial-provider.raw.json",
+    "sha256": "7039491170066ff966ab8a2f92253ef7c316b4aaf350bb7ebf830f8e9c46aa15"
+  },
+  "factualJudgment": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-review-20260926-fidelity/article-editorial-judgment.json",
+    "sha256": "b04448a56cd3faaa2acfd913698573e0a60112aa8fd8d6d29fe146481f49a212"
+  },
+  "factualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-review-20260926-fidelity/article-editorial-provider.raw.json",
+    "sha256": "7039491170066ff966ab8a2f92253ef7c316b4aaf350bb7ebf830f8e9c46aa15"
+  },
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  }
+}

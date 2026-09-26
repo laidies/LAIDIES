@@ -15,7 +15,7 @@ const DEFAULT_OUTPUT_ROOT = path.join(ROOT, "operations/product-stewards/newssta
 const PUBLIC = new Set(["APPROVED", "PUBLISHED", "CORRECTED"]);
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const REQUIRED_TYPES = ["paige_tip", "career_life", "concept_week", "mme_claio", "dear_miss_jeeves", "whats_new_sunnyvaile", "crossword", "did_you_know"];
-const OPTIONAL_TYPES = ["behind_build"];
+const OPTIONAL_TYPES = ["behind_build", "curiosity"];
 const SUPPORTED_TYPES = new Set([...REQUIRED_TYPES, ...OPTIONAL_TYPES]);
 const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
 const canonicalJson = (value) => {

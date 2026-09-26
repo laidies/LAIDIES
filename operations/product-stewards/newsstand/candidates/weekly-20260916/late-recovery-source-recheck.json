@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "newsstand-weekly-late-recovery-source-recheck-v1",
+  "candidateId": "weekly-promises-and-proof-20260916",
+  "observedAt": "2026-09-19T14:29:19.460113Z",
+  "publicationDay": "2026-09-19",
+  "method": "Direct normal HTTP retrieval of selected public URLs; no proxy or mirror. OpenAI 403 retained as a blocked current read.",
+  "sources": [
+    {
+      "id": "amodei",
+      "status": "HTTP_200_COMPLETE_BYTES_CAPTURED",
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/current-source-captures-20260919/amodei.body",
+      "sha256": "62b8af679fe10e5edbfe9c7e9a2e42904a16b164fe2fb27c47fa76d005ba3a65",
+      "bytes": 59871
+    },
+    {
+      "id": "anthropic",
+      "status": "HTTP_200_COMPLETE_BYTES_CAPTURED",
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/current-source-captures-20260919/anthropic.body",
+      "sha256": "29ceb69536dd44daed2196b12669dc47dd39f551205f9baf6e355ae92d7290a2",
+      "bytes": 1221935
+    },
+    {
+      "id": "google",
+      "status": "HTTP_200_COMPLETE_BYTES_CAPTURED",
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/current-source-captures-20260919/google.body",
+      "sha256": "4608d3c98de4078f3ce1bd6ece27b4b3d2a3748afbd3ab931b468df47c1f8c37",
+      "bytes": 430632
+    },
+    {
+      "id": "prior-weekly",
+      "status": "HTTP_200_COMPLETE_BYTES_CAPTURED",
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/current-source-captures-20260919/prior-weekly.body",
+      "sha256": "ce0c9f85f5eab24ae64cf78aeec09ab49dbcae09fced1df5994936568c58293d",
+      "bytes": 116438
+    },
+    {
+      "id": "school-announcement",
+      "status": "HTTP_200_COMPLETE_BYTES_CAPTURED",
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/current-source-captures-20260919/school-announcement.body",
+      "sha256": "aff9d58c14d4e9457eb2249cd658e3c31d4b44ae844304399fbdb05b1e749196",
+      "bytes": 145682
+    },
+    {
+      "id": "school-contract",
+      "status": "HTTP_200_COMPLETE_BYTES_CAPTURED",
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/current-source-captures-20260919/school-contract.body",
+      "sha256": "df8475bcde14f15824e54ac1dbad52ebe93ac33db5f00f92d4339694e9683a64",
+      "bytes": 465707
+    },
+    {
+      "id": "openai",
+      "status": "CURRENT_NORMAL_WEB_FULL_PRIMARY_CAPTURE_CONFIRMED_AFTER_DIRECT_CURL_403",
+      "url": "https://openai.com/index/reimagining-advertising-with-ai/",
+      "historicalCompleteEvidence": {
+        "path": "operations/product-stewards/newsstand/evidence/morning-20260916/sponsored-agent-full-capture.json",
+        "sha256": "4d39dec769f125d107b0d5b4d3c30f70a9628c439f61fd6750b56530cedd9c9b"
+      },
+      "rule": "Do not claim the OpenAI source was freshly read on September 19 unless a legitimate normal route succeeds.",
+      "currentEvidence": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-20260919/aidb-and-openai-refresh.json",
+        "sha256": "0537564da01e4ee476c215054ea5e58974c9ae8f8197c89585fcd1ca8af9ee65",
+        "readScope": "Direct normal web open of exact original URL; Sponsored Agents full primary body."
+      },
+      "earlierDirectCurlResult": "HTTP_403 preserved; it was not used as proof of source absence."
+    }
+  ],
+  "historicalSourceObservationsPreserved": true,
+  "admissionMeaning": "Current source-route receipt: six direct captures plus a successful exact-URL normal-web OpenAI capture. Historical September 16 observations remain preserved and are not relabelled."
+}

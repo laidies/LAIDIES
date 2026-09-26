@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "california-ai-oversight-order-20260920",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "19999dfed89879872102cf117b7633d0c704592852dac265636a184561171d1e",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why does the order's November 16, 2026 deadline not mean companies must build a kill switch now?",
+      "response": "Because the order's operative verb for the kill switch is 'recommend': by November 16 the Government Operations Agency and the emergency-services office must submit recommendations on whether amendments — including a verified shutoff requirement — are technically feasible and potentially effective. Only later legal changes could actually bind companies; what binds now is the accelerated implementation of already-enacted oversight law (May 1 and December 1, 2027 steps).",
+      "expectedEvidence": "The signed order's recommendation clause naming November 16 and feasibility/efficacy, the kill-switch item listed as a recommendation topic, and the separate 'shall complete' clauses for the 2027 statutory deadlines.",
+      "assessment": "The article fully supports this answer: P004 gives the recommendation deadline and standard, P005 lists the shutoff as a recommendation subject and states these are not requirements, and P003/P009 separate binding implementation from policy development."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Does the headline mean manipulative app design is now illegal, and how should a reader sort what changed?",
+      "response": "No. Applying the article's mechanism: the operative verb for the ban is 'report on feasibility' — a policy-development step, not an enacted prohibition. What binds now is the accelerated completion of the pre-existing statutory portal requirement. A ban would need later rulemaking or legislation. The reader should note the report deadline as the date to watch and keep the two tracks — existing-law implementation versus proposal study — separate.",
+      "expectedEvidence": "The order's actual text distinguishing 'shall report/recommend' clauses from 'shall complete the requirements of [statute]' clauses, each with its own date.",
+      "assessment": "The article's operative-verb model (P009) and its two-track separation of accelerated existing law (P003) from studied proposals (P004, P005) resolve this new scenario correctly without any additional machinery, demonstrating genuine transfer."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The September 18 order, its immediate effect, and the causal sequence from acceleration to recommendations to possible amendments are all laid out.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>No. California’s September 18 executive order took effect immediately, but it did not install a universal AI shutoff or order every company to build one. The “kill switch” is one idea the order tells state agencies to study for possible changes to existing law.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>What changed now is the timetable for oversight California had already enacted. By May 1, 2027, the Government Operations Agency must publish application requirements and criteria for organizations seeking certification to independently examine AI safety and risk. A separate auditor-registry implementation step is due December 1, 2027.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The key date for the headline claim is November 16, 2026. By then, the agency and California’s emergency-services office must recommend whether proposed legal amendments are technically feasible and potentially effective.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Kill switch' is unpacked as a shutoff idea under study, and frontier developers are described in plain language at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>No. California’s September 18 executive order took effect immediately, but it did not install a universal AI shutoff or order every company to build one. The “kill switch” is one idea the order tells state agencies to study for possible changes to existing law.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The required menu includes putting designated independent verifiers inside large labs building the most advanced general-purpose AI models; independently checking company safety frameworks, transparency reports and risk assessments; requiring a shutoff whose effectiveness is checked over time; and expanding reportable critical incidents to cover loss-of-control events. Those are subjects for recommendations. They are not universal requirements created by this order.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is concrete: nothing binds companies now, the November 16 blueprint is what to watch, and headlines using 'advance the creation' should be read against the verb.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The key date for the headline claim is November 16, 2026. By then, the agency and California’s emergency-services office must recommend whether proposed legal amendments are technically feasible and potentially effective.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“California ordered a November plan for possible AI shutoff rules. It did not install a universal kill switch.”",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "In an executive order, the operative verb matters. “Recommend by November 16” describes a policy-development step; it does not mean “companies must install this now.”",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process details appear; all advice follows directly from the sourced order text.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The clean reading is less cinematic and more useful: California accelerated existing oversight, set a November deadline for a policy blueprint, and left the proposed shutoff requirement to later decisions.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "In an executive order, the operative verb matters. “Recommend by November 16” describes a policy-development step; it does not mean “companies must install this now.”",
+          "locator": "P009"
+        }
+      ]
+    }
+  }
+}

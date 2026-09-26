@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "newsstand-source-recovery-review-v1",
+  "url": "https://aidailybrief.ai/e/2026-09-18.json",
+  "originalCheckedAt": "2026-09-21T23:35:57.573Z",
+  "originalNotRetried": true,
+  "reviewedAt": "2026-09-23T03:51:47.838361+00:00",
+  "reviewedBy": "/root",
+  "assessment": "DISTINCT_CHANNEL_INVENTORY_PARTIAL. Original content remains unverified; distinct discovery is not equivalent evidence.",
+  "missingInput": "Complete Sep 18 edition body.",
+  "nextCheckAt": "2026-09-23T14:00:00Z",
+  "nextRecoveryStep": "Retain nonretryable edition URL; recover from a later publisher-linked archive or manually admitted source if available.",
+  "originalCapture": {
+    "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260921/final-exact-route-rechecks.json",
+    "sha256": "a44ffbfbd43e1524b7bed3ac7eb6c42202798880b7d9529dc3487e81f93afbef"
+  },
+  "recoverySources": [
+    {
+      "url": "https://aidailybrief.ai/agent.json",
+      "status": "CHECKED",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "assessment": "Current agent index generated 2026-09-22T23:54:36.910Z begins with Sep 21 daily edition; it does not supply the held Sep 18 body.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1652-20260922/source-capture-bundle.json",
+        "sha256": "760f4ac947eba7217deab3ef03c6b31e7401dcc72e06230b091903ed44d486da"
+      }
+    },
+    {
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "status": "CHECKED",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "assessment": "Current index surfaces Sep 21 State of the AI Debate episode metadata, not Sep 18 full edition.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1652-20260922/source-capture-bundle.json",
+        "sha256": "760f4ac947eba7217deab3ef03c6b31e7401dcc72e06230b091903ed44d486da"
+      }
+    }
+  ]
+}

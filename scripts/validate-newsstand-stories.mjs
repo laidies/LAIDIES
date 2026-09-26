@@ -5,6 +5,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { inspectNewsstandLuminairyLinks } from "./lib/newsstand-luminairy-links.mjs";
+import { CURRENT_PUBLISHER_TYPES, inspectCurrentStoryAuthority } from "./lib/newsstand-current-story-authority.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STORY_FILE = path.join(ROOT, "content", "newsstand-stories.js");
@@ -13,6 +14,7 @@ const ROLLBACK_DRILL_FILE = path.join(
   ROOT, "operations", "test-fixtures", "newsstand-reader",
   "correction-retraction-rollback-drill.json"
 );
+const DAILY_ISSUES_FILE = path.join(ROOT, "content", "newsstand-daily-issues.json");
 const EDITIONS = ["breaking", "daily", "weekly", "big-picture"];
 const STORY_STATUSES = new Set(["published", "hold", "corrected", "retracted"]);
 const PUBLICATION_STATUSES = new Set(["quiet", "current", "hold", "unavailable"]);
@@ -56,6 +58,9 @@ function resolvePublicPath(href) {
 
 const data = loadBrowserData();
 const contract = loadContract();
+let dailyIssues = null;
+try { dailyIssues = JSON.parse(fs.readFileSync(DAILY_ISSUES_FILE, "utf8")); }
+catch (error) { fail(`daily issue snapshots are invalid (${error.message}).`); }
 
 if (!data || typeof data !== "object") {
   fail("NEWSSTAND_DATA must be an object.");
@@ -99,7 +104,10 @@ if (!Array.isArray(stories)) {
     const label = story?.slug || story?.id || `story[${index}]`;
     if (!EDITIONS.includes(story.edition)) fail(`${label}: edition must be canonical; legacy wednesday is forbidden.`);
     if (!STORY_STATUSES.has(story.status)) fail(`${label}: invalid story status.`);
-    REQUIRED_TEXT.forEach((field) => {
+    const requiredText = story.edition === "big-picture"
+      ? ["id", "slug", "headline", "front_summary", "front_read", "quick_read_label", "quick_read"]
+      : REQUIRED_TEXT;
+    requiredText.forEach((field) => {
       if (typeof story[field] !== "string" || !story[field].trim()) fail(`${label}: missing non-empty ${field}.`);
     });
     ["publishedAt", "updatedAt", "lastCheckedAt"].forEach((field) => {
@@ -110,8 +118,12 @@ if (!Array.isArray(stories)) {
     ids.add(story.id);
     slugs.add(story.slug);
 
+    const currentDaily = story.edition === "daily" && !/^front-paige-/.test(story.id || "") && String(story.updatedAt || "").slice(0, 10) >= "2026-09-05";
     if (!story.sourceApproval || !["approved", "independent-review-required", "rejected"].includes(story.sourceApproval.status)) {
       fail(`${label}: sourceApproval status is required.`);
+    } else if (currentDaily) {
+      inspectCurrentStoryAuthority(story, { root: ROOT, issues: dailyIssues }).errors
+        .forEach(error => fail(`${label}: ${error}.`));
     } else {
       const publicRecord = String(story.sourceApproval.record || "");
       const match = /^newsstand:source-approval:([a-z0-9][a-z0-9._-]{1,127})$/.exec(publicRecord);
@@ -184,7 +196,7 @@ if (!Array.isArray(stories)) {
         if (!item?.id || sourceIds.has(item.id)) fail(`${label}: source ${sourceIndex + 1} needs a unique id.`);
         sourceIds.add(item?.id);
         if (!item?.label?.trim()) fail(`${label}: source ${sourceIndex + 1} needs a label.`);
-        if (!["vendor", "regulator", "academic", "independent-reporting", "primary-document", "organization", "government", "analysis", "external-evaluator", "reporting", "laidies"].includes(item?.publisherType)) {
+        if (!CURRENT_PUBLISHER_TYPES.has(item?.publisherType)) {
           fail(`${label}: source ${sourceIndex + 1} needs a valid publisherType.`);
         }
         if (!/^\d{4}-\d{2}-\d{2}$/.test(item?.accessedAt || "")) fail(`${label}: source ${sourceIndex + 1} needs accessedAt.`);

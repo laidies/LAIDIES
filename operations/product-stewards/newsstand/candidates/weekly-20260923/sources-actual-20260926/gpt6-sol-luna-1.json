@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "newsstand-source-observation.v1",
+  "id": "gpt6-sol-luna-1",
+  "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+  "checkedAt": "2026-09-26T14:13:49.875Z",
+  "method": "normal_official_web_open",
+  "status": "OPENED",
+  "dateEvidence": {
+    "date": "2026-09-22",
+    "locator": "Official ChatGPT release-notes observation in bound GPT-6 source refresh"
+  },
+  "excerpt": "Official release page observation confirmed Work and Codex availability, named plan limits, Luna desktop access for Free and Go, separation from Chat, and gradual rollout.",
+  "evidence": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/source-refresh-20260926.json",
+    "sha256": "e4519a2294f41337513f6a6c848a2d602c1be4387928da7d9878a9af833d6693"
+  },
+  "laterFailedNormalGet": {
+    "observedAt": "2026-09-26T15:59:47Z",
+    "httpStatus": 403,
+    "raw": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/source-reopen-v17-20260926/gpt6-sol-luna-1.html",
+      "sha256": "039e9fd0b9289875ba4d92630428b9afcec495ee54f3c0bad83d4b7f4894aa0d"
+    }
+  },
+  "limitation": "The release page body observation did not expose its date; September 22 comes from the official Help Center release-notes observation. The later direct GET failure is preserved and does not replace the successful observation."
+}

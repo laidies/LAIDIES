@@ -1,0 +1,702 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "crisp-pathology-20260912",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/remaining_build_review",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/remaining_build_review",
+    "principalId": "/root/remaining_build_review",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-12T22:35:30.726Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/publication-manifest.json",
+      "sha256": "b7449d8043610e7586c26b90764e432485d198da9dcdd14927c0d89191910522"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/review-text.json",
+      "sha256": "47d102259170ff4d40caaf74715d2b3358103244db14fe24f0347b7459a6b20f"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/rendered-article.html",
+      "sha256": "5b9044511bec7c0f527d443746e3d0b3a1c6e0b53f9119a49566e6765890cc14"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/remaining_build_review",
+    "reviewedAt": "2026-09-05T22:51:01.267Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Plain terms gain meaning in the event explanation.",
+        "A familiar comparison reconnects to the mechanism and a concrete reader check."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "The LAiDIES Read in private NEWS002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What did CRISP do with frozen tissue during surgery, what did the study compare, and what remains unproved?",
+    "promisedPayoff": "Explain why frozen images need a specialized model, what the comparison result says, and why it is not evidence of better care.",
+    "centralMentalModel": "Frozen tissue looks different from conventional preserved tissue, so CRISP was trained on frozen images; the paper measures predictions and does not prove patient outcomes.",
+    "dailyLifeConnection": "A reader encountering a medical-AI study can distinguish a model comparison from a study that changes care and follows patients.",
+    "surfaceJob": "A concise September 12 NewsStand report on the September 10 Nature Medicine accepted paper.",
+    "desiredReaderFeeling": "I can explain the frozen-image distinction and ask what the study actually measured."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Why might an AI trained on usual preserved tissue slides need separate frozen-image training during surgery?",
+        "probeResponse": "Frozen tissue has a different appearance, so a model trained on usual preserved slides may not have learned the patterns it needs. CRISP was trained for frozen images, while a pathologist still interprets its prediction.",
+        "expectedEvidence": "Distinguish the image-preparation difference from the model-comparison result."
+      },
+      "artifactLocator": "P003"
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "If an AI matches specialists in observed hospital cases, what question remains before saying it improves care?",
+        "probeResponse": "Ask whether a study changed care and followed patients. Matching specialists shows performance under the study conditions, not better outcomes.",
+        "expectedEvidence": "Transfer the comparison-versus-outcome distinction to another medical-AI report."
+      },
+      "artifactLocator": "P003"
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Complete read after repairing the frozen-section mechanism and bounded result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Complete artifact read after repair.",
+      "artifactLocator": "P003",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "P003"
+        }
+      ]
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "claimMap": [
+      {
+        "claimId": "frozen-specific",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/source-evidence.json",
+          "sha256": "3b2df14ec13b0a2021e3f4cde6d89e5c1ff095b5afceb6bc128688d21e50838b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Most existing foundation models are built upon FFPE specimens, which differ fundamentally from frozen sections in both preparation and tissue morphology. Direct application of FFPE-trained models to intraoperative frozen section risks compromising diagnostic accuracy as such models may lack exposure to frozen section morphology.",
+            "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Accepted paper research only."
+      },
+      {
+        "claimId": "result",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/source-evidence.json",
+          "sha256": "3b2df14ec13b0a2021e3f4cde6d89e5c1ff095b5afceb6bc128688d21e50838b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Crucially, CRISP demonstrated consistent superiority over competing foundation models across independent prospective external cohorts. In a reader study conducted on the prospective SYCC cohort, the operating point of the senior pathologist fell on the ROC curve of CRISP, indicating comparable overall performance under the evaluated conditions.",
+            "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Accepted paper research only."
+      },
+      {
+        "claimId": "simulation-limit",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/source-evidence.json",
+          "sha256": "3b2df14ec13b0a2021e3f4cde6d89e5c1ff095b5afceb6bc128688d21e50838b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "In a simulated deployment experiment conducted on 100 cases from SYCC, the average end-to-end processing time for CRISP was 196.4 seconds per case, compared to 292.6 seconds for pathologists.",
+            "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+          },
+          {
+            "excerpt": "a fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical outcomes.",
+            "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Accepted paper research only."
+      }
+    ],
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/source-evidence.json",
+        "sha256": "3b2df14ec13b0a2021e3f4cde6d89e5c1ff095b5afceb6bc128688d21e50838b"
+      }
+    ],
+    "reviewedThrough": "2026-09-12",
+    "nextTrigger": "A corrected paper version, new interventional evidence, or an independent review request.",
+    "correctionOwner": "/root/remaining_build_review"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 1,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First CRISP candidate; root HOLD was internal producer feedback."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known defects were repaired before independent review."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "No observed human-comprehension evidence is claimed.",
+    "The accepted paper supports a frozen-image model comparison and a simulated timing analysis; it does not establish improved care, availability or patient outcomes."
+  ],
+  "limits": [
+    "No medical advice, availability claim, or observed human-comprehension claim."
+  ],
+  "status": "PRODUCER_READY_FOR_INDEPENDENT_REVIEW",
+  "completeArtifact": "{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"<a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\\\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.\",\"closing_note\":null,\"cocktail_party\":\"“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”\",\"concepts\":[\"intraoperative pathology\",\"computer vision\",\"observational evidence\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"CRISP matched a senior specialist during fast surgery checks.\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"Illustration: LAiDIES\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"crisp-pathology-20260912\",\"laidies_read\":\"<p>Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.</p>\",\"lastCheckedAt\":\"2026-09-12T22:35:30.726Z\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"crisp-pathology-20260912\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:crisp-pathology-20260912\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"nature-crisp-paper-20260910\",\"label\":\"Nature Medicine — A clinically-oriented foundation model for intraoperative pathology\",\"publisherType\":\"primary-peer-reviewed-accepted-paper\",\"url\":\"https://www.nature.com/articles/s41591-026-04703-0_reference.pdf\"},{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"nature-crisp-landing-20260910\",\"label\":\"Nature Medicine — article landing page\",\"publisherType\":\"primary-journal-record\",\"url\":\"https://www.nature.com/articles/s41591-026-04703-0?error=cookies_not_supported\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"CRISP\",\"pathology\",\"medical AI\"],\"the_story\":\"<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p><p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>\",\"themes\":[\"health and medicine\",\"research\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-12T22:35:30.726Z\",\"watch_fors\":null,\"what_this_means\":\"<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>\"}\n",
+  "storyParagraphs": [
+    {
+      "id": "P001",
+      "text": "CRISP matched a senior specialist during fast surgery checks.",
+      "exact": "CRISP matched a senior specialist during fast surgery checks.",
+      "field": "headline"
+    },
+    {
+      "id": "P002",
+      "text": "During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.",
+      "exact": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P003",
+      "text": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.",
+      "exact": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P004",
+      "text": "Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.",
+      "exact": "<p>Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P005",
+      "text": "This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.",
+      "exact": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+      "field": "what_this_means"
+    },
+    {
+      "id": "P006",
+      "text": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+      "exact": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+      "field": "cocktail_party"
+    },
+    {
+      "id": "P007",
+      "text": "AI Fundamentals 101: Why Benchmarks Are Useful But Flawed explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.",
+      "exact": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\\\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.",
+      "field": "class_notes"
+    }
+  ],
+  "rootReviewHandoff": {
+    "status": "PENDING_INDEPENDENT_REVIEW",
+    "scope": "The prior independent runtime judgment is preserved separately and cannot be reused after this repaired prose and receipt binding."
+  },
+  "calibrationSource": {
+    "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/../chatgpt-images-2-5-2026-09-08/producer-publication-review.json",
+    "sha256": "3550bb7bc2aae5be29332c02adc544f65d8332bd32f3fde4575e80009fe472fb"
+  }
+}

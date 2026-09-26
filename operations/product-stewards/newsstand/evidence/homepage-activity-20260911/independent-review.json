@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "newsstand-component-independent-review.v1",
+  "componentId": "homepage-activity-20260911",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "role": "independent component reviewer",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "maker": "/root",
+  "reviewedAt": "2026-09-11T07:24:00-07:00",
+  "reviewInput": {
+    "path": "operations/product-stewards/newsstand/candidates/homepage-activity-20260911/review-input.json",
+    "sha256": "669c97e074a0ab1d61386c8697710c39821e42550cdc076e4af9465a593d26af"
+  },
+  "reviewedFiles": [
+    {
+      "path": "content/site/newsstand-home-preview-v1.js",
+      "sha256": "af0a310dc133e362882fcb80046bc7bd0ca7544bd0e28d0bff7eccf20f3d39f1"
+    },
+    {
+      "path": "content/site/newsstand-home-preview-v1.css",
+      "sha256": "be7588c4333ad6192caf86ea386df667e9326cea39181b2d2e7d04004e40d5d1"
+    },
+    {
+      "path": "content/newsstand.css",
+      "sha256": "8c8c363a4010177b3118cf489552ccc9e3fc31b65512c8ebbb20e6dce7be32f2"
+    },
+    {
+      "path": "scripts/build-newsstand-derivatives.mjs",
+      "sha256": "2079af16434445f58f9240a1acf0ea234d659de78c9172bef836ec0806ec57fb"
+    },
+    {
+      "path": "scripts/test-build-newsstand-derivatives.mjs",
+      "sha256": "9bd58eedd8d05f159e9ac8bf7667601168fac46cc33f4fe1566104832a52cd6d"
+    },
+    {
+      "path": "scripts/test-newsstand-home-preview.mjs",
+      "sha256": "411515cc54e35aad268c8a4ec58a89f78421bec982a05e33793852d74f7fa0e7"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/homepage-activity-20260911/candidate-index.html",
+      "sha256": "58523deb9a687a19cc4b7aadafca2bb4fc9b59d92bf558380ad19327ce46479e"
+    }
+  ],
+  "visualEvidence": {
+    "candidateViewports": [
+      {
+        "path": "/private/tmp/home-activity-1280.png",
+        "width": 1280,
+        "height": 900,
+        "sha256": "c9f857aac3f63635611e817b37a5c233a2d201fa5d904b779d9bf203480f7573"
+      },
+      {
+        "path": "/private/tmp/home-activity-800.png",
+        "width": 800,
+        "height": 900,
+        "sha256": "a3fc4545210a407947d222bce35f0d10d9544f25df7a6544e448759c8fbb8d03"
+      },
+      {
+        "path": "/private/tmp/home-activity-390.png",
+        "width": 390,
+        "height": 900,
+        "sha256": "7038c8098f7eb9984e90026f7346de36dd48278e3212084e1eccc92eab5b7158"
+      },
+      {
+        "path": "/private/tmp/home-activity-320.png",
+        "width": 320,
+        "height": 900,
+        "sha256": "8405d6ce53f8d0f622e595b2affe4d3091753fe12202fd3d4b9ba18abc0a6290"
+      }
+    ],
+    "dailyViewports": [
+      {
+        "path": "/private/tmp/daily-style-1280.png",
+        "width": 1280,
+        "height": 900,
+        "sha256": "aa94f8f8044dfbbd1de1989955fe761220bb8aef5a9568e06951fa12eefc19d9"
+      },
+      {
+        "path": "/private/tmp/daily-style-800.png",
+        "width": 800,
+        "height": 900,
+        "sha256": "0ed3b001230e574922bb1f8d093f7342cd3b1842e2ca3464195b176c8b42e882"
+      },
+      {
+        "path": "/private/tmp/daily-style-390.png",
+        "width": 390,
+        "height": 900,
+        "sha256": "fe58b5e06454a1411b78d8d4f5c9e54a33e9002ef2b54d5266128e9711f3eb14"
+      },
+      {
+        "path": "/private/tmp/daily-style-320.png",
+        "width": 320,
+        "height": 900,
+        "sha256": "b4f0d3f60edd62049e84df7de678bac6223c0260aa4e41ec015644b49d77721f"
+      }
+    ],
+    "sameElementComparison": {
+      "incumbent390Sha256": "b6cdf7ec21e733c6c1cab970d6cde7e25a564ad38eec4394ba674dc6cae0d5d2",
+      "candidate390Sha256": "0a19a26ceedbb98b4aec77266984aa4cdae224febc8b84eb3bac605b536ffa40",
+      "incumbent320Sha256": "5167bb0e89d1e5afd40ec69be7639ebcd893b6aaeeccbc4fcd4b7264b09b2761",
+      "candidate320Sha256": "25b01c24e3d8c8086510a01ae322be1e197526e2227d6687218407bbb158b7ca"
+    },
+    "observations": [
+      "At 1280, 800, 390 and 320 pixels the activity follows all six existing entry choices, retains the exact admitted headline and text, and introduces no horizontal overflow or overlap.",
+      "The compact bordered link remains readable at 320 pixels. The Daily column cards use Jost without uppercase transformation; their bordered links remain visible, and the footer no longer forms a dark box.",
+      "No approved Homepage art or entry-choice copy changed in the reviewed candidate. Blank lazy-loaded card regions in off-screen element captures are a capture-timing limitation; the supplied scrolled viewport captures show the existing images."
+    ]
+  },
+  "functionalEvidence": {
+    "passed": [
+      "The component test suppressed stale-feed, yesterday, held, missing, external-url and failed-fetch inputs while retaining the existing NewsStand door.",
+      "Focus and the one-minute expiry check remove a note left open past its valid day.",
+      "The derivative build emitted only the exact current admitted curiosity desk and rejected candidate, expired-status, ineligible, changed-text and unadmitted-desk variants.",
+      "The preview wrote no localStorage state and its source makes only the same-origin public-feed request.",
+      "Independent browser checks confirmed the Daily's existing boxed desk links open their bound service columns at 1280, 800, 390 and 320 pixels."
+    ],
+    "blockingFinding": {
+      "priority": "P1",
+      "title": "The Homepage activity link does not open the advertised column",
+      "source": "scripts/build-newsstand-derivatives.mjs emits dailyActivity.url as /newsstand?daily=2026-09-11 and content/site/newsstand-home-preview-v1.js copies that URL to the boxed link.",
+      "observedJourney": "At 390 pixels, clicking Read today’s Daily navigated to https://laidies.ai/newsstand?daily=2026-09-11. After four seconds the page remained data-paper=daily, with zero .ns-service-article nodes. The exact activity was therefore not open.",
+      "existingCorrectRoute": "content/site/newsstand-catchup-v1.js columnHref(id) opens a service record with ?column=<recordId>; renderColumn then sets data-paper=service and binds the article to data-column-id.",
+      "smallestRepair": "Emit and validate the exact same-origin column URL for dailyActivity, then extend the Homepage browser test to click the boxed link and require data-paper=service plus data-column-id equal to dailyActivity.id. The current test only compares the href to the defective feed value."
+    }
+  },
+  "limitations": [
+    "Native assistive-technology behavior was not reviewed because the Mac remained locked; keyboard focus styling and DOM labeling were inspected in source and browser only.",
+    "No public deployment or canonical data mutation was performed by this reviewer."
+  ],
+  "verdict": "HOLD",
+  "rationale": "The visual, hierarchy, suppression, date-rollover and privacy requirements pass, but the primary boxed action does not open the activity it advertises. Release should wait for the exact column-route repair and one fresh independent click journey on the successor bytes."
+}

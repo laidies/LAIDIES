@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "newsstand-source-sweep-v1",
+  "sweepId": "2026-09-11-1600-source-sweep",
+  "checkedAt": "2026-09-11T23:01:18Z",
+  "editorialDate": "2026-09-11",
+  "scope": "Fresh six-desk source observation. This record neither drafts nor changes coverage status.",
+  "comparedAgainst": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "leadCount": 24,
+    "checkedAt": "2026-09-11T20:12:57.139344+00:00"
+  },
+  "sourceChecks": [
+    {
+      "desk": "official-openai",
+      "url": "https://openai.com/news/",
+      "checkedAt": "2026-09-11T23:01:18Z",
+      "status": "CHECKED_NO_NEW_EVENT_SINCE_1300",
+      "observed": [
+        {
+          "eventDate": "2026-09-11",
+          "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users",
+          "url": "https://openai.com/index/scaling-storage-one-billion-users-part-one/",
+          "coverageDisposition": "Existing 1300 triage item; no newer OpenAI card appeared."
+        }
+      ]
+    },
+    {
+      "desk": "official-anthropic",
+      "url": "https://www.anthropic.com/news",
+      "checkedAt": "2026-09-11T23:01:18Z",
+      "status": "CHECKED_NO_NEW_EVENT_SINCE_1300",
+      "observed": [
+        {
+          "eventDate": "2026-09-10",
+          "title": "Detecting and countering misuse of AI: September 2026",
+          "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+          "coverageDisposition": "Matches published anthropic-threat-report-20260910."
+        }
+      ]
+    },
+    {
+      "desk": "official-anthropic-engineering",
+      "url": "https://www.anthropic.com/engineering",
+      "checkedAt": "2026-09-11T23:01:18Z",
+      "status": "CHECKED_NO_CURRENT_DATED_ENGINEERING_RELEASE",
+      "observed": [],
+      "gap": "The featured containment item is undated in the inspected index; the newest visible dated entry is April 23, 2026. This does not establish Anthropic-wide quiet."
+    },
+    {
+      "desk": "official-google-ai-and-gemini-api",
+      "urls": [
+        "https://blog.google/innovation-and-ai/technology/ai/",
+        "https://ai.google.dev/gemini-api/docs/changelog"
+      ],
+      "checkedAt": "2026-09-11T23:01:18Z",
+      "status": "CHECKED_NO_NEW_DATED_API_EVENT",
+      "observed": [
+        {
+          "eventDate": "2026-09-03",
+          "title": "Lyria 3.5 in public preview",
+          "url": "https://ai.google.dev/gemini-api/docs/changelog",
+          "coverageDisposition": "Older than this sweep; no September 9-11 Gemini API release note appeared."
+        }
+      ],
+      "gap": "Google's AI-blog category exposes mixed, undated cards, so it cannot establish no Google or DeepMind announcement occurred."
+    },
+    {
+      "desk": "independent-reporting-ap",
+      "url": "https://apnews.com/article/anthropic-pentagon-lawsuit-supply-chain-risk-f15e3c30186385e73e72bee82d85b05c",
+      "checkedAt": "2026-09-11T23:01:18Z",
+      "status": "NEW_LEAD_NEEDS_PRIMARY_LAW_SOURCE",
+      "observed": [
+        {
+          "eventDate": "2026-09-11",
+          "title": "Judge says Pentagon’s measures against Anthropic were ‘illegal and baseless’",
+          "sourceExtract": "AP reports that U.S. District Judge Rita Lin issued a written order after the Pentagon designated Anthropic a supply-chain risk; AP says the government is expected to fight the ruling."
+        }
+      ],
+      "gap": "AP's extracted article did not expose its publication timestamp or the order/docket. Any legal account needs the written order and scope of relief before production."
+    },
+    {
+      "desk": "independent-reporting-reuters",
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "checkedAt": "2026-09-11T23:01:18Z",
+      "status": "EVIDENCE_BLOCKED",
+      "observed": [],
+      "gap": "The Reuters AI hub again returned an internal error. It cannot be counted as a completed reporting check or quiet evidence.",
+      "nextAction": "Recover a dated direct Reuters item or another legitimate independent reporting route."
+    },
+    {
+      "desk": "independent-cybersecurity",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-abused-claude-to-extract-secrets-from-18m-android-apps/",
+      "checkedAt": "2026-09-11T23:01:18Z",
+      "status": "CHECKED_EXISTING_EVENT_INDEPENDENT_CONTEXT",
+      "observed": [
+        {
+          "eventDate": "2026-09-11",
+          "title": "Hackers abused Claude to extract secrets from 1.8M Android apps",
+          "sourceExtract": "The report attributes the Android-app scan and other details to Anthropic's September threat report."
+        }
+      ],
+      "coverageDisposition": "Independent follow-up detail for published anthropic-threat-report-20260910, not a separate underlying event."
+    },
+    {
+      "desk": "consumer-policy-ftc",
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "checkedAt": "2026-09-11T23:01:18Z",
+      "status": "CHECKED_NO_NEW_AI_ENFORCEMENT_EVENT",
+      "observed": [
+        {
+          "eventDate": "2026-08-27",
+          "title": "FTC finalizes orders over ‘Active Listening’ AI-powered marketing service",
+          "coverageDisposition": "Already represented by the published Coxon/consumer-protection coverage; later FTC cards are not AI actions."
+        }
+      ]
+    },
+    {
+      "desk": "rights-policy-eff",
+      "url": "https://www.eff.org/deeplinks/2026/09/new-records-reveal-problems-medicares-ai-prior-authorization-experiment",
+      "checkedAt": "2026-09-11T23:01:18Z",
+      "status": "CHECKED_EXISTING_EVENT",
+      "observed": [
+        {
+          "eventDate": "2026-09-08",
+          "title": "New Records Reveal Problems with Medicare’s AI Prior Authorization Experiment",
+          "coverageDisposition": "Matches published eff-wiser-records-20260908 / wiser-records-20260910."
+        }
+      ]
+    },
+    {
+      "desk": "science-nature-machine-learning",
+      "url": "https://www.nature.com/articles/s41591-026-04703-0",
+      "checkedAt": "2026-09-11T23:01:18Z",
+      "status": "EXISTING_EVIDENCE_BLOCKED_RESEARCH_LEAD",
+      "observed": [
+        {
+          "eventDate": "2026-09-10",
+          "title": "A clinically-oriented foundation model for intraoperative pathology",
+          "sourceExtract": "Nature's index identifies CRISP as a frozen-section pathology foundation model with retrospective and prospective evaluation."
+        }
+      ],
+      "coverageDisposition": "Matches crisp-pathology-20260910, already an evidence-blocked reader-relevant research lead; it is not excluded for lacking a patient-benefit outcome.",
+      "gap": "Readable main methods, prospective comparator protocol, and independent interpretation remain required before drafting."
+    }
+  ],
+  "possibleLeads": [
+    {
+      "id": "anthropic-pentagon-court-order-20260911",
+      "eventDate": "2026-09-11",
+      "status": "TRIAGE_REQUIRED",
+      "referenceUrls": [
+        "https://apnews.com/article/anthropic-pentagon-lawsuit-supply-chain-risk-f15e3c30186385e73e72bee82d85b05c"
+      ],
+      "why": "This is a distinct judicial development about a frontier-model provider and government use restrictions, absent from the 24 lead IDs inspected.",
+      "nextAction": "Recover Judge Lin's written order and docket; establish the holding, remedy, appeal posture, and reader consequence before producing legal coverage."
+    },
+    {
+      "id": "reuters-ai-hub-20260911-1600",
+      "eventDate": "2026-09-11",
+      "status": "EVIDENCE_BLOCKED",
+      "referenceUrls": [
+        "https://www.reuters.com/technology/artificial-intelligence/"
+      ],
+      "why": "The required reporting route remained unavailable at the 16:00 Vancouver check.",
+      "nextAction": "Keep this named source gap open; do not treat unavailable reporting as quiet."
+    }
+  ],
+  "notQuietEvidence": [
+    "Reuters remained inaccessible.",
+    "Google's AI category was mixed and undated.",
+    "Anthropic Engineering's current featured item lacked a visible date.",
+    "Older or already-published items were dispositioned as existing coverage, not used to certify a quiet cycle."
+  ]
+}

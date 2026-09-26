@@ -1,0 +1,137 @@
+{
+  "schema": "aidb-edition-inventory.v2",
+  "recordedAt": "2026-09-22T19:49:32.763045+00:00",
+  "asOfVancouver": "2026-09-22",
+  "window": {
+    "start": "2026-09-16",
+    "end": "2026-09-22"
+  },
+  "channelChecks": [
+    {
+      "channel": "website",
+      "url": "https://aidailybrief.ai/agent.json",
+      "checkedAt": "2026-09-22T17:18:41.888Z",
+      "status": "PARTIAL",
+      "releaseUrls": [
+        "https://aidailybrief.ai/e/2026-09-21",
+        "https://aidailybrief.ai/e/2026-09-20",
+        "https://aidailybrief.ai/e/2026-09-18",
+        "https://aidailybrief.ai/e/2026-09-17",
+        "https://aidailybrief.ai/e/2026-09-16"
+      ],
+      "note": "Publisher metadata enumerated; full editions unreviewed. Expected September22 edition and transcript probes inaccessible."
+    },
+    {
+      "channel": "podcast",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "PARTIAL",
+      "releaseUrls": [
+        "https://podcasts.apple.com/us/podcast/7-ways-how-we-use-ai-is-changing/id1680633614?i=1000790785321"
+      ],
+      "note": "Source lane observed latest September21 Apple metadata; complete rolling-window audio/transcripts unreviewed; prior exact URLs retained."
+    },
+    {
+      "channel": "newsletter",
+      "url": "https://aidailybrief.beehiiv.com/",
+      "checkedAt": "2026-09-21T07:42:51-07:00",
+      "status": "UNAVAILABLE",
+      "releaseUrls": [],
+      "note": "Original nonretryable route not reopened; retain original observation date, no current enumeration claim."
+    }
+  ],
+  "editions": [
+    {
+      "editionDate": "2026-09-20",
+      "title": "7 Ways How We Use AI Is Changing",
+      "url": "https://podcasts.apple.com/us/podcast/7-ways-how-we-use-ai-is-changing/id1680633614?i=1000790785321",
+      "publishedAt": "2026-09-20T11:28:00Z",
+      "discoveryChannel": "podcast",
+      "complete": false,
+      "pendingReason": "A legitimate prior Apple capture supplied metadata and description only; no full audio or transcript was reviewed. The Sep20 direct website-edition probe returned an accessibility error in this cycle.",
+      "nextAction": "Recover a distinct legitimate complete episode source and explicit cross-channel identity; do not infer a website alias from date or title."
+    },
+    {
+      "editionDate": "2026-09-18",
+      "title": "The AI Challenges Businesses Are Actually Focused On Right Now \u2014 publisher notes",
+      "url": "https://aidailybrief.beehiiv.com/p/the-ai-challenges-businesses-are-actually-focused-on-right-now",
+      "discoveryChannel": "publisher newsletter",
+      "complete": false,
+      "publisherNotesInspected": true,
+      "pendingReason": "Previously inspected publisher notes are not a transcript or full podcast review and establish no cross-channel alias. The archive remains a preserved nonretryable route.",
+      "nextAction": "Retain the identity separately and recover a distinct legitimate complete episode source."
+    },
+    {
+      "editionDate": "2026-09-17",
+      "title": "Why Everyone Is Getting Excited About Personal AI Agents",
+      "url": "https://aidailybrief.ai/e/2026-09-17",
+      "discoveryChannel": "website index",
+      "complete": false,
+      "pendingReason": "Fresh publisher-index metadata only; no complete edition, transcript hash or exact item count was accessed.",
+      "nextAction": "Recover a distinct legitimate complete source when available."
+    },
+    {
+      "editionDate": "2026-09-16",
+      "title": "Why a New Class of AI Judgement Models Could Have Big Business Implications",
+      "url": "https://aidailybrief.ai/e/2026-09-16",
+      "discoveryChannel": "website index",
+      "complete": false,
+      "pendingReason": "Fresh publisher-index metadata only; no complete edition, transcript hash or exact item count was accessed.",
+      "nextAction": "Recover a distinct legitimate complete source when available."
+    },
+    {
+      "editionDate": "2026-09-15",
+      "title": "Trump Rails Against AI Slowdown Hoax",
+      "url": "https://aidailybrief.ai/e/2026-09-15",
+      "discoveryChannel": "website index",
+      "complete": false,
+      "pendingReason": "Fresh publisher-index metadata only; no complete edition, transcript hash or exact item count was accessed.",
+      "nextAction": "Recover a distinct legitimate complete source when available."
+    },
+    {
+      "editionDate": "2026-09-13",
+      "title": "10 Ways to Think Bigger with Opportunity AI",
+      "url": "https://aidailybrief.ai/e/2026-09-13",
+      "complete": true,
+      "transcriptSha256": "ed2661a829e7d649d68d00199bcfc4865a2759efd7c5f69d9484e5762a67fbb8",
+      "itemCount": 23,
+      "reviewLedger": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-0700-aidb-2026-09-13-item-review.json",
+      "disposition": "ALREADY_PROCESSED_IN_CURSOR; no current full content was accessed."
+    },
+    {
+      "editionDate": "2026-09-21",
+      "title": "The State of the AI Debate",
+      "url": "https://aidailybrief.ai/e/2026-09-21",
+      "discoveryChannel": "website index",
+      "complete": false,
+      "pendingReason": "Publisher-index identity only; complete transcript unavailable. Existing podcast/newsletter identities retained separately without inferred aliases.",
+      "nextAction": "Recover full legitimate content and explicit alias identity before processing."
+    },
+    {
+      "editionDate": "2026-09-20",
+      "title": "7 Ways How We Use AI Is Changing",
+      "url": "https://aidailybrief.ai/e/2026-09-20",
+      "discoveryChannel": "website index",
+      "complete": false,
+      "pendingReason": "Publisher-index identity only; complete transcript unavailable. Existing podcast/newsletter identities retained separately without inferred aliases.",
+      "nextAction": "Recover full legitimate content and explicit alias identity before processing."
+    },
+    {
+      "editionDate": "2026-09-18",
+      "title": "The AI Challenges Businesses Are Actually Focused On Right Now",
+      "url": "https://aidailybrief.ai/e/2026-09-18",
+      "discoveryChannel": "website index",
+      "complete": false,
+      "pendingReason": "Publisher-index identity only; complete transcript unavailable. Existing podcast/newsletter identities retained separately without inferred aliases.",
+      "nextAction": "Recover full legitimate content and explicit alias identity before processing."
+    }
+  ],
+  "expectedMissingDates": [
+    "2026-09-18",
+    "2026-09-19",
+    "2026-09-20",
+    "2026-09-21"
+  ],
+  "expectedMissingMeaning": "The fresh website index does not list editions dated Sep18 through Sep21. This is not proof no episode/newsletter release exists because the Apple channel is partial and newsletter archive was not opened.",
+  "fullTranscriptReview": false
+}

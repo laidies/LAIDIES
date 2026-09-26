@@ -1,0 +1,44 @@
+{
+  "proseReview": {
+    "reviewIssues": 0,
+    "reviewCycles": 1
+  },
+  "evidencePacket": {
+    "rounds": 2,
+    "gaps": 1,
+    "repaired": 1,
+    "checkedClaims": 3,
+    "exactSourceExcerpts": 3
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "stage": "producer",
+      "note": "Earlier technical-audience and source-budget repairs preserved in predecessor commits458bc763,707a785a,c4e0450e."
+    },
+    {
+      "stage": "independent",
+      "review": "runtime-claude-fable-20260912-v1",
+      "verdict": "PROTOCOL_HOLD",
+      "issues": 1,
+      "note": "Reader PASS; factual date tied only to partner rather than dated DeepSeek primary. Contradictory learning disposition rejected."
+    },
+    {
+      "stage": "root-evidence-repair",
+      "note": "Root reread visible DeepSeek date and opening bullet, bound the exact primary to launch claim. Complete article unchanged; reuse reader, reassess facts only."
+    },
+    {
+      "stage": "independent-facts",
+      "review": "runtime-claude-fable-20260912-v2",
+      "verdict": "PASS",
+      "issues": 0,
+      "note": "Unchanged complete article reader judgment reused; repaired launch/date source mapping independently reassessed. Root read full actual factual judgment."
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "checkedAt": "2026-09-16T14:30:31.018Z",
+  "contract": {
+    "errors": [],
+    "status": "READY_TO_DRAFT"
+  },
+  "coverageErrors": [],
+  "lengthErrors": [],
+  "draft": {
+    "errors": [],
+    "qualityVerdict": null
+  },
+  "producerReceipt": {
+    "errors": [],
+    "verdict": "PASS",
+    "qualityAuthority": "NONE"
+  },
+  "sourceBudget": {
+    "schemaVersion": "newsstand-source-budget-v1",
+    "candidateId": "mathematicians-ai-research-values-20260916",
+    "method": "Conservative allocation of every source-derived phrase across reader-visible story fields, including headline, source labels and repeated synthesis. Private metadata and article.md, which mirrors story.json rather than adding a second publication surface, are not counted twice. Reviewer must recount after any edit.",
+    "limits": {
+      "LeMonde": 100,
+      "ETHZurich": 200
+    },
+    "allocations": [
+      {
+        "allocationId": "eth-headline",
+        "publisher": "ETHZurich",
+        "field": "headline",
+        "exactDerivedText": "Leading mathematicians say a correct answer is not the whole job",
+        "words": 11
+      },
+      {
+        "allocationId": "lm-event",
+        "publisher": "LeMonde",
+        "field": "the_story",
+        "exactDerivedText": "Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration.",
+        "words": 15
+      },
+      {
+        "allocationId": "lm-argument",
+        "publisher": "LeMonde",
+        "field": "the_story",
+        "exactDerivedText": "They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.",
+        "words": 19
+      },
+      {
+        "allocationId": "lm-limit",
+        "publisher": "LeMonde",
+        "field": "the_story",
+        "exactDerivedText": "This is an attributed argument, not evidence that AI cannot produce correct mathematics or a rule for researchers or students.",
+        "words": 20
+      },
+      {
+        "allocationId": "lm-explanation",
+        "publisher": "LeMonde",
+        "field": "laidies_read",
+        "exactDerivedText": "A correct proof may still require people to identify its useful idea, connect earlier work and explain it.",
+        "words": 18
+      },
+      {
+        "allocationId": "lm-cocktail",
+        "publisher": "LeMonde",
+        "field": "cocktail_party",
+        "exactDerivedText": "A correct answer does not finish the work of understanding it.",
+        "words": 11
+      },
+      {
+        "allocationId": "lm-source-label",
+        "publisher": "LeMonde",
+        "field": "sources[0].label",
+        "exactDerivedText": "Le Monde — Fields Medalists’ declaration",
+        "words": 6
+      },
+      {
+        "allocationId": "eth-accel",
+        "publisher": "ETHZurich",
+        "field": "laidies_read",
+        "exactDerivedText": "In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist.",
+        "words": 21
+      },
+      {
+        "allocationId": "eth-concern",
+        "publisher": "ETHZurich",
+        "field": "laidies_read",
+        "exactDerivedText": "His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions.",
+        "words": 23
+      },
+      {
+        "allocationId": "eth-limit",
+        "publisher": "ETHZurich",
+        "field": "laidies_read",
+        "exactDerivedText": "That is his assessment, not a settled measure of what AI understands.",
+        "words": 12
+      },
+      {
+        "allocationId": "eth-source-label",
+        "publisher": "ETHZurich",
+        "field": "sources[1].label",
+        "exactDerivedText": "ETH Zurich — interview with Alessio Figalli",
+        "words": 7
+      }
+    ],
+    "totals": {
+      "LeMonde": 89,
+      "ETHZurich": 74
+    },
+    "withinLimits": true,
+    "unmappedSourceDerivedClaims": [],
+    "otherVisibleOrigins": [
+      {
+        "fields": [
+          "laidies_read",
+          "class_notes"
+        ],
+        "origin": "Verified Library background §12.5",
+        "treatment": "Background on benchmark scope; not charged to Le Monde or ETH."
+      },
+      {
+        "fields": [
+          "what_this_means"
+        ],
+        "origin": "Original practical illustration",
+        "treatment": "Producer-created percentage exercise; not a source claim."
+      }
+    ]
+  },
+  "visualAdmission": {
+    "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/art/independent-review-v3.json",
+    "sha256": "fc735034747bf9bf2c5c34a86ec4fb1a0ca4a142c8809ac0765028a08b141f63"
+  },
+  "editorialCallMade": false
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "claimId": "work-codex-not-chat",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>OpenAI introduced GPT-6 Sol and Luna on September 22. Its release notes place them in ChatGPT Work and Codex, and say they are separate from the models in ordinary Chat.</p>",
+        "locator": "P002"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+      "sha256": "1a35c53e4d18e6786fc8dbbef8f9bfd3b254bcb48d2b369f1a62903f269a6dbe"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "We’re introducing GPT-6 Sol and GPT-6 Luna in ChatGPT Work and Codex. These models are separate from the models available in Chat.",
+        "locator": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      },
+      {
+        "excerpt": "Available models and reasoning effort options depend on your plan and workspace settings.",
+        "locator": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      }
+    ],
+    "scopeAndFreshness": "P002 mirrors the release-notes excerpt almost verbatim: 'introducing GPT-6 Sol and GPT-6 Luna in ChatGPT Work and Codex. These models are separate from the models available in Chat.' Attribution to the release notes is retained."
+  },
+  {
+    "claimId": "api-not-subscription",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+        "locator": "P003"
+      },
+      {
+        "excerpt": "“Sol and Luna are model names, but access and price depend on the service you use. The lower numbers are API prices for developers, not a new ChatGPT subscription bill.”",
+        "locator": "P009"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+      "sha256": "1a35c53e4d18e6786fc8dbbef8f9bfd3b254bcb48d2b369f1a62903f269a6dbe"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "GPT‑6 Sol and GPT‑6 Luna are available in ChatGPT Work and Codex starting today for all Plus, Pro, Business, Enterprise, and Edu users. Free and Go users can access GPT‑6 Luna in the desktop app. These models are not yet available in Chat.",
+        "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+      },
+      {
+        "excerpt": "Prices are per 1 million tokens. GPT‑6 Sol can take on difficult work tasks while giving you more room to iterate with higher usage limits and lower cost.",
+        "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+      }
+    ],
+    "scopeAndFreshness": "The release excerpt states 'Prices are per 1 million tokens', which is usage-metered API billing rather than a subscription figure; P003 attributes the prices to OpenAI, explains what an API is, and draws only the boundary that the figures are not a ChatGPT subscription price. The source implies rather than states the negative, but the inference is faithful and limited."
+  },
+  {
+    "claimId": "plan-workspace-boundary",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+        "locator": "P005"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+      "sha256": "1a35c53e4d18e6786fc8dbbef8f9bfd3b254bcb48d2b369f1a62903f269a6dbe"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "We’re introducing GPT-6 Sol and GPT-6 Luna in ChatGPT Work and Codex. These models are separate from the models available in Chat.",
+        "locator": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      },
+      {
+        "excerpt": "Available models and reasoning effort options depend on your plan and workspace settings.",
+        "locator": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      }
+    ],
+    "scopeAndFreshness": "P005 matches the release-notes excerpt 'Available models and reasoning effort options depend on your plan and workspace settings', is attributed with 'OpenAI says', and correctly adds that gradual rollout means the announcement cannot show a particular account's picker, consistent with the stated source limitation."
+  },
+  {
+    "claimId": "provider-task-positioning",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>OpenAI says GPT-6 Sol can take on difficult work tasks. For a routine email, summary or document draft, another available model may be a sensible alternative; compare it with Sol or Luna in your own service before treating a new name as an automatic upgrade.</p>",
+        "locator": "P006"
+      },
+      {
+        "excerpt": "<p>OpenAI’s performance and cost comparisons are its own evaluation claims. They do not promise that a particular task will be faster, cheaper or better for you.</p>",
+        "locator": "P008"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+      "sha256": "1a35c53e4d18e6786fc8dbbef8f9bfd3b254bcb48d2b369f1a62903f269a6dbe"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "GPT‑6 Sol and GPT‑6 Luna are available in ChatGPT Work and Codex starting today for all Plus, Pro, Business, Enterprise, and Edu users. Free and Go users can access GPT‑6 Luna in the desktop app. These models are not yet available in Chat.",
+        "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+      },
+      {
+        "excerpt": "Prices are per 1 million tokens. GPT‑6 Sol can take on difficult work tasks while giving you more room to iterate with higher usage limits and lower cost.",
+        "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+      }
+    ],
+    "scopeAndFreshness": "The release excerpt states 'GPT-6 Sol can take on difficult work tasks'; P006 attributes this to OpenAI, and P008 explicitly bounds performance and cost comparisons as the provider's own evaluation claims that promise no reader outcome."
+  }
+]

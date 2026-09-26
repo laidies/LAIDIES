@@ -1,0 +1,757 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "surface": "NEWSSTAND_WEEKLY",
+  "contentClass": "NEWS",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "candidateId": "weekly-promises-and-proof-20260916",
+  "maker": "/root",
+  "reviewer": {
+    "id": "weekly-sep16-root-maker-review",
+    "principalId": "/root",
+    "role": "producer and self-reviewer",
+    "modelFamily": "OpenAI GPT"
+  },
+  "reviewedAt": "2026-09-16T15:13:29.366564+00:00",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/publication-manifest.json",
+      "sha256": "8ee5ec467e5a18223a5b453f5123f93b9859ab4d5ea250e0193ffcc0adf0d9e7"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/review-text.json",
+      "sha256": "80bec66cc304541ae5d0bf27b5e77d2c7d63a060299f84e1eed85bc19a13f5aa"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/weekly-news-editorial-policy.json",
+    "sha256": "1bd57b1b88a2b0ac530fdc1e6c8112269327417dfcaae197173785137ee62d9e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-16T15:13:29.366564+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "An AI label has the same limit. It tells you something about how the material was produced; it does not establish whether its claims are correct.",
+          "locator": "news-002-approved-frozen.json"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What changed this week beyond the alarming headlines, and which changes affect the tools, schools and institutions around me?",
+    "promisedPayoff": "Distinguish a proposed safeguard, signed but opt-in protections, reported misuse and a consumer product rollout.",
+    "priorKnowledge": "No frontier-model, threat-intelligence or voice-model background assumed.",
+    "centralMentalModel": "Ask what changed, who it covers and what evidence would show it works. Different stories need different proof.",
+    "dailyLifeConnection": "A parent can ask about the school’s exact AI contract; a shopper can recognize a sponsored conversation; someone using voice tools can check the result.",
+    "surfaceJob": "September16 Weekly covering September9–16, with selective synthesis rather than every Daily story repeated.",
+    "desiredFeeling": "I can follow the big news without confusing a proposal with a protection already in place.",
+    "desiredReaderFeeling": "Informed and able to ask a specific question without technical training."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Distinguishes three kinds of announcement in ordinary language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A public commitment, a signed agreement and a product rollout are different kinds of news.",
+          "locator": "story.the_story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Names a check a parent can use without technical expertise.",
+      "artifactEvidence": [
+        {
+          "excerpt": "which AI product does the school use, and has it put these protections into that product’s agreement?",
+          "locator": "story.the_story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Dry observation targets institutional obscurity rather than reader knowledge.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A contract is not improved by being unintelligible to the people it is meant to protect.",
+          "locator": "story.the_story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Unequal sections progress from the big safety debate to everyday encounters; no joke imposed on biological harm.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Two changes to the conversations you may have",
+          "locator": "story.the_story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Claims retain source attribution, implementation stage and the safety exception.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It bans using covered data for advertising and generally for model training, with a narrow safety exception.",
+          "locator": "story.the_story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "All five developments have dates in September 9–16; rollout claims attributed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 16, OpenAI announced",
+          "locator": "story.the_story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Compares the preceding Weekly then synthesizes a bounded five-story selection.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm.",
+          "locator": "story.the_story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The dated announcement is distinguished from implementation evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It remains a commitment to put a system in place, not evidence that the reviewers are already operating.",
+          "locator": "story.the_story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Prevents the report being inflated into proof of a weapon or intention.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm.",
+          "locator": "story.the_story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Parent, shopper and personal voice-tool use are concrete and not employment-assuming.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If you talk through a packing list for a weekend away, check that the final list kept the details you gave it.",
+          "locator": "story.the_story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The question about a promise resolves into scope and observable evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For a school, it means the product and contract actually covered.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Reader can separate announced protection from applicable contract; simulated probe only.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Coverage is not automatic. Schools must opt in",
+          "locator": "story.the_story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Does the Microsoft announcement mean every school tool has these protections?",
+        "probeResponse": "No. The school must opt in and the product must be covered; general-purpose tools can be excluded. Ask which product and agreement applies.",
+        "expectedEvidence": "Separates opt-in contract and product coverage from company name."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Scope question transfers to a new institutional vendor announcement; simulated probe only.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask for the answer in ordinary language.",
+          "locator": "story.the_story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A community centre advertises an AI vendor privacy commitment. What would you ask?",
+        "probeResponse": "Which service does it cover, has the centre obtained those terms, and what data uses are actually prohibited? A vendor promise alone does not answer those questions.",
+        "expectedEvidence": "Applies scope and enforceable terms to a different setting."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Actions are conditional on relevance and within reader control.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Follow the part that touches your life",
+          "locator": "story.what_this_means"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Seller comparison explains whose interests the sponsored interaction represents; no invented data-sharing consequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Treat it like speaking to a shop about its own stock.",
+          "locator": "story.the_story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Each term serves one current event; no sequence of definitions.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Four unequal sections group five developments; no repeated template.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Shop comparison maps the interested seller, not generic ornament.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture references.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Scope is explained by opt-in and exclusions; sponsored chat by advertiser identity.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "School product agreement, completed voice task, and seller identity are specific checks.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Most capable systems replaces unexplained frontier jargon.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Each check maps to the actual contract or product behavior.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Source qualifications remain attached; claim map binds corrected current snapshots.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Sources rechecked September16; excluded poll and inaccessible medical lead not smuggled in.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Concrete verbs and ordinary questions replace vendor slogans.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Brief institutional wit alongside serious accurate treatment.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No public benchmark reference.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Headline question answered through proposal, contract and rollout distinctions.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Packing list returns to the task-result check.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No borrowed persona or exemplar phrasing.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Meaning leads; restrained dry wit.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Source-specific scope and implementation receive full paragraphs.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "School obligations explained before asking reader to check coverage.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "No new routine prescribed and no sweeping consequence claimed.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Public safety, family privacy and personal tools represented.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Safety question opens before access details.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Packing example is one sentence within Weekly synthesis.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "News-led sentences; technical details limited to consequential scope.",
+      "artifactLocator": "complete review-text.json"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "reviewedThrough": "2026-09-16",
+    "nextTrigger": "Recheck when implementation, contract scope or rollout changes; exact independent review remains required before release.",
+    "correctionOwner": "NewsStand",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/prior-weekly.json",
+        "sha256": "83a30f6d431bae41ec0f3a780e0a940280634e456d1e9317583b4cc621d2c8e2"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/amodei.json",
+        "sha256": "688ab6cb20578a25659e30bad7f3f0e8378041fd54e4933bbe44b9fd57cf18ec"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/anthropic.json",
+        "sha256": "1b5d70cabdcbbfdc02efae1b45605f2be96e6c052b7e1299757d90ef4ac5db6d"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/school-announcement.json",
+        "sha256": "506cf09fd834ea2154374bbd4580aa8740ba25a877b1d5ab6e6b622ae636d72a"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/school-contract.json",
+        "sha256": "a32c11f4446adcafbf9360c4c50c6d0c94723f4899d575d1bf368a2b0f0b9d11"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/google.json",
+        "sha256": "4b84de42522940f69388aacd7055b93e8093a59af9e3f6a25a5a39634254b79a"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/openai.json",
+        "sha256": "f3d001655ebe1b7bd6276be6c46627a6ccde33c2ae6118f4cbf2f814d4dd3160"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "prior-comparison",
+        "status": "VERIFIED",
+        "sourceIds": [
+          "prior-weekly"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/prior-weekly.json",
+          "sha256": "83a30f6d431bae41ec0f3a780e0a940280634e456d1e9317583b4cc621d2c8e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The immediately preceding LAiDIES Weekly covered image-editing controls, failed agent-safety boundaries and legal consequences after harm.",
+            "locator": "Current canonical prior Weekly story"
+          }
+        ],
+        "scopeAndFreshness": "LAiDIES comparison only. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "amodei-date-proposal",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "amodei"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/amodei.json",
+          "sha256": "688ab6cb20578a25659e30bad7f3f0e8378041fd54e4933bbe44b9fd57cf18ec"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The primary essay is dated only September 2026 on its page. Amodei calls for slowing the rate of capability improvement rather than halting development, describes a unilateral Anthropic commitment as a first step, and proposes outside reviewers with ongoing employee-like access to relevant workspaces and tools, subject to stated exceptions. He says reviewers should be able to publish without Anthropic editorial control, with narrow redactions disclosed when they affect conclusions.",
+            "locator": "Dario primary page: date, proposal and reviewer-access passages; weeklyDateCheck: dated original-post evidence"
+          }
+        ],
+        "scopeAndFreshness": "Primary page gives only September; September 12 comes from separately captured dated-post evidence. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "amodei-review-access",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "amodei"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.",
+            "locator": "Exact complete story prose"
+          },
+          {
+            "excerpt": "His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/amodei.json",
+          "sha256": "688ab6cb20578a25659e30bad7f3f0e8378041fd54e4933bbe44b9fd57cf18ec"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The primary essay is dated only September 2026 on its page. Amodei calls for slowing the rate of capability improvement rather than halting development, describes a unilateral Anthropic commitment as a first step, and proposes outside reviewers with ongoing employee-like access to relevant workspaces and tools, subject to stated exceptions. He says reviewers should be able to publish without Anthropic editorial control, with narrow redactions disclosed when they affect conclusions.",
+            "locator": "Dario primary page: date, proposal and reviewer-access passages; weeklyDateCheck: dated original-post evidence"
+          }
+        ],
+        "scopeAndFreshness": "A commitment and proposal, not evidence that reviewers are operating or an industry agreement exists. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "anthropic-report-scope",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "anthropic"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/anthropic.json",
+          "sha256": "1b5d70cabdcbbfdc02efae1b45605f2be96e6c052b7e1299757d90ef4ac5db6d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic's September 10 threat report says it observed uses spanning surveillance and biological research. In the biology examples, it describes working scientists and dual-use activity; it does not assert that the scientists intended harm or that a completed weapon resulted.",
+            "locator": "Threat report landing date/title; Threat report detailed biology and surveillance passages"
+          }
+        ],
+        "scopeAndFreshness": "Provider report about its own observed activity, not all AI use. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "anthropic-biology-limit",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "anthropic"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/anthropic.json",
+          "sha256": "1b5d70cabdcbbfdc02efae1b45605f2be96e6c052b7e1299757d90ef4ac5db6d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic's September 10 threat report says it observed uses spanning surveillance and biological research. In the biology examples, it describes working scientists and dual-use activity; it does not assert that the scientists intended harm or that a completed weapon resulted.",
+            "locator": "Threat report landing date/title; Threat report detailed biology and surveillance passages"
+          }
+        ],
+        "scopeAndFreshness": "Retains the report’s express evidentiary limits. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "school-event",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "school-announcement"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/school-announcement.json",
+          "sha256": "506cf09fd834ea2154374bbd4580aa8740ba25a877b1d5ab6e6b622ae636d72a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Microsoft's September 9 announcement says the AFT, UFT and Microsoft created school AI privacy terms and that eligible districts can incorporate the protections into their Microsoft customer agreement.",
+            "locator": "Announcement date and agreement description"
+          }
+        ],
+        "scopeAndFreshness": "Participant announcement; contract controls exact scope. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "school-contract-scope",
+        "status": "VERIFIED",
+        "sourceIds": [
+          "school-contract"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/school-contract.json",
+          "sha256": "a32c11f4446adcafbf9360c4c50c6d0c94723f4899d575d1bf368a2b0f0b9d11"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The signed agreement makes each principle binding for an education customer that opts in. Its covered-product definition excludes general-purpose productivity, collaboration, communications, search, cloud, developer and workplace products, even when a school uses them. For covered data, the agreement prohibits use for advertising and generally prohibits model training, with a narrow exception for improving safety and security.",
+            "locator": "Signed agreement opt-in clauses; Signed agreement covered-product exclusions; Signed agreement covered-data advertising and model-training clauses"
+          }
+        ],
+        "scopeAndFreshness": "Signed contract establishes scope, not uptake or tested effectiveness. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "google-date-rollout",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "google"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/google.json",
+          "sha256": "4b84de42522940f69388aacd7055b93e8093a59af9e3f6a25a5a39634254b79a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Google announced Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking on September 15. It says the models can continue live spoken interaction while processing tasks; 3.8 Live is rolling out in Search Live and Extended Thinking in Gemini Live. The described Docs features require Google AI Pro or Ultra, while Gmail and Keep features require a Google AI subscription.",
+            "locator": "Google announcement date and rollout passages; Google Docs, Gmail and Keep availability passages"
+          }
+        ],
+        "scopeAndFreshness": "Provider rollout statement; availability can vary. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "google-subscription-boundary",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "google"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/google.json",
+          "sha256": "4b84de42522940f69388aacd7055b93e8093a59af9e3f6a25a5a39634254b79a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Google announced Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking on September 15. It says the models can continue live spoken interaction while processing tasks; 3.8 Live is rolling out in Search Live and Extended Thinking in Gemini Live. The described Docs features require Google AI Pro or Ultra, while Gmail and Keep features require a Google AI subscription.",
+            "locator": "Google announcement date and rollout passages; Google Docs, Gmail and Keep availability passages"
+          }
+        ],
+        "scopeAndFreshness": "Provider availability statement, not a global equal-access claim. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "openai-sponsored-test",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "openai"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/openai.json",
+          "sha256": "f3d001655ebe1b7bd6276be6c46627a6ccde33c2ae6118f4cbf2f814d4dd3160"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI announced on September 16 that it is testing optional, clearly labelled Sponsored Agents with select US advertisers. After a person clicks an ad, the sponsored conversation is with the advertiser and remains separate from the original ChatGPT conversation and its independent answers.",
+            "locator": "OpenAI date, test scope and separation passages"
+          }
+        ],
+        "scopeAndFreshness": "Provider test announcement; no broad-availability claim. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "openai-speaker",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "openai"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "That is a seller’s conversation. Treat it like speaking to a shop about its own stock.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/openai.json",
+          "sha256": "f3d001655ebe1b7bd6276be6c46627a6ccde33c2ae6118f4cbf2f814d4dd3160"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI announced on September 16 that it is testing optional, clearly labelled Sponsored Agents with select US advertisers. After a person clicks an ad, the sponsored conversation is with the advertiser and remains separate from the original ChatGPT conversation and its independent answers.",
+            "locator": "OpenAI date, test scope and separation passages"
+          }
+        ],
+        "scopeAndFreshness": "Described interaction boundary; no privacy or effectiveness claim. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "school-data-use",
+        "status": "VERIFIED",
+        "sourceIds": [
+          "school-contract"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "It bans using covered data for advertising and generally for model training, with a narrow safety exception.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources/school-contract.json",
+          "sha256": "a32c11f4446adcafbf9360c4c50c6d0c94723f4899d575d1bf368a2b0f0b9d11"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The signed agreement makes each principle binding for an education customer that opts in. Its covered-product definition excludes general-purpose productivity, collaboration, communications, search, cloud, developer and workplace products, even when a school uses them. For covered data, the agreement prohibits use for advertising and generally prohibits model training, with a narrow exception for improving safety and security.",
+            "locator": "Signed agreement opt-in clauses; Signed agreement covered-product exclusions; Signed agreement covered-data advertising and model-training clauses"
+          }
+        ],
+        "scopeAndFreshness": "Applies only inside the opt-in agreement and covered-product/data definitions. Sources and candidate were reviewed on September 16, 2026; recheck on material provider, agreement, rollout or correction change."
+      }
+    ],
+    "claimMapBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/claim-map.json",
+      "sha256": "06e03589c06a26072646c5a56a264435aec235781d30ec383d0f4e86fa977edd"
+    }
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "weekly-control-layers-20260909",
+    "repairSummary": "New September9–16 synthesis. Explicit event dates, feature plans, actual school protections and current source bindings repaired before independent admission."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 5,
+    "reviewIssues": 9,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW",
+    "issueLog": [
+      "Amodei event date missing",
+      "Anthropic report date missing",
+      "Google feature plan scope vague",
+      "OpenAI event date missing",
+      "School protections absent despite scope explanation",
+      "Assessment HOLD schema invalid",
+      "Unassessed decline IDs",
+      "Dario derived-word aggregation understated",
+      "Claim-map school source digests stale"
+    ],
+    "remainingIssues": [],
+    "priorComparable": {
+      "candidateId": "weekly-control-layers-20260909",
+      "reviewIssues": 5,
+      "reviewCycles": 1
+    }
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All identified draft and record defects were repaired before the final self-review. No unresolved defect remains in this exact producer artifact; the nine repaired issues are retained in ratchet and independent review remains required."
+  },
+  "limitations": [
+    "Producer self-review only; independent Claude review and admission still required.",
+    "Simulated probes are not observed human-comprehension evidence.",
+    "Poll remains held for source conflict; medical primary access failed; no exhaustive all-clear asserted.",
+    "September12 Amodei date relies on separately captured dated-post evidence; primary page displays month only.",
+    "No live rendering claim for this unpublished Weekly."
+  ]
+}

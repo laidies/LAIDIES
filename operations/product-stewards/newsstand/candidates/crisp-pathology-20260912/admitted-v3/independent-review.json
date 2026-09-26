@@ -1,0 +1,940 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "crisp-pathology-20260912",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/remaining_build_review",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-12T22:38:08.148Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/review-text.json",
+      "sha256": "47d102259170ff4d40caaf74715d2b3358103244db14fe24f0347b7459a6b20f"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/publication-manifest.json",
+      "sha256": "b7449d8043610e7586c26b90764e432485d198da9dcdd14927c0d89191910522"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/rendered-article.html",
+      "sha256": "5b9044511bec7c0f527d443746e3d0b3a1c6e0b53f9119a49566e6765890cc14"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Can an AI really stand in for the specialist reading tissue mid-surgery, and did this study prove it helps patients?",
+    "promisedPayoff": "Understand what CRISP actually did with frozen-section slides, what the comparison showed, and why matching a specialist is not proof of better care.",
+    "centralMentalModel": "A model trained on the exact kind of image it will face (frozen sections, not preserved FFPE slides) performs better on that task, but observed performance parity is bounded by the tested task and conditions.",
+    "dailyLifeConnection": "Anyone facing a time-pressured decision mid-process — the surgeon waiting on a tissue answer before the next step — recognizes why a fast, matched second opinion matters.",
+    "surfaceJob": "A dated news report on a newly published Nature Medicine study: what happened, what was measured, what remains unproved.",
+    "desiredReaderFeeling": "Informed and appropriately skeptical: impressed by the result but clear that improved care has not been demonstrated."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Frozen section, pathologist, and observational study are each defined in plain words at first use; every sentence is followable without AI training.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader learns why frozen-specific training matters and exactly what remains unproved (no interventional, outcome-following study yet).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult voice without condescension; the cocktail line and laidies read are conversational and honest about limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+          "locator": "P006"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The human stakes (an answer needed before the next surgical step) sustain interest without forced humour or spectacle.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "It answers what happened (study published, comparison results) and why it matters within a properly bounded news scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "CRISP matched a senior specialist during fast surgery checks.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The time-pressured mid-procedure decision is a recognizable situation that grounds why fast frozen-section reads matter.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose (urgent intraoperative answer), concrete causality (training-data mismatch), and a clear next question (does it change care?) — no imitated persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The article gives enough mechanism (FFPE vs frozen appearance, decision support role) to answer a causal question in ordinary language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.</p>",
+          "locator": "P004"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why would an AI trained on ordinary preserved (FFPE) slides do worse on frozen sections than CRISP, even if it is excellent on preserved tissue?",
+        "response": "Freezing, rapid slicing, and staining under time pressure change how the tissue physically looks compared with chemical-and-wax preservation. An FFPE-trained model learned visual patterns from a different-looking distribution of images, so frozen-section morphology falls partly outside what it has seen and its predictions degrade. CRISP was pretrained on frozen-section images specifically, so the appearance it encounters mid-surgery matches its training distribution.",
+        "expectedEvidence": "The article's statements that frozen preparation gives tissue a different appearance (P002) and that most existing AI learned from preserved slides while CRISP was trained for frozen images (P003), matching the paper's claim that FFPE specimens differ fundamentally in preparation and morphology.",
+        "assessment": "The article supplies exactly the causal chain needed for this answer in ordinary language; a reader could reproduce it from P002–P003 without outside knowledge."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The tested-conditions-versus-real-job distinction (P005, P007) transfers cleanly to new AI-evaluation situations outside pathology.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\\\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.",
+          "locator": "P007"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's mechanism, what two problems should the director flag before treating the result as evidence the tool will improve care at her clinic?",
+        "response": "First, a training-distribution mismatch: like FFPE-trained models on frozen tissue, an AI trained on dermatoscope images may degrade on smartphone photos, which look different (lighting, focus, scale), so the matched-performance claim may not carry over. Second, evidence-type limits: matching specialists in a reader study is an observed-performance result under the tested conditions; it does not show patients end up better off. That requires an interventional study that changes care decisions and follows patient outcomes, just as the CRISP authors say they still need.",
+        "expectedEvidence": "P003's account of appearance mismatch between training and deployment images, and P005/P007's distinction between observed performance under tested conditions and proof of improved care.",
+        "assessment": "The transfer holds cleanly: both the data-distribution logic and the observational-versus-interventional boundary apply directly to a scenario absent from the article."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The proportionate action is interpretive: read such results as task-and-conditions claims, not care-improvement claims — stated explicitly and applied.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\\\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.",
+          "locator": "P007"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No stretched analogies are used; the FFPE-vs-frozen appearance contrast is a literal, accurate mapping from the paper, with limits retained.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim — frozen-specific training, model superiority, specialist parity, simulated-deployment timing, and the missing interventional study — is traceable to the supplied paper excerpts with attribution and limits retained.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+          "locator": "P006"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The study's 2026-09-10 publication date is anchored by the landing-page source, access dates are stated, and the limitation framing lets a reader check the time-sensitive claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\\\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.",
+          "locator": "P007"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "This reports a newly published study; the article correctly presents the observational evidence as new and clearly separates what is now shown from what future interventional work must still establish.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (decision support during surgery, pathologist still interprets) and uncertainty survives to the end: no claim of improved treatment or outcomes is allowed to stand.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+          "locator": "P006"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Definitions are immediately put to work explaining why FFPE-trained models fail on frozen tissue; nothing accumulates idly.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Each paragraph does distinct work: stakes, mechanism/result, role, limits; no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogies are deployed; explanation stays literal and mechanistic throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The single class-notes reference does explanatory work about benchmark scope; no ornamental references.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal step (frozen tissue looks different, so frozen-trained CRISP outperforms FFPE-trained models) is supplied before the result.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The guidance is case-specific: treat parity as tested-conditions evidence, not proof of better care, pending an interventional study.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Every technical term (frozen section, observational study, reader study) is glossed at first meaningful use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The flow from slide preparation to model prediction to pathologist interpretation is connected explicitly.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is carefully bounded everywhere; the piece repeatedly states what has not been shown.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Claims are tied to a dated, cited Nature Medicine paper and landing page; the timing figures are traceable to the simulated deployment.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Prose is concrete throughout; no vague motivational or corporate filler language.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Human stakes of intraoperative decisions keep the piece from becoming a dry checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The class-notes link explains the benchmark-scope idea rather than name-dropping it as a substitute for explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's claim is fully explained and then correctly bounded; the promise is delivered.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The surgical scenario returns directly to the technical mechanism of training-data match.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No borrowed communicator persona or mannerisms; the voice is original and plain.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle competes with the explanation at any point.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The mechanism and limits receive most of the space; the headline hook is proportionate.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The headline claim is earned by the mechanism and study description before being bounded by limits.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending deflates rather than inflates: it explicitly says patient benefit is not shown and names the missing study.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers the job asked of it: the frozen-section task, the comparison, and what remains unproved.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Motivation (urgent intraoperative answer) precedes the technical training-data mechanism.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not applicable in force; no worked example crowds out the bounded news purpose.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "For a bounded news report, explaining this specific mechanism is the right perspective, and reader orientation is maintained.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/editorial-input.json",
+        "sha256": "19b83b44f2ad70bdfa5889a57adfe6fccd770a6d577ed30b0336f6ed31faef2b"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "frozen-specific",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/editorial-input.json",
+          "sha256": "19b83b44f2ad70bdfa5889a57adfe6fccd770a6d577ed30b0336f6ed31faef2b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "PDF page 12: most existing foundation models are built upon FFPE specimens,20 which differ fundamentally from frozen sections in both preparation and tissue morphology. Direct application of FFPE- trained models to intraoperative frozen section risks compromising diagnostic accuracy as such models may lack exposure to frozen section morphology,10,21 while attempts to bridge this gap using virtual staining techniques raise concerns regarding reliability and clinical trustworthiness of synthetic images.22-24 Additionally, the lack of prospective validation in most studies limits their readiness for real-world deployment.25 Addressing these challenges requires the development of a robust and generalizable foundation model specifically tailored to frozen section pathology, with demonstrated clinical validity in diverse and realistic settings. In this study, we introduce CRISP, an AI-enabled comprehensive deep learning framework designed to support a wide spectrum of intraoperative diagnostic and predictive tasks. Leveraging the largest frozen section dataset assembled to date-comprising over 100,000 slides from ten medical centers across different regions-CRISP was pretrained on 50 million image patches from 25 anatomical sites. The model’s performance was rigorously evaluated across multiple downstream tasks commonly encountered in intraoperative pathology, with external validation cohorts drawn from independent institutions. To further assess its real- world clinical utility, we conducted a registered prospective observational study involving more than 3,000 patients in real-world surgical workflows. Through both rigorous retrospective and prospective analyses, our findings demonstrate the practical value and broad applicability of a frozen-specific foundation model, making a significant advance toward the integration of AI- driven decision support in precision surgery. Results Patient cohorts and study design The development of a clinically robust foundation model for intraoperative diagnosis necessitates a comprehensive understanding of the biological and technical heterogeneity inherent in real-world surgical pathology.26 To address this, we constructed the largest multi- center frozen section dataset to date, comprising 103,797 frozen section slides obtained primarily from ten medical centers and spanning a broad spectrum of anatomical sites (Fig. 1a). This dataset was specifically curated to reflect the diversity of clinical scenarios and laboratory\n\nPDF page 13: conditions encountered during intraoperative consultations, as detailed in the Methods. For model pre-training, we utilized 81,667 frozen section slides from three major centers and the TCGA frozen section dataset.27 To rigorously assess the model’s robustness and generalizability, we established 98 downstream diagnostic tasks designed to emulate critical intraoperative decision-making scenarios. Validation was conducted across multiple centers, including pan-cancer analyses, rare disease subtypes, and challenging conditions (Fig. 1b-e). To evaluate cross-modality generalizability, we further constructed a paired dataset comprising frozen section and corresponding FFPE slides from the same 685 patients across GZH, HZH, and DGH cohorts, with one-to-one matching to minimize sampling bias (Supplementary Fig. S1). To further bridge the gap between proof-of-concept and clinical translation, we conducted a large-scale prospective study (Fig. 1f). This study enrolled 3,064 consecutive patients with intraoperative consultation at Sun Yat-sen University Cancer Center, Fudan University Shanghai Cancer Center (FUSCC) and Tianjin Medical University Cancer Institute and Hospital (TCIH) between November 11, 2024, and July 1, 2025. Based on the tissue site, patients from SYCC were assigned to three prospective cohorts: SYCC-THYR (n=1,330), SYCC-BREA (n=391), and SYCC-LUNG (n=350) (Supplementary Table S1s). To assess the practical feasibility of CRISP within clinical workflows, we conducted a simulated deployment analysis using an independent set of 100 cases underwent intraoperative consultation, which were not part of any training or evaluation cohorts (Supplementary Fig. S2). Classification of common benign and malignant lesions To evaluate CRISP’s performance in this critical context, we validated the model using datasets from five independent centers (Fig. 2a,b), spanning six common anatomical sites (thyroid, lung, breast, brain, ovary, and head and neck), as well as complex abdominal lesion differentiation tasks (Supplementary Table S2.1). CRISP was benchmarked against several state-of-the-art pathology foundation models15-17,28,29 across 21 downstream diagnostic tasks. In malignancy discrimination, CRISP consistently achieved superior performance, with an average AUROC of 0.970, an average accuracy of 0.945, and an average F1 score of 0.924-significantly surpassing the next-best model (Fig. 2c; P <\n\nPDF page 20: remained well separated between benign and malignant cases (Fig. 6f). In diagnostically elusive cases, such as sentinel lymph node micrometastases, CRISP correctly identified 7 of 8 micrometastatic and 40 of 41 macrometastatic cases (Fig. 6g), with predicted values showing clear separation from negative controls (Fig. 6h). Visualization analyses revealed that CRISP focused attention on peripheral zones-regions prone to metastatic involvement-and precisely highlighted minute malignant areas (Fig. 6i, Supplementary Fig. S6). Error analysis showed that false-positive predictions were mainly associated with rare benign tumors and frozen section artifacts, while false-negative cases were primarily observed in rare malignant tumors with ambiguous morphology (Supplementary Fig. S7). To explore CRISP’s potential to alleviate clinical workload, we examined its utility in triaging cases requiring immunohistochemistry (IHC), a common but resource-intensive diagnostic adjunct. Among 510 patients requiring additional IHC evaluation, CRISP achieved an overall AUC of 0.963, with task-specific AUCs ranging from 0.943 to 1.000 (Fig. 6j, Supplementary Table S5.9). At 95% sensitivity, CRISP correctly identified 74.5% of IHC-negative patients, underscoring its value as a screening tool to reduce unnecessary testing (Fig. 6k). We further assessed whether CRISP could safely triage typical cases without compromising pathologists’ diagnostic accuracy.38 When patients with predicted scores > 0.9956 or < 0.0044 were managed directly by CRISP, the combined CRISP-pathologist workflow reduced diagnostic workload by 34.9%, with 79.0% of positive cases included (Fig. 6l). Under this strategy, sensitivity and specificity remained comparable to conventional frozen-section reports (sensitivity, P = 0.60; specificity, P = 1.00; Fig. 6m), highlighting CRISP’s potential as a clinical prescreening tool for streamlining the diagnosis of typical positive cases. The workload reduction and corresponding decrease in immunohistochemistry usage were further analyzed separately across all subtasks and multi-region prospective cohorts (Extended Data Fig. 6,7,8a-b). In a simulated deployment experiment conducted on 100 cases from SYCC, the average end-to-end processing time for CRISP was 196.4 seconds per case, compared to 292.6 seconds for pathologists (Extended Data Fig. 9). The pre-screening strategy identified 65 typical cases, and this approach did not result in any degradation in sensitivity or specificity (Extended Data Fig. 8c). Notably, CRISP assistance increased pathologists’ diagnostic confidence by 6.0% in typical cases and 42.9% in diagnostically uncertain cases, suggesting its potential to support decision-\n\nPDF page 23: data are limited and expertise may be lacking.50-52 Such capabilities position CRISP as a valuable tool for resource-limited settings, potentially mitigating disparities in healthcare access and supporting expert-level pathology where it is most needed.53 Prospective evaluation further reinforced CRISP’s feasibility as a clinically oriented tool. When deployed in real-time intraoperative settings, CRISP demonstrated robust performance across diverse patient cohorts and laboratory conditions, bridging the gap between experimental development and practical implementation. The reader study further supports the clinical relevance of CRISP, demonstrating performance comparable to an experienced pathologist under time-constrained intraoperative conditions. Remarkably, CRISP alone enabled precise surgical intervention in 92.6% of patients. The diagnostic errors are concentrated in diagnostically challenging scenarios, which are also known to exhibit substantial inter-observer variability, highlighting the importance of cautious interpretation in such cases. Future work may address these limitations by incorporating more diverse training data and integrating uncertainty-aware or human-in-the-loop strategies. In contexts where clinical resources are limited, the ability to optimize resource allocation becomes essential.54,55 In routine cases, CRISP-based triage reduced pathologists’ workload by 35% and prevented 75% of unnecessary ancillary testing, while in complex cases, it provided a standardized reference to support diagnostic reconsideration and reduce missed diagnoses. Additionally, CRISP demonstrates comparable end-to-end processing time to pathologists in simulated intraoperative settings, indicating its potential to provide timely support. These results highlight CRISP’s potential for seamless integration into intraoperative diagnostic workflows, with tangible benefits for both clinical efficiency and patient safety. Beyond pre-screening, CRISP could be integrated into hybrid workflows through direct presentation of model predictions, fusion of algorithmic outputs with expert assessments, or incorporation into agent-based diagnostic systems. Given its robustness and generalizability, CRISP is well-positioned to be compatible with and readily integrated into these collaborative paradigms. Despite these promising findings, several limitations warrant consideration. First, while extensive retrospective and prospective validation was performed on nearly 20,000 multi-center intraoperative frozen sections and over 3,000 prospective multi-site cases, a fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical\n\nPDF page 24: outcomes.56,57 Second, although CRISP demonstrated strong generalization across multiple centers, further validation in more diverse ethnic and geographic populations is essential to account for potential population-level bias and ensure global applicability.58,59 In addition, broader long-term multi-institutional deployment may further support continuous monitoring of real-world clinical performance. Finally, large-scale deployment and productization will require addressing technical and operational challenges common to AI clinical translation, including integration with existing workflows, regulatory compliance, and user training.60 In summary, CRISP establishes a versatile and clinically relevant AI paradigm for intraoperative pathology, illustrating the transformative potential of large-scale, data-driven approaches to advance precision surgery. By bridging the gap between technological innovation and clinical practice, CRISP paves the way for the next generation of AI-enabled surgical decision support, with broad implications for improving patient outcomes and healthcare delivery worldwide. Acknowledgements We gratefully acknowledge the patients from Sun Yat-sen University Cancer Center (SYCC), Zhujiang Hospital, Southern Medical University (ZJH), Jiangmen Central Hospital (JMH), Zhongshan City People’s Hospital (ZSH), Nanfang Hospital, Southern Medical University (NFH), Affiliated Cancer Hospital & Institute of Guangzhou Medical University (GZH), Huizhou Central People’s Hospital (HZH), The Tenth Affiliated Hospital, Southern Medical University, Dongguan People’s Hospital (DGH), Fudan University Shanghai Cancer Center (FUSCC), and Tianjin Medical University Cancer Institute and Hospital (TCIH), as well as the participants of the TCGA program, for providing tissue samples and clinical information for this study. Funding Statement\n\nPDF page 33: 447-453 (2019). 60. Lüscher, T.F., Wenzl, F.A., D’Ascenzo, F., Friedman, P.A. & Antoniades, C. Artificial intelligence in cardiovascular medicine: clinical applications. Eur. Heart J. 45, 4291-4304 (2024). Methods Ethical approval This study was approved by the Ethics Committee of Sun Yat-sen University Cancer Center (Approval No. SL-B2024-708) and carried out in compliance with the Declaration of Helsinki. This was a prospective observational study, not an interventional trial. Written informed consent was obtained from all subjects enrolled in the prospective cohort, while the requirement for informed consent was waived for retrospective cohorts. The study was registered in the Chinese Clinical Trial Registry (ChiCTR2500106350) as a retrospective registration. Large-scale intraoperative frozen section dataset To develop a clinically-oriented foundation model for intraoperative pathology, we constructed a large-scale dataset of frozen section whole-slide images (WSIs), comprising 103,797 slides from 51,186 patients. Retrospective data were collected from eight independent medical centers, including Sun Yat-sen University Cancer Center (SYCC), Zhujiang Hospital, Southern Medical University (ZJH), Jiangmen Central Hospital (JMH), Zhongshan City People’s Hospital (ZSH), Nanfang Hospital, Southern Medical University (NFH), Affiliated Cancer Hospital & Institute of Guangzhou Medical University (GZH), Huizhou Central People’s Hospital (HZH), and The Tenth Affiliated Hospital, Southern Medical University, Dongguan People’s Hospital (DGH). All slides collected from the participating centers were obtained from routine clinical intraoperative consultations. In total, these cohorts encompassed 38,253 patients and 81,678 intraoperative frozen WSIs collected between May 2017 and July 2024. The following inclusion criteria were applied to all cases: (1) at least one available intraoperative frozen section; (2) presence of identifiable tissue on the slide; (3) absence of scanning artifacts such as defocus or blurring; and (4) availability of complete diagnostic information, including intraoperative frozen section and corresponding postoperative paraffin section reports, as well as basic clinical characteristics (e.g., age and sex). Slides were manually reviewed by two\n\nPDF page 34: experienced pathologists based on thumbnail inspection to assess tissue presence and image quality, and only those with severe scanning-related artifacts (e.g., out-of-focus regions or extensive image degradation) that precluded tissue recognition were excluded, while intrinsic artifacts inherent to frozen section preparation were retained. The detailed inclusion period, number of patients, number of slides, and baseline characteristics of each cohort are summarized in Supplementary Tables S1.1-1.8. To further increase histological diversity, we additionally curated 15,975 frozen WSIs from The Cancer Genome Atlas (TCGA). The detailed selection process was as follows: diagnostic slides prepared from formalin-fixed paraffin- embedded (FFPE) tissues were excluded, resulting in 21,094 slides. These were subsequently reviewed by two experienced pathologists, and immunohistochemistry as well as other non- frozen section slides were removed. To ensure consistency, all patients were categorized into 24 major anatomical sites according to the definitions provided by the Genomic Data Commons (GDC) system.61 For model development, WSIs from ZJH, JMH, TCGA, and a subset of SYCC (43,013 slides) were used for CRISP pretraining. The remaining SYCC slides (5,178) were reserved for downstream task development and internal evaluation, ensuring no data leakage between pretraining and testing. External validation was performed using ZSH, NFH, GZH, HZH, and DGH cohorts. For the prospective real-world deployment study of CRISP, patients undergoing thyroid, breast, or lung surgery with intraoperative consultation at Sun Yat-sen University Cancer Center were consecutively recruited between November 2024 and July 2025, representing the most common sites for intraoperative consultation. Inclusion criteria were: (1) at least one available intraoperative frozen section; (2) presence of identifiable tissue on the slide; (3) absence of scanning artifacts such as defocus or blurring; (4) complete diagnostic and clinical information; (5) age ≥18 years at the time of surgery; and (6) documented informed consent. Following screening, a total of 2,071 patients with 4,143 intraoperative frozen sections were included. To further assess geographical generalizability, two additional prospective cohorts from FUSCC and TCIH were included, with the same inclusion criteria applied. To simulate real-world application, 100 consecutive cases from SYCC were included for simulated clinical deployment analysis. Recruitment periods and detailed clinical characteristics for each cohort are provided in Supplementary Tables S1.9-1.11.\n\nPDF page 35: Data digitization and preprocessing All clinical intraoperative frozen sections included in this study were digitized at 40× magnification (0.25 μm/pixel). Slides from the SYCC cohort were primarily scanned using an Aperio AT2 scanner (Leica Biosystems, Wetzlar, Germany) and stored in SVS format. Data from the ZJH, GZH, HZH, and DGH cohorts were scanned with a PHILIPS Ultra-Fast Scanner (Philips Electronics N.V., Amsterdam, Netherlands) and saved in iSyntax format. NFH and ZSH cohort slides were mainly scanned using a KF-PRO-120-HI scanner (Jiangfeng Biotech, Ningbo, China) and stored in KFB format. JMH cohort slides were scanned using an SQS-600P scanner (Shengqiang Technology Co., Ltd., Shenzhen, China) and saved in SDPC format. Slides from the prospective SYCC cohort were mainly scanned with a PHILIPS Ultra-Fast Scanner (Philips Electronics N.V., Amsterdam, Netherlands) and saved in iSyntax format. Slides from the FUSCC and TCIH cohorts were mainly scanned using an Aperio AT2 scanner (Leica Biosystems, Wetzlar, Germany) and stored in SVS format. WSIs were processed using vendor-provided API tools to extract full-slide thumbnail images. Given the extensive presence of non-informative background areas, tissue regions were automatically segmented using the CLAM toolkit to identify and isolate relevant histological content for subsequent analysis.52 Segmented tissue regions were partitioned into a series of non-overlapping patches of 512×512 pixels at a resolution of 0.25 microns per pixel (MPP). To mitigate center-specific biases introduced by variations in optical resolution, slide preparation, and scanning settings, redundant patches from higher-resolution images were downsampled. This approach ensured a balanced representation of patches from each center, reducing the risk of model overfitting to specific institutional characteristics. In total, approximately 50 million patches were extracted from 81,667 slides for model pretraining. No color normalization (e.g., Vahadane or Macenko) was applied in order to preserve inter- institutional variability and reflect real-world clinical conditions. Network architecture Building on previous studies of FFPE-based pathology foundation models, we focus here on intraoperative frozen sections and introduce CRISP, a specialized pathology foundation model\n\nPDF page 37: (at 0.25 MPP) was resized to 224×224 pixels to serve as input to the frozen CRISP encoder; this corresponds to the same field of view as 256×256 patches at 0.5 MPP, a commonly adopted setting in baseline models, thereby ensuring consistent input resolution and fair comparison across models.16,37 From the final layer of the transformer, the [CLS] token embedding and the mean-pooled embeddings of all patch tokens were concatenated, forming a comprehensive 2,560-dimensional feature vector for each patch. To identify diagnostically critical regions, we employed an attention-based multiple instance learning (ABMIL) model as the feature aggregator.64 The ABMIL module learns to assign an attention weight to each patch feature vector, effectively highlighting salient patches and generating a weighted slide-level feature representation. This aggregated feature vector was then passed through a single fully connected classification layer to produce the final slide-level prediction. For supervised downstream tasks, the cross-entropy loss function was used. Only the ABMIL aggregator and the classification layer were trained from scratch, while the CRISP encoder remained frozen to leverage the pretrained features. The model was optimized using the Adam optimizer with a learning rate of 2×10-4 and weight decay of 1×10⁻⁵. Early stopping based on validation loss was implemented to halt training upon performance saturation and prevent overfitting. In all downstream task comparisons, identical strategies were employed across comparator models to guarantee fairness in performance assessment. Downstream task To comprehensively evaluate CRISP, 98 retrospective downstream tasks were established. The reference labels for all tasks were based on postoperative FFPE morphology integrated with immunohistochemical and molecular analyses, and were independently verified by a pathologist. Aggregator development for all downstream tasks was conducted using the SYCC cohort, with patients in the internal test sets kept independent from the training and validation sets to prevent data leakage. Data were randomly split at the patient level into training, validation, and test sets to prevent data leakage, with stratification by outcome labels; identical splits were used for all models to ensure fair comparison. No explicit rebalancing strategies were applied in order to preserve the original class distribution. A shared set of hyperparameters was used across all tasks and models to ensure a fair comparison. Baseline models were selected\nDuring an operation, a pathologist may need a tissue answer before the next surgical step. In a frozen section, tissue is rapidly frozen, cut and examined while surgery continues. Unlike conventional formalin-fixed, paraffin-embedded tissue, the paper says it has a different appearance.\nCrucially, CRISP demonstrated consistent superiority over competing foundation models across independent prospective external cohorts. In a reader study conducted on the prospective SYCC cohort, the operating point of the senior pathologist fell on the ROC curve of CRISP, indicating comparable overall performance under the evaluated conditions.\na fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical outcomes.\nFrozen section examination has served as an indispensable modality for intraoperative pathological assessment, enabling surgeons to make informed choices regarding tumor resection, margin status, and differential diagnosis. The widespread adoption of frozen sections is driven by their expedited preparation and diagnostic accuracy, which closely parallels that of formalin-fixed paraffin-embedded (FFPE) specimens in clinical practice.\nCrucially, CRISP demonstrated consistent superiority over competing foundation models across independent prospective external cohorts. In a reader study conducted on the prospective SYCC cohort, the operating point of the senior pathologist fell on the ROC curve of CRISP, indicating comparable overall performance under the evaluated conditions.\na fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical outcomes.\nMost existing foundation models are built upon FFPE specimens, which differ fundamentally from frozen sections in both preparation and tissue morphology. Direct application of FFPE-trained models to intraoperative frozen section risks compromising diagnostic accuracy as such models may lack exposure to frozen section morphology.\nIn a simulated deployment experiment conducted on 100 cases from SYCC, the average end-to-end processing time for CRISP was 196.4 seconds per case, compared to 292.6 seconds for pathologists.",
+            "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Paper (p.12) states most existing foundation models are built on FFPE specimens which differ fundamentally from frozen sections in preparation and morphology, and CRISP was pretrained on frozen-section images specifically — matching the article's claim exactly."
+      },
+      {
+        "claimId": "result",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "CRISP matched a senior specialist during fast surgery checks.",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+            "locator": "P006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/editorial-input.json",
+          "sha256": "19b83b44f2ad70bdfa5889a57adfe6fccd770a6d577ed30b0336f6ed31faef2b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "PDF page 12: most existing foundation models are built upon FFPE specimens,20 which differ fundamentally from frozen sections in both preparation and tissue morphology. Direct application of FFPE- trained models to intraoperative frozen section risks compromising diagnostic accuracy as such models may lack exposure to frozen section morphology,10,21 while attempts to bridge this gap using virtual staining techniques raise concerns regarding reliability and clinical trustworthiness of synthetic images.22-24 Additionally, the lack of prospective validation in most studies limits their readiness for real-world deployment.25 Addressing these challenges requires the development of a robust and generalizable foundation model specifically tailored to frozen section pathology, with demonstrated clinical validity in diverse and realistic settings. In this study, we introduce CRISP, an AI-enabled comprehensive deep learning framework designed to support a wide spectrum of intraoperative diagnostic and predictive tasks. Leveraging the largest frozen section dataset assembled to date-comprising over 100,000 slides from ten medical centers across different regions-CRISP was pretrained on 50 million image patches from 25 anatomical sites. The model’s performance was rigorously evaluated across multiple downstream tasks commonly encountered in intraoperative pathology, with external validation cohorts drawn from independent institutions. To further assess its real- world clinical utility, we conducted a registered prospective observational study involving more than 3,000 patients in real-world surgical workflows. Through both rigorous retrospective and prospective analyses, our findings demonstrate the practical value and broad applicability of a frozen-specific foundation model, making a significant advance toward the integration of AI- driven decision support in precision surgery. Results Patient cohorts and study design The development of a clinically robust foundation model for intraoperative diagnosis necessitates a comprehensive understanding of the biological and technical heterogeneity inherent in real-world surgical pathology.26 To address this, we constructed the largest multi- center frozen section dataset to date, comprising 103,797 frozen section slides obtained primarily from ten medical centers and spanning a broad spectrum of anatomical sites (Fig. 1a). This dataset was specifically curated to reflect the diversity of clinical scenarios and laboratory\n\nPDF page 13: conditions encountered during intraoperative consultations, as detailed in the Methods. For model pre-training, we utilized 81,667 frozen section slides from three major centers and the TCGA frozen section dataset.27 To rigorously assess the model’s robustness and generalizability, we established 98 downstream diagnostic tasks designed to emulate critical intraoperative decision-making scenarios. Validation was conducted across multiple centers, including pan-cancer analyses, rare disease subtypes, and challenging conditions (Fig. 1b-e). To evaluate cross-modality generalizability, we further constructed a paired dataset comprising frozen section and corresponding FFPE slides from the same 685 patients across GZH, HZH, and DGH cohorts, with one-to-one matching to minimize sampling bias (Supplementary Fig. S1). To further bridge the gap between proof-of-concept and clinical translation, we conducted a large-scale prospective study (Fig. 1f). This study enrolled 3,064 consecutive patients with intraoperative consultation at Sun Yat-sen University Cancer Center, Fudan University Shanghai Cancer Center (FUSCC) and Tianjin Medical University Cancer Institute and Hospital (TCIH) between November 11, 2024, and July 1, 2025. Based on the tissue site, patients from SYCC were assigned to three prospective cohorts: SYCC-THYR (n=1,330), SYCC-BREA (n=391), and SYCC-LUNG (n=350) (Supplementary Table S1s). To assess the practical feasibility of CRISP within clinical workflows, we conducted a simulated deployment analysis using an independent set of 100 cases underwent intraoperative consultation, which were not part of any training or evaluation cohorts (Supplementary Fig. S2). Classification of common benign and malignant lesions To evaluate CRISP’s performance in this critical context, we validated the model using datasets from five independent centers (Fig. 2a,b), spanning six common anatomical sites (thyroid, lung, breast, brain, ovary, and head and neck), as well as complex abdominal lesion differentiation tasks (Supplementary Table S2.1). CRISP was benchmarked against several state-of-the-art pathology foundation models15-17,28,29 across 21 downstream diagnostic tasks. In malignancy discrimination, CRISP consistently achieved superior performance, with an average AUROC of 0.970, an average accuracy of 0.945, and an average F1 score of 0.924-significantly surpassing the next-best model (Fig. 2c; P <\n\nPDF page 20: remained well separated between benign and malignant cases (Fig. 6f). In diagnostically elusive cases, such as sentinel lymph node micrometastases, CRISP correctly identified 7 of 8 micrometastatic and 40 of 41 macrometastatic cases (Fig. 6g), with predicted values showing clear separation from negative controls (Fig. 6h). Visualization analyses revealed that CRISP focused attention on peripheral zones-regions prone to metastatic involvement-and precisely highlighted minute malignant areas (Fig. 6i, Supplementary Fig. S6). Error analysis showed that false-positive predictions were mainly associated with rare benign tumors and frozen section artifacts, while false-negative cases were primarily observed in rare malignant tumors with ambiguous morphology (Supplementary Fig. S7). To explore CRISP’s potential to alleviate clinical workload, we examined its utility in triaging cases requiring immunohistochemistry (IHC), a common but resource-intensive diagnostic adjunct. Among 510 patients requiring additional IHC evaluation, CRISP achieved an overall AUC of 0.963, with task-specific AUCs ranging from 0.943 to 1.000 (Fig. 6j, Supplementary Table S5.9). At 95% sensitivity, CRISP correctly identified 74.5% of IHC-negative patients, underscoring its value as a screening tool to reduce unnecessary testing (Fig. 6k). We further assessed whether CRISP could safely triage typical cases without compromising pathologists’ diagnostic accuracy.38 When patients with predicted scores > 0.9956 or < 0.0044 were managed directly by CRISP, the combined CRISP-pathologist workflow reduced diagnostic workload by 34.9%, with 79.0% of positive cases included (Fig. 6l). Under this strategy, sensitivity and specificity remained comparable to conventional frozen-section reports (sensitivity, P = 0.60; specificity, P = 1.00; Fig. 6m), highlighting CRISP’s potential as a clinical prescreening tool for streamlining the diagnosis of typical positive cases. The workload reduction and corresponding decrease in immunohistochemistry usage were further analyzed separately across all subtasks and multi-region prospective cohorts (Extended Data Fig. 6,7,8a-b). In a simulated deployment experiment conducted on 100 cases from SYCC, the average end-to-end processing time for CRISP was 196.4 seconds per case, compared to 292.6 seconds for pathologists (Extended Data Fig. 9). The pre-screening strategy identified 65 typical cases, and this approach did not result in any degradation in sensitivity or specificity (Extended Data Fig. 8c). Notably, CRISP assistance increased pathologists’ diagnostic confidence by 6.0% in typical cases and 42.9% in diagnostically uncertain cases, suggesting its potential to support decision-\n\nPDF page 23: data are limited and expertise may be lacking.50-52 Such capabilities position CRISP as a valuable tool for resource-limited settings, potentially mitigating disparities in healthcare access and supporting expert-level pathology where it is most needed.53 Prospective evaluation further reinforced CRISP’s feasibility as a clinically oriented tool. When deployed in real-time intraoperative settings, CRISP demonstrated robust performance across diverse patient cohorts and laboratory conditions, bridging the gap between experimental development and practical implementation. The reader study further supports the clinical relevance of CRISP, demonstrating performance comparable to an experienced pathologist under time-constrained intraoperative conditions. Remarkably, CRISP alone enabled precise surgical intervention in 92.6% of patients. The diagnostic errors are concentrated in diagnostically challenging scenarios, which are also known to exhibit substantial inter-observer variability, highlighting the importance of cautious interpretation in such cases. Future work may address these limitations by incorporating more diverse training data and integrating uncertainty-aware or human-in-the-loop strategies. In contexts where clinical resources are limited, the ability to optimize resource allocation becomes essential.54,55 In routine cases, CRISP-based triage reduced pathologists’ workload by 35% and prevented 75% of unnecessary ancillary testing, while in complex cases, it provided a standardized reference to support diagnostic reconsideration and reduce missed diagnoses. Additionally, CRISP demonstrates comparable end-to-end processing time to pathologists in simulated intraoperative settings, indicating its potential to provide timely support. These results highlight CRISP’s potential for seamless integration into intraoperative diagnostic workflows, with tangible benefits for both clinical efficiency and patient safety. Beyond pre-screening, CRISP could be integrated into hybrid workflows through direct presentation of model predictions, fusion of algorithmic outputs with expert assessments, or incorporation into agent-based diagnostic systems. Given its robustness and generalizability, CRISP is well-positioned to be compatible with and readily integrated into these collaborative paradigms. Despite these promising findings, several limitations warrant consideration. First, while extensive retrospective and prospective validation was performed on nearly 20,000 multi-center intraoperative frozen sections and over 3,000 prospective multi-site cases, a fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical\n\nPDF page 24: outcomes.56,57 Second, although CRISP demonstrated strong generalization across multiple centers, further validation in more diverse ethnic and geographic populations is essential to account for potential population-level bias and ensure global applicability.58,59 In addition, broader long-term multi-institutional deployment may further support continuous monitoring of real-world clinical performance. Finally, large-scale deployment and productization will require addressing technical and operational challenges common to AI clinical translation, including integration with existing workflows, regulatory compliance, and user training.60 In summary, CRISP establishes a versatile and clinically relevant AI paradigm for intraoperative pathology, illustrating the transformative potential of large-scale, data-driven approaches to advance precision surgery. By bridging the gap between technological innovation and clinical practice, CRISP paves the way for the next generation of AI-enabled surgical decision support, with broad implications for improving patient outcomes and healthcare delivery worldwide. Acknowledgements We gratefully acknowledge the patients from Sun Yat-sen University Cancer Center (SYCC), Zhujiang Hospital, Southern Medical University (ZJH), Jiangmen Central Hospital (JMH), Zhongshan City People’s Hospital (ZSH), Nanfang Hospital, Southern Medical University (NFH), Affiliated Cancer Hospital & Institute of Guangzhou Medical University (GZH), Huizhou Central People’s Hospital (HZH), The Tenth Affiliated Hospital, Southern Medical University, Dongguan People’s Hospital (DGH), Fudan University Shanghai Cancer Center (FUSCC), and Tianjin Medical University Cancer Institute and Hospital (TCIH), as well as the participants of the TCGA program, for providing tissue samples and clinical information for this study. Funding Statement\n\nPDF page 33: 447-453 (2019). 60. Lüscher, T.F., Wenzl, F.A., D’Ascenzo, F., Friedman, P.A. & Antoniades, C. Artificial intelligence in cardiovascular medicine: clinical applications. Eur. Heart J. 45, 4291-4304 (2024). Methods Ethical approval This study was approved by the Ethics Committee of Sun Yat-sen University Cancer Center (Approval No. SL-B2024-708) and carried out in compliance with the Declaration of Helsinki. This was a prospective observational study, not an interventional trial. Written informed consent was obtained from all subjects enrolled in the prospective cohort, while the requirement for informed consent was waived for retrospective cohorts. The study was registered in the Chinese Clinical Trial Registry (ChiCTR2500106350) as a retrospective registration. Large-scale intraoperative frozen section dataset To develop a clinically-oriented foundation model for intraoperative pathology, we constructed a large-scale dataset of frozen section whole-slide images (WSIs), comprising 103,797 slides from 51,186 patients. Retrospective data were collected from eight independent medical centers, including Sun Yat-sen University Cancer Center (SYCC), Zhujiang Hospital, Southern Medical University (ZJH), Jiangmen Central Hospital (JMH), Zhongshan City People’s Hospital (ZSH), Nanfang Hospital, Southern Medical University (NFH), Affiliated Cancer Hospital & Institute of Guangzhou Medical University (GZH), Huizhou Central People’s Hospital (HZH), and The Tenth Affiliated Hospital, Southern Medical University, Dongguan People’s Hospital (DGH). All slides collected from the participating centers were obtained from routine clinical intraoperative consultations. In total, these cohorts encompassed 38,253 patients and 81,678 intraoperative frozen WSIs collected between May 2017 and July 2024. The following inclusion criteria were applied to all cases: (1) at least one available intraoperative frozen section; (2) presence of identifiable tissue on the slide; (3) absence of scanning artifacts such as defocus or blurring; and (4) availability of complete diagnostic information, including intraoperative frozen section and corresponding postoperative paraffin section reports, as well as basic clinical characteristics (e.g., age and sex). Slides were manually reviewed by two\n\nPDF page 34: experienced pathologists based on thumbnail inspection to assess tissue presence and image quality, and only those with severe scanning-related artifacts (e.g., out-of-focus regions or extensive image degradation) that precluded tissue recognition were excluded, while intrinsic artifacts inherent to frozen section preparation were retained. The detailed inclusion period, number of patients, number of slides, and baseline characteristics of each cohort are summarized in Supplementary Tables S1.1-1.8. To further increase histological diversity, we additionally curated 15,975 frozen WSIs from The Cancer Genome Atlas (TCGA). The detailed selection process was as follows: diagnostic slides prepared from formalin-fixed paraffin- embedded (FFPE) tissues were excluded, resulting in 21,094 slides. These were subsequently reviewed by two experienced pathologists, and immunohistochemistry as well as other non- frozen section slides were removed. To ensure consistency, all patients were categorized into 24 major anatomical sites according to the definitions provided by the Genomic Data Commons (GDC) system.61 For model development, WSIs from ZJH, JMH, TCGA, and a subset of SYCC (43,013 slides) were used for CRISP pretraining. The remaining SYCC slides (5,178) were reserved for downstream task development and internal evaluation, ensuring no data leakage between pretraining and testing. External validation was performed using ZSH, NFH, GZH, HZH, and DGH cohorts. For the prospective real-world deployment study of CRISP, patients undergoing thyroid, breast, or lung surgery with intraoperative consultation at Sun Yat-sen University Cancer Center were consecutively recruited between November 2024 and July 2025, representing the most common sites for intraoperative consultation. Inclusion criteria were: (1) at least one available intraoperative frozen section; (2) presence of identifiable tissue on the slide; (3) absence of scanning artifacts such as defocus or blurring; (4) complete diagnostic and clinical information; (5) age ≥18 years at the time of surgery; and (6) documented informed consent. Following screening, a total of 2,071 patients with 4,143 intraoperative frozen sections were included. To further assess geographical generalizability, two additional prospective cohorts from FUSCC and TCIH were included, with the same inclusion criteria applied. To simulate real-world application, 100 consecutive cases from SYCC were included for simulated clinical deployment analysis. Recruitment periods and detailed clinical characteristics for each cohort are provided in Supplementary Tables S1.9-1.11.\n\nPDF page 35: Data digitization and preprocessing All clinical intraoperative frozen sections included in this study were digitized at 40× magnification (0.25 μm/pixel). Slides from the SYCC cohort were primarily scanned using an Aperio AT2 scanner (Leica Biosystems, Wetzlar, Germany) and stored in SVS format. Data from the ZJH, GZH, HZH, and DGH cohorts were scanned with a PHILIPS Ultra-Fast Scanner (Philips Electronics N.V., Amsterdam, Netherlands) and saved in iSyntax format. NFH and ZSH cohort slides were mainly scanned using a KF-PRO-120-HI scanner (Jiangfeng Biotech, Ningbo, China) and stored in KFB format. JMH cohort slides were scanned using an SQS-600P scanner (Shengqiang Technology Co., Ltd., Shenzhen, China) and saved in SDPC format. Slides from the prospective SYCC cohort were mainly scanned with a PHILIPS Ultra-Fast Scanner (Philips Electronics N.V., Amsterdam, Netherlands) and saved in iSyntax format. Slides from the FUSCC and TCIH cohorts were mainly scanned using an Aperio AT2 scanner (Leica Biosystems, Wetzlar, Germany) and stored in SVS format. WSIs were processed using vendor-provided API tools to extract full-slide thumbnail images. Given the extensive presence of non-informative background areas, tissue regions were automatically segmented using the CLAM toolkit to identify and isolate relevant histological content for subsequent analysis.52 Segmented tissue regions were partitioned into a series of non-overlapping patches of 512×512 pixels at a resolution of 0.25 microns per pixel (MPP). To mitigate center-specific biases introduced by variations in optical resolution, slide preparation, and scanning settings, redundant patches from higher-resolution images were downsampled. This approach ensured a balanced representation of patches from each center, reducing the risk of model overfitting to specific institutional characteristics. In total, approximately 50 million patches were extracted from 81,667 slides for model pretraining. No color normalization (e.g., Vahadane or Macenko) was applied in order to preserve inter- institutional variability and reflect real-world clinical conditions. Network architecture Building on previous studies of FFPE-based pathology foundation models, we focus here on intraoperative frozen sections and introduce CRISP, a specialized pathology foundation model\n\nPDF page 37: (at 0.25 MPP) was resized to 224×224 pixels to serve as input to the frozen CRISP encoder; this corresponds to the same field of view as 256×256 patches at 0.5 MPP, a commonly adopted setting in baseline models, thereby ensuring consistent input resolution and fair comparison across models.16,37 From the final layer of the transformer, the [CLS] token embedding and the mean-pooled embeddings of all patch tokens were concatenated, forming a comprehensive 2,560-dimensional feature vector for each patch. To identify diagnostically critical regions, we employed an attention-based multiple instance learning (ABMIL) model as the feature aggregator.64 The ABMIL module learns to assign an attention weight to each patch feature vector, effectively highlighting salient patches and generating a weighted slide-level feature representation. This aggregated feature vector was then passed through a single fully connected classification layer to produce the final slide-level prediction. For supervised downstream tasks, the cross-entropy loss function was used. Only the ABMIL aggregator and the classification layer were trained from scratch, while the CRISP encoder remained frozen to leverage the pretrained features. The model was optimized using the Adam optimizer with a learning rate of 2×10-4 and weight decay of 1×10⁻⁵. Early stopping based on validation loss was implemented to halt training upon performance saturation and prevent overfitting. In all downstream task comparisons, identical strategies were employed across comparator models to guarantee fairness in performance assessment. Downstream task To comprehensively evaluate CRISP, 98 retrospective downstream tasks were established. The reference labels for all tasks were based on postoperative FFPE morphology integrated with immunohistochemical and molecular analyses, and were independently verified by a pathologist. Aggregator development for all downstream tasks was conducted using the SYCC cohort, with patients in the internal test sets kept independent from the training and validation sets to prevent data leakage. Data were randomly split at the patient level into training, validation, and test sets to prevent data leakage, with stratification by outcome labels; identical splits were used for all models to ensure fair comparison. No explicit rebalancing strategies were applied in order to preserve the original class distribution. A shared set of hyperparameters was used across all tasks and models to ensure a fair comparison. Baseline models were selected\nDuring an operation, a pathologist may need a tissue answer before the next surgical step. In a frozen section, tissue is rapidly frozen, cut and examined while surgery continues. Unlike conventional formalin-fixed, paraffin-embedded tissue, the paper says it has a different appearance.\nCrucially, CRISP demonstrated consistent superiority over competing foundation models across independent prospective external cohorts. In a reader study conducted on the prospective SYCC cohort, the operating point of the senior pathologist fell on the ROC curve of CRISP, indicating comparable overall performance under the evaluated conditions.\na fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical outcomes.\nFrozen section examination has served as an indispensable modality for intraoperative pathological assessment, enabling surgeons to make informed choices regarding tumor resection, margin status, and differential diagnosis. The widespread adoption of frozen sections is driven by their expedited preparation and diagnostic accuracy, which closely parallels that of formalin-fixed paraffin-embedded (FFPE) specimens in clinical practice.\nCrucially, CRISP demonstrated consistent superiority over competing foundation models across independent prospective external cohorts. In a reader study conducted on the prospective SYCC cohort, the operating point of the senior pathologist fell on the ROC curve of CRISP, indicating comparable overall performance under the evaluated conditions.\na fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical outcomes.\nMost existing foundation models are built upon FFPE specimens, which differ fundamentally from frozen sections in both preparation and tissue morphology. Direct application of FFPE-trained models to intraoperative frozen section risks compromising diagnostic accuracy as such models may lack exposure to frozen section morphology.\nIn a simulated deployment experiment conducted on 100 cases from SYCC, the average end-to-end processing time for CRISP was 196.4 seconds per case, compared to 292.6 seconds for pathologists.",
+            "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Paper reports consistent superiority over competing foundation models across independent prospective external cohorts, and the reader study found the senior pathologist's operating point fell on CRISP's ROC curve, i.e., comparable overall performance — matching 'beat other AI models' and 'matched the senior specialist overall'."
+      },
+      {
+        "claimId": "simulation-limit",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/editorial-input.json",
+          "sha256": "19b83b44f2ad70bdfa5889a57adfe6fccd770a6d577ed30b0336f6ed31faef2b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "PDF page 12: most existing foundation models are built upon FFPE specimens,20 which differ fundamentally from frozen sections in both preparation and tissue morphology. Direct application of FFPE- trained models to intraoperative frozen section risks compromising diagnostic accuracy as such models may lack exposure to frozen section morphology,10,21 while attempts to bridge this gap using virtual staining techniques raise concerns regarding reliability and clinical trustworthiness of synthetic images.22-24 Additionally, the lack of prospective validation in most studies limits their readiness for real-world deployment.25 Addressing these challenges requires the development of a robust and generalizable foundation model specifically tailored to frozen section pathology, with demonstrated clinical validity in diverse and realistic settings. In this study, we introduce CRISP, an AI-enabled comprehensive deep learning framework designed to support a wide spectrum of intraoperative diagnostic and predictive tasks. Leveraging the largest frozen section dataset assembled to date-comprising over 100,000 slides from ten medical centers across different regions-CRISP was pretrained on 50 million image patches from 25 anatomical sites. The model’s performance was rigorously evaluated across multiple downstream tasks commonly encountered in intraoperative pathology, with external validation cohorts drawn from independent institutions. To further assess its real- world clinical utility, we conducted a registered prospective observational study involving more than 3,000 patients in real-world surgical workflows. Through both rigorous retrospective and prospective analyses, our findings demonstrate the practical value and broad applicability of a frozen-specific foundation model, making a significant advance toward the integration of AI- driven decision support in precision surgery. Results Patient cohorts and study design The development of a clinically robust foundation model for intraoperative diagnosis necessitates a comprehensive understanding of the biological and technical heterogeneity inherent in real-world surgical pathology.26 To address this, we constructed the largest multi- center frozen section dataset to date, comprising 103,797 frozen section slides obtained primarily from ten medical centers and spanning a broad spectrum of anatomical sites (Fig. 1a). This dataset was specifically curated to reflect the diversity of clinical scenarios and laboratory\n\nPDF page 13: conditions encountered during intraoperative consultations, as detailed in the Methods. For model pre-training, we utilized 81,667 frozen section slides from three major centers and the TCGA frozen section dataset.27 To rigorously assess the model’s robustness and generalizability, we established 98 downstream diagnostic tasks designed to emulate critical intraoperative decision-making scenarios. Validation was conducted across multiple centers, including pan-cancer analyses, rare disease subtypes, and challenging conditions (Fig. 1b-e). To evaluate cross-modality generalizability, we further constructed a paired dataset comprising frozen section and corresponding FFPE slides from the same 685 patients across GZH, HZH, and DGH cohorts, with one-to-one matching to minimize sampling bias (Supplementary Fig. S1). To further bridge the gap between proof-of-concept and clinical translation, we conducted a large-scale prospective study (Fig. 1f). This study enrolled 3,064 consecutive patients with intraoperative consultation at Sun Yat-sen University Cancer Center, Fudan University Shanghai Cancer Center (FUSCC) and Tianjin Medical University Cancer Institute and Hospital (TCIH) between November 11, 2024, and July 1, 2025. Based on the tissue site, patients from SYCC were assigned to three prospective cohorts: SYCC-THYR (n=1,330), SYCC-BREA (n=391), and SYCC-LUNG (n=350) (Supplementary Table S1s). To assess the practical feasibility of CRISP within clinical workflows, we conducted a simulated deployment analysis using an independent set of 100 cases underwent intraoperative consultation, which were not part of any training or evaluation cohorts (Supplementary Fig. S2). Classification of common benign and malignant lesions To evaluate CRISP’s performance in this critical context, we validated the model using datasets from five independent centers (Fig. 2a,b), spanning six common anatomical sites (thyroid, lung, breast, brain, ovary, and head and neck), as well as complex abdominal lesion differentiation tasks (Supplementary Table S2.1). CRISP was benchmarked against several state-of-the-art pathology foundation models15-17,28,29 across 21 downstream diagnostic tasks. In malignancy discrimination, CRISP consistently achieved superior performance, with an average AUROC of 0.970, an average accuracy of 0.945, and an average F1 score of 0.924-significantly surpassing the next-best model (Fig. 2c; P <\n\nPDF page 20: remained well separated between benign and malignant cases (Fig. 6f). In diagnostically elusive cases, such as sentinel lymph node micrometastases, CRISP correctly identified 7 of 8 micrometastatic and 40 of 41 macrometastatic cases (Fig. 6g), with predicted values showing clear separation from negative controls (Fig. 6h). Visualization analyses revealed that CRISP focused attention on peripheral zones-regions prone to metastatic involvement-and precisely highlighted minute malignant areas (Fig. 6i, Supplementary Fig. S6). Error analysis showed that false-positive predictions were mainly associated with rare benign tumors and frozen section artifacts, while false-negative cases were primarily observed in rare malignant tumors with ambiguous morphology (Supplementary Fig. S7). To explore CRISP’s potential to alleviate clinical workload, we examined its utility in triaging cases requiring immunohistochemistry (IHC), a common but resource-intensive diagnostic adjunct. Among 510 patients requiring additional IHC evaluation, CRISP achieved an overall AUC of 0.963, with task-specific AUCs ranging from 0.943 to 1.000 (Fig. 6j, Supplementary Table S5.9). At 95% sensitivity, CRISP correctly identified 74.5% of IHC-negative patients, underscoring its value as a screening tool to reduce unnecessary testing (Fig. 6k). We further assessed whether CRISP could safely triage typical cases without compromising pathologists’ diagnostic accuracy.38 When patients with predicted scores > 0.9956 or < 0.0044 were managed directly by CRISP, the combined CRISP-pathologist workflow reduced diagnostic workload by 34.9%, with 79.0% of positive cases included (Fig. 6l). Under this strategy, sensitivity and specificity remained comparable to conventional frozen-section reports (sensitivity, P = 0.60; specificity, P = 1.00; Fig. 6m), highlighting CRISP’s potential as a clinical prescreening tool for streamlining the diagnosis of typical positive cases. The workload reduction and corresponding decrease in immunohistochemistry usage were further analyzed separately across all subtasks and multi-region prospective cohorts (Extended Data Fig. 6,7,8a-b). In a simulated deployment experiment conducted on 100 cases from SYCC, the average end-to-end processing time for CRISP was 196.4 seconds per case, compared to 292.6 seconds for pathologists (Extended Data Fig. 9). The pre-screening strategy identified 65 typical cases, and this approach did not result in any degradation in sensitivity or specificity (Extended Data Fig. 8c). Notably, CRISP assistance increased pathologists’ diagnostic confidence by 6.0% in typical cases and 42.9% in diagnostically uncertain cases, suggesting its potential to support decision-\n\nPDF page 23: data are limited and expertise may be lacking.50-52 Such capabilities position CRISP as a valuable tool for resource-limited settings, potentially mitigating disparities in healthcare access and supporting expert-level pathology where it is most needed.53 Prospective evaluation further reinforced CRISP’s feasibility as a clinically oriented tool. When deployed in real-time intraoperative settings, CRISP demonstrated robust performance across diverse patient cohorts and laboratory conditions, bridging the gap between experimental development and practical implementation. The reader study further supports the clinical relevance of CRISP, demonstrating performance comparable to an experienced pathologist under time-constrained intraoperative conditions. Remarkably, CRISP alone enabled precise surgical intervention in 92.6% of patients. The diagnostic errors are concentrated in diagnostically challenging scenarios, which are also known to exhibit substantial inter-observer variability, highlighting the importance of cautious interpretation in such cases. Future work may address these limitations by incorporating more diverse training data and integrating uncertainty-aware or human-in-the-loop strategies. In contexts where clinical resources are limited, the ability to optimize resource allocation becomes essential.54,55 In routine cases, CRISP-based triage reduced pathologists’ workload by 35% and prevented 75% of unnecessary ancillary testing, while in complex cases, it provided a standardized reference to support diagnostic reconsideration and reduce missed diagnoses. Additionally, CRISP demonstrates comparable end-to-end processing time to pathologists in simulated intraoperative settings, indicating its potential to provide timely support. These results highlight CRISP’s potential for seamless integration into intraoperative diagnostic workflows, with tangible benefits for both clinical efficiency and patient safety. Beyond pre-screening, CRISP could be integrated into hybrid workflows through direct presentation of model predictions, fusion of algorithmic outputs with expert assessments, or incorporation into agent-based diagnostic systems. Given its robustness and generalizability, CRISP is well-positioned to be compatible with and readily integrated into these collaborative paradigms. Despite these promising findings, several limitations warrant consideration. First, while extensive retrospective and prospective validation was performed on nearly 20,000 multi-center intraoperative frozen sections and over 3,000 prospective multi-site cases, a fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical\n\nPDF page 24: outcomes.56,57 Second, although CRISP demonstrated strong generalization across multiple centers, further validation in more diverse ethnic and geographic populations is essential to account for potential population-level bias and ensure global applicability.58,59 In addition, broader long-term multi-institutional deployment may further support continuous monitoring of real-world clinical performance. Finally, large-scale deployment and productization will require addressing technical and operational challenges common to AI clinical translation, including integration with existing workflows, regulatory compliance, and user training.60 In summary, CRISP establishes a versatile and clinically relevant AI paradigm for intraoperative pathology, illustrating the transformative potential of large-scale, data-driven approaches to advance precision surgery. By bridging the gap between technological innovation and clinical practice, CRISP paves the way for the next generation of AI-enabled surgical decision support, with broad implications for improving patient outcomes and healthcare delivery worldwide. Acknowledgements We gratefully acknowledge the patients from Sun Yat-sen University Cancer Center (SYCC), Zhujiang Hospital, Southern Medical University (ZJH), Jiangmen Central Hospital (JMH), Zhongshan City People’s Hospital (ZSH), Nanfang Hospital, Southern Medical University (NFH), Affiliated Cancer Hospital & Institute of Guangzhou Medical University (GZH), Huizhou Central People’s Hospital (HZH), The Tenth Affiliated Hospital, Southern Medical University, Dongguan People’s Hospital (DGH), Fudan University Shanghai Cancer Center (FUSCC), and Tianjin Medical University Cancer Institute and Hospital (TCIH), as well as the participants of the TCGA program, for providing tissue samples and clinical information for this study. Funding Statement\n\nPDF page 33: 447-453 (2019). 60. Lüscher, T.F., Wenzl, F.A., D’Ascenzo, F., Friedman, P.A. & Antoniades, C. Artificial intelligence in cardiovascular medicine: clinical applications. Eur. Heart J. 45, 4291-4304 (2024). Methods Ethical approval This study was approved by the Ethics Committee of Sun Yat-sen University Cancer Center (Approval No. SL-B2024-708) and carried out in compliance with the Declaration of Helsinki. This was a prospective observational study, not an interventional trial. Written informed consent was obtained from all subjects enrolled in the prospective cohort, while the requirement for informed consent was waived for retrospective cohorts. The study was registered in the Chinese Clinical Trial Registry (ChiCTR2500106350) as a retrospective registration. Large-scale intraoperative frozen section dataset To develop a clinically-oriented foundation model for intraoperative pathology, we constructed a large-scale dataset of frozen section whole-slide images (WSIs), comprising 103,797 slides from 51,186 patients. Retrospective data were collected from eight independent medical centers, including Sun Yat-sen University Cancer Center (SYCC), Zhujiang Hospital, Southern Medical University (ZJH), Jiangmen Central Hospital (JMH), Zhongshan City People’s Hospital (ZSH), Nanfang Hospital, Southern Medical University (NFH), Affiliated Cancer Hospital & Institute of Guangzhou Medical University (GZH), Huizhou Central People’s Hospital (HZH), and The Tenth Affiliated Hospital, Southern Medical University, Dongguan People’s Hospital (DGH). All slides collected from the participating centers were obtained from routine clinical intraoperative consultations. In total, these cohorts encompassed 38,253 patients and 81,678 intraoperative frozen WSIs collected between May 2017 and July 2024. The following inclusion criteria were applied to all cases: (1) at least one available intraoperative frozen section; (2) presence of identifiable tissue on the slide; (3) absence of scanning artifacts such as defocus or blurring; and (4) availability of complete diagnostic information, including intraoperative frozen section and corresponding postoperative paraffin section reports, as well as basic clinical characteristics (e.g., age and sex). Slides were manually reviewed by two\n\nPDF page 34: experienced pathologists based on thumbnail inspection to assess tissue presence and image quality, and only those with severe scanning-related artifacts (e.g., out-of-focus regions or extensive image degradation) that precluded tissue recognition were excluded, while intrinsic artifacts inherent to frozen section preparation were retained. The detailed inclusion period, number of patients, number of slides, and baseline characteristics of each cohort are summarized in Supplementary Tables S1.1-1.8. To further increase histological diversity, we additionally curated 15,975 frozen WSIs from The Cancer Genome Atlas (TCGA). The detailed selection process was as follows: diagnostic slides prepared from formalin-fixed paraffin- embedded (FFPE) tissues were excluded, resulting in 21,094 slides. These were subsequently reviewed by two experienced pathologists, and immunohistochemistry as well as other non- frozen section slides were removed. To ensure consistency, all patients were categorized into 24 major anatomical sites according to the definitions provided by the Genomic Data Commons (GDC) system.61 For model development, WSIs from ZJH, JMH, TCGA, and a subset of SYCC (43,013 slides) were used for CRISP pretraining. The remaining SYCC slides (5,178) were reserved for downstream task development and internal evaluation, ensuring no data leakage between pretraining and testing. External validation was performed using ZSH, NFH, GZH, HZH, and DGH cohorts. For the prospective real-world deployment study of CRISP, patients undergoing thyroid, breast, or lung surgery with intraoperative consultation at Sun Yat-sen University Cancer Center were consecutively recruited between November 2024 and July 2025, representing the most common sites for intraoperative consultation. Inclusion criteria were: (1) at least one available intraoperative frozen section; (2) presence of identifiable tissue on the slide; (3) absence of scanning artifacts such as defocus or blurring; (4) complete diagnostic and clinical information; (5) age ≥18 years at the time of surgery; and (6) documented informed consent. Following screening, a total of 2,071 patients with 4,143 intraoperative frozen sections were included. To further assess geographical generalizability, two additional prospective cohorts from FUSCC and TCIH were included, with the same inclusion criteria applied. To simulate real-world application, 100 consecutive cases from SYCC were included for simulated clinical deployment analysis. Recruitment periods and detailed clinical characteristics for each cohort are provided in Supplementary Tables S1.9-1.11.\n\nPDF page 35: Data digitization and preprocessing All clinical intraoperative frozen sections included in this study were digitized at 40× magnification (0.25 μm/pixel). Slides from the SYCC cohort were primarily scanned using an Aperio AT2 scanner (Leica Biosystems, Wetzlar, Germany) and stored in SVS format. Data from the ZJH, GZH, HZH, and DGH cohorts were scanned with a PHILIPS Ultra-Fast Scanner (Philips Electronics N.V., Amsterdam, Netherlands) and saved in iSyntax format. NFH and ZSH cohort slides were mainly scanned using a KF-PRO-120-HI scanner (Jiangfeng Biotech, Ningbo, China) and stored in KFB format. JMH cohort slides were scanned using an SQS-600P scanner (Shengqiang Technology Co., Ltd., Shenzhen, China) and saved in SDPC format. Slides from the prospective SYCC cohort were mainly scanned with a PHILIPS Ultra-Fast Scanner (Philips Electronics N.V., Amsterdam, Netherlands) and saved in iSyntax format. Slides from the FUSCC and TCIH cohorts were mainly scanned using an Aperio AT2 scanner (Leica Biosystems, Wetzlar, Germany) and stored in SVS format. WSIs were processed using vendor-provided API tools to extract full-slide thumbnail images. Given the extensive presence of non-informative background areas, tissue regions were automatically segmented using the CLAM toolkit to identify and isolate relevant histological content for subsequent analysis.52 Segmented tissue regions were partitioned into a series of non-overlapping patches of 512×512 pixels at a resolution of 0.25 microns per pixel (MPP). To mitigate center-specific biases introduced by variations in optical resolution, slide preparation, and scanning settings, redundant patches from higher-resolution images were downsampled. This approach ensured a balanced representation of patches from each center, reducing the risk of model overfitting to specific institutional characteristics. In total, approximately 50 million patches were extracted from 81,667 slides for model pretraining. No color normalization (e.g., Vahadane or Macenko) was applied in order to preserve inter- institutional variability and reflect real-world clinical conditions. Network architecture Building on previous studies of FFPE-based pathology foundation models, we focus here on intraoperative frozen sections and introduce CRISP, a specialized pathology foundation model\n\nPDF page 37: (at 0.25 MPP) was resized to 224×224 pixels to serve as input to the frozen CRISP encoder; this corresponds to the same field of view as 256×256 patches at 0.5 MPP, a commonly adopted setting in baseline models, thereby ensuring consistent input resolution and fair comparison across models.16,37 From the final layer of the transformer, the [CLS] token embedding and the mean-pooled embeddings of all patch tokens were concatenated, forming a comprehensive 2,560-dimensional feature vector for each patch. To identify diagnostically critical regions, we employed an attention-based multiple instance learning (ABMIL) model as the feature aggregator.64 The ABMIL module learns to assign an attention weight to each patch feature vector, effectively highlighting salient patches and generating a weighted slide-level feature representation. This aggregated feature vector was then passed through a single fully connected classification layer to produce the final slide-level prediction. For supervised downstream tasks, the cross-entropy loss function was used. Only the ABMIL aggregator and the classification layer were trained from scratch, while the CRISP encoder remained frozen to leverage the pretrained features. The model was optimized using the Adam optimizer with a learning rate of 2×10-4 and weight decay of 1×10⁻⁵. Early stopping based on validation loss was implemented to halt training upon performance saturation and prevent overfitting. In all downstream task comparisons, identical strategies were employed across comparator models to guarantee fairness in performance assessment. Downstream task To comprehensively evaluate CRISP, 98 retrospective downstream tasks were established. The reference labels for all tasks were based on postoperative FFPE morphology integrated with immunohistochemical and molecular analyses, and were independently verified by a pathologist. Aggregator development for all downstream tasks was conducted using the SYCC cohort, with patients in the internal test sets kept independent from the training and validation sets to prevent data leakage. Data were randomly split at the patient level into training, validation, and test sets to prevent data leakage, with stratification by outcome labels; identical splits were used for all models to ensure fair comparison. No explicit rebalancing strategies were applied in order to preserve the original class distribution. A shared set of hyperparameters was used across all tasks and models to ensure a fair comparison. Baseline models were selected\nDuring an operation, a pathologist may need a tissue answer before the next surgical step. In a frozen section, tissue is rapidly frozen, cut and examined while surgery continues. Unlike conventional formalin-fixed, paraffin-embedded tissue, the paper says it has a different appearance.\nCrucially, CRISP demonstrated consistent superiority over competing foundation models across independent prospective external cohorts. In a reader study conducted on the prospective SYCC cohort, the operating point of the senior pathologist fell on the ROC curve of CRISP, indicating comparable overall performance under the evaluated conditions.\na fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical outcomes.\nFrozen section examination has served as an indispensable modality for intraoperative pathological assessment, enabling surgeons to make informed choices regarding tumor resection, margin status, and differential diagnosis. The widespread adoption of frozen sections is driven by their expedited preparation and diagnostic accuracy, which closely parallels that of formalin-fixed paraffin-embedded (FFPE) specimens in clinical practice.\nCrucially, CRISP demonstrated consistent superiority over competing foundation models across independent prospective external cohorts. In a reader study conducted on the prospective SYCC cohort, the operating point of the senior pathologist fell on the ROC curve of CRISP, indicating comparable overall performance under the evaluated conditions.\na fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical outcomes.\nMost existing foundation models are built upon FFPE specimens, which differ fundamentally from frozen sections in both preparation and tissue morphology. Direct application of FFPE-trained models to intraoperative frozen section risks compromising diagnostic accuracy as such models may lack exposure to frozen section morphology.\nIn a simulated deployment experiment conducted on 100 cases from SYCC, the average end-to-end processing time for CRISP was 196.4 seconds per case, compared to 292.6 seconds for pathologists.",
+            "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Paper (pp.13, 20, 34) describes a simulated deployment analysis on 100 consecutive SYCC cases estimating end-to-end timing (196.4s vs 292.6s), an observational not interventional design, and states a fully prospective interventional study is still necessary to assess impact on clinical outcomes (pp.23–24)."
+      }
+    ],
+    "reviewedThrough": "2026-09-12",
+    "nextTrigger": "A corrected paper version, new interventional evidence, or an independent review request.",
+    "correctionOwner": "/root/remaining_build_review"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 3,
+    "objectiveDefectsFirstFoundAtReview": 4,
+    "reviewIssues": 4,
+    "reviewCycles": 3,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First CRISP candidate; root HOLD was internal producer feedback."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All outcomes and news checks pass and every failure family is clear; the piece is compact but complete for its bounded news job."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=3; evidence gaps repaired=0; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/news-editorial-analysis.json",
+      "sha256": "88a25ea997985f6e9121392e74c5b26692929cc572013937dbc24d296bd7fdd4"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/independent-raw-report.json",
+    "sha256": "acb2eae49f3d3c9731ef7048ce0d331aab0e30aeda4dbc67ecc0d893798d59c6"
+  }
+}

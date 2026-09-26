@@ -1,0 +1,103 @@
+{
+  "id": "e413a1b0-f8aa-4892-9a8a-f8cc4eaaf4aa",
+  "short_id": "e413a1b0",
+  "project_id": "dd48cd4f-5d67-49ad-8e2b-3a52ffa05098",
+  "project_name": "laidies-sunnyvaile",
+  "environment": "production",
+  "url": "https://e413a1b0.laidies-sunnyvaile.pages.dev",
+  "created_on": "2026-09-12T02:30:23.333773Z",
+  "modified_on": "2026-09-12T02:30:25.313245Z",
+  "latest_stage": {
+    "name": "deploy",
+    "started_on": null,
+    "ended_on": "2026-09-12T02:30:25.313245Z",
+    "status": "success"
+  },
+  "deployment_trigger": {
+    "type": "ad_hoc",
+    "metadata": {
+      "branch": "homepage-redesign",
+      "commit_hash": "d17c43a7",
+      "commit_message": "Keep header menus correctly placed without active utilities",
+      "commit_dirty": false
+    }
+  },
+  "stages": [
+    {
+      "name": "queued",
+      "started_on": "2026-09-12T02:30:23.333773Z",
+      "ended_on": null,
+      "status": "active"
+    },
+    {
+      "name": "initialize",
+      "started_on": null,
+      "ended_on": null,
+      "status": "idle"
+    },
+    {
+      "name": "clone_repo",
+      "started_on": null,
+      "ended_on": null,
+      "status": "idle"
+    },
+    {
+      "name": "build",
+      "started_on": null,
+      "ended_on": null,
+      "status": "idle"
+    },
+    {
+      "name": "deploy",
+      "started_on": null,
+      "ended_on": "2026-09-12T02:30:25.313245Z",
+      "status": "success"
+    }
+  ],
+  "build_config": {
+    "build_command": null,
+    "destination_dir": ".public",
+    "build_caching": null,
+    "root_dir": null,
+    "web_analytics_tag": null,
+    "web_analytics_token": null
+  },
+  "env_vars": {
+    "HYVOR_SSO_ENABLED": {
+      "type": "secret_text",
+      "value": ""
+    },
+    "HYVOR_SSO_PRIVATE_KEY": {
+      "type": "secret_text",
+      "value": ""
+    },
+    "MISS_JEEVES_DIGEST_KEY": {
+      "type": "secret_text",
+      "value": ""
+    }
+  },
+  "d1_databases": {
+    "MISS_JEEVES_DB": {
+      "id": "cd7fbb14-fdc6-4a86-893d-e60c4195400e"
+    }
+  },
+  "analytics_engine_datasets": {
+    "MISS_JEEVES_SIGNALS": {
+      "dataset": "laidies_miss_jeeves_signals_v1"
+    }
+  },
+  "ai_bindings": {
+    "AI": {}
+  },
+  "compatibility_date": "2026-07-24",
+  "compatibility_flags": [],
+  "build_image_major_version": 3,
+  "usage_model": "bundled",
+  "aliases": [
+    "https://laidies.ai",
+    "https://www.laidies.ai"
+  ],
+  "is_skipped": false,
+  "production_branch": "homepage-redesign",
+  "uses_functions": true
+}

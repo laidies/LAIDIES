@@ -1,0 +1,672 @@
+
+
+=== PAGE 1 ===
+FINITE TIME BLOWUP FOR NA VIER–STOKES
+OPENAI
+Abstract. For every positive viscosity, we construct a solution of the three-dimensional
+incompressible Navier–Stokes equations that starts from rest and develops unbounded velocity
+in finite time while maintaining uniformly bounded kinetic energy.
+Contents
+1. Introduction 1
+2. Physical description of the blowup 3
+3. Proof outline 6
+4. Constructing the leading order flow 24
+5. Correcting the base flow to every order 45
+6. Auxiliary torus and separation of oscillatory supports 62
+7. Oscillatory realization and correction of the residual stress 73
+8. Compactly supported mean corrections 88
+9. Residual improvement and the local field 100
+10. Compact forcing and whole-space breakdown 116
+Appendix A. Matching radial moments and constructing the heat exterior 126
+Appendix B. Analytic profiles near the axis and their continuation 144
+Appendix C. Realizing the admissible stress cone 157
+References 165
+1. Introduction
+We consider the three-dimensional incompressible Navier–Stokes equations. A funda-
+mental question about the nature of these equations is whether a solution starting from
+smooth data can develop unbounded velocity in finite time while its kinetic energy remains
+bounded. We construct such a flow with zero initial velocity and a smooth force compactly
+supported in space and time.
+Theorem 1.1.For every ν> 0there exist a force f∈C ∞
+c (R3 ×( 0, ∞); R3), a compact set K⊂R 3,
+and smooth velocity and pressure fields u,p onR 3 ×[0, 1)satisfying
+∂tu+ (u· ∇)u−ν∆u+∇p=f,∇ ·u=0,u(·, 0) =0, (1.1)
+such thatsuppu(·,t)∪suppp(·,t)⊂K for every0≤t<1,
+sup
+0≤t<1
+∥u(t)∥ L2(R3) <∞, lim sup
+t↑1
+∥u(t)∥ L∞(R3) =∞.
+Consequently, there is no smooth solution (u, P) on R3 ×[ 0, ∞) with the same force and initial
+datum whose kinetic energy is uniformly boundedsup t≥0
+1
+2
+∫︁
+R3 |u(x,t)| 2 dx<∞.
+This establishes alternative (C) in the Millennium problem statement for Navier–Stokes as
+stated by Fefferman in [ 13]. Compact support also yields the corresponding construction on
+T3 =R 3/Z3, establishing alternative (D) in [13]; see Corollary 10.6.
+1
+
+=== PAGE 2 ===
+2 OPENAI
+1.1.Historical context and previous work.Incompressible and inviscid flows are described
+by the classical Euler equations [12]:
+Dtu:=∂ tu+ (u· ∇)u=−∇p+f,∇ ·u=0. (1.2)
+The material acceleration Dtu describes the acceleration of a parcel of fluid along its trajectory,
+due both to the changing flow and the parcel’s changing position. Crucially, the latter
+contribution (u· ∇)u is nonlinear in the velocity u, creating most of the difficulty in the
+analysis. The first equation in (1.2) says that this acceleration is related by Newton’s second
+law to the sum of the negative pressure gradient and the external force. The second equation
+tells us that the fluid is incompressible: we cannot squeeze the fluid in one direction without
+simultaneously stretching it in another.
+The Navier–Stokes equations [18, 21], given in (1.1), add a viscous force that resists shear
+between neighbouring fluid parcels. The viscous force is linear in u. However, it significantly
+changes the character of the flows by smoothing velocity gradients. Whether this smoothing
+is always sufficient to prevent a finite-time singularity in three dimensions lies at the heart
+of the regularity problem.
+In 1934, Leray [16] constructed global finite-energy weak solutions of the three-dimensional
+equations satisfying an energy inequality. Whether solutions starting from smooth data
+remain smooth was left unresolved. Caffarelli, Kohn, and Nirenberg [ 5] proved that the
+singular set of a suitable weak solution has zero one-dimensional parabolic Hausdorff
+measure, a bound that allows isolated singularities. Escauriaza, Seregin, and Šverák [ 11]
+proved regularity for the unforced Cauchy problem under a bounded scale-invariant L∞
+t L3
+x
+norm.
+Tao [22] constructed finite-time blowup for an averaged Navier–Stokes equation that
+retains the energy cancellation of the original nonlinearity. For the original equations,
+Buckmaster and Vicol [4] used convex integration to establish nonuniqueness among finite-
+energy weak solutions. Albritton, Brué, and Colombo [ 1] subsequently constructed distinct
+suitable Leray–Hopf solutions with zero initial velocity and the same force, using an unstable
+vortex in similarity variables. Their force lies inL 1
+t L2
+x and is singular at the initial time.
+The methods of Lifschitz and Hameiri and of Friedlander and Vishik [ 17, 14] describe
+the evolution of wavevectors and velocity polarizations along a background flow. Craik
+and Criminale [ 9] constructed exact finite-amplitude waves on affine background flows,
+exploiting the cancellation of the wave’s quadratic self-interaction. Further precedents for the
+wave dynamics include the centrifugal-instability criteria of Leibovich and Stewartson [ 15]
+and of Billant and Gallaire [ 2, 3] and the exact viscous shearing waves of Singh and Sridhar
+[19]. The use of oscillations to realize a prescribed stress is central to the Euler constructions
+of Daneri and Székelyhidi [10].
+Córdoba and Martínez-Zoroa [6] constructed finite-time singularities for the forced three-
+dimensional Euler equations through successive amplification of increasingly concentrated
+vortex layers. Córdoba, Martínez-Zoroa, and Zheng [ 8] extended this approach to hy-
+podissipative Navier–Stokes with small positive dissipation orders and forcing in a local
+well-posedness class. These works established a strategy for singularity formation based on
+amplification across scales while controlling the regularity of the external force. In their con-
+structions, larger-scale strain amplifies smaller-scale vorticity, with leading self-interactions
+and feedback on the larger scales suppressed. For the incompressible porous media equation,
+Córdoba and Martínez-Zoroa [7] constructed singularities from smooth initial data by suc-
+cessive amplification of oscillatory layers, using approximations of increasing order to keep
+every spatial derivative of the source uniformly bounded. Our construction also exploits
+
+=== PAGE 3 ===
+FINITE TIME BLOWUP FOR NAVIER–STOKES 3
+dynamical amplification, with a different role for the amplified disturbances: oscillatory
+pulses generate a mean momentum flux that supplies the missing force on a collapsing
+background vortex.
+2. Physical description of the blowup
+We first describe the underlying physics of the flow realizing Theorem 1.1; we then provide
+a full sketch of the proof in Section 3.
+For any incompressible flow u and pressure p, we can always define the external force
+f to be the residual in (1.1). The Navier–Stokes equations then hold by construction. The
+challenge is to choose a flow that blows up while this residual remains smooth. The
+individual terms in the momentum residual can diverge, but we must arrange sufficient
+cancellation that their sum and all its derivatives extend smoothly through the singular time.
+Specifically, we construct a vortex whose leading profile is self-similar, with radial width
+decreasing faster than axial length. Its central flow combines inward spiralling with axial
+outflow. As the core contracts, the azimuthal and axial velocity scales increase, strengthening
+the shear in the surrounding annulus.
+In the inner core, the profile equations impose the leading momentum balance. Joining
+this flow to a smooth exterior whose speed decreases with radius leaves a nonzero residual
+in the intervening annulus. For the background alone, the momentum residual becomes
+unbounded as t↑ 1, so it cannot supply the smooth force required by the theorem. We add
+spatially oscillatory pulses whose nonlinear momentum fluxes cancel the singular part of
+this residual. Further corrections remove the remaining singular errors, leaving a force that
+extends smoothly throught=1.
+2.1.Inner core.We construct our flow so that the singularity forms at the spatial origin at
+timet=1. We use cylindrical coordinates about the vertical axis:
+x= (rcosθ,rsinθ,z),
+where r is distance from the axis, θ is angle around it, and z is height. The velocity
+components ur, uθ, and uz describe motion toward or away from the axis, around the axis,
+and along it, respectively. The leading flow u(0) is axisymmetric: its components depend on
+r,z,t, but not onθ.
+In the central part of the inner region, fluid spirals inward toward the axis and flows
+upward and downward on opposite sides of a dividing layer close to z= 0 (Figure 1).
+Farther above and below this central region, the inner profile also contains radial outflow.
+Pressure decreases toward the axis, supplying the leading centripetal force. Its axial gradient
+enters the axial momentum balance together with transport and viscosity. Near the axis, the
+axial pressure force points toward the planez=0.
+Radial inflow contributes to spin-up by carrying angular momentum toward smaller radii.
+For a fluid particle experiencing no torque, the angular momentum per unit mass ruθ is
+conserved, so moving inward increases uθ. In the actual core, viscosity transports angular
+momentum outwards; the increasing characteristic speed reflects the balance between inward
+transport and viscous loss. Incompressibility prevents the incoming fluid from accumulating
+near the axis: the axial outflow carries it away, allowing the inward motion and spin-up to
+continue.
+To leading order, the core evolves self-similarly: its velocity profile has a fixed shape when
+distances and velocities are measured in their respective time-dependent scales. The radial
+
+=== PAGE 4 ===
+4 OPENAI
+t1 t2 t3
+Figure1. The central part of the inner core at successive times t1 <t 2 <t 3 <
+1. In this region, fluid spirals inward and flows axially on opposite sides of a
+dividing layer close to z= 0. As the singular time approaches, the region of
+intense flow shrinks and the velocity increases. Its radius shrinks faster than
+its height; this difference is exaggerated in the schematic.
+and axial scales shrink at different rates. Writing τ= 1 −t for the time remaining before the
+singularity, we have
+ℓr ≍τ 1/2,ℓ z ≍τ 1/2−h, 0<h<1/100,
+where h is fixed and ≍ denotes bounds above and below by positive factors independent
+of τ. Both lengths tend to zero, while ℓr/ℓz ≍τ h → 0: the core becomes an increasingly
+slender column concentrated at the origin, with volume of orderτ 3/2−h.
+The characteristic velocity magnitudes of the leading flow satisfy
+|u(0)
+θ |,|u (0)
+z | ≍τ −1/2−h,|u (0)
+r |=O(τ −1/2).
+These are typical scales across the core; in particular, the azimuthal velocity vanishes on
+the axis. The flow is smooth for every t< 1, but its largest speeds become unbounded in
+a shrinking neighbourhood of the origin as t↑ 1. The total kinetic energy of the core is of
+orderτ 1/2−3h, which tends to zero despite the increasing speeds.
+The different velocity scales give different Reynolds numbers. For a speed U, length ℓ,
+and viscosity ν, the Reynolds number Uℓ/ν compares the viscous diffusion time ℓ2/ν with
+the time ℓ/U for fluid motion over that distance. Using the core radius as the length scale,
+the characteristic angular and radial Reynolds numbers are
+Reθ := |uθ|ℓr
+ν ≍τ −h − →∞, Re r := |ur|ℓr
+ν =O(1),
+for fixedν>0.
+The angular Reynolds number grows without bound: fluid makes increasingly many
+turns during a radial diffusion time. The radial Reynolds number remains bounded, so
+viscosity continues to compete with radial inflow. The corresponding transport and diffusion
+
+=== PAGE 5 ===
+FINITE TIME BLOWUP FOR NAVIER–STOKES 5
+Core
+r = 0
+Annulus
+r
+θ
+σ = +1
+Δr
+rp Δθ
+σ = −1
+Δr
+rp Δθ
+Core Annulus
+r
+z
+σ = +1
+Δr
+Δz
+σ = −1
+Δr
+Δz
+Figure2. Pulse geometry and perturbation velocities.Left:At fixed height,
+pulse envelopes occupy complete rings; the close-ups show radial and az-
+imuthal perturbation velocities.Right:A radial–axial section, where each
+localized patch is a cross-section of a complete ring; the close-ups show radial
+and axial perturbation velocities. Colors distinguish the two families. The
+specific pulse arrangement shown is schematic; active locations, spacing, and
+aspect ratios are illustrative.
+rates satisfy
+|ur|
+ℓr
+=O(τ −1), |uz|
+ℓz
+≍τ −1, ν
+ℓ2r
+≍τ −1.
+Thus radial diffusion and transport by the radial and axial flow remain in the leading balance
+as the core contracts. Axial diffusion is weaker: the ratio of axial to radial diffusion rates is
+ν/ℓ2
+z
+ν/ℓ2r
+= ℓ2
+r
+ℓ2z
+≍τ 2h − →0.
+The core must also provide enough shear at its outer edge to amplify the pulses placed
+there. Away from the middle plane, axial flow carries angular momentum from more rapidly
+rotating layers, supporting a steep radial decrease in angular velocity. With exact reflection
+symmetry, this transport would vanish at z= 0. Symmetry would also impose uz(r, 0,t) = 0,
+leaving no radial shear of the axial velocity to compensate. We therefore choose a slightly
+asymmetric axial profile, with a small upward bias and nonzero velocity at z= 0. This
+separates the layer where rotational amplification is weak from the layer where axial shear
+vanishes. The radial shear of axial velocity then supplies the additional amplification needed
+near the middle plane; farther away, the rotational mechanism already suffices.
+2.2.Annulus and pulses.At the edge of the core, there is an annular region where the inner
+vortex joins onto an exterior flow. The background satisfies its leading momentum equations
+inside the core, but this transition leaves an imbalance in the annulus. The external force
+needed to sustain the background becomes unbounded as t↑ 1, so it cannot serve as the
+smooth external force required by the construction.
+We therefore perturb the velocity so that the fluid’s own motion supplies the missing
+momentum transport. Through the nonlinear advection term, the perturbation produces
+additional momentum fluxes whose spatial variation acts as an internal force on the back-
+ground. We require this contribution to cancel the singular part of the background residual,
+leaving only a remainder that extends smoothly through t= 1. These internal forces
+redistribute momentum within the fluid.
+
+=== PAGE 6 ===
+6 OPENAI
+Our perturbation consists of a sequence of spatially oscillatory pulses that are localized
+in radius, height, and time, but extend around a complete ring. An exponentially small
+external force seeds each pulse; the background shear supplies its subsequent growth. Their
+cylindrical velocity components have zero angular average, but their momentum fluxes
+need not. For example, outward motion carrying an azimuthal velocity surplus and inward
+motion carrying a deficit both increase outward angular momentum flux. Reversing both
+velocity components leaves their product unchanged. Axial momentum is transported in the
+same way. We arrange the net transport into or out of each region to supply the contribution
+missing from the background’s momentum balance.
+The pulses grow by extracting energy from the background shear. A simple example
+illustrates how this amplification occurs. In a rotating flow, an azimuthal velocity surplus
+produces outward acceleration. If angular velocity decreases sufficiently rapidly with radius,
+this outward motion increases the surplus relative to the surrounding fluid. The two effects
+reinforce one another, giving exponential growth when the amplification exceeds viscous
+damping. In the full flow, axial shear also contributes to the amplification.
+The same shear also changes the oscillation’s spatial pattern: fluid at different radii carries
+it along at different speeds. We choose the pulse orientations so that this progressively
+shortens the radial wavelength. The changing orientation weakens the amplification, while
+shortening the radial wavelength increases the total squared wavenumber and hence viscous
+damping. We choose the initial wavelength so that amplification dominates at first, but
+damping overtakes it later. The tails are sufficiently small that the cutoff errors and all their
+derivatives vanish at the singularity.
+We combine two families of pulses with different ratios of radial angular-momentum
+flux to radial axial-momentum flux. The background profile and oscillation directions are
+chosen together so that the averaged quadratic velocity products of the two families supply
+both components of the required leading stress. We arrange the pulses on successively finer
+spatial and temporal scales as the singularity approaches. Further corrections cancel the
+remaining singular terms in the momentum residual, giving a flow whose velocity becomes
+unbounded while its residual force extends smoothly through the singular time.
+2.3.Exterior flow and localization.Beyond the annulus, the flow is purely azimuthal and
+independent of height: fluid circles the axis, with speed decreasing as the radius increases.
+Pressure supplies the centripetal acceleration, while the azimuthal velocity evolves by viscous
+diffusion. We choose this outer flow to satisfy the radial heat equation for the azimuthal
+velocity exactly, and call it the heat exterior. Its momentum residual vanishes, so no external
+force is needed to sustain this part of the local flow.
+At every fixed positive radius, the exterior velocity and pressure have smooth limits,
+together with all their derivatives, as the singular time approaches. Together with the
+regularity of the inner construction away from the origin, this allows us to cut off the flow
+smoothly in space. The additional force produced by this cutoff remains smooth through the
+singular time, while the cutoff leaves the concentrating core unchanged.
+3. Proof outline
+The physical description in Section 2 leads to a precise cancellation problem. We must
+construct a velocity and pressure whose momentum residual extends smoothly through the
+singular time, while the velocity becomes unbounded. At viscosity one, the residual is
+R(u,p) =∂ tu+ (u· ∇)u−∆u+∇p. (3.1)
+
+=== PAGE 7 ===
+FINITE TIME BLOWUP FOR NAVIER–STOKES 7
+The estimates must control every Cartesian space-time derivative of this residual.
+First we construct the axisymmetric background (uB, pB) of Proposition 5.5, whose residual
+in (5.41) is the negative divergence of an annular stress, up to a remainder vanishing to every
+order at the singular point. Oscillatory velocities supply the leading stress through their
+averaged quadratic products (Proposition 7.5). Successive corrections improve the decay of
+the remaining residual (Proposition 9.6). We then sum and localize the fields, preserving
+incompressibility and the leading velocity growth, and extend the residual to the smooth
+compactly supported force in Theorem 1.1 (Propositions 10.1 and 9.9 and Lemma 10.3). All
+estimates used below are proved for the viscous equations. The construction is summarized
+in Figures 5 and 6.
+For anyν>0, a solution at viscosity one gives a solution at viscosityνby
+uν(x,t) = √
+νu(x/
+√
+ν,t),p ν(x,t) =νp(x/
+√
+ν,t),f ν(x,t) = √
+νf(x/
+√
+ν,t).
+The singular time is unchanged. The equation and energy scaling are verified in (10.22)–
+(10.23). We useν=1 for the rest of this outline.
+3.1.The concentrating leading field.We encode the geometry of Section 2.1 by the fixed
+velocity profiles E, U and pressure profile Π in (4.3). The similarity coordinates (X, η) in
+(3.2) resolve the different radial and axial contraction rates and express the velocity growth
+as powers of a concentration scale. We first specify this representation; the next subsection
+constructs profiles whose remaining momentum residual can be supplied by the pulses.
+We write
+τ=1−t,A= 1
+2 +h,D= 1
+2 −h, 0<h<1/100,
+withhfixed in the profile construction. In cylindrical coordinates,
+x= (rcosθ,rsinθ,z),e r = (cosθ, sinθ, 0),e θ = (−sinθ, cosθ, 0),e z = (0, 0, 1).
+The leading field u(0) =u (0)
+r er +u (0)
+θ eθ +u (0)
+z ez is axisymmetric: its cylindrical components
+are independent of θ. The tangential components are the azimuthal and axial components,
+tangent to cylinders of constantr.
+We introduce the similarity coordinates
+τ=q(1−η 2),z=q Dη,X= r2
+2q ,q>0,−1<η<1. (3.2)
+Forτ>0, eliminatingηgives
+q−z 2q2h =τ,∂ q(q−z 2q2h) =1−2hη 2 ≥1−2h>0 on|η|<1.
+Thus q=q(z , τ) is uniquely determined, and q≍τ+|z| 1/D, where ≍ denotes bounds above
+and below by fixed positive factors. On a fixed compact set of similarity coordinates away
+from η=± 1, we have q≍τ . For bounded X, letting q↓ 0 approaches the singular point.
+The endpointsη=±1, withq>0, describet=1 away from that point; see Lemma 4.1.
+The azimuthal and axial profilesE(X,η),U(X,η)determine the leading fields by
+u(0)
+θ =q −A E,u (0)
+z =q −AU,
+ru(0)
+r =V 0,p (0) =q −2A Π.
+Incompressibility and regularity at the axis determineV 0:
+1
+r ∂r(ru(0)
+r ) +∂ zu(0)
+z =0,V 0(0,η) =0.
+
+=== PAGE 8 ===
+8 OPENAI
+The leading radial pressure balance and the normalization at radial infinity give
+∂r p(0) = (u(0)
+θ )2
+r ,Π(X,η) =−
+∫︂∞
+X
+E(x,η) 2
+2x dx.
+The construction ensures that E/
+√
+2X, U, and V0/X are smooth at X= 0, giving a smooth
+Cartesian field at the axis for everyt< 1. In particular, u(0)
+θ = 0 on the axis, while E(X, η)> 0
+forX>0.
+We choose Xc > 0 and 0 <η c < 1 so that [0, Xc]×[−η c, ηc] lies in the inner region of
+Theorem 4.6, and define the core at timet=1−τby
+Cτ ={(rcosθ,rsinθ,z): 0≤X(r,z,τ)≤X c,|η(z,τ)| ≤η c}.
+Sinceq≍τthere, its radial and axial extents satisfy
+ℓr ≍τ 1/2,ℓ z ≍τ 1/2−h, ℓz
+ℓr
+≍τ −h.
+Both extents vanish; their ratio diverges. The constructed profiles give
+∥u(0)
+θ ∥L∞(Cτ) ≍τ −1/2−h,∥u (0)
+z ∥L∞(Cτ) ≍τ −1/2−h,
+∥u(0)
+r ∥L∞(Cτ) =O(τ −1/2),
+∥u(0)
+r ∥L∞(Cτ)
+∥u(0)
+θ ∥L∞(Cτ)
+=O(τ h).
+The axial lower bound follows from the nonzero axis datum in Proposition B.2. For any
+fixed 0<X ∗ <X c, the circlez=0,r= √2X∗τhasq=τ,η=0, and
+u(0)
+θ =E(X ∗, 0)τ−1/2−h − →+∞.
+The core is a time-dependent region in space; its boundary is determined by fixed similarity
+coordinates. Incompressibility preserves the volume of material regions transported by the
+velocity. The radial regions are shown in Figure 3(a).
+The leading field extends beyond the core. Outside a fixed radial interval in X, U=V 0 = 0,
+while
+E(X,η) =c ∞X−1/2−h (︁
+1+O(X −1)
+)︁
+(X→∞),c ∞ >0,
+uniformly in η. The exact exterior formula (4.29) gives a purely azimuthal solution of the ra-
+dial heat equation for the azimuthal velocity. The final spatial localization in Proposition 10.1
+gives the completed velocity a fixed compact support.
+At viscosity one, the local length scalesℓ r =q 1/2,ℓ z =q D give
+Reθ =q −A ℓr =q −h − →∞, Re r =|u (0)
+r |ℓr =O(1).
+The rotation rate exceeds the radial diffusion rate. In the axisymmetric tangential equations,
+radial diffusion and radial and axial transport enter the leading balance at the rates
+|u(0)
+r |
+ℓr
+=O(q −1), q−A
+ℓz
+= 1
+ℓ2r
+=q −1.
+Axial diffusion is smaller than radial diffusion by the factor ℓ2
+r /ℓ2
+z =q 2h, which supplies the
+expansion parameter for the background corrections.
+
+=== PAGE 9 ===
+FINITE TIME BLOWUP FOR NAVIER–STOKES 9
+−2 0 2
+r/√ τ  (signed coordinate)
+−1
+0
+1
+z/τD
+Axis
+Inner
+profile
+Annulus
+X = Xa
+X = Xb
+Exterior
+(a) The radial regions at fixed time
+0 3/10 1/2 7/10 1
+Slot time v/Ls
+0.0
+0.5
+1.0Normalized amplitude P(v)
+ψ = 1
+Growth Decay
+Cutoff errors
+Cutoff errors
+(b) Growth followed by viscous decay
+Figure3. The concentrating geometry and the reference pulse. (a) A
+schematic radial–axial section at fixed time: the pulse annulus lies between
+the level surfaces X=X a and X=X b. Horizontal and vertical axes use their
+respective similarity scales; both physical length scales shrink. (b) A reference
+amplitude P(v), normalized to one at the midpoint of a pulse interval of
+length Ls in v, grows and then decays. The shaded regions contain the small
+cutoff tails. The spatial radii and pulse parameters shown are representative;
+the proof chooses them by the estimates in the profile and pulse sections.
+3.2.Construction of the background stress.We now choose the profiles E, U so that the
+pulses can supply their remaining momentum transport. The resulting stress T, defined
+by the radial integrals below, must vanish outside the pulse annulus and be a positive
+combination of the fluxes carried by the two wave families. The profile construction in
+Theorem 4.6(ii) gives this support; the admissible stress cone condition characterized in
+Lemma 4.5 ensures the positive representation of Proposition 7.5.
+We denote by R(0)
+θ , R(0)
+z the tangential momentum residuals of (u(0), p(0)), retaining radial
+viscosity and omitting axial viscosity. We construct physical stress components T= (T rθ, Trz)
+satisfying
+R(0)
+θ =−(∂ r +2/r)T rθ,R (0)
+z =−(∂ r +1/r)T rz.
+Regularity at the axis fixes their integration constants:
+Trθ (r) =− 1
+r2
+∫︂r
+0
+s2R(0)
+θ (s)ds,T rz(r) =− 1
+r
+∫︂r
+0
+sR(0)
+z (s)ds.
+We require T to be nonzero precisely in the annulus Xa <X<X b, or
+√︁
+2qXa <r<
+√︁
+2qXb,
+with 0 <X a <X b. We make the residual zero in the inner region and in the heat exterior,
+and impose ∫︂∞
+0
+r2R(0)
+θ dr=0,
+∫︂∞
+0
+rR (0)
+z dr=0.
+These identities make the stress zero beyond the exterior radius as well as near the axis. The
+prescribed exterior moment identities give these zero integrals (Lemma A.8). Matching the
+profiles and the five radial integrals defined in(4.15) preserves the exterior fields (Lemma 4.4).
+
+=== PAGE 10 ===
+10 OPENAI
+The admissible stress cone condition permits the pulse construction to select two families
+with linearly independent covariance vectors v1, v2 ∈R 2 at each point of the annulus. These
+vectors depend on the local background and give the azimuthal and axial momentum fluxes
+per unit squared amplitude. They represent the required stress as
+T=c 1v1 +c 2v2,c 1,c 2 >0 whereT̸=0.
+Thus T lies in the interior of the cone generated by v1, v2. Proposition 7.5 constructs this
+representation from the admissible stress cone condition on the profiles. Figure 4 illustrates
+this positive representation.
+v1 v2
+c1v1
+c2v2
+T
+0
+T=c 1v1 +c 2v2
+c1 >0,c 2 >0
+Figure4. Positive representation of the target stress. The shaded cone con-
+sists of nonnegative linear combinations of the covariance directions v1, v2.
+An interior target T=c 1v1 +c 2v2 has c1, c2 > 0; the dashed lines show vector
+addition. The coefficients remain positive under sufficiently small perturba-
+tions of the two directions.
+These conditions couple the inner and exterior profiles through the pressure and radial
+velocity, both of which depend on cumulative radial integrals. We choose the pressure
+datum, solve near the axis, and match these integrals before imposing the cone condition:
+1. Exterior and axis pressure.Proposition A.4 constructs reference profiles with a purely
+azimuthal tail. Their radial pressure integral (4.31) fixes Π(0, η). Replacing the tail by the
+exact heat flow of Lemma A.6 changes this integral. The corrections in Proposition A.7
+restore it at smaller radii, preserving the axis pressure.
+2. Inner solution.With this pressure datum and the specified axis data, Proposition B.2
+constructs E/
+√
+2X, U, Π analytic in X, η near the axis and satisfying (4.13). Their leading
+tangential residual and stress vanish onX≤X a.
+3. Joining and moment matching.Corollary B.10 connects the inner profiles to the prescribed
+outer profiles. The correction in Proposition B.8 matches the five cumulative radial
+integrals governing the pressure, radial velocity, and stress. Equality of the profiles and
+these integrals at the joining radius restores the prescribed exterior fields by Lemma 4.4.
+The inner identity (4.13) and the exterior conclusion of Lemma A.8 give T= 0 for X≤X a
+andX≥X b.
+4. Enforcing the cone condition.On a compact subinterval of the annulus, Proposition C.2
+introduces a radial oscillation with phase NlogX , where N is a large fixed integer.
+Its amplitude is O(N −1); applying X∂X produces an order-one change in the radial
+derivatives. This changes the leading tangential shear while changing profile values
+and radial moments by only O(N −1). The shear follows a periodic curve satisfying the
+admissible stress cone condition. A separate localized correction restores all five radial
+integrals exactly. The inner solution and heat exterior are preserved, and the resulting
+stress admits positive covariance weights throughout the annulus (Proposition C.3).
+
+=== PAGE 11 ===
+FINITE TIME BLOWUP FOR NAVIER–STOKES 11
+The leading profiles are now fixed. Before adding pulses, Section 5 constructs corrections
+in successive powers q2nh, n= 1, 2,. . .. At each order, the previously determined coefficients
+supply the source terms in the coefficient equations. This recursion accounts for the radial
+momentum equation, axial viscosity, and the remaining lower-order terms. The coefficients
+are summed with smooth cutoffs on their vector potentials and pressures, equal to one near
+the singularity and supported in successively smaller neighborhoods. Taking curls after
+multiplication preserves incompressibility. The resulting smooth axisymmetric background
+(uB,p B)satisfies
+R(u B,p B) =−(∂ r +2/r)T phys,θeθ
+−(∂ r +1/r)T phys,zez +E B.
+The stress Tphys is supported in the annulus and has leading term T. A residual isflatas
+q↓ 0 if every Cartesian space-time derivative is O(q N) for every N≥ 0, uniformly on each
+bounded interval inX. The remainderE B has this property by Proposition 5.5.
+3.3.Oscillations and momentum transport.We’ve now arrived at a background (uB, pB)
+with the required growth and leading annular stress T that the two pulse families can
+realize. We next construct divergence-free pulses (Lemma 7.7) whose averaged quadratic
+flux supplies T to leading order (Propositions 7.5 and 9.5). The exact increment identity
+separates this cancellation from the linear pulse evolution and the interactions left for later
+corrections.
+For a divergence-free velocity increment w with pressure increment π, the exact residual
+identity is
+R(u B +w,p B +π) =R(u B,p B) +L uB (w,π) +∇ ·(w⊗w),
+where
+LuB (w,π):=∂ tw+ (u B · ∇)w+ (w· ∇)u B −∆w+∇π.
+The linear term describes the evolution of the pulses in the background; the quadratic term
+provides the stress that cancels the leading part ofR(u B,p B).
+We write Awave for the characteristic pulse oscillation amplitude and ℓwave for its wave-
+length. At fixed nonzero profile values in the pulse annulus, suppressing logarithmic factors
+and weights that vanish at the support boundary, the construction gives
+Awave ≍q −1/2−h/2 ,ℓ wave ≍q 1/2+h/2,
+Awave
+q−1/2−h ≍ ℓwave
+q1/2 ≍q h/2.
+The square of the amplitude has the required stress scale:
+A2
+wave ≍q −1−h ≍ |u(0)
+θ |
+q1/2 , A2
+wave
+q1/2 ≍q −3/2−h.
+The last expression is the scale of the averaged radial stress divergence, matching the leading
+time derivative, transport, and radial viscosity in the tangential momentum equations.
+Freezing the amplitude and phase gradient at a point gives the schematic local form
+wlead(x) =acos(ξ·x+φ),a·ξ=0.
+Here a∈R 3 is a constant amplitude, ξ∈R 3 is the wavevector, and φ∈R is a phase. The
+velocity oscillates orthogonally to its wavevector. To separate distinct localized pulses while
+
+=== PAGE 12 ===
+12 OPENAI
+retaining periodic averaging, we construct an extended field ˜︁w(r, θ, z, t, Y) depending on an
+independent auxiliary variableY∈T 2. Its physical value is
+w(r,θ,z,t) = ˜︁w(r,θ,z,t,Y(r,t)),
+where the fixed phase map Y(r, t) is defined in (6.3). The covariance is computed before this
+evaluation. We use angular and auxiliary averages
+⟨F⟩ θ := 1
+2π
+∫︂2π
+0
+F dθ,⟨F⟩ Y :=
+∫︂
+T2
+F dY,
+∫︂
+T2
+1dY=1.
+Their composition is denoted by ⟨F⟩:=⟨⟨F⟩ θ⟩Y. The averaging conventions are collected
+in Equations (3.7) to (3.9). Components are taken in the cylindrical basis. Localized pulses
+with distinct labels whose slow space-time supports overlap receive disjoint supports in
+Y. Products between such pulses vanish pointwise, including after evaluation at Y(r, t)
+(Lemma 6.1). Harmonics and corrections with the same label retain their interactions.
+In the actual construction the amplitudes, phases, and cutoffs vary. We evaluate localized
+vector potentials atY(r,t)to obtainA wave, then take the physical curl:
+w=∇ × A wave,∇ ·w=0.
+All chain-rule terms from Y(r, t) are included. Differentiating the amplitudes and cutoffs
+produces smaller velocity terms, retained in Lemma 7.7.
+The chosen phases have nonzero integer angular frequencies, so each wave has zero
+angular mean and the cosine square has angular average 1 /2. The two families produce
+the momentum-flux directions used to choose c1, c2 > 0 above. These coefficients become
+squared amplitude weights. The covariance construction, with its physical scaling and curl
+corrections, gives (︃
+⟨ ˜︁wr ˜︁wθ⟩
+⟨ ˜︁wr ˜︁wz⟩
+)︃
+=T+higher-order terms.
+The higher-order terms include the curl corrections and are smaller by positive powers of
+q, with derivative bounds proved in Corollary 7.8. The radial divergence of the displayed
+leading covariance cancels the leading negative stress divergence of the background (Propo-
+sitions 7.5 and 9.5). The extended residual still contains oscillatory terms and angular means
+that depend onY; these are evaluated atY(r,t)in the physical equation.
+The same quadratic products govern energy transfer from the background. We consider
+the homogeneous linearized model
+LuB (wlin,π lin) =0,∇ ·w lin =0.
+Under sufficient spatial decay, integration by parts gives
+d
+dt
+1
+2
+∫︂
+|wlin|2 =− ∑
+i,j
+∫︂
+(wlin)i(wlin)j ∂j(uB)i −
+∫︂
+|∇wlin|2.
+The first term transfers energy between the background and the perturbation; the second
+dissipates it. The selected transverse velocity amplitudes extract energy from the shear and
+provide the two momentum-flux directions whose positive span contains T. During each
+pulse, shear increases the magnitude of the radial component of the wavevector. Viscous
+damping strengthens and eventually exceeds the amplification, so the pulse grows and
+then decays. The temporal cutoff acts only in its exponentially small tails. The phase and
+amplitude equations establish these properties in Lemmas 7.1 and 7.4; Figure 3(b) illustrates
+the resulting envelope.

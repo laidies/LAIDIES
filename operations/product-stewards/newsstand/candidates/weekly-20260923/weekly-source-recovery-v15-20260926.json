@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "newsstand-weekly-source-recovery-attempt.v1",
+  "observedAtWindow": {
+    "start": "2026-09-26T15:36:20.000Z",
+    "end": "2026-09-26T15:37:00.000Z"
+  },
+  "method": "normal_web_open",
+  "scope": "Targeted repair of actual source dates and observation timestamps after the private envelope was found to use generic dates and synthetic checkedAt values.",
+  "results": [
+    {
+      "id": "california-ai-oversight-order-1",
+      "url": "https://www.gov.ca.gov/wp-content/uploads/2026/09/FINAL-N-9-26-AI-EO-9.18.26-SIGNED.pdf",
+      "status": "OPENED",
+      "dateEvidence": {
+        "date": "2026-09-18",
+        "locator": "PDF lines 119-120",
+        "excerpt": "affixed this 18th day of September 2026."
+      },
+      "contentEvidence": {
+        "locator": "PDF lines 91-108",
+        "excerpt": "recommendations ... no later than November 16, 2026 ... including ... a “kill switch”"
+      }
+    },
+    {
+      "id": "california-ai-oversight-order-2",
+      "url": "https://www.eff.org/deeplinks/2026/09/eff-statement-california-governors-executive-order-ai",
+      "status": "OPENED",
+      "dateEvidence": {
+        "date": "2026-09-18",
+        "locator": "page related update lines 114-115",
+        "excerpt": "September 18, 2026"
+      },
+      "contentEvidence": {
+        "locator": "lines 101-107",
+        "excerpt": "EFF calls the order a good start and says kill-switch effectiveness remains active research."
+      }
+    },
+    {
+      "id": "california-data-centre-laws-1",
+      "url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+      "status": "OPENED",
+      "dateEvidence": {
+        "date": "2026-09-21",
+        "locator": "line 47",
+        "excerpt": "Sep 21, 2026"
+      },
+      "contentEvidence": {
+        "locator": "lines 50,62-73",
+        "excerpt": "Governor announcement says seven bills were signed and enumerates the bills."
+      }
+    },
+    {
+      "id": "california-data-centre-laws-2",
+      "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168",
+      "status": "OPENED_METADATA_ONLY",
+      "dateEvidence": null,
+      "contentEvidence": null,
+      "missingInput": "This fresh open exposed the bill page shell but no dated enactment passage in the captured lines.",
+      "nextRecoveryStep": "Use the already bound full primary bill capture for statutory text; make a new normal open only when a source route exposes a dated official status passage."
+    },
+    {
+      "id": "california-data-centre-laws-3",
+      "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577",
+      "status": "ACCESS_FAILURE",
+      "dateEvidence": null,
+      "contentEvidence": null,
+      "missingInput": "Normal web open returned Internal Error after a malformed parameterized route attempt; it is not a completed source observation.",
+      "nextRecoveryStep": "Use the exact permitted bill URL once only when a separate fresh source-recovery cycle is due; do not claim this failed attempt refreshed the source."
+    }
+  ],
+  "limitations": [
+    "Only five source routes were reached in this bounded repair attempt; the remaining seven required publication-envelope observations have not been freshly captured with actual timestamps.",
+    "This receipt does not change the prior source observations, approve the Weekly candidate, or establish complete Weekly coverage."
+  ]
+}

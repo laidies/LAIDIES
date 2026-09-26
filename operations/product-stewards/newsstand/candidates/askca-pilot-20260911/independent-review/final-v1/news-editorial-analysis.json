@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "askca-pilot-20260911",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "03ad57777a6d650ee5b4edda19eb38f060e2fea207e94a21baabae9db2de9c0e",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "If AskCA only searches official state, federal and county sources, why does California itself warn that its answers may still be wrong for you?",
+      "response": "Because retrieval from official sources is not the same as a decision about your case. The assistant assembles next steps and links from pages that can be outdated, and it cannot see the agency's current records about you — your eligibility file, permit status, or benefit history. So an answer can be faithfully sourced yet wrong for your specific situation, which is why the conditions tell users to double-check important information with the actual agency that holds those records and makes the decision.",
+      "expectedEvidence": "P006 (searches official sources, but responsible agency and its current records determine outcomes) plus P007 (conditions warn answers may be wrong, outdated or unsuited to a person's situation; double-check with the actual agency).",
+      "assessment": "The article fully supports this causal answer: P006 supplies the mechanism and boundary, and P007 supplies the state's own admitted limits, so a reader can reconstruct the explanation in ordinary language without outside knowledge."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, how should she treat that answer before catering an event in the second county?",
+      "response": "She should treat the answer as a route, not a ruling. AskCA assembled its response by searching official pages, which may be outdated or not matched to her specific permit class, and the state's own conditions say answers can be wrong or unsuited to her situation. The county environmental health department holds her actual permit record and decides whether it transfers. She should follow the link as a starting point, then confirm directly with that county's permitting office before operating — and avoid typing her permit numbers or other sensitive identifiers into the chat, since the conditions say submitted information may be forwarded to state employees.",
+      "expectedEvidence": "P006 (navigation layer; agency records determine permits), P007 (answers may be wrong/outdated/unsuited; double-check with the agency), P008–P009 (limit sensitive details; information may be forwarded).",
+      "assessment": "The article's navigation-versus-decision boundary and its privacy guidance transfer cleanly to this new permit scenario, confirming the mechanism is genuinely usable beyond the examples given."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The sequence is clear: Sept 9 announcement opened sign-ups, October brings hands-on testing, a separate Sept 30 CalCareers pilot uses the same engine.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>California opened sign-ups September 9 for an AskCA pilot; the current pilot page says hands-on testing begins in October. AskCA is a prototype designed to help people find and navigate California government services by starting with a life event instead of an agency name.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The invitation is limited to California residents age 18 or older. In October, participants will be able to chat with the assistant, rate its responses and complete surveys. A <strong>prototype</strong> is an early version still being tested and changed. A <strong>pilot</strong> is a limited test before any wider release. AskCA is not a generally available finished chatbot today.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The state also plans a separate September 30 CalCareers pilot that will use the same engine to match a person’s résumé with state-job classifications. That planned job tool is distinct from the broader AskCA participant test.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Prototype and pilot are defined at first meaningful use; 'navigation layer' is explained through the search-then-links mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The invitation is limited to California residents age 18 or older. In October, participants will be able to chat with the assistant, rate its responses and complete surveys. A <strong>prototype</strong> is an early version still being tested and changed. A <strong>pilot</strong> is a limited test before any wider release. AskCA is not a generally available finished chatbot today.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The state says AskCA searches state, federal and county sources, then returns next steps and direct links. California built its knowledge base with Anthropic’s Claude model and says government specialists help shape responses. That makes AskCA a navigation layer. The responsible agency and its current records still determine eligibility, benefits, permits or other service outcomes.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are grounded in a specific eligible-volunteer situation: what to share, what to withhold, and what to confirm with the agency.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>What is open now is recruitment, not the finished assistant. If you are an eligible California resident and choose to volunteer, describe the situation without sensitive details. Treat AskCA’s answer as a route to the relevant service, then confirm important guidance with the state agency responsible for it.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>The state’s pages also draw a privacy boundary worth reading before volunteering. The About page says conversations are not used to train the model and staff review conversations for gaps and errors. The conditions say information sent may be used to improve services or forwarded to state employees who can help. They tell users not to enter Social Security numbers or private health information.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>The useful idea is a different front door into government. If you need help after a disaster but do not know which department owns the program, the assistant is meant to supply a starting route. The same design covers family services, starting a business and finding a state job.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "All advice (avoid SSNs/health details, double-check with the agency) comes directly from the state's own conditions; no internal operating notes appear.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The state’s pages also draw a privacy boundary worth reading before volunteering. The About page says conversations are not used to train the model and staff review conversations for gaps and errors. The conditions say information sent may be used to improve services or forwarded to state employees who can help. They tell users not to enter Social Security numbers or private health information.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>What is open now is recruitment, not the finished assistant. If you are an eligible California resident and choose to volunteer, describe the situation without sensitive details. Treat AskCA’s answer as a route to the relevant service, then confirm important guidance with the state agency responsible for it.</p>",
+          "locator": "P009"
+        }
+      ]
+    }
+  }
+}

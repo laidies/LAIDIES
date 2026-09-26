@@ -1,0 +1,122 @@
+[
+  {
+    "claimId": "event",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "Claude is folding quick questions and longer Cowork jobs into one conversation",
+        "locator": "P001"
+      },
+      {
+        "excerpt": "<p>Anthropic announced September 16 that it is merging Claude chat and Cowork into one Claude experience. A person can ask a quick question or hand over a longer, multi-step task without choosing a mode first.</p>",
+        "locator": "P002"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
+      "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Starting today, Claude Cowork and chat are merging into one Claude.",
+        "locator": "https://claude.com/blog/cowork-is-now-claude"
+      },
+      {
+        "excerpt": "This is rolling out to Pro and Max plans first, in the Claude app on web, desktop, and mobile over the coming weeks to existing and new users on these plans. There’s nothing to turn on. Team and Free plans will follow soon, and Enterprise admins will hear from us at least 30 days before anything changes for their organizations.",
+        "locator": "https://claude.com/blog/cowork-is-now-claude"
+      }
+    ],
+    "scopeAndFreshness": "P002 matches the official blog passage 'Starting today, Claude Cowork and chat are merging into one Claude' dated September 16, with correct attribution to Anthropic and no mode-choice needed, matching 'There's nothing to turn on.'"
+  },
+  {
+    "claimId": "rollout",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Rollout is gradual: Pro and Max first across web, desktop and mobile. Team and Free follow; Enterprise gets at least 30 days’ notice. Same-plan accounts may differ.</p>",
+        "locator": "P003"
+      },
+      {
+        "excerpt": "<p>The change removes a doorway; it does not promise every task will succeed. Until your account moves, the closest alternative is separate Claude Chat for questions and Cowork for longer jobs.</p>",
+        "locator": "P004"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
+      "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Starting today, Claude Cowork and chat are merging into one Claude.",
+        "locator": "https://claude.com/blog/cowork-is-now-claude"
+      },
+      {
+        "excerpt": "This is rolling out to Pro and Max plans first, in the Claude app on web, desktop, and mobile over the coming weeks to existing and new users on these plans. There’s nothing to turn on. Team and Free plans will follow soon, and Enterprise admins will hear from us at least 30 days before anything changes for their organizations.",
+        "locator": "https://claude.com/blog/cowork-is-now-claude"
+      },
+      {
+        "excerpt": "even accounts on the same plan will see the changes at different times",
+        "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
+      }
+    ],
+    "scopeAndFreshness": "P003's staged order (Pro and Max first on web, desktop, mobile; Team and Free follow; Enterprise at least 30 days' notice) matches the blog's rollout passage, and 'Same-plan accounts may differ' matches the help page's 'even accounts on the same plan will see the changes at different times.' Limits are retained as staged, not universal."
+  },
+  {
+    "claimId": "permissions",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>LAiDIES would use the longer-work option when a task has named inputs and a document to check. Anthropic says Manual asks before actions; Auto reduces check-ins. The setting covers the conversation. Those are vendor descriptions, not proof a task will finish well.</p>",
+        "locator": "P005"
+      },
+      {
+        "excerpt": "“Claude is removing the mode choice, not the need to choose permissions.”",
+        "locator": "P008"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
+      "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Auto: Claude keeps working without stopping to ask about each step, and automated safety checks run before it takes an action.\nManual (default): Claude asks before it takes actions, and you choose whether to allow each one.\nThe setting applies to the whole conversation.",
+        "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
+      },
+      {
+        "excerpt": "Tasks that use files or apps on your computer need Claude Desktop open.\nMore involved tasks keep running in the cloud even if you close your laptop",
+        "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
+      }
+    ],
+    "scopeAndFreshness": "P005 accurately paraphrases the help documentation: Manual (default) asks before actions, Auto keeps working without stopping about each step, and 'The setting applies to the whole conversation.' Attribution ('Anthropic says') and the vendor-description caveat are retained; omitting Auto's automated safety checks is a conservative omission, not a distortion."
+  },
+  {
+    "claimId": "execution",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Once the new experience reaches your account, attach three appliance manuals and ask Claude to make an editable seasonal-maintenance checklist. Keep the conversation on Manual, name the manuals it may use and inspect every date or safety instruction against the originals.</p>",
+        "locator": "P006"
+      },
+      {
+        "excerpt": "<p>Local work needs Claude Desktop open; cloud work may continue after the laptop closes. If separate Chat and Cowork choices remain, keep using them.</p>",
+        "locator": "P007"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
+      "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Auto: Claude keeps working without stopping to ask about each step, and automated safety checks run before it takes an action.\nManual (default): Claude asks before it takes actions, and you choose whether to allow each one.\nThe setting applies to the whole conversation.",
+        "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
+      },
+      {
+        "excerpt": "Tasks that use files or apps on your computer need Claude Desktop open.\nMore involved tasks keep running in the cloud even if you close your laptop",
+        "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
+      }
+    ],
+    "scopeAndFreshness": "P007 matches the help documentation: tasks using files or apps on the computer need Claude Desktop open, and more involved cloud tasks keep running after the laptop closes. The hedged 'may continue' preserves the source's scope of documented behavior, not guaranteed completion."
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "laidies-newsstand-independent-visual-review.v1",
+  "reviewStatus": "HOLD",
+  "verdictCode": "HOLD_STYLE_DRIFT",
+  "reviewedAt": "2026-09-24T03:56:18Z",
+  "reviewer": {
+    "identity": "/root/morning_aidb_20260920",
+    "role": "independent visual reviewer",
+    "relationToMaker": "The artwork producer is /root. This reviewer did not create the artwork or the accompanying article."
+  },
+  "scope": "Pixel review only. This receipt is not prose admission, source-freshness validation, attachment, deployment, or publication authority.",
+  "inputs": {
+    "producerContract": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/art/producer-contract.json",
+      "sha256": "fbdc5712c4bf05fddc519f34ab919e6da36fdf3febea277460b2a578bedd6aeb",
+      "recordedStatus": "PRE_RENDER"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/article.md",
+      "reviewedScope": "California laws begin rate-design assessment and reporting; they do not enact household savings, approved rates, or facility-level public disclosure."
+    },
+    "styleReference": {
+      "path": "/Users/alisoneakin/Projects/laidies-current-visual-references-20260906/assets/homepage/approved-references/women-ai-pop-art-approved-20260830.png",
+      "sha256": "0742816929be694e0e9fcfa11c3ae047173814e6112419176a71a994273828a5",
+      "reviewedPurpose": "Adult editorial/comic detail, meaningful action, print texture, and selective electric accents."
+    },
+    "renderedArtwork": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/art/california-planning-v2.png",
+      "sha256": "f860fc79f07f6acb9d827df91330c5e79e540486cdf9c35e78ccc6beaad768ad",
+      "dimensions": "1536x1024"
+    },
+    "thumbnailInspection": {
+      "method": "Independent local derivative made only in /tmp/laidies-art-review; no repository artwork was changed.",
+      "derivedDimensions": "384x256",
+      "derivedSha256": "1d4427a5b7579a8cfc88f847a6ae01308d035c1c941484ff1f41c6013f7f6f60"
+    }
+  },
+  "actualPixelFindings": [
+    {
+      "criterion": "semantic job",
+      "result": "PASS",
+      "observed": "A site plan holds a miniature unbranded data-centre campus and substation; a pencil, blank folder, rolled plan, windowed industrial building, transmission towers, and dry hills make planning and physical grid demand legible. It does not show a rate approval, savings amount, falling-arrow promise, seal, signature, or an identified real facility."
+    },
+    {
+      "criterion": "people, likenesses, and text",
+      "result": "PASS",
+      "observed": "No people or likenesses are visible. No readable words, statistics, approvals, or generated lettering are visible at full-image or thumbnail scale."
+    },
+    {
+      "criterion": "physical consistency",
+      "result": "PASS",
+      "observed": "The paper, pencil, rolled plan, desk, folder, model buildings, and outdoor transmission towers have coherent support, perspective, and lighting. No disconnected or impossible object is visible."
+    },
+    {
+      "criterion": "desktop legibility",
+      "result": "PASS_WITH_LIMIT",
+      "observed": "At 1536x1024 the planning-office story and the modelled site are clear. The blank folder on the right is visually large but does not contradict the story."
+    },
+    {
+      "criterion": "thumbnail legibility",
+      "result": "PASS_WITH_LIMIT",
+      "observed": "At 384x256 the site-plan, central campus model, pencil, and transmission-tower context remain recognizable, though the model's substation and line-detail no longer carry the explanation independently."
+    },
+    {
+      "criterion": "bound adult editorial illustration style",
+      "result": "FAIL",
+      "observed": "The source image is a polished, sunlit architectural visualization with fine realistic rendering. It lacks the bound reference's adult editorial comic linework, print/halftone texture, dark graphic field, and selective electric accents. This is style drift, not a minor crop or color correction."
+    }
+  ],
+  "contractReconciliation": {
+    "noPeople": true,
+    "noReadableText": true,
+    "noPromisedSavingsOrEnactment": true,
+    "noNamedFacility": true,
+    "planningAndUtilityDemandVisualized": true,
+    "styleAuthoritySatisfied": false
+  },
+  "requiredRepair": "Regenerate or materially restyle the image using the bound adult editorial illustration treatment: graphic comic linework, evident print texture, and selective electric accents while preserving the no-people, no-text planning-desk composition. Then submit the exact replacement bytes for a new independent review.",
+  "limitations": [
+    "The producer contract still records PRE_RENDER; this review does not alter that status.",
+    "This reviewer did not inspect any maker verdict.",
+    "This review does not establish article accuracy, source admission, or public-release readiness."
+  ]
+}

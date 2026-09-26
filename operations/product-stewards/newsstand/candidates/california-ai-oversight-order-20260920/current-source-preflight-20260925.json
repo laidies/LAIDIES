@@ -1,0 +1,42 @@
+{
+  "schema": "newsstand-current-source-preflight-receipt-v1",
+  "candidateId": "california-ai-oversight-order-20260920",
+  "sourceReviewedAt": "2026-09-25T14:11:53.470Z",
+  "eventDatesPreserved": true,
+  "publicProseChanged": false,
+  "providerCalled": false,
+  "result": "PRE_REVIEW_PASS",
+  "currentEvidence": {
+    "path": "operations/product-stewards/newsstand/evidence/morning-20260925/candidate-refresh/web-source-capture.json",
+    "sha256": "610a096e89ef8e1064b9f555a59fea06d49f2a0558a0cf386322565292198439"
+  },
+  "bindings": {
+    "sourceEvidence": {
+      "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/source-evidence.json",
+      "sha256": "04376ecf345324022fde98b4611d5eb202560e26afd3fa18af0fcdbfedd71761"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/article.md",
+      "sha256": "fe8727dab6cc0f720d8be1ec1dbdf39ed7e71af543652cdd07a143f17352e6df"
+    },
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/story.json",
+      "sha256": "68044b60265abca6830ce90efa0a7fbee4b335bdbc1f254d6d3ebcd200d5487f"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/review-text.json",
+      "sha256": "7f77e832d1a995b8f01aa7db1242030dac4480c5caf35c5c0128692b6dcb4ce7"
+    },
+    "producerReview": {
+      "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/producer-publication-review.json",
+      "sha256": "0f863f14bc3578f34cf6ae9010bd915e26d106fb5028b8838bf5521bbb35c005"
+    }
+  },
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/editorial-preflight-v12-current-sources-20260925/ --preflight-only",
+  "stdout": "{\"status\":\"PRE_REVIEW_PASS\",\"candidateDir\":\"operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/\",\"scope\":\"Validation-only pre-review gate; no provider request, editorial judgment, admission or publication.\"}",
+  "nextReviewCommand": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/editorial-review-v12-current-sources-20260925/",
+  "externalReview": {
+    "status": "PENDING_PROVIDER_AUTH",
+    "called": false
+  }
+}

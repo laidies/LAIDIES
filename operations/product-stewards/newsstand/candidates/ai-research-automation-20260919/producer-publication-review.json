@@ -1,0 +1,581 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "ai-research-automation-20260919",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/research_automation_producer",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/research_automation_producer",
+    "principalId": "/root/research_automation_producer",
+    "role": "Producer exact complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-19T23:26:28.218Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/publication-manifest.json",
+      "sha256": "b379b19ee1a8073299ad78906e7d230db35a0516e93ed56f0caf707a56e76567"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/review-text.json",
+      "sha256": "38afa96aa0a0eba1b1f441ed5bc75f650261d1531c7707f7c776babbe9e0c3e2"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/rendered-article.html",
+      "sha256": "59248bca605f7c558140cf5f48e4732f22641c5df97ebf48aebfb358918573ed"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/research_automation_producer",
+    "reviewedAt": "2026-09-19T23:26:27.218Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Do these dramatic research-automation numbers mean AI labs have reached autonomous recursive self-improvement?",
+    "promisedPayoff": "Separate supervised execution of bounded research tasks from human authority over goals, evidence and deployment, and know how to question the next percentage.",
+    "centralMentalModel": "Task execution can become highly automated while the research agenda and consequential decisions remain human-controlled.",
+    "dailyLifeConnection": "A reader can compare the claim to delegating a complex assignment: doing the work does not automatically transfer authority over the goal or final decision.",
+    "surfaceJob": "September 19 Daily candidate interpreting Anthropic and OpenAI internal research-acceleration measurements.",
+    "desiredReaderFeeling": "I understand what changed, what did not, and which questions keep the headline honest."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The article defines the only necessary technical term in its sentence and contrasts task execution with decision authority.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The crucial distinction is between doing a research task and deciding what research should happen.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "It answers the immediate consumer question and gives three questions for reading future percentages.",
+      "artifactEvidence": [
+        {
+          "excerpt": "They are not a change to an everyday ChatGPT or Claude account.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The language addresses a curious nontechnical reader directly without vendor promotion or specialist shorthand.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When you see the next dramatic percentage, ask three questions",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The laboratory image gives the transfer questions energy while the opening delivers the measured change first.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those questions separate a real change in research practice from a claim that the machines are running the laboratory.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Each number names its provider, internal population, timing and methodological limit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Both reports are preliminary internal measurements.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "August and mid-August timing appear beside the respective measurements, with September 19 source review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic says that in its August 2026 internal index",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The Daily structure supplies the change, interpretation, practical reading test, learning link and sources.",
+      "artifactEvidence": [
+        {
+          "excerpt": "AI agents are doing more research work. Humans still set the course.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article distinguishes Anthropic’s August index from OpenAI’s mid-August runtime measure.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI reports a different measure: by mid-August",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The takeaway says the evidence does not establish recursive self-improvement and uses “may” for research speed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This does not establish recursive self-improvement",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The everyday-account boundary and bounded-investigation example connect internal lab practice to a recognizable delegation question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Bounded investigations can run for hours",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The invisible control boundary becomes concrete through priorities, result judgment and deployment decisions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI says people still set priorities, judge results and decide whether to scale, pause or deploy.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "A reader can restate that supervised work on defined tasks does not transfer the research agenda or deployment authority.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Fully autonomous work removes the human; Anthropic says no measured subset reached it.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Do these dramatic research-automation numbers mean AI labs have reached autonomous recursive self-improvement?",
+        "probeResponse": "The labs are delegating more hands-on research work to agents, but people still choose priorities, judge the results and decide what ships. Supervised execution of a defined task is not autonomous successor development.",
+        "expectedEvidence": "Internal provider measures, increased bounded task execution, human priorities, judgment and deployment, and no established autonomous successor development.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The three-question test transfers to a different automation percentage without reusing the article’s answer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Which work was counted? What did the human still decide? Was the measure independently checked?",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "How should I read a new claim that AI automated 70% of another professional workflow?",
+        "probeResponse": "For another automation percentage, I should ask what unit of work was counted, what decisions remained human and whether an outside party checked the method.",
+        "expectedEvidence": "Ask what work was counted, what decisions remained human and whether the method was independently checked.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The reader leaves with specific scope, human-decision and independent-check questions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Which work was counted? What did the human still decide? Was the measure independently checked?",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The bounded-investigation example maps only duration and retained authority, without equating lab research with ordinary office work.",
+      "artifactEvidence": [
+        {
+          "excerpt": "without transferring authority over the next model, evidence or deployment",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Only recursive self-improvement needs definition, and its meaning appears inline before the consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The sections advance from two measures to control boundaries, limitations and a reusable reader test.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The bounded-investigation example directly explains retained authority and stops there.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The article uses two primary provider reports because each supplies one side of the comparison.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Human priorities, supervised task execution, result judgment and deployment decisions form an explicit control loop.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The closing test asks exactly what was counted, what humans decided and whether the measure was independently checked.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Public copy omits the AL labels and defines recursive self-improvement at first use.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The numbers, supervision definition, human decisions and research consequence remain in one causal explanation.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The conclusion says “does not establish” and “may,” preserving evidentiary limits.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Dates, provider ownership, source links and recheck trigger make the claims reviewable.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "People set priorities, judge results and decide deployment; the verbs identify accountable actions.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The laboratory phrasing and concise challenge make the reading test memorable without obscuring the facts.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or expert name appears in public copy.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The dramatic percentages resolve into a clear conclusion and three reusable questions.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The bounded-work example returns to next-model, evidence and deployment authority.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The prose uses the LAiDIES Daily structure without imitating a named communicator.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The first two paragraphs state measurements and scope before the laboratory flourish.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The supervision definition and human-decision list receive their own full paragraphs.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The Class Notes link follows the complete mechanism and explains its learning payoff.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending asks how to evaluate the claim rather than predicting autonomous laboratories.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The story translates two lab measures into a durable way to judge automation claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The concrete reported change comes before the supervision mechanism and method detail.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The bounded investigation occupies one sentence and returns immediately to research authority.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Short sentences and familiar verbs replace scale labels and measurement jargon.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-input.json",
+        "sha256": "c3ae9f160a9f61e8bbdfb60b130efeff96841016462b75468ed915dcaf6df492"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-packet.json",
+        "sha256": "1ac67450e01273669bbf10a93eabc1a3b1e822d05c2a39f03f1ae91bdb0ab382"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-evidence.json",
+        "sha256": "7247557cf349aeed7c68d027fe71e589471727fba339068ceacc216f2391a80a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "anthropic-index",
+        "claim": "As of August 2026, Anthropic says Claude led 26% of measured AI research work, performed at least collaboratively in more than 90%, and was fully autonomous in none.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic says that in its August 2026 internal index, Claude led 26% of AI research work, performed at least collaboratively in more than 90%, and was fully autonomous in none.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "As of August 2026, Claude is not operating fully autonomously for any measured subset of AI R&D work; Claude “leads” 26% of Anthropic’s AI R&D work; the share at or above “AI collaborates” is above 90%.",
+            "locator": "https://www.anthropic.com/institute/measuring-pace-of-ai-development"
+          }
+        ],
+        "scopeAndFreshness": "Anthropic prototype internal index, dated August 2026 and reread September 19; “none” is confined to measured subsets and is not a universal autonomy claim.",
+        "sourceIds": [
+          "anthropic-measuring-pace-20260919-anthropic-index-1"
+        ],
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-input.json",
+          "sha256": "c3ae9f160a9f61e8bbdfb60b130efeff96841016462b75468ed915dcaf6df492"
+        }
+      },
+      {
+        "claimId": "anthropic-level",
+        "claim": "Anthropic says “led” means completing most of a defined task from a high-level prompt while a human supervises; fully autonomous work removes the human.",
+        "candidateEvidence": [
+          {
+            "excerpt": "In Anthropic’s scale, “led” means completing most of a defined task from a high-level prompt while a human supervises. Fully autonomous work removes the human; Anthropic says no measured subset reached it.",
+            "locator": "LAiDIES Read"
+          }
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "In AL4, AI “leads”: it can complete most of the task end-to-end from a high-level prompt, while the human supervises.",
+            "locator": "https://www.anthropic.com/institute/measuring-pace-of-ai-development"
+          },
+          {
+            "excerpt": "AL5 (AI operates fully autonomously, with no human in the loop).",
+            "locator": "https://www.anthropic.com/institute/measuring-pace-of-ai-development"
+          }
+        ],
+        "scopeAndFreshness": "Automation-level definitions applied by Anthropic using an Epoch AI scale; boundary judgments have acknowledged disagreement.",
+        "sourceIds": [
+          "anthropic-measuring-pace-20260919-anthropic-level-1",
+          "anthropic-measuring-pace-20260919-anthropic-level-2"
+        ],
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-input.json",
+          "sha256": "c3ae9f160a9f61e8bbdfb60b130efeff96841016462b75468ed915dcaf6df492"
+        }
+      },
+      {
+        "claimId": "openai-workdays",
+        "claim": "OpenAI says that by mid-August its agents’ total runtime across the research organization equalled 3.1 standard eight-hour agent workdays for each human workday.",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI reports a different measure: by mid-August, its agents’ total runtime across the research organization was equivalent to 3.1 standard eight-hour agent workdays for each human workday.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "In terms of a standard 8 hour workday, as of mid-August, in total, the research organization uses 3.1 agent-workdays of effort for every workday of human labor.",
+            "locator": "https://openai.com/index/research-acceleration-view-inside-openai/"
+          }
+        ],
+        "scopeAndFreshness": "OpenAI internal runtime metric as of mid-August 2026; an agent-workday is runtime in eight-hour units, not a 3.1-times productivity claim.",
+        "sourceIds": [
+          "openai-research-acceleration-20260906-openai-workdays-1"
+        ],
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-input.json",
+          "sha256": "c3ae9f160a9f61e8bbdfb60b130efeff96841016462b75468ed915dcaf6df492"
+        }
+      },
+      {
+        "claimId": "openai-human-role",
+        "claim": "OpenAI says people still set priorities, judge results, and decide whether to scale, pause or deploy.",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says people still set priorities, judge results and decide whether to scale, pause or deploy.",
+            "locator": "LAiDIES Read"
+          }
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "People still set our research priorities, judge which ideas and results to pursue, and decide whether to scale, pause, or deploy systems.",
+            "locator": "https://openai.com/index/research-acceleration-view-inside-openai/"
+          }
+        ],
+        "scopeAndFreshness": "OpenAI description of its current internal practice.",
+        "sourceIds": [
+          "openai-research-acceleration-20260906-openai-human-role-1"
+        ],
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-input.json",
+          "sha256": "c3ae9f160a9f61e8bbdfb60b130efeff96841016462b75468ed915dcaf6df492"
+        }
+      },
+      {
+        "claimId": "openai-intervention",
+        "claim": "OpenAI says over half of successful four-to-eight-hour tasks in the studied six months involved at least one intervention.",
+        "candidateEvidence": [
+          {
+            "excerpt": "In the six months it studied, more than half of successful four-to-eight-hour tasks needed at least one intervention.",
+            "locator": "LAiDIES Read"
+          }
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "In the last 6 months, over half of successful 4-8 hour tasks involved 1 or more interventions.",
+            "locator": "https://openai.com/index/research-acceleration-view-inside-openai/"
+          }
+        ],
+        "scopeAndFreshness": "OpenAI internal task sample with ground-truth outcomes; provider classifier and preliminary measurement.",
+        "sourceIds": [
+          "openai-research-acceleration-20260906-openai-intervention-1"
+        ],
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-input.json",
+          "sha256": "c3ae9f160a9f61e8bbdfb60b130efeff96841016462b75468ed915dcaf6df492"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-19",
+    "nextTrigger": "Provider correction, independent measurement, material method update or publication after September 19.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First NewsStand comparison of these September 2026 Anthropic and OpenAI internal research-automation measurements."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "This final producer prose read found no unresolved semantic defect. The objective visual defect and its candidate-only repair are retained separately in visualRepairDisposition because this receipt schema requires a PASS to describe the current repaired prose state."
+  },
+  "limitations": [
+    "Producer AI simulations; no observed human comprehension test.",
+    "Both sources are provider reports about their own internal systems; no independent cross-lab verification.",
+    "The article does not measure overall research acceleration or forecast a date for autonomous research."
+  ],
+  "visualRepairDisposition": {
+    "disposition": "CANDIDATE_REPAIR_ONLY",
+    "rationale": "The first independent visual review found a third arm. The rejected pixels and receipt were preserved; the successor preflight limited the figure to two arms, two hands and two actions, and the independently inspected successor passed.",
+    "bindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/independent-review-v1-rejected.json",
+        "sha256": "c6e873649da1c36482db98d0a3cabb226e67875049970bff773372980abf102b"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/repair-preflight.json",
+        "sha256": "1518eedc047a653b796978e99f622d8b694a3f015a58db4678e2ed7f4c3e2feb"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/maker-inspection-v2.json",
+        "sha256": "f7f244d4a6ec926d74293cdb7aba6b0a618926126faf642681964499f3dbe1c8"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/independent-review.json",
+        "sha256": "0912a794d67bd9fe77d5e8151454e2688e9a6e563210205b7d465ac51fc7f485"
+      }
+    ]
+  }
+}

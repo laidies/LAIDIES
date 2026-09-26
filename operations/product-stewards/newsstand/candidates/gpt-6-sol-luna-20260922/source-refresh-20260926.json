@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "laidies-newsstand-source-refresh.v1",
+  "candidateId": "gpt-6-sol-luna-20260922",
+  "inspectedAt": "2026-09-26T14:13:49.875Z",
+  "method": "One normal official web-open inspection per URL. Direct curl attempts returned HTTP 403 and are retained as failed local attempts; no alternate transport or retry bypass was used.",
+  "observations": [
+    {
+      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "toolReceipt": "turn1252view0",
+      "observedLines": [
+        "42-52",
+        "133-139"
+      ],
+      "observed": [
+        "OpenAI identifies GPT-6 Sol and Luna, lists per-million-token API prices, and says availability begins in ChatGPT Work and Codex.",
+        "The availability section says Plus, Pro, Business, Enterprise and Edu users can use the models in Work and Codex; Free and Go users can use Luna in the desktop app; the models are not yet available in Chat; rollout is gradual."
+      ],
+      "limitation": "This is OpenAI product information. It does not establish what a particular account can select or independent performance."
+    },
+    {
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "toolReceipt": "turn1252view1",
+      "observedLines": [
+        "26-36"
+      ],
+      "observed": [
+        "The September 22 release notes say Sol and Luna are in ChatGPT Work and Codex and are separate from models in Chat.",
+        "They say Codex desktop keeps the manually selected model and choices depend on plan and workspace settings."
+      ],
+      "limitation": "The release notes do not map every account, plan or workspace to a particular model choice."
+    }
+  ],
+  "failedNormalAttempts": [
+    {
+      "urls": [
+        "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+        "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      ],
+      "tool": "curl",
+      "result": "HTTP 403",
+      "observedAt": "2026-09-26T14:13:49.875Z",
+      "disposition": "Preserved attempt; normal official web inspection above supplied the fresh observations."
+    }
+  ]
+}

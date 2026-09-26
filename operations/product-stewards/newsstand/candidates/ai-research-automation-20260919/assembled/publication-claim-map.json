@@ -1,0 +1,119 @@
+[
+  {
+    "claimId": "anthropic-index",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Two companies report different internal snapshots. Anthropic says that in its August 2026 internal index, Claude led 26% of AI research work, performed at least collaboratively in more than 90%, and was fully autonomous in none.</p>",
+        "locator": "P002"
+      },
+      {
+        "excerpt": "<p>The crucial distinction is between doing a research task and deciding what research should happen. In Anthropic’s scale, “led” means completing most of a defined task from a high-level prompt while a human supervises. Fully autonomous work removes the human; Anthropic says no measured subset reached it.</p>",
+        "locator": "P004"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-input.json",
+      "sha256": "c3ae9f160a9f61e8bbdfb60b130efeff96841016462b75468ed915dcaf6df492"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "As of August 2026, Claude is not operating fully autonomously for any measured subset of AI R&D work; Claude “leads” 26% of Anthropic’s AI R&D work; the share at or above “AI collaborates” is above 90%.",
+        "locator": "https://www.anthropic.com/institute/measuring-pace-of-ai-development"
+      }
+    ],
+    "scopeAndFreshness": "P002 matches the source passage: 26% led, above 90% at least collaborative, none fully autonomous, dated August 2026 internal index with attribution to Anthropic; 'none' correctly scoped to measured subsets in P004."
+  },
+  {
+    "claimId": "anthropic-level",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>The crucial distinction is between doing a research task and deciding what research should happen. In Anthropic’s scale, “led” means completing most of a defined task from a high-level prompt while a human supervises. Fully autonomous work removes the human; Anthropic says no measured subset reached it.</p>",
+        "locator": "P004"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-input.json",
+      "sha256": "c3ae9f160a9f61e8bbdfb60b130efeff96841016462b75468ed915dcaf6df492"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "In AL4, AI “leads”: it can complete most of the task end-to-end from a high-level prompt, while the human supervises.",
+        "locator": "https://www.anthropic.com/institute/measuring-pace-of-ai-development"
+      },
+      {
+        "excerpt": "AL5 (AI operates fully autonomously, with no human in the loop).",
+        "locator": "https://www.anthropic.com/institute/measuring-pace-of-ai-development"
+      }
+    ],
+    "scopeAndFreshness": "P004's definitions match the AL4 passage (most of the task from a high-level prompt with human supervision) and the AL5 passage (fully autonomous, no human in the loop), with the no-measured-subset qualifier retained."
+  },
+  {
+    "claimId": "openai-workdays",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>OpenAI reports a different measure: by mid-August, its agents’ total runtime across the research organization was equivalent to 3.1 standard eight-hour agent workdays for each human workday. These figures describe work inside the companies that made the systems. They are not a change to an everyday ChatGPT or Claude account.</p>",
+        "locator": "P003"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-input.json",
+      "sha256": "c3ae9f160a9f61e8bbdfb60b130efeff96841016462b75468ed915dcaf6df492"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "In terms of a standard 8 hour workday, as of mid-August, in total, the research organization uses 3.1 agent-workdays of effort for every workday of human labor.",
+        "locator": "https://openai.com/index/research-acceleration-view-inside-openai/"
+      }
+    ],
+    "scopeAndFreshness": "P003 accurately renders the source: 3.1 agent-workdays (eight-hour units of runtime) per human workday across the research organization as of mid-August, attributed to OpenAI, with the internal-only scope made explicit."
+  },
+  {
+    "claimId": "openai-human-role",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>OpenAI says people still set priorities, judge results and decide whether to scale, pause or deploy. In the six months it studied, more than half of successful four-to-eight-hour tasks needed at least one intervention.</p>",
+        "locator": "P005"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-input.json",
+      "sha256": "c3ae9f160a9f61e8bbdfb60b130efeff96841016462b75468ed915dcaf6df492"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "People still set our research priorities, judge which ideas and results to pursue, and decide whether to scale, pause, or deploy systems.",
+        "locator": "https://openai.com/index/research-acceleration-view-inside-openai/"
+      }
+    ],
+    "scopeAndFreshness": "P005 matches the source almost verbatim: people set priorities, judge results, and decide whether to scale, pause or deploy, attributed to OpenAI as its own account."
+  },
+  {
+    "claimId": "openai-intervention",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>OpenAI says people still set priorities, judge results and decide whether to scale, pause or deploy. In the six months it studied, more than half of successful four-to-eight-hour tasks needed at least one intervention.</p>",
+        "locator": "P005"
+      },
+      {
+        "excerpt": "<p>Both reports are preliminary internal measurements. Anthropic used a Claude judge, found borderline disagreement and says cross-company comparison lacks a common method. OpenAI says coverage is incomplete; agent runtime, code and experiment counts do not directly measure overall research progress.</p>",
+        "locator": "P006"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-input.json",
+      "sha256": "c3ae9f160a9f61e8bbdfb60b130efeff96841016462b75468ed915dcaf6df492"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "In the last 6 months, over half of successful 4-8 hour tasks involved 1 or more interventions.",
+        "locator": "https://openai.com/index/research-acceleration-view-inside-openai/"
+      }
+    ],
+    "scopeAndFreshness": "P005 matches the source: over half of successful 4–8 hour tasks in the last six months involved one or more interventions; the preliminary provider-measurement framing is retained in P006."
+  }
+]

@@ -1,0 +1,454 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "curiosity-09-change-one-detail",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-curiosity-20260910",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/independent-batch-02.json",
+      "sha256": "398c7e951dc4de7f212234cba7e429bdc29dd8a342ecef699d09b6a36ef677ac"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T05:45:22.773Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-09-change-one-detail.md",
+      "sha256": "b4e737276d4513232fe1ec715ceeee0c9ede28590d1797b4fb6c828362de01f9"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-09-change-one-detail.manifest.json",
+      "sha256": "b1baea370107bd28a58ddff839e43aeadc787977119dee911f1878fa87344671"
+    }
+  },
+  "calibration": {
+    "mode": "RECURRING_SERVICE_ARTIFACT_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "claude-fable-curiosity-20260910",
+    "reviewedAt": "2026-09-11T05:45:22.773Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "technicalExplainerVoice",
+          "decorativeAnalogy",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "CQX-BAD-001 AI system block — the 'Where it stops / In real life' scaffold repeats identically for every term"
+          },
+          {
+            "excerpt": "A provider develops or operates an AI model, product or service.",
+            "locator": "CQX-BAD-001 Provider block — dictionary-definition voice with no reader stake"
+          },
+          {
+            "excerpt": "A toolbox contains different tools for different jobs.",
+            "locator": "CQX-BAD-001 Model types block — analogy adds nothing the plain sentence lacks; decoration, not teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue, calculator or scanner.",
+            "locator": "CQX-BAD-001 Tool block — invented character analogy bolted onto a glossary entry rather than carrying a mechanism"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "technicalExplainerVoice",
+          "joylessInstruction",
+          "workedExampleOvertakesBookPurpose",
+          "corporateSludge"
+        ],
+        "evidence": [
+          {
+            "excerpt": "It is the trained component that processes input and produces an output.",
+            "locator": "CQX-BAD-002 Introduction — textbook definition voice, no LAiDIES warmth or wit anywhere in the piece"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — corporate learning-module framing the writing lock explicitly bans"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run",
+            "locator": "CQX-BAD-002 closing — syllabus prose; the reader is processed through a curriculum, not guided"
+          },
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 Chapter 1 — one worked example carries the entire chapter structure end to end, crowding out the surface's stated reference job"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic leads and the joke garnishes it, never carries it",
+        "Dry, understated wit with a specific workplace truth underneath",
+        "Analogies that do two jobs (familiar plus teaching), used sparingly",
+        "Reader treated as smart and busy, never in training or in deficit"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner — reframe that teaches while it lands"
+        },
+        {
+          "excerpt": "That's not imposter syndrome. That's pattern recognition.",
+          "locator": "CQX-GOOD-EPISODE-001 quotables — dry wit built on a specific factual beat, not decoration"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I find out which of my AI instructions actually matters?",
+    "promisedPayoff": "One verified useful instruction attached to a real task, instead of a hoard of untested prompts.",
+    "centralMentalModel": "Change one variable, hold the rest constant, compare, keep what worked.",
+    "dailyLifeConnection": "Any low-stakes draft the reader already asks AI for.",
+    "surfaceJob": "Optional 'Try this today' daily practice item.",
+    "desiredReaderFeeling": "Curious and in command of the tool, not collecting tips out of anxiety."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The controlled-comparison method is stated in plain sequence with example variables.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep everything else the same and compare the result",
+          "locator": "curiosity-09 body, sentence 2"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Gives a durable evaluation habit (single-variable testing) rather than a disposable prompt tip.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Save the useful instruction with that task",
+          "locator": "curiosity-09 final sentence"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Skeptical of accumulation-as-progress; 'enormous list of prompts' is a specific dry jab at a real habit, in Ali's register.",
+      "artifactEvidence": [
+        {
+          "excerpt": "collecting another enormous list of prompts",
+          "locator": "curiosity-09 final sentence"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The closing contrast lands a small earned beat; the question 'Which change actually helped?' keeps the reader active.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Which change actually helped?",
+          "locator": "curiosity-09 body"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "No product names, capability claims, or outcome guarantees; 'low-stakes' bounds risk appropriately.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For a low-stakes AI draft",
+          "locator": "curiosity-09 body, sentence 1"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Method is tool-agnostic and durable per the Currency Rule's teach-durable-concepts principle; nothing dated.",
+      "artifactEvidence": [
+        {
+          "excerpt": "change one instruction: perhaps the length, the reader or the tone",
+          "locator": "curiosity-09 body"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "One situation, one act, built-in comparison check; the brief's AI-comparison representative item.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Change one thing and compare.",
+          "locator": "curiosity-09 heading"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Hands-on experiment the reader runs on a real draft today.",
+      "artifactEvidence": [
+        {
+          "excerpt": "change one instruction",
+          "locator": "curiosity-09 body"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "The comparison itself is the feedback; the question forces an explicit judgment.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Which change actually helped?",
+          "locator": "curiosity-09 body"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Proportional: invites a prediction-and-compare loop (useful curiosity with payoff) and lands on a precise action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Save the useful instruction with that task",
+          "locator": "curiosity-09 landing"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Single-variable comparison transfers to any tool, prompt, or process change beyond AI drafts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep everything else the same and compare the result",
+          "locator": "curiosity-09 body"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "If the change did not help, the comparison shows it and nothing is kept; the low-stakes framing keeps failure costless.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For a low-stakes AI draft",
+          "locator": "curiosity-09 body, sentence 1"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The opened question is answered by the reader's own comparison.",
+      "artifactLocator": "curiosity-09 body"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy used.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Standalone by design.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Method leads.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No promised results; the reader tests for herself.",
+      "artifactLocator": "curiosity-09 body"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Example variables (length, reader, tone) directly serve the method.",
+      "artifactLocator": "curiosity-09 body"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The act is operationally specific: one variable, constant baseline, comparison, save.",
+      "artifactLocator": "curiosity-09 body"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terminology.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on a bounded save-it action with a dry contrast.",
+      "artifactLocator": "curiosity-09 final sentence"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "No jargon; 'instruction' used plainly.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The prompt-hoard jab supplies personality.",
+      "artifactLocator": "curiosity-09 final sentence"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Opens from a task the reader already does.",
+      "artifactLocator": "curiosity-09 sentence 1"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No hook.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The controlled-comparison mechanism is fully stated.",
+      "artifactLocator": "curiosity-09 body"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No reveal.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Method generalizes beyond the single draft.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Tool-agnostic and evergreen.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational imperative.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Distinct structure from siblings.",
+      "artifactLocator": "curiosity-09 whole entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No extended example.",
+      "artifactLocator": "curiosity-09 whole entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "Original activity suggestion; mentions AI drafting only as the reader's existing generic activity, with no product-capability or effectiveness claims.",
+    "claimScan": {
+      "observation": "Full prose inspected; the entry assumes only that AI drafts vary with instructions, which the reader verifies herself in the exercise rather than being told a result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "change one instruction: perhaps the length, the reader or the tone",
+          "locator": "curiosity-09 body"
+        }
+      ]
+    },
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Review if the entry ever gains product-specific instructions; currently tool-agnostic and evergreen.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this original activity; pilot repair and full-bank maker inspection are preserved."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect found in this exact activity; conditional-result pilot repair applied before full bank."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Explain-back assessed from prose only; sampled reader testing pending.",
+    "Rendered page not reviewed here.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/curiosity-sampling-policy-20260910.json",
+      "sha256": "2d114ecc0a064628ed33f4157a87781672fb031581672f110645e50ad1b7abc5"
+    },
+    "policyId": "newsstand-curiosity-sampled-comprehension-20260910",
+    "serviceType": "curiosity",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-398c7e951dc4",
+    "sampleQueue": [
+      "curiosity-01-ask-example",
+      "curiosity-02-name-contribution",
+      "curiosity-03-compare-rewrite",
+      "curiosity-04-find-original",
+      "curiosity-05-invite-question",
+      "curiosity-06-ask-before-help",
+      "curiosity-07-small-feedback",
+      "curiosity-08-unseen-step",
+      "curiosity-09-change-one-detail",
+      "curiosity-10-share-opportunity",
+      "curiosity-11-check-assumption",
+      "curiosity-12-credit-introduction",
+      "curiosity-13-show-start",
+      "curiosity-14-separate-preference",
+      "curiosity-15-quiet-invite",
+      "curiosity-16-find-date",
+      "curiosity-17-ask-why-rule",
+      "curiosity-18-share-template",
+      "curiosity-19-let-finish",
+      "curiosity-20-name-unknown",
+      "curiosity-21-read-own-words",
+      "curiosity-22-ask-good-part",
+      "curiosity-23-test-directions",
+      "curiosity-24-check-added-detail",
+      "curiosity-25-share-question",
+      "curiosity-26-smaller-offer",
+      "curiosity-27-ask-evidence-change",
+      "curiosity-28-record-useful-fix",
+      "curiosity-29-check-invitation",
+      "curiosity-30-ask-follow-up"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "laidies.newsstand-clause-to-source-coverage.v1",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "observedAt": "2026-09-26T00:00:00.000Z",
+  "scope": "Complete material clause mapping prepared before calibrated independent review v11; no publication judgment.",
+  "primarySourceRecovery": {
+    "congressGovActions": {
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9340/all-actions",
+      "attemptedAt": "2026-09-26T00:00:00.000Z",
+      "result": "INACCESSIBLE_NORMAL_WEB_TOOL",
+      "missingInput": "Official H.R.9340 action docket after House passage.",
+      "effect": "Article does not assert the formerly unbound September 24 calendar-placement statement."
+    }
+  },
+  "clauses": [
+    {
+      "clause": "EO is a recommendation process, not an installed universal switch.",
+      "sourceIds": [
+        "california-ai-oversight-order-1"
+      ],
+      "coverage": "DIRECT_PRIMARY"
+    },
+    {
+      "clause": "SB1168 and AB1577 are two of seven bills signed September 21; weekly excludes explanation of five.",
+      "sourceIds": [
+        "california-seven-bills-20260921"
+      ],
+      "coverage": "DIRECT_PRIMARY"
+    },
+    {
+      "clause": "SB1168 directs CPUC assessment, not adopted tariff or household saving.",
+      "sourceIds": [
+        "california-data-centre-laws-2"
+      ],
+      "coverage": "DIRECT_PRIMARY"
+    },
+    {
+      "clause": "AB1577 threshold, 2029 report, aggregate publishing and named exclusions.",
+      "sourceIds": [
+        "california-data-centre-laws-3"
+      ],
+      "coverage": "DIRECT_PRIMARY"
+    },
+    {
+      "clause": "H.R.9340 House vote was 417–3; enacted text would require consideration for qualifying 100MW load.",
+      "sourceIds": [
+        "house-roll-312-20260916",
+        "house-ratepayer-protection-1"
+      ],
+      "coverage": "DIRECT_PRIMARY"
+    },
+    {
+      "clause": "Sep17 Senate unanimous-consent attempt drew objection; source packet does not establish Senate vote or enactment.",
+      "sourceIds": [
+        "senate-objection-20260917",
+        "senate-status-20260923"
+      ],
+      "coverage": "DIRECT_PRIMARY_WITH_BOUND_LIMIT"
+    },
+    {
+      "clause": "Gambit findings are attributed interim investigation, not reader exposure.",
+      "sourceIds": [
+        "card-skimmer-investigation-1"
+      ],
+      "coverage": "ATTRIBUTED_INDEPENDENT_REPORT"
+    },
+    {
+      "clause": "Claude Cowork/chat merge, rollout sequence, Enterprise notice and Docs/Slides paid beta.",
+      "sourceIds": [
+        "claude-cowork-merge-1",
+        "claude-rollout-20260916",
+        "claude-docs-slides-20260916"
+      ],
+      "coverage": "DIRECT_PROVIDER"
+    },
+    {
+      "clause": "GPT-6 Sol/Luna products, plans and Chat exclusion.",
+      "sourceIds": [
+        "gpt6-sol-luna-1"
+      ],
+      "coverage": "DIRECT_PROVIDER"
+    }
+  ],
+  "remainingLimits": [
+    "The normal-web Congress.gov action docket is inaccessible; no calendar placement, Senate vote or enactment is asserted.",
+    "Gambit report remains attributed and does not identify a reader-specific exposure.",
+    "Provider product claims do not establish a reader’s individual access or result."
+  ],
+  "v12Repair": {
+    "observedAt": "2026-09-26T15:20:00.000Z",
+    "repairing": "v11 factual qualifications caused solely by omitted supplied passages",
+    "addedPassages": [
+      "AB1577 anonymized-and-aggregated annual publishing",
+      "H.R.9340 100MW threshold",
+      "OpenAI gradual-rollout notice",
+      "OpenAI evaluation-context notice"
+    ],
+    "effect": "No prose change; exact source packet expanded to cover pre-existing material clauses."
+  },
+  "v14Repair": {
+    "source": "operations/product-stewards/newsstand/candidates/malicious-ai-agents-card-skimmers-20260923/source-evidence.json",
+    "exactPassage": "The report is dated September 22, 2026 and labels itself an interim report.",
+    "effect": "Binds article interim-report characterization; prose unchanged."
+  }
+}

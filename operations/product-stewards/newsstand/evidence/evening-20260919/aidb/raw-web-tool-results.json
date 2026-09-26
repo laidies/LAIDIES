@@ -1,0 +1,47 @@
+{
+  "schema": "aidb-web-tool-capture.v1",
+  "capturedAt": "2026-09-20T03:03:25Z",
+  "method": "normal web tool only; no alternate transport or access-bypass attempt",
+  "results": [
+    {
+      "request": "open https://aidailybrief.ai/agent.json",
+      "toolReference": "turn915view0",
+      "outcome": "accessible",
+      "contentType": "application/json",
+      "publisherGenerated": "2026-09-19T20:02:21.407Z",
+      "observedEditionDates": ["2026-09-17", "2026-09-16", "2026-09-15", "2026-09-14", "2026-09-13"]
+    },
+    {
+      "request": "open website Sep18/19 HTML, JSON, and transcript endpoints",
+      "toolReferences": ["turn915view1", "turn915view2", "turn915view3", "turn915view4", "turn915view5", "turn915view6"],
+      "outcome": "web tool internal error for each endpoint",
+      "accessAction": "held; no workaround attempted"
+    },
+    {
+      "request": "open publisher-linked Apple Podcasts show listing",
+      "toolReference": "turn915view7",
+      "outcome": "web tool internal error",
+      "accessAction": "held; no workaround attempted"
+    },
+    {
+      "request": "open Beehiiv archive",
+      "toolReferences": ["turn915view8", "turn917view0"],
+      "outcome": "accessible",
+      "observedEpisodeDates": ["2026-09-18", "2026-09-17", "2026-09-16", "2026-09-15", "2026-09-14", "2026-09-11", "2026-09-10", "2026-09-09", "2026-09-08"]
+    },
+    {
+      "request": "open newest Beehiiv episode-notes post",
+      "toolReference": "turn918view0",
+      "url": "https://aidailybrief.beehiiv.com/p/the-ai-challenges-businesses-are-actually-focused-on-right-now",
+      "outcome": "accessible full publisher-notes page inspected",
+      "episodeDate": "2026-09-18",
+      "contentClass": "Episode Links & Takeaways",
+      "identityLimit": "publisher notes are not a transcript and do not establish a website or podcast alias"
+    },
+    {
+      "request": "click additional Beehiiv archive posts",
+      "toolReferences": ["turn921view0", "turn921view1", "turn921view2", "turn921view3", "turn921view4", "turn921view5", "turn921view6", "turn921view7"],
+      "outcome": "archive URLs enumerated; no cross-channel identities inferred"
+    }
+  ]
+}

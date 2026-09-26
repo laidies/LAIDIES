@@ -1,0 +1,806 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "agents-api-20260911",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "principalId": "/root/weekly_recovery",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-11T18:00:47.336809Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/publication-manifest.json",
+      "sha256": "c4ac9cf86a8e088d010823d76c82bec0a78416ac3f7a4e637e3a600d58178e52"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/review-text.json",
+      "sha256": "33e88eaa30958262471d65d5c147245aeb1a346c47a1650606483a730d7a0779"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/rendered-article.html",
+      "sha256": "bbbc30149cc16ec8a361d48c6fdba6e63a01b265eafbe2addcb3c193b3271970"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What changes for me when an app can keep working after one reply, and what should I still check?",
+    "promisedPayoff": "Recognize the developer service, understand the model-versus-harness split, and verify access, retention and the actual result in any app built with it.",
+    "centralMentalModel": "The model produces responses; the harness is the surrounding system that keeps a longer task's history, tools, coordination and recovery organized.",
+    "dailyLifeConnection": "A clearly hypothetical app compares repair quotes, looks at a calendar and prepares an appointment shortlist.",
+    "surfaceJob": "September 11 report on OpenAI's September 10 Agents API public beta, with developer and evidence limits explicit.",
+    "desiredReaderFeeling": "I understand where I might encounter this and know that a finished label, connected tools and retained data each need a separate check."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies plainClarity evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is not a new button in ChatGPT",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies readerValue evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "What could the app access, what did it actually complete",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies laidiesVoice evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Imagine a future app asked to compare three repair quotes",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies engagingEnjoyable evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "compare three repair quotes, check your calendar",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies factualIntegrity evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "do not show independent reliability, adoption or a current consumer app",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies freshnessReviewability evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "public beta on September 10",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies surfaceFit evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "developer service for AI tasks that can resume",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies datedChange evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "released its Agents API in public beta on September 10",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies consequenceAndUncertainty evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "completed turn does not guarantee every tool succeeded",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies dailyLifeConnection evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "prepare an appointment shortlist",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies communicationBenchmark evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Where the app’s tools run and how the service retains session data are separate questions",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies explainBack evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A model produces each response. A harness is the surrounding software",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What does the harness add, and what does a completed turn prove?",
+        "probeResponse": "The harness keeps a longer task's history, tools, coordination and recovery organized around the model. A completed turn only says the turn ended; it does not prove every tool or outside action succeeded.",
+        "expectedEvidence": "Model, harness and result confirmation remain distinct.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies unseenTransfer evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "what record confirms the result",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A future travel app says it finished planning and booking a trip. What transfers?",
+        "probeResponse": "Check which services it could reach, open the itinerary and separately confirm any ticket or reservation with the provider.",
+        "expectedEvidence": "Access, generated output and external action remain separate.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies usefulAction evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "open the promised output and separately confirm any action that matters",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies analogyIntegrity evidence while keeping the developer release, system layers, hypothetical example, completion result and data boundary connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is an illustration, not a product available to you today",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete story avoids glossaryAccumulation; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete story avoids templateRepetition; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete story avoids decorativeAnalogy; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete story avoids referenceConfetti; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete story avoids missingMechanism; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete story avoids genericAction; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete story avoids jargonBeforeMeaning; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete story avoids disconnectedSystem; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete story avoids factlessConfidence; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete story avoids staleUnreviewableClaims; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete story avoids corporateSludge; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete story avoids joylessInstruction; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete story avoids benchmarkNameDrop; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete story avoids curiosityWithoutPayoff; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete story avoids familiarExampleWithoutTechnicalReturn; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete story avoids communicationPastiche; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete story avoids entertainmentBeforeUnderstanding; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete story avoids mechanismCompressedBehindHook; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete story avoids prematureClickBeforeMechanism; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete story avoids inflatedTakeawayEnding; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete story avoids purposeTooNarrow; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete story avoids mechanismBeforeMotivation; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete story avoids workedExampleOvertakesBookPurpose; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete story avoids technicalExplainerVoice; concrete release scope, ordinary definitions, one bounded example and exact limits remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+        "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "release-and-access",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI released its Agents API in public beta on September 10",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "openai-agents-launch"
+        ],
+        "scopeAndFreshness": "Company primary announcement establishes date and developer beta; no general-availability claim.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 10, 2026",
+            "locator": "https://openai.com/index/introducing-the-agents-api/"
+          },
+          {
+            "excerpt": "Today, we’re introducing the Agents API in public beta, bringing that same harness and infrastructure that powers Codex to developers through a simple, flexible API.",
+            "locator": "https://openai.com/index/introducing-the-agents-api/"
+          }
+        ]
+      },
+      {
+        "claimId": "managed-product-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "managed way to build software that keeps a task’s history, uses connected tools and resumes later",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "openai-agents-launch",
+          "openai-agents-overview"
+        ],
+        "scopeAndFreshness": "Plain aggregation of documented harness functions, not a reliability guarantee.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Today, we’re introducing the Agents API in public beta, bringing that same harness and infrastructure that powers Codex to developers through a simple, flexible API.",
+            "locator": "https://openai.com/index/introducing-the-agents-api/"
+          },
+          {
+            "excerpt": "OpenAI manages sessions, orchestration, context compaction, and recovery while your application provides tools and chooses its execution environment.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          },
+          {
+            "excerpt": "Running commands and code in a sandbox.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          },
+          {
+            "excerpt": "Running commands and code in a sandbox.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          }
+        ]
+      },
+      {
+        "claimId": "api-not-consumer-button",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "An API is a connection one piece of software uses to call another. This is not a new button in ChatGPT",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "openai-agents-launch",
+          "openai-agents-overview"
+        ],
+        "scopeAndFreshness": "Reader translation of developer API scope; no consumer feature claim.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Today, we’re introducing the Agents API in public beta, bringing that same harness and infrastructure that powers Codex to developers through a simple, flexible API.",
+            "locator": "https://openai.com/index/introducing-the-agents-api/"
+          },
+          {
+            "excerpt": "The Agents API gives your application access to the Codex harness through an OpenAI-managed API.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          }
+        ]
+      },
+      {
+        "claimId": "developer-availability",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says the beta is available to all developers",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "openai-agents-launch"
+        ],
+        "scopeAndFreshness": "Attributed company access statement.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Agents API is available in public beta today to all developers. There are no additional fees for using the Agents API – you simply pay for the tokens and tools your agents use, as outlined on our pricing page.",
+            "locator": "https://openai.com/index/introducing-the-agents-api/"
+          }
+        ]
+      },
+      {
+        "claimId": "vendor-evidence-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "reviewed sources are OpenAI’s announcement and current documentation. They establish the release and its stated boundaries, but do not show independent reliability, adoption or a current consumer app using it",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "openai-agents-launch",
+          "openai-agents-overview",
+          "openai-hosted-sandbox"
+        ],
+        "scopeAndFreshness": "Explicit evidence boundary across the complete submitted company sources.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Today, we’re introducing the Agents API in public beta, bringing that same harness and infrastructure that powers Codex to developers through a simple, flexible API.",
+            "locator": "https://openai.com/index/introducing-the-agents-api/"
+          },
+          {
+            "excerpt": "The Agents API gives your application access to the Codex harness through an OpenAI-managed API.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          },
+          {
+            "excerpt": "A completed turn does not guarantee every tool succeeded. If the task fails or the",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted.md"
+          }
+        ]
+      },
+      {
+        "claimId": "harness-split",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A model produces each response. A harness is the surrounding software that keeps the task history, tools, coordination and recovery organized. OpenAI manages that harness; an app maker supplies the tools and decides where the work runs",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "openai-agents-launch",
+          "openai-agents-overview"
+        ],
+        "scopeAndFreshness": "Plain model-versus-surrounding-system distinction grounded in current docs.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI hosts and maintains the harness. You choose the agent’s compute environment: in an OpenAI-managed sandbox, on your own infrastructure, or with one of our sandbox partners.",
+            "locator": "https://openai.com/index/introducing-the-agents-api/"
+          },
+          {
+            "excerpt": "OpenAI manages sessions, orchestration, context compaction, and recovery while your application provides tools and chooses its execution environment.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          },
+          {
+            "excerpt": "OpenAI manages sessions, orchestration, context compaction, and recovery while your application provides tools and chooses its execution environment.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          }
+        ]
+      },
+      {
+        "claimId": "hypothetical-example",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Imagine a future app asked to compare three repair quotes, check your calendar and prepare an appointment shortlist",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "openai-agents-overview"
+        ],
+        "scopeAndFreshness": "Clearly labelled hypothetical illustration; no current app or adoption claim.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI manages sessions, orchestration, context compaction, and recovery while your application provides tools and chooses its execution environment.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          },
+          {
+            "excerpt": "Running commands and code in a sandbox.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          }
+        ]
+      },
+      {
+        "claimId": "capability-separation",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "reading a calendar and sending a booking would be different capabilities. This is an illustration, not a product available to you today",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "openai-agents-overview"
+        ],
+        "scopeAndFreshness": "Inference from developer-provided tools, explicitly limited to an illustration.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI manages sessions, orchestration, context compaction, and recovery while your application provides tools and chooses its execution environment.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          }
+        ]
+      },
+      {
+        "claimId": "completion-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "completed turn does not guarantee every tool succeeded",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "openai-hosted-sandbox"
+        ],
+        "scopeAndFreshness": "Direct current documentation caveat; examples are illustrative possible tool results.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A completed turn does not guarantee every tool succeeded. If the task fails or the",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted.md"
+          }
+        ]
+      },
+      {
+        "claimId": "cost-boundary",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "there is no additional Agents API fee. That does not make a task free: model use, tools and an OpenAI-hosted computing workspace are billed separately",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "openai-agents-launch",
+          "openai-agents-overview",
+          "openai-hosted-sandbox"
+        ],
+        "scopeAndFreshness": "No-extra-fee statement stays separate from component charges and any consumer price.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Agents API is available in public beta today to all developers. There are no additional fees for using the Agents API – you simply pay for the tokens and tools your agents use, as outlined on our pricing page.",
+            "locator": "https://openai.com/index/introducing-the-agents-api/"
+          },
+          {
+            "excerpt": "Model usage is billed at the selected model's API rates. OpenAI tools use their standard rates, and OpenAI-hosted sandboxes use standard container rates.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          },
+          {
+            "excerpt": "OpenAI-hosted sandboxes use standard container rates.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted.md"
+          }
+        ]
+      },
+      {
+        "claimId": "retention-boundary",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "service keeps session state so work can continue later. Its current documentation lists United States data residency only and says running the work environment elsewhere does not make it a no-retention service",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "openai-agents-overview"
+        ],
+        "scopeAndFreshness": "Plain rendering of current service retention and residency boundaries; no promise about a specific app's privacy terms.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The Agents API retains session state so you can continue work across turns without",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          },
+          {
+            "excerpt": "The Agents API currently supports data residency only in the United States and",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          },
+          {
+            "excerpt": "The Agents API currently supports data residency only in the United States and",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          }
+        ]
+      },
+      {
+        "claimId": "reader-check",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "open the promised output and separately confirm any action that matters",
+            "locator": "P009"
+          }
+        ],
+        "sourceIds": [
+          "openai-hosted-sandbox",
+          "openai-agents-overview"
+        ],
+        "scopeAndFreshness": "Proportionate reader action derived from the documented completion and tool boundaries.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A completed turn does not guarantee every tool succeeded. If the task fails or the",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted.md"
+          },
+          {
+            "excerpt": "OpenAI manages sessions, orchestration, context compaction, and recovery while your application provides tools and chooses its execution environment.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          }
+        ]
+      },
+      {
+        "claimId": "better-question",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "What could the app access, what did it actually complete, and what record confirms the result?",
+            "locator": "P010"
+          }
+        ],
+        "sourceIds": [
+          "openai-hosted-sandbox",
+          "openai-agents-overview"
+        ],
+        "scopeAndFreshness": "Editorial synthesis that does not imply a specific app or interface.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source-evidence.json",
+          "sha256": "d50926bc4d6071de489b48ea87501c7fb31086ce1fe6ea22f1f383b792448511"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A completed turn does not guarantee every tool succeeded. If the task fails or the",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted.md"
+          },
+          {
+            "excerpt": "OpenAI manages sessions, orchestration, context compaction, and recovery while your application provides tools and chooses its execution environment.",
+            "locator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen the launch and current Agents API documentation if publication slips beyond September 11, the beta terms or access change, or an actual consumer deployment is named.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate reports the September 10 Agents API public beta and its current developer, completion, cost and retention boundaries."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The producer corrected one inherited contract-packet mismatch before drafting. Complete current primary documents and every atomic factual clause were then checked before independent dispatch, leaving no unresolved candidate defect."
+  },
+  "limitations": [
+    "Producer assessment only, not independent admission.",
+    "The reviewed sources are OpenAI materials; no independent reliability, adoption or downstream consumer outcome is established.",
+    "The repair-quote example is hypothetical and does not identify an available app."
+  ]
+}

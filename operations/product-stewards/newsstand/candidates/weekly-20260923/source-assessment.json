@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "newsstand-weekly-source-assessment.v1",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "publicationDate": "2026-09-25",
+  "coveredPeriod": "2026-09-16 through 2026-09-23",
+  "checkedAt": "2026-09-25T14:10:29.971Z",
+  "scope": "Selective synthesis from the dated six-desk assessment and current original-source captures. This is not a claim that all seven California laws or every development in the week was researched.",
+  "priorWeekly": {
+    "storyId": "weekly-promises-and-proof-20260916",
+    "coveredPeriod": "2026-09-09 through 2026-09-16",
+    "comparison": "The prior Weekly already covered OpenAI sponsored chats, so that item is excluded. Its central distinction was promise versus proof; this successor advances the reader question by distinguishing an order to study, enacted reporting duties, a House proposal, an attributed investigation and actual product access."
+  },
+  "selected": [
+    {
+      "id": "california-ai-oversight-order",
+      "eventDate": "2026-09-18",
+      "kind": "executive-order",
+      "reason": "Concrete oversight timetable with a widely misunderstood kill-switch headline.",
+      "sourceUrls": [
+        "https://www.gov.ca.gov/wp-content/uploads/2026/09/FINAL-N-9-26-AI-EO-9.18.26-SIGNED.pdf",
+        "https://www.eff.org/deeplinks/2026/09/eff-statement-california-governors-executive-order-ai"
+      ],
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/source-evidence.json",
+        "sha256": "fc61e68bdf074a6088a12e81518ae3cf9c37a6d3b2a190729f59aaf1e4ba4a8d"
+      }
+    },
+    {
+      "id": "california-data-centre-laws",
+      "eventDate": "2026-09-21",
+      "kind": "enacted-laws",
+      "reason": "Enacted reporting and assessment duties with direct local-infrastructure relevance, carefully limited to SB1168 and AB1577.",
+      "sourceUrls": [
+        "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+        "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168",
+        "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+      ],
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/source-evidence.json",
+        "sha256": "0ac6ca2b899364614cd55213cf72a85403d5da76b1ab9e28f9a3cf4019e6a65d"
+      }
+    },
+    {
+      "id": "house-ratepayer-protection",
+      "eventDate": "2026-09-16",
+      "kind": "legislative-proposal",
+      "reason": "Federal House-passed proposal now placed on the Senate legislative calendar, providing a contrast with enacted California laws while remaining short of Senate passage or enactment.",
+      "sourceUrls": [
+        "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm",
+        "https://clerk.house.gov/Votes/2026312",
+        "https://www.dailypress.senate.gov/"
+      ],
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/source-evidence.json",
+        "sha256": "32ea660ff3cd05dc55815ea7df3843d21b6a37b7a7b894edd23a5999e1f17969"
+      }
+    },
+    {
+      "id": "card-skimmer-investigation",
+      "eventDate": "2026-09-23",
+      "kind": "attributed-security-investigation",
+      "reason": "Direct consumer consequence with strong scope limits; attributed findings do not prove an individual shopper was exposed.",
+      "sourceUrls": [
+        "https://www.bleepingcomputer.com/news/security/malicious-ai-agents-steal-600k-credit-cards-infect-100-plus-sites-with-skimmers/",
+        "https://gambit.security/blog-posts/autonomous-ai-agents-online-retailers-25-a-company"
+      ],
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/malicious-ai-agents-card-skimmers-20260923/research-packet.json",
+        "sha256": "a5d415b4573282d26a8eb1a589cb30f0382c1795fe7ff4d7e55172ef9f157323"
+      }
+    },
+    {
+      "id": "claude-cowork-merge",
+      "eventDate": "2026-09-16",
+      "kind": "product-rollout",
+      "reason": "A familiar product change that reduces the need to choose a separate work mode, with paid-plan rollout limits.",
+      "sourceUrls": [
+        "https://claude.com/blog/cowork-is-now-claude"
+      ],
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260923/weekly-current-originals.json",
+        "sha256": "7ed366018cba1032b502e2596f97d5d461065c83093e8dad06fd4680258e599d"
+      }
+    },
+    {
+      "id": "gpt6-sol-luna",
+      "eventDate": null,
+      "dateStatus": "Original body capture does not expose a publication date; a related-link/index capture noted September 22. Public prose omits an exact day.",
+      "kind": "model-release",
+      "reason": "Current product access changed for ChatGPT Work and Codex users, including bounded Free and Go access to Luna.",
+      "sourceUrls": [
+        "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+      ],
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260923/sol-luna-original.json",
+        "sha256": "df8a0a2bd5297aa1ef0260c06002ca75585a4413f3cb6821565f666f7e8153d1"
+      }
+    }
+  ],
+  "declined": [
+    {
+      "id": "chatgpt-sponsored-agents",
+      "reason": "Already covered in the September16 Weekly; not a distinct successor-week development."
+    },
+    {
+      "id": "claude-marketplace",
+      "reason": "The verified announcement centres enterprise procurement and committed spend; it does not establish broad new individual access worth displacing the selected reader-facing changes.",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260923/marketplace-original.json",
+        "sha256": "b91c0d1cce16b2bb007787eae5e99a4210aee57597a46fefd430bdfdfd0f4957"
+      }
+    },
+    {
+      "id": "openai-misalignment-reporting",
+      "reason": "Useful context for oversight, but this synthesis already contains three governance mechanisms; adding it would crowd the Weekly rather than improve the map."
+    },
+    {
+      "id": "life-sciences-verification",
+      "reason": "Targeted researcher access was already published by LAiDIES and has less general consequence than selected developments."
+    },
+    {
+      "id": "openai-math-advisory-group",
+      "reason": "Advisory status is well bounded but less consequential this week than the enacted California duties and product releases."
+    }
+  ],
+  "inputBindings": {
+    "current": {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260923/weekly-current-originals.json",
+      "sha256": "7ed366018cba1032b502e2596f97d5d461065c83093e8dad06fd4680258e599d"
+    },
+    "assessment": {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260923/weekly-source-assessment-r2.json",
+      "sha256": "6ecd9f03e4b36e40778647244c7f0cacf0659e4a0e23efe10c7422803984e7fa"
+    },
+    "sol": {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260923/sol-luna-original.json",
+      "sha256": "df8a0a2bd5297aa1ef0260c06002ca75585a4413f3cb6821565f666f7e8153d1"
+    },
+    "market": {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260923/marketplace-original.json",
+      "sha256": "b91c0d1cce16b2bb007787eae5e99a4210aee57597a46fefd430bdfdfd0f4957"
+    },
+    "prior": {
+      "path": "content/newsstand-stories.js",
+      "sha256": "d40f1c37adf988be2ec6d6b392a50b4d372d946a816fde47d49fc59f57e3ddb3"
+    },
+    "currentFreshness": {
+      "path": "operations/product-stewards/newsstand/evidence/morning-20260925/candidate-refresh/web-source-capture.json",
+      "sha256": "610a096e89ef8e1064b9f555a59fea06d49f2a0558a0cf386322565292198439"
+    }
+  },
+  "limits": [
+    "The article covers only SB1168 and AB1577 from California’s seven-law package.",
+    "Security quantities and AI-role claims remain attributed to the investigator; no individual exposure or independently verified total is asserted.",
+    "Provider capability and reliability comparisons are vendor claims and are not used as independent proof.",
+    "H.R. 9340 was placed on the Senate legislative calendar September 24; no Senate passage or enactment is established."
+  ],
+  "status": "SOURCE_REFRESHED_FOR_2026-09-25_REVIEW"
+}

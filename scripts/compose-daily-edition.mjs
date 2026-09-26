@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { loadServiceRevisionBase } from "./newsstand-service-revision-base.mjs";
 
 // Deterministic private Daily issue composer. It assembles exact same-date
 // admitted inputs and governed empty desks; it cannot mutate public content.
@@ -176,7 +177,7 @@ export function validateDailyQuietRecovery({ root = ROOT, now = new Date().toISO
   };
 }
 
-export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding = null, servicePredecessor = null, enforceServicePredecessor = false, root = ROOT, now = new Date().toISOString() }) {
+export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding = null, servicePredecessor = null, serviceRevisionBase = null, enforceServicePredecessor = false, root = ROOT, now = new Date().toISOString() }) {
   if (!DATE.test(date || "")) reject("--date must be YYYY-MM-DD");
   const allowedReceiptPaths = [
     path.join(root, `operations/agents/aidb-intelligence-desk/daily/${date}.md`),
@@ -209,7 +210,9 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
   const eligiblePool = sameDateRecords;
   let eligible = eligiblePool.filter((record) => types.includes(record.type) && serviceEligible(record, date))
     .sort((a, b) => String(b.editionDate).localeCompare(String(a.editionDate)));
-  const predecessor = servicePredecessor ? loadServicePredecessor(servicePredecessor, { root, date, storiesRaw, columns: columnsData }) : null;
+  const revisionBase = serviceRevisionBase ? loadServiceRevisionBase(serviceRevisionBase, { root, date, sourceSha256: sha256(storiesRaw) }) : null;
+  if (revisionBase && (candidateBinding || revisionBase.raw !== storiesRaw)) reject("service revision must bind the exact current public base without a new news candidate");
+  const predecessor = servicePredecessor ? loadServicePredecessor(servicePredecessor, { root, date, ...(revisionBase ? {} : { storiesRaw }), columns: columnsData }) : null;
   for (const record of predecessor?.records || []) {
     if (!eligible.some(item => item.type === record.type)) eligible.push(record);
   }
@@ -245,9 +248,12 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
 
   const storedSameDateIssue = (issueStore.issues || []).find(issue => issue.editionDate === date && issue.status === "complete") || null;
   const historicalReplay = exactHistoricalReplay(storedSameDateIssue, storiesData, date);
-  const existingSameDateIssue = candidateBinding && storiesData.publications?.daily?.editionDate === date
+  const existingSameDateIssue = (candidateBinding || revisionBase) && storiesData.publications?.daily?.editionDate === date
     ? storedSameDateIssue
     : null;
+  if (revisionBase && (!existingSameDateIssue || existingSameDateIssue.envelopeSha256 !== serviceRevisionBase.predecessorEnvelopeSha256 ||
+      canonicalJson(existingSameDateIssue.sourceIdentity.servicePredecessor ?? null) !== canonicalJson(servicePredecessor))) reject("service revision must retain the exact admitted issue and carried-service proof");
+  if (revisionBase) exactStories = existingSameDateIssue.storyIds.map(id => exactStories.find(story => story.id === id));
   if (existingSameDateIssue) {
     const currentIssue = storiesData.publications.daily.issue;
     if (currentIssue?.status !== "complete" || canonicalJson(currentIssue.serviceRecordIds || []) !== canonicalJson(existingSameDateIssue.serviceRecordIds || []) ||
@@ -267,6 +273,10 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
       const record = columnsData.records.find(item => item.id === priorDesk.recordId);
       if (!record || !serviceEligible(record, date) || record.type !== type || record.headline !== priorDesk.headline ||
           record.summary !== priorDesk.summary || (record.destination || null) !== priorDesk.destination) reject(`same-date predecessor desk ${type} changed`);
+    }
+    if (revisionBase && priorDesk.state === "empty") {
+      const record = eligible.find(item => item.type === type && item.editionDate === date);
+      if (record) return { type, state: "ready", recordId: record.id, headline: record.headline, summary: record.summary, destination: record.destination || null };
     }
     return structuredClone(priorDesk);
   }) : types.map((type) => {
@@ -303,7 +313,7 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
       radarPath: path.relative(root, radarPath), radarSha256: sha256(radarRaw),
       storiesPath: "content/newsstand-stories.js", storiesSha256: sha256(storiesRaw),
       columnsPath: "content/daily-edition-columns.json", columnsSha256: sha256(columnsRaw), ...(dailyCoverage ? { dailyCoverage } : {}), ...(dailyRecovery ? { dailyRecovery } : {}), ...(candidateIdentity ? { ordinaryCandidate: candidateIdentity } : {}),
-      ...(servicePredecessor ? { servicePredecessor } : {})
+      ...(servicePredecessor ? { servicePredecessor } : {}), ...(serviceRevisionBase ? { serviceRevisionBase } : {})
     },
     canonicalWrite: false,
     deployActionTaken: false
@@ -331,7 +341,9 @@ function main() {
   const columnsRaw = fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"), "utf8");
   const candidateBinding = candidatePath ? { path: path.relative(ROOT, path.resolve(candidatePath)), sha256: sha256(fs.readFileSync(path.resolve(candidatePath))) } : null;
   const servicePredecessor = predecessorPath ? { path: path.relative(ROOT, path.resolve(predecessorPath)), sha256: sha256(fs.readFileSync(path.resolve(predecessorPath))) } : null;
-  const result = composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding, servicePredecessor, enforceServicePredecessor: true });
+  const revisionPath = argument("--service-revision-base", args);
+  const serviceRevisionBase = revisionPath ? { path: path.relative(ROOT, path.resolve(revisionPath)), sha256: sha256(fs.readFileSync(path.resolve(revisionPath))), predecessorEnvelopeSha256: parseStories(fs.readFileSync(path.resolve(revisionPath), "utf8")).publications?.daily?.issue?.envelopeSha256 } : null;
+  const result = composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding, servicePredecessor, serviceRevisionBase, enforceServicePredecessor: true });
   fs.mkdirSync(path.dirname(output), { recursive: true });
   if (fs.existsSync(output) && fs.readFileSync(output, "utf8") !== result.canonical) reject("private envelope already exists; use a new revision filename rather than overwrite reviewed evidence");
   if (!fs.existsSync(output)) fs.writeFileSync(output, result.canonical, { flag: "wx" });

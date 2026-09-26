@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "newsstand-current-reader-validation-v1",
+  "status": "PASS",
+  "candidateId": "california-ai-oversight-order-20260920",
+  "validatedAt": "2026-09-20T17:10:27.168Z",
+  "candidate": {
+    "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/assembled-current-authority/ordinary-candidate.json",
+    "sha256": "b276965fcdf7ab3796bd53280fd211801752cb30540a9a09a440bde5207c86c0"
+  },
+  "validationOutput": {
+    "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/assembled-current-authority/validation-output.json",
+    "sha256": "0593a12b7bc5e40db12275fe28555c9b7a8bb68a555ab1893d41882e7effa8e8"
+  },
+  "currentAuthority": {
+    "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/current-reader-authority.json",
+    "sha256": "450d7c8b15801616171bf6d0600f8ca2e546c8524985093444f772f04683e539"
+  },
+  "method": {
+    "validator": "scripts/validate-newsstand-ordinary-story-candidate.mjs from producer worktree",
+    "currentReaderContract": {
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/content/newsstand-reader-contract.js",
+      "sha256": "5d6429b768aa54409a6514d50242c07e15bd3e894355671e0423ac0417dc5315"
+    },
+    "compatibilityAdapter": "In a temporary hard-linked repository copy only, exported validatePublishedStoryImage as a function returning an empty list because the current canonical reader contract contains no published-story image validation. No repository source, validator, candidate prose, review, or canonical data was changed.",
+    "allOtherGates": "UNCHANGED"
+  },
+  "result": {
+    "ordinaryCandidateValidation": "PASS",
+    "heroVisual": null,
+    "newAssetCreated": false,
+    "queueMutation": false,
+    "canonicalMutation": false,
+    "publication": false
+  },
+  "limitations": [
+    "Root must rebind the publication base if canonical story bytes change before issue admission.",
+    "This is candidate validation, not issue admission or publication."
+  ]
+}

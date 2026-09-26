@@ -22,7 +22,7 @@ const browser=await chromium.launch({headless:true,executablePath:chrome});
 try{
   for(const width of [1280,390,320]){
     const page=await browser.newPage({viewport:{width,height:900}});const errors=[];page.on('pageerror',error=>errors.push(error.message));
-    await page.goto(origin+'/newsstand-crossword.html',{waitUntil:'networkidle'});
+    await page.goto(origin+'/newsstand-crossword.html?puzzle=puzzle-01',{waitUntil:'networkidle'});
     assert.equal(await page.locator('#cw-grid-wrap').isVisible(),width>760,`${width}: grid default follows screen size`);
     assert.equal(await page.locator('#cw-linear').isVisible(),width<=760,`${width}: phone starts with clue list`);
     const gridClues=await page.locator('.cw-clue').count();assert.equal(gridClues,10,`${width}: grid exposes every clue`);
@@ -73,5 +73,19 @@ try{
     assert.ok(ax.nodes.some(n=>n.role?.value==='button'&&n.name?.value==='Check my work'),`${width}: checking action has accessible name`);
     assert.deepEqual(errors,[],`${width}: no page errors`);await page.close();
   }
+  const archivePage=await browser.newPage({viewport:{width:390,height:900}});
+  await archivePage.route('**/content/newsstand-crosswords.js*',async route=>{
+    const response=await route.fetch(),source=await response.text();
+    await route.fulfill({response,body:source+`;window.NEWSSTAND_CROSSWORDS.puzzles.push({...JSON.parse(JSON.stringify(window.NEWSSTAND_CROSSWORDS.puzzles[0])),id:'fixture-02',number:'02',storageKey:'fixture-puzzle-02',publishedAt:'2026-09-08T00:00:00-07:00'});`});
+  });
+  await archivePage.goto(origin+'/newsstand-crossword.html?puzzle=puzzle-01',{waitUntil:'networkidle'});
+  await archivePage.locator('#cw-linear-tools').fill('TOOLS');
+  await archivePage.locator('#cw-puzzle-select').selectOption('fixture-02');await archivePage.waitForURL('**puzzle=fixture-02');
+  await archivePage.locator('#cw-linear-tools').waitFor();assert.equal(await archivePage.locator('#cw-linear-tools').inputValue(),'','different puzzle has separate answers');
+  await archivePage.locator('#cw-linear-tools').fill('T');
+  await archivePage.locator('#cw-puzzle-select').selectOption('puzzle-01');await archivePage.waitForURL('**puzzle=puzzle-01');await archivePage.locator('#cw-linear-tools').waitFor();
+  assert.equal(await archivePage.locator('#cw-linear-tools').inputValue(),'TOOLS','returning to an archived puzzle restores its own progress');
+  await archivePage.goto(origin+'/newsstand-crossword.html?puzzle=missing',{waitUntil:'networkidle'});assert.match(await archivePage.locator('#cw-status').textContent(),/unavailable/,'missing puzzle has an explicit fallback');
+  await archivePage.close();
 } finally {await browser.close();await new Promise(resolve=>server.close(resolve));}
 console.log('NEWSSTAND CROSSWORD BROWSER PASS modes=grid,clue-list widths=1280,390,320 exact_clues=10 shared_state=1');

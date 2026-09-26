@@ -99,16 +99,23 @@ function validateWeeklyEvidence(candidate,story,publicationDate,root){
   for(const source of story.sources){const bound=candidate.sources.find(item=>item.id===source.id&&item.url===source.url);if(!bound||source.accessedAt!==publicationDate||!independent.factualReview.sourceBindings?.some(item=>equal(item,bound.evidence)))fail('Weekly public source is not independently bound');readCandidateBinding(root,bound.evidence,'Weekly public source evidence')}
   return {producer,independent,claimMap};
 }
+export function validateWeeklyHeldRecord(story) {
+  const errors=[];
+  if(!story || story.edition!=='weekly' || story.status!=='hold' || story.publishedAt!==null || story.sourceApproval?.status!=='independent-review-required' || !story.id || !story.heroVisual?.src || !story.heroVisual?.alt) errors.push('Weekly story is not a held, complete Weekly candidate');
+  if(story?.bigPicture!==null || !Array.isArray(story?.predecessorStoryIds) || story.predecessorStoryIds.length || !Array.isArray(story?.successorStoryIds) || story.successorStoryIds.length) errors.push('Weekly candidate cannot use ordinary lineage or Big Picture scope');
+  if(!Array.isArray(story?.weeklyHighlights) || !story.weeklyHighlights.length || !story.front_read || !story.the_story || !story.laidies_read || !story.what_this_means) errors.push('Weekly candidate lacks complete Weekly reader fields');
+  if(/independent review and publication remain pending|(?:editorial|independent) review (?:is |remains? )?pending|publication (?:is |remains? )?pending/i.test(story?.closing_note||'')) errors.push('Weekly closing note contains private pending publication status');
+  return errors;
+}
 export function publishNewsstandWeekly({datasetRaw,candidate,producer,independent,manifest,reviewTextRaw,root=ROOT,now=new Date().toISOString(),inspectChain=inspectProseReviewChain,validateReader=reader.validate}){
   if(!candidate||candidate.schemaVersion!=='newsstand-weekly-candidate-v1'||candidate.candidateStatus!=='READY_FOR_WEEKLY_ADMISSION')fail('Weekly candidate schema/status is invalid');
   exact(candidate.publicationBase,datasetRaw,'publication base');
   const data=parseDataset(datasetRaw), story=candidate.story, date=candidate.publicationDate;
   const timing=validateWeeklyPublicationTiming({candidate,date,now,current:data.publications.weekly});
   validateWeeklySelection(candidate);
-  if(!story||story.edition!=='weekly'||story.status!=='hold'||story.publishedAt!==null||story.sourceApproval?.status!=='independent-review-required'||story.id!==candidate.candidateId||!story.heroVisual?.src||!story.heroVisual?.alt)fail('Weekly story is not a held, complete Weekly candidate');
+  const heldErrors=validateWeeklyHeldRecord(story); if(heldErrors.length)fail(heldErrors.join('; '));
+  if(story.id!==candidate.candidateId)fail('Weekly candidate identity differs from story');
   validateWeeklyBreadthAndReuse(candidate,root);
-  if(story.bigPicture!==null||!Array.isArray(story.predecessorStoryIds)||story.predecessorStoryIds.length||!Array.isArray(story.successorStoryIds)||story.successorStoryIds.length)fail('Weekly candidate cannot use ordinary lineage or Big Picture scope');
-  if(!Array.isArray(story.weeklyHighlights)||!story.weeklyHighlights.length||!story.front_read||!story.the_story||!story.laidies_read||!story.what_this_means)fail('Weekly candidate lacks complete Weekly reader fields');
   if(candidate.storySha256!==hash(stable(story))||manifest?.reviewedContentSha256!==candidate.storySha256||reviewTextRaw!==`${stable(story)}\n`||candidate.manifest?.path!==producer?.artifact?.manifest?.path||candidate.manifest?.sha256!==producer?.artifact?.manifest?.sha256||candidate.manifest?.path!==independent?.artifact?.manifest?.path||candidate.manifest?.sha256!==independent?.artifact?.manifest?.sha256||candidate.reviewText?.path!==producer?.artifact?.reviewText?.path||candidate.reviewText?.sha256!==producer?.artifact?.reviewText?.sha256||candidate.reviewText?.path!==independent?.artifact?.reviewText?.path||candidate.reviewText?.sha256!==independent?.artifact?.reviewText?.sha256)fail('manifest/review text does not bind the exact complete Weekly prose and both reviews');
   const bound=validateWeeklyEvidence(candidate,story,date,root); producer=bound.producer; independent=bound.independent;
   const policyBypass=review=>review?.policy?.mode||review?.samplingOverride||(review?.calibration?.mode && !(review?.newsEditorialReview && review.calibration.mode === "ORDINARY_NEWS_BLIND_REJECTION_V1"));

@@ -1,0 +1,29 @@
+{
+  "schema": "newsstand-current-source-preflight-receipt-v1",
+  "candidateId": "california-data-centre-laws-20260921",
+  "sourceReviewedAt": "2026-09-24T10:00:00-07:00",
+  "eventDatesPreserved": true,
+  "publicProseChanged": false,
+  "providerCalled": false,
+  "result": "PRE_REVIEW_PASS",
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-preflight-v3-current-sources-20260924/ --preflight-only",
+  "stdout": "{\"status\": \"PRE_REVIEW_PASS\", \"candidateDir\": \"operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/\", \"scope\": \"Validation-only pre-review gate; no provider request, editorial judgment, admission or publication.\"}",
+  "bindings": {
+    "sourceEvidence": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/source-evidence.json",
+      "sha256": "0ac6ca2b899364614cd55213cf72a85403d5da76b1ab9e28f9a3cf4019e6a65d"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/article.md",
+      "sha256": "23940a3bde7fc92fce7c4921aba70658a067c3cd84d669e35812dff4bd626aa9"
+    },
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/story.json",
+      "sha256": "5b5e7064eb84e5b36614bd1f2a9b81d98f18b33d8f6bd506769ce33cac6b5b20"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/review-text.json",
+      "sha256": "6a80445f025eabdd0e6a77f78a03441beb318835a6e318cbe9dbcb6acee26d51"
+    }
+  }
+}

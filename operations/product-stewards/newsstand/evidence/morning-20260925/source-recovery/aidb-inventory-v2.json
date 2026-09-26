@@ -1,0 +1,50 @@
+{
+  "schema": "aidb-edition-inventory.v2",
+  "checkedAt": "2026-09-25T14:03:14.793Z",
+  "editions": [
+    {
+      "editionDate": "2026-09-24",
+      "publishedAt": null,
+      "discoveryChannel": "website",
+      "url": "https://aidailybrief.ai/e/2026-09-24",
+      "alsoPublishedAt": [],
+      "complete": false,
+      "pendingReason": "agent.json metadata identifies a Sep24 release, but the normal edition and transcript opens returned Internal Error; index metadata cannot establish transcript SHA, exact item count or full content.",
+      "nextSourceToCheck": "Publisher website edition/transcript on a later permitted due check; do not bypass access failure.",
+      "title": "AI Agents Are Moving Into the Real World",
+      "transcriptSha256": null,
+      "itemCount": null
+    }
+  ],
+  "channelChecks": [
+    {
+      "channel": "website",
+      "url": "https://aidailybrief.ai/agent.json",
+      "checkedAt": "2026-09-25T14:03:14.793Z",
+      "status": "CHECKED",
+      "releaseUrls": [
+        "https://aidailybrief.ai/e/2026-09-24",
+        "https://aidailybrief.ai/e/2026-09-23",
+        "https://aidailybrief.ai/e/2026-09-22",
+        "https://aidailybrief.ai/e/2026-09-21",
+        "https://aidailybrief.ai/e/2026-09-20",
+        "https://aidailybrief.ai/e/2026-09-18"
+      ]
+    },
+    {
+      "channel": "podcast",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "checkedAt": "2026-09-25T14:03:14.793Z",
+      "status": "PARTIAL",
+      "releaseUrls": []
+    },
+    {
+      "channel": "newsletter",
+      "url": "https://aidailybrief.beehiiv.com/",
+      "checkedAt": "2026-09-25T14:03:14.793Z",
+      "status": "UNAVAILABLE",
+      "releaseUrls": [],
+      "reason": "Existing canonical route is NONRETRYABLE; not reopened."
+    }
+  ]
+}

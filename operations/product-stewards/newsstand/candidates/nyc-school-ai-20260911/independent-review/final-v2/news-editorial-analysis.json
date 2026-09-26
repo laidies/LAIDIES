@@ -1,0 +1,80 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "nyc-school-ai-20260911",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "90c45e1854f4f5d047299f79f6dc15cf8009c05eff0fcdf6082298125df6e79d",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can a pilot tool be 'approved' by NYC Public Schools and still not be shown to help students learn or to be free of bias?",
+      "response": "Because the approval comes from ERMA, a review that currently checks only data privacy and security. It answers the question 'does this tool protect student data?' and nothing else. NYCPS itself says it is still building the capacity to evaluate algorithmic bias, equity effects and instructional effectiveness, so those questions simply have not been tested yet — approval proves what was reviewed, not everything a parent might hope it means.",
+      "expectedEvidence": "An accurate answer must cite the current ERMA scope (privacy and security), the admitted gap (bias, equity, instructional effectiveness still being built), and the inference that a review only answers what it tested — all present in P005 and reinforced in P008.",
+      "assessment": "Pass. The article supplies every step of this causal chain in P005 in plain language, and P008 converts it into the practical habit of asking what a tool was reviewed for."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mechanism, what should the parent conclude from 'district-approved,' and what should they ask before signing?",
+      "response": "They should conclude only that the tool passed a data-privacy check — the specific question that vetting tested. It says nothing about whether the tutor's feedback is accurate, whether it treats students equitably, or whether it improves writing. Following the article's mechanism, the parent should ask three things: who will use the tool and for what (student practice, or anything touching grades or placement?), exactly what the approval review examined, and whether any evaluation of learning value or bias exists yet. The NYC policy itself doesn't apply in New Jersey, so the local district's own rules on staff decision-use also need asking.",
+      "expectedEvidence": "Correct transfer requires the purpose-limited-evaluation model from P005, the who-uses-it-for-what question from P007, and the jurisdiction limit from P003 preventing the reader from assuming NYC rules apply elsewhere.",
+      "assessment": "Pass. The article's mechanism resolves this unseen case completely and even flags the jurisdiction boundary needed to avoid over-applying the NYC rules."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The announcement date, scope, effective school year and return date form a clear causal sequence, with the boundary corrections in P003 preventing over-reading.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>New York City announced on September 2 that its public schools would pause student-facing generative AI from early-childhood programs through eighth grade for the 2026–27 school year. The family notice said students would return September 10 under the new guidance. <strong>Student-facing</strong> means software a student directly uses. <strong>Generative AI</strong> creates text, images, audio or other content from instructions.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The boundary is narrower than “AI is banned in school.” High-school students can use five approved programs in limited pilots, and all high-school students are due to complete two AI-literacy modules. Necessary assistive technology and language-access tools remain available across grades. The policy governs New York City public-school use; it does not make a nationwide rule or tell families what software they may use at home.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Student-facing and generative AI are defined at first meaningful use in P002; 'approved' is given its precise boundary in P005 before the reader could over-trust it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>New York City announced on September 2 that its public schools would pause student-facing generative AI from early-childhood programs through eighth grade for the 2026–27 school year. The family notice said students would return September 10 under the new guidance. <strong>Student-facing</strong> means software a student directly uses. <strong>Generative AI</strong> creates text, images, audio or other content from instructions.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>“Approved” also needs a boundary. NYC Public Schools says its current software-review process checks a tool’s privacy and security. The system says it is still building capacity to examine algorithmic bias, effects on equity and whether a tool actually helps instruction. Privacy approval therefore does not prove a pilot improves learning or is free of bias.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is anchored in a specific situation — a child assigned a generative-AI tool — with who-uses-it-for-what as the first question and a named contact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If a child in your family is assigned a generative-AI tool, the first useful question is who will use it and for what. The pause covers direct student use of that tool from early-childhood programs through eighth grade. Staff planning use may be allowed, but the policy keeps AI out of the consequential student decisions listed above. In high school, the current route is an approved, supervised program.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>For a specific tool, the guidance names the school principal as the contact. Concerns can also go to the school, its School Leadership Team or Community Education Council. The public survey has closed; a Technology in Schools Coalition plans to publish policy recommendations in April 2027. Until broader evaluation exists, ask what a tool was reviewed for, rather than treating “approved” as one complete safety-and-learning verdict.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal LAiDIES operating notes or process details appear; all advice (asking the principal, checking what a review tested) follows directly from the cited NYCPS guidance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If a child in your family is assigned a generative-AI tool, the first useful question is who will use it and for what. The pause covers direct student use of that tool from early-childhood programs through eighth grade. Staff planning use may be allowed, but the policy keeps AI out of the consequential student decisions listed above. In high school, the current route is an approved, supervised program.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>For a specific tool, the guidance names the school principal as the contact. Concerns can also go to the school, its School Leadership Team or Community Education Council. The public survey has closed; a Technology in Schools Coalition plans to publish policy recommendations in April 2027. Until broader evaluation exists, ask what a tool was reviewed for, rather than treating “approved” as one complete safety-and-learning verdict.</p>",
+          "locator": "P008"
+        }
+      ]
+    }
+  }
+}

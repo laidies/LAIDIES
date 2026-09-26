@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "gemini-windows-20260913",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "fcd137887aacd2393632e093bfd1871a9b383587890ab452515bdc846b8cdd8d",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why doesn't installing the Gemini Windows app mean Gemini can automatically see my screen, files or email?",
+      "response": "Because the app only changes the route into the same online service. Gemini still receives only what you explicitly give it: text you paste, an image you choose to upload, or Google apps like Gmail and Drive that you deliberately connect. On a work or school account, an administrator additionally gates whether the app works at all — so installation alone grants no new access to your content.",
+      "expectedEvidence": "P004 (same shop, new door), P006 (uploads and connections are chosen), P005 (admin enablement), P008 (explicit denial of automatic screen/file access).",
+      "assessment": "The article fully supports this causal answer; the mechanism of opt-in sharing and admin gating is stated, not merely implied."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mechanism, does the desktop version change what the assistant can access, and what should she actually check?",
+      "response": "No — a desktop app changes the route into the tool, not its permissions. The assistant still only sees what she pastes, uploads or explicitly connects, and on a company-managed account her IT administrator controls whether and how it is enabled. Instead of deleting files, she should check which account the app is signed into, review any connection prompts before accepting them, and share only material she is comfortable sending to the service.",
+      "expectedEvidence": "The route-vs-tool model (P004, P009), opt-in uploads and connections (P006), and administrator control on managed accounts (P005).",
+      "assessment": "The article's mechanism resolves this new situation completely; the transfer requires no facts beyond what the article teaches."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The dated announcement, availability scope, shortcut and practical difference from the browser are all understandable in sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>That is the practical difference from the browser: the shortcut and window are closer to the task. If you are revising a school-volunteer email, you could paste the draft and ask for a warmer version that keeps the date and request unchanged. You still check it before sending.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Managed account/administrator and connected apps gain plain meaning at first use; connecting is framed as an explicit reader choice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are grounded in a specific situation: revising a volunteer email, checking one's account before trying the app.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>That is the practical difference from the browser: the shortcut and window are closer to the task. If you are revising a school-volunteer email, you could paste the draft and ask for a warmer version that keeps the date and request unchanged. You still check it before sending.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>If browser Gemini already suits you, nothing requires a switch. Try the app if the shortcut would make a small drafting or brainstorming task easier to start. Before you do, check the account you are using and decide what information you want to upload or connect.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes; advice (check the account, read what you connect) is proportionate and traceable to sourced conditions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If browser Gemini already suits you, nothing requires a switch. Try the app if the shortcut would make a small drafting or brainstorming task easier to start. Before you do, check the account you are using and decide what information you want to upload or connect.</p>",
+          "locator": "P007"
+        }
+      ]
+    }
+  }
+}

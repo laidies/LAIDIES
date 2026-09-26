@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import assert from "node:assert/strict";
+import selection from "../content/newsstand-selection.js";
 import childProcess from "node:child_process";
 import fs from "node:fs";
 import http from "node:http";
@@ -18,6 +19,7 @@ const READER_SCALE_ONLY = process.argv.includes("--reader-scale-only");
 const TOWN_LAYOUT = process.argv.includes('--town-layout-only');
 const CALIBRATE_TOWN = process.argv.includes('--calibrate-town-layout');
 const ZOOM = process.argv.includes('--zoom-200');
+const MEASUREMENT_BROWSER = process.argv.includes('--measurement-browser');
 const FIXTURE_ROOT = process.env.NEWSSTAND_TEST_FIXTURE_ROOT;
 const inputFile = relative => FIXTURE_ROOT && fs.existsSync(path.join(FIXTURE_ROOT,relative)) ? path.join(FIXTURE_ROOT,relative) : path.join(ROOT,relative);
 const dataContext = { window: {} };
@@ -28,9 +30,30 @@ const ISSUE_STORE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-dail
 const LATEST_ISSUE_REVIEW = Math.max(...ISSUE_STORE.issues.map(item => Date.parse(item.admission?.reviewedAt || 0)).filter(Number.isFinite));
 const FIXED_NOW = (TOWN_LAYOUT || CALIBRATE_TOWN) ? '2026-09-07T17:00:00Z' : new Date(Math.max(Date.parse(`${DATE}T17:00:00Z`), Date.parse(DATA.lastCheckedAt) + 60000, LATEST_ISSUE_REVIEW + 60000)).toISOString();
 const ISSUE = ISSUE_STORE.issues.find(item => item.editionDate === DATE);
+const puzzleContext = { window: {} };
+vm.runInNewContext(fs.readFileSync(inputFile('content/newsstand-crosswords.js'), 'utf8'), puzzleContext);
+const latestPuzzle = puzzleContext.window.NEWSSTAND_CROSSWORDS.puzzles
+  .filter(p => p.status === 'published' && Date.parse(p.publishedAt) <= Date.parse(FIXED_NOW))
+  .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))[0];
+assert.ok(latestPuzzle, 'Published puzzle required for crossword journey');
+const expectedPuzzleCells = new Set(latestPuzzle.words.flatMap(word => [...word.answer].map((_, i) =>
+  `${word.row + (word.dir === 'down' ? i : 0)}:${word.col + (word.dir === 'across' ? i : 0)}`))).size;
+
 const ISSUE_DAILY = (ISSUE?.storyIds || []).map(id => DATA.stories.find(story => story.id === id)).filter(Boolean);
 const FRONT = DATA.stories.find(item => item.id === DATA.publications.daily.issue.frontPaigeStoryId);
-const CURRENT_DAILY = DATA.stories.find(item => item.id === DATA.publications.daily.issue.storyIds[0]);
+// Select the current edition editorial lead; upload order must not decide prominence.
+const CURRENT_DAILY = (DATA.publications.daily.issue.storyIds || [])
+  .map(id => DATA.stories.find(item => item.id === id)).filter(Boolean)
+  .sort(selection.compare)[0];
+// A service-only edition still needs to exercise a real, admitted news reader.
+const READER_DAILY = CURRENT_DAILY || DATA.stories.filter(item => item.edition === 'daily' &&
+  ['published', 'corrected'].includes(item.status) && item.sourceApproval?.status === 'approved' && item.id !== FRONT.id)
+  .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)))[0];
+assert.ok(READER_DAILY, 'An admitted news story is required for the reader regression journey');
+const READER_ISSUE = ISSUE_STORE.issues.find(item => (item.storyIds || []).includes(READER_DAILY.id));
+assert.ok(READER_ISSUE, 'The admitted reader story must retain its dated issue identity');
+const LEARNING_STORY = DATA.stories.find(story => /href=["']\/?library\.html(?:#|["'])/.test(story.class_notes || ""));
+assert.ok(LEARNING_STORY, 'A NewsStand story with an approved Library class-note route is required for measurement coverage');
 const BIG_PICTURE = DATA.stories.filter(item => item.edition==='big-picture'&&['published','corrected'].includes(item.status)&&item.sourceApproval?.status==='approved').sort((a,b)=>String(b.updatedAt).localeCompare(String(a.updatedAt)))[0];
 const ARCHIVE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-archive-index.json'), 'utf8'));
 const readerContractContext = { module: { exports: {} } };
@@ -74,17 +97,27 @@ if (!fs.existsSync(CHROME)) {
 
 function mime(file) {
   return ({
-    ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8",
+    ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8",
     ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8",
     ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".mp3": "audio/mpeg"
   })[path.extname(file)] || "application/octet-stream";
 }
 
 const fixedClock = `<script>(()=>{const NativeDate=Date;const fixed=${JSON.stringify(FIXED_NOW)};function FixedDate(...args){if(!(this instanceof FixedDate))return new NativeDate(fixed).toString();return new NativeDate(...(args.length?args:[fixed]));}FixedDate.prototype=NativeDate.prototype;Object.setPrototypeOf(FixedDate,NativeDate);FixedDate.now=()=>new NativeDate(fixed).getTime();window.Date=FixedDate;})();</script>`;
+const measurementRequests = [];
 const server = http.createServer((request, response) => {
   const requestUrl = new URL(request.url, "http://127.0.0.1");
   const relative = requestUrl.pathname === "/" ? "newsstand.html" : requestUrl.pathname.replace(/^\/+/, "");
   const file = path.resolve(inputFile(relative));
+  if (MEASUREMENT_BROWSER && requestUrl.pathname === "/__measurement-event") {
+    let body = "";
+    request.on("data", chunk => { body += chunk; });
+    request.on("end", () => {
+      measurementRequests.push({ headers: request.headers, body });
+      response.writeHead(202); response.end();
+    });
+    return;
+  }
   if (!(file.startsWith(ROOT + path.sep) || FIXTURE_ROOT && file.startsWith(FIXTURE_ROOT + path.sep)) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
     response.writeHead(404); response.end("Not found"); return;
   }
@@ -110,6 +143,12 @@ const server = http.createServer((request, response) => {
       "state.lastPublication = {",
       "state.lastVisit = {"
     );
+    response.writeHead(200, { "content-type": "text/javascript; charset=utf-8" }); response.end(body); return;
+  }
+  if (MEASUREMENT_BROWSER && requestUrl.pathname === "/content/site/newsstand-measurement-v1.mjs") {
+    const body = fs.readFileSync(file, "utf8")
+      .replace('const ENDPOINT = "https://plausible.io/api/event";', 'const ENDPOINT = "/__measurement-event";')
+      .replace('return Boolean(locationLike && locationLike.protocol === "https:" && locationLike.hostname === "laidies.ai");', 'return Boolean(locationLike);');
     response.writeHead(200, { "content-type": "text/javascript; charset=utf-8" }); response.end(body); return;
   }
   response.writeHead(200, { "content-type": mime(file) }); fs.createReadStream(file).pipe(response);
@@ -139,7 +178,7 @@ chrome.stderr.on("data", (chunk) => {
   if (match) devtoolsResolve(match[1]);
 });
 chrome.once("error", devtoolsReject);
-const timeout = setTimeout(() => devtoolsReject(new Error("Chrome DevTools did not start")), 10000);
+const timeout = setTimeout(() => devtoolsReject(new Error("Chrome DevTools did not start within 30 seconds: " + stderr.slice(-1500))), 30000);
 let devtoolsEndpoint;
 
 function connect(url) {
@@ -207,7 +246,14 @@ function check(actual, expected, label) { assert.deepEqual(actual, expected, lab
 try {
   devtoolsEndpoint = await devtoolsPromise; clearTimeout(timeout);
   const desktop = await openPage("/newsstand.html");
-  if (TOWN_LAYOUT || CALIBRATE_TOWN) {
+  if (process.argv.includes('--publication-selector-only')) {
+    check(await value(desktop, "document.getElementById('ns-title').textContent"), 'Choose a paper', 'selector reuses existing truthful label');
+    check(await value(desktop, "document.getElementById('ns-state-detail').textContent"), '', 'aggregate check date is not claimed as publication date');
+    check(await value(desktop, "document.getElementById('ns-system-status').textContent"), '', 'live region makes no false freshness claim');
+    check(await value(desktop, "document.querySelector('.ns-state__primary').getAttribute('aria-label') || document.querySelector('.ns-state__primary').textContent.trim()"), DATA.publications.weekly.status === 'quiet' ? 'Open today’s paper' : 'Choose a paper', 'selector control keeps existing state-dependent accessible name');
+    console.log('PUBLICATION SELECTOR PASS ' + checks + ' assertions; fixture Weekly status=' + DATA.publications.weekly.status);
+    desktop.close();
+  } else if (TOWN_LAYOUT || CALIBRATE_TOWN) {
     const expression = `(() => {
       const grid = document.querySelector('.ns-feature-desk__grid--town');
       const item = grid.querySelector('[data-desk="did_you_know"]');
@@ -249,7 +295,7 @@ try {
     desktop.close();
   } else if (READER_SCALE_ONLY) {
     const routes = [
-      { label: 'Daily', slug: CURRENT_DAILY.slug },
+      { label: 'Daily', slug: READER_DAILY.slug },
       { label: 'Big Picture', slug: BIG_PICTURE.slug }
     ];
     for (const route of routes) {
@@ -259,7 +305,7 @@ try {
       page.close();
     }
     for (const width of [390, 320]) {
-      const page = await openPage(`/newsstand.html#${CURRENT_DAILY.slug}`, { width, height: 844 });
+      const page = await openPage(`/newsstand.html#${READER_DAILY.slug}`, { width, height: 844 });
       const metrics = await value(page, readerScaleExpression);
       check(metrics.pass, true, `${width}: Daily uses compact newspaper scale (${JSON.stringify(metrics)})`);
       page.close();
@@ -291,6 +337,43 @@ try {
     console.log("NEWSSTAND BROWSER CALIBRATION PASS known-bad missing one-newspaper surface rejected");
     desktop.close();
     process.exitCode = 0;
+  } else if (MEASUREMENT_BROWSER) {
+    for (let attempt = 0; attempt < 40; attempt += 1) {
+      if (await value(desktop, "!!window.NewsStandMeasurement")) break;
+      await sleep(50);
+    }
+    check(await value(desktop, "!!window.NewsStandMeasurement"), true, "measurement module loads with an executable module MIME type");
+    check(measurementRequests.length, 0, "initial non-story view emits no outcome");
+    await act(desktop, "document.querySelector('[data-open-edition=weekly]').removeAttribute('data-lead-slug');document.querySelector('[data-open-edition=weekly]').click()");
+    for (let attempt = 0; attempt < 40 && measurementRequests.length < 1; attempt += 1) await sleep(50);
+    check(measurementRequests.length, 1, "explicit paper action reaches the intercepted local transport");
+    const paperRequest = measurementRequests[0];
+    check(JSON.parse(paperRequest.body), { name: "NewsStand paper available", url: "https://laidies.ai/newsstand", domain: "wearelaidies.com" }, "paper event has only its fixed Plausible payload");
+    check(paperRequest.headers["content-type"].startsWith("text/plain"), true, "browser transport uses simple text/plain content type");
+    check(Object.hasOwn(paperRequest.headers, "referer"), false, "browser transport suppresses HTTP referrer");
+    const beforeStory = measurementRequests.length;
+    await act(desktop, `location.hash = ${JSON.stringify(LEARNING_STORY.slug)}`);
+    for (let attempt = 0; attempt < 40 && measurementRequests.length < beforeStory + 1; attempt += 1) await sleep(50);
+    check(measurementRequests.length, beforeStory + 1, "new direct story route emits one rendered-story outcome");
+    const learningLink = `document.querySelector('.ns-article__notes a[href^="/library.html"]')`;
+    check(await value(desktop, `!!${learningLink}`), true, "approved Library class-note route is rendered");
+    const beforeLearning = measurementRequests.length;
+    await act(desktop, `${learningLink}.addEventListener('click', event => event.preventDefault(), { once: true });${learningLink}.click()`);
+    for (let attempt = 0; attempt < 40 && measurementRequests.length < beforeLearning + 1; attempt += 1) await sleep(50);
+    check(measurementRequests.length, beforeLearning + 1, "approved Library class-note activation emits learning outcome");
+    check(JSON.parse(measurementRequests.at(-1).body).name, "NewsStand learning opened", "learning activation cannot expose the destination");
+    const beforeNonLearning = measurementRequests.length;
+    await act(desktop, "document.querySelector('.ns-article__notes').insertAdjacentHTML('beforeend', '<a id=ns-not-learning href=/issues/issue-03.html>Episode</a>');document.querySelector('#ns-not-learning').addEventListener('click', event => event.preventDefault(), { once: true });document.querySelector('#ns-not-learning').click()");
+    await sleep(250);
+    check(measurementRequests.length, beforeNonLearning, "non-Library class-note route does not emit a learning outcome");
+    await act(desktop, "history.back()");
+    await sleep(250);
+    const beforeRestoredStory = measurementRequests.length;
+    await act(desktop, "history.forward()");
+    await sleep(350);
+    check(measurementRequests.length, beforeRestoredStory, "restored hash history does not re-emit story or learning outcomes");
+    console.log(`NEWSSTAND MEASUREMENT BROWSER PASS checks=${checks} intercepted=${measurementRequests.length} explicit-paper/library/history`);
+    desktop.close();
   } else {
     check(await value(desktop, "({contract:typeof window.NewsstandContract,data:!!window.NEWSSTAND_DATA,contractScript:Array.from(document.scripts).find((item)=>item.src.includes('newsstand-reader-contract'))?.src||null})"), { contract: "object", data: true, contractScript: new URL(CONTRACT_SRC, siteOrigin + '/').href }, "reader contract and canonical dataset load before interaction");
     check(await value(desktop, "window.NewsstandContract.validate(window.NEWSSTAND_DATA)"), [], "canonical browser dataset satisfies the reader contract");
@@ -314,18 +397,33 @@ try {
     check(await value(currentPreview, "document.querySelector('.ns-front-desk--lead .ns-publication__headline').textContent"), FRONT.headline, "history renderer preserves the canonical Front PAiGE headline");
     check(await value(currentPreview, "document.querySelector('.ns-front-desk--lead [data-status-for=daily]').textContent"), 'Published ' + new Date(FRONT.publishedAt).toLocaleDateString('en-US', {month:'long',day:'numeric',year:'numeric',timeZone:'America/Vancouver'}), "carried-forward Front PAiGE keeps its original publication date");
     check(await value(currentPreview, "!document.querySelector('.ns-miss-jeeves') && !document.querySelector('.ns-concept-week')"), true, "held features cannot bypass service admission through static markup");
-    check(await value(currentPreview, "document.querySelectorAll('[data-secondary-for=daily] article').length"), Math.min(3, EXPECTED_LATEST), "only admitted stories from the latest five-day window populate the Latest rail");
-    check(await value(currentPreview, `(() => {
-      const link = document.querySelector('[data-secondary-for=daily] article a[href="#${CURRENT_DAILY.slug}"]');
-      const image = link && link.querySelector('img');
-      return !!link && link.textContent.includes(${JSON.stringify(CURRENT_DAILY.headline)}) &&
-        !!image && image.complete && image.naturalWidth > 0;
-    })()`), true, "current daily story appears in Latest with its loaded illustration");
+    check(await value(currentPreview, "document.querySelectorAll('[data-secondary-for=daily] article').length"), EXPECTED_LATEST, "all admitted stories from the latest five-day window remain discoverable in the Latest rail");
+    if (EXPECTED_LATEST > 3) {
+      check(await value(currentPreview, "document.querySelector('.ns-latest-more').open"), false, "older recent stories start compact");
+      await act(currentPreview, "document.querySelector('.ns-latest-more summary').click()");
+      check(await value(currentPreview, "document.querySelector('.ns-latest-more').open"), true, "summary opens more recent stories");
+      await act(currentPreview, "Promise.all([...document.querySelectorAll('[data-secondary-for=daily] img')].map(image => { image.loading = 'eager'; return image.decode(); }))");
+    }
+    const readerIsRecent = readerContract.withinRecentCalendarDays(READER_DAILY.publishedAt, FIXED_NOW, 5, DATA.publications.daily.editorialTimeZone || 'America/Vancouver');
+    if (readerIsRecent) {
+      check(await value(currentPreview, `(() => {
+        const link = document.querySelector('[data-secondary-for=daily] article a[href="#${READER_DAILY.slug}"]');
+        const image = link && link.querySelector('img');
+        return !!link && link.textContent.includes(${JSON.stringify(READER_DAILY.headline)}) &&
+          !!image && image.complete && image.naturalWidth > 0;
+      })()`), true, "recent admitted daily story appears in Latest with its loaded illustration");
+    } else {
+      check(await value(currentPreview, `!document.querySelector('[data-secondary-for=daily] article a[href="#${READER_DAILY.slug}"]')`), true, "older admitted story is not relabelled as Latest after the five-day window");
+      check(ARCHIVE.items.some(item => item.kind === 'story' && item.id === `story:${READER_DAILY.id}` &&
+        item.slug === READER_DAILY.slug && item.headline === READER_DAILY.headline &&
+        item.publishedAt === READER_DAILY.publishedAt && item.editionDate === READER_ISSUE.editionDate), true,
+      "older admitted story retains its exact identity and publication date in the archive");
+    }
     check(await value(currentPreview, `(() => ${JSON.stringify(ISSUE_DAILY.map(story => ({ slug: story.slug, headline: story.headline })))}.every(story => {
       const link = document.querySelector('[data-secondary-for=daily] article a[href="#' + story.slug + '"]');
       const image = link && link.querySelector('img');
-      return !!link && link.textContent.includes(story.headline) && !!image && image.complete && image.naturalWidth > 0;
-    }))()`), true, "every story in the admitted current issue appears in Latest with its loaded illustration");
+      return !!link && link.textContent.includes(story.headline) && (!image || image.complete && image.naturalWidth > 0);
+    }))()`), true, "every admitted current story remains linked and any distinct illustration loads");
     check(await value(currentPreview, `(() => {
       const lead = document.querySelector('.ns-front-desk--lead .ns-publication__headline').textContent;
       const secondary = Array.from(document.querySelectorAll('[data-secondary-for=daily] article strong'), node => node.textContent);
@@ -336,10 +434,10 @@ try {
       const normalize = value => value.replace(/[.?!]+$/,'');
       const sectionText = normalize(section.textContent);
       const visibleReady = section.querySelectorAll('[data-desk][data-desk-state=ready]').length;
-      return {valid: visibleReady >= ${READY.length} &&
-        ${JSON.stringify(READY.map(desk => desk.headline))}.every(headline => sectionText.includes(normalize(headline))),
+      return {valid: visibleReady >= ${FRONT_READY.length} &&
+        ${JSON.stringify(FRONT_READY.map(desk => desk.headline))}.every(headline => sectionText.includes(normalize(headline))),
         ready: visibleReady,
-        missing: ${JSON.stringify(READY.map(desk => desk.headline))}.filter(headline => !sectionText.includes(normalize(headline))),
+        missing: ${JSON.stringify(FRONT_READY.map(desk => desk.headline))}.filter(headline => !sectionText.includes(normalize(headline))),
         failure: window.__newsstandDailyIssueValidationFailure || window.__newsstandDailyIssueError || null};
     })()`);
     check(serviceRender.valid, true, `exact admitted current service desks are populated (${JSON.stringify(serviceRender)})`);
@@ -354,13 +452,59 @@ try {
     check(await value(currentPreview, `!!document.querySelector('.ns-article') && !document.querySelector('.ns-daily-issue') && location.hash === ${JSON.stringify('#' + FRONT.slug)}`), true, "Front PAiGE opens its full admitted story in one action");
     currentPreview.close();
 
-    const currentDaily = await openPage(`/newsstand.html#${CURRENT_DAILY.slug}`);
-    check(await value(currentDaily, `(() => {
+    const fullDaily = await openPage(`/newsstand.html?daily=${DATE}`, { selector: '.ns-daily-desk' });
+    const dailyServicesExpression = `(() => {
+      const cards = [...document.querySelectorAll('.ns-daily-desk')];
+      return cards.length === ${READY.length} && ${JSON.stringify(READY.map(desk => desk.headline))}.every(headline =>
+        cards.some(card => card.textContent.includes(headline) && card.getBoundingClientRect().height > 0));
+    })()`;
+    check(await value(fullDaily, dailyServicesExpression), true, 'complete Daily exposes every admitted service including the activity');
+    const dailyHeadingsExpression = `(() => {
+      const headings = [...document.querySelectorAll('.ns-daily-issue h2, .ns-daily-news h3, .ns-daily-desk h3')];
+      return headings.length >= 3 && headings.every(node => {
+        const style = getComputedStyle(node);
+        return style.textTransform === 'none' && style.fontFamily.includes('Jost') && Number(style.fontWeight) >= 700 && parseFloat(style.fontSize) <= 40;
+      });
+    })()`;
+    check(await value(fullDaily, dailyHeadingsExpression), true, 'Daily masthead, lead and service headings retain compact sentence-case brand typography');
+    if (CURRENT_DAILY) {
+      check(await value(fullDaily, "document.querySelector('.ns-daily-news > a').getAttribute('href')"), '#' + CURRENT_DAILY.slug, 'current Daily lead follows editorial selection');
+      check(await value(fullDaily, `(() => { const link = document.querySelector('.ns-daily-news > a'); return !!link && parseFloat(getComputedStyle(link).borderTopWidth) >= 2 && link.getBoundingClientRect().height >= 44; })()`), true, 'Daily lead reading action uses the same boxed control as service columns');
+    } else {
+      const emptyLeadExpression = `!document.querySelector('.ns-daily-news > a') && document.querySelector('.ns-daily-news').textContent.includes('No lead story was published in this edition.')`;
+      check(await value(fullDaily, emptyLeadExpression), true, 'service-only Daily truthfully has no new lead action');
+      await act(fullDaily, "document.querySelector('.ns-daily-news').insertAdjacentHTML('beforeend', '<a id=bad-lead href=#invented>Read invented lead</a>')");
+      check(await value(fullDaily, emptyLeadExpression), false, 'calibration: invented lead in a service-only edition is rejected');
+      await act(fullDaily, "document.querySelector('#bad-lead').remove()");
+    }
+    await act(fullDaily, "document.querySelector('.ns-daily-news h3').style.textTransform = 'uppercase'");
+    check(await value(fullDaily, dailyHeadingsExpression), false, 'calibration: old uppercase Daily lead is rejected');
+    await act(fullDaily, "document.querySelector('.ns-daily-news h3').style.removeProperty('text-transform')");
+    await act(fullDaily, "document.querySelector('.ns-daily-desk').remove()");
+    check(await value(fullDaily, dailyServicesExpression), false, 'calibration: missing service card is rejected');
+    fullDaily.close();
+
+    const currentDaily = await openPage(`/newsstand.html#${READER_DAILY.slug}`);
+    const sourceLinksExpression = `(() => {
       const article = document.querySelector('.ns-article');
-      return !!article && document.querySelector('#ns-story-title').textContent === ${JSON.stringify(CURRENT_DAILY.headline)} &&
-        article.textContent.includes('What This Means For You') &&
-        article.querySelectorAll('.ns-article__sources a[href^="https://"]').length >= 2;
-    })()`), true, "current daily story opens directly with reader consequence and source links");
+      const expected = ${JSON.stringify(READER_DAILY.sources.map(source => source.url))};
+      const actual = [...(article?.querySelectorAll('.ns-article__sources a[href^="https://"]') || [])].map(link => link.href);
+      return !!article && document.querySelector('#ns-story-title').textContent === ${JSON.stringify(READER_DAILY.headline)} &&
+        article.textContent.includes('What This Means For You') && expected.length > 0 &&
+        expected.every(url => actual.includes(url));
+    })()`;
+    check(await value(currentDaily, sourceLinksExpression), true, "current daily story opens directly with reader consequence and all admitted source links");
+    await act(currentDaily, "window.nsSourceLink = document.querySelector('.ns-article__sources a[href^=\"https://\"]'); window.nsSourceHref = window.nsSourceLink.href; window.nsSourceLink.href = '#missing-source';");
+    check(await value(currentDaily, sourceLinksExpression), false, 'calibration: missing admitted source link is rejected');
+    await act(currentDaily, 'window.nsSourceLink.href = window.nsSourceHref');
+    await act(currentDaily, "(() => { const hero = document.querySelector('.ns-article__hero img, img.ns-article__hero'); if (hero) { hero.loading = 'eager'; return hero.decode(); } })()");
+    const approvedHeroExpression = `(() => {
+      const hero = document.querySelector('.ns-article__hero img, img.ns-article__hero');
+      return ${JSON.stringify(READER_DAILY.heroVisual || null)} ? !!hero &&
+        new URL(hero.src, location.href).pathname === ${JSON.stringify(READER_DAILY.heroVisual?.src || '')} &&
+        hero.complete && hero.naturalWidth > 0 : !hero;
+    })()`;
+    check(await value(currentDaily, approvedHeroExpression), true, 'current approved artwork survives immutable Daily snapshot reconciliation');
     const currentDailyScale = await value(currentDaily, readerScaleExpression);
     check(currentDailyScale.pass, true, `current Daily story uses compact newspaper scale (${JSON.stringify(currentDailyScale)})`);
     currentDaily.close();
@@ -376,7 +520,7 @@ try {
         const article = document.querySelector('.ns-article');
         return !!article && document.querySelector('#ns-story-title').textContent === ${JSON.stringify(story.headline)} &&
           article.textContent.includes('What This Means For You') &&
-          article.querySelectorAll('.ns-article__sources a[href^="https://"]').length >= 2 &&
+          ${JSON.stringify(story.sources.map(source => source.url))}.every(url => [...article.querySelectorAll('.ns-article__sources a[href^="https://"]')].some(link => link.href === url)) &&
           !!article.querySelector('.ns-article__hero img');
       })()`), true, `admitted issue story ${story.id} opens directly with its image, explanation and source links`);
       articlePage.close();
@@ -478,8 +622,27 @@ try {
       mobile.close();
     }
 
+    if (process.env.NEWSSTAND_RELEVANCE_SHOTS) {
+      fs.mkdirSync(process.env.NEWSSTAND_RELEVANCE_SHOTS, { recursive: true });
+      for (const width of [1440, 800, 390, 320]) {
+        const ranked = await openPage('/newsstand.html', { width, height: 1000 });
+        await act(ranked, "document.querySelector('[data-secondary-for=daily]').scrollIntoView({block:'start'})");
+        check(await value(ranked, "JSON.stringify([...document.querySelectorAll('[data-secondary-for=daily] > article a')].map(a=>a.getAttribute('href')))"),
+          JSON.stringify(['#amodei-ai-pacing-20260912','#microsoft-capacity-20260912','#nvidia-groq-inquiry-20260912']), `${width}: three priority stories visible before expansion`);
+        check(await value(ranked, "!!document.querySelector('[data-secondary-for=daily] details a[href=\"#honeybook-plugin-20260912\"]')"), true, `${width}: niche article retained in more stories`);
+        check(await value(ranked, "document.documentElement.scrollWidth <= innerWidth"), true, `${width}: ranked preview stays within viewport`);
+        check(await value(ranked, "[...document.images].some(i=>i.src.includes('latest-anthropic-agentic-incidents-20260902.png'))"), false, `${width}: rejected artwork absent`);
+        await act(ranked, "Promise.all([...document.querySelectorAll('[data-secondary-for=daily] > article img')].map(i=>{i.loading='eager';return i.decode()}))");
+        const shot = await ranked.call('Page.captureScreenshot', {format:'png',captureBeyondViewport:false});
+        fs.writeFileSync(path.join(process.env.NEWSSTAND_RELEVANCE_SHOTS, `front-${width}.png`), Buffer.from(shot.data,'base64'));
+        await act(ranked, "document.querySelector('[data-secondary-for=daily] > article a').click()");
+        check(await value(ranked, "document.querySelector('#ns-story-title').textContent"), DATA.stories.find(s=>s.id==='amodei-ai-pacing-20260912').headline, `${width}: top story opens exact article`);
+        ranked.close();
+      }
+    }
+
     const crossword = await openPage("/newsstand-crossword.html", { width: 390, height: 844, selector: "#cw-grid" });
-    check(await value(crossword, "document.querySelectorAll('.cw-cell input').length"), 49, "crossword playable cells render");
+    check(await value(crossword, "document.querySelectorAll('.cw-cell input').length"), expectedPuzzleCells, "current published crossword playable cells render");
     check(await value(crossword, "document.documentElement.scrollWidth <= window.innerWidth"), true, "crossword page has no document overflow");
     await act(crossword, "document.querySelector('#cw-reveal').click()");
     check(await value(crossword, "document.querySelector('#cw-status').textContent.includes('Puzzle revealed')"), true, "crossword reveal works");

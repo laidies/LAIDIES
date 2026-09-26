@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "laidies-newsstand-independent-sweep.v1",
+  "checkedAt": "2026-09-13T23:04:32Z",
+  "tier": "TIER_2",
+  "scope": "Independent scheduled source recovery only. No publication, shared-record, candidate, source-cursor, or public-site mutation.",
+  "observationWindow": {
+    "since": "2026-09-13T20:06:13.508209+00:00",
+    "through": "2026-09-13T23:04:32Z"
+  },
+  "method": "Normal source opens; AP full reporting obtained by the research lane through its recorded normal web search, not a successful direct page open. Root direct AP open failed with a non-retryable safety error. Root inspected the complete saved search-result body.",
+  "sourceChecks": [
+    {
+      "sourceId": "ap-ai-hub",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "role": "INDEPENDENT_REPORTING",
+      "status": "CHECKED",
+      "fullVsTeaser": "INDEX_ACCESSIBLE",
+      "changeSince1300": "September13 Trump lead remains in index. Full reporting was subsequently captured from a normal search result by the research lane; direct page access did not recover.",
+      "relatedCapture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-captures/source-access-summary.json",
+      "checkedAt": "2026-09-13T23:04:32Z",
+      "timestampMeaning": "Research lane observation completion time; per-request time not separately retained."
+    },
+    {
+      "sourceId": "ap-trump-remarks-20260913",
+      "url": "https://apnews.com/article/trump-artificial-intelligence-guardrails-china-midterms-congress-9df0ebb4c1b0619aa0f88057b5a1092d",
+      "role": "INDEPENDENT_REPORTING",
+      "status": "FULL_SOURCE_RECOVERED",
+      "fullVsTeaser": "FULL_REPORTING_TEXT",
+      "changeSince1300": "This resolves the source-access part of the Trump candidate hold. It supplies attributable reporting of remarks and limited policy context, but not proof of a broad absence of safeguards or of future policy outcomes.",
+      "eventDisposition": "EXISTING_HELD_CANDIDATE_SOURCE_RECOVERED",
+      "existingCoverageCheck": "No matching published Trump-remarks story found in the checked public-story inventory; the accessible article also mentions Coxon, whose separate resignation/warning event is already published and must not be duplicated.",
+      "relatedCapture": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/source-snapshots/ap-search-full-result-turn655news0.txt",
+      "checkedAt": "2026-09-13T23:04:32Z",
+      "timestampMeaning": "Research lane observation completion time; per-request time not separately retained.",
+      "method": "normal web search",
+      "query": "site:https://apnews.com/article/trump-artificial-intelligence-guardrails-china-midterms-congress-9df0ebb4c1b0619aa0f88057b5a1092d",
+      "toolReference": "turn655news0",
+      "captureSha256": "2267896f6909afcf7887a722d8cecc1663eaeed83bd536e809b9ab72de7438c7"
+    },
+    {
+      "sourceId": "reuters-ai-index",
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "role": "INDEPENDENT_REPORTING",
+      "status": "BLOCKED",
+      "fullVsTeaser": "INTERNAL_ERROR_NO_CONTENT",
+      "changeSince1300": "Still inaccessible through normal open; no no-news conclusion.",
+      "missingInput": "Accessible Reuters index or article text.",
+      "nextCheckAt": "2026-09-14T03:00:00Z",
+      "checkedAt": "2026-09-13T23:04:32Z",
+      "timestampMeaning": "Research lane observation completion time; per-request time not separately retained."
+    },
+    {
+      "sourceId": "nature-machine-learning-index",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "role": "RESEARCH",
+      "status": "CHECKED",
+      "fullVsTeaser": "INDEX_ACCESSIBLE",
+      "changeSince1300": "No newly identified material beyond the September 10 entries already reconciled at 13:00.",
+      "eventDisposition": "UNCHANGED_OR_ALREADY_COVERED",
+      "checkedAt": "2026-09-13T23:04:32Z",
+      "timestampMeaning": "Research lane observation completion time; per-request time not separately retained."
+    },
+    {
+      "sourceId": "nature-s41586-026-11001-9",
+      "url": "https://www.nature.com/articles/s41586-026-11001-9",
+      "role": "RESEARCH",
+      "status": "BLOCKED",
+      "fullVsTeaser": "INTERNAL_ERROR_NO_FULL_TEXT",
+      "changeSince1300": "No recovery.",
+      "missingInput": "Full methods/results and independent expert interpretation for ProteinTalks.",
+      "nextCheckAt": "2026-09-14T03:00:00Z",
+      "checkedAt": "2026-09-13T23:04:32Z",
+      "timestampMeaning": "Research lane observation completion time; per-request time not separately retained."
+    },
+    {
+      "sourceId": "nature-d41586-026-02845-2",
+      "url": "https://www.nature.com/articles/d41586-026-02845-2",
+      "role": "RESEARCH_REPORTING",
+      "status": "BLOCKED",
+      "fullVsTeaser": "TEASER_OR_COOKIE_REDIRECT_NOT_FULL_REPORTING",
+      "changeSince1300": "No recovery. The page still cannot support clinical implications or merge the held paper identities.",
+      "missingInput": "Full Nature report and accessible underlying study methods/results.",
+      "nextCheckAt": "2026-09-14T03:00:00Z",
+      "checkedAt": "2026-09-13T23:04:32Z",
+      "timestampMeaning": "Research lane observation completion time; per-request time not separately retained."
+    },
+    {
+      "sourceId": "ftc-press-releases",
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "role": "REGULATOR",
+      "status": "CHECKED",
+      "fullVsTeaser": "INDEX_ACCESSIBLE",
+      "changeSince1300": "No newly identified AI release since the 13:00 sweep.",
+      "eventDisposition": "NO_NEW_LEAD",
+      "checkedAt": "2026-09-13T23:04:32Z",
+      "timestampMeaning": "Research lane observation completion time; per-request time not separately retained."
+    },
+    {
+      "sourceId": "eff-ai",
+      "url": "https://www.eff.org/issues/ai",
+      "role": "ADVOCACY",
+      "status": "CHECKED",
+      "fullVsTeaser": "INDEX_ACCESSIBLE",
+      "changeSince1300": "No newly identified AI item since 13:00; do not reopen the already-published WISeR event.",
+      "eventDisposition": "NO_NEW_LEAD",
+      "checkedAt": "2026-09-13T23:04:32Z",
+      "timestampMeaning": "Research lane observation completion time; per-request time not separately retained."
+    },
+    {
+      "sourceId": "bleepingcomputer-ai",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "role": "INDEPENDENT_REPORTING",
+      "status": "CHECKED",
+      "fullVsTeaser": "INDEX_ACCESSIBLE",
+      "changeSince1300": "No newly identified material. September 11 Anthropic misuse and September 10 PaperCut remain already-published events.",
+      "eventDisposition": "NO_NEW_LEAD",
+      "checkedAt": "2026-09-13T23:04:32Z",
+      "timestampMeaning": "Research lane observation completion time; per-request time not separately retained."
+    }
+  ],
+  "newEligibleLeads": [],
+  "recoveredEvidence": [
+    {
+      "eventId": "trump-ai-safeguards-20260913",
+      "result": "FULL_INDEPENDENT_REPORTING_RECOVERED",
+      "requiredFollowUp": "Root may reassess only the source-access reason in the existing hold. The separate prose-scope and required-art reasons remain unassessed by this sweep."
+    }
+  ],
+  "holds": [
+    {
+      "eventId": "proteintalks-20260909",
+      "reason": "Both exact Nature locations remain unavailable for full evidence.",
+      "retryAt": "2026-09-14T03:00:00Z"
+    },
+    {
+      "eventId": "reuters-ai-index",
+      "reason": "Normal source returned internal error; no content inferred.",
+      "retryAt": "2026-09-14T03:00:00Z"
+    }
+  ],
+  "captures": [
+    {
+      "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-captures/ap-trump-remarks-20260913.json",
+      "sha256": "e6f531b7b6add4ede79588814ac5048a4d40071f82993021685914127da4d940",
+      "bytes": 1523
+    },
+    {
+      "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-captures/source-access-summary.json",
+      "sha256": "c42be163a6c6e4a2c92ac9878760712ae3dffddba7ccb31d708ec8ba0379fdbf",
+      "bytes": 1868
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/source-snapshots/ap-search-full-result-turn655news0.txt",
+      "sha256": "2267896f6909afcf7887a722d8cecc1663eaeed83bd536e809b9ab72de7438c7",
+      "bytes": 7822,
+      "kind": "saved full search-result body with provenance"
+    }
+  ],
+  "result": "SOURCE_RECOVERY_REQUIRED_FOR_EXISTING_TRUMP_HOLD; NO_NEW_ELIGIBLE_LEAD_FOUND",
+  "limits": "This is a bounded source observation, not an exhaustive news claim. No draft, publication decision, or shared coverage record was changed.",
+  "rootReconciliation": "Root fresh accessible index opens and excerpts are saved in 2026-09-13-1600-root-captures. Original small JSON captures are authored observations, not raw page responses."
+}

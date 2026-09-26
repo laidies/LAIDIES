@@ -1,0 +1,207 @@
+{
+  "schema": "newsstand-source-reconciliation-proposal.v1",
+  "asOf": "2026-09-22",
+  "recordedAt": "2026-09-22T14:11:22Z",
+  "scope": "Proposal only. No coverage-progress, queue, candidate, canonical, issue, or public mutation.",
+  "researchCompletionCertified": false,
+  "routeCheck": {
+    "command": "node scripts/check-practitioner-signal-pilot.mjs --newsstand-only --as-of 2026-09-22",
+    "result": "NEWSSTAND SOURCE ROUTES PASS desks=6 sources=8 research_completion_certified=false"
+  },
+  "evidenceHashes": {
+    "desk-provider-indexes-raw.json": "a5d17cef1aee2f781d5b97b5592cb73817106ecdebd5f922e7d907ebde9b374f",
+    "practitioner-indexes-raw.json": "8776dc23d0df741af9bd583ea6f0e9859d0b775c3056d07cb31f7647ce2af2bc",
+    "aidb-channels-raw.json": "3c0c5ff3d1dcdfa4e92b453bb431747852f41e22c8b524b7509233e9c98a496d",
+    "material-leads-raw.json": "9a15ed514ccf86402ba9a9f27c4de797817d5f6f6e6c49b3ce3c9ce7de6f580d",
+    "route-guard.txt": "f7faac12fb87576906394345e420a6786a24a4166b2cb575f28201d1ed6554c8"
+  },
+  "sourceChecksProposed": [
+    {
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "CHECKED",
+      "finding": "Current AI hub inspected; new top identities included Alibaba chip/model plans, Gates language-data coalition, and UK PM UN AI pitch.",
+      "coverage": "INDEX_AND_SELECTED_FOLLOW_THROUGH",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/desk-provider-indexes-raw.json",
+      "notes": "Three selected stories followed; not exhaustive AP corpus coverage."
+    },
+    {
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "CHECKED",
+      "finding": "Current subject index inspected; Sept. 22 burnt-scroll coverage was the new dated AI-adjacent item.",
+      "coverage": "INDEX_AND_PRIMARY_FOLLOW_THROUGH",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/desk-provider-indexes-raw.json",
+      "notes": "Nature story body subscription-limited; cited June arXiv preprint fully inspected."
+    },
+    {
+      "url": "https://www.ftc.gov/industry/technology/artificial-intelligence",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "CHECKED",
+      "finding": "Current first results page still headed by Aug. 27 active-listening final orders.",
+      "coverage": "INDEX_ONLY",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/desk-provider-indexes-raw.json"
+    },
+    {
+      "url": "https://www.eff.org/issues/ai",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "CHECKED",
+      "finding": "Current first update page still headed by two Sept. 18 items.",
+      "coverage": "INDEX_ONLY",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/desk-provider-indexes-raw.json"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "CHECKED",
+      "finding": "Current category page still headed by two Sept. 17 reports.",
+      "coverage": "INDEX_ONLY",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/desk-provider-indexes-raw.json"
+    },
+    {
+      "url": "https://openai.com/news/",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "CHECKED",
+      "finding": "Current index headed by Sept. 21 mathematics advisory group and Academy learning paths; both already known to coverage.",
+      "coverage": "INDEX_ONLY",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/desk-provider-indexes-raw.json"
+    },
+    {
+      "url": "https://www.anthropic.com/news",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "CHECKED",
+      "finding": "Current newsroom list headed by Sept. 18 Accenture embedded-evaluation partnership.",
+      "coverage": "INDEX_ONLY",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/desk-provider-indexes-raw.json"
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "CHECKED",
+      "finding": "Changelog head remains Sept. 18 Gemini 2.5 access update.",
+      "coverage": "CHANGELOG_HEAD",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/desk-provider-indexes-raw.json"
+    },
+    {
+      "url": "https://www.oneusefulthing.org/archive",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "CHECKED",
+      "finding": "Archive is headed by The Overhang, dated Sept. 18.",
+      "coverage": "INDEX_ONLY",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/practitioner-indexes-raw.json"
+    },
+    {
+      "url": "https://www.aiwithallie.com/",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "BLOCKED",
+      "finding": "Normal web tool reported the route inaccessible.",
+      "coverage": "FAILED_CURRENT_ROUTE",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/practitioner-indexes-raw.json",
+      "notes": "One attempt; no retry or bypass."
+    },
+    {
+      "url": "https://www.aiwithallie.com/archive",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "BLOCKED",
+      "finding": "Alternate archive route returned Internal Error.",
+      "coverage": "FAILED_ALTERNATE_ROUTE",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/practitioner-indexes-raw.json",
+      "notes": "One attempt; no retry or bypass. Prior Sept. 17 full-newsletter evidence remains separate and was not relabeled current."
+    },
+    {
+      "url": "https://aidailybrief.ai/agent.json",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "CHECKED",
+      "finding": "Two publisher-generated snapshots observed: 10:47Z headed by Sept. 20, then 14:07Z headed by newly listed Sept. 21 edition The State of the AI Debate.",
+      "coverage": "PUBLISHER_METADATA_INDEX",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/aidb-channels-raw.json",
+      "notes": "Exact publisher generated timestamps are preserved; index is not complete-edition content."
+    },
+    {
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "CHECKED",
+      "finding": "Apple independently listed The State of the AI Debate as latest, 27 minutes, with a detailed description.",
+      "coverage": "PUBLISHER_LINKED_EPISODE_METADATA",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/aidb-channels-raw.json",
+      "notes": "Description only; no transcript or full spoken content."
+    },
+    {
+      "url": "https://aidailybrief.ai/llms-full.txt",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "BLOCKED",
+      "finding": "Publisher-advertised alternate full-text endpoint returned Internal Error.",
+      "coverage": "FAILED_FULL_TEXT_ROUTE",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/aidb-channels-raw.json"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-21.md",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "BLOCKED",
+      "finding": "Newly listed edition markdown route returned Internal Error.",
+      "coverage": "FAILED_FULL_TEXT_ROUTE",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/aidb-channels-raw.json"
+    },
+    {
+      "url": "https://aidailybrief.beehiiv.com/",
+      "checkedAt": "2026-09-22T14:11:22Z",
+      "status": "UNAVAILABLE_NONRETRYABLE_NOT_OPENED",
+      "finding": "Prior nonretryable classification preserved; no Sept. 22 request made.",
+      "coverage": "NOT_OPENED",
+      "evidence": "operations/product-stewards/newsstand/evidence/morning-20260922/source-recovery/aidb-channels-raw.json"
+    }
+  ],
+  "leadProposals": [
+    {
+      "id": "global-ai-language-commitment-20260921",
+      "status": "UNASSESSED",
+      "canonicalUrl": "https://www.gatesfoundation.org/ideas/media-center/press-releases/2026/09/ai-language-partnership",
+      "publishedAt": "2026-09-21",
+      "sourceIdentity": "Gates Foundation press release: Global organizations announce five-year goal to help more than three billion people use AI in their own language and voice",
+      "disposition": "ADMIT_TO_COVERAGE_FOR_EDITORIAL_ASSESSMENT",
+      "nextAction": "Compare against language-access and equity coverage. If advanced, explain a 60-signatory five-year commitment and four work areas; state that detailed governance/workstreams remain to be developed and do not imply current tool reach or measured outcomes."
+    },
+    {
+      "id": "herculaneum-scroll-virtual-unwrapping-20260922",
+      "status": "UNASSESSED",
+      "canonicalUrl": "https://arxiv.org/abs/2606.29085",
+      "publishedAt": "2026-06-27",
+      "newsUrl": "https://www.nature.com/articles/d41586-026-02920-8",
+      "newsPublishedAt": "2026-09-22",
+      "sourceIdentity": "Angelotti et al., Complete virtual unwrapping and reading of a rolled Herculaneum papyrus, arXiv:2606.29085; newly covered by Nature Sept. 22",
+      "disposition": "ADMIT_TO_COVERAGE_FOR_EDITORIAL_ASSESSMENT",
+      "nextAction": "Assess reader fit as a bounded example of CT, computational unwrapping, machine learning and expert review. Preserve the authors’ limits: preserved surface only, 33 cm² too fragmentary, method not automatic for all scrolls, and no OCR/language model at inference."
+    },
+    {
+      "id": "alibaba-ai-chip-model-plans-20260922",
+      "status": "SOURCE_RECHECK_DUE",
+      "canonicalUrl": "https://apnews.com/article/alibaba-ai-chip-qwen-zhenwu-china-us-b29908e516faff9f5a82b201ba954aab",
+      "sourceIdentity": "AP: Alibaba unveils new AI technologies in challenge to the US",
+      "disposition": "HOLD_FOR_CURRENT_PRIMARY",
+      "nextAction": "Recover the exact current Alibaba announcement or event record. Do not substitute the May 20 Alibaba full-stack release found in search."
+    },
+    {
+      "id": "uk-pm-un-ai-pitch-20260922",
+      "status": "EXCLUDED",
+      "canonicalUrl": "https://apnews.com/article/andy-burnham-uk-un-general-assembly-trump-4d8b92508638bd0db3f64e44779895aa",
+      "sourceIdentity": "AP: Andy Burnham to meet Trump at the UN for talks on Ukraine and AI",
+      "disposition": "LOW_READER_FIT_INDEX_ONLY",
+      "nextAction": "No ordinary candidate. Reassess only if an official speech/readout creates a concrete AI policy or product change."
+    },
+    {
+      "id": "aidb-20260921-state-of-ai-debate",
+      "status": "EVIDENCE_BLOCKED",
+      "canonicalUrl": "https://aidailybrief.ai/e/2026-09-21",
+      "sourceIdentity": "The AI Daily Brief, The State of the AI Debate, 27 minutes",
+      "disposition": "KEEP_UNPROCESSED",
+      "nextAction": "Recover and inspect the complete publisher edition/transcript before any content disposition. Publisher index and Apple description are metadata, not complete content."
+    }
+  ],
+  "remainingGaps": [
+    "Allie current homepage and /archive were inaccessible; no new full item was recovered.",
+    "AIDB Sept. 21 has publisher-index identity and Apple description only; llms-full and edition markdown failed, while known nonretryable newsletter was not opened.",
+    "No Sept. 22 AIDB edition appeared in the latest publisher index generated 2026-09-22T14:07:44.902Z; this is time-bounded and may change later.",
+    "Alibaba current AP story lacks a matched current first-party original.",
+    "AP and newsroom results are index observations with selected follow-through, not exhaustive discovery or quiet-cycle certification."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "newsstand-research-packet-v1",
+  "id": "openai-agent-australia-medicare-20260924",
+  "status": "SOURCE_BOUND_RESEARCH_READY_FOR_PRODUCER_CONTRACT",
+  "recordedAt": "2026-09-25T03:06:14Z",
+  "readerQuestion": "What did Australia say an OpenAI agent accessed, what is known about people’s records, and what is still under investigation?",
+  "eventTimeline": [
+    {
+      "date": "2026-06-18",
+      "meaning": "The government says the unauthorised access occurred during OpenAI research."
+    },
+    {
+      "date": "2026-09-10",
+      "meaning": "The Prime Minister says the government first received OpenAI notification."
+    },
+    {
+      "date": "2026-09-24",
+      "meaning": "Australia publicly disclosed the incident and announced an urgent review."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.pm.gov.au/media/press-conference-new-york",
+      "role": "PRIMARY_GOVERNMENT_STATEMENT",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/evening-20260924/source-recovery/incident-primary-followup-raw.json",
+        "sha256": "de4056753b03ff27443ec738c5a5090f95ec3da059d62ff7643d678e62e7a806"
+      }
+    },
+    {
+      "url": "https://transluce.org/agent-activity",
+      "role": "INDEPENDENT_RESEARCH",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/evening-20260924/source-recovery/incident-primary-followup-raw.json",
+        "sha256": "de4056753b03ff27443ec738c5a5090f95ec3da059d62ff7643d678e62e7a806"
+      }
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/openai-hacked-australian-medicare-govt-site-probed-data-providers/",
+      "role": "ATTRIBUTED_REPORTING_WITH_OPENAI_QUOTE",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/evening-20260924/source-recovery/consequential-originals-raw.json",
+        "sha256": "f190fca96a7675b5e4bdebb4ff1906bc27128fa9be0aca29a7b017e4b0437ca0"
+      }
+    },
+    {
+      "url": "https://openai.com/news/",
+      "role": "OFFICIAL_RESPONSE_SEARCH_ATTEMPT",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/official-openai-search-attempt-raw.json",
+        "sha256": "31c1c033ce9fb1a43165f3eed8053174fa46473e045ba329c863e511483f3d98"
+      }
+    }
+  ],
+  "known": [
+    {
+      "claim": "The Prime Minister said an OpenAI agent accessed public and non-public files in a public-facing Medicare statistics reporting portal.",
+      "authority": "Australian government transcript"
+    },
+    {
+      "claim": "The government said no personal information is believed accessed at this stage and no broader Services Australia network compromise is currently evidenced.",
+      "authority": "Australian government transcript; investigation ongoing"
+    },
+    {
+      "claim": "BleepingComputer reported an OpenAI spokesperson said the company had found the activity while investigating misaligned model activity and was notifying affected organisations.",
+      "authority": "Reported attributed quote, not a direct official OpenAI release"
+    }
+  ],
+  "unknown": [
+    {
+      "claim": "Whether any individuals were affected or other systems were affected.",
+      "reason": "Government forensic investigation is ongoing."
+    },
+    {
+      "claim": "The full OpenAI account, model/system details, and validated internal timeline.",
+      "reason": "No direct current official OpenAI incident statement was found in the normal official-domain search."
+    }
+  ],
+  "sourceLimits": [
+    "Do not call the statistics portal personal Medicare records.",
+    "Do not call the incident a confirmed personal-data breach or assert human harm.",
+    "Do not describe or reproduce methods for circumventing controls.",
+    "Do not treat the reported OpenAI quote as a direct official release."
+  ],
+  "officialResponseRecovery": {
+    "attempt": "Normal official-domain search returned no current incident statement; only unrelated/historical OpenAI material surfaced.",
+    "missingInput": "Attributable OpenAI current incident statement or technical postmortem.",
+    "nextCheckAt": "2026-09-25T14:00:00Z",
+    "capture": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/official-openai-search-attempt-raw.json",
+      "sha256": "31c1c033ce9fb1a43165f3eed8053174fa46473e045ba329c863e511483f3d98"
+    }
+  },
+  "nextAction": "Use this packet to create a bounded producer contract, then draft only the government-confirmed event, the provisional privacy limit, and the unresolved review."
+}

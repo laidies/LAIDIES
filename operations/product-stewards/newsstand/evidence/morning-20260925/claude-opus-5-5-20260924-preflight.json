@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-09-25T14:06:54.931566+00:00",
+  "command": [
+    "node",
+    "operations/product-stewards/newsstand/review-runtime/run-pilot.mjs",
+    "article",
+    "claude",
+    "--candidate-dir",
+    "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924",
+    "--calibration",
+    "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905",
+    "--output",
+    "operations/product-stewards/newsstand/evidence/morning-20260925/claude-opus-5-5-20260924-preflight",
+    "--preflight-only",
+    "--effort",
+    "medium"
+  ],
+  "exit": 0,
+  "stdout": "{\"status\":\"PRE_REVIEW_PASS\",\"candidateDir\":\"operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/\",\"scope\":\"Validation-only pre-review gate; no provider request, editorial judgment, admission or publication.\"}\n",
+  "stderr": "",
+  "providerCall": false
+}

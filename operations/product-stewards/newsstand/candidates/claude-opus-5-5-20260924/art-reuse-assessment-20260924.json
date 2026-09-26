@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "laidies-newsstand-art-reuse-assessment-v1",
+  "candidateId": "claude-opus-5-5-20260924",
+  "assessor": "/root/california_order_producer",
+  "assessedAt": "2026-09-25T03:03:42Z",
+  "scope": {
+    "inventory": "assets/newsstand/*.png",
+    "assetCount": 23,
+    "inspection": "All 23 current NewsStand PNG assets were inspected together at readable thumbnail size. The four nearest semantic candidates were then inspected at original resolution.",
+    "excludedByInstruction": [
+      "generic rejected assets",
+      "person or character assets",
+      "MAiVEN or TRAILBLAZER assets"
+    ]
+  },
+  "storyJob": "Show that Claude subscription usage limits and developer API token billing are separate meters, without promising universal model-selector access or a quantified new subscription limit.",
+  "verdict": "NO_SUITABLE_EXISTING_ASSET",
+  "bindingMade": false,
+  "topCandidates": [
+    {
+      "path": "assets/newsstand/claude-one-conversation-20260916.png",
+      "sha256": "96e62b12ccbaa316c0738c843ace6531072e3dc80a7b3699f34e2d86712a29f4",
+      "pixels": "1536x1024",
+      "provenance": {
+        "originalCandidate": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/",
+        "visualAdmission": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/art/independent-review-v2.json",
+        "visualAdmissionSha256": "2fc4305576cbde2f5389feb59b1b957e902c4e3e2d216c509b601d98e2b72860",
+        "originalApprovedJob": "One conversation develops into a household checklist from appliance manuals."
+      },
+      "decision": "REJECT_FOR_THIS_PLACEMENT",
+      "observedPixels": "A tablet shows two speech bubbles feeding one checklist, surrounded by appliance manuals.",
+      "reason": "The visual is admitted for the Cowork/chat merge and its household-checklist example. Reusing it here would repeat that story's exact mechanism and imply conversation-to-task behavior, while showing neither subscription limits nor API token billing. Shared Claude subject matter is not enough semantic alignment."
+    },
+    {
+      "path": "assets/newsstand/math-answer-understanding-20260916.png",
+      "sha256": "5c6a35500b97a5fe9587b346d53f011e66007d11feba3dfc35b1d74f17c7041b",
+      "pixels": "1536x1024",
+      "provenance": {
+        "originalCandidate": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/",
+        "visualAdmission": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/art/independent-review-v3.json",
+        "visualAdmissionSha256": "fc735034747bf9bf2c5c34a86ec4fb1a0ca4a142c8809ac0765028a08b141f63"
+      },
+      "decision": "REJECT_FOR_THIS_PLACEMENT",
+      "observedPixels": "An open notebook contains a specific arithmetic equation and shaded quarter-grid.",
+      "reason": "The explicit equation belongs to a mathematics-understanding story. Here it would suggest that the displayed calculation explains Anthropic's prices or benchmark results, which it does not."
+    },
+    {
+      "path": "assets/newsstand/census-graduate-applications-20260915.png",
+      "sha256": "58bdb901228d76c589fa97a5aac04d896c834c5beb734d38c3300c5013c82597",
+      "pixels": "1536x1024",
+      "provenance": {
+        "originalCandidate": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/",
+        "canonicalStoryEvidence": "content/newsstand-stories.js"
+      },
+      "decision": "REJECT_FOR_THIS_PLACEMENT",
+      "observedPixels": "A laptop shows a blank table beside a paper form and file folder.",
+      "reason": "The table-and-form scene communicates applications or records. It provides no visible distinction between a subscription allowance and API metered usage."
+    },
+    {
+      "path": "assets/newsstand/sponsored-agent-shopping-20260916.png",
+      "sha256": "94b4b7b1d03ecc556f7057357a7f8f27839af369745054c8f404e18c45f087d4",
+      "pixels": "1536x1024",
+      "provenance": {
+        "originalCandidate": "operations/product-stewards/newsstand/candidates/chatgpt-sponsored-agents-20260916/",
+        "visualAdmission": "operations/product-stewards/newsstand/candidates/chatgpt-sponsored-agents-20260916/art/independent-review.json",
+        "visualAdmissionSha256": "8b69fadadfb2dc27c90f979427bd57b6189ec9d44fedf1923749e7df8d639205"
+      },
+      "decision": "REJECT_FOR_THIS_PLACEMENT",
+      "observedPixels": "A tablet shows two interface panes beside a product card and measuring tape.",
+      "reason": "The split panes are visually promising, but the product card and measuring tape specifically signal sponsored shopping and seller conversation. Reuse would carry the wrong consumer mechanism."
+    }
+  ],
+  "remainingInventoryDisposition": "The other 19 assets depict research labs, hardware, malware, privacy forms, public debate, data centres, pets, shortcuts or other story-specific scenes. None depicts the required two-meter distinction, and person-centred assets were excluded from reuse.",
+  "authorityChecks": {
+    "currentReferenceIndex": {
+      "path": "/Users/alisoneakin/Projects/laidies-current-visual-references-20260906/operations/reference/README.md",
+      "checkCommand": "node scripts/build-current-reference-index.mjs --check",
+      "result": "PASS — Current reference views verified; this is not art approval or public deployment proof."
+    },
+    "artworkRule": {
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/design-artwork-rule.md",
+      "application": "No CSS or SVG imitation proposed; use an exact admitted image or purpose-built reviewed illustration."
+    }
+  },
+  "nextAction": "Use the candidate-local art brief to make a purpose-built still when an authorized no-new-cost image route is available, then obtain maker inspection and role-distinct independent visual admission before binding it to the story."
+}

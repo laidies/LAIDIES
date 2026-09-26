@@ -1,0 +1,92 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "gemini-windows-20260913",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "9a1cbfa672317dcca9810375ac4437216d6e53eccd710d3dbec49da76c67be08",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why doesn't installing the Gemini Windows app mean Gemini can now read your screen, files or email automatically?",
+      "response": "Because the app only changes the entry route into the same online service. Alt + Space opens a window beside your work, but Gemini receives only what you actively give it: text you paste, an image you upload, or Google apps like Gmail and Drive that you explicitly choose to connect. Account controls also persist—on a managed work account, the administrator must have enabled Gemini at all. The door is new; the shop's rules about what comes inside are unchanged.",
+      "expectedEvidence": "P004 (same shop, different door), P006 (upload and connection are choices you make), P009 (explicitly denies automatic screen/file access), P010 (account controls and limits survive the desktop app).",
+      "assessment": "The artifact fully supports this causal answer in ordinary language; the opt-in nature of sharing and the persistence of admin controls are both explicit, so an attentive reader can reconstruct the reasoning unaided."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using only this article's mechanism, what explains the refusal, and is her assumption about the open PDF correct?",
+      "response": "The refusal is explained by P005: a work or school account needs Gemini enabled by its administrator, and on a managed account that administrator controls availability—so her IT admin likely hasn't turned it on; the fix is asking IT, not reinstalling. Her assumption is wrong per P006 and P009: the app has no automatic view of her screen or open files. It would only see the contract if she deliberately pasted or uploaded it—which, for a confidential document, P006's rule (only share material you are comfortable using with the service) says she should first weigh against company policy.",
+      "expectedEvidence": "P005 for the admin gate on managed accounts; P006 and P009 for opt-in sharing and no automatic screen access; P008 for checking which account and what to share before use.",
+      "assessment": "The transfer succeeds: both the eligibility failure and the false automatic-access assumption resolve directly from the article's route-vs-function and opt-in-connection mechanism, with no facts needed beyond the artifact."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The event (Sept 10 Windows app release, global, Alt + Space) and its causal significance (route change, not capability change) are fully understandable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Compared with Gemini in the browser, the difference is the shortcut and window beside the task. If you are revising a school-volunteer email, you could paste the draft and ask for a warmer version that keeps the date and request unchanged. You still check it before sending.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Think of browser Gemini and the Windows app as two doors into the same shop. The new door may save a few steps; it does not make Gemini a different kind of tool.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Terms like connected apps and managed account gain plain meaning at first use through concrete examples (Gmail, Drive, administrator control).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are grounded in specific situations: revising a volunteer email, a managed work account whose admin controls availability, choosing what to connect.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Compared with Gemini in the browser, the difference is the shortcut and window beside the task. If you are revising a school-volunteer email, you could paste the draft and ask for a warmer version that keeps the date and request unchanged. You still check it before sending.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>Before you switch, check the account you are using and decide what information you want to upload or connect.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes leak into reader-facing text; all advice (check account, read connections, verify drafts) follows from sourced facts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Before you switch, check the account you are using and decide what information you want to upload or connect.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "A desktop app changes the route into a tool. It does not erase account controls, feature limits or the need to decide what information to share. For help checking an AI draft without rewriting the whole thing, see <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output (And Checking It)</a>.",
+          "locator": "P010"
+        }
+      ]
+    }
+  }
+}

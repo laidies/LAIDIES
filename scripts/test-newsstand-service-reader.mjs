@@ -13,13 +13,32 @@ const read = p => fs.readFileSync(path.join(root, p), 'utf8');
 const runtime = read('content/site/newsstand-catchup-v1.js');
 const bank = JSON.parse(read('operations/product-stewards/newsstand/candidates/service-bank.json'));
 const escape = s => String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const classList = (...initial) => {
+  const values = new Set(initial);
+  return { add: value => values.add(value), remove: value => values.delete(value), contains: value => values.has(value) };
+};
+const elements = {};
+const document = {
+  readyState: 'loading',
+  body: { classList: classList('ns-story-open') },
+  addEventListener(){},
+  createElement(){return {set textContent(v){this.innerHTML=escape(v)}}},
+  getElementById(id){return elements[id] || null;}
+};
+elements['paper-counter'] = {hidden:true,classList:classList('ns-reader--story'),scrollIntoView(){}};
+elements['ns-rack'] = {innerHTML:''};
+elements['ns-empty'] = {hidden:false};
+elements['ns-reader-edition'] = {textContent:''};
+elements['ns-reader-title'] = {textContent:'',focus(){document.activeElement=this;}};
+elements['ns-reader-date'] = {textContent:''};
+elements['ns-paper-view'] = {attributes:{},setAttribute(name,value){this.attributes[name]=value;}};
 const sandbox = {
   window: { location: {href:'http://127.0.0.1/newsstand.html'}, NEWSSTAND_DATA: {publications: {}, stories: []}, localStorage: {getItem:()=>null} },
-  document: {readyState:'loading', addEventListener(){}, createElement(){return {set textContent(v){this.innerHTML=escape(v)}}}},
+  document,
   Date, URL, Intl, Set, TextEncoder
 };
 vm.runInNewContext(runtime.replace('})(window);', `
-  global.testReader = {readableColumn, columnBodyHTML, columnHref, serviceLink, issueEnvelopeProjection, canonicalJson,
+  global.testReader = {readableColumn, columnBodyHTML, columnHref, serviceLink, dailyDesk, renderColumn, issueEnvelopeProjection, canonicalJson,
     setFixture: function(c,i) { columns=c;dailyIssues=i; }};
 })(window);`), sandbox);
 const helper = sandbox.window.testReader;
@@ -36,6 +55,14 @@ for(const patch of [{status:'CANDIDATE'},{publicEligibility:'INELIGIBLE'},{body:
 }
 set(item,{...issue,desks:[]});assert.equal(helper.readableColumn(item.id),null);
 set(item);
+assert.equal(helper.renderColumn(item.id), true, 'admitted service opens from a prior story reader state');
+assert.equal(elements['paper-counter'].classList.contains('ns-reader--story'), false, 'service reader clears the story-only masthead hiding state');
+assert.equal(document.body.classList.contains('ns-story-open'), false, 'service reader clears the story-only body state');
+assert.equal(elements['ns-reader-edition'].textContent, 'Dear Miss Jeeves');
+assert.equal(elements['ns-reader-title'].textContent, item.headline);
+assert.equal(elements['ns-reader-date'].textContent, new Intl.DateTimeFormat('en-CA',{timeZone:'America/Vancouver',year:'numeric',month:'long',day:'numeric'}).format(new Date(item.editionDate + 'T12:00:00')));
+assert.equal(document.activeElement, elements['ns-reader-title'], 'service reader focuses its own heading after the prior issue/story state');
+assert.equal(elements['ns-paper-view'].attributes['data-paper'], 'service');
 const html=helper.columnBodyHTML(item);
 assert.ok(html.indexOf(item.question.signature)<html.indexOf(escape(item.body[0])),'question must precede answer');
 for(const p of item.body)assert.ok(html.includes(escape(p)),'every paragraph renders');
@@ -43,6 +70,11 @@ assert.equal((html.match(/<a /g)||[]).length,1,'duplicate source/destination lin
 const hostile=helper.columnBodyHTML({...item,body:['<script>alert(1)</script>'],sourceLinks:[{url:'javascript:alert(1)',label:'bad'}],destination:null});
 assert.ok(!hostile.includes('<script>') && !hostile.includes('javascript:'));
 assert.equal(helper.serviceLink('//example.com'), '');
+assert.equal(helper.dailyDesk('Empty desk', 'empty', 'No story', 'No column', '', null), '', 'unpublished desks cannot generate filler cards');
+const activity = helper.dailyDesk('Try this today', 'ready', 'Ask one question.', 'A self-contained activity.', '', {type:'curiosity',recordId:item.id});
+assert.ok(activity.includes('ns-daily-desk--activity'));
+assert.ok(activity.includes('A self-contained activity.'));
+assert.ok(!activity.includes('<a '), 'complete activity does not add a duplicate or empty column link');
 assert.ok(helper.columnHref(item.id).includes('?column='));
 assert.ok(!helper.columnHref(item.id).includes('#'));
 const mme=bank.items.find(i=>i.type==='mme_claio');

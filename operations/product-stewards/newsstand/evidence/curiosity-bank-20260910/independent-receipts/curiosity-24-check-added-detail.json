@@ -1,0 +1,453 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "curiosity-24-check-added-detail",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-curiosity-20260910",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/independent-batch-05.json",
+      "sha256": "41642b5d18994734a271774c1f36f089b3b2ebdcaa4460571dbc72b37b8f77e6"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T05:59:46.844Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-24-check-added-detail.md",
+      "sha256": "2a26cd10e2e7026b735e38b1ccac3c1db2e66ea2cce99499518383baaa8d6961"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-24-check-added-detail.manifest.json",
+      "sha256": "ed0eddb6a90a0fc4a869cd5f03a196c9eb5e88b1e7202e37ce7a411559e17d38"
+    }
+  },
+  "calibration": {
+    "mode": "RECURRING_SERVICE_ARTIFACT_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "claude-fable-curiosity-20260910",
+    "reviewedAt": "2026-09-11T05:59:46.844Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "glossaryAccumulation",
+          "technicalExplainerVoice",
+          "mechanismBeforeMotivation",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "CQX-BAD-001 §AI system — the 'Where it stops:' / 'In real life.' block repeats identically for every term"
+          },
+          {
+            "excerpt": "In real life. A provider may set which models an app offers, what data controls exist and which tools are available.",
+            "locator": "CQX-BAD-001 §Provider"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman: essential to what happens",
+            "locator": "CQX-BAD-001 §Model — analogy inserted into a definition parade with no human question opening the chapter"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "technicalExplainerVoice",
+          "joylessInstruction",
+          "workedExampleOvertakesBookPurpose"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 §Introduction — textbook instruction voice, no LAiDIES warmth or wit anywhere in the piece"
+          },
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 §Chapter 1 — the single job-offer worked example consumes the entire fundamentals chapter"
+          },
+          {
+            "excerpt": "Before you rely on the result, ask four questions:",
+            "locator": "CQX-BAD-002 §The output is not the decision — competent but joyless checklist delivery"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "plain mechanic stated first, in the shortest true sentence, with analogy as garnish",
+        "specific warmth and dry reframes rather than empowerment filler",
+        "honest hedging and verification posture (pending items flagged, not smoothed over)",
+        "recovery framing that converts embarrassment into permission to start"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001 narrative §9 — concrete, specific payoff instead of vague enthusiasm"
+        },
+        {
+          "excerpt": "You onboard it, manage it, review its work.",
+          "locator": "CQX-GOOD-EPISODE-001 narrative §10 — plain mechanic carried by ordinary workplace verbs"
+        },
+        {
+          "excerpt": "sound polished and confident while containing unsupported or invented information",
+          "locator": "CQX-GOOD-EPISODE-001 narrative §13 — accurate limitation kept alongside the joke, not replaced by it"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Did the AI put anything into my message that I never told it?",
+    "promisedPayoff": "A sent message containing only commitments and facts you actually stand behind.",
+    "centralMentalModel": "AI drafts can include specifics you never supplied; the check is comparing the draft against what you actually know, not distrusting it on principle.",
+    "dailyLifeConnection": "Any low-stakes AI-drafted message the reader sends today.",
+    "surfaceJob": "The brief's requested low-risk AI verification act in the Try this today bank.",
+    "desiredReaderFeeling": "Calm ownership of the message — a checker, not a fault-finder."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The scan targets are named concretely — dates, names, commitments — so the reader knows exactly what to look for.",
+      "artifactEvidence": [
+        {
+          "excerpt": "look for dates, names or commitments you did not provide",
+          "locator": "curiosity-24 body"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Builds the single most protective everyday AI habit at low stakes, with a clear removal action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "remove unsupported additions",
+          "locator": "curiosity-24 body"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Dry, fair-minded closing line; refuses both credulity and performative suspicion — very much the brand's judgment-first posture.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the point is a check, not finding fault on principle",
+          "locator": "curiosity-24 closing"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The 'not finding fault on principle' beat carries understated wit appropriate to the surface.",
+      "artifactEvidence": [
+        {
+          "excerpt": "not finding fault on principle",
+          "locator": "curiosity-24 closing"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The possibility of unsupported additions is framed conditionally and the no-findings case is handled explicitly; no claim that AI always or usually fabricates.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If there are none, leave the draft alone",
+          "locator": "curiosity-24 closing"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Teaches durable verification rather than tool specifics, consistent with the Currency Rule; no model names, dates or capabilities asserted.",
+      "artifactEvidence": [
+        {
+          "excerpt": "In an AI draft of a low-stakes message",
+          "locator": "curiosity-24 opening"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Low-stakes by explicit design, single act, minutes-long, matches the brief's requested low-risk AI item.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a low-stakes message",
+          "locator": "curiosity-24 opening"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Active verification practice against the reader's own knowledge, not passive reading.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Check each against what you actually know",
+          "locator": "curiosity-24 body"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "The comparison itself is the check, with a defined outcome for both branches (remove, or leave alone).",
+      "artifactEvidence": [
+        {
+          "excerpt": "Check each against what you actually know and remove unsupported additions.",
+          "locator": "curiosity-24 body"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Proportional format retaining limitations and consequences (dimension 5) without manufacturing a hook or fear.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the point is a check",
+          "locator": "curiosity-24 closing"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The did-I-supply-this scan transfers directly to higher-stakes AI outputs later.",
+      "artifactEvidence": [
+        {
+          "excerpt": "dates, names or commitments you did not provide",
+          "locator": "curiosity-24 body"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "Both outcomes are legitimate endings; a clean draft is not a failed exercise.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If there are none, leave the draft alone",
+          "locator": "curiosity-24 closing"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-24"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-24"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler.",
+      "artifactLocator": "curiosity-24"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "No hook.",
+      "artifactLocator": "curiosity-24"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy; acceptable.",
+      "artifactLocator": "curiosity-24"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Not applicable.",
+      "artifactLocator": "curiosity-24"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Utility leads.",
+      "artifactLocator": "curiosity-24"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Only hedged, conditional possibility stated.",
+      "artifactLocator": "curiosity-24"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-24"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Scan targets and both outcome branches are specific.",
+      "artifactLocator": "curiosity-24"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terms.",
+      "artifactLocator": "curiosity-24"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on a proportionate principle, not a moral.",
+      "artifactLocator": "curiosity-24"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Avoids the word hallucination entirely; describes the behaviour plainly.",
+      "artifactLocator": "curiosity-24"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Dry closing beat present.",
+      "artifactLocator": "curiosity-24"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Opens from the reader's real draft.",
+      "artifactLocator": "curiosity-24"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No hook.",
+      "artifactLocator": "curiosity-24"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The check mechanism (compare against what you supplied and know) is fully stated.",
+      "artifactLocator": "curiosity-24"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Not applicable.",
+      "artifactLocator": "curiosity-24"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Habit generalizes beyond low-stakes messages.",
+      "artifactLocator": "curiosity-24"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No references.",
+      "artifactLocator": "curiosity-24"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "No dated or capability claims to go stale.",
+      "artifactLocator": "curiosity-24"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational.",
+      "artifactLocator": "curiosity-24"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Distinct from sampled neighbours.",
+      "artifactLocator": "curiosity-24"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not applicable.",
+      "artifactLocator": "curiosity-24"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "The only factual territory — that an AI draft may contain unsupplied specifics — is stated as a conditional possibility to check, not an asserted capability, rate or event, and the no-findings branch is explicit. This matches the brief's ban on invented product capabilities and LAiDIES canon on unsupported content.",
+    "claimScan": {
+      "observation": "Full prose inspected; the conditional framing and explicit null-result handling keep the entry free of assertable claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "look for dates, names or commitments you did not provide",
+          "locator": "curiosity-24 body"
+        },
+        {
+          "excerpt": "If there are none, leave the draft alone",
+          "locator": "curiosity-24 closing"
+        }
+      ]
+    },
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Re-review if wording shifts from conditional check to an assertion about how often or why AI adds details, or at whole-bank assembly.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this original activity; pilot repair and full-bank maker inspection are preserved."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect found in this exact activity; conditional-result pilot repair applied before full bank."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Only five of thirty entries supplied; whole-bank repetition/tone review not possible here.",
+    "The implied possibility that AI drafts contain unsupported additions is judged against LAiDIES canon (hallucination as unsupported content), not against a fresh external source.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/curiosity-sampling-policy-20260910.json",
+      "sha256": "2d114ecc0a064628ed33f4157a87781672fb031581672f110645e50ad1b7abc5"
+    },
+    "policyId": "newsstand-curiosity-sampled-comprehension-20260910",
+    "serviceType": "curiosity",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-41642b5d1899",
+    "sampleQueue": [
+      "curiosity-01-ask-example",
+      "curiosity-02-name-contribution",
+      "curiosity-03-compare-rewrite",
+      "curiosity-04-find-original",
+      "curiosity-05-invite-question",
+      "curiosity-06-ask-before-help",
+      "curiosity-07-small-feedback",
+      "curiosity-08-unseen-step",
+      "curiosity-09-change-one-detail",
+      "curiosity-10-share-opportunity",
+      "curiosity-11-check-assumption",
+      "curiosity-12-credit-introduction",
+      "curiosity-13-show-start",
+      "curiosity-14-separate-preference",
+      "curiosity-15-quiet-invite",
+      "curiosity-16-find-date",
+      "curiosity-17-ask-why-rule",
+      "curiosity-18-share-template",
+      "curiosity-19-let-finish",
+      "curiosity-20-name-unknown",
+      "curiosity-21-read-own-words",
+      "curiosity-22-ask-good-part",
+      "curiosity-23-test-directions",
+      "curiosity-24-check-added-detail",
+      "curiosity-25-share-question",
+      "curiosity-26-smaller-offer",
+      "curiosity-27-ask-evidence-change",
+      "curiosity-28-record-useful-fix",
+      "curiosity-29-check-invitation",
+      "curiosity-30-ask-follow-up"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

@@ -1,0 +1,422 @@
+{
+  "schemaVersion": "laidies-service-bank-independent-judgment.v1",
+  "modelFamily": "claude",
+  "model": "fable",
+  "actualModels": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "startedAt": "2026-09-11T07:07:20.971Z",
+  "judgedAt": "2026-09-11T07:08:56.113Z",
+  "promptSha256": "58b2e6ee90a6678d5fe297f1cb964556d022fe531e493547b04b88937e0f9449",
+  "artifactBindings": [
+    {
+      "id": "curiosity-12-credit-introduction",
+      "type": "curiosity",
+      "contentClass": "PRACTICE",
+      "reviewedContentSha256": "69d637a69e6baf808814bbe4166da3b70d62d1e556bcd249530d6e0083a75b43",
+      "reviewText": {
+        "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-12-credit-introduction-r3.md",
+        "sha256": "003d7b69e225110354aae915cf053c06317a7c82392becd96974c382810d99af"
+      },
+      "manifest": {
+        "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-12-credit-introduction-r3.manifest.json",
+        "sha256": "a6bb05d2bf94c9d11e365dc48c5355a83be599c33920e5af2ec8d58608468870"
+      }
+    }
+  ],
+  "sourceBindings": [
+    {
+      "id": "original-activity-brief",
+      "path": "operations/product-stewards/newsstand/candidates/curiosity-bank-20260910/brief.md",
+      "sha256": "67cee63f1b835013625b77d8f4aaf953ac0a353ed0a7137f5beb9d3b903a5050"
+    },
+    {
+      "id": "hannah-fry-communication-benchmark",
+      "path": "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md",
+      "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"
+    }
+  ],
+  "excludedContext": [
+    "producer brief",
+    "producer self-review",
+    "maker receipts",
+    "prior reviews",
+    "validator output"
+  ],
+  "judgment": {
+    "calibration": {
+      "negatives": [
+        {
+          "exemplarId": "CQX-BAD-001",
+          "verdict": "REJECT",
+          "identifiedFailureFamilies": [
+            "templateRepetition",
+            "glossaryAccumulation",
+            "technicalExplainerVoice",
+            "decorativeAnalogy"
+          ],
+          "evidence": [
+            {
+              "excerpt": "Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+              "locator": "CQX-BAD-001, AI system entry"
+            },
+            {
+              "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+              "locator": "CQX-BAD-001, AI system entry"
+            },
+            {
+              "excerpt": "A toolbox contains different tools for different jobs.",
+              "locator": "CQX-BAD-001, Model types entry"
+            },
+            {
+              "excerpt": "A car manufacturer and a taxi company can both affect your journey.",
+              "locator": "CQX-BAD-001, Provider entry"
+            }
+          ]
+        },
+        {
+          "exemplarId": "CQX-BAD-002",
+          "verdict": "REJECT",
+          "identifiedFailureFamilies": [
+            "technicalExplainerVoice",
+            "joylessInstruction",
+            "workedExampleOvertakesBookPurpose"
+          ],
+          "evidence": [
+            {
+              "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+              "locator": "CQX-BAD-002, Chapter 1 opening scenario"
+            },
+            {
+              "excerpt": "the stage when a trained model produces an output from new input",
+              "locator": "CQX-BAD-002, 'What the model did' section"
+            },
+            {
+              "excerpt": "That is the map we will use throughout this book:",
+              "locator": "CQX-BAD-002, 'The output is not the decision' section"
+            }
+          ]
+        }
+      ],
+      "positive": {
+        "exemplarId": "CQX-GOOD-EPISODE-001",
+        "verdict": "VOICE_BENCHMARK_ACCEPTED",
+        "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+        "strengthsRetained": [
+          "warm direct address that reframes without deficit language",
+          "specific, punchy short sentences that carry the teaching",
+          "humour tied to workplace truth rather than decoration",
+          "honest limits stated plainly alongside confidence"
+        ],
+        "evidence": [
+          {
+            "excerpt": "It's not a confidence problem. It's a physics problem.",
+            "locator": "CQX-GOOD-EPISODE-001, lesson one-liner"
+          },
+          {
+            "excerpt": "That's not imposter syndrome. That's pattern recognition.",
+            "locator": "CQX-GOOD-EPISODE-001, quotables[]"
+          },
+          {
+            "excerpt": "It read everything. It's lived nothing.",
+            "locator": "CQX-GOOD-EPISODE-001, cocktail_party"
+          }
+        ]
+      }
+    },
+    "entries": [
+      {
+        "candidateId": "curiosity-12-credit-introduction",
+        "contentClass": "PRACTICE",
+        "verdict": "PASS",
+        "summary": "A clean daily practice entry: one situation (two women who might help each other), one doable act (double opt-in introduction with a stated specific reason), a concrete usefulness check at the next conversation, and a recovery step when the connection misses. It honours consent and agency exactly as the brief requires, makes no empirical or product claims, imposes no spend, sign-up, posting or mentoring obligation, and reads as plain, warm, specific advice rather than empowerment sludge. No substantive defect found.",
+        "objectiveDefects": [],
+        "limitations": [
+          "Sampled reader testing is pending per Ali's authorization; explain-back and transfer are assessed from prose only, not from observed readers.",
+          "Rendered page and any surrounding label/format are tested separately; this review covers prose only.",
+          "The brief's whole-bank check ('Review all thirty together for repetition and tone') cannot be performed from this single entry and remains an open bank-level obligation."
+        ],
+        "reverseBrief": {
+          "humanQuestion": "I know two women who could genuinely help each other — how do I connect them without being presumptuous or dumping work on either of them?",
+          "promisedPayoff": "A connection both people actually wanted, made with context, and a way to learn whether it worked.",
+          "centralMentalModel": "An introduction is a consensual, contextual gift, not a surprise assignment: ask both privately, explain the specific reason, then follow up and learn from misses.",
+          "dailyLifeConnection": "Applies to everyday community and work life — colleagues, friends, neighbours — with no insider access, money or public posting required.",
+          "surfaceJob": "One optional 'Try this today' daily act of mutual support in a month-long bank of choices, not an achievement streak.",
+          "desiredReaderFeeling": "Capable and considerate — she can do a small generous thing today without overstepping, and knows how to check it landed."
+        },
+        "outcomes": {
+          "plainClarity": {
+            "verdict": "PASS",
+            "observation": "Every step is a short imperative in plain words; the reader can state the act back: ask each privately, connect only with mutual agreement, give the reason, follow up.",
+            "artifactEvidence": [
+              {
+                "excerpt": "ask each privately whether she would welcome an introduction",
+                "locator": "body, sentence 1"
+              }
+            ]
+          },
+          "readerValue": {
+            "verdict": "PASS",
+            "observation": "Teaches a genuinely better practice than the common cold-intro habit: double opt-in plus a stated specific reason, which protects both parties' time and agency.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Only connect them if both agree, and explain the specific reason.",
+                "locator": "body, sentence 2"
+              }
+            ]
+          },
+          "laidiesVoice": {
+            "verdict": "PASS",
+            "observation": "Direct, warm, specific and filler-free; 'not as a surprise assignment' names a real workplace truth with light dry wit. No deficit framing about women and no empowerment boilerplate. Short columns need no compulsory joke.",
+            "artifactEvidence": [
+              {
+                "excerpt": "An introduction should arrive with context, not as a surprise assignment.",
+                "locator": "body, sentence 3"
+              }
+            ]
+          },
+          "engagingEnjoyable": {
+            "verdict": "PASS",
+            "observation": "The 'surprise assignment' turn gives the entry a recognisable, slightly wry observation; the piece is brisk and readable rather than joyless instruction.",
+            "artifactEvidence": [
+              {
+                "excerpt": "not as a surprise assignment",
+                "locator": "body, sentence 3"
+              }
+            ]
+          },
+          "factualIntegrity": {
+            "verdict": "PASS",
+            "observation": "No statistics, no invented quotations, no product capabilities, no effectiveness guarantees; the entry is explicitly original advice, matching the brief's constraint against reported science.",
+            "artifactEvidence": [
+              {
+                "excerpt": "If two women might help each other",
+                "locator": "body, sentence 1"
+              }
+            ]
+          },
+          "freshnessReviewability": {
+            "verdict": "PASS",
+            "observation": "Evergreen interpersonal advice with no dated facts, model names, pricing or UI claims; nothing here goes stale on a month timescale.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Next time you speak with either woman",
+                "locator": "body, sentence 4"
+              }
+            ]
+          },
+          "surfaceFit": {
+            "verdict": "PASS",
+            "observation": "Fits the 'Try this today' daily slot: one situation, one doable act, optional, no destination needed — the brief permits entries without a real destination to stand alone. No purchase, sign-up or public exposure required.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Make a useful introduction.",
+                "locator": "title"
+              }
+            ]
+          },
+          "retrievalOrPractice": {
+            "verdict": "PASS",
+            "observation": "The practice is a concrete real-world act the reader can perform today with people she already knows; no insider knowledge required.",
+            "artifactEvidence": [
+              {
+                "excerpt": "ask each privately whether she would welcome an introduction",
+                "locator": "body, sentence 1"
+              }
+            ]
+          },
+          "practiceFeedback": {
+            "verdict": "PASS",
+            "observation": "A concrete built-in check on whether it helped, exactly as the brief requires: ask at the next conversation whether the connection was useful.",
+            "artifactEvidence": [
+              {
+                "excerpt": "ask whether the connection was useful",
+                "locator": "body, sentence 4"
+              }
+            ]
+          },
+          "communicationBenchmark": {
+            "verdict": "PASS",
+            "observation": "Proportional application appropriate to a practice item: it starts from a reason the reader already has to care (two women who might help each other), makes the invisible etiquette of introductions concrete, and lands on a better next question after a miss. Humour dimension is correctly minimal for this scale.",
+            "artifactEvidence": [
+              {
+                "excerpt": "find out what you misunderstood before making another suggestion",
+                "locator": "body, sentence 5"
+              }
+            ]
+          },
+          "unseenTransfer": {
+            "verdict": "PASS",
+            "observation": "The pattern — private consent from both sides, specific stated reason, context on arrival, follow-up, learn from misses — transfers directly to referrals, vendor intros, mentoring matches and any brokered connection.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Only connect them if both agree, and explain the specific reason.",
+                "locator": "body, sentence 2"
+              }
+            ]
+          },
+          "recoveryRoute": {
+            "verdict": "PASS",
+            "observation": "Explicit recovery step when the act misfires: diagnose your own misunderstanding before attempting another match, which prevents repeated bad intros.",
+            "artifactEvidence": [
+              {
+                "excerpt": "If it missed the mark, find out what you misunderstood before making another suggestion.",
+                "locator": "body, sentence 5"
+              }
+            ]
+          }
+        },
+        "failureFamilies": {
+          "benchmarkNameDrop": {
+            "present": false,
+            "observation": "No benchmark or authority is named.",
+            "artifactLocator": "body"
+          },
+          "communicationPastiche": {
+            "present": false,
+            "observation": "No imitation of a named communicator's persona.",
+            "artifactLocator": "body"
+          },
+          "corporateSludge": {
+            "present": false,
+            "observation": "No filler phrases or corporate scaffolding; five working sentences.",
+            "artifactLocator": "body"
+          },
+          "curiosityWithoutPayoff": {
+            "present": false,
+            "observation": "No hook is opened that goes unanswered; the act itself is the payoff.",
+            "artifactLocator": "body"
+          },
+          "decorativeAnalogy": {
+            "present": false,
+            "observation": "No analogy is used; absence is not a defect for a short practice item.",
+            "artifactLocator": "body"
+          },
+          "disconnectedSystem": {
+            "present": false,
+            "observation": "Not a systems explanation; the consent-context-follow-up steps connect coherently.",
+            "artifactLocator": "body"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "present": false,
+            "observation": "Practical instruction leads; the light wit serves the point.",
+            "artifactLocator": "body, sentence 3"
+          },
+          "factlessConfidence": {
+            "present": false,
+            "observation": "No confident empirical claims; it prescribes an act and a check, not an outcome guarantee.",
+            "artifactLocator": "body"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "present": false,
+            "observation": "No familiar-example device is used.",
+            "artifactLocator": "body"
+          },
+          "genericAction": {
+            "present": false,
+            "observation": "The action is specific: private double opt-in, stated reason, follow-up question, diagnostic on a miss.",
+            "artifactLocator": "body, sentences 1-5"
+          },
+          "glossaryAccumulation": {
+            "present": false,
+            "observation": "No terminology is defined or stacked.",
+            "artifactLocator": "body"
+          },
+          "inflatedTakeawayEnding": {
+            "present": false,
+            "observation": "Ends on a modest diagnostic step, not an inspirational moral.",
+            "artifactLocator": "body, sentence 5"
+          },
+          "jargonBeforeMeaning": {
+            "present": false,
+            "observation": "No jargon appears.",
+            "artifactLocator": "body"
+          },
+          "joylessInstruction": {
+            "present": false,
+            "observation": "Brisk and warm; the 'surprise assignment' line keeps it human.",
+            "artifactLocator": "body, sentence 3"
+          },
+          "mechanismBeforeMotivation": {
+            "present": false,
+            "observation": "Motivation (mutual help) opens the entry before the steps.",
+            "artifactLocator": "body, sentence 1"
+          },
+          "mechanismCompressedBehindHook": {
+            "present": false,
+            "observation": "No hook competes with the instruction; steps get the full space.",
+            "artifactLocator": "body"
+          },
+          "missingMechanism": {
+            "present": false,
+            "observation": "The 'why' is carried by the consent framing and the context-not-assignment contrast, proportionate to a practice item.",
+            "artifactLocator": "body, sentences 2-3"
+          },
+          "prematureClickBeforeMechanism": {
+            "present": false,
+            "observation": "No reveal structure is attempted.",
+            "artifactLocator": "body"
+          },
+          "purposeTooNarrow": {
+            "present": false,
+            "observation": "Applies across work, community and everyday life as the brief intends.",
+            "artifactLocator": "body, sentence 1"
+          },
+          "referenceConfetti": {
+            "present": false,
+            "observation": "No pop-culture or source references appear.",
+            "artifactLocator": "body"
+          },
+          "staleUnreviewableClaims": {
+            "present": false,
+            "observation": "No dated, numeric or product-dependent claims.",
+            "artifactLocator": "body"
+          },
+          "technicalExplainerVoice": {
+            "present": false,
+            "observation": "Reads as a friend's advice, not a manual.",
+            "artifactLocator": "body"
+          },
+          "templateRepetition": {
+            "present": false,
+            "observation": "No repeated block scaffolding within the entry; whole-bank repetition check remains a separate bank-level review.",
+            "artifactLocator": "body"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "present": false,
+            "observation": "No worked example is used; the act is stated directly.",
+            "artifactLocator": "body"
+          }
+        },
+        "factualReview": {
+          "disposition": "NO_MATERIAL_CLAIMS",
+          "rationale": "The entry is an explicitly original activity suggestion under the brief's terms ('original editorial activity suggestions, not reported science or evidence of effectiveness'). It asserts no statistics, product capabilities, quotations, reported events or effectiveness guarantees, so no claim-to-source map is required and no source is manufactured to support it.",
+          "claimScan": {
+            "observation": "Full prose inspected for implied claims. The only conditional ('If two women might help each other') frames a hypothetical situation, and the outcome language is a check ('ask whether the connection was useful'), not a benefit guarantee. No dates, numbers, names, tools or capabilities appear anywhere in the five sentences.",
+            "artifactEvidence": [
+              {
+                "excerpt": "If two women might help each other",
+                "locator": "body, sentence 1"
+              },
+              {
+                "excerpt": "ask whether the connection was useful",
+                "locator": "body, sentence 4"
+              },
+              {
+                "excerpt": "find out what you misunderstood before making another suggestion",
+                "locator": "body, sentence 5"
+              }
+            ]
+          },
+          "sourceBindings": [],
+          "claimMap": [],
+          "reviewedThrough": "2026-09-10",
+          "nextTrigger": "Re-review only if the entry is edited, if the whole 30-entry bank review finds tone/repetition conflicts, or if sampled reader testing returns findings.",
+          "correctionOwner": "newsstand-daily"
+        }
+      }
+    ]
+  },
+  "bindingRepairs": []
+}

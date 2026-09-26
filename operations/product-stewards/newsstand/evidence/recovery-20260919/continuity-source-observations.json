@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "newsstand-source-continuity-observations-v1",
+  "recordedAt": "2026-09-19T17:02:13Z",
+  "timestampMeaning": "Recorded immediately after the cited normal-web responses were inspected. The web tool reported 'Crawled: today' rather than an exact response-completion timestamp.",
+  "scope": "Independent refresh of stale CHECKED source observations only; no coverage, cursor, canonical, queue, candidate, or public mutation.",
+  "transport": "normal web open/search only",
+  "coverageSnapshot": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "sha256AtInspection": "eaa58cee70061c282a6af60bfdd0763cb05aa9596b0ffc5dbb56e4033b2b9f4e",
+    "note": "The shared file was already modified by another writer and was not edited by this lane."
+  },
+  "observations": [
+    {
+      "url": "https://deepmind.google/blog/",
+      "webRef": "turn846view0",
+      "readScope": "Current index headings, lines 121-169; followed the Gemini 3.8 Flash and Fairwind items to their official pages.",
+      "followthrough": [
+        {
+          "webRef": "turn850view0",
+          "readScope": "Official Gemini 3.8 Flash page, lines 214-220",
+          "date": "2026-09-02"
+        },
+        {
+          "webRef": "turn850view1",
+          "readScope": "Official Fairwind page, lines 214-220",
+          "date": "2026-09-02"
+        }
+      ],
+      "visibleCurrentHeadings": [
+        "Gemini 3.8 Flash and 3.8 Flash Cyber",
+        "Gemini 3.8 Live and Live Extended Thinking",
+        "AlphaGenome Atlas",
+        "WeatherNext 3",
+        "proactive cyber defense",
+        "agentic video understanding"
+      ],
+      "disposition": "NO_MATERIAL_CHANGE",
+      "assessment": "The visible set matches items already published or previously dispositioned. The two followed dated items are September 2, not a new September 19 event."
+    },
+    {
+      "url": "https://gemini.google/release-notes/",
+      "webRef": "turn846view1",
+      "readScope": "Newest dated Apps entry, lines 26-33",
+      "newestDatedEntry": {
+        "date": "2026-09-10",
+        "subject": "Gemini Windows app"
+      },
+      "disposition": "NO_MATERIAL_CHANGE_ALREADY_PUBLISHED",
+      "coverageIdentity": "gemini-windows-20260913"
+    },
+    {
+      "url": "https://www.oneusefulthing.org/archive",
+      "webRefs": [
+        "turn846view2",
+        "turn848view4"
+      ],
+      "readScope": "Top archive entry and its date/title",
+      "followthrough": {
+        "url": "https://www.oneusefulthing.org/p/the-overhang",
+        "webRef": "turn849view0",
+        "readScope": "Full visible article, lines 2-52",
+        "date": "2026-09-18",
+        "title": "The Overhang — Using your deep knowledge, wide knowledge, taste, and agency"
+      },
+      "disposition": "NEW_PRACTITIONER_SOURCE_CANDIDATE",
+      "assessment": "Mollick argues that useful advantages with current models include deep knowledge, wide knowledge, taste, and agency. His project examples are self-reported illustrations, not independent measurements of model performance."
+    },
+    {
+      "url": "https://www.alliekmiller.com/resources",
+      "webRefs": [
+        "turn846view3",
+        "turn848view5"
+      ],
+      "readScope": "Visible resource titles and descriptions, lines 7-71",
+      "disposition": "NO_DATED_FRESHNESS_BASIS",
+      "assessment": "The page exposes resource titles and marketing descriptions without publication dates. This observation cannot support a new dated item or a cursor advance."
+    },
+    {
+      "url": "https://aidailybrief.ai/agent.json",
+      "webRefs": [
+        "turn846view4",
+        "turn848view0",
+        "turn848view1",
+        "turn851view0"
+      ],
+      "readScope": "Publisher index metadata and September 13-17 episode entries, including generated timestamp and listed artifact URLs",
+      "publisherGeneratedAt": "2026-09-19T16:59:11.150Z",
+      "disposition": "INDEX_REFRESHED_NO_FULL_TRANSCRIPT_CLAIM",
+      "assessment": "The index lists five episodes in the September 13-19 rolling window and no September 18 or 19 episode. A listed transcript URL establishes publisher listing only, not that transcript content was opened or read."
+    },
+    {
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "webRef": "turn846view5",
+      "readScope": "Show metadata; the opened page did not expose a usable current episode list",
+      "distinctSearchEvidence": [
+        {
+          "webRef": "turn853search0",
+          "date": "2026-09-17",
+          "publishedTime": "19:41 UTC",
+          "duration": "30 minutes",
+          "scope": "Apple episode summary metadata only"
+        },
+        {
+          "webRef": "turn853search8",
+          "date": "2026-09-16",
+          "publishedTime": "19:57 UTC",
+          "duration": "25 minutes",
+          "scope": "Apple episode summary metadata only"
+        }
+      ],
+      "disposition": "METADATA_ONLY_NO_TRANSCRIPT",
+      "assessment": "Apple corroborates episode identity and dates for September 16 and 17. It does not provide a full transcript in the inspected results."
+    },
+    {
+      "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+      "webRef": "turn855view0",
+      "discoveredFrom": "AIDB September 16 publisher-listed episode",
+      "readScope": "Full visible primary company article, lines 18-145",
+      "date": "2026-09-15",
+      "disposition": "NEW_PRIMARY_SOURCE_CANDIDATE_WITH_EVIDENCE_HOLD",
+      "assessment": "TypeSafe announces Jev early access and describes it as a structured probabilistic decision model. Its speed, cost, reliability, and error claims are company claims; the article acknowledges simplified demonstrations, possible bias in its own evaluations, and unresolved commercial sustainability."
+    }
+  ],
+  "prohibitedOrBlockedRoutesRetried": false,
+  "alternateTransportUsed": false,
+  "quietClaim": false
+}

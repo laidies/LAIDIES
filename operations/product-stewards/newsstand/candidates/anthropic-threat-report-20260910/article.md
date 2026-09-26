@@ -1,0 +1,23 @@
+# Anthropic reports AI use in state surveillance and risky biology. The evidence stops short of intent or a bioweapon.
+
+## The story
+
+Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.
+
+In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.
+
+Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely dual-use: able to serve ordinary science and also be misused.
+
+## The LAiDIES read
+
+The report matters because a provider can see patterns across accounts that the public cannot. That visibility lets Anthropic investigate activity on Claude, block accounts and change its service. It also creates a limit: outsiders cannot inspect the private logs, and Anthropic cannot see everything an actor does elsewhere.
+
+Think of a venue removing someone for dangerous conduct it sees and preserving its records. The intervention matters, but it is not a court finding about every motive and cannot stop the person going elsewhere. Here, Axios's Mali example shows the same boundary: cutting Claude access did not end the underlying project.
+
+Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm. Evidence at one level does not automatically prove the next. AP’s reporting attributes the cases to Anthropic. Cornell researcher John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight, not company decisions alone.
+
+## What this means for you
+
+Take the surveillance and biological risks seriously without upgrading the evidence. Anthropic's account bans and safeguards are concrete actions. Its actor attributions, conclusions about AI's added help and descriptions of intent still require scrutiny and, where possible, independent evidence.
+
+When the next headline says AI built a weapon or stopped a state operation, ask: “Did the report observe a request, an operating workflow, a completed harmful system or real-world harm?” Then check whether the claim came from provider logs, independent investigators or a public authority.

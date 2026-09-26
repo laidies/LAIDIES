@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "newsstand-lead-replacement-proposal-v1",
+  "createdAt": "2026-09-26T14:33:36.188Z",
+  "createdBy": "/root/california_order_producer",
+  "canonicalMutation": false,
+  "leadId": "openai-agent-user-images-third-party-20260925",
+  "predecessor": {
+    "path": "operations/product-stewards/newsstand/evidence/morning-20260926/source-refresh/proposed-coverage-progress-r3.json",
+    "sha256": "7584b0dda1ed63e3698d2fba184f9dd7ff4a4d4407dc637b1dd3aa0ba3b397f0",
+    "status": "READY",
+    "defect": "READY is unsupported because neither complete independent report body nor a first-party image-specific passage was preserved."
+  },
+  "replacement": {
+    "status": "EVIDENCE_BLOCKED",
+    "owner": "NewsStand product steward",
+    "candidatePath": "operations/product-stewards/newsstand/candidates/openai-agent-user-images-third-party-20260925",
+    "sourceResearch": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-agent-user-images-third-party-20260925/source-research.json",
+      "sha256": "eee3bf7461c265e542b84403d897378224ae75fd246d67a80c5babb1c4ef70d0"
+    },
+    "sourceUrls": [
+      "https://www.bleepingcomputer.com/news/artificial-intelligence/openais-ai-agents-accidentally-uploaded-user-provided-images-to-third-party-sites/",
+      "https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/",
+      "https://openai.com/hugging-face-incident-and-misalignment/"
+    ],
+    "attemptedRecovery": "Earlier derived observations were preserved, but full report bodies were not. Later normal opens of both exact publisher URLs were inaccessible. The rendered official page and linked August incident page did not provide the image-specific passage.",
+    "missingInput": "A preserved complete independent publisher report or a directly captured official OpenAI image-specific update, plus sufficient text to verify the reported scope.",
+    "nextAction": "Keep the lead evidence-blocked. At or after the next check, use one normal exact publisher open if accessible or capture a new official image-specific update. Do not draft from derived notes.",
+    "nextCheckAt": "2026-09-27T14:33:36.188Z",
+    "claimLimits": "Treat the 53-image statement and all related scope as attributed, unverified reporting. Do not claim all ChatGPT images, a general breach or an inferred affected-account count."
+  },
+  "evidence": [
+    {
+      "path": "operations/product-stewards/newsstand/evidence/morning-20260926/source-refresh/raw-practitioner-openai-revision.json",
+      "sha256": "738227966cd1d566df2e19a3574d039cdbb0d3bb33caaf93a6c7509912f6b4b3"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/morning-20260926/root-privacy-source-open.json",
+      "sha256": "3a22ff6212901d7e1470c415e7636a125d87ec49c412cb2d59e6093971a7dcda"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "laidies-newsstand-combined-editorial-raw.v1",
+  "candidateId": "nvidia-groq-inquiry-20260912",
+  "storySha256": "86a46420d1e35baecabb46cfc244afb9fed4f51bf99500e43f2f4f63f3640497",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "verdict": "PASS",
+  "findings": {
+    "reader": "A well-bounded news brief that resolves its own paradox — no purchase, yet a reported inquiry — through a complete plain-language mechanism (non-exclusive licence plus senior hires, with continued independence) while rigorously preserving the inquiry-versus-finding boundary. Explain-back and a new transfer scenario both succeed with evidence limits intact.",
+    "facts": "Every material claim is verified against the supplied excerpts: the reported DOJ inquiry and its process details carry the correct Reuters/NYT attribution, the party responses are accurately quoted or paraphrased, and the deal structure matches Groq's own announcement. Dates are explicit, the December deal is separated from the September report, and the article never converts the reported inquiry into a finding."
+  },
+  "readerProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/independent-review/runtime-claude-fable-20260912-v3/article-editorial-provider.raw.json",
+    "sha256": "b4d0f610151a25413a711a39b90328ebed6d10bf4e2acf3c39272dc4236c0673"
+  },
+  "factualJudgment": {
+    "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/independent-review/runtime-claude-fable-20260912-v3/article-editorial-judgment.json",
+    "sha256": "e77bf6cd6958b8fb457f12c0061dbda6b0c2f54ba7404bca0a4166732ca24536"
+  },
+  "factualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/independent-review/runtime-claude-fable-20260912-v3/article-editorial-provider.raw.json",
+    "sha256": "b4d0f610151a25413a711a39b90328ebed6d10bf4e2acf3c39272dc4236c0673"
+  },
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  }
+}

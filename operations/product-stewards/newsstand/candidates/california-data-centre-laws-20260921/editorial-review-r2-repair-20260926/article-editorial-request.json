@@ -1,0 +1,2554 @@
+{
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "reader": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "reverseBrief": {
+            "type": "object",
+            "properties": {
+              "humanQuestion": {
+                "type": "string",
+                "minLength": 15
+              },
+              "promisedPayoff": {
+                "type": "string",
+                "minLength": 15
+              },
+              "centralMentalModel": {
+                "type": "string",
+                "minLength": 15
+              },
+              "dailyLifeConnection": {
+                "type": "string",
+                "minLength": 15
+              },
+              "surfaceJob": {
+                "type": "string",
+                "minLength": 15
+              },
+              "desiredReaderFeeling": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "humanQuestion",
+              "promisedPayoff",
+              "centralMentalModel",
+              "dailyLifeConnection",
+              "surfaceJob",
+              "desiredReaderFeeling"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "plainClarity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerValue": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "laidiesVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "engagingEnjoyable": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "surfaceFit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "dailyLifeConnection": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationBenchmark": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "explainBack": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "unseenTransfer": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "usefulAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "analogyIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "plainClarity",
+              "readerValue",
+              "laidiesVoice",
+              "engagingEnjoyable",
+              "surfaceFit",
+              "dailyLifeConnection",
+              "communicationBenchmark",
+              "explainBack",
+              "unseenTransfer",
+              "usefulAction",
+              "analogyIntegrity"
+            ],
+            "additionalProperties": false
+          },
+          "newsChecks": {
+            "type": "object",
+            "properties": {
+              "incidentExplained": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "termsExplainedInContext": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerConsequenceSpecific": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "noInternalNotesOrInventedAdvice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "incidentExplained",
+              "termsExplainedInContext",
+              "readerConsequenceSpecific",
+              "noInternalNotesOrInventedAdvice"
+            ],
+            "additionalProperties": false
+          },
+          "families": {
+            "type": "object",
+            "properties": {
+              "glossaryAccumulation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "templateRepetition": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "decorativeAnalogy": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "referenceConfetti": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "missingMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "genericAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "jargonBeforeMeaning": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "disconnectedSystem": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "factlessConfidence": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "staleUnreviewableClaims": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "corporateSludge": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "joylessInstruction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "benchmarkNameDrop": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "curiosityWithoutPayoff": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "familiarExampleWithoutTechnicalReturn": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationPastiche": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "entertainmentBeforeUnderstanding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismCompressedBehindHook": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "prematureClickBeforeMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "inflatedTakeawayEnding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "purposeTooNarrow": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismBeforeMotivation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "workedExampleOvertakesBookPurpose": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "technicalExplainerVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "glossaryAccumulation",
+              "templateRepetition",
+              "decorativeAnalogy",
+              "referenceConfetti",
+              "missingMechanism",
+              "genericAction",
+              "jargonBeforeMeaning",
+              "disconnectedSystem",
+              "factlessConfidence",
+              "staleUnreviewableClaims",
+              "corporateSludge",
+              "joylessInstruction",
+              "benchmarkNameDrop",
+              "curiosityWithoutPayoff",
+              "familiarExampleWithoutTechnicalReturn",
+              "communicationPastiche",
+              "entertainmentBeforeUnderstanding",
+              "mechanismCompressedBehindHook",
+              "prematureClickBeforeMechanism",
+              "inflatedTakeawayEnding",
+              "purposeTooNarrow",
+              "mechanismBeforeMotivation",
+              "workedExampleOvertakesBookPurpose",
+              "technicalExplainerVoice"
+            ],
+            "additionalProperties": false
+          },
+          "explainBack": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "unseenTransfer": {
+            "type": "object",
+            "properties": {
+              "scenario": {
+                "type": "string",
+                "minLength": 15
+              },
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "scenario",
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "reverseBrief",
+          "outcomes",
+          "newsChecks",
+          "families",
+          "explainBack",
+          "unseenTransfer",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      },
+      "facts": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "claims": {
+            "type": "object",
+            "properties": {
+              "two-of-seven": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "sb-status",
+                        "ab-status",
+                        "governor-seven",
+                        "sb-opening",
+                        "sb-grid",
+                        "sb-load",
+                        "sb-residential",
+                        "sb-operative-verb",
+                        "ab-permit",
+                        "ab-energization",
+                        "ab-annual",
+                        "ab-aggregate",
+                        "ab-2029",
+                        "ab-threshold",
+                        "ab-exclusions",
+                        "ab-privacy"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "sb-assess-opportunities": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "sb-status",
+                        "ab-status",
+                        "governor-seven",
+                        "sb-opening",
+                        "sb-grid",
+                        "sb-load",
+                        "sb-residential",
+                        "sb-operative-verb",
+                        "ab-permit",
+                        "ab-energization",
+                        "ab-annual",
+                        "ab-aggregate",
+                        "ab-2029",
+                        "ab-threshold",
+                        "ab-exclusions",
+                        "ab-privacy"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "no-immediate-bill-result": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "sb-status",
+                        "ab-status",
+                        "governor-seven",
+                        "sb-opening",
+                        "sb-grid",
+                        "sb-load",
+                        "sb-residential",
+                        "sb-operative-verb",
+                        "ab-permit",
+                        "ab-energization",
+                        "ab-annual",
+                        "ab-aggregate",
+                        "ab-2029",
+                        "ab-threshold",
+                        "ab-exclusions",
+                        "ab-privacy"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "ab-local-and-state-reporting": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "sb-status",
+                        "ab-status",
+                        "governor-seven",
+                        "sb-opening",
+                        "sb-grid",
+                        "sb-load",
+                        "sb-residential",
+                        "sb-operative-verb",
+                        "ab-permit",
+                        "ab-energization",
+                        "ab-annual",
+                        "ab-aggregate",
+                        "ab-2029",
+                        "ab-threshold",
+                        "ab-exclusions",
+                        "ab-privacy"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "ab-publication-timing": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "sb-status",
+                        "ab-status",
+                        "governor-seven",
+                        "sb-opening",
+                        "sb-grid",
+                        "sb-load",
+                        "sb-residential",
+                        "sb-operative-verb",
+                        "ab-permit",
+                        "ab-energization",
+                        "ab-annual",
+                        "ab-aggregate",
+                        "ab-2029",
+                        "ab-threshold",
+                        "ab-exclusions",
+                        "ab-privacy"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "ab-threshold-exclusions-privacy": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "sb-status",
+                        "ab-status",
+                        "governor-seven",
+                        "sb-opening",
+                        "sb-grid",
+                        "sb-load",
+                        "sb-residential",
+                        "sb-operative-verb",
+                        "ab-permit",
+                        "ab-energization",
+                        "ab-annual",
+                        "ab-aggregate",
+                        "ab-2029",
+                        "ab-threshold",
+                        "ab-exclusions",
+                        "ab-privacy"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "two-of-seven",
+              "sb-assess-opportunities",
+              "no-immediate-bill-result",
+              "ab-local-and-state-reporting",
+              "ab-publication-timing",
+              "ab-threshold-exclusions-privacy"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "factualIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "freshnessReviewability": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "datedChange": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "consequenceAndUncertainty": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "factualIntegrity",
+              "freshnessReviewability",
+              "datedChange",
+              "consequenceAndUncertainty"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "claims",
+          "outcomes",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "reader",
+      "facts"
+    ],
+    "additionalProperties": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an independent editorial reviewer. Inspect the exact artifact before judging. Be specific, proportionate and honest. A real defect, insufficient evidence and an execution failure are different. Return final structured judgments only; never invent human observations."
+    },
+    {
+      "role": "user",
+      "content": "Read the COMPLETE ARTIFACT first:\n{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"<a href=\\\"/library.html#straight-answers::%40are-data-centres-raising-my-electricity-bill\\\">Straight Answers About AI: Are data centres raising my electricity bill?</a> explains why rate design and who pays for grid upgrades matter more than one alarming headline.\",\"closing_note\":null,\"cocktail_party\":\"“California started a process for possible data-centre rates and new reporting. The laws are real; an approved rate, household saving and facility-level public dossier are not here yet.”\",\"concepts\":[\"rate structure\",\"regulatory proceeding\",\"aggregated reporting\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"California started data-centre rate and reporting work. Your bill did not change today.\",\"heroVisual\":{\"alt\":\"An editorial illustration of a miniature data-centre campus and substation resting on a planning desk, with transmission towers beyond the window.\",\"credit\":\"Illustration: LAiDIES\",\"src\":\"/assets/newsstand/california-data-centre-laws-20260921.png\"},\"id\":\"california-data-centre-laws-20260921\",\"laidies_read\":\"<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p><p>AB 1577 creates a different kind of visibility. Covered data centres — facilities with at least 10 megawatts of electrical capacity — must supply estimates when seeking a discretionary local approval. Once a facility is connected to power, owners report specified information to the state, with further reporting at least annually.</p>\",\"lastCheckedAt\":\"2026-09-26T15:27:27.828Z\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"california-data-centre-laws-20260921\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:california-data-centre-laws-20260921\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-26\",\"approvalStatus\":\"independent-review-required\",\"id\":\"governor-seven-law-signing-20260921\",\"label\":\"Governor of California — September 21 data-centre bill signing\",\"publisherType\":\"government-announcement\",\"url\":\"https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/\"},{\"accessedAt\":\"2026-09-26\",\"approvalStatus\":\"independent-review-required\",\"id\":\"sb1168-chaptered-20260921\",\"label\":\"California Legislative Information — SB 1168 chaptered text\",\"publisherType\":\"government-primary-document\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\"},{\"accessedAt\":\"2026-09-26\",\"approvalStatus\":\"independent-review-required\",\"id\":\"ab1577-chaptered-20260921\",\"label\":\"California Legislative Information — AB 1577 chaptered text\",\"publisherType\":\"government-primary-document\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"California\",\"SB 1168\",\"AB 1577\",\"data centres\",\"electricity rates\"],\"the_story\":\"<p>California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.</p><p>SB 1168 tells the California Public Utilities Commission to assess opportunities for rate structures — the rules used to divide charges among customer groups. The assessment must consider data centres’ reasonable share of transmission and distribution costs, their proportionate share of load and procurement costs, and pressure on residential customers.</p>\",\"themes\":[\"AI infrastructure\",\"electricity rates\",\"public reporting\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-26T15:27:27.828Z\",\"watch_fors\":null,\"what_this_means\":\"<p>The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.</p><p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>\"}\n\n\nEXACT PASSAGE REFERENCES:\n[P001] California started data-centre rate and reporting work. Your bill did not change today.\n\n[P002] California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.\n\n[P003] SB 1168 tells the California Public Utilities Commission to assess opportunities for rate structures — the rules used to divide charges among customer groups. The assessment must consider data centres’ reasonable share of transmission and distribution costs, their proportionate share of load and procurement costs, and pressure on residential customers.\n\n[P004] “Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.\n\n[P005] AB 1577 creates a different kind of visibility. Covered data centres — facilities with at least 10 megawatts of electrical capacity — must supply estimates when seeking a discretionary local approval. Once a facility is connected to power, owners report specified information to the state, with further reporting at least annually.\n\n[P006] The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.\n\n[P007] The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.\n\n[P008] “California started a process for possible data-centre rates and new reporting. The laws are real; an approved rate, household saving and facility-level public dossier are not here yet.”\n\n[P009] Straight Answers About AI: Are data centres raising my electricity bill? explains why rate design and who pays for grid upgrades matter more than one alarming headline.\n\nAssess this complete dated NEWS article for California signed seven data-centre laws. What do SB 1168 and AB 1577 actually change for residents now? Separate enacted reporting and commission-assessment duties from an adopted utility rate, an immediate bill change or a promise that all seven laws have been explained.. Check every material factual claim against the supplied source excerpts, retaining attribution and limits. Independently judge reader comprehension and editorial craft. Supply an actual causal explain-back and invent and solve a new transfer scenario absent from this article. These are AI editorial analyses, never observed humans. Do not inherit the maker's conclusions; none are supplied.\n\nRUBRIC AND EVIDENCE:\n{\"communicationAuthority\":{\"benchmarkId\":\"HANNAH_FRY_COMMUNICATION_LENS_V2\",\"benchmark\":{\"path\":\"operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md\",\"sha256\":\"7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3\"},\"mode\":\"PROPORTIONAL\",\"surfaceAdaptation\":\"Answer the bill question first, then show the path from enacted process to later rate or project decision while keeping the two laws separate.\",\"imitationBoundary\":\"ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA\",\"dimensions\":{\"humanQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Make a process-heavy law visible through one covered project and the sequence of decision-makers.\",\"plannedEvidence\":\"Enactment → assessment/reporting → later decision or aggregate report → observable resident effect.\"},\"usefulCuriosity\":{\"disposition\":\"APPLY\",\"reason\":\"Make a process-heavy law visible through one covered project and the sequence of decision-makers.\",\"plannedEvidence\":\"Enactment → assessment/reporting → later decision or aggregate report → observable resident effect.\"},\"invisibleProcessConcrete\":{\"disposition\":\"APPLY\",\"reason\":\"Make a process-heavy law visible through one covered project and the sequence of decision-makers.\",\"plannedEvidence\":\"Enactment → assessment/reporting → later decision or aggregate report → observable resident effect.\"},\"familiarTechnicalMovement\":{\"disposition\":\"APPLY\",\"reason\":\"Make a process-heavy law visible through one covered project and the sequence of decision-makers.\",\"plannedEvidence\":\"Enactment → assessment/reporting → later decision or aggregate report → observable resident effect.\"},\"limitationsConsequences\":{\"disposition\":\"APPLY\",\"reason\":\"Make a process-heavy law visible through one covered project and the sequence of decision-makers.\",\"plannedEvidence\":\"Enactment → assessment/reporting → later decision or aggregate report → observable resident effect.\"},\"betterNextQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Make a process-heavy law visible through one covered project and the sequence of decision-makers.\",\"plannedEvidence\":\"Enactment → assessment/reporting → later decision or aggregate report → observable resident effect.\"},\"humourSurprise\":{\"disposition\":\"NOT_APPLICABLE\",\"reason\":\"Humour would blur the legal and timing distinctions.\",\"plannedEvidence\":\"Direct, restrained explanation.\"}},\"explanationArc\":{\"mode\":\"PROPORTIONAL\",\"retainedMoves\":[\"answer-first\",\"two-law separation\",\"covered-project example\",\"limits beside claims\",\"better rate-case question\"],\"adaptation\":\"The Daily brief identifies what changed, follows the mechanism, and ends with the exact record that would prove a real resident effect.\"},\"analogyChecks\":[],\"discoveryChecks\":[{\"question\":\"Does “protect ratepayers” mean a bill credit appeared?\",\"answer\":\"No. SB 1168 requires assessment of possible rate structures; a proceeding and later rate decision still determine any bill effect.\"}]},\"failureDefinitions\":{\"glossaryAccumulation\":\"Separate definitions accumulate without connecting how the system works.\",\"templateRepetition\":\"Repeated paragraph scaffolds replace a developing explanation.\",\"decorativeAnalogy\":\"A familiar comparison adds flavour but fails to explain a specific causal mechanism.\",\"referenceConfetti\":\"Pop-culture or other references accumulate without a useful explanatory job.\",\"missingMechanism\":\"The reader gets labels or conclusions without the necessary causal steps.\",\"genericAction\":\"Advice such as verify or be careful lacks a concrete useful action for this case.\",\"jargonBeforeMeaning\":\"Necessary technical language is left unexplained in its first meaningful context.\",\"disconnectedSystem\":\"Parts are named separately without showing how information or effects move between them.\",\"factlessConfidence\":\"Certainty exceeds the evidence actually available.\",\"staleUnreviewableClaims\":\"A material time-sensitive claim cannot be traced and checked for its stated date.\",\"corporateSludge\":\"Vague corporate or motivational language obscures the concrete meaning.\",\"joylessInstruction\":\"The prose becomes a dry checklist or terminology manual with little human interest.\",\"benchmarkNameDrop\":\"Mentioning a communication benchmark or famous explainer substitutes for clear explanation.\",\"curiosityWithoutPayoff\":\"A hook raises curiosity but never delivers the promised explanation.\",\"familiarExampleWithoutTechnicalReturn\":\"A familiar example never reconnects to the actual technical mechanism.\",\"communicationPastiche\":\"Wording, persona or mannerisms imitate a communicator instead of original clear explanation.\",\"entertainmentBeforeUnderstanding\":\"Humour or spectacle gets in the way of understanding.\",\"mechanismCompressedBehindHook\":\"The hook occupies the piece while the causal explanation is rushed.\",\"prematureClickBeforeMechanism\":\"The conclusion or reveal is asserted before its explanation earns understanding.\",\"inflatedTakeawayEnding\":\"The ending inflates a bounded finding into a grand claim or moral.\",\"purposeTooNarrow\":\"The scope is narrower than the supplied reader job; one task becomes the whole purpose.\",\"mechanismBeforeMotivation\":\"Technical machinery begins before the artifact establishes the destination-level human reason for this knowledge. Stakes inside one worked example do not satisfy this when the destination promises broader cross-context orientation; the reader must first see why the knowledge matters beyond that example.\",\"workedExampleOvertakesBookPurpose\":\"One worked example crowds out the broader foundational orientation the book promises.\",\"technicalExplainerVoice\":\"The organising perspective is specialist taxonomy or workflow inspection instead of the reader orientation promised by the destination. Judge what the prose asks the reader to care about, not just friendly vocabulary: for a broad foundational opening, second-person warmth and a lived example do not clear this defect when tracing technical operations remains the main reason for learning, without the promised practical and civic orientation. In a bounded news report or how-to, explaining its specific mechanism can be exactly the right perspective.\"},\"outcomeDefinitions\":{\"plainClarity\":\"A smart reader without technical AI training can follow each sentence.\",\"readerValue\":\"The reader gains a useful understanding or decision beyond the headline.\",\"laidiesVoice\":\"Warm, candid, adult, conversational LAiDIES voice; no condescension or borrowed persona.\",\"engagingEnjoyable\":\"The human question and explanation sustain interest; humour is earned rather than mandatory.\",\"factualIntegrity\":\"Material claims are supported by the actual sources and correctly attributed.\",\"freshnessReviewability\":\"The event, reporting date and limitations make time-sensitive claims checkable.\",\"surfaceFit\":\"A dated news article answers what happened and why it matters within its proper scope.\",\"datedChange\":\"Old events are distinguished from newly reported evidence or responses.\",\"consequenceAndUncertainty\":\"Consequences are concrete and uncertainty survives the explanation.\",\"dailyLifeConnection\":\"A familiar work/life situation helps the professional reader understand the mechanism.\",\"communicationBenchmark\":\"Human purpose, concrete causality and a useful next question; no imitation of Hannah Fry.\",\"explainBack\":\"The mechanism supports an accurate answer to a causal question in ordinary language.\",\"unseenTransfer\":\"The mechanism can be applied to a genuinely new concrete situation absent from the article.\",\"usefulAction\":\"A specific proportionate action follows from the explanation where applicable.\",\"analogyIntegrity\":\"Each comparison maps the mechanism accurately and retains relevant limits.\"},\"newsCheckDefinitions\":{\"incidentExplained\":\"The actual incident and relevant causal sequence are understandable.\",\"termsExplainedInContext\":\"Necessary AI terms gain plain meaning at first meaningful use.\",\"readerConsequenceSpecific\":\"The consequence is grounded in a recognizable specific reader situation.\",\"noInternalNotesOrInventedAdvice\":\"No internal LAiDIES operating notes, commercially distinctive process details, or unsupported advice appear.\"},\"claims\":[{\"claimId\":\"two-of-seven\",\"claim\":\"SB 1168 and AB 1577 became law September 21 and are two of seven data-centre bills signed that day.\",\"candidateEvidence\":[{\"excerpt\":\"California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two.\",\"locator\":\"The Story\"}],\"sourceIds\":[\"sb-status\",\"ab-status\",\"governor-seven\"],\"scopeAndFreshness\":\"Official signing announcement and chaptered text checked September 26. The story covers only these two laws.\"},{\"claimId\":\"sb-assess-opportunities\",\"claim\":\"SB 1168 requires the Public Utilities Commission to assess opportunities for rate structures addressing data-centre grid, load and procurement costs and pressure on residential customers.\",\"candidateEvidence\":[{\"excerpt\":\"SB 1168 tells the California Public Utilities Commission to assess opportunities for rate structures\",\"locator\":\"The Story\"}],\"sourceIds\":[\"sb-opening\",\"sb-operative-verb\",\"sb-grid\",\"sb-load\",\"sb-residential\"],\"scopeAndFreshness\":\"Chaptered SB 1168 checked September 26. The law requires an assessment inside a proceeding; no adopted tariff or savings result is supplied.\"},{\"claimId\":\"no-immediate-bill-result\",\"claim\":\"The cited laws do not establish an immediate bill credit, adopted rate or guaranteed household saving.\",\"candidateEvidence\":[{\"excerpt\":\"Neither law gives households an immediate bill credit or proves that electricity rates will fall.\",\"locator\":\"The Story\"},{\"excerpt\":\"It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.\",\"locator\":\"The LAiDIES Read\"}],\"sourceIds\":[\"sb-opening\",\"sb-operative-verb\"],\"scopeAndFreshness\":\"Bounded inference from the operative assessment duty and absence of any supplied adopted tariff or bill calculation.\"},{\"claimId\":\"ab-local-and-state-reporting\",\"claim\":\"AB 1577 creates local permit-stage estimates and state reporting when covered data centres are connected to power and at least annually.\",\"candidateEvidence\":[{\"excerpt\":\"must supply estimates when seeking a discretionary local approval. Once a facility is connected to power, owners report specified information to the state, with further reporting at least annually.\",\"locator\":\"The LAiDIES Read\"}],\"sourceIds\":[\"ab-permit\",\"ab-energization\",\"ab-annual\"],\"scopeAndFreshness\":\"Chaptered AB 1577 checked September 26. The commission specifies submission manner and timing.\"},{\"claimId\":\"ab-publication-timing\",\"claim\":\"AB 1577 requires annual anonymized aggregate publication and a data-centre load-trend assessment beginning with the 2029 integrated energy policy report.\",\"candidateEvidence\":[{\"excerpt\":\"The Energy Commission must publish submitted information annually in anonymized and aggregated form\",\"locator\":\"What This Means for You\"},{\"excerpt\":\"Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.\",\"locator\":\"What This Means for You\"}],\"sourceIds\":[\"ab-aggregate\",\"ab-2029\"],\"scopeAndFreshness\":\"Public release is aggregate, not a promised facility-level dossier.\"},{\"claimId\":\"ab-threshold-exclusions-privacy\",\"claim\":\"AB 1577 excludes sub-10-megawatt and named public or utility facilities and protects customer-specific data from disclosure.\",\"candidateEvidence\":[{\"excerpt\":\"The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities.\",\"locator\":\"What This Means for You\"},{\"excerpt\":\"combined so the public release does not expose one customer’s protected data.\",\"locator\":\"What This Means for You\"}],\"sourceIds\":[\"ab-threshold\",\"ab-exclusions\",\"ab-privacy\"],\"scopeAndFreshness\":\"These limits apply to the cited AB 1577 provisions, not automatically to the other five signed laws.\"}],\"sources\":[{\"id\":\"sb-status\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"passage\":\"Approved by Governor September 21, 2026. Filed with Secretary of State September 21, 2026.\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\"},\"limitations\":\"Official signing announcement and chaptered text checked September 26. The story covers only these two laws.\"},{\"id\":\"ab-status\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"passage\":\"Approved by Governor September 21, 2026. Filed with Secretary of State September 21, 2026.\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\"},\"limitations\":\"Official signing announcement and chaptered text checked September 26. The story covers only these two laws.\"},{\"id\":\"governor-seven\",\"url\":\"https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/\",\"authority\":\"Official signing announcement for package identity and administration framing.\",\"source\":{\"url\":\"https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/\",\"passage\":\"Governor Newsom today signed seven bills to strengthen California’s approach to data centers — requiring data centers to report about water and electricity use.\",\"passageLocator\":\"https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/\"},\"limitations\":\"Official signing announcement and chaptered text checked September 26. The story covers only these two laws.\"},{\"id\":\"sb-opening\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"passage\":\"As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\"},\"limitations\":\"Chaptered SB 1168 checked September 26. The law requires an assessment inside a proceeding; no adopted tariff or savings result is supplied.\"},{\"id\":\"sb-grid\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"passage\":\"Ensure data centers pay their reasonable share of costs associated with transmission and distribution needs, regardless of whether the data centers interconnect at the transmission or distribution level.\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\"},\"limitations\":\"Chaptered SB 1168 checked September 26. The law requires an assessment inside a proceeding; no adopted tariff or savings result is supplied.\"},{\"id\":\"sb-load\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"passage\":\"Ensure data centers pay for their proportionate share of load increases and procurements needed to reliably serve their loads while maintaining consistency with the applicable integrated resource planning requirements.\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\"},\"limitations\":\"Chaptered SB 1168 checked September 26. The law requires an assessment inside a proceeding; no adopted tariff or savings result is supplied.\"},{\"id\":\"sb-residential\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"passage\":\"Alleviate cost pressures on residential ratepayers, including, but not limited to, customers enrolled in the California Alternate Rates for Energy program described in Section 739.1 and the Family Electric Rate Assistance program described in Section 739.12.\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\"},\"limitations\":\"Chaptered SB 1168 checked September 26. The law requires an assessment inside a proceeding; no adopted tariff or savings result is supplied.\"},{\"id\":\"sb-operative-verb\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\",\"passage\":\"As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168\"},\"limitations\":\"Bounded inference from the operative assessment duty and absence of any supplied adopted tariff or bill calculation.\"},{\"id\":\"ab-permit\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"passage\":\"Upon applying for a discretionary permit, entitlement, or land use authorization required for the construction or operation of a data center, the owner or operator of the data center shall submit to the applicable local agency an estimate of all of the following information, to the extent applicable to the proposed facility:\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\"},\"limitations\":\"Chaptered AB 1577 checked September 26. The commission specifies submission manner and timing.\"},{\"id\":\"ab-energization\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"passage\":\"The commission shall establish a process for the owner or operator of a data center to submit all of the following information to the commission upon energization of the data center and following any substantive change to information previously submitted pursuant to this paragraph:\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\"},\"limitations\":\"Chaptered AB 1577 checked September 26. The commission specifies submission manner and timing.\"},{\"id\":\"ab-annual\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"passage\":\"The commission shall establish a process for the owner or operator of a data center to submit all of the following information to the commission at least annually following energization, disaggregated by month over the reporting period unless otherwise specified by the commission.\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\"},\"limitations\":\"Chaptered AB 1577 checked September 26. The commission specifies submission manner and timing.\"},{\"id\":\"ab-aggregate\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"passage\":\"The commission shall annually publish the information submitted pursuant to subdivision (b) in an anonymized and aggregated format on its internet website.\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\"},\"limitations\":\"Public release is aggregate, not a promised facility-level dossier.\"},{\"id\":\"ab-2029\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"passage\":\"Beginning with the 2029 integrated energy policy report required pursuant to subdivision (a) of Section 25302, and in subsequent biennial reports required pursuant to subdivision (a) of Section 25302 thereafter as determined by the commission, the commission shall include an assessment of electrical load trends for data centers.\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\"},\"limitations\":\"Public release is aggregate, not a promised facility-level dossier.\"},{\"id\":\"ab-threshold\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"passage\":\"“Data center” does not include a facility with an electrical capacity of less than 10 megawatts.\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\"},\"limitations\":\"These limits apply to the cited AB 1577 provisions, not automatically to the other five signed laws.\"},{\"id\":\"ab-exclusions\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"passage\":\"This section does not apply to a publicly funded research facility, public safety facility, publicly funded national security facility, publicly owned facility, or other utility facility, including, but not limited to, a facility operated for the purpose of providing telecommunications services to the public by a terrestrial facilities-based telecommunications, cable, or internet service provider.\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\"},\"limitations\":\"These limits apply to the cited AB 1577 provisions, not automatically to the other five signed laws.\"},{\"id\":\"ab-privacy\",\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"authority\":\"Chaptered California statutory text.\",\"source\":{\"url\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\",\"passage\":\"The State Energy Resources Conservation and Development Commission or a local agency shall not disclose information submitted pursuant to Section 65909.3 of this code or to subdivision (b) of Section 25302.10 of the Public Resources Code in a manner that would result in the disclosure of personally identifiable information or energy consumption data for a specific data center customer.\",\"passageLocator\":\"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577\"},\"limitations\":\"These limits apply to the cited AB 1577 provisions, not automatically to the other five signed laws.\"}]}\n\nReturn reader and facts objects matching the supplied output schema. Give concise specific reasons with actual paragraph references. Clear failure-family judgments may use an empty reference list for absence across the whole artifact. Present/uncertain families and every outcome/claim require supporting paragraphs. Each fact must use source IDs belonging to that claim. Each reader/facts learningDisposition must be NO_NEW_DEFECT only if that part has no failed or uncertain assessment; otherwise use candidate repair or evidence gap. You are independent from artifact maker OpenAI /root. Attest truthfully to reading the complete artifact first and independence. Do not inspect earlier verdicts or diagnose paperwork."
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  },
+  "max_completion_tokens": 8500,
+  "temperature": 0.05,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

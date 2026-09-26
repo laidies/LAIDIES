@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "newsstand-source-recovery.v1",
+  "checkedAt": "2026-09-25T03:04:53.690879+00:00",
+  "status": "SOURCE_BOUND_PRODUCTION_NEXT",
+  "sources": [
+    {
+      "url": "https://www.accomplish.ai/blog/escaping-the-openai-codex-sandbox-twice/",
+      "publicationDate": "2026-09-15",
+      "role": "original researcher with competing commercial product",
+      "locations": [
+        "Intro",
+        "What to do infographic",
+        "How we built Accomplish"
+      ],
+      "findings": [
+        "Researcher reports two vulnerabilities disclosed August12 and fixed within eight days.",
+        "Researcher identifies distinct fixed versions for desktop and CLI; one installed CLI version does not establish both fixes."
+      ],
+      "wordLimit": 200
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/researchers-escape-openai-codex-sandbox-to-run-commands-on-host/",
+      "publicationDate": "2026-09-20",
+      "updatedDate": "2026-09-21",
+      "role": "independent reporting including attributed provider response",
+      "locations": [
+        "What to do",
+        "September21 update"
+      ],
+      "findings": [
+        "The September21 update includes an OpenAI spokesperson saying both issues were addressed in August.",
+        "This is provider acknowledgement reported by the outlet, not an independent patch test."
+      ],
+      "wordLimit": 200
+    }
+  ],
+  "correctionToEarlierAssessment": "There is now a located attributed provider acknowledgement in the independent article, beyond the researcher claim alone. Exact fixed build thresholds remain attributed to Accomplish; no independent exploit or patch reproduction performed.",
+  "readerScope": "People using Codex coding tools; no evidence ordinary ChatGPT chat users are affected by these two defects. Explain sandbox as limits on software access before naming technical components.",
+  "productionBrief": {
+    "question": "Does this report mean my AI chat escaped, or is there a specific coding-tool update I need?",
+    "sequence": [
+      "Identify Codex coding tool and separate this from ordinary ChatGPT chat and unrelated AISI incidents.",
+      "Explain that a sandbox restricts what a tool can access; a defect in enforcement can bypass those limits.",
+      "Report two distinct vulnerabilities, dated disclosure and provider acknowledgement of August remediation.",
+      "Scope update advice to the relevant desktop/CLI installation, without equating app-bundled CLI number to app build.",
+      "Keep researcher commercial interest and absence of independent patch testing visible."
+    ],
+    "excluded": [
+      "Exploit code, payloads or reproduction steps",
+      "Claim all AI or all ChatGPT users affected",
+      "Claim every current installation is patched",
+      "Treat developer settings as universal consumer UI guidance"
+    ]
+  },
+  "remainingSteps": [
+    "Pass full source-bound producer contract, then write candidate and inspect exact prose.",
+    "Admit suitable story-specific art and qualified independent editorial review.",
+    "Fresh publication-day claim check and existing issue/release workflow."
+  ],
+  "publicMutation": false
+}

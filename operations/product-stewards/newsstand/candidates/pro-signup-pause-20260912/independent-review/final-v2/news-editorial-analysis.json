@@ -1,0 +1,80 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "pro-signup-pause-20260912",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "baf3c6dcf2de3a96b3b9d31a70f9301eef8da59cb68750c973145c4a609732d4",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why could cancelling Pro $200 today lock you out of the tier tomorrow, even though OpenAI says existing subscribers are unaffected?",
+      "response": "Because the pause blocks entry, not continuation. While your subscription is active it renews as usual — that is the 'unaffected' part. But once a cancellation, completed downgrade, or failed renewal actually ends the plan, you no longer hold an active subscription; buying Pro $200 again would count as a new sign-up, and new sign-ups are exactly what OpenAI paused. So the same account is protected one day and blocked the next, depending on whether the change has taken effect.",
+      "expectedEvidence": "A correct answer must distinguish an active subscription (renews, P003/P004) from an ended one (repurchase blocked until the pause lifts, P004), and note the scheduled-vs-effective timing boundary (P006).",
+      "assessment": "The article supplies every link in this chain explicitly, so a reader can reproduce this causal answer in ordinary language; the mechanism is complete and accurate."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, should Dana treat the temporary downgrade as safely reversible?",
+      "response": "No. The article's mechanism says a sign-up pause protects only a continuously active subscription; any change that takes effect ends that protection. Once Dana's downgrade completes, returning to Lossless Max is a new upgrade into a paused tier, blocked until the pause lifts — and no restart date is promised. Dana should check the service's official pause policy for the scheduled-vs-effective rule before confirming, because a scheduled change may still leave the tier active through the current billing cycle.",
+      "expectedEvidence": "Correct transfer requires applying the active-plan-vs-new-entry distinction (P003, P004), the change-takes-effect boundary (P006), and the check-the-official-rule habit (P008) to a service not in the article.",
+      "assessment": "The mechanism transfers cleanly to this unseen scenario and yields a non-obvious, correct caution; the article teaches a genuinely portable model, not just one event's facts."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The incident (September 10 pause), its scope (which tiers, which direction), and what it is not (a cancellation) are all stated causally.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI says it temporarily paused new sign-ups and upgrades to ChatGPT Pro $200, also called Pro 20X, on September 10. Pro 20X is OpenAI’s name for its ChatGPT Pro $200 tier. The pause applies if you are on Free, Go, Plus or Pro $100 and want to move into Pro $200.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This is a pause on joining or upgrading into that tier. It is not an automatic cancellation: OpenAI says existing Pro $200 subscriptions continue to renew as usual. Pro $100 remains available for a new upgrade.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Pro 20X' is defined at first meaningful use as OpenAI's name for the Pro $200 tier; 'sign-up pause' vs 'cancellation' is distinguished plainly.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI says it temporarily paused new sign-ups and upgrades to ChatGPT Pro $200, also called Pro 20X, on September 10. Pro 20X is OpenAI’s name for its ChatGPT Pro $200 tier. The pause applies if you are on Free, Go, Plus or Pro $100 and want to move into Pro $200.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This is a pause on joining or upgrading into that tier. It is not an automatic cancellation: OpenAI says existing Pro $200 subscriptions continue to renew as usual. Pro $100 remains available for a new upgrade.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are keyed to specific reader situations: current subscriber, planned upgrader, and someone whose plan lapses via cancel/downgrade/failed renewal.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you already pay for Pro $200, the Help Center says it keeps renewing as usual. But if you cancel, finish a downgrade, or a renewal failure ends the plan, OpenAI says you cannot buy Pro $200 again until the pause lifts.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>If you were planning to upgrade, the Help Center says new moves into Pro $200 are paused. That is the whole consumer consequence: an active plan and a new purchase follow different rules right now.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; the class_notes link is a public library reference, and all advice restates Help Center rules with attribution.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Before you change or cancel Pro $200, read OpenAI’s pause FAQ. It says a scheduled cancellation or downgrade keeps Pro $200 active until the billing cycle ends; a change that takes effect ends it.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "A pause on new purchases and a change to an active subscription are different events. <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output and Checking It</a> helps you check which event an official rule actually describes before changing something you already use.",
+          "locator": "P008"
+        }
+      ]
+    }
+  }
+}

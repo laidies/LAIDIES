@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "newsstand-independent-hold-recovery-v1",
+  "lane": "/root/aft_school_story",
+  "observedBy": "2026-09-16T14:08:13Z",
+  "coverageSnapshot": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "sha256": "a0d35a7b1d3269c178594cfb93381ff7701959832f1f52dd0a513af50167d103",
+    "leadCount": 63
+  },
+  "rule": "Only legitimate distinct sources were sought. Recorded prohibited and nonretryable originals were not reopened, proxied or mirrored.",
+  "holds": [
+    {
+      "leadIds": [
+        "proteintalks-20260909",
+        "nature-breast-cancer-drug-prediction-20260909"
+      ],
+      "sameUnderlyingStudy": true,
+      "attempt": "A title/author search returned a distinct bioRxiv v2 abstract at https://www.biorxiv.org/content/10.1101/2025.02.07.637070v2. The subsequent normal open returned 403 Forbidden and was not retried. Search results also surfaced a third-party synthesis and the already prohibited Nature original; neither was used as complete primary methods evidence.",
+      "newNonretryable": "https://www.biorxiv.org/content/10.1101/2025.02.07.637070v2",
+      "disposition": "HOLD_REMAINS",
+      "resolved": "The accessible bioRxiv abstract corroborates the study family and reported cell-line, xenograft and drug-response tasks.",
+      "missingInput": "Complete admissible primary methods/results, exact train/test separation, benchmark definitions and prospective clinical-limit evidence. Evening independent clinical-limit reporting remains valid but does not fill the shared primary-study gap."
+    },
+    {
+      "leadIds": ["devin-voice-20260911"],
+      "attempt": "Official Cognition and Devin documentation search for a dated Devin Voice announcement returned no relevant launch record. The already complete official feature documentation was not redundantly fetched.",
+      "disposition": "HOLD_REMAINS",
+      "missingInput": "Accessible exact dated Cognition launch record identifying scope; prior evidence supports feature operation but not launch date, price or model."
+    },
+    {
+      "leadIds": ["grokbot-sales-integrations"],
+      "attempt": "Official xAI search recovered the complete 16 August Grok Bot for GTM guide and Salesforce connector documentation last updated 14 September. The guide names Salesforce, Gmail, Slack, Granola and Gong workflows; the connector page documents Salesforce capabilities and permission boundaries.",
+      "sourceUrls": [
+        "https://x.ai/bot/guides/grok-bot-for-gtm",
+        "https://docs.x.ai/grok/connectors/salesforce"
+      ],
+      "disposition": "HOLD_REMAINS_EVENT_IDENTITY",
+      "resolved": "Official sources establish that sales workflows and a Salesforce connector exist and give useful permission limits.",
+      "missingInput": "An exact dated primary announcement establishing which integrations were newly announced on 10 September and distinguishing that event from capabilities documented by 16 August or updated later."
+    },
+    {
+      "leadIds": ["embedded-evaluator-independence-20260915"],
+      "attempt": "The complete new AP slowdown explainer was read through its feasibility section.",
+      "sourceUrl": "https://apnews.com/article/ai-slowdown-challenges-anthropic-openai-trump-b61f28b6212338e88c0baec31f661701",
+      "disposition": "RECOVERY_INPUT_FOUND_HOLD_REMAINS_PRIMARY_GAP",
+      "resolved": "AP supplies the proposed employee-like access terms and named criticism about company control, public standards and concentrated power.",
+      "missingInput": "Exact accessible original company announcement/terms or a completed evaluator-access agreement. AP is strong independent reporting, not the primary announcement."
+    },
+    {
+      "leadIds": ["emaf-controlled-release-design-20260915"],
+      "attempt": "A distinct title/author/repository search automatically returned the already prohibited Nature original as a search result plus Nature index mirrors. The original was not opened, and mirror/proxy results were not used.",
+      "disposition": "HOLD_REMAINS",
+      "resolved": "The index/abstract-level claim remains that E-MAF generated controlled-release formulations tested across seven active pharmaceutical ingredients.",
+      "missingInput": "Complete accessible primary methods, results, dataset and limitations beyond the abstract/index."
+    },
+    {
+      "leadIds": ["blanche-ai-fears-response-20260915"],
+      "attempt": "The distinct official White House video page confirmed the 15 September briefing and linked the official video, but supplied no transcript. A normal open of the embedded YouTube target was throttled and was not retried.",
+      "sourceUrl": "https://www.whitehouse.gov/videos/attorney-general-of-the-united-states-todd-blanche-briefs-members-of-the-media-sep-15-2026/",
+      "newNonretryable": "https://www.youtube.com/embed/qCZbbCWS8DQ?enablejsapi=1&feature=oembed",
+      "disposition": "HOLD_REMAINS",
+      "missingInput": "Complete legitimate transcript or readable official remarks; page title/date alone cannot support exact statement analysis."
+    }
+  ]
+}

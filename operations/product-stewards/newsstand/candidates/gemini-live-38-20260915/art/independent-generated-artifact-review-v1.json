@@ -1,0 +1,72 @@
+{
+  "recordKind": "INDEPENDENT_GENERATED_ARTIFACT_INSPECTION",
+  "candidateId": "gemini-live-38-20260915-art",
+  "reviewerPrincipalId": "/root/puzzle_visual_reconcile",
+  "reviewedAt": "2026-09-15 23:02:43 UTC",
+  "verdict": "HOLD",
+  "artifact": {
+    "path": "/Users/alisoneakin/.codex/generated_images/01a071e7-db55-7a22-8c99-04eba5060355/exec-34d1ae36-3bbd-4481-b409-210d698a17ec.png",
+    "sha256": "f9099fa10950ed7eaa4da6db420c3e38692568e944a183e5b01bb72cf1f639f0",
+    "dimensions": [
+      1536,
+      1024
+    ]
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/producer-contract.json",
+    "sha256": "f27fbb1d900ffc5ddac8e5403e60ed8f56ac2b6fcad6a89ee39d59975b71df60"
+  },
+  "story": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/story.json",
+    "sha256": "aa42019b6e35a6e71546f36bbc19b2f667e991cac074531610752ee83e36c2cc"
+  },
+  "inspection": {
+    "viewedActualPixels": true,
+    "independentFromMaker": true,
+    "readContractAndStory": true,
+    "scope": "Actual full source image displayed. No integrated mobile/article rendering or release admission claimed."
+  },
+  "findings": [
+    {
+      "result": "FAIL",
+      "family": "TEXT_GIBBERISH_OR_FALSE_TEXT",
+      "locator": "compass dial at lower left",
+      "observation": "The compass contains small cardinal-style letter/glyph markings around its rose. These are generated markings outside the bound NO_VISIBLE_TEXT plan. I cannot confidently transcribe every tiny glyph; that uncertainty does not make the unplanned lettering acceptable.",
+      "contractRequirement": "no people, characters, logos or lettering; unplannedGeneratedTextForbidden true",
+      "repair": "Remove compass entirely rather than preserve or invent cardinal labels."
+    },
+    {
+      "result": "HOLD",
+      "family": "DECORATIVE_OR_COUNTER_NARRATIVE_VISUAL",
+      "locator": "lower-left compass and bag; top book, cup and plants",
+      "observation": "Phone, route sketch and pencil carry the stated teaching job. Extra compass and travel-bag imagery shifts attention toward equipped/completed travel and creates the lettering defect. Books, cup and plants are additional unbound decoration, not required explanatory objects.",
+      "repair": "Use the bounded phone, unfinished folded route sketch and pencil on a clear supported desk."
+    },
+    {
+      "result": "OBSERVATION_ONLY",
+      "locator": "right edge and top/left frame",
+      "observation": "Route sheet and pencil extend beyond the right image edge; cup, books, foliage and bag are also cropped. The contract does not explicitly prohibit cropping, so cropping alone is not recorded as an objective failure. A simpler fully framed three-object scene would make intended latest-card crops easier to verify."
+    }
+  ],
+  "retainedStrengths": [
+    "Phone screen displays an abstract cyan speech waveform, with a separate pink waveform across the desk.",
+    "Folded route sheet has a partly dashed cyan route; no place names or booking confirmation are visible.",
+    "Required phone, folded route sketch and pencil are present; no human subject or real Google UI is visible.",
+    "Ink hatching, navy/cyan contrast and warm orange desk are coherent editorial print grammar."
+  ],
+  "repairAcceptance": [
+    "No compass/cardinal glyphs or other generated lettering anywhere.",
+    "Required phone, unfinished route sheet and pencil remain physically supported and clearly readable.",
+    "No actual UI, place names, booking/confirmation or people.",
+    "Inspect exact successor pixels and intended card/phone crop before admission."
+  ],
+  "learningDisposition": {
+    "kind": "CANDIDATE_REPAIR_ONLY",
+    "rationale": "Current registered VQX-BAD-005 and VQX-BAD-008 are applicable; no new reusable defect is asserted."
+  },
+  "limitations": [
+    "This is an honest pre-admission generated-artifact HOLD; producer-self-review and full schema-bound admission are absent, so this record does not pretend to be a completed release gate.",
+    "Current registry failure descriptions read; prior calibration is not silently reused as a fresh calibration.",
+    "No exact transcription of uncertain tiny compass glyphs is invented."
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "newsstand-source-status-check-v1",
+  "candidateId": "house-ratepayer-protection-20260920",
+  "observedAt": "2026-09-23T14:38:22.136332Z",
+  "checks": [
+    {
+      "url": "https://www.govinfo.gov/app/details/BILLS-119hr9340eh",
+      "tool": "web.open plus direct official HTML capture",
+      "result": "OPENED",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/sources/govinfo-hr9340-details-20260923.html",
+        "sha256": "493141b67bbc9ec42e3929e6fdcaa6af48f6970c95819f44768b4ffd7938d7a5"
+      },
+      "observations": [
+        "GovInfo labels H.R. 9340 as Engrossed in House (EH).",
+        "GovInfo lists the last action date as September 16, 2026."
+      ]
+    },
+    {
+      "url": "https://www.husted.senate.gov/legislation/legislative-record/",
+      "tool": "web.open",
+      "result": "OPENED",
+      "observations": [
+        "The current official legislative record lists S.5028, Ratepayer Protection Act, on September 18, 2026.",
+        "Its listed latest action is read twice and referred to the Committee on Energy and Natural Resources.",
+        "S.5028 is a separate Senate bill number and is not evidence that H.R. 9340 passed the Senate."
+      ],
+      "directCaptureAttempt": {
+        "result": "HTTP_403",
+        "capture": {
+          "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/sources/husted-legislative-record-20260923.html",
+          "sha256": "2fb6416ddb3f6e6f5d0958685be9b169be2137d96f100d58fb742dd1b927b580"
+        }
+      }
+    },
+    {
+      "url": "https://www.senate.gov/legislative/floor_activity_pail.htm",
+      "tool": "web.open",
+      "result": "OPENED",
+      "observations": [
+        "The official page showed the Senate convening Wednesday, September 23, 2026 at 10:00 a.m. and the previous meeting on Tuesday, September 22.",
+        "The schedule does not establish a bill action docket."
+      ],
+      "directCaptureAttempt": {
+        "result": "HTTP_403",
+        "capture": {
+          "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/sources/senate-floor-proceedings-20260923.html",
+          "sha256": "048295679941f5b01ddf604b767b77cd76c4ff7fb489c75746fcb733f1cf68e5"
+        }
+      }
+    },
+    {
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9340",
+      "tool": "web.search/open",
+      "result": "BLOCKED_NONRETRYABLE",
+      "observations": [
+        "The normal web client reported robots.txt blocking; no complete Congress.gov action docket was captured."
+      ]
+    }
+  ],
+  "finding": "As of the September 23 check, GovInfo still identifies H.R. 9340 as House-engrossed with a September 16 last action. Husted\u2019s current official record separately shows S.5028 referred to committee on September 18. No inspected official source establishes Senate passage of H.R. 9340 or enactment.",
+  "limits": [
+    "The check is bounded to the named official surfaces and is not an exhaustive legislative-history search.",
+    "The complete Congress.gov H.R. 9340 action page remained unavailable to the normal web client."
+  ]
+}

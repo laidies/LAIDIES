@@ -1,0 +1,188 @@
+{
+  "schema": "newsstand-morning-research-proposal.v1",
+  "proposalOnly": true,
+  "scope": "PARTIAL_PERMITTED_ROSTER_AND_CONSEQUENTIAL_AP_REVIEW",
+  "rawReceiptAt": "2026-09-21T07:42:51-07:00",
+  "rawReceiptMeaning": "Filesystem receipt time of the normal-web captures. The web tool labels results Crawled: today and supplies no response-completion timestamp.",
+  "nonMutation": "No shared coverage-progress, CURRENT, cursor, canonical story, candidate, review, or public file was changed.",
+  "routeGuard": {
+    "status": "PASS",
+    "receipt": "route-guard-attempt.json",
+    "sha256": "68e1b170510f84938595f772993881a453a709b782f1e5b03e4649ea77e09949",
+    "meaning": "The configured source-route command passed six desks/eight sources and explicitly did not certify research completion; the initial guessed filename failure is retained in the receipt."
+  },
+  "rawCaptures": [
+    {
+      "path": "roster-raw.json",
+      "sha256": "cb465c581fab6f6dda68400caf34af00d1a9ca831f0cb009e4c9d3fcd7b80b30"
+    },
+    {
+      "path": "material-index-raw.json",
+      "sha256": "ae1fc393f50e9e5f98e2583612ff8a38c8cc9900fd2ad35f903aa67c36674e96"
+    },
+    {
+      "path": "ap-climate-full-raw.json",
+      "sha256": "1dd82e0e0759fa2f11ed5ab19346ac0249aa4d07cf5f968821c82a0633443569"
+    },
+    {
+      "path": "ap-climate-finds-raw.json",
+      "sha256": "6b8656b0f6011cc7920aa94617b35e84e59e7ccc7ad34915dddeaa66504ec3a6"
+    },
+    {
+      "path": "ap-climate-article-body-raw.json",
+      "sha256": "9ea9bbe3f5864f411952c71dd4501eed1d606a3755b9a628bfef7443048b2813"
+    }
+  ],
+  "sourceChecks": [
+    {
+      "source": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "status": "FULL_INDEX_INSPECTED",
+      "capture": "roster-raw.json",
+      "finding": "Top dated entries remain Sep18 Australian Youth Safety Blueprint, Sep17 Astra for Law and Sep16 misalignment framework; no unassessed new event."
+    },
+    {
+      "source": "Anthropic Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "status": "FULL_INDEX_INSPECTED",
+      "capture": "roster-raw.json",
+      "finding": "Sep18 Accenture evaluation and Sep17 Life Sciences Verification Program remain current. LSVP maps to existing public story anthropic-lsvp-beta-20260917."
+    },
+    {
+      "source": "Gemini consumer release notes",
+      "url": "https://gemini.google/release-notes/",
+      "status": "FULL_INDEX_INSPECTED",
+      "capture": "roster-raw.json",
+      "finding": "Newest visible dated item remains Sep10 Windows app, already covered."
+    },
+    {
+      "source": "Gemini API changelog",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "status": "FULL_INDEX_INSPECTED",
+      "capture": "roster-raw.json",
+      "finding": "Sep17 Antigravity preview migration is the existing developer migration disposition; no consumer entitlement was inferred."
+    },
+    {
+      "source": "Google DeepMind blog",
+      "url": "https://deepmind.google/blog/",
+      "status": "PARTIAL_DATELESS_INDEX",
+      "capture": "material-index-raw.json",
+      "finding": "September cards are visible without dates in the inspected index view, so freshness and event identity cannot be inferred."
+    },
+    {
+      "source": "AP AI",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "status": "FULL_INDEX_INSPECTED_AND_ONE_FRESH_ITEM_REVIEWED",
+      "capture": "material-index-raw.json",
+      "finding": "The fresh Climate Week/data-center report was fully read; the US-China incident-alert report remains an existing attributed-proposal lead."
+    },
+    {
+      "source": "FTC press releases",
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "status": "FULL_INDEX_INSPECTED",
+      "capture": "material-index-raw.json",
+      "finding": "No new AI-specific agency action was visible; latest visible AI-specific entry remains Aug27."
+    },
+    {
+      "source": "EFF updates",
+      "url": "https://www.eff.org/updates",
+      "status": "FULL_INDEX_INSPECTED",
+      "capture": "material-index-raw.json",
+      "finding": "Sep17 AI cybersecurity-rules item is advocacy commentary, not a newly enacted rule or official policy."
+    },
+    {
+      "source": "BleepingComputer AI",
+      "url": "https://www.bleepingcomputer.com/tag/artificial-intelligence/",
+      "status": "FULL_INDEX_INSPECTED",
+      "capture": "roster-raw.json",
+      "finding": "RatHat and OpenAI framework map to public duplicates; sponsored/deal entries excluded; Claude Money remains preview-only evidence."
+    },
+    {
+      "source": "Nature machine learning",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "status": "UNAVAILABLE_PREVIOUS_ROUTE_EXCEPTION",
+      "finding": "The different prior /nature route error is preserved; the prescribed path was not used as a variation bypass."
+    },
+    {
+      "source": "AIDB website index",
+      "url": "https://aidailybrief.ai/agent.json",
+      "status": "INDEX_INSPECTED_CONTENT_INCOMPLETE",
+      "capture": "material-index-raw.json",
+      "finding": "Index generated 2026-09-21T13:06:06.096Z ends at Sep17; it supplies metadata, not transcript or item review."
+    },
+    {
+      "source": "AIDB Apple listing",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "status": "PARTIAL",
+      "capture": "roster-raw.json",
+      "finding": "No rolling seven-day enumeration or complete audio/transcript was recovered."
+    },
+    {
+      "source": "AIDB newsletter archive",
+      "url": "https://aidailybrief.beehiiv.com/",
+      "status": "UNAVAILABLE_NONRETRYABLE_NOT_OPENED",
+      "finding": "Preserved safety block honored; no alternate route or transport used."
+    }
+  ],
+  "leadDispositions": [
+    {
+      "id": "ap-climate-week-ai-data-centers-20260921",
+      "status": "SOURCE_BOUND_REPORT_LEAD",
+      "sources": [
+        "https://apnews.com/article/climate-change-un-fuel-ai-renewables-f3208930e39c7d233bdc24315065dcd2"
+      ],
+      "finding": "AP reports Climate Week discussion and quotes officials, advocates and an industry representative about AI/data-center energy use and household bills. It also points to an IRENA/Global Renewables Alliance/Türkiye progress report.",
+      "reason": "The report has public-interest relevance because it connects AI/data centers, energy costs and Climate Week, but its data-center claims remain attributed discussion. It is not yet a production candidate or coverage mutation.",
+      "nextAction": "Recover the named IRENA/Global Renewables Alliance/Türkiye progress report before assessing a candidate; do not recast attributed discussion as a bill outcome."
+    },
+    {
+      "id": "us-china-ai-incident-alert-20260920",
+      "status": "EXISTING_SOURCE_BOUND_PROPOSAL_LEAD_UNCHANGED",
+      "sources": [
+        "https://apnews.com/article/bessent-ai-xi-trump-china-trade-2c7f54f07e755f506d9db9b91df282bd"
+      ],
+      "finding": "AP remains the verified source for a proposed incident-notification system; no agreement or installed system is supported."
+    },
+    {
+      "id": "anthropic-life-sciences-verification-program-20260917",
+      "status": "PUBLISHED_DUPLICATE",
+      "existingStory": "anthropic-lsvp-beta-20260917"
+    },
+    {
+      "id": "openai-misalignment-framework-20260916",
+      "status": "PUBLISHED_DUPLICATE",
+      "existingStory": "openai-misalignment-reporting-20260916"
+    },
+    {
+      "id": "gemini-antigravity-preview-09-2026",
+      "status": "ALREADY_DISPOSITIONED_DEVELOPER_MIGRATION"
+    },
+    {
+      "id": "aidb-sep15-through-sep17",
+      "status": "EVIDENCE_BLOCKED",
+      "finding": "Three website-index editions have no complete content. The fresh website index does not list Sep18, Sep19, Sep20 or Sep21; that absence is not proof of no cross-channel release.",
+      "nextAction": "Wait for a distinct legitimate full source, then inspect every item and rerun selector."
+    }
+  ],
+  "aidb": {
+    "inventory": "aidb-edition-inventory.v2.json",
+    "inventorySha256": "a21a095568595d13c3186002eaf1976b3c5bae571c6a6ebb51c8dd9949e809be",
+    "selection": "aidb-selection-recheck.json",
+    "selectionSha256": "98be0436b010f4d32e0d4eca210f067d33b42a160b461be1fae6655d8c714252",
+    "status": "HOLD_AIDB_RELEASE_REVIEW",
+    "expectedMissingDates": [
+      "2026-09-18",
+      "2026-09-19",
+      "2026-09-20",
+      "2026-09-21"
+    ],
+    "quietAllowed": false
+  },
+  "proposedCoverageChanges": [],
+  "limitations": [
+    "This is a bounded, partial reconciliation, not a complete research cycle.",
+    "Nature has a preserved route exception; DeepMind’s inspected index is dateless/partial.",
+    "AIDB full-content review is incomplete across website, podcast and newsletter channels.",
+    "No claim rests on a source snippet, title or index metadata as if it were a full transcript."
+  ]
+}

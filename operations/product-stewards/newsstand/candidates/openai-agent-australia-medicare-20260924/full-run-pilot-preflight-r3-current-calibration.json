@@ -1,0 +1,19 @@
+{
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924 --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905 --output operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/full-preflight-r3 --preflight-only --effort medium",
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  },
+  "executedAt": "2026-09-25T03:18:18.325Z",
+  "exitCode": 1,
+  "stdout": {
+    "text": "",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "text": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Repair pre-review package before calling the independent editor:\n- prepared draft: openai-agent-australia-medicare-20260924 published story image is missing or incomplete\n+ actual - expected\n\n+ [\n+   'prepared draft: openai-agent-australia-medicare-20260924 published story image is missing or incomplete'\n+ ]\n- []\n\n    at assertArticlePreReviewPackage (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:43:9)\n    at async file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:156:2 {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: [\n    'prepared draft: openai-agent-australia-medicare-20260924 published story image is missing or incomplete'\n  ],\n  expected: [],\n  operator: 'deepStrictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.18.0\n",
+    "sha256": "ab63e30f51d1ac52a0b2cd8a8e8dfd8a6b6355ce1bb8f824268a611ec2dbd4c2"
+  },
+  "providerRequestMade": false,
+  "scope": "Unmodified run-pilot preflight-only invocation; no model call, editorial judgment, admission, or publication."
+}

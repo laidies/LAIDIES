@@ -1,0 +1,274 @@
+Salesforce Connector | SpaceXAI Docs (https://docs.x.ai/grok/connectors/salesforce)
+citeturn873view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://docs.x.ai/grok/connectors/salesforce","lineno":null}); Total lines: 155
+L0: cite0†API Console†console.x.ai L1: 
+L2: Products
+L3: 
+L4: cite1†Grok†grok.com L5: 
+L6: Status
+L7: 
+L8: cite2†Loading...†status.x.ai L9: 
+L10: Resources
+L11: 
+L12: cite3†llms.txt cite4†Discord†discord.gg Email support (support@x.ai)cite5†Terms and Policies†x.ai L13: 
+L14: Get Started
+L15: 
+L16:   * cite6†Welcome L17: 
+L18: Help & FAQ
+L19: 
+L20:   * cite7†Billing & Subscriptions L21:   * cite8†Usage & Limits L22:   * cite9†Accounts & Login L23:   * cite10†Image & Video Generation L24:   * cite11†Products & Models L25:   * cite12†Files & Data L26:   * cite13†Team Management L27:   * cite14†Getting Help L28: 
+L29: Connectors
+L30:   * cite15†Overview L31:   * cite16†Google Drive L32:   * cite17†Gmail & Google Calendar L33:   * cite18†Outlook Mail & Calendar L34:   * cite19†SharePoint L35:   * cite20†OneDrive L36:   * cite21†Microsoft Teams L37:   * cite22†Salesforce L38:   * cite23†Custom MCP Tunneling L39: 
+L40: Business & Enterprise
+L41: 
+L42:   * cite24†Grok.com User Guide L43:   * cite25†License & User Management L44:   * cite26†Connector Management L45:   * cite27†Organization Management L46: 
+L47:   * cite28†API L48:     * cite28†Docs L49:     * cite29†REST Reference L50:   * cite30†Grok Build L51:   * cite31†Grok Bot L52:   * cite6†Grok L53: 
+L54: Get Started
+L55: 
+L56:   * cite6†Welcome L57: Help & FAQ
+L58: 
+L59:   * cite7†Billing & Subscriptions L60:   * cite8†Usage & Limits L61:   * cite9†Accounts & Login L62:   * cite10†Image & Video Generation L63:   * cite11†Products & Models L64:   * cite12†Files & Data L65:   * cite13†Team Management L66:   * cite14†Getting Help L67: 
+L68: Connectors
+L69: 
+L70:   * cite15†Overview L71:   * cite16†Google Drive L72:   * cite17†Gmail & Google Calendar L73:   * cite18†Outlook Mail & Calendar L74:   * cite19†SharePoint L75:   * cite20†OneDrive L76:   * cite21†Microsoft Teams L77:   * cite22†Salesforce L78:   * cite23†Custom MCP Tunneling L79: 
+L80: Business & Enterprise
+L81:   * cite24†Grok.com User Guide L82:   * cite25†License & User Management L83:   * cite26†Connector Management L84:   * cite27†Organization Management L85: #### cite32†Connectors L86: 
+L87: # cite33†Salesforce L88: 
+L89: Copy for LLMcite34†View as Markdown L90: 
+L91: cite35†Meet grok-4.6†x.ai L92: 
+L93: The Salesforce connector gives Grok powerful, real-time access to your Salesforce org. Everything Grok does respects your user permissions, field-level security, and sharing rules — exactly as if you were using Salesforce yourself.
+L94: 
+L95: ## cite36†Salesforce L96: ### cite37†Capabilities L97:   * Explore your data model - See all the objects in your Salesforce org (standard and custom).
+L98:   * Find information quickly - Search across multiple objects at once or instantly pull up your recently viewed and recently modified records (for example, "my recent Opportunities" or "Show top 10 closed deals for this week").
+L99:   * Ask detailed questions about your data - Retrieve exactly the records you need, with filters, sorting, summaries, and related information across parent-child relationships — without writing queries yourself.
+L100:   * Create new records - Add Leads, Opportunities, Accounts, Cases, or records on custom objects directly from chat.
+L101:   * Update records - Change fields on existing records by ID or by context.
+L102: ### cite38†Required permissions L103: 
+L104: The Salesforce connector uses standard Salesforce OAuth 2.0 scopes to access the API on your behalf.
+L105: 
+L106: Scope  | Purpose  | When requested
+L107: --- | --- | ---
+L108: `mcp_api`  | Access the Salesforce REST and SOAP APIs to read and write data  | Always
+L109: `refresh_token`  | Maintain access and refresh tokens between sessions  | Always
+L110: All actions are further restricted by your Salesforce profile, role, sharing rules, and field-level security. Grok can never access more than your connected Salesforce user is allowed to see or modify.
+L111: ### cite39†How to connect L112: 
+L113: Step 1: Company Admin Setup (xAI Console)
+L114: 
+L115:   1. Go to cite40†https://console.x.ai/?utm_source=docs&utm_medium=referral&utm_campaign=grok-connectors-salesforce&utm_content=console-home†console.x.ai L116:   2. Navigate to Grok Enterprise → Connectors
+L117:   3. Add the Salesforce connector and provide the OAuth credentials (Client ID, Client Secret) during the setup flow.
+L118: Step 2: Install and Configure the Salesforce DX MCP Server Reference: cite41†Install and Configure the Salesforce DX MCP Server (Beta)†developer.salesforce.com L119: 
+L120: Step 3: Team Member Connection
+L121: 
+L122:   1. Go to cite42†grok.com/connectors†grok.com .
+L123:   2. Click New Connector and search for Salesforce.
+L124:   3. Sign in with your Salesforce credentials and approve the requested permissions.
+L125: 
+L126: Once connected, just ask Grok anything about your Salesforce data in normal conversation.
+L127: ### cite43†Common examples L128: 
+L129:   * "Show me the top 10 closed deals for this week"
+L130:   * "What Opportunities are closing this month over $50k?"
+L131:   * "Create a new Lead for Jane Smith at Acme Corp"
+L132:   * "Show my recent cases that are still open"
+L133:   * "Summarize the Account history for Globex Corporation"
+L134: ## cite44†Privacy and security L135: 
+L136: We do not train on your data. SpaceXAI does not use your Salesforce data for model training.
+L137: 
+L138: Your data never leaves Salesforce. Grok queries Salesforce in real time and does not copy or store your records on SpaceXAI servers.
+L139: 
+L140: Your permissions are always enforced. If you cannot see a record or field in Salesforce, Grok cannot see it either. The same applies to create and update operations.
+L141: 
+L142: Disconnect anytime. Revoking access immediately stops Grok from reaching your org.
+L143: ## cite45†Disconnecting L144: 
+L145:   1. Go to cite42†grok.com/connectors†grok.com .
+L146:   2. Find Salesforce in your connected list and click Disconnect.
+L147: 
+L148: ## cite46†Limitation L149: 
+L150: Currently only one Salesforce org/instance is supported per team.
+L151: 
+L152: * * *
+L153: 
+L154: Last updated: September 14, 2026
+--------------------------------------------------------------------------------
+Introducing the Life Sciences Verification Program \ Anthropic (https://www.anthropic.com/news/life-sciences-verification-program)
+citeturn873view1 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.anthropic.com/news/life-sciences-verification-program","lineno":null}); Total lines: 80
+L0: cite0†Skip to main content cite1†Skip to footer L1: 
+L2:   * Research
+L3:   * cite2†Policy L4:   * Commitments
+L5:   * Learn
+L6:   * cite3†News L7: 
+L8: cite4†Try Claude†claude.ai L9: 
+L10: Announcements
+L11: # Introducing the Life Sciences Verification Program
+L12: 
+L13: Sep 17, 2026
+L14: 
+L15: cite5†Image: Introducing the Life Sciences Verification Program†www-cdn.anthropic.com L16: Today, we are introducing the Life Sciences Verification Program (LSVP), which gives life science professionals access to our Mythos, Opus, and Sonnet models with a refined set of safeguards more permissive for biology-related work. We have already onboarded dozens of organizations through an early-access program, and are now opening applications to the broader life science community (cite6†apply here†claude.com ). The program is launching in beta, initially for teams and institutions.
+L17: We will continue to improve the program and expand access to individual Pro and Max plans over time.
+L18: The LSVP is designed to enable life science professionals to use our models across a wide range of tasks that are currently blocked in our generally available Fable models, like drug discovery, research biology, clinical development, and manufacturing. It’s built for teams of all kinds—from academic labs to startups, pharma companies, and more.
+L19: ## Verification and access types
+L20: To qualify for these grants, each applicant goes through a verification process that includes a review of their research credentials, security standards, and ethical research oversight. Once verified, teams may apply for two types of LSVP grants, “Standard Use” or “High-risk Use,” depending on their access needs. These grants can be used through all our product surfaces, including cite7†Claude Science†claude.com , cite8†Claude.ai†claude.ai , Claude Code and the API.
+L21: Standard Use grants are suitable for most life science work, including the majority of biology research and development workflows. These grants can be extended to entire teams for diverse, daily workloads, and are renewed once a year. They give those teams access to our Mythos, Opus, and Sonnet models, with refined classifiers that are more permissive for science tasks than our generally available models.
+L22: Standard Use grants apply to Mythos 5.1, Opus 5, and Sonnet 5 today, and to future models as they launch. They’re specifically designed to enable the full breadth of life science activities in areas spanning basic science, R&D, supply chain and manufacturing, clinical development, quality assurance, regulatory affairs, investing and diligence, and more.
+L23: Although we expect Standard Use to cover the majority of access needs, some work carries a higher potential for misuse and therefore requires additional vetting.
+L24: High-risk Use is an add-on grant for teams working in areas blocked under Standard Use. It removes all safeguards that block life sciences requests. This grant applies to a single research project as opposed to a full team, and must be renewed every six months.
+L25: Typically, a single researcher with dual-use work would have access to one Standard Use grant for diverse, daily activities, and one or more High-risk Use grants which only apply to work on specific projects (for example, characterizing how one specific family of viral vectors is recognized by human immune pathways).
+L26: High-risk grants for Claude Opus 5 and Claude Sonnet 5 are available today. We are working with the US government to make high-risk grants more broadly available for Claude Mythos, but at the time of this launch they will remain limited to a small set of entities with additional vetting.
+L27: 
+L28: All other safeguards, such as cyber classifiers, will remain in place under LSVP grants.
+L29: ## Enabling trusted access through shared responsibility
+L30: As we’ve shown in our recent cite9†threat report , there are increasingly sophisticated misuse attempts happening on our platform, including attempts that could support biological weapons development. In biology, where it’s often not possible to differentiate between a user doing valid work (e.g. research a viral pathogen to develop vaccines against it) and pursuing harm (e.g.
+L31: trying to increase the transmissibility of a virus maliciously), the most concerning threat models are ones where valid access has been diverted or overtaken by an actor with bad intent. Indeed, insider threats and rogue-use have been major factors in significant biosafety incidents and scares. In developing the LSVP’s safeguards, we aimed to protect against three concerning threat models in particular:
+L32:   * Access compromise: Malware or account takeover diverting access to a bad actor
+L33:   * Insider threats: Rogue or coerced employees intentionally taking malicious action or diverting their access to a bad actor
+L34:   * Agent misuse: Agents, especially working in swarms or over long-horizon tasks, taking unintended dangerous actions
+L35: In order to defend against these threats and in close collaboration with enterprise CISOs, we designed the new LSVP safeguards around the concept of shared responsibility by monitoring usage against the intended use-case for the model access. Because we vet the LSVP organizations for their life sciences credibility and oversight, we can empower them to specify for themselves what constitutes safe usage for teams or projects within their program.
+L36: Each entity’s access is tied to the use cases it has specified in its grant applications, and we continuously monitor LSVP traffic to identify usage or patterns that are outside the stated safe scope. Should unauthorized activity occur, we can flag these cases to organization admins to take action within pre-agreed timeframes for triaging and remediating incidents.
+L37: The use cases should include high-level descriptions of the intended work, like one would share in a job listing, and not include any sensitive information or IP.
+L38: ## How monitoring works in LSVP
+L39: Serious misuse is often spread across many requests and sessions to look disconnected and evade detection. In the LSVP, we are shifting safeguards from real-time blocking, where we reject potentially harmful access at the time of each request, to offline monitoring, which allows us to more clearly identify potential misuse across patterns of behavior.
+L40: Shifting enforcement from real-time blocking to offline monitoring allows legitimate work to proceed with fewer interruptions, but it requires us to retain data associated with flagged activity for review. For LSVP traffic, we are requiring data retention for 30 days to be able to do this monitoring effectively.
+L41: This data is strictly compartmentalized and cannot be used for model training or accessed by members of Anthropic’s life sciences research teams. For organizations that qualify, we are also working to understand how LSVP can integrate with features from our cite10†Enterprise Frontier Safeguards (EFS) systems.
+L42: ## What researchers are saying
+L43: 
+L44: > Xaira is making biology more computable, generating biological data at unprecedented scale and building foundation models of cell, protein and disease biology that turn it into the next generation of life-changing medicines. We’re excited to put Anthropic's frontier models to work across our drug discovery engine, and we believe pairing trusted access with intelligence is the right way to realize AI’s promise in biology.
+L45: >
+L46: > Xaira Therapeutics
+L47: > Edison’s mission is to accelerate science and the discovery and development of new medicines. With the Life Sciences Verification Program, we are excited to be able to bring Anthropic’s most intelligent models to bear on these problems. We look forward to collaborating with Anthropic further to end disease and improve the lives of patients everywhere.
+L48: >
+L49: > Edison Scientific
+L50: > At Manifold Bio, we’re building a massively parallel interface into living systems to enable powerful AI to create medicines. We look forward to putting frontier intelligence to work safely in our engine, and we welcome Anthropic’s approach of pairing access with accountability.
+L51: >
+L52: > Manifold Bio
+L53: 
+L54: 01 / 03
+L55: ## Applications and availability
+L56: 
+L57: Organizations interested in joining the LSVP can cite6†submit an application here†claude.com . We expect to enroll hundreds of organizations within the first week, and to scale the program further to support the majority of the life science community in the coming weeks.
+L58: Today, LSVP is available in our first-party console for API usage, as well as in Claude for Enterprise and Team plans. We do not yet support individual plans but are working to expand access for these users. It is also not yet available on third-party platforms.
+L59: 
+L60: As a beta, LSVP is not available for BAA-enabled orgs. This means customers with PHI data should use separate non-BAA orgs with non-HIPAA.
+L61: In API and Claude Science, users can switch between grants natively. In cite8†Claude.ai†claude.ai and Claude Code, initially only a preselected default grant applies (except while using Claude Code with API authentication). This should be fine for the vast majority of users, who will only ever require a Standard Use grant. However, we will improve support and portability of these LSVP features over time.
+L62: ## What comes next
+L63: 
+L64: Providing these frontier capabilities is part of our broader efforts in supporting the life sciences community in our shared mission to accelerate curing disease and improving human health. We will share more about new products, research collaborations, and improvements to the program in the coming months.
+L65: 
+L66: ## Related content
+L67: 
+L68: ### Partnering with Accenture on embedded evaluation
+L69: 
+L70: cite11†Read more L71: 
+L72: ### Developing Enterprise Frontier Safeguards with our customers
+L73: 
+L74: cite10†Read more L75: ### Improving our alignment and security efforts
+L76: 
+L77: On July 30, we reported three incidents in which Claude models gained unauthorized access to real computer systems. We are conducting an in-depth analysis of both incidents, and planning to work with METR for an independent review. In the meantime, we’re sharing some of the changes we’ve made over the past month.
+L78: 
+L79: cite12†Read more --------------------------------------------------------------------------------
+The Overhang - by Ethan Mollick - One Useful Thing (https://www.oneusefulthing.org/p/the-overhang)
+citeturn873view2 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.oneusefulthing.org/p/the-overhang","lineno":null}); Total lines: 135
+L0: # cite0†One Useful Thing L1: 
+L2: # The Overhang
+L3: ### Using your deep knowledge, wide knowledge, taste, and agency
+L4: 
+L5: cite1†Ethan Mollick†substack.com L6: 
+L7: Sep 18, 2026
+L8: 
+L9: 532
+L10: 
+L11: 47
+L12: 
+L13: 49
+L14: 
+L15: Share
+L16: We are still on an exponential curve of AI development. I try to put out a Substack post every couple weeks or so, yet, as the pace speeds up, that sometimes feels too slow. In the weeks since my last post, we had the apparent cite2†cracking†openai.com of one of the most famous problems in math by an AI (accompanied by controversy) and widespread discussions about the risks posed by AI and what to do about it (also accompanied by controversy).
+L17: I think these concerns, along with a mounting set of other worries, come down to the same problem I have with my posts: how slowly our very human systems and processes work to keep up with the pace of AI development.
+L18: I don't think the people worried about this are wrong, but I also think a sole focus on future AIs, as important as that is, ignores the fact that AI, right now, is already incredibly capable. In fact, the new GPT-6 Astra and Fable 5.1 are already enough for transformative impact in large sections of the economy and they can reliably do weeks worth of human work when properly guided and harnessed.
+L19: A few fun examples of that: I had GPT-6 Astra turn a 1977 text adventure game called Zork cite3†into a full 3D action-adventure game you can play†zork-underground-empire.netlify.app . Zork has no graphics and each location is a paragraph of prose, so the AI had to decide what the white house looks like, what a grue looks like (the original only tells you that you are likely to be eaten by one in the dark), and how to turn “fight the troll” into an action sequence.
+L20: I also had Fable 5.1 try to reconstruct cite4†Italian author Umberto Eco’s library in 3D†eco-library-map.netlify.app . Eco kept tens of thousands of books in his Milan apartment and the AI could not find a floor plan, so it instead decided to work from a dozen videos, the foundation's photographs of each bookcase, and two library catalogues. It read spines frame by frame, inferred the rooms, and placed the 5,000 or so books it could identify among 27,000 shelf slots.
+L21: It marked every book certain, guess, or unknown, and drew the bookcases the cameras never reached in fog. This task, like the Zork game and a lot of real-world work I have had the AI do recently, would have taken weeks of human work involving researchers, coders, and designers. But here we are.
+L22: My point is that, while there is a lot of debate over what future models will do, the current capabilities of existing models are barely being used, and are often not even well understood. For example, I did not know GPT-6 Astra could operate Blender (a sophisticated piece of 3D modelling software) until it did.
+L23: I gave it a copy of my upcoming book, cite5†Co-Existence†co-existence.ai , and asked it to create a trailer for the book from the perspective of an AI. Without clear instructions from me, it proceeded to use Blender and build out an entire animated 3D scene (not an easy task), along with a script with some jokes and reveals (I did reject the first joke it added, but the second was quite good). It then figured out how to generate voices and music and sound effects and gave me this film 45 minutes later.
+L24: The final product feels a little more ominous than I would like, but that was the AI’s decision, not mine.
+L25: To see how much further it could go, I prompted: “That’s good, but I actually want you to make an action movie trailer based on Co-Existence. Have fun with it. No more than 30 seconds.” Again, it wrote a script and made a 3D prototype in Blender. After I asked for a more cinematic version, it used the Blender animation as a storyboard, operated a video generator through my browser, and edited the generated shots into the final trailer.
+L26: I gave some minor creative feedback, but never touched any production decision or even knew exactly how it was accomplishing its tasks. You can see the results here.
+L27: There are plenty of flaws in these efforts that you can spot. But they are also examples of the AI exercising a kind of judgement and creativity, things that not long ago were considered uniquely human traits. And they were all done with just a fraction of the token budget of the ChatGPT account I pay for. I think these are fun demonstrations, but they are also a bit scary because AI is getting better at things that were once purely human. Still, none of these projects happened on their own.
+L28: I chose them, I knew enough about Zork and Eco and my own book to see where the AI went wrong, and to ask for a second version when the first wasn't right. The capability overhang, the gap between what these models can do and what almost anyone is doing with them, is an opportunity because most people don't bring their own advantages to AI, and those who do get much more out of it.
+L29: That is why I think we will need to focus on the individual traits we have that remain useful even as AI abilities improve. You are not trying to compete with AI in producing outputs, that is a losing game. Instead, you want to use your human advantages as basis of working with AI to do things that neither of you could do alone. In my book, I outline four particular personal advantages that matter a lot if you want to use AI in unique and enhancing ways: deep knowledge, wide knowledge, taste, and agency.
+L30: # The Four Advantages
+L31: The first two advantages come from what you know. Deep knowledge is the expertise that comes from understanding a field or subject so well that you build intuition around it to quickly and accurately make decisions. It is how an experienced accountant can glance at a spreadsheet and know something is wrong, or how a golf pro can watch a swing and instantly understand the mistake the golfer is making.
+L32: It is also why I could tell within seconds that the first trailer was more ominous than the book actually is. Deep knowledge is the realm of the specialist, and it is the only way to truly understand the shape of the Jagged Frontier, because only experts can understand the patterns of where AI succeeds or fails, at least in their area of expertise. It also helps you adapt to change because deep knowledge makes it easier to switch from being someone who does the work to someone who manages it.
+L33: And recent work from Anthropic suggests that cite6†expertise also shapes the quality of what AI gives back†cdn.sanity.io . Experts not only get better work out of AI, they get more work out of it.
+L34: But you don’t just need deep knowledge, you also want wide knowledge. The training data for LLMs is a large swath of humanity’s vast output. The AI has learned something of design thinking and Bayesian reasoning and the Toyota Production System and Rogerian therapy and Marxist literary criticism. But AI tends not to volunteer any of these patterns unless you know to ask.
+L35: This is where wide knowledge comes in. Lets take one example: the way AI handles design work. If you ever ask AI to create a webpage, it will have certain preferences, including a very annoying habit of adding little headlines on top of your headlines. If you don’t have any grounding in design, you may not realize that you need to ask the AI to stop “adding eyebrows” to the work.
+L36: It is also how I knew that using a Blender animation as a storyboard for a video generator was a sensible way to make a film, and not the AI wandering off. If you do know the right terms, asking for changes is easy. To gain wide knowledge you need to read and study widely, across fields and formats and traditions. This is valuable in and of itself (the return of the liberal arts!) but doubly so in the age of AI
+L37: Now let’s go back the videos and projects I demonstrated above... You may have reacted viscerally to one or another, or hated them all. You may have found a theme or idea you would like to see more of. In doing this, you are using the third human differentiator in the age of AI, taste. Before AI, making things was hard and slow. Writing a draft took hours. Generating twenty product concepts took a team a week. An academic paper could take years. The constraint was always making enough stuff.
+L38: Now making is fast and cheap. The scarce resource is your ability to select among stuff using your own taste. Again, in the trailers, I rejected the first joke and kept the second. I asked for a more cinematic version. Those were the only decisions I made on the trailer, but they were based on my taste.
+L39: Some people have a taste for things that many people will find popular, others have a taste that is unique to them, and still others have a taste for what is novel and new. Yes, generative AI leads mostly to slop: a flood of work that is very similar to each other. But slop can be defeated by taste. Making great things with AI means knowing which AI outputs to keep, which to discard, and which to use as raw material for something the AI would never have generated on its own.
+L40: The final human advantage, agency, might be the most important and the hardest to talk about, because it is difficult to define and the subject of a lot of debate. But in the context of AI, I think it is a willingness to test the boundaries of what’s possible when everybody is equally confused about what AI can do. The jagged frontier is unmapped in your field, so agency is about becoming an explorer.
+L41: It’s the difference between waiting for someone to tell you that AI can now do something, and discovering it yourself by trying. That is part of why I do so many weird AI experiments — like trying to get the AI to cite7†play games†x.com — it teaches me a lot about what AI can do.
+L42: ### An interlude about the pre-order bonus for my book
+L43: I discuss these four advantages, and a lot more, in Co-Existence, which comes out October 20. If you pre-order it and let me know at cite5†co-existence.ai†co-existence.ai (pre-ordering really helps authors), we will send you a link to a free voice interview with an AI within a day or two. It asks you about what you know, what you like, and what you have tried, and then gives you a report on your own deep knowledge, wide knowledge, taste, and agency, along with use cases and prompts built around them.
+L44: An example of the report the interview produces. The interviewee here was an LLM with an otter obsession; yours will be about you, obviously.
+L45: # Where this all leaves us
+L46: Most of the anxiety about AI right now is about future models and whether we will be able to control them. It seems reasonable for governments and AI labs to be arguing about how to manage the speed of development to mitigate these risks. But a slowdown does not undo what already exists. If every lab stopped training new models tomorrow, that wouldn’t change the fact that GPT-6 Astra and Fable 5.1 are already enough to change how large parts of the economy work.
+L47: The capability overhang between what those models can do today and what most folks are using them for is massive.
+L48: So change is coming no matter how the frontier is paced. It will not happen all at once and it will be uneven, but it is inevitable. Yet inevitable change does not mean the type of change is inevitable. It is increasingly important that we, as a society, develop and share models of AI-human work that enhance, rather than only replace, human labor. And it is equally important that we, as individuals, use AI in ways that enhance, rather than only replace, our own efforts.
+L49: I don’t think there are bright lines we can point to and say AI will never cross them (see above). But your four advantages are a place to start today.
+L50: cite8†Share L51: 
+L52: The cite9†Zork project†github.com and cite10†Library project†github.com are both open source, feel free to modify them if you want (Zork is itself open source).
+L53: 
+L54: 532
+L55: 
+L56: 47
+L57: 
+L58: 49
+L59: 
+L60: Share
+L61: 
+L62: Previous
+L63: #### Discussion about this post
+L64: 
+L65: [Button: Comments][Button: Restacks]
+L66: 
+L67: cite11†Image: User's avatar†substackcdn.com L68: 
+L69: One Useful Thing reply rules
+L70: 
+L71: cite12†Patrick Cermeno†substack.com L72: 
+L73: cite13†16h Edited
+L74: 
+L75: I really love this framing, particularly because it feels almost independent of where AI goes next.
+L76: Models may continue improving at a breathtaking pace. Development may slow. We may deliberately put some brakes on adoption, especially in places like education. But none of that changes the underlying idea: people who bring deep knowledge, wide knowledge, taste, and agency to AI are going to get very different things from it than people who cannot—or simply choose not to.
+L77: 
+L78: But reading this made me wonder about something underneath those four advantages: What makes us want to use them?
+L79: I notice this very clearly in my own work.
+L80: 
+L81: When I’m doing something I don’t care deeply about—necessary process work that simply needs to get done—I use AI largely for efficiency. Help me finish it. Make sure it’s correct. Make it reasonably good. Let’s move on.
+L82: 
+L83: And frankly, that seems like a perfectly sensible use of AI.
+L84: But when I’m working on something I genuinely care about, my relationship with AI is completely different. I lead. I argue with it. I reject things. I bring in obscure connections. I keep refining. I try things I’m not sure will work. I know enough about the work to recognize when the AI is brilliant, when it is mediocre, and when it has confidently wandered off a cliff.
+L85: In other words, when I care deeply about the work, I naturally start doing exactly the things described here: bringing deep knowledge, wide knowledge, taste, and agency into the collaboration.
+L86: 
+L87: So I wonder if care—or ownership—is an important precondition for the four advantages.
+L88: 
+L89: And that leads me back to education.
+L90: I work in digital learning in a school district, and one of the things we are wrestling with is how we help teachers and students develop a relationship with AI that extends their thinking rather than simply replacing effort.
+L91: 
+L92: But maybe we also need to examine the work itself.
+L93: 
+L94: If a student experiences an assignment primarily as something imposed that needs to be completed, using AI as an expedient shortcut is a fairly predictable response: Make the thing. Get me through this.
+L95: Would we see a different relationship with AI if more of the work involved questions students genuinely wanted answered, problems they had some ownership of, ideas they cared about, or products they actually wanted to make good?
+L96: 
+L97: I don’t mean that every task needs to be passion-driven. Learning requires practice, foundations, and sometimes doing things that aren’t particularly exciting. But perhaps an AI-rich world makes ownership and genuine intellectual investment more important than they were before.
+L98: Because otherwise I worry about a new kind of divide.
+L99: 
+L100: Not primarily between people who have access to AI and people who don’t, but between people who bring enough knowledge, curiosity, taste, ownership, and agency to use AI to make something better than either could have made alone—and people who mostly use increasingly powerful systems to get increasingly polished versions of work they never particularly cared about in the first place.
+L101: Maybe the educational challenge isn’t only teaching people how to work with AI this way.
+L102: 
+L103: Maybe it is creating enough work worth caring about that they actually want to.
+L104: (** I read Ethan Mollick’s article carefully and thought deeply about how it connected to my own experience. I then spoke my thoughts into ChatGPT in a stream of consciousness and asked it to help organize them into a comment using the structure I provided. I told it to draw only from my thoughts and the article, then revised the draft several times to make sure it accurately reflected what I meant. AI helped with organization and polish, but the ideas and point of view were mine.)
+L105: 
+L106: Reply
+L107: 
+L108: Share
+L109: cite14†Marcel van Driel†substack.com L110: 
+L111: cite15†20h L112: 
+

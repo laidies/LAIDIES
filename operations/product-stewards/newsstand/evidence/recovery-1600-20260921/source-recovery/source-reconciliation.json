@@ -1,0 +1,144 @@
+{
+  "schema": "newsstand-source-reconciliation-proposal.v1",
+  "proposalOnly": true,
+  "observedAt": "2026-09-21T23:30:45Z",
+  "scope": "BOUNDED_CURRENT_SIX_DESK_AND_AIDB_RECOVERY",
+  "scopeLimit": "This record proposes source checks for exact URLs inspected in this lane. It does not assert a complete research cycle, exhaustive coverage or a quiet-news result.",
+  "nonMutation": "No coverage-progress, CURRENT-CYCLE, canonical story, candidate, queue, release or public file was changed.",
+  "rawCaptures": [
+    {
+      "path": "aidb-raw.json",
+      "sha256": "9dece83a8a1b4757e624680138c3e7f1387738fd12f8c0f8e16350c50fbc77c2"
+    },
+    {
+      "path": "ap-raw.json",
+      "sha256": "6fca35261c7e5881ee80fb01c3fd44adc099275694079a4205df38cb213bdbd6"
+    },
+    {
+      "path": "nature-raw.json",
+      "sha256": "425f0ab81c937e5fce7ca806a0cb40f28604269605a8eed992bf235d3f6c32cf"
+    },
+    {
+      "path": "remaining-desks-raw.json",
+      "sha256": "fa8670f76cfda0436d707d5c7b7b39eb7f3e8075cd7cc345a62ac30479f0267a"
+    }
+  ],
+  "sourceChecks": [
+    {
+      "source": "Nature machine-learning subject index — research desk",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "proposedStatus": "INDEX_INSPECTED_ARTICLE_CONTENT_INCOMPLETE",
+      "checkedAt": "2026-09-21T23:30:45Z",
+      "capture": "nature-raw.json",
+      "finding": "The directly inspected index now shows a Sep21 deep-learning protein-hydrogel paper and a Sep19 PDE operator-learning paper. Opening the Sep21 paper hit a non-retryable Nature identity-provider redirect, so neither item is a source-complete NewsStand candidate.",
+      "recoveryReview": "Replace the older route-exception status only for this exact subject URL. Do not transfer this check to https://www.nature.com/ or /nature."
+    },
+    {
+      "source": "Nature machine-learning subject index — news/comment desk",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "proposedStatus": "INDEX_INSPECTED_LINKED_ARTICLE_PARTIAL_PAYWALL",
+      "checkedAt": "2026-09-21T23:30:45Z",
+      "capture": "nature-raw.json",
+      "finding": "News and Comment still leads with the Sep18 Navier–Stokes item. Its opening was visible, followed by subscription controls; the article was not fully read.",
+      "recoveryReview": "This refresh applies to the subject index only. Retain any separate general-Nature route as stale/unreviewed."
+    },
+    {
+      "source": "AP artificial-intelligence hub",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "proposedStatus": "INDEX_INSPECTED_ONE_LINKED_ARTICLE_READ",
+      "checkedAt": "2026-09-21T23:30:45Z",
+      "capture": "ap-raw.json",
+      "finding": "The current hub surfaced AP's UN General Assembly agenda overview. The linked article was read and reports a scheduled Security Council AI meeting, but no adopted policy or operational change.",
+      "recoveryReview": "Advance this exact AP hub URL. Do not describe all linked hub items as re-reviewed."
+    },
+    {
+      "source": "FTC press releases",
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "proposedStatus": "INDEX_INSPECTED_NO_NEW_AI_SPECIFIC_ACTION_VISIBLE",
+      "checkedAt": "2026-09-21T23:30:45Z",
+      "capture": "remaining-desks-raw.json",
+      "finding": "The current first page runs through Sep17 general releases; the latest visible AI-specific release remains the Aug27 Active Listening orders. This is a page observation, not an exhaustive agency search."
+    },
+    {
+      "source": "EFF AI issue index",
+      "url": "https://www.eff.org/issues/ai",
+      "proposedStatus": "INDEX_INSPECTED_EXISTING_ITEMS_ONLY",
+      "checkedAt": "2026-09-21T23:30:45Z",
+      "capture": "remaining-desks-raw.json",
+      "finding": "The newest visible entries remain the Sep18 California-order statement, Sep18 secure-messaging/TEE commentary and Sep17 cybersecurity-rules advocacy. They map to an existing candidate or existing evidence holds."
+    },
+    {
+      "source": "BleepingComputer AI tag",
+      "url": "https://www.bleepingcomputer.com/tag/artificial-intelligence/",
+      "proposedStatus": "INDEX_INSPECTED_TWO_ARTICLES_READ",
+      "checkedAt": "2026-09-21T23:30:45Z",
+      "capture": "remaining-desks-raw.json",
+      "finding": "The index still leads with Sep17 RatHat and OpenAI misalignment-framework reports. RatHat now carries a Sep21 Google update; the OpenAI report maps to an existing public story.",
+      "recoveryReview": "Advance this exact tag URL only. The separate https://www.bleepingcomputer.com/news/ route was not opened and remains stale/unreviewed."
+    },
+    {
+      "source": "AIDB publisher agent index",
+      "url": "https://aidailybrief.ai/agent.json",
+      "proposedStatus": "CURRENT_INDEX_INSPECTED_FULL_CONTENT_BLOCKED",
+      "checkedAt": "2026-09-21T23:30:45Z",
+      "capture": "aidb-raw.json",
+      "finding": "The index generated 2026-09-21T23:26:56.113Z now includes Sep18 and Sep20 editions; Sep21 is absent. Direct Sep20 JSON/transcript and expected Sep21 page/transcript attempts returned Internal Error, so no full edition review is supported.",
+      "recoveryReview": "Use this current index capture to update metadata recovery while retaining old per-route checkedAt values. The Sep20/Sep21 errors are recorded only as Internal Error; they are not promoted to NONRETRYABLE. Sep18 JSON/transcript were not opened in this lane."
+    }
+  ],
+  "namedLeadDispositions": [
+    {
+      "id": "nature-deep-learning-protein-hydrogels-20260921",
+      "status": "INDEX_ONLY_SPECIALIST_RESEARCH_HOLD",
+      "source": "https://www.nature.com/articles/s41467-026-77607-9",
+      "finding": "The index describes an integrated workflow using data mining, generative AI, virtual screening and experiments to design seven protein hydrogels.",
+      "reason": "The article itself was inaccessible through a non-retryable identity redirect, and the index does not establish a clear adult-beginner reader consequence.",
+      "nextAction": "Recover the original article through a distinct legitimate source before editorial assessment."
+    },
+    {
+      "id": "nature-navier-stokes-ai-20260918",
+      "status": "PARTIAL_ARTICLE_PAYWALL_HOLD",
+      "source": "https://www.nature.com/articles/d41586-026-02922-6",
+      "finding": "The opening says OpenAI claimed an AI proof of singularities in the Navier–Stokes equations; the remaining article was behind access controls.",
+      "reason": "The central claim and its scientific context cannot be assessed from the opening alone."
+    },
+    {
+      "id": "ap-un-ai-agenda-preview-20260921",
+      "status": "CONTEXT_NOT_STANDALONE_CANDIDATE",
+      "source": "https://apnews.com/article/un-assembly-leaders-ai-trump-netanyahu-climate-c4727651b9030d6e7f81c0457a33440b",
+      "finding": "AP reports that the Security Council added a high-level AI meeting to Wednesday's agenda and frames AI as a General Assembly concern.",
+      "reason": "This is an agenda preview and broad overview. It reports no adopted policy, binding guardrail or product change, and overlaps existing UN and AI-safety coverage."
+    },
+    {
+      "id": "bleepingcomputer-rathat-android-ai-malware-20260917",
+      "status": "SOURCE_BOUND_SECURITY_LEAD_NEEDS_PRIMARY_RESEARCH",
+      "source": "https://www.bleepingcomputer.com/news/security/new-rathat-android-malware-uses-ai-to-automate-device-control/",
+      "finding": "The article describes Android malware using an AI-assisted accessibility-tree navigator and includes a Sep21 Google statement that known versions were absent from Google Play and covered by Play Protect.",
+      "reason": "The practical reader advice is concrete, but the underlying Zimperium research was not read in this bounded lane. No separate candidate should be produced from the secondary report alone.",
+      "nextAction": "Read the named Zimperium research and verify whether the threat is active/current before candidate assessment."
+    },
+    {
+      "id": "openai-misalignment-framework-20260916",
+      "status": "PUBLISHED_DUPLICATE",
+      "source": "https://www.bleepingcomputer.com/news/security/openai-details-more-cases-of-ai-agents-taking-unauthorized-actions/",
+      "existingStory": "openai-misalignment-reporting-20260916"
+    },
+    {
+      "id": "aidb-20260920-seven-usage-shifts",
+      "status": "METADATA_ONLY_FULL_CONTENT_HOLD",
+      "source": "https://aidailybrief.ai/e/2026-09-20",
+      "finding": "The publisher index labels the edition a no-news commentary about seven usage shifts, but neither JSON nor transcript was recovered.",
+      "nextAction": "Inspect one complete legitimate edition source before item selection; do not infer items from the teaser."
+    }
+  ],
+  "remainingGaps": [
+    "https://www.nature.com/ and any separate /nature route were not opened; prior status remains unchanged.",
+    "https://www.bleepingcomputer.com/news/ was not opened; prior status remains unchanged.",
+    "The Apple AIDB podcast listing was not opened; prior partial status remains unchanged.",
+    "AIDB Sep18 JSON and transcript were not opened in this lane; their earlier error classifications remain unchanged.",
+    "AIDB has no Sep21 entry in the current agent index, and expected Sep21 page/transcript attempts returned only Internal Error.",
+    "Nature's Sep21 research article and full Sep18 news article were not recovered.",
+    "The RatHat primary Zimperium report was not inspected."
+  ],
+  "publication": "No article, candidate or public release was produced or approved in this lane."
+}

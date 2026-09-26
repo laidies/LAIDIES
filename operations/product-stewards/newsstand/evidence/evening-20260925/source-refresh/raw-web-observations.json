@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "newsstand-source-refresh-observations-v1",
+  "observedAt": "2026-09-26T03:02:53Z",
+  "editorialDate": "2026-09-25",
+  "operator": "/root/california_order_producer",
+  "mode": "EVENING_SIX_DESK_AND_AIDB_THREE_CHANNEL_SWEEP",
+  "routeGuard": {
+    "command": "node scripts/check-practitioner-signal-pilot.mjs --newsstand-only --as-of 2026-09-25",
+    "result": "NEWSSTAND SOURCE ROUTES PASS desks=6 sources=8 research_completion_certified=false"
+  },
+  "sourceObservations": [
+    {
+      "sourceId": "SRC-AP-AI",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "outcome": "CHECKED_NO_NEW_DISTINCT_AI_EVENT",
+      "webRefs": [
+        "turn1224view0",
+        "turn1225view0"
+      ],
+      "returnedEvidence": [
+        "AP AI hub top stories: OpenAI flags concerning new AI behavior; lawsuit alleges illegal AI-slowdown agreement; other visible list identities already in intake."
+      ],
+      "assessment": "Current AP hub was inspected. Its visible AI items match already dispositioned identities; no distinct new evening event was established."
+    },
+    {
+      "sourceId": "SRC-NATURE-ML",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "outcome": "CHECKED_EXISTING_LEAD_GAINS_INDEPENDENT_REPORT",
+      "webRefs": [
+        "turn1224view1",
+        "turn1226view0",
+        "turn1227view0",
+        "turn1228view0"
+      ],
+      "returnedEvidence": [
+        "Nature index: Anthropic\u2019s AI biolab finds CRISPR-like DNA in viruses, News 25 Sept 2026; says roughly 950 agents spent more than 21 hours searching DNA databases.",
+        "Nature article click redirected to inaccessible idp and was classified non-retryable by the tool.",
+        "Anthropic original says ART function is unknown, all lab work was performed by human scientists, and further experiments are underway."
+      ],
+      "assessment": "Nature added independent Sep25 framing of the existing Anthropic enzyme-system lead. The article body was blocked after one normal click; the already-accessible official original confirms early-stage limits. This updates the existing evidence hold rather than creating a duplicate."
+    },
+    {
+      "sourceId": "SRC-FTC-AI",
+      "url": "https://www.ftc.gov/industry/technology/artificial-intelligence",
+      "outcome": "CHECKED_NO_NEW_ITEM",
+      "webRefs": [
+        "turn1224view2",
+        "turn1225view2",
+        "turn1226view1"
+      ],
+      "returnedEvidence": [
+        "Latest visible entry: FTC final active-listening orders, dated August 27, 2026."
+      ],
+      "assessment": "No September item appears in the current FTC AI index."
+    },
+    {
+      "sourceId": "SRC-EFF-AI",
+      "url": "https://www.eff.org/issues/ai",
+      "outcome": "CHECKED_NO_NEW_ITEM",
+      "webRefs": [
+        "turn1224view3",
+        "turn1225view3",
+        "turn1226view2"
+      ],
+      "returnedEvidence": [
+        "Latest visible update: EFF Statement on California Governor\u2019s Executive Order on AI, September 18, 2026."
+      ],
+      "assessment": "No later EFF AI item appears; the Sep18 statement is already candidate-bound."
+    },
+    {
+      "sourceId": "SRC-BLEEPINGCOMPUTER-AI",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "outcome": "CHECKED_NO_NEW_SINCE_AFTERNOON",
+      "webRefs": [
+        "turn1224view4",
+        "turn1225view4",
+        "turn1226view3"
+      ],
+      "returnedEvidence": [
+        "Sep25 12:00 PM Claude Code cloud-credit report.",
+        "Sep25 10:54 AM unannounced ChatGPT Pro Max UI-test report.",
+        "Older Sep24 Carbonato and card-skimmer reports remain visible."
+      ],
+      "assessment": "The two Sep25 reports are the same held identities found in the afternoon sweep. No later item appears."
+    },
+    {
+      "sourceId": "SRC-OPENAI-NEWS",
+      "url": "https://openai.com/news/",
+      "outcome": "CHECKED_NO_NEW_ITEM",
+      "webRefs": [
+        "turn1224view5",
+        "turn1225view5",
+        "turn1226view4"
+      ],
+      "returnedEvidence": [
+        "Latest visible official entries remain dated Sep23, followed by Sep22 and Sep21 items."
+      ],
+      "assessment": "No Sep24 or Sep25 OpenAI newsroom release appears."
+    },
+    {
+      "sourceId": "SRC-ANTHROPIC-NEWS",
+      "url": "https://www.anthropic.com/news",
+      "outcome": "CHECKED_NO_NEW_ITEM",
+      "webRefs": [
+        "turn1224view6",
+        "turn1225view6",
+        "turn1226view5"
+      ],
+      "returnedEvidence": [
+        "Latest listed newsroom item is Sep23 Claude enzyme-system research; Opus 5.5 is dated Sep22."
+      ],
+      "assessment": "No Sep24 or Sep25 Anthropic newsroom item appears. The Sep23 enzyme-system item gains a Nature Sep25 independent report."
+    },
+    {
+      "sourceId": "SRC-GOOGLE-AI-DEVELOPERS",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "outcome": "CHECKED_NO_NEW_ITEM",
+      "webRefs": [
+        "turn1224view7",
+        "turn1225view7",
+        "turn1226view6"
+      ],
+      "returnedEvidence": [
+        "Latest visible changelog entry is September 22, 2026 Gemini 3.8 Flash TTS general availability."
+      ],
+      "assessment": "No Sep23-Sep25 Gemini API changelog entry appears."
+    }
+  ],
+  "aidbObservations": [
+    {
+      "channel": "website",
+      "url": "https://aidailybrief.ai/agent.json",
+      "outcome": "CHECKED_INDEX_ENDS_SEP24",
+      "webRefs": [
+        "turn1224view8",
+        "turn1226view7"
+      ],
+      "returnedEvidence": [
+        "agent.json generated 2026-09-26T03:01:36.479Z; newest website edition remains Sep24 AI Agents Are Moving Into the Real World."
+      ],
+      "assessment": "Current metadata enumerated the website channel. It supplies identities and endpoint URLs, not full edition content."
+    },
+    {
+      "channel": "podcast",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "outcome": "PARTIAL_SIX_CURRENT_EPISODE_IDENTITIES",
+      "webRefs": [
+        "turn1224view9",
+        "turn1231view0",
+        "turn1232view0",
+        "turn1232view1",
+        "turn1232view2",
+        "turn1232view3",
+        "turn1232view4",
+        "turn1232view5",
+        "turn1233view0",
+        "turn1233view1",
+        "turn1233view4",
+        "turn1233view5"
+      ],
+      "returnedEvidence": [
+        "Apple listing exposes six episodes dated Sep20-Sep25, including Sep24 and Sep22 identities absent from the prior podcast inventory.",
+        "Sep25 Jev episode published 2026-09-25T18:07:00Z, 26 minutes; description only, no transcript/audio review.",
+        "Sep24 AI Agents episode published 2026-09-24T19:06:00Z, 28 minutes; description only.",
+        "Sep22 Agent Wars episode published 2026-09-22T19:07:00Z, 31 minutes; description only."
+      ],
+      "assessment": "Six rolling-window episode identities and exact Apple URLs were enumerated. No full audio or transcript was reviewed, so all remain incomplete."
+    },
+    {
+      "channel": "newsletter",
+      "url": "https://aidailybrief.beehiiv.com/",
+      "outcome": "NONRETRYABLE_ROUTE_MISTAKENLY_OPENED_TIMEOUT",
+      "webRefs": [
+        "turn1224view10",
+        "turn1226view9"
+      ],
+      "returnedEvidence": [
+        "Tool returned: Failed to fetch https://aidailybrief.beehiiv.com/: (400) Timeout fetching."
+      ],
+      "assessment": "The retained canonical route is NONRETRYABLE and should not have been opened. Preserve this actual mistaken timeout, but do not renew or replace the original checkedAt, failure capture or retry policy. No newsletter content was recovered."
+    },
+    {
+      "channel": "expected-sep25-edition",
+      "urls": [
+        "https://aidailybrief.ai/e/2026-09-25",
+        "https://aidailybrief.ai/e/2026-09-25.md",
+        "https://aidailybrief.ai/e/2026-09-25/transcript.md"
+      ],
+      "outcome": "NOT_REPEATED_RECENT_EXACT_FAILURE",
+      "priorCapture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260925/source-refresh/aidb-sep25-probe-raw.json",
+        "sha256": "cbb769925356a73776b11b71cf9619359b1d2152d149ab661a521f5d21cc2ef3",
+        "observedAt": "2026-09-25T20:11:45Z"
+      },
+      "assessment": "A same-day normal probe had already returned exact tool inaccessibility for all three routes. They were not repeated seven hours later. The prior failure remains the applicable evidence; no transcript was inferred."
+    }
+  ],
+  "leadDispositions": [
+    {
+      "leadId": "anthropic-claude-enzyme-system-20260923",
+      "disposition": "EXISTING_EVIDENCE_HOLD_UPDATED",
+      "newSourceUrl": "https://www.nature.com/articles/d41586-026-03039-6",
+      "reason": "Nature independently reports the agent count and search duration, but its body redirected to an inaccessible login route. Anthropic still says ART function is unknown and further experiments are underway; technical-report inspection and ordinary-reader payoff remain missing."
+    },
+    {
+      "leadId": "typesafe-jev-system-one-20260915",
+      "disposition": "EXISTING_HOLD_UNCHANGED",
+      "reason": "Apple supplies a current episode description, not a transcript or independent evaluation."
+    }
+  ],
+  "nonretryablePolicy": {
+    "preservedCanonicalRows": true,
+    "newsletterOriginalFailureReplaced": false,
+    "natureArticleRetry": "NONE_AFTER_NONRETRYABLE_REDIRECT",
+    "mistakenNewsletterAttemptRecorded": true
+  },
+  "completeness": "PARTIAL: all eight six-desk routes were inspected. AIDB website and podcast identities were enumerated; newsletter content remains unavailable and the Sep25 edition/transcript remains inaccessible from its recent exact probe. No full AIDB audio or transcript was reviewed."
+}

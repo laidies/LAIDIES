@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "newsstand-service-issue-independent-review-v1",
+  "decision": "PASS",
+  "editionDate": "2026-09-20",
+  "reviewedAt": "2026-09-20T17:06:40.723Z",
+  "reviewer": "independent-reviewer:/root/california_order_producer",
+  "reviewerRole": "Independent exact NewsStand service-only Daily issue reviewer",
+  "maker": "/root",
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-09-20.json",
+    "sha256": "3d4990e4751088e4f950e5b41e51742c92bebc63f8a39fe7e3f5cbe3666675bd"
+  },
+  "sourceBindings": {
+    "proposal": {
+      "path": "operations/product-stewards/newsstand/release-pipeline-v1/service-bank-proposals/2026-09-20-r1.json",
+      "sha256": "36604db7cd488eb7df22fd35bb1e71f0be95dd9c1d05f43dd1f0fc05966d0dc7"
+    },
+    "predecessor": {
+      "path": "operations/product-stewards/newsstand/evidence/morning-20260920/base/service-predecessor.json",
+      "sha256": "521a380187c803571d7314c64960d23070b35998b235b109f1387a33ceea696e",
+      "predecessorEnvelopeSha256": "78358e96bc45e945f5a91789f79973136e37d9af172369c63467a274204fee29"
+    },
+    "librarySourceCheck": {
+      "path": "operations/product-stewards/newsstand/evidence/morning-20260920/service-source-check.json",
+      "sha256": "b0ed910b337d62c5d467c2910611827fb05ffb839819edac1a4b86266242202a",
+      "result": "TWO_LIVE_SOURCE_BYTES_EXACT_LOCAL_MATCH"
+    },
+    "dorieLiveCapture": {
+      "path": "operations/product-stewards/newsstand/evidence/morning-20260920/1000-service-and-bill.json",
+      "sha256": "632a2750bc42f552e19d284fdc1026b859bd8ff7269c384f33d874386fa4bc5d",
+      "result": "FULL_PUBLISHER_TEXT_SUPPORTS_PRIORITIES_MARGIN_AND_BOUNDARIES_ATTRIBUTION"
+    }
+  },
+  "checks": {
+    "exactReadyDeskCount": 5,
+    "readyDeskIds": [
+      "DAILY-2026-09-20-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+      "DAILY-2026-09-20-CAREER-LIFE-CORNER-02-PRIORITIES",
+      "DAILY-2026-09-16-CONCEPT-WEEK-CONCEPT-02-TOKEN",
+      "DAILY-2026-09-20-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
+      "DAILY-2026-09-20-CURIOSITY-CURIOSITY-08-UNSEEN-STEP"
+    ],
+    "datedEligibleBankRecords": [
+      "DAILY-2026-09-20-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+      "DAILY-2026-09-20-CAREER-LIFE-CORNER-02-PRIORITIES",
+      "DAILY-2026-09-20-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
+      "DAILY-2026-09-20-CURIOSITY-CURIOSITY-08-UNSEEN-STEP"
+    ],
+    "carriedConcept": {
+      "recordId": "DAILY-2026-09-16-CONCEPT-WEEK-CONCEPT-02-TOKEN",
+      "originalEditionDate": "2026-09-16",
+      "recordSha256": "a2f4a88094ce13aade5dde2b0ee9a897fdcbab085137b3df2790e2419fc603b3",
+      "unchangedThroughPredecessor": true
+    },
+    "allReadyRowsExactCurrentColumnMatches": true,
+    "allDatedRowsExactProposalMatches": true,
+    "allReadyRowsEligibleAndUnexpired": true,
+    "storyIdsEmpty": true,
+    "storySnapshotsEmpty": true,
+    "frontPaigePreserved": "front-paige-accountable-systems-2026-08-24",
+    "weeklyPreserved": "weekly-promises-and-proof-20260916",
+    "predecessorProvenanceExact": true,
+    "inMemoryPromotionValidation": "PASS",
+    "canonicalMutationDuringReview": false
+  },
+  "limitations": [
+    "This admits the exact private service-only issue envelope. It does not publish, deploy, mutate canonical content, or admit any news candidate."
+  ]
+}

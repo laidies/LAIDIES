@@ -1,0 +1,192 @@
+{
+  "kind": "facts",
+  "startedAt": "2026-09-14T22:34:56.684Z",
+  "replayedAt": null,
+  "completedAt": "2026-09-14T22:35:21.815Z",
+  "requestedModel": "claude-fable-5",
+  "providerModel": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "providerId": "a6c483cb-15de-48f8-814b-4816b6133017",
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 10528,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2073,
+    "output_tokens_details": {
+      "thinking_tokens": 866
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 10528,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 2073,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 10528,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 10528
+        },
+        "type": "message",
+        "model": null
+      }
+    ],
+    "speed": "standard"
+  },
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "requestSha256": "88178daba3746d6f6f2bac2b8b1e77d61ab60f88ade168b97d547355f4ef4648",
+  "rawSha256": "de0bb8ff1fb1a962e31efef7b1cad92eb8f3f3cfbeeb902c45d05ae29338ebd9",
+  "protocolSha256": "7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "outcomes": {
+    "factualIntegrity": {
+      "state": "hold",
+      "reason": "Most attributions match the supplied AP passages exactly, but the 'dismiss warnings that AI could take over the world or harm humanity' element lacks a supporting passage in the supplied evidence and needs sourcing or trimming.",
+      "passages": [
+        "P002",
+        "P003"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 14, the Associated Press reported that President Trump used social-media posts to dismiss warnings that AI could take over the world or harm humanity. He said a strong president was the only control AI needed and said limits on AI and data centres helped China. Vice President JD Vance separately said the administration was concerned about AI but wanted to regulate it smartly.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This is a sharper statement in the public argument over AI oversight. It is separate from the September 13 remarks we covered yesterday. The AP report does not identify a new federal rule, a change to an AI product, or a scheduled White House meeting.</p>",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P002, P003"
+    },
+    "freshnessReviewability": {
+      "state": "pass",
+      "reason": "The article dates the reporting to September 14, names AP as the source, and states what the report does and does not establish, making time-sensitive claims checkable.",
+      "passages": [
+        "P002",
+        "P003"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 14, the Associated Press reported that President Trump used social-media posts to dismiss warnings that AI could take over the world or harm humanity. He said a strong president was the only control AI needed and said limits on AI and data centres helped China. Vice President JD Vance separately said the administration was concerned about AI but wanted to regulate it smartly.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This is a sharper statement in the public argument over AI oversight. It is separate from the September 13 remarks we covered yesterday. The AP report does not identify a new federal rule, a change to an AI product, or a scheduled White House meeting.</p>",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P002, P003"
+    },
+    "datedChange": {
+      "state": "pass",
+      "reason": "The article explicitly separates the September 14 posts from the September 13 remarks covered the previous day and links the surrounding debate.",
+      "passages": [
+        "P003",
+        "P007"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is a sharper statement in the public argument over AI oversight. It is separate from the September 13 remarks we covered yesterday. The AP report does not identify a new federal rule, a change to an AI product, or a scheduled White House meeting.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "Yesterday’s <a href=\\\"/newsstand.html#trump-ai-safeguards-20260913\\\">AI pace story</a> and the related <a href=\\\"/newsstand.html#amodei-ai-pacing-20260912\\\">Anthropic pacing story</a> provide the surrounding debate. In a product, “guardrails” can mean <strong>technical guardrails</strong>: built-in product controls that guide or limit an AI system’s behaviour. <a href=\\\"/library.html#ai-fundamentals-101::%40ch-11-11-2-guardrails-the-runtime-safety-net\\\">AI Fundamentals 101: Guardrails: The Runtime Safety Net</a> explains that technical meaning; it is separate from government oversight in this article.",
+          "locator": "P007"
+        }
+      ],
+      "artifactLocator": "P003, P007"
+    },
+    "consequenceAndUncertainty": {
+      "state": "pass",
+      "reason": "The article concretely states nothing changes readers' AI tools today and preserves uncertainty by distinguishing a public position from an enacted rule or action.",
+      "passages": [
+        "P004",
+        "P005"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>In this story, <strong>government oversight</strong> means rules, agencies or other public controls over what companies must do. A post can signal what a leader wants; it does not itself create those controls or remove them. That is why the useful next question is not simply “Are there guardrails?” It is: what action followed, who carries it out, and what does it cover?</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Nothing in this report changes the settings or everyday use of an AI tool today. It gives you a clearer way to read the next headline: separate a public position from the thing that could make it real—a bill, executive action, agency action, or a completed meeting with announced steps.</p>",
+          "locator": "P005"
+        }
+      ],
+      "artifactLocator": "P004, P005"
+    }
+  },
+  "claims": {
+    "posts-and-claims": {
+      "state": "qualified",
+      "reason": "The supplied AP passages support the 'strong president is the only control' quote and the China/data-centres claim, but no supplied passage shows Trump dismissing warnings that AI could take over the world or harm humanity, so that framing element is not directly evidenced.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 14, the Associated Press reported that President Trump used social-media posts to dismiss warnings that AI could take over the world or harm humanity. He said a strong president was the only control AI needed and said limits on AI and data centres helped China. Vice President JD Vance separately said the administration was concerned about AI but wanted to regulate it smartly.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "administration-qualification": {
+      "state": "supported",
+      "reason": "The AP passage records Vance saying the administration is concerned about AI but wants to regulate it smartly, matching the article's attribution.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 14, the Associated Press reported that President Trump used social-media posts to dismiss warnings that AI could take over the world or harm humanity. He said a strong president was the only control AI needed and said limits on AI and data centres helped China. Vice President JD Vance separately said the administration was concerned about AI but wanted to regulate it smartly.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "no-reported-action": {
+      "state": "supported",
+      "reason": "The source's Johnson passage says a possible White House sit-down has yet to be scheduled and the stated limitation confirms no enacted rule, product change, or completed/scheduled meeting, matching the article's absence claim.",
+      "passages": [
+        "P003"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is a sharper statement in the public argument over AI oversight. It is separate from the September 13 remarks we covered yesterday. The AP report does not identify a new federal rule, a change to an AI product, or a scheduled White House meeting.</p>",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    }
+  },
+  "verdict": "HOLD",
+  "summary": "The follow-up accurately attributes the Trump 'strong president' guardrails quote, the China claim, the Vance qualification, and the absence of any scheduled meeting or enacted rule, all consistent with the supplied AP passages; however, the sentence stating Trump dismissed warnings that AI could take over the world or harm humanity has no supporting passage in the supplied evidence, so factual integrity holds pending an added source passage or a narrowed phrasing. Freshness, dated-change separation from the September 13 story, and consequence/uncertainty handling all pass.",
+  "learningDisposition": {
+    "disposition": "CANDIDATE_REPAIR_ONLY",
+    "rationale": "One material framing element (Trump dismissing AI takeover/harm warnings) is not evidenced in the supplied source passages; the repair is to add a supporting AP passage or soften the sentence to the directly quoted claims."
+  }
+}

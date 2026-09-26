@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "laidies-newsstand-independent-sweep.v1",
+  "checkedAt": "2026-09-14T21:45:18Z",
+  "writtenAt": "2026-09-14T21:46:45Z",
+  "tier": "TIER_2",
+  "scope": "Overdue September14 morning independent reporting/six-desk lane. No public/shared/canonical/queue mutation or prose. The blocked Nature paper/report and blocked AP Trump long URL were not requested by any transport; prior inadmissible urllib captures were not read or used.",
+  "sourceSafetyReconciliation": "operations/product-stewards/newsstand/evidence/evening-20260913/source-reconciliation.json",
+  "sourceChecks": [
+    {
+      "sourceId": "ap_ai_index",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "checkedAt": "2026-09-14T21:45:01Z",
+      "transport": "normal direct HTTPS index request via urllib; no proxy, credential, cookie injection, URL rewriting, or safety-block bypass",
+      "accessResult": "BLOCKED",
+      "httpStatus": 403,
+      "effectiveUrl": "https://apnews.com/hub/artificial-intelligence",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-1300-independent-captures/ap-ai.html",
+      "captureSha256": "ca76d4457bc8a3f26ffa856362592d333cec0d023fe4457afaef74ba1bd22b1a",
+      "captureBytes": 5653,
+      "comparisonToPrior": "Root source-safety reconciliation says a separate normal web hub observation had succeeded; this lane’s captured index request did not.",
+      "observation": "Permitted AP AI hub request returned HTTP403. This does not permit a no-news conclusion and no AP long article was requested.",
+      "disposition": "SOURCE_ACCESS_HOLD",
+      "missingInput": "Accessible AP index or full permitted reporting for a distinct event.",
+      "nextRetryAt": "2026-09-14T23:00:00Z"
+    },
+    {
+      "sourceId": "reuters_ai_index",
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "checkedAt": "2026-09-14T21:45:02Z",
+      "transport": "normal direct HTTPS index request via urllib; no proxy, credential, cookie injection, URL rewriting, or safety-block bypass",
+      "accessResult": "BLOCKED",
+      "httpStatus": 401,
+      "effectiveUrl": "https://www.reuters.com/technology/artificial-intelligence/",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-1300-independent-captures/reuters-ai.html",
+      "captureSha256": "ba450763312e768febd25e20f98c71ad9dc60c68e4661c7e91646f5fb558f5d2",
+      "captureBytes": 771,
+      "comparisonToPrior": "Same access category as the prior sweep; no content recovered.",
+      "observation": "Permitted Reuters AI index returned HTTP401. No Reuters event and no no-news conclusion are inferred.",
+      "disposition": "SOURCE_ACCESS_HOLD",
+      "missingInput": "Accessible Reuters AI index or full article text.",
+      "nextRetryAt": "2026-09-14T23:00:00Z"
+    },
+    {
+      "sourceId": "eff_ai_index",
+      "url": "https://www.eff.org/issues/ai",
+      "checkedAt": "2026-09-14T21:45:04Z",
+      "transport": "normal direct HTTPS index request via urllib; no proxy, credential, cookie injection, URL rewriting, or safety-block bypass",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.eff.org/issues/ai",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-1300-independent-captures/eff-ai.html",
+      "captureSha256": "f7ee9094fa3019d221ed3e60f4c41f0358d15f0ba67aa3962b77f6bb2026e145",
+      "captureBytes": 57411,
+      "comparisonToPrior": "No newer dated update than the Sep8 item already observed in the prior sweep.",
+      "observation": "The latest dated AI update displayed is EFF’s Sep8 Medicare prior-authorization records post. It predates this cycle and remains a distinct earlier event; it was not reopened as a new story.",
+      "disposition": "NO_NEW_DISTINCT_LEAD"
+    },
+    {
+      "sourceId": "ftc_press_index",
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "checkedAt": "2026-09-14T21:45:15Z",
+      "transport": "normal direct HTTPS index request via urllib; no proxy, credential, cookie injection, URL rewriting, or safety-block bypass",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.ftc.gov/news-events/news/press-releases",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-1300-independent-captures/ftc-press.html",
+      "captureSha256": "56287b76c992accd7973ac11321cfe3086d53291dda1d8ddd3ea7b17d6b76a54",
+      "captureBytes": 1038195,
+      "comparisonToPrior": "No newer AI-specific FTC event than prior source review.",
+      "observation": "Latest releases shown are Sep10 horseracing budget, Sep9 health-app policy withdrawal and Sep8 payment-processor enforcement. No AI-specific release appears in the current index.",
+      "disposition": "NO_NEW_AI_LEAD"
+    },
+    {
+      "sourceId": "bleeping_ai_index",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "checkedAt": "2026-09-14T21:45:15Z",
+      "transport": "normal direct HTTPS index request via urllib; no proxy, credential, cookie injection, URL rewriting, or safety-block bypass",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-1300-independent-captures/bleeping-ai.html",
+      "captureSha256": "30cb0542afdbb5efb7325f54f9c69202e0749a65f176a47be4d657d8caca823e",
+      "captureBytes": 97033,
+      "comparisonToPrior": "No leading-title change relative to the prior independent sweep.",
+      "observation": "Leading AI-category items remain the previously covered Anthropic Android-app-secrets and PaperCut reports. No new separately inspected event identity is exposed by the index.",
+      "disposition": "NO_NEW_DISTINCT_LEAD"
+    },
+    {
+      "sourceId": "peking_institutional_context",
+      "url": "https://www.aais.pku.edu.cn/info/1355/20361.htm",
+      "checkedAt": "2026-09-14T21:45:18Z",
+      "transport": "normal direct HTTPS index request via urllib; no proxy, credential, cookie injection, URL rewriting, or safety-block bypass",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.aais.pku.edu.cn/info/1355/20361.htm",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-1300-independent-captures/peking-institutional.html",
+      "captureSha256": "cac749c0a31fbc31181e20597b7bb617894cb25480c0ceeafe1ffc713957aede",
+      "captureBytes": 65837,
+      "comparisonToPrior": "Newly read permitted institutional source; deliberately not merged into the prior blocked source identity.",
+      "observation": "Peking University’s institutional post describes the ProteinTalks work, but it is an author-side institutional account. It may support a narrow research hold’s provenance only; it cannot replace the blocked Nature paper/report or establish clinical benefit.",
+      "disposition": "INSTITUTIONAL_CONTEXT_ONLY",
+      "limits": "Full scientific/source admission remains pending an admissible original research report or user-supplied study materials."
+    }
+  ],
+  "eligibleLeads": [],
+  "sourceHolds": [
+    {
+      "source": "AP AI hub",
+      "missingInput": "Accessible permitted index or full permitted reporting",
+      "nextRetryAt": "2026-09-14T23:00:00Z"
+    },
+    {
+      "source": "Reuters AI index",
+      "missingInput": "Accessible permitted index or full article text",
+      "nextRetryAt": "2026-09-14T23:00:00Z"
+    },
+    {
+      "source": "ProteinTalks research family",
+      "missingInput": "Admissible original methods/results and independent context; institutional account is not a substitute",
+      "nextRetryAt": "ON_ADMISSIBLE_SOURCE_OR_USER_SUPPLIED_STUDY"
+    }
+  ],
+  "nextRetryAt": "2026-09-14T23:00:00Z",
+  "mutations": {
+    "publicContent": false,
+    "sharedState": false,
+    "candidate": false,
+    "providerReview": false
+  }
+}

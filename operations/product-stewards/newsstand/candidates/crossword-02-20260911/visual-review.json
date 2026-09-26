@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-09-11T19:25:38.166680+00:00",
+  "publicSourceCommit": "990b56d3",
+  "reviewer": "/root/puzzle_visual_reconcile",
+  "model": "gpt-5.6-sol",
+  "effort": "medium",
+  "verdict": "PASS",
+  "manifest": "visual-v2/manifest.json",
+  "pairs": {
+    "preview1280": "Complete heading and inset numbered grid; current book/card artwork and typography preserved.",
+    "preview390": "Complete heading, numbered grid, border, copy and CTA contained.",
+    "solve390": "Reconciled exact-image reinspection: complete title and intro preserved, numbered grid inset and contained."
+  },
+  "history": [
+    {
+      "reviewer": "/root/remaining_build_review",
+      "result": "INVALID_VISUAL_EVIDENCE",
+      "detail": "Three clipped-heading reports contradicted emitted exact-image diagnostic. Reviewer withdrew reliability of prior HOLD evidence."
+    },
+    {
+      "reviewer": "/root/puzzle_visual_reconcile",
+      "result": "HOLD",
+      "detail": "First six-image review passed both previews but wrongly claimed solve heading absent."
+    },
+    {
+      "reviewer": "/root/puzzle_visual_reconcile",
+      "result": "PASS",
+      "detail": "Isolated exact solve-image reinspection transcribed full hero and withdrew prior missing-heading finding."
+    }
+  ],
+  "makerCaptureFailure": "Initial screenshots did not settle image/font loading and scroll position. Harness corrected before content-addressed comparison. Public bytes unchanged.",
+  "limits": [
+    "Supplied viewport pixels and browser tests, not native assistive technology.",
+    "No human qualitative observation claimed."
+  ]
+}

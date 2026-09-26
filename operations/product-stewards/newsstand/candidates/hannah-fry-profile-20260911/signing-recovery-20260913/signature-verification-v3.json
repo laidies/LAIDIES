@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "laidies-luminairy-hannah-r7-signature-verification.v1",
+  "checkedAt": "2026-09-13T15:36:23.792Z",
+  "candidateId": "hannah-fry-profile-20260911",
+  "signer": {
+    "principalId": "/root/evening_sources",
+    "role": "independent-luminairy-profile-signing-custodian",
+    "separation": {
+      "profileMaker": "/root/weekly_recovery",
+      "independentProseReviewer": "anthropic:claude-fable-5:luminairy-profile:medium",
+      "qualified": true
+    }
+  },
+  "key": {
+    "keyId": "luminairy-editorial-offline-r7-20260913",
+    "publicJwk": {
+      "crv": "P-256",
+      "kty": "EC",
+      "x": "fRtk0R-l92fVzpT0IZnKSR94xey0OenkRUO-gEjG9TA",
+      "y": "idZvxdnzVzsuCz33khsumZU8824MD64buI33tcFs-6Q"
+    },
+    "storage": {
+      "kind": "macos-classic-login-keychain",
+      "applicationTag": "com.laidies.luminairy.signing.r7.20260913.hannah-fry",
+      "keychain": "login.keychain-db",
+      "privateKeyMaterial": "not exported, logged, or written",
+      "recoveryMetadata": "Recovery depends on access to this macOS login Keychain and its user-account recovery/backup path; no standalone private-key copy was created."
+    },
+    "publicKeySha256": "72c2df495d4709cf8ce0177284bc80c1c6da91d75a3e2554f3f8c62f570ae285"
+  },
+  "receipt": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/signing-recovery-20260913/hannah-r7-receipt.json",
+    "sha256": "8f0675da14e4742e63bb60b366d6eaa53113e54415c1c51122462b292d4f093d",
+    "payloadPath": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/signing-recovery-20260913/hannah-r7-receipt-payload.json",
+    "payloadSha256": "5da776beef2bfa76967da80e52c11a615bd8c2cfb5b240773dfdc6c4def24586",
+    "signatureLengthBytes": 64,
+    "claimId": "mavens-hannah-fry",
+    "profileSha256": "bf98fd6a85fc452c57780c0d8d6cd505e45781185a062b766e155021f336f708"
+  },
+  "tests": [
+    {
+      "name": "exact P-256 ECDSA SHA-256 receipt verifies against returned JWK",
+      "result": "PASS"
+    },
+    {
+      "name": "one-byte profile payload mutation rejects against unchanged signature",
+      "result": "PASS"
+    },
+    {
+      "name": "one-byte signature mutation rejects against exact payload",
+      "result": "PASS"
+    },
+    {
+      "name": "separate signer process retrieved permanent key and signed",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS_PRIVATE_SIGNING_RECEIPT_READY_FOR_ROOT_INTEGRATION_ONLY",
+  "scope": {
+    "canonicalWrites": false,
+    "publicWrites": false,
+    "deployActionTaken": false,
+    "existingTrustAndSignaturesModified": false
+  }
+}

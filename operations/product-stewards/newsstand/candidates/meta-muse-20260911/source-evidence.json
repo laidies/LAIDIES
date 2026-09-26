@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "laidies.newsstand-source-evidence.v1",
+  "candidateId": "meta-muse-20260911",
+  "reviewedThrough": "2026-09-11",
+  "records": [
+    {
+      "id": "meta-muse-launch",
+      "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+      "authority": "Meta primary release for Muse's September 8 launch, current United States availability, access routes, product actions, pricing boundary and announced roadmap.",
+      "passages": [
+        "September 8, 2026",
+        "Muse is a personal AI agent. It doesn’t just answer questions, it actually does the work.",
+        "Muse is designed around the way people already communicate, so talking to it works just like messaging another person, in the Muse app or directly in WhatsApp.",
+        "It can open a browser, fill out forms, and negotiate on their behalf.",
+        "For tasks that take more time, Muse keeps working after people close the app, and comes back when something changes or when it needs approval, like before it sends an email or makes a purchase.",
+        "People choose which apps Muse connects to and exactly how much access it gets.",
+        "For things like email, people choose what Muse can do, whether it reads their mail or can also send on their behalf.",
+        "Muse shows people a complete audit trail of everything it has done and plans to do.",
+        "People can also opt out of their interactions being used to train Meta’s AI models.",
+        "Later this year, Meta will introduce Muse Confidential VM, where the whole VM, including a person’s data and conversations with Muse, is encrypted with a key only they hold, so not even Meta can access it.",
+        "Muse is rolling out in the US on iOS, Android, and muse.ai , and coming soon to AI glasses.",
+        "It’s free for most of what people need, with subscription plans for people who want to do more.",
+        "Shop Pay is coming soon as another way to pay, along with 1Password support so Muse can use logins a person already has.",
+        "Muse has no visibility into people’s passwords or payment methods.",
+        "Any credentials a person shares go into secure storage, so Muse can use them without seeing them, including passwords a person types into the browser themselves.",
+        "It can turn a recipe reel the person saved on Instagram into a grocery list, suggest a menu for their dinner party, and remember their friends’ dietary restrictions before it sends the invites.",
+        "Muse runs on its own dedicated computer in the cloud, contained so no one else’s agent can reach it.",
+        "People can change access or disconnect a service whenever they want."
+      ],
+      "limitation": "This is Meta's product announcement. It establishes what Meta launched and promised, but does not independently establish reliability, security outcomes, adoption or a universal ability to complete every named task."
+    },
+    {
+      "id": "meta-muse-safety",
+      "url": "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse",
+      "authority": "Meta primary technical account of the launch architecture, permissions, current data practices, acknowledged fallibility and planned Confidential VM.",
+      "passages": [
+        "It was also the first time we’d handed our inboxes, our calendars, and a shell to a piece of software and let it run unattended — which didn’t always work out as planned.",
+        "No matter how strong the model is at the core, any agent like this will still make mistakes, and it will sometimes be attacked via the data it reads.",
+        "Muse can and will still make mistakes, but we expect they’ll be much less frequent and cause much less damage due to the safety systems we’ve built in.",
+        "Muse clients (the iOS and Android apps, the web UI) connect directly to your VM via a secure transport layer.",
+        "Sentinel is the sole permission authority for connector actions and network egress.",
+        "Muse proposes actions, but only Sentinel can grant permission to perform action.",
+        "Muse has support for obtaining one-time, session-scoped, task-scoped, time-bounded, or perpetual permission.",
+        "Sentinel decides which grant types to present for the user to choose between and ensures that subsequent invocations match the granted scope exactly.",
+        "Read-only, previously allowed, or demonstrably low-risk actions can proceed without interruption.",
+        "It restricts access to your data by Meta personnel through operational policies. It does not prevent Meta from accessing data when necessary to support, secure or operate the service.",
+        "If you do not want your data to be used in model training at all, you can opt-out via a simple switch in Muse settings.",
+        "Muse Confidential VM is intended to cryptographically and verifiably prevent Meta from accessing data in your VM.",
+        "We’re already using this system with a small group of trusted testers",
+        "Muse isn’t immune to attack. Prompt injection remains an open problem in the industry — and Muse will sometimes make mistakes.",
+        "To preserve user privacy, these trajectories are sanitized to remove key personally identifiable information before being used in training.",
+        "The agent never sees real tokens, which means any attempt to coerce the agent to reveal the actual secrets via prompt-injection or otherwise is futile.",
+        "Inference data, the back and forth conversations between you and your Muse and the tool calls and subagent handoffs that result (“trajectories”) are useful data for training new checkpoints of the LLM model at the core."
+      ],
+      "limitation": "This is Meta's own engineering explanation, not an independent audit or proof that the controls always work. The Confidential VM is described as a future capability under testing."
+    },
+    {
+      "id": "ap-meta-muse-report",
+      "url": "https://apnews.com/article/meta-muse-ai-agent-3a4572eb4cf4e95d8a0dfdad6e6ca065",
+      "authority": "Associated Press independent reporting on the launch, ordinary task examples, agent-versus-chatbot distinction and unresolved adoption question.",
+      "passages": [
+        "Meta launched on Tuesday a personal artificial intelligence agent, Muse",
+        "which for now is only available in the U.S.",
+        "People can message the agent in a separate app, called Muse, or message it in WhatsApp.",
+        "Tech companies are touting AI agents as the next step after chatbots",
+        "The question is, will people actually use it?"
+      ],
+      "limitation": "AP confirms the event and supplies independent context, but does not test Meta's security architecture or the reliability of actions. Direct curl returned 403; the complete page was read through the web browsing layer and recorded in source/ap-web-observation.json."
+    }
+  ]
+}

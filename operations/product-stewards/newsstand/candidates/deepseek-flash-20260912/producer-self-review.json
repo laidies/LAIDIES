@@ -1,0 +1,702 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "deepseek-flash-20260912",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-12T18:49:17.050276+00:00",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/publication-manifest.json",
+      "sha256": "e85b78607bedaac35d5cdd3827c577a8801b2b756febed8242a70c8336a1bb8b"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/review-text.json",
+      "sha256": "318cb2379ddc3c0b560bfb460f6b4d6783bc6abe45fdc66824392fc4d35b4d99"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/rendered-article.html",
+      "sha256": "c5a87548c5b07c7cc5ba95690a33b2cdeaedabcb623070e24fc9d08767adc8bd"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-05T22:51:01.267Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Plain terms gain meaning in the event explanation.",
+        "A familiar comparison reconnects to the mechanism and a concrete reader check."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "The LAiDIES Read in private NEWS002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Does this DeepSeek API announcement change what I use?",
+    "promisedPayoff": "Identify the named route and avoid inferring a web/app chat change.",
+    "centralMentalModel": "A provider can redirect one API identifier without changing every product with its name.",
+    "dailyLifeConnection": "A reader uses DeepSeek directly or through a tool someone else maintains.",
+    "surfaceJob": "September 12 Daily explanation of a September 10 API release and September 14 named-route change.",
+    "desiredReaderFeeling": "I can ask which identifier my tool sends rather than guessing."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "How can this model’s picture ability reach an app?",
+        "probeResponse": "The app maker connects the app to V4.1-Flash and passes the picture to it, so the model can consider the image when answering.",
+        "expectedEvidence": "Keep model capability, app connection and passed image as separate steps."
+      },
+      "artifactLocator": "P002"
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A provider announces an audio-aware model. What should a reader check?",
+        "probeResponse": "Check whether the specific app accepts a recording and says it can use it; the model capability reaches the reader through the app.",
+        "expectedEvidence": "Transfer the model/interface distinction without generic IT or API advice."
+      },
+      "artifactLocator": "P002"
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its image-understanding news, app-maker-to-model mechanism, single photo-app example, bounded September 14 note and personal-use question for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Root read the complete final article; it stays with one image-understanding mechanism, one conditional photo-app example, one proportionate technical note and one personal-use question.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/source-evidence.json",
+        "sha256": "f5830fa3ab508234aa922453560ac62fd69ef5f4a8e718a9cf7ae7f4150b295a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "image",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/source-evidence.json",
+          "sha256": "f5830fa3ab508234aa922453560ac62fd69ef5f4a8e718a9cf7ae7f4150b295a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "DeepSeek V4.1 Flash is now available on AI Gateway with native image understanding.",
+            "locator": "https://vercel.com/changelog/deepseek-v4-1-flash-now-available-on-ai-gateway"
+          },
+          {
+            "excerpt": "News September 10, 2026. Introducing DeepSeek-V4.1-Flash: smarter, faster, more efficient. Introducing the smallest model in our new architecture family, with native visual understanding.",
+            "locator": "https://deepseek.com/en/news/deepseek-v4-1-flash/"
+          }
+        ],
+        "scopeAndFreshness": "The dated DeepSeek announcement establishes September10 launch and visual understanding; Vercel corroborates image understanding and its separate September9 gateway availability."
+      },
+      {
+        "claimId": "route",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/source-evidence.json",
+          "sha256": "f5830fa3ab508234aa922453560ac62fd69ef5f4a8e718a9cf7ae7f4150b295a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Starting at 04:00 UTC on Sept 14, 2026, all deepseek-v4-pro requests will route to V4.1-Flash at V4.1-Flash rates. This will continue until V4.1-Pro launches.",
+            "locator": "https://deepseek.com/en/news/deepseek-v4-1-flash/"
+          }
+        ],
+        "scopeAndFreshness": "DeepSeek announcement supports only the named API route and timing."
+      },
+      {
+        "claimId": "partner",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Vercel had made the model available through its AI Gateway a day earlier.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/source-evidence.json",
+          "sha256": "f5830fa3ab508234aa922453560ac62fd69ef5f4a8e718a9cf7ae7f4150b295a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "DeepSeek V4.1 Flash is now available on AI Gateway with native image understanding.",
+            "locator": "https://vercel.com/changelog/deepseek-v4-1-flash-now-available-on-ai-gateway"
+          }
+        ],
+        "scopeAndFreshness": "Vercel statement is one partner route, not proof of all apps."
+      }
+    ],
+    "reviewedThrough": "2026-09-12T18:49:17.050276+00:00",
+    "nextTrigger": "Any DeepSeek update to the named API identifiers, routing date, rates, or product scope.",
+    "correctionOwner": "/root",
+    "scope": "Exact DeepSeek and Vercel source excerpts support the stated API availability, identifiers, timing, routing and partner gateway availability. Neither identifies every third-party app."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate covers this exact subscription pause."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The earlier reader-news defect and its repair are preserved in repair history. Root found no unresolved or newly reusable defect in the complete repaired prose."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "No observed human-comprehension evidence is claimed.",
+    "The sources establish the model capability and named routes, not a feature list for every app."
+  ],
+  "limits": [
+    "Producer self-review only; independent semantic review has not been requested.",
+    "No human-comprehension observation is claimed.",
+    "The direct and partner announcements do not identify all third-party applications using the named routes."
+  ],
+  "status": "PRODUCER_READY_FOR_INDEPENDENT_REVIEW",
+  "completeArtifact": "{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"<a href=\\\"/library.html#ai-fundamentals-101::%40ch-10-10-2-the-layers-of-the-stack\\\">AI Fundamentals 101: Wrappers, Harnesses, and the Stack</a> explains how the interface you see sits above the model doing the generating. That is the useful lens for an app whose maker changes a model underneath.\",\"closing_note\":null,\"cocktail_party\":\"“DeepSeek’s new model can take pictures into account. Whether that reaches the tool in front of you depends on the model its maker connected behind the interface.”\",\"concepts\":[\"model\",\"image understanding\",\"app interface\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"DeepSeek’s new model can understand pictures. Whether you see that depends on the app.\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"LAiDIES NewsStand evidence-checking illustration\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"deepseek-flash-20260912\",\"laidies_read\":\"<p>A model does the generating behind an app’s interface, and the app maker chooses which model to connect. Picture a photo app: if its maker connects it to V4.1-Flash and passes along the image, the model can consider the picture when it answers. The new ability is underneath; the app’s own update tells you what is available in the tool you use.</p>\",\"lastCheckedAt\":\"2026-09-12T18:37:54.000Z\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"deepseek-flash-20260912\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:deepseek-flash-20260912\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"deepseek-v41-flash-news\",\"label\":\"DeepSeek — Introducing DeepSeek-V4.1-Flash\",\"publisherType\":\"primary-product-announcement\",\"url\":\"https://deepseek.com/en/news/deepseek-v4-1-flash/\"},{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"vercel-deepseek-v41-flash-20260909\",\"label\":\"Vercel — DeepSeek V4.1 Flash on AI Gateway\",\"publisherType\":\"partner-product-announcement\",\"url\":\"https://vercel.com/changelog/deepseek-v4-1-flash-now-available-on-ai-gateway\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"DeepSeek\",\"V4.1-Flash\",\"image understanding\"],\"the_story\":\"<p>On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.</p>\",\"themes\":[\"image understanding\",\"apps and models\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-12T18:37:54.000Z\",\"watch_fors\":null,\"what_this_means\":\"<p>One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?</p>\"}",
+  "storyParagraphs": [
+    {
+      "id": "P001",
+      "text": "DeepSeek’s new model can understand pictures. Whether you see that depends on the app.",
+      "exact": "DeepSeek’s new model can understand pictures. Whether you see that depends on the app.",
+      "field": "headline"
+    },
+    {
+      "id": "P002",
+      "text": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.",
+      "exact": "<p>On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P003",
+      "text": "A model does the generating behind an app’s interface, and the app maker chooses which model to connect. Picture a photo app: if its maker connects it to V4.1-Flash and passes along the image, the model can consider the picture when it answers. The new ability is underneath; the app’s own update tells you what is available in the tool you use.",
+      "exact": "<p>A model does the generating behind an app’s interface, and the app maker chooses which model to connect. Picture a photo app: if its maker connects it to V4.1-Flash and passes along the image, the model can consider the picture when it answers. The new ability is underneath; the app’s own update tells you what is available in the tool you use.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P004",
+      "text": "One technical change arrives September 14: requests sent under the older deepseek-v4-pro label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?",
+      "exact": "<p>One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?</p>",
+      "field": "what_this_means"
+    },
+    {
+      "id": "P005",
+      "text": "“DeepSeek’s new model can take pictures into account. Whether that reaches the tool in front of you depends on the model its maker connected behind the interface.”",
+      "exact": "“DeepSeek’s new model can take pictures into account. Whether that reaches the tool in front of you depends on the model its maker connected behind the interface.”",
+      "field": "cocktail_party"
+    },
+    {
+      "id": "P006",
+      "text": "AI Fundamentals 101: Wrappers, Harnesses, and the Stack explains how the interface you see sits above the model doing the generating. That is the useful lens for an app whose maker changes a model underneath.",
+      "exact": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-10-10-2-the-layers-of-the-stack\\\">AI Fundamentals 101: Wrappers, Harnesses, and the Stack</a> explains how the interface you see sits above the model doing the generating. That is the useful lens for an app whose maker changes a model underneath.",
+      "field": "class_notes"
+    }
+  ],
+  "rootReviewHandoff": {
+    "status": "COMPLETED",
+    "reviewedAt": "2026-09-12T18:37:54.000Z",
+    "reviewer": "/root",
+    "draftAndBindingLane": "/root/producer_repair_sol",
+    "scope": "Root read the complete supplied final prose and accepted it for producer self-review only; independent admission remains pending."
+  },
+  "calibrationSource": {
+    "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/../chatgpt-images-2-5-2026-09-08/producer-publication-review.json",
+    "sha256": "3550bb7bc2aae5be29332c02adc544f65d8332bd32f3fde4575e80009fe472fb"
+  }
+}

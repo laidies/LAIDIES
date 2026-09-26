@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "newsstand-luminairy-spotlight-cache-regression-audit.v2",
+  "checkedAt": "2026-09-13T16:32:38.638Z",
+  "scope": "Read-only audit and private regression evidence. Root owns the NewsStand HTML fix.",
+  "repositoryHtmlReferences": {
+    "public": {
+      "luminairy.html": "20260913-r7",
+      "newsstand.html": "e9a9105b51d8e4df"
+    },
+    "historicalOrPrivateFixtures": "Additional old references occur only in operations evidence or candidate fixtures."
+  },
+  "liveObservations": {
+    "immutableNewsstandGate": "20260902-1",
+    "immutableLuminairyGate": "20260913-r7",
+    "productionNewsstandGate": "20260902-1",
+    "productionLuminairyGate": "20260913-r7"
+  },
+  "browserEquivalentRegression": {
+    "script": "operations/product-stewards/newsstand/evidence/hannah-release-20260913/spotlight-repair/test-warmed-gate-regression.mjs",
+    "scriptSha256": "0e1e10bd88ddad8f7a39c60087f7e0c89b8c672a6e551ffd273d0a8caa33be34",
+    "results": "operations/product-stewards/newsstand/evidence/hannah-release-20260913/spotlight-repair/test-results.json",
+    "resultsSha256": "567428800e2bb53b8c66aca8ffc270a809fec4e23c6c2a8b5bddbb6a3953dc72",
+    "warmedOldGate": "HOLD: spotlight unavailable and receipt invalid.",
+    "freshCurrentFingerprint": "PASS: local current fingerprint e9a9105b51d8e4df with current r7 gate gives ready spotlight and admits 43 profiles; 22 non-Hannah MAiVENS remain."
+  },
+  "conclusion": "The deployed NewsStand page alone retains the old gate URL fingerprint. Updating that one fingerprint to the exact current local fingerprint directs a warm browser to current r7 gate bytes; no claims, receipts, profile, or spotlight-code change is required."
+}

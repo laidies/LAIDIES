@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "laidies-newsstand-independent-visual-review.v1",
+  "reviewStatus": "PASS",
+  "verdictCode": "PASS_VISUAL_CONTRACT",
+  "reviewedAt": "2026-09-24T04:01:26Z",
+  "reviewer": {
+    "identity": "/root/morning_aidb_20260920",
+    "role": "independent visual reviewer",
+    "relationToMaker": "The artwork producer is /root. This reviewer did not create the artwork or accompanying article."
+  },
+  "supersedes": "No. This is a separate v3 receipt; v2 HOLD_STYLE_DRIFT remains preserved at art/independent-review.json.",
+  "scope": "Pixel review only. This receipt is not prose admission, source-freshness validation, attachment, deployment, or publication authority.",
+  "inputs": {
+    "producerContract": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/art/producer-contract.json",
+      "sha256": "fbdc5712c4bf05fddc519f34ab919e6da36fdf3febea277460b2a578bedd6aeb",
+      "recordedStatus": "PRE_RENDER"
+    },
+    "articleScope": "California laws start rate-design assessment and reporting; they do not enact a household saving, approved rate, or facility-level public disclosure.",
+    "styleReference": {
+      "path": "/Users/alisoneakin/Projects/laidies-current-visual-references-20260906/assets/homepage/approved-references/women-ai-pop-art-approved-20260830.png",
+      "sha256": "0742816929be694e0e9fcfa11c3ae047173814e6112419176a71a994273828a5",
+      "reviewedPurpose": "Adult editorial/comic detail, meaningful action, print texture, and selective electric accents."
+    },
+    "renderedArtwork": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/art/california-planning-v3.png",
+      "sha256": "30969431a4e6d2ce5cf1adb8838fee893c5ea774e8691624f46b6066b38c1ca9",
+      "dimensions": "1536x1024"
+    },
+    "thumbnailInspection": {
+      "method": "Independent local derivative made only in /tmp/laidies-art-review; no repository artwork was changed.",
+      "derivedDimensions": "384x256",
+      "derivedSha256": "c6878c48a162ad8078326e9ae5734da2688deae6f66493fbc78d7d60604d4fcb"
+    }
+  },
+  "actualPixelFindings": [
+    {
+      "criterion": "bound adult editorial illustration style",
+      "result": "PASS",
+      "observed": "The scene now has explicit dark ink outlines, pronounced halftone/print texture, navy graphic masses, and selective cyan, magenta, and tangerine accents. It reads as adult editorial comic art rather than an architectural visualization."
+    },
+    {
+      "criterion": "semantic job",
+      "result": "PASS",
+      "observed": "A site plan holds a miniature unbranded data-centre campus and substation; a pencil, blank folder, rolled plan, windowed industrial building, transmission towers, and dry hills make planning scrutiny and physical utility demand legible. Nothing signals enacted rates or guaranteed savings."
+    },
+    {
+      "criterion": "people, likenesses, and text",
+      "result": "PASS",
+      "observed": "No people or likenesses are visible. No readable words, invented statistics, approval marks, signatures, or seals are visible at full-image or thumbnail scale."
+    },
+    {
+      "criterion": "physical consistency",
+      "result": "PASS",
+      "observed": "The paper, pencil, rolled plan, desk, folder, model buildings, and outdoor transmission towers have coherent support, perspective, and lighting. No impossible or disconnected object is visible."
+    },
+    {
+      "criterion": "desktop legibility",
+      "result": "PASS",
+      "observed": "At 1536x1024 the planning-office composition, site model, and tower context are immediately legible; the central model remains the visual subject."
+    },
+    {
+      "criterion": "thumbnail legibility",
+      "result": "PASS_WITH_LIMIT",
+      "observed": "At 384x256 the planning sheet, central campus model, pencil, and industrial/tower context remain recognizable. Fine substation and map-line details are necessarily not independently explanatory at this size."
+    }
+  ],
+  "contractReconciliation": {
+    "noPeople": true,
+    "noReadableText": true,
+    "noPromisedSavingsOrEnactment": true,
+    "noNamedFacility": true,
+    "planningAndUtilityDemandVisualized": true,
+    "styleAuthoritySatisfied": true
+  },
+  "limitations": [
+    "The producer contract still records PRE_RENDER; this review does not alter that status.",
+    "This reviewer did not inspect any maker verdict.",
+    "This visual PASS does not establish article accuracy, source admission, attachment, or public-release readiness."
+  ]
+}

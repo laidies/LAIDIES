@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-09-19T17:29:51.963Z",
+  "completedAt": "2026-09-19T17:29:52.046Z",
+  "exitCode": 1,
+  "command": [
+    "node",
+    "operations/product-stewards/newsstand/review-runtime/run-pilot.mjs",
+    "article",
+    "claude",
+    "--candidate-dir",
+    "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/",
+    "--calibration",
+    "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/",
+    "--output",
+    "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-review-v1/"
+  ],
+  "stdout": "",
+  "stderr": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Repair reporting coverage before calling the independent editor\n+ actual - expected\n\n+ [\n+   'story overlays must be unique known types different from the primary type',\n+   'model-tool-release question is unanswered: productRange',\n+   'model-tool-release question is unanswered: newCapabilities',\n+   'model-tool-release question is unanswered: bestFitTasks',\n+   'model-tool-release question is unanswered: notFor',\n+   'model-tool-release question is unanswered: nearestAlternatives',\n+   'model-tool-release question is unanswered: availability',\n+   'model-tool-release question is unanswered: freePaidBoundary',\n+   'model-tool-release question is unanswered: costBoundary',\n+   'model-tool-release question is unanswered: limitations',\n+   'model-tool-release question is unanswered: technicalExampleProportionality',\n+   'model-tool-release question is unanswered: vendorEvidenceBoundary',\n+   'unknown model-tool-release answer: whatChanged',\n+   'unknown model-tool-release answer: whereAvailable',\n+   'unknown model-tool-release answer: whoControlsIt',\n+   'unknown model-tool-release answer: separation',\n+   'unknown model-tool-release answer: evidenceLimit',\n+   'unknown model-tool-release answer: realWorldTransfer',\n+   'type module is unanswered: personal-use',\n+   'reader translation coverage is missing or invalid'\n+ ]\n- []\n\n    at file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:151:9\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: [\n    'story overlays must be unique known types different from the primary type',\n    'model-tool-release question is unanswered: productRange',\n    'model-tool-release question is unanswered: newCapabilities',\n    'model-tool-release question is unanswered: bestFitTasks',\n    'model-tool-release question is unanswered: notFor',\n    'model-tool-release question is unanswered: nearestAlternatives',\n    'model-tool-release question is unanswered: availability',\n    'model-tool-release question is unanswered: freePaidBoundary',\n    'model-tool-release question is unanswered: costBoundary',\n    'model-tool-release question is unanswered: limitations',\n    'model-tool-release question is unanswered: technicalExampleProportionality',\n    'model-tool-release question is unanswered: vendorEvidenceBoundary',\n    'unknown model-tool-release answer: whatChanged',\n    'unknown model-tool-release answer: whereAvailable',\n    'unknown model-tool-release answer: whoControlsIt',\n    'unknown model-tool-release answer: separation',\n    'unknown model-tool-release answer: evidenceLimit',\n    'unknown model-tool-release answer: realWorldTransfer',\n    'type module is unanswered: personal-use',\n    'reader translation coverage is missing or invalid'\n  ],\n  expected: [],\n  operator: 'deepStrictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.18.0\n"
+}

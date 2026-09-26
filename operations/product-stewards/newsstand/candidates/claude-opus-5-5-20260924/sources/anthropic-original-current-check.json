@@ -1,0 +1,33 @@
+{
+  "sourceId": "anthropic-opus-5-5-official",
+  "url": "https://www.anthropic.com/claude-opus-5-5",
+  "publisher": "Anthropic",
+  "sourceType": "official product announcement",
+  "eventDate": "2026-09-22",
+  "observedAt": "2026-09-24T13:05:16-07:00",
+  "captureMethod": "normal web open",
+  "captureResult": "SUCCESS_FULL_PAGE",
+  "exactPassages": [
+    "Claude Opus 5.5 is now available on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure. On the Claude Platform, developers can get started with `claude-opus-5-5`.",
+    "Input and output tokens are $4 and $20 per million, 20% less than Opus 5. Cache reads (which make up the majority of agentic and coding work costs) are $0.20 per million tokens, 60% less than Opus 5.",
+    "In addition to the price drop, we’re increasing five-hour usage limits on Pro, Max, Team, and seat-based Enterprise plans. We’re also providing subscription users a rate limit reset, which you can now save and use whenever you choose.",
+    "Fast mode for Opus 5.5 is also available in Claude Code and the Claude Platform with up to 2.5x speed. It costs $8 per million input tokens and $40 per million output tokens.",
+    "Opus 5.5 is particularly good at long and sprawling jobs like codebase-wide migrations and audits."
+  ],
+  "sourceLimitations": [
+    "The page is Anthropic's own announcement; performance, speed, safety, and cost-per-task comparisons are provider claims unless independently reproduced.",
+    "'All platforms' supports broad platform availability, but the page does not explicitly map model-selector eligibility for each individual Claude subscription plan.",
+    "The token prices are developer/API prices. They are not monthly Claude subscription prices.",
+    "The higher five-hour limits and saved reset are stated for subscription users, but the page does not quantify the new limits or say that every subscription tier receives identical access."
+  ],
+  "priorRawEvidence": [
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1000-20260924/source-recovery/opus-claims-raw.json",
+      "sha256": "81ffb25eea157fcae4bebd75f2b30138b114a537d6f466eb079406f0234bce54"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1000-20260924/source-recovery/opus-and-un-raw.json",
+      "sha256": "b9945e8914ffb42f20c5e203e52e5b2e624cd6cdef7f146a5d1456f46d570f18"
+    }
+  ]
+}

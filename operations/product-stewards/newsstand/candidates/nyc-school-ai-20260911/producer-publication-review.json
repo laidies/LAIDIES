@@ -1,0 +1,1234 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "nyc-school-ai-20260911",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "principalId": "/root/weekly_recovery",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-11T17:20:17.713503Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/publication-manifest.json",
+      "sha256": "b5334280adc713a49457f51df75227a3280d0022a1bd707058d8d1693aba68b2"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/review-text.json",
+      "sha256": "90c45e1854f4f5d047299f79f6dc15cf8009c05eff0fcdf6082298125df6e79d"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/rendered-article.html",
+      "sha256": "6b9b1ba3c6696e75f138857569d76ac16a0d0638b90bbc420739225104dc8dad"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What changed in NYC schools, where does the pause apply, and can staff still use AI to make decisions about students?",
+    "promisedPayoff": "Separate younger-student use, high-school pilots, necessary access tools and staff decision limits, then understand what current approval proves.",
+    "centralMentalModel": "The policy separates user, purpose and review scope.",
+    "dailyLifeConnection": "A child in the family may be assigned a tool or receive a consequential school decision.",
+    "surfaceJob": "September 11 report on September 2 policy as students returned September 10.",
+    "desiredReaderFeeling": "I can state the boundary and ask what an approved tool was actually tested for."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies plainClarity evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is narrower",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies readerValue evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "quieter rule may matter more",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies laidiesVoice evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "first useful question is who will use it and for what",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies engagingEnjoyable evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "cannot let it assign a student’s grade",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies factualIntegrity evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "current software-review process checks a tool’s privacy and security",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies freshnessReviewability evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "students would return September 10",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies surfaceFit evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "NYC schools paused",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies datedChange evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "announced on September 2",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies consequenceAndUncertainty evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "does not prove a pilot improves learning",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies dailyLifeConnection evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If a child in your family",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies communicationBenchmark evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "who will use it and for what",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies explainBack evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Teachers and staff may use approved AI for planning",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Can an NYC teacher use AI to grade or place a student?",
+        "probeResponse": "No. Approved planning use can remain, but the policy bars AI from grading, behavior monitoring, placement, promotion, graduation and other student decisions.",
+        "expectedEvidence": "Staff planning and consequential decision use remain distinct.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies unseenTransfer evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask what a tool was reviewed for",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A different school tool is called approved. What transfers?",
+        "probeResponse": "Ask whether the review covered privacy, bias or learning value; approval in one category does not establish the others.",
+        "expectedEvidence": "The current review limit transfers without inventing a result.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies usefulAction evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "guidance names the school principal",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies analogyIntegrity evidence while keeping policy scope, roles, decisions and review limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is narrower",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The story avoids glossaryAccumulation; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The story avoids templateRepetition; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The story avoids decorativeAnalogy; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The story avoids referenceConfetti; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The story avoids missingMechanism; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The story avoids genericAction; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The story avoids jargonBeforeMeaning; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The story avoids disconnectedSystem; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The story avoids factlessConfidence; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The story avoids staleUnreviewableClaims; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The story avoids corporateSludge; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The story avoids joylessInstruction; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The story avoids benchmarkNameDrop; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The story avoids curiosityWithoutPayoff; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The story avoids familiarExampleWithoutTechnicalReturn; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The story avoids communicationPastiche; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The story avoids entertainmentBeforeUnderstanding; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The story avoids mechanismCompressedBehindHook; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The story avoids prematureClickBeforeMechanism; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The story avoids inflatedTakeawayEnding; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The story avoids purposeTooNarrow; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The story avoids mechanismBeforeMotivation; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The story avoids workedExampleOvertakesBookPurpose; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The story avoids technicalExplainerVoice; the exact scope, staff-decision rule and evidence limit stay connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+        "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "policy-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "announced on September 2 that its public schools would pause student-facing generative AI from early-childhood programs through eighth grade for the 2026–27 school year",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "nyc-mayor-announcement",
+          "nycps-current-guidance",
+          "ap-independent-report"
+        ],
+        "scopeAndFreshness": "Exact city school policy and school-year scope.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 2, 2026",
+            "locator": "https://www.nyc.gov/mayors-office/news/2026/09/mayor-mamdani-and-chancellor-samuels-put-students-first-with-nat"
+          },
+          {
+            "excerpt": "Mayor Zohran Kwame Mamdani and Schools Chancellor Kamar H. Samuels today announced a moratorium on student-facing generative Artificial Intelligence (AI) use in schools, alongside a new screen time policy, a decision that will impact nearly 600,000 public school students, or two-thirds of the system’s total enrollment. The policy establishes a one-year moratorium, effective in the 2026-2027 school year, on student-facing generative AI for children in 2-K through 8th grade. It also introduces twice-yearly AI critical thinking modules for high schoolers, limited AI pilots for a small number of high school classrooms and age-appropriate screen time restrictions.",
+            "locator": "https://www.nyc.gov/mayors-office/news/2026/09/mayor-mamdani-and-chancellor-samuels-put-students-first-with-nat"
+          },
+          {
+            "excerpt": "Generative AI is a type of AI that creates new text, images, audio, or other content in response to a user's instructions. These systems can produce inaccurate or biased information and can make it easier for students to bypass thinking they need to do themselves.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The student-facing restrictions described on this page apply specifically to generative AI.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For the 2026-27 school year, New York City Public Schools (NYCPS) is implementing a moratorium on student-facing generative artificial intelligence (AI) in grades 2K–8, with limited use in high schools, and screen time restrictions depending on grade.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Software that uses student-facing generative AI is not permitted in grades 2K–8.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Five pilots have been centrally approved for grades 9–12 (Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools). Any high school may apply for any of the five pilots, and each application will be reviewed on a case-by-case basis. Regarding individual student exposure to AI, we will ensure that students are participating in only one pilot.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Across all grades, this policy does not apply to assistive technology and associated screen time, provided through a student's Individualized Education Plan (IEP) or 504 Plan. Students with disabilities and English Language Learners (ELLs) will continue to have access to other necessary tools.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Teachers and other school staff members may continue using AI for instructional planning and operational tasks, subject to existing requirements, including the NYCPS Enterprise Request Management Application (ERMA) data privacy and security approval process, and NYCPS procurement rules. Additionally, AI may not be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students. All special education documents are developed by qualified professionals; counseling, crisis intervention, and therapeutic support are provided only by qualified staff members.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The ERMA process currently reviews tools for data privacy and security. NYCPS is committed to building expanded evaluation capacity, including areas not covered by ERMA such as algorithmic bias, equity impact, and instructional effectiveness.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For AI tools being used in your child's school, contact your school principal. For concerns, you can contact your child's school, the School Leadership Team (SLT) or your Community Education Council (CEC).",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "While public feedback survey is now closed, you can share feedback directly to your school, participate in your school's PTA, attend your local Community Education Council events, or the Panel for Educational Policy.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The Technology in Schools Coalition, comprised of students, educators, parent leaders, elected officials, advocates, union partners, and experts in the field, will provide recommendations on the future of technology use in NYCPS classrooms and will deliver a report of policy recommendations in April 2027.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "New York City’s public schools will temporarily ban elementary and middle school students from using generative artificial intelligence tools during the upcoming school year, Mayor Zohran Mamdani announced Wednesday.",
+            "locator": "https://apnews.com/article/zohran-mamdani-ai-ban-nyc-schools-647f6a968eea0399521b7934418b1aff"
+          },
+          {
+            "excerpt": "Michael Mulgrew, president of the United Federation of Teachers in New York, praised the screen time limits but said the city’s AI policy “leaves many questions unanswered,” including how the Education Department “will be more aggressive in demanding the products it purchases have AI safeguards.”",
+            "locator": "https://apnews.com/article/zohran-mamdani-ai-ban-nyc-schools-647f6a968eea0399521b7934418b1aff"
+          },
+          {
+            "excerpt": "Josh Golin, executive director of the children’s advocacy group Fairplay, said he would have preferred a longer moratorium and more time between the announcement and the start of the school year. “A year to evaluate is not nearly enough time,” he said, adding that the onus should be on AI platforms “to demonstrate that their products are effective at teaching kids, that they’re safe, that they’re not displacing face-to-face interaction and that they’re not leading to rampant cheating.”",
+            "locator": "https://apnews.com/article/zohran-mamdani-ai-ban-nyc-schools-647f6a968eea0399521b7934418b1aff"
+          }
+        ]
+      },
+      {
+        "claimId": "return-date",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "family notice said students would return September 10 under the new guidance",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "nycps-family-newsletter"
+        ],
+        "scopeAndFreshness": "Family notice supplies the return date; no launch-date conflation.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "As we prepare to welcome students back to school on September 10, I am writing to share details on our 2026–2027 artificial intelligence (AI) and screen time policy for NYC Public Schools (NYCPS).",
+            "locator": "https://www.schools.nyc.gov/about-us/news/newsletter---nyc-public-schools-plus-you"
+          },
+          {
+            "excerpt": "Additionally, teachers may continue using NYCPS-approved AI tools for instructional planning and operational work, but AI may never be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students.",
+            "locator": "https://www.schools.nyc.gov/about-us/news/newsletter---nyc-public-schools-plus-you"
+          }
+        ]
+      },
+      {
+        "claimId": "plain-definitions",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<strong>Student-facing</strong> means software a student directly uses. <strong>Generative AI</strong> creates text, images, audio or other content from instructions",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "nycps-current-guidance"
+        ],
+        "scopeAndFreshness": "First definition is an editorial plain-language rendering of the policy category; second follows the current guidance definition included in full source.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Generative AI is a type of AI that creates new text, images, audio, or other content in response to a user's instructions. These systems can produce inaccurate or biased information and can make it easier for students to bypass thinking they need to do themselves.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The student-facing restrictions described on this page apply specifically to generative AI.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For the 2026-27 school year, New York City Public Schools (NYCPS) is implementing a moratorium on student-facing generative artificial intelligence (AI) in grades 2K–8, with limited use in high schools, and screen time restrictions depending on grade.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Software that uses student-facing generative AI is not permitted in grades 2K–8.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Five pilots have been centrally approved for grades 9–12 (Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools). Any high school may apply for any of the five pilots, and each application will be reviewed on a case-by-case basis. Regarding individual student exposure to AI, we will ensure that students are participating in only one pilot.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Across all grades, this policy does not apply to assistive technology and associated screen time, provided through a student's Individualized Education Plan (IEP) or 504 Plan. Students with disabilities and English Language Learners (ELLs) will continue to have access to other necessary tools.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Teachers and other school staff members may continue using AI for instructional planning and operational tasks, subject to existing requirements, including the NYCPS Enterprise Request Management Application (ERMA) data privacy and security approval process, and NYCPS procurement rules. Additionally, AI may not be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students. All special education documents are developed by qualified professionals; counseling, crisis intervention, and therapeutic support are provided only by qualified staff members.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The ERMA process currently reviews tools for data privacy and security. NYCPS is committed to building expanded evaluation capacity, including areas not covered by ERMA such as algorithmic bias, equity impact, and instructional effectiveness.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For AI tools being used in your child's school, contact your school principal. For concerns, you can contact your child's school, the School Leadership Team (SLT) or your Community Education Council (CEC).",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "While public feedback survey is now closed, you can share feedback directly to your school, participate in your school's PTA, attend your local Community Education Council events, or the Panel for Educational Policy.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The Technology in Schools Coalition, comprised of students, educators, parent leaders, elected officials, advocates, union partners, and experts in the field, will provide recommendations on the future of technology use in NYCPS classrooms and will deliver a report of policy recommendations in April 2027.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          }
+        ]
+      },
+      {
+        "claimId": "high-school-boundary",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "High-school students can use five approved programs in limited pilots, and all high-school students are due to complete two AI-literacy modules",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "nycps-current-guidance",
+          "nyc-mayor-announcement"
+        ],
+        "scopeAndFreshness": "Current planned high-school route, not measured outcome.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Generative AI is a type of AI that creates new text, images, audio, or other content in response to a user's instructions. These systems can produce inaccurate or biased information and can make it easier for students to bypass thinking they need to do themselves.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The student-facing restrictions described on this page apply specifically to generative AI.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For the 2026-27 school year, New York City Public Schools (NYCPS) is implementing a moratorium on student-facing generative artificial intelligence (AI) in grades 2K–8, with limited use in high schools, and screen time restrictions depending on grade.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Software that uses student-facing generative AI is not permitted in grades 2K–8.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Five pilots have been centrally approved for grades 9–12 (Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools). Any high school may apply for any of the five pilots, and each application will be reviewed on a case-by-case basis. Regarding individual student exposure to AI, we will ensure that students are participating in only one pilot.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Across all grades, this policy does not apply to assistive technology and associated screen time, provided through a student's Individualized Education Plan (IEP) or 504 Plan. Students with disabilities and English Language Learners (ELLs) will continue to have access to other necessary tools.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Teachers and other school staff members may continue using AI for instructional planning and operational tasks, subject to existing requirements, including the NYCPS Enterprise Request Management Application (ERMA) data privacy and security approval process, and NYCPS procurement rules. Additionally, AI may not be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students. All special education documents are developed by qualified professionals; counseling, crisis intervention, and therapeutic support are provided only by qualified staff members.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The ERMA process currently reviews tools for data privacy and security. NYCPS is committed to building expanded evaluation capacity, including areas not covered by ERMA such as algorithmic bias, equity impact, and instructional effectiveness.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For AI tools being used in your child's school, contact your school principal. For concerns, you can contact your child's school, the School Leadership Team (SLT) or your Community Education Council (CEC).",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "While public feedback survey is now closed, you can share feedback directly to your school, participate in your school's PTA, attend your local Community Education Council events, or the Panel for Educational Policy.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The Technology in Schools Coalition, comprised of students, educators, parent leaders, elected officials, advocates, union partners, and experts in the field, will provide recommendations on the future of technology use in NYCPS classrooms and will deliver a report of policy recommendations in April 2027.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "September 2, 2026",
+            "locator": "https://www.nyc.gov/mayors-office/news/2026/09/mayor-mamdani-and-chancellor-samuels-put-students-first-with-nat"
+          },
+          {
+            "excerpt": "Mayor Zohran Kwame Mamdani and Schools Chancellor Kamar H. Samuels today announced a moratorium on student-facing generative Artificial Intelligence (AI) use in schools, alongside a new screen time policy, a decision that will impact nearly 600,000 public school students, or two-thirds of the system’s total enrollment. The policy establishes a one-year moratorium, effective in the 2026-2027 school year, on student-facing generative AI for children in 2-K through 8th grade. It also introduces twice-yearly AI critical thinking modules for high schoolers, limited AI pilots for a small number of high school classrooms and age-appropriate screen time restrictions.",
+            "locator": "https://www.nyc.gov/mayors-office/news/2026/09/mayor-mamdani-and-chancellor-samuels-put-students-first-with-nat"
+          }
+        ]
+      },
+      {
+        "claimId": "accessibility-exception",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Necessary assistive technology and language-access tools remain available across grades",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "nycps-current-guidance"
+        ],
+        "scopeAndFreshness": "Necessary-access exception retained.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Generative AI is a type of AI that creates new text, images, audio, or other content in response to a user's instructions. These systems can produce inaccurate or biased information and can make it easier for students to bypass thinking they need to do themselves.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The student-facing restrictions described on this page apply specifically to generative AI.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For the 2026-27 school year, New York City Public Schools (NYCPS) is implementing a moratorium on student-facing generative artificial intelligence (AI) in grades 2K–8, with limited use in high schools, and screen time restrictions depending on grade.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Software that uses student-facing generative AI is not permitted in grades 2K–8.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Five pilots have been centrally approved for grades 9–12 (Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools). Any high school may apply for any of the five pilots, and each application will be reviewed on a case-by-case basis. Regarding individual student exposure to AI, we will ensure that students are participating in only one pilot.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Across all grades, this policy does not apply to assistive technology and associated screen time, provided through a student's Individualized Education Plan (IEP) or 504 Plan. Students with disabilities and English Language Learners (ELLs) will continue to have access to other necessary tools.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Teachers and other school staff members may continue using AI for instructional planning and operational tasks, subject to existing requirements, including the NYCPS Enterprise Request Management Application (ERMA) data privacy and security approval process, and NYCPS procurement rules. Additionally, AI may not be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students. All special education documents are developed by qualified professionals; counseling, crisis intervention, and therapeutic support are provided only by qualified staff members.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The ERMA process currently reviews tools for data privacy and security. NYCPS is committed to building expanded evaluation capacity, including areas not covered by ERMA such as algorithmic bias, equity impact, and instructional effectiveness.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For AI tools being used in your child's school, contact your school principal. For concerns, you can contact your child's school, the School Leadership Team (SLT) or your Community Education Council (CEC).",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "While public feedback survey is now closed, you can share feedback directly to your school, participate in your school's PTA, attend your local Community Education Council events, or the Panel for Educational Policy.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The Technology in Schools Coalition, comprised of students, educators, parent leaders, elected officials, advocates, union partners, and experts in the field, will provide recommendations on the future of technology use in NYCPS classrooms and will deliver a report of policy recommendations in April 2027.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          }
+        ]
+      },
+      {
+        "claimId": "jurisdiction-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "policy governs New York City public-school use; it does not make a nationwide rule or tell families what software they may use at home",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "nyc-mayor-announcement",
+          "nycps-current-guidance"
+        ],
+        "scopeAndFreshness": "Bounded inference from named issuer and stated school scope.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 2, 2026",
+            "locator": "https://www.nyc.gov/mayors-office/news/2026/09/mayor-mamdani-and-chancellor-samuels-put-students-first-with-nat"
+          },
+          {
+            "excerpt": "Mayor Zohran Kwame Mamdani and Schools Chancellor Kamar H. Samuels today announced a moratorium on student-facing generative Artificial Intelligence (AI) use in schools, alongside a new screen time policy, a decision that will impact nearly 600,000 public school students, or two-thirds of the system’s total enrollment. The policy establishes a one-year moratorium, effective in the 2026-2027 school year, on student-facing generative AI for children in 2-K through 8th grade. It also introduces twice-yearly AI critical thinking modules for high schoolers, limited AI pilots for a small number of high school classrooms and age-appropriate screen time restrictions.",
+            "locator": "https://www.nyc.gov/mayors-office/news/2026/09/mayor-mamdani-and-chancellor-samuels-put-students-first-with-nat"
+          },
+          {
+            "excerpt": "Generative AI is a type of AI that creates new text, images, audio, or other content in response to a user's instructions. These systems can produce inaccurate or biased information and can make it easier for students to bypass thinking they need to do themselves.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The student-facing restrictions described on this page apply specifically to generative AI.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For the 2026-27 school year, New York City Public Schools (NYCPS) is implementing a moratorium on student-facing generative artificial intelligence (AI) in grades 2K–8, with limited use in high schools, and screen time restrictions depending on grade.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Software that uses student-facing generative AI is not permitted in grades 2K–8.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Five pilots have been centrally approved for grades 9–12 (Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools). Any high school may apply for any of the five pilots, and each application will be reviewed on a case-by-case basis. Regarding individual student exposure to AI, we will ensure that students are participating in only one pilot.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Across all grades, this policy does not apply to assistive technology and associated screen time, provided through a student's Individualized Education Plan (IEP) or 504 Plan. Students with disabilities and English Language Learners (ELLs) will continue to have access to other necessary tools.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Teachers and other school staff members may continue using AI for instructional planning and operational tasks, subject to existing requirements, including the NYCPS Enterprise Request Management Application (ERMA) data privacy and security approval process, and NYCPS procurement rules. Additionally, AI may not be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students. All special education documents are developed by qualified professionals; counseling, crisis intervention, and therapeutic support are provided only by qualified staff members.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The ERMA process currently reviews tools for data privacy and security. NYCPS is committed to building expanded evaluation capacity, including areas not covered by ERMA such as algorithmic bias, equity impact, and instructional effectiveness.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For AI tools being used in your child's school, contact your school principal. For concerns, you can contact your child's school, the School Leadership Team (SLT) or your Community Education Council (CEC).",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "While public feedback survey is now closed, you can share feedback directly to your school, participate in your school's PTA, attend your local Community Education Council events, or the Panel for Educational Policy.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The Technology in Schools Coalition, comprised of students, educators, parent leaders, elected officials, advocates, union partners, and experts in the field, will provide recommendations on the future of technology use in NYCPS classrooms and will deliver a report of policy recommendations in April 2027.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          }
+        ]
+      },
+      {
+        "claimId": "staff-use-and-prohibition",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Teachers and staff may use approved AI for planning and operational tasks. They may not use it for grading, behavior monitoring, placement, promotion, graduation or other decisions about students",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "nycps-current-guidance",
+          "nycps-family-newsletter"
+        ],
+        "scopeAndFreshness": "Exact staff-use boundary.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Generative AI is a type of AI that creates new text, images, audio, or other content in response to a user's instructions. These systems can produce inaccurate or biased information and can make it easier for students to bypass thinking they need to do themselves.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The student-facing restrictions described on this page apply specifically to generative AI.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For the 2026-27 school year, New York City Public Schools (NYCPS) is implementing a moratorium on student-facing generative artificial intelligence (AI) in grades 2K–8, with limited use in high schools, and screen time restrictions depending on grade.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Software that uses student-facing generative AI is not permitted in grades 2K–8.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Five pilots have been centrally approved for grades 9–12 (Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools). Any high school may apply for any of the five pilots, and each application will be reviewed on a case-by-case basis. Regarding individual student exposure to AI, we will ensure that students are participating in only one pilot.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Across all grades, this policy does not apply to assistive technology and associated screen time, provided through a student's Individualized Education Plan (IEP) or 504 Plan. Students with disabilities and English Language Learners (ELLs) will continue to have access to other necessary tools.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Teachers and other school staff members may continue using AI for instructional planning and operational tasks, subject to existing requirements, including the NYCPS Enterprise Request Management Application (ERMA) data privacy and security approval process, and NYCPS procurement rules. Additionally, AI may not be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students. All special education documents are developed by qualified professionals; counseling, crisis intervention, and therapeutic support are provided only by qualified staff members.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The ERMA process currently reviews tools for data privacy and security. NYCPS is committed to building expanded evaluation capacity, including areas not covered by ERMA such as algorithmic bias, equity impact, and instructional effectiveness.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For AI tools being used in your child's school, contact your school principal. For concerns, you can contact your child's school, the School Leadership Team (SLT) or your Community Education Council (CEC).",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "While public feedback survey is now closed, you can share feedback directly to your school, participate in your school's PTA, attend your local Community Education Council events, or the Panel for Educational Policy.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The Technology in Schools Coalition, comprised of students, educators, parent leaders, elected officials, advocates, union partners, and experts in the field, will provide recommendations on the future of technology use in NYCPS classrooms and will deliver a report of policy recommendations in April 2027.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "As we prepare to welcome students back to school on September 10, I am writing to share details on our 2026–2027 artificial intelligence (AI) and screen time policy for NYC Public Schools (NYCPS).",
+            "locator": "https://www.schools.nyc.gov/about-us/news/newsletter---nyc-public-schools-plus-you"
+          },
+          {
+            "excerpt": "Additionally, teachers may continue using NYCPS-approved AI tools for instructional planning and operational work, but AI may never be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students.",
+            "locator": "https://www.schools.nyc.gov/about-us/news/newsletter---nyc-public-schools-plus-you"
+          }
+        ]
+      },
+      {
+        "claimId": "teacher-example",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "teacher may use an approved tool to help plan a lesson, but cannot let it assign a student’s grade or placement",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "nycps-current-guidance"
+        ],
+        "scopeAndFreshness": "Plain worked example, no claim about a specific tool.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Generative AI is a type of AI that creates new text, images, audio, or other content in response to a user's instructions. These systems can produce inaccurate or biased information and can make it easier for students to bypass thinking they need to do themselves.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The student-facing restrictions described on this page apply specifically to generative AI.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For the 2026-27 school year, New York City Public Schools (NYCPS) is implementing a moratorium on student-facing generative artificial intelligence (AI) in grades 2K–8, with limited use in high schools, and screen time restrictions depending on grade.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Software that uses student-facing generative AI is not permitted in grades 2K–8.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Five pilots have been centrally approved for grades 9–12 (Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools). Any high school may apply for any of the five pilots, and each application will be reviewed on a case-by-case basis. Regarding individual student exposure to AI, we will ensure that students are participating in only one pilot.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Across all grades, this policy does not apply to assistive technology and associated screen time, provided through a student's Individualized Education Plan (IEP) or 504 Plan. Students with disabilities and English Language Learners (ELLs) will continue to have access to other necessary tools.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Teachers and other school staff members may continue using AI for instructional planning and operational tasks, subject to existing requirements, including the NYCPS Enterprise Request Management Application (ERMA) data privacy and security approval process, and NYCPS procurement rules. Additionally, AI may not be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students. All special education documents are developed by qualified professionals; counseling, crisis intervention, and therapeutic support are provided only by qualified staff members.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The ERMA process currently reviews tools for data privacy and security. NYCPS is committed to building expanded evaluation capacity, including areas not covered by ERMA such as algorithmic bias, equity impact, and instructional effectiveness.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For AI tools being used in your child's school, contact your school principal. For concerns, you can contact your child's school, the School Leadership Team (SLT) or your Community Education Council (CEC).",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "While public feedback survey is now closed, you can share feedback directly to your school, participate in your school's PTA, attend your local Community Education Council events, or the Panel for Educational Policy.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The Technology in Schools Coalition, comprised of students, educators, parent leaders, elected officials, advocates, union partners, and experts in the field, will provide recommendations on the future of technology use in NYCPS classrooms and will deliver a report of policy recommendations in April 2027.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          }
+        ]
+      },
+      {
+        "claimId": "erma-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "current software-review process checks a tool’s privacy and security. The system says it is still building capacity to examine algorithmic bias, effects on equity and whether a tool actually helps instruction",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "nycps-current-guidance"
+        ],
+        "scopeAndFreshness": "Current versus planned review capacities stay distinct.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Generative AI is a type of AI that creates new text, images, audio, or other content in response to a user's instructions. These systems can produce inaccurate or biased information and can make it easier for students to bypass thinking they need to do themselves.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The student-facing restrictions described on this page apply specifically to generative AI.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For the 2026-27 school year, New York City Public Schools (NYCPS) is implementing a moratorium on student-facing generative artificial intelligence (AI) in grades 2K–8, with limited use in high schools, and screen time restrictions depending on grade.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Software that uses student-facing generative AI is not permitted in grades 2K–8.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Five pilots have been centrally approved for grades 9–12 (Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools). Any high school may apply for any of the five pilots, and each application will be reviewed on a case-by-case basis. Regarding individual student exposure to AI, we will ensure that students are participating in only one pilot.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Across all grades, this policy does not apply to assistive technology and associated screen time, provided through a student's Individualized Education Plan (IEP) or 504 Plan. Students with disabilities and English Language Learners (ELLs) will continue to have access to other necessary tools.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Teachers and other school staff members may continue using AI for instructional planning and operational tasks, subject to existing requirements, including the NYCPS Enterprise Request Management Application (ERMA) data privacy and security approval process, and NYCPS procurement rules. Additionally, AI may not be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students. All special education documents are developed by qualified professionals; counseling, crisis intervention, and therapeutic support are provided only by qualified staff members.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The ERMA process currently reviews tools for data privacy and security. NYCPS is committed to building expanded evaluation capacity, including areas not covered by ERMA such as algorithmic bias, equity impact, and instructional effectiveness.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For AI tools being used in your child's school, contact your school principal. For concerns, you can contact your child's school, the School Leadership Team (SLT) or your Community Education Council (CEC).",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "While public feedback survey is now closed, you can share feedback directly to your school, participate in your school's PTA, attend your local Community Education Council events, or the Panel for Educational Policy.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The Technology in Schools Coalition, comprised of students, educators, parent leaders, elected officials, advocates, union partners, and experts in the field, will provide recommendations on the future of technology use in NYCPS classrooms and will deliver a report of policy recommendations in April 2027.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          }
+        ]
+      },
+      {
+        "claimId": "approval-not-outcome",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Privacy approval therefore does not prove a pilot improves learning or is free of bias",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "nycps-current-guidance"
+        ],
+        "scopeAndFreshness": "Direct inference from NYCPS's stated current review limit.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Generative AI is a type of AI that creates new text, images, audio, or other content in response to a user's instructions. These systems can produce inaccurate or biased information and can make it easier for students to bypass thinking they need to do themselves.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The student-facing restrictions described on this page apply specifically to generative AI.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For the 2026-27 school year, New York City Public Schools (NYCPS) is implementing a moratorium on student-facing generative artificial intelligence (AI) in grades 2K–8, with limited use in high schools, and screen time restrictions depending on grade.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Software that uses student-facing generative AI is not permitted in grades 2K–8.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Five pilots have been centrally approved for grades 9–12 (Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools). Any high school may apply for any of the five pilots, and each application will be reviewed on a case-by-case basis. Regarding individual student exposure to AI, we will ensure that students are participating in only one pilot.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Across all grades, this policy does not apply to assistive technology and associated screen time, provided through a student's Individualized Education Plan (IEP) or 504 Plan. Students with disabilities and English Language Learners (ELLs) will continue to have access to other necessary tools.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Teachers and other school staff members may continue using AI for instructional planning and operational tasks, subject to existing requirements, including the NYCPS Enterprise Request Management Application (ERMA) data privacy and security approval process, and NYCPS procurement rules. Additionally, AI may not be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students. All special education documents are developed by qualified professionals; counseling, crisis intervention, and therapeutic support are provided only by qualified staff members.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The ERMA process currently reviews tools for data privacy and security. NYCPS is committed to building expanded evaluation capacity, including areas not covered by ERMA such as algorithmic bias, equity impact, and instructional effectiveness.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For AI tools being used in your child's school, contact your school principal. For concerns, you can contact your child's school, the School Leadership Team (SLT) or your Community Education Council (CEC).",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "While public feedback survey is now closed, you can share feedback directly to your school, participate in your school's PTA, attend your local Community Education Council events, or the Panel for Educational Policy.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The Technology in Schools Coalition, comprised of students, educators, parent leaders, elected officials, advocates, union partners, and experts in the field, will provide recommendations on the future of technology use in NYCPS classrooms and will deliver a report of policy recommendations in April 2027.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          }
+        ]
+      },
+      {
+        "claimId": "independent-concerns",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "teachers’ union president asked how the school system would demand stronger safeguards from products it buys. The head of children’s advocacy group Fairplay argued that one year is too short and that AI companies should have to demonstrate safety and teaching value",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "ap-independent-report"
+        ],
+        "scopeAndFreshness": "Attributed judgments reported by AP, not policy-failure findings.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "New York City’s public schools will temporarily ban elementary and middle school students from using generative artificial intelligence tools during the upcoming school year, Mayor Zohran Mamdani announced Wednesday.",
+            "locator": "https://apnews.com/article/zohran-mamdani-ai-ban-nyc-schools-647f6a968eea0399521b7934418b1aff"
+          },
+          {
+            "excerpt": "Michael Mulgrew, president of the United Federation of Teachers in New York, praised the screen time limits but said the city’s AI policy “leaves many questions unanswered,” including how the Education Department “will be more aggressive in demanding the products it purchases have AI safeguards.”",
+            "locator": "https://apnews.com/article/zohran-mamdani-ai-ban-nyc-schools-647f6a968eea0399521b7934418b1aff"
+          },
+          {
+            "excerpt": "Josh Golin, executive director of the children’s advocacy group Fairplay, said he would have preferred a longer moratorium and more time between the announcement and the start of the school year. “A year to evaluate is not nearly enough time,” he said, adding that the onus should be on AI platforms “to demonstrate that their products are effective at teaching kids, that they’re safe, that they’re not displacing face-to-face interaction and that they’re not leading to rampant cheating.”",
+            "locator": "https://apnews.com/article/zohran-mamdani-ai-ban-nyc-schools-647f6a968eea0399521b7934418b1aff"
+          }
+        ]
+      },
+      {
+        "claimId": "family-route",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "guidance names the school principal as the contact. Concerns can also go to the school, its School Leadership Team or Community Education Council",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "nycps-current-guidance"
+        ],
+        "scopeAndFreshness": "Exact current family contact route.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Generative AI is a type of AI that creates new text, images, audio, or other content in response to a user's instructions. These systems can produce inaccurate or biased information and can make it easier for students to bypass thinking they need to do themselves.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The student-facing restrictions described on this page apply specifically to generative AI.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For the 2026-27 school year, New York City Public Schools (NYCPS) is implementing a moratorium on student-facing generative artificial intelligence (AI) in grades 2K–8, with limited use in high schools, and screen time restrictions depending on grade.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Software that uses student-facing generative AI is not permitted in grades 2K–8.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Five pilots have been centrally approved for grades 9–12 (Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools). Any high school may apply for any of the five pilots, and each application will be reviewed on a case-by-case basis. Regarding individual student exposure to AI, we will ensure that students are participating in only one pilot.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Across all grades, this policy does not apply to assistive technology and associated screen time, provided through a student's Individualized Education Plan (IEP) or 504 Plan. Students with disabilities and English Language Learners (ELLs) will continue to have access to other necessary tools.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Teachers and other school staff members may continue using AI for instructional planning and operational tasks, subject to existing requirements, including the NYCPS Enterprise Request Management Application (ERMA) data privacy and security approval process, and NYCPS procurement rules. Additionally, AI may not be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students. All special education documents are developed by qualified professionals; counseling, crisis intervention, and therapeutic support are provided only by qualified staff members.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The ERMA process currently reviews tools for data privacy and security. NYCPS is committed to building expanded evaluation capacity, including areas not covered by ERMA such as algorithmic bias, equity impact, and instructional effectiveness.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For AI tools being used in your child's school, contact your school principal. For concerns, you can contact your child's school, the School Leadership Team (SLT) or your Community Education Council (CEC).",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "While public feedback survey is now closed, you can share feedback directly to your school, participate in your school's PTA, attend your local Community Education Council events, or the Panel for Educational Policy.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The Technology in Schools Coalition, comprised of students, educators, parent leaders, elected officials, advocates, union partners, and experts in the field, will provide recommendations on the future of technology use in NYCPS classrooms and will deliver a report of policy recommendations in April 2027.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          }
+        ]
+      },
+      {
+        "claimId": "survey-report",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "public survey has closed; a Technology in Schools Coalition plans to publish policy recommendations in April 2027",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "nycps-current-guidance"
+        ],
+        "scopeAndFreshness": "Closed feedback channel and future report remain distinct.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nyc-school-ai-20260911/source-evidence.json",
+          "sha256": "5691855a78c29a1097652a942cd98592f59d22f6f854e2fe313731901ffc5462"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Generative AI is a type of AI that creates new text, images, audio, or other content in response to a user's instructions. These systems can produce inaccurate or biased information and can make it easier for students to bypass thinking they need to do themselves.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The student-facing restrictions described on this page apply specifically to generative AI.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For the 2026-27 school year, New York City Public Schools (NYCPS) is implementing a moratorium on student-facing generative artificial intelligence (AI) in grades 2K–8, with limited use in high schools, and screen time restrictions depending on grade.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Software that uses student-facing generative AI is not permitted in grades 2K–8.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Five pilots have been centrally approved for grades 9–12 (Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools). Any high school may apply for any of the five pilots, and each application will be reviewed on a case-by-case basis. Regarding individual student exposure to AI, we will ensure that students are participating in only one pilot.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Across all grades, this policy does not apply to assistive technology and associated screen time, provided through a student's Individualized Education Plan (IEP) or 504 Plan. Students with disabilities and English Language Learners (ELLs) will continue to have access to other necessary tools.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "Teachers and other school staff members may continue using AI for instructional planning and operational tasks, subject to existing requirements, including the NYCPS Enterprise Request Management Application (ERMA) data privacy and security approval process, and NYCPS procurement rules. Additionally, AI may not be used for grading, behavior monitoring, or for placement, promotion, graduation, and other decisions about students. All special education documents are developed by qualified professionals; counseling, crisis intervention, and therapeutic support are provided only by qualified staff members.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The ERMA process currently reviews tools for data privacy and security. NYCPS is committed to building expanded evaluation capacity, including areas not covered by ERMA such as algorithmic bias, equity impact, and instructional effectiveness.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "For AI tools being used in your child's school, contact your school principal. For concerns, you can contact your child's school, the School Leadership Team (SLT) or your Community Education Council (CEC).",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "While public feedback survey is now closed, you can share feedback directly to your school, participate in your school's PTA, attend your local Community Education Council events, or the Panel for Educational Policy.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          },
+          {
+            "excerpt": "The Technology in Schools Coalition, comprised of students, educators, parent leaders, elected officials, advocates, union partners, and experts in the field, will provide recommendations on the future of technology use in NYCPS classrooms and will deliver a report of policy recommendations in April 2027.",
+            "locator": "https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen the current NYCPS guidance, Mayor’s Office announcement and independent reporting if publication slips beyond September 11, the policy changes, the pilots begin reporting results, or the April 2027 coalition report appears.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate reports the September 2 NYC school AI policy using the current September 10 family guidance."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "A post-v1 root read found one candidate-only clarity issue: local grade label 2K was unexplained. The successor says early-childhood programs without adding ages; source scope and full packet remain unchanged."
+  },
+  "limitations": [
+    "Producer review only, not independent admission.",
+    "No source establishes school-by-school compliance or pilot learning benefit.",
+    "AP direct curl returned 403; complete article body was read through the web layer and recorded."
+  ]
+}

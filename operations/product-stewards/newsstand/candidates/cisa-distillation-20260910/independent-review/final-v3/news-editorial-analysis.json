@@ -1,0 +1,92 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "cisa-distillation-20260910",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "c1d3738dcbdd1b549edc865b69ac30b61b418f1ace92d0109ab4eac91a415c35",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can the U.S. agencies allege 'copying' even though nobody claims the Chinese companies obtained the American models' internal files?",
+      "response": "Because distillation does not need the internal files. A student model can absorb a teacher's capabilities by training on huge numbers of the teacher's answers — the agencies allege billions of pieces of output across millions of requests. The dispute is therefore not whether learning from outputs is possible or normal (both sides agree it is), but whether the access to obtain those outputs was authorized: the agencies say provider rules and regional limits were violated; China denies it, and the account records that would settle it are not public.",
+      "expectedEvidence": "An accurate answer must use the output-based learning mechanism (P005), the permission/scale boundary (P007) and the missing-evidence limit, without asserting either side is proven.",
+      "assessment": "The article fully supports this answer: P005 supplies the outputs-not-files mechanism, P007 supplies the permission boundary and quantity allegation, and P002/P004 supply the proof limits. Explain-back passes."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's framework, what should a journalist or buyer conclude, and what would settle it?",
+      "response": "Training on another model's answers is the ordinary distillation method, so 'trained on rival outputs' alone proves no wrongdoing — the article's method/accusation separation applies directly. The disputed line is permission: did the API terms allow training use, and were multiple accounts used to evade access limits? Those turn on account records and contract terms held by the rival and the startup, so until logs or terms are examined by a court or auditor, the claim remains an allegation, exactly like the unresolved U.S.-China dispute; capability of the startup's model proves nothing about provenance.",
+      "expectedEvidence": "Correct transfer applies the mechanism (learning from outputs, P005), the permission/access boundary (P007, P011) and the provenance caveat (P008) to a case absent from the article.",
+      "assessment": "The article's mental model resolves this new scenario cleanly without extra scaffolding, so unseen transfer passes."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The causal sequence is complete: alleged conduct since late 2024, September 8 advisory, September 9 denial, agency recommendations and current legal status (P002–P004).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 8, the FBI, National Security Agency and CISA accused six Chinese AI companies of using “industrial-scale” knowledge distillation to extract restricted capabilities from U.S. AI systems. The advisory names DeepSeek, Moonshot AI, Alibaba, MiniMax, StepFun and Z.AI and says the activity began by late 2024. Its phrase “likely with Chinese government awareness” is an agency assessment, not a public legal finding.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>China’s Commerce Ministry rejected the allegations on September 9. It called them groundless, described distillation as a normal technical and commercial practice, and accused the United States of protecting an AI monopoly. AP reported that four of the named companies did not immediately respond to its requests for comment.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The agencies urged AI providers to strengthen detection, respond to suspected misuse and share intelligence. The sources reviewed for this September 10 article establish no prosecution, court ruling or sanction arising from the advisory.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Distillation, teacher/student and frontier model each get plain meaning at first meaningful use (P005, P006) before being applied to the dispute (P007).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p><strong>Distillation</strong> is a normal way to train one AI system from many answers produced by another. The more capable system is often called the teacher; the new one is the student. The student model learns patterns from the teacher model’s outputs rather than receiving the teacher’s original internal files.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The method is like an apprentice studying many demonstrations from an expert. The comparison stops at the learning pattern: AI training may involve millions of outputs and formal access rules. A <strong>frontier model</strong> means one of the most capable AI systems currently available.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The disputed line is permission. The U.S. agencies allege the six companies gathered billions of pieces of output across millions of requests, used unauthorized access and violated provider rules or regional limits. China denies that account and says the United States is recasting an industry practice as a security threat. Neither government’s statement lets the public inspect the underlying account records.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are tied to a recognizable situation — evaluating claims about a model being cheap, open or capable (P008) and reading a copying headline (P009) — rather than abstract stakes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is an allegation about six named companies, not evidence that every Chinese AI model was trained improperly. A model being cheaper, open or highly capable does not prove where its training examples came from.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>The dispute matters because model access, international competition and future restrictions may turn on evidence that is mostly held by governments and providers. When a headline says one model copied another, ask: “What was learned from the other model, under what permission, and what public evidence supports the allegation?”</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal LAiDIES operating notes or distinctive process details appear in reader-facing text, and no advice exceeds the sources; even bypass details are omitted, matching the source's stated omission.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The agencies urged AI providers to strengthen detection, respond to suspected misuse and share intelligence. The sources reviewed for this September 10 article establish no prosecution, court ruling or sanction arising from the advisory.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The dispute matters because model access, international competition and future restrictions may turn on evidence that is mostly held by governments and providers. When a headline says one model copied another, ask: “What was learned from the other model, under what permission, and what public evidence supports the allegation?”</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>The disputed line is permission. The U.S. agencies allege the six companies gathered billions of pieces of output across millions of requests, used unauthorized access and violated provider rules or regional limits. China denies that account and says the United States is recasting an industry practice as a security threat. Neither government’s statement lets the public inspect the underlying account records.</p>",
+          "locator": "P007"
+        }
+      ]
+    }
+  }
+}

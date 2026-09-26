@@ -7,11 +7,11 @@ import vm from "node:vm";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import assert from "node:assert/strict";
-import { normalize, requestFor } from "./protocol.mjs";
+import { normalize, requestFor, storyParagraphs } from "./protocol.mjs";
 import { inspectProseReviewChain } from "../../../../scripts/check-prose-quality-admission.mjs";
-import { validateOrdinaryStoryCandidate } from "../../../../scripts/validate-newsstand-ordinary-story-candidate.mjs";
+import { validateOrdinaryStoryCandidate, assertCompleteCandidateReviewText } from "../../../../scripts/validate-newsstand-ordinary-story-candidate.mjs";
 import { registerAssembledOrdinaryCandidate, writeRecoveryQueueAtomically } from "../../../../scripts/advance-newsstand-story-recovery.mjs";
-import { resolveNewsstandEditorialPacket } from "../../../../scripts/compact-newsstand-editorial-input.mjs";
+import { resolveNewsstandEditorialPacket, assertCurrentEditorialParagraphs } from "../../../../scripts/compact-newsstand-editorial-input.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../..");
 const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
@@ -40,9 +40,12 @@ const hold = error => { console.error(error.message || String(error)); process.e
 
 function stateVerdict(value) { return value === "pass" ? "PASS" : value === "hold" ? "HOLD" : "FAIL"; }
 function sourceEvidence(source) {
-  const values = [source?.source?.passage, source?.source?.additionalPassage].filter(text);
+  const supplied = source?.source || source;
+  const values = [supplied?.passage, supplied?.additionalPassage].filter(text);
   if (!values.length) throw Error(`ASSEMBLY HOLD: source ${source?.id || "unknown"} has no supplied passage`);
-  return values.map((excerpt, index) => ({ excerpt, locator: index ? (source.source.additionalPassageLocator || source.source.url) : source.source.url }));
+  // The admission checker identifies supplied sources by their exact URL.
+  // Detailed passage locations stay in the bound source packet.
+  return values.map(excerpt => ({ excerpt, locator: supplied.url }));
 }
 function calibrationFrom(result, directory) {
   if (result.status !== "CALIBRATION_PASSED" || result.mode !== "ORDINARY_NEWS_BLIND_REJECTION_V1") throw Error("ASSEMBLY HOLD: current ordinary-news calibration is not passed");
@@ -97,7 +100,8 @@ function main() {
   const replay = (directory, name, kind) => {
     const packet = json(path.join(directory, name + "-packet.json"));
     assert.deepEqual(json(path.join(directory, name + "-request.json")), requestFor(kind, packet), "Actual reviewer request/rubric changed");
-    assert.equal(packet.completeArtifact, candidateReviewText(story), "Complete reviewed article changed");
+    assertCompleteCandidateReviewText(packet.completeArtifact, story);
+    assert.equal(packet.completeArtifact, readBytes(reviewTextPath).toString("utf8"), "Exact reviewed article bytes changed");
     const rawPath = path.join(directory, name + "-provider.raw.json");
     const judgment = actual(rawPath);
     assert.deepEqual(json(path.join(directory, name + "-judgment.json")), judgment, "Judgment differs from actual provider output");
@@ -126,8 +130,9 @@ function main() {
     reviewedAt = checked.completedAt;
   }
   if (reader.verdict !== "PASS" || facts.verdict !== "PASS") throw Error(`ASSEMBLY HOLD: derived independent verdict reader=${reader.verdict} facts=${facts.verdict}`);
-  assert.equal(readBytes(reviewTextPath).toString("utf8"), candidateReviewText(story), "Current article bytes differ");
+  assertCompleteCandidateReviewText(readBytes(reviewTextPath).toString("utf8"), story);
   assert.deepEqual(resolveNewsstandEditorialPacket(json(inputPath), factsPacket), factsPacket, "Evidence packet changed after review");
+  assertCurrentEditorialParagraphs(factsPacket, storyParagraphs(story));
   const metrics = json(metricsPath);
   if (!Number.isInteger(metrics?.proseReview?.reviewIssues) || !Number.isInteger(metrics?.proseReview?.reviewCycles) || !Number.isInteger(metrics?.evidencePacket?.rounds) || !Number.isInteger(metrics?.evidencePacket?.gaps) || !metrics?.ratchet) throw Error("ASSEMBLY HOLD: metrics must explicitly distinguish prose review from evidence-packet rounds/gaps and supply the admission ratchet");
   const input = json(inputPath), byId = new Map((input.sources || []).map(source => [source.id, source]));

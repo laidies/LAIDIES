@@ -1,0 +1,15 @@
+{
+  "recordedAt": "2026-09-21T07:47:00-07:00",
+  "initialAttempt": {
+    "command": "node scripts/check-newsstand-source-route-guard.mjs",
+    "status": "MODULE_NOT_FOUND",
+    "meaning": "The guessed filename was unavailable and did not evaluate source routes."
+  },
+  "effectiveGuard": {
+    "command": "node scripts/check-practitioner-signal-pilot.mjs --newsstand-only --as-of 2026-09-21",
+    "status": "PASS",
+    "output": "NEWSSTAND SOURCE ROUTES PASS desks=6 sources=8 research_completion_certified=false",
+    "meaning": "Configured routes passed; the tool explicitly does not certify research completion."
+  },
+  "manualSafetyControl": "Read current coverage-progress source holds before all normal-web calls; no recorded NONRETRYABLE URL was opened and no alternative transport was used."
+}

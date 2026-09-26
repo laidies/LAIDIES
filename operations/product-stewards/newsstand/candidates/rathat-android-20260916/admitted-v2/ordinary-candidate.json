@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "newsstand-ordinary-story-candidate-v2",
+  "candidateStatus": "READY_FOR_ISSUE_ADMISSION",
+  "candidateId": "rathat-android-20260916",
+  "editionDate": "2026-09-19",
+  "story": {
+    "id": "rathat-android-20260916",
+    "slug": "rathat-android-20260916",
+    "edition": "daily",
+    "status": "hold",
+    "publishedAt": null,
+    "updatedAt": "2026-09-19T17:43:35Z",
+    "lastCheckedAt": "2026-09-19T17:43:35Z",
+    "sourceApproval": {
+      "record": "newsstand:source-approval:rathat-android-20260916",
+      "status": "independent-review-required"
+    },
+    "headline": "A new Android threat asks people to install a fake app. The important warning comes first.",
+    "heroVisual": {
+      "src": "/assets/newsstand/rathat-android-20260916.png",
+      "alt": "Editorial illustration of a blank app card stopping at a boundary before a generic smartphone.",
+      "credit": "Illustration: LAiDIES"
+    },
+    "the_story": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p><p>Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.</p>",
+    "laidies_read": "<p>An app file downloaded from a link is not the same as an app installed from Google Play. <strong>Play Protect</strong> is Google’s built-in app safety check: Google says it scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.</p><p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+    "what_this_means": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p><p>This report describes a malware family and a deceptive installation chain. It does not prove a message has infected your phone, or mean a legitimate accessibility tool is suspicious simply because it uses Accessibility.</p>",
+    "cocktail_party": "“The warning sign is not ‘Android has a new virus.’ It is: a surprise link wants you to install an app and hand it extra control.”",
+    "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%40chapter-10\">AI Fundamentals 101: the model is only one part of the system</a> explains why a safety control only covers the actions it actually checks.",
+    "sources": [
+      {
+        "id": "zimperium-rathat-20260916",
+        "label": "Zimperium — RatHat: AI-Powered Mobile Threat",
+        "url": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts",
+        "publisherType": "vendor research",
+        "accessedAt": "2026-09-19",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "google-play-protect-20260919",
+        "label": "Google Play Help — Play Protect",
+        "url": "https://support.google.com/googleplay/answer/2812853?hl=en",
+        "publisherType": "primary guidance",
+        "accessedAt": "2026-09-19",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "google-restricted-settings-20260919",
+        "label": "Android Help — Restricted settings",
+        "url": "https://support.google.com/android/answer/12623953?hl=en",
+        "publisherType": "primary guidance",
+        "accessedAt": "2026-09-19",
+        "approvalStatus": "reviewed"
+      }
+    ],
+    "themes": [
+      "Android security",
+      "consumer safety"
+    ],
+    "concepts": [
+      "Play Protect",
+      "restricted settings",
+      "Accessibility"
+    ],
+    "tags": [
+      "Android",
+      "malware",
+      "mobile security",
+      "Accessibility"
+    ],
+    "correction": null,
+    "correctionHistory": [],
+    "retraction": null,
+    "predecessorStoryIds": [],
+    "successorStoryIds": [],
+    "relationshipType": null,
+    "bigPicture": null,
+    "thread": null,
+    "thread_subtitle": null,
+    "thread_entry": null,
+    "aidb_credit": null,
+    "saint_lane": null,
+    "badge": "THE LATEST"
+  },
+  "storyTypeCoverage": {
+    "schema": "laidies.newsstand-story-type-coverage.v1",
+    "candidateId": "rathat-android-20260916",
+    "primaryType": "safety-incident",
+    "overlays": [],
+    "universalAnswers": {
+      "whatHappened": "Zimperium reported RatHat on September 16 as an Android malware family it says reaches deceptive download portals from text phishing or malicious ads.",
+      "plainLanguageIdentity": "It is a reported deceptive installation chain, not a claim that receiving a message remotely infects every Android phone.",
+      "evidenceBasis": "Zimperium’s report and current Google Play Protect and restricted-settings guidance are captured and bound.",
+      "evidenceLimits": "The vendor report does not establish prevalence; Google’s protections are not a guarantee that any device is clean.",
+      "readerRelevance": "A person may see a surprise app-download link or be asked to approve sensitive settings on a personal phone.",
+      "affectedPeople": "People considering an app file from outside Google Play or a sensitive permission request.",
+      "changesNow": "A new report gives readers a reason to recognize this delivery-and-permission pattern.",
+      "uncertainty": "The report does not show every Android phone is infected or that legitimate accessibility tools are unsafe.",
+      "readerAction": "Use the organization’s official site or Google Play for an unexpected app request, keep Play Protect on, and do not allow restricted settings unless the developer is trusted.",
+      "betterQuestion": "Which developer is asking, why does this specific app need this access, and did I obtain it through a source I trust?"
+    },
+    "typeAnswers": {
+      "safety-incident": {
+        "incident": "Zimperium reported an Android malware family delivered through deceptive third-party download portals, then manually installed as an APK.",
+        "harm": "The report describes a deceptive chain and sensitive permission request; it makes no harm-count or prevalence claim.",
+        "affectedPeople": "The report is relevant to someone who is asked to install an app from a link or grant sensitive access, but does not prove that person is affected.",
+        "failedControl": "The reported lure seeks manual installation and Accessibility Service activation; Android offers Play Protect and restricted-settings checks.",
+        "responsibility": "The malware operator uses deception; the reader and app provider each have different decisions about sources and permissions.",
+        "confirmedUnknown": "Confirmed: Zimperium published its report. Unknown: prevalence, which readers have encountered it, and whether any particular phone is affected.",
+        "remediation": "Google recommends Play Protect and says not to allow restricted settings unless the developer is trusted.",
+        "recurrenceRisk": "The report does not quantify risk. Avoiding unexpected download links and reviewing sensitive requests can reduce exposure to this reported chain."
+      }
+    },
+    "translation": {
+      "schema": "laidies.newsstand-reader-translation.v1",
+      "newsVersionExact": "Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads.",
+      "actualMeaningExact": "Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.",
+      "mechanismExact": "The malware then tries to persuade the person to turn on Accessibility access.",
+      "familiarExampleExact": "If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead.",
+      "jargon": [
+        {
+          "term": "Accessibility",
+          "plainMeaning": "That setting can let an app read what is on screen and interact with apps on a person’s behalf."
+        },
+        {
+          "term": "restricted settings",
+          "plainMeaning": "Restricted settings are Android’s extra pause for sensitive access from an app installed outside Google Play."
+        },
+        {
+          "term": "Play Protect",
+          "plainMeaning": "Google’s built-in app safety check"
+        }
+      ],
+      "learningConnections": [
+        {
+          "concept": "controls only protect the action they actually check",
+          "learningPayoff": "AI Fundamentals 101 helps readers ask where a safety boundary applies and where a person still needs to review an action.",
+          "disposition": "link",
+          "destination": "/library.html#ai-fundamentals-101::%40chapter-10"
+        }
+      ]
+    }
+  },
+  "storySha256": "668f0ccb00e0690bb6539ff5cd716b6a75517ead3c36cca70d9ebb72d7fa5a66",
+  "publicationBase": {
+    "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/publication-base-current.js",
+    "sha256": "e324fcbbdea62fde00e0540f9f80884dc3a12d1aa7c50fedd225e62916ac6817"
+  },
+  "sourceText": {
+    "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/review-text.json",
+    "sha256": "cb878a29ecec8f91670d9187dd920fc86bc92900c508038b155a8d84dd3097fc"
+  },
+  "claimMap": {
+    "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/admitted-v2/publication-claim-map.json",
+    "sha256": "fa5314154f14f19729312df550d7d1f3362ae43fbd6a675a80a93db8848fc46c"
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/producer-contract.json",
+    "sha256": "e6ed15db94da19bd1c9fcd8308d05ae62406368f75be6e8c6612d429f81c2579"
+  },
+  "draftPreparation": {
+    "writerInput": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/writer-input-current.json",
+      "sha256": "63bbe78f78aa401324f04309d999563ebe010cb1b7070f5538e6a4e26735e4b9"
+    },
+    "observations": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/producer-observations.json",
+      "sha256": "c33a04b186f9aebe0b4cfcf7760665c615d6ac319d67ddf37933cd3056d074b5"
+    }
+  },
+  "sources": [
+    {
+      "id": "zimperium-rathat-20260916",
+      "url": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+        "sha256": "ad4fcd2cb32e457415c9ee2e5a5db5784e701dba0d3c2e0640761e0e87005c91"
+      }
+    },
+    {
+      "id": "google-play-protect-20260919",
+      "url": "https://support.google.com/googleplay/answer/2812853?hl=en",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+        "sha256": "ad4fcd2cb32e457415c9ee2e5a5db5784e701dba0d3c2e0640761e0e87005c91"
+      }
+    },
+    {
+      "id": "google-restricted-settings-20260919",
+      "url": "https://support.google.com/android/answer/12623953?hl=en",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+        "sha256": "ad4fcd2cb32e457415c9ee2e5a5db5784e701dba0d3c2e0640761e0e87005c91"
+      }
+    }
+  ],
+  "reviewEvidence": {
+    "producer": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/producer-publication-review.json",
+      "sha256": "d4222ac4f34dd9cd31858287c2f35fd1ab7d769169909173f28870633d11f8e6"
+    },
+    "independent": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/admitted-v2/independent-review.json",
+      "sha256": "dbfb179ad21f5b9259594803bd47701b1ec3ddec0be14f4bbb55e3527059df0c"
+    },
+    "independentRawReport": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/admitted-v2/independent-raw-report.json",
+      "sha256": "da0fe3ea02f46c65976cd8f9ca34584e55cc99a7b80f526af68b5fe9128b8950"
+    }
+  },
+  "lineage": null
+}

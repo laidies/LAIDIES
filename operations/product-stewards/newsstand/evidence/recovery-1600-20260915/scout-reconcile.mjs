@@ -1,0 +1,28 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import {spawnSync} from 'node:child_process';
+const rel='operations/product-stewards/newsstand/evidence/recovery-1600-20260915/';
+const read=p=>JSON.parse(fs.readFileSync(p));
+const write=(p,v)=>fs.writeFileSync(rel+p,JSON.stringify(v,null,2)+'\n');
+const caps=read(rel+'aidb-captures.json'), cap=n=>caps.find(x=>x.name===n);
+const morning='operations/product-stewards/newsstand/evidence/recovery-1300-20260915/';
+const inv=read(morning+'aidb-edition-inventory-v2.json');
+const index=read(rel+'aidb-agent-index.body');
+const apple=fs.readFileSync(rel+'aidb-apple-index.body','utf8');
+const appleUrls=[...new Set(apple.match(/https:\/\/podcasts\.apple\.com\/us\/podcast\/[^"\s<>]+\?i=\d+/g)||[])];
+const ld=[...apple.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m=>{try{return [JSON.parse(m[1])];}catch{return [];}});
+const audio=[]; const walk=x=>{if(!x||typeof x!=='object')return;if(x['@type']==='AudioObject')audio.push(x);Object.values(x).forEach(v=>{if(Array.isArray(v))v.forEach(walk);else if(v&&typeof v==='object')walk(v);});};ld.forEach(walk);
+for(const a of audio){const url=a.url;if(url&&!inv.editions.some(e=>e.url===url))inv.editions.push({editionDate:a.datePublished.slice(0,10),title:a.name||a.title,url,complete:false,discoveryChannel:'Apple Podcasts listing',pendingReason:'Metadata only; full audio/transcript and explicit publisher alias have not been inspected.',nextAction:'Recover legitimate full-content and explicit identity evidence if relevant to a current decision.'});}
+const known=new Set(inv.editions.map(e=>e.url));
+const currentWebsite=index.editions.filter(e=>e.date>='2026-09-09'&&e.date<='2026-09-15').map(e=>e.html);
+for(const e of index.editions.filter(e=>e.date>='2026-09-09'))if(!known.has(e.html))inv.editions.push({editionDate:e.date,title:e.title,url:e.html,complete:false,pendingReason:'Index metadata only; complete episode not inspected.',nextAction:'Inspect allowed complete publisher source.'});
+inv.recordedAt=new Date().toISOString();inv.successorOf=morning+'aidb-edition-inventory-v2.json';
+inv.channelChecks=[{channel:'website',url:cap('aidb-agent-index').url,checkedAt:cap('aidb-agent-index').completedAt,status:'CHECKED',releaseUrls:currentWebsite,reason:'Actual16:00 index retains Sep14 as newest; Sep15 JSON/transcript404; separate Apple listing has newSep15episode. Restricted original Sep12/Sep14 routes not requested.'},{channel:'podcast',url:cap('aidb-apple-index').url,checkedAt:cap('aidb-apple-index').completedAt,status:'PARTIAL',releaseUrls:appleUrls,reason:'Every release URL extracted from the actual listing retained; metadata only, no complete podcast review.'},{channel:'newsletter',url:'https://aidailybrief.beehiiv.com/',checkedAt:JSON.parse(fs.readFileSync(morning+'aidb-captures.json')).find(c=>c.name==='aidb-beehiiv-archive').completedAt,status:'UNAVAILABLE',releaseUrls:[],reason:'Prior13:00 archive403 retained; no new request; no retry/bypass; prior release inventory preserved with original observation times.'}];
+inv.receiptBindings={scoutCheck:rel+'scout-check.json',captures:rel+'aidb-captures.json'};
+write('aidb-edition-inventory-v2.json',inv);
+const r=spawnSync('node',['scripts/select-aidb-edition.mjs',rel+'aidb-edition-inventory-v2.json','operations/agents/aidb-intelligence-desk/edition-cursor.json','2026-09-15'],{encoding:'utf8'});
+fs.writeFileSync(rel+'aidb-select-result.json',r.stdout);fs.writeFileSync(rel+'aidb-select.stderr',r.stderr);write('aidb-select-execution.json',{checkedAt:new Date().toISOString(),command:'node scripts/select-aidb-edition.mjs '+rel+'aidb-edition-inventory-v2.json operations/agents/aidb-intelligence-desk/edition-cursor.json 2026-09-15',exitCode:r.status});
+const feed=fs.readFileSync(rel+'scout-mollick-feed.body','utf8'); const items=[...feed.matchAll(/<item>([\s\S]*?)<\/item>/g)].map(m=>({title:m[1].match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/)?.[1],url:m[1].match(/<link>(.*?)<\/link>/)?.[1],publishedAt:m[1].match(/<pubDate>(.*?)<\/pubDate>/)?.[1]}));
+const allie=fs.readFileSync(rel+'scout-allie-resources.body','utf8').replace(/<script[\s\S]*?<\/script>/g,'').replace(/<style[\s\S]*?<\/style>/g,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+const home=fs.readFileSync(rel+'scout-mollick-home.body','utf8').replace(/<script[\s\S]*?<\/script>/g,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+write('scout-extracted-indexes.json',{checkedAt:new Date().toISOString(),websiteGenerated:index.generated,websiteObservedRollingWindow:index.editions.filter(e=>e.date>='2026-09-09'),appleObservedReleaseUrls:appleUrls,appleMetadata:audio,mollickItems:items,allieText:allie,mollickHomepageText:home});

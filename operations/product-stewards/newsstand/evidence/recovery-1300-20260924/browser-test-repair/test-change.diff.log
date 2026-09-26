@@ -1,0 +1,55 @@
+diff --git a/scripts/test-newsstand-reader-browser.mjs b/scripts/test-newsstand-reader-browser.mjs
+index 5cada447..4a1a3051 100644
+--- a/scripts/test-newsstand-reader-browser.mjs
++++ b/scripts/test-newsstand-reader-browser.mjs
+@@ -50,6 +50,8 @@ const READER_DAILY = CURRENT_DAILY || DATA.stories.filter(item => item.edition =
+   ['published', 'corrected'].includes(item.status) && item.sourceApproval?.status === 'approved' && item.id !== FRONT.id)
+   .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)))[0];
+ assert.ok(READER_DAILY, 'An admitted news story is required for the reader regression journey');
++const READER_ISSUE = ISSUE_STORE.issues.find(item => (item.storyIds || []).includes(READER_DAILY.id));
++assert.ok(READER_ISSUE, 'The admitted reader story must retain its dated issue identity');
+ const LEARNING_STORY = DATA.stories.find(story => /href=["']\/?library\.html(?:#|["'])/.test(story.class_notes || ""));
+ assert.ok(LEARNING_STORY, 'A NewsStand story with an approved Library class-note route is required for measurement coverage');
+ const BIG_PICTURE = DATA.stories.filter(item => item.edition==='big-picture'&&['published','corrected'].includes(item.status)&&item.sourceApproval?.status==='approved').sort((a,b)=>String(b.updatedAt).localeCompare(String(a.updatedAt)))[0];
+@@ -395,12 +397,21 @@ try {
+       check(await value(currentPreview, "document.querySelector('.ns-latest-more').open"), true, "summary opens more recent stories");
+       await act(currentPreview, "Promise.all([...document.querySelectorAll('[data-secondary-for=daily] img')].map(image => { image.loading = 'eager'; return image.decode(); }))");
+     }
+-    check(await value(currentPreview, `(() => {
+-      const link = document.querySelector('[data-secondary-for=daily] article a[href="#${READER_DAILY.slug}"]');
+-      const image = link && link.querySelector('img');
+-      return !!link && link.textContent.includes(${JSON.stringify(READER_DAILY.headline)}) &&
+-        !!image && image.complete && image.naturalWidth > 0;
+-    })()`), true, "most recent admitted daily story appears in Latest with its loaded illustration");
++    const readerIsRecent = readerContract.withinRecentCalendarDays(READER_DAILY.publishedAt, FIXED_NOW, 5, DATA.publications.daily.editorialTimeZone || 'America/Vancouver');
++    if (readerIsRecent) {
++      check(await value(currentPreview, `(() => {
++        const link = document.querySelector('[data-secondary-for=daily] article a[href="#${READER_DAILY.slug}"]');
++        const image = link && link.querySelector('img');
++        return !!link && link.textContent.includes(${JSON.stringify(READER_DAILY.headline)}) &&
++          !!image && image.complete && image.naturalWidth > 0;
++      })()`), true, "recent admitted daily story appears in Latest with its loaded illustration");
++    } else {
++      check(await value(currentPreview, `!document.querySelector('[data-secondary-for=daily] article a[href="#${READER_DAILY.slug}"]')`), true, "older admitted story is not relabelled as Latest after the five-day window");
++      check(ARCHIVE.items.some(item => item.kind === 'story' && item.id === `story:${READER_DAILY.id}` &&
++        item.slug === READER_DAILY.slug && item.headline === READER_DAILY.headline &&
++        item.publishedAt === READER_DAILY.publishedAt && item.editionDate === READER_ISSUE.editionDate), true,
++      "older admitted story retains its exact identity and publication date in the archive");
++    }
+     check(await value(currentPreview, `(() => ${JSON.stringify(ISSUE_DAILY.map(story => ({ slug: story.slug, headline: story.headline })))}.every(story => {
+       const link = document.querySelector('[data-secondary-for=daily] article a[href="#' + story.slug + '"]');
+       const image = link && link.querySelector('img');
+@@ -479,10 +490,12 @@ try {
+     await act(currentDaily, "window.nsSourceLink = document.querySelector('.ns-article__sources a[href^=\"https://\"]'); window.nsSourceHref = window.nsSourceLink.href; window.nsSourceLink.href = '#missing-source';");
+     check(await value(currentDaily, sourceLinksExpression), false, 'calibration: missing admitted source link is rejected');
+     await act(currentDaily, 'window.nsSourceLink.href = window.nsSourceHref');
++    await act(currentDaily, "(() => { const hero = document.querySelector('.ns-article__hero img, img.ns-article__hero'); if (hero) { hero.loading = 'eager'; return hero.decode(); } })()");
+     const approvedHeroExpression = `(() => {
+       const hero = document.querySelector('.ns-article__hero img, img.ns-article__hero');
+       return ${JSON.stringify(READER_DAILY.heroVisual || null)} ? !!hero &&
+-        new URL(hero.src, location.href).pathname === ${JSON.stringify(READER_DAILY.heroVisual?.src || '')} : !hero;
++        new URL(hero.src, location.href).pathname === ${JSON.stringify(READER_DAILY.heroVisual?.src || '')} &&
++        hero.complete && hero.naturalWidth > 0 : !hero;
+     })()`;
+     check(await value(currentDaily, approvedHeroExpression), true, 'current approved artwork survives immutable Daily snapshot reconciliation');
+     const currentDailyScale = await value(currentDaily, readerScaleExpression);

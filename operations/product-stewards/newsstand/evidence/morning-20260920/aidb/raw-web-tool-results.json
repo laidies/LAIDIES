@@ -1,0 +1,41 @@
+{
+  "schema": "aidb-web-tool-capture.v1",
+  "capturedAt": "2026-09-20T14:04:27Z",
+  "method": "normal web tool only; no alternate transport or access-bypass attempt",
+  "results": [
+    {
+      "request": "open https://aidailybrief.ai/agent.json",
+      "toolReference": "turn927view0",
+      "outcome": "accessible",
+      "contentType": "application/json",
+      "publisherGenerated": "2026-09-20T05:20:25.300Z",
+      "observedEditionDates": ["2026-09-17", "2026-09-16", "2026-09-15", "2026-09-14", "2026-09-13"]
+    },
+    {
+      "request": "open expected Sep18, Sep19 and Sep20 website HTML and transcript routes",
+      "toolReferences": ["turn927view1", "turn927view2", "turn927view3", "turn927view4", "turn927view5", "turn927view6"],
+      "outcome": "web tool internal error for every requested route",
+      "accessAction": "held; no workaround attempted"
+    },
+    {
+      "request": "open publisher-linked Apple Podcasts show listing",
+      "toolReferences": ["turn927view7", "turn928view0", "turn928view1", "turn928view2", "turn928view3", "turn928view4"],
+      "outcome": "accessible; the rendered listing exposed one latest episode only, so rolling seven-day enumeration is partial",
+      "observedReleaseUrls": ["https://podcasts.apple.com/us/podcast/7-ways-how-we-use-ai-is-changing/id1680633614?i=1000790785321"]
+    },
+    {
+      "request": "open observed latest Apple episode",
+      "toolReference": "turn929view0",
+      "outcome": "accessible episode metadata and description",
+      "publishedAt": "2026-09-20T11:28:00Z",
+      "title": "7 Ways How We Use AI Is Changing",
+      "contentLimit": "The accessible listing supplies metadata and description, not a complete episode transcript or full audio review."
+    },
+    {
+      "request": "open https://aidailybrief.beehiiv.com/",
+      "toolReferences": ["turn927view8", "turn928view5"],
+      "outcome": "web tool internal error",
+      "accessAction": "held; no workaround attempted"
+    }
+  ]
+}

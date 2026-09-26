@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "laidies.newsstand-source-attempts.v1",
+  "candidateId": "california-data-centre-laws-20260921",
+  "checkedAt": "2026-09-23T20:36:59.553230Z",
+  "attempts": [
+    {
+      "url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+      "method": "normal web open and direct curl capture",
+      "result": "SUCCESS",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/sources/governor-signing-20260921.html",
+        "sha256": "8cdf84a54c64b4c451a72cbdbca29a93b19ac2ae6c98e8c516575eb5b63022e1"
+      }
+    },
+    {
+      "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168",
+      "method": "normal web open and direct curl capture",
+      "result": "SUCCESS",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/sources/sb1168-chaptered.html",
+        "sha256": "7a41d2dda59f2ba3be71c9857522a8f274e55d40edb06e8ef1284dc976acd277"
+      }
+    },
+    {
+      "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577",
+      "method": "normal web open and direct curl capture",
+      "result": "SUCCESS",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/sources/ab1577-chaptered.html",
+        "sha256": "50be2e3de4e53261e3108d11d8c7da44cb4e712eee5b5f03db831f09343d1d16"
+      }
+    }
+  ],
+  "notAttempted": [
+    "AB 2383 chaptered text",
+    "AB 2469 chaptered text",
+    "AB 2619 chaptered text",
+    "SB 886 chaptered text",
+    "SB 887 chaptered text"
+  ],
+  "reason": "The assigned bounded packet prioritized SB 1168 and AB 1577; the remaining originals are recorded as the exact dependency for a comprehensive seven-law article."
+}

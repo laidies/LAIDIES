@@ -1,0 +1,287 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "Bounded stale-source recovery only. No coverage-progress, cursor, canonical, or public records were written.",
+  "rawReceiptAt": "2026-09-23T03:06:09Z",
+  "rawCaptures": [
+    {
+      "path": "stale-source-recovery-raw.json",
+      "integrity": "sha256 recorded after repair",
+      "sha256": "c5b501ffff624fdf75ffdfd6b06461d7d321ce3b5e5dc1bdb5a1f03a5c89c091"
+    },
+    {
+      "path": "stale-source-recovery-finds-raw.json",
+      "integrity": "sha256 recorded after repair",
+      "sha256": "7e90e307b3f925f0147f8f6ba49fd236642821694c4ba7057ed7006f83ed4080"
+    }
+  ],
+  "constraints": [
+    "All original URLs marked NONRETRYABLE were not requested.",
+    "Distinct current publisher, archive, independent-index, and channel-index observations do not substitute for a missing original event or full transcript.",
+    "The BleepingComputer article click ended with an expired-tool-token error after the index had exposed the title and summary; no article-body claim is made."
+  ],
+  "sourceRows": [
+    {
+      "row": 3,
+      "originalUrl": "https://x.com/cognition/status/2098142686486356185",
+      "originalCheckedAt": "2026-09-21T23:27:06.918Z",
+      "originalRetryPolicy": "NONRETRYABLE",
+      "recovery": [
+        {
+          "url": "https://cognition.com/blog",
+          "kind": "official publisher blog index",
+          "evidence": "Readable current blog; search for September only surfaced 2024 posts, and did not identify the X event."
+        }
+      ],
+      "disposition": "DISTINCT_PUBLISHER_INDEX_NO_EVENT_MATCH",
+      "missingInput": "Accessible original post or publisher announcement that establishes the event identity and claims.",
+      "nextRecoveryStep": "Search Cognition's official site for the event name once that identity is known; do not repeat the X URL."
+    },
+    {
+      "row": 4,
+      "originalUrl": "https://x.com/bot/status/2098183353665261979",
+      "originalCheckedAt": "2026-09-21T23:27:06.918Z",
+      "originalRetryPolicy": "NONRETRYABLE",
+      "recovery": [
+        {
+          "url": "web search: 2098183353665261979 original announcement",
+          "kind": "discovery query",
+          "evidence": "Returned unrelated results; no legitimate publisher identity was identified."
+        }
+      ],
+      "disposition": "DISTINCT_DISCOVERY_NO_RELEVANT_PUBLISHER_IDENTIFIED",
+      "missingInput": "Account/product identity and a publisher-controlled announcement or primary record.",
+      "nextRecoveryStep": "Identify the account/product from an already admitted source, then inspect its official publisher record; do not repeat the X URL."
+    },
+    {
+      "row": 5,
+      "originalUrl": "https://www.reuters.com/technology/artificial-intelligence/",
+      "originalCheckedAt": "2026-09-21T23:27:06.918Z",
+      "originalRetryPolicy": "NONRETRYABLE",
+      "recovery": [
+        {
+          "url": "https://apnews.com/hub/artificial-intelligence",
+          "kind": "independent reporting index",
+          "evidence": "Readable current AP AI index includes an Alibaba chip/model item, but does not establish a match to the inaccessible Reuters item."
+        }
+      ],
+      "disposition": "DISTINCT_INDEPENDENT_INDEX_NO_REUTERS_EVENT_MATCH",
+      "missingInput": "A matched independently reportable event or accessible original source for the specific Reuters item.",
+      "nextRecoveryStep": "Recover a named Reuters headline from permitted existing evidence, then check AP or the primary publisher for that exact event."
+    },
+    {
+      "row": 6,
+      "originalUrl": "https://www.aais.pku.edu.cn/info/1355/20361.htm",
+      "originalCheckedAt": "2026-09-21T23:27:06.918Z",
+      "originalRetryPolicy": "NONRETRYABLE",
+      "recovery": [
+        {
+          "url": "web search: site:arxiv.org ProteinTalks Peking University",
+          "kind": "related-primary discovery query",
+          "evidence": "Results did not identify a ProteinTalks preprint, DOI, journal page, or other related primary record."
+        }
+      ],
+      "disposition": "RELATED_PRIMARY_DISCOVERY_NO_MATCH",
+      "missingInput": "ProteinTalks DOI, preprint, journal/publisher record, or other primary research identifier.",
+      "nextRecoveryStep": "Use a reliable citation or author publication list to locate the underlying record; do not renew the PKU URL."
+    },
+    {
+      "row": 16,
+      "originalUrl": "https://www.oneusefulthing.org/feed",
+      "originalCheckedAt": "2026-09-21T23:27:06.918Z",
+      "originalRetryPolicy": "NONRETRYABLE",
+      "recovery": [
+        {
+          "url": "https://www.oneusefulthing.org/archive",
+          "kind": "publisher archive",
+          "evidence": "Readable archive names Sep 18 post The Overhang with subtitle Using your deep knowledge, wide knowledge, taste, and agency; it is index metadata, not full essay review."
+        }
+      ],
+      "disposition": "DISTINCT_ARCHIVE_METADATA_ONLY",
+      "missingInput": "Readable individual post body if the item is to support a substantive claim.",
+      "nextRecoveryStep": "Use the archive's individual post only if a material reader-relevant lead requires full review; preserve feed hold."
+    },
+    {
+      "row": 17,
+      "originalUrl": "https://www.alliekmiller.com/resources",
+      "originalCheckedAt": "2026-09-21T20:58:33.517073+00:00",
+      "originalRetryPolicy": "PERMITTED",
+      "recovery": [
+        {
+          "url": "https://www.alliekmiller.com/resources",
+          "kind": "permitted current page refresh",
+          "evidence": "Readable undated resource index lists Claude Cowork in 5 Minutes and AI Context Vault; no new dated reporting event."
+        }
+      ],
+      "disposition": "CHECKED_CURRENT_UNDATED_NO_NEW_STORY",
+      "missingInput": null,
+      "nextRecoveryStep": "Check future dated entries normally when published."
+    },
+    {
+      "row": 21,
+      "originalUrl": "https://www.oneusefulthing.org/",
+      "originalCheckedAt": "2026-09-21T23:27:06.918Z",
+      "originalRetryPolicy": "NONRETRYABLE",
+      "recovery": [
+        {
+          "url": "https://www.oneusefulthing.org/archive",
+          "kind": "publisher archive",
+          "evidence": "Same current archive observation: Sep 18 The Overhang identified, without full text."
+        }
+      ],
+      "disposition": "DISTINCT_ARCHIVE_METADATA_ONLY",
+      "missingInput": "Readable individual post body and provenance for any substantive use.",
+      "nextRecoveryStep": "Follow a material archive item only when justified; do not renew the homepage route."
+    },
+    {
+      "row": 24,
+      "originalUrl": "https://www.alliekmiller.com/",
+      "originalCheckedAt": "2026-09-21T23:27:06.918Z",
+      "originalRetryPolicy": "PERMITTED",
+      "recovery": [
+        {
+          "url": "https://www.alliekmiller.com/",
+          "kind": "permitted current page refresh",
+          "evidence": "Readable homepage presents AI with ALLIE subscription and linked resources/products, but no dated new reporting event."
+        }
+      ],
+      "disposition": "CHECKED_CURRENT_UNDATED_NO_NEW_STORY",
+      "missingInput": null,
+      "nextRecoveryStep": "Check future dated homepage/newsletter entries normally."
+    },
+    {
+      "row": 31,
+      "originalUrl": "https://www.nature.com/subjects/machine-learning/nature",
+      "originalCheckedAt": "2026-09-21T23:35:57.573Z",
+      "originalRetryPolicy": "PERMITTED",
+      "recovery": [
+        {
+          "url": "https://www.nature.com/subjects/machine-learning/nature",
+          "kind": "one permitted current refresh",
+          "evidence": "Internal Error; no readable content recovered."
+        }
+      ],
+      "disposition": "SOURCE_ACCESS_HOLD_AFTER_ONE_PERMITTED_REFRESH",
+      "missingInput": "Readable Nature page or a named underlying primary paper.",
+      "nextRecoveryStep": "Wait for a later permitted route or recover a named cited primary record from an accessible index; do not retry this unchanged route in this batch."
+    },
+    {
+      "row": 34,
+      "originalUrl": "https://www.bleepingcomputer.com/news/",
+      "originalCheckedAt": "2026-09-21T23:35:57.573Z",
+      "originalRetryPolicy": "PERMITTED",
+      "recovery": [
+        {
+          "url": "https://www.bleepingcomputer.com/news/",
+          "kind": "permitted current page refresh",
+          "evidence": "Current index names New ClosedQuorum Windows malware uses AI for attack decisions, dated Sep 22 2026 02:04 PM, and summarizes use of Gemini, DeepSeek, Qwen and Mistral models in post-compromise decision-making."
+        }
+      ],
+      "disposition": "MATERIAL_SECURITY_LEAD_INDEX_ONLY",
+      "missingInput": "Full BleepingComputer article body and primary technical/research source; article click failed at expired tool token.",
+      "nextRecoveryStep": "On restored authorized web access, open the indexed article once and recover its cited primary/technical source before candidate assessment."
+    },
+    {
+      "row": 35,
+      "originalUrl": "https://aidailybrief.ai/e/2026-09-18.json",
+      "originalCheckedAt": "2026-09-21T23:35:57.573Z",
+      "originalRetryPolicy": "NONRETRYABLE",
+      "recovery": [
+        {
+          "url": "https://aidailybrief.ai/agent.json",
+          "kind": "current channel inventory",
+          "evidence": "Current agent index generated 2026-09-22T23:54:36.910Z begins with Sep 21 daily edition; it does not supply the held Sep 18 body."
+        },
+        {
+          "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+          "kind": "publisher-linked podcast index",
+          "evidence": "Current index surfaces Sep 21 State of the AI Debate episode metadata, not Sep 18 full edition."
+        }
+      ],
+      "disposition": "DISTINCT_CHANNEL_INVENTORY_PARTIAL",
+      "missingInput": "Complete Sep 18 edition body.",
+      "nextRecoveryStep": "Retain nonretryable edition URL; recover from a later publisher-linked archive or manually admitted source if available."
+    },
+    {
+      "row": 36,
+      "originalUrl": "https://aidailybrief.ai/e/2026-09-18/transcript.md",
+      "originalCheckedAt": "2026-09-21T23:35:57.573Z",
+      "originalRetryPolicy": "NONRETRYABLE",
+      "recovery": [
+        {
+          "url": "https://aidailybrief.ai/agent.json",
+          "kind": "current channel inventory",
+          "evidence": "Inventory does not provide the held Sep 18 transcript."
+        }
+      ],
+      "disposition": "DISTINCT_CHANNEL_INVENTORY_NO_TRANSCRIPT",
+      "missingInput": "Complete Sep 18 transcript.",
+      "nextRecoveryStep": "Retain hold and await a publisher-linked transcript/archive route; do not infer transcript review from inventory."
+    },
+    {
+      "row": 37,
+      "originalUrl": "https://aidailybrief.ai/e/2026-09-19.json",
+      "originalCheckedAt": "2026-09-21T23:35:57.573Z",
+      "originalRetryPolicy": "NONRETRYABLE",
+      "recovery": [
+        {
+          "url": "https://aidailybrief.ai/agent.json",
+          "kind": "current channel inventory",
+          "evidence": "Inventory current to Sep 21 does not provide the held Sep 19 body."
+        },
+        {
+          "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+          "kind": "publisher-linked podcast index",
+          "evidence": "Apple index is current episode metadata, not Sep 19 full edition."
+        }
+      ],
+      "disposition": "DISTINCT_CHANNEL_INVENTORY_PARTIAL",
+      "missingInput": "Complete Sep 19 edition body.",
+      "nextRecoveryStep": "Retain hold and recover only from a legitimate later publisher-linked archive/source."
+    },
+    {
+      "row": 38,
+      "originalUrl": "https://aidailybrief.ai/e/2026-09-19/transcript.md",
+      "originalCheckedAt": "2026-09-21T23:35:57.573Z",
+      "originalRetryPolicy": "NONRETRYABLE",
+      "recovery": [
+        {
+          "url": "https://aidailybrief.ai/agent.json",
+          "kind": "current channel inventory",
+          "evidence": "Inventory does not provide the held Sep 19 transcript."
+        }
+      ],
+      "disposition": "DISTINCT_CHANNEL_INVENTORY_NO_TRANSCRIPT",
+      "missingInput": "Complete Sep 19 transcript.",
+      "nextRecoveryStep": "Retain hold and await a publisher-linked transcript/archive route; do not infer transcript review from inventory."
+    },
+    {
+      "row": 40,
+      "originalUrl": "https://www.aiwithallie.com/p/anthropic-ceo-ai-warning",
+      "originalCheckedAt": "2026-09-21T23:27:32.394Z",
+      "originalRetryPolicy": "PERMITTED",
+      "recovery": [
+        {
+          "url": "https://www.aiwithallie.com/p/anthropic-ceo-ai-warning",
+          "kind": "one permitted current refresh",
+          "evidence": "Internal Error; no readable article content recovered."
+        }
+      ],
+      "disposition": "SOURCE_ACCESS_HOLD_AFTER_ONE_PERMITTED_REFRESH",
+      "missingInput": "Readable article and its cited original sources.",
+      "nextRecoveryStep": "Do not retry unchanged route in this batch; recover original cited sources once they can be identified legitimately."
+    }
+  ],
+  "proposedCoverageDelta": {
+    "partial": true,
+    "addOrUpdate": [
+      {
+        "key": "closedquorum-ai-directed-windows-malware",
+        "proposedStatus": "SOURCE_HOLD",
+        "basis": "Material BleepingComputer index item only; no full article or primary technical evidence recovered.",
+        "originalObservedAt": "2026-09-22T21:04:00Z"
+      }
+    ],
+    "noOtherStoryDispositionChanges": true
+  },
+  "repairNote": "The initial patch-marker serialization artifacts are retained as *.invalid-patch.txt. Bound .json files now wrap the exact prior tool text as valid JSON."
+}

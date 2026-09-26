@@ -1,0 +1,575 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "rathat-android-20260916",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/evening_sources",
+  "reviewer": {
+    "id": "/root/evening_sources",
+    "principalId": "/root/evening_sources",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-19T17:43:35Z",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review is not independent admission.",
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "The visual has a separate final PASS; this receipt reviews prose and factual bindings only.",
+    "Public issue admission and release remain separate."
+  ],
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/artifact-manifest.json",
+      "sha256": "c158d51d47c0c9d72451a0568bfcc8887fbff098dd975425781e7465fcf28dd4"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/review-text.json",
+      "sha256": "72da48bee6b9422c877d77283318a6043de19b84b415fbffa15164687d43e73c"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/rendered-article.html",
+      "sha256": "4436fcac1cbdb3b07b53e8ff432d087262843ba113e1d944db5ac87e5245f5e6"
+    },
+    "sourceEvidence": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+      "sha256": "bd967d0859c422930f8d1c42eabcfec02b4bd3d0e3aecefd658a02cfe366f082"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/evening_sources",
+    "reviewedAt": "2026-09-19T17:11:00.000Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "present",
+            "observation": "Standalone term entries accumulate instead of one sustained explanation.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "The definition, analogy and role scaffold recurs across entries.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "decorativeAnalogy": {
+            "state": "present",
+            "observation": "Multiple workplace and pop-culture comparisons outnumber mechanism development.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "referenceConfetti": {
+            "state": "present",
+            "observation": "Named references collect across entries without one necessary teaching job.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "missingMechanism": {
+            "state": "present",
+            "observation": "The entries name pieces without following one request through the connected system.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "genericAction": {
+            "state": "present",
+            "observation": "The text promises a distinction will help without a specific diagnosis and repair.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "jargonBeforeMeaning": {
+            "state": "present",
+            "observation": "Technical labels lead before the reader has a practical reason to understand them.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "disconnectedSystem": {
+            "state": "present",
+            "observation": "Input, product, model, tools and output appear as separate summaries rather than connected handoffs.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "joylessInstruction": {
+            "state": "present",
+            "observation": "The repeated taxonomy reads as a terminology manual.",
+            "artifactLocator": "complete registered exemplar"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "registered CQX-BAD-001"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "One job-offer decision takes over an opening intended for a broader foundation.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "Technical operations arrive before the full practical and civic reason for the book.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The Northstar-versus-Juniper case crowds out the broader reader transformation.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The opening prioritizes tracing operations over orienting the reader to the wider purpose.",
+            "artifactLocator": "complete registered exemplar"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "registered CQX-BAD-002"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One distinction runs through the short article and leads to a concrete reader check.",
+        "The limit sits beside the provider disclosure rather than being deferred to a disclaimer."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "registered CQX-GOOD-NEWS-002"
+        },
+        {
+          "excerpt": "The transport operator’s service notice is what you need to check the closure.",
+          "locator": "registered CQX-GOOD-NEWS-002"
+        }
+      ]
+    },
+    "reuseDisclosure": "This producer reread the registered NEWS positive and both registered negatives as calibration references before this candidate’s complete text. The calibration is used only to name concrete rejection families; no prior candidate verdict, prose or timestamp is inherited.",
+    "reusedAt": "2026-09-19T17:40:01Z"
+  },
+  "reverseBrief": {
+    "humanQuestion": "Does a surprise Android app link mean my phone is infected, and what should I do next?",
+    "promisedPayoff": "Recognize the manual install and sensitive-access steps, then use official checks without disabling legitimate accessibility tools.",
+    "centralMentalModel": "The reported route has distinct steps: deceptive message or ad, manual outside-store installation, then a sensitive permission request.",
+    "dailyLifeConnection": "A surprise delivery or entertainment-app link is a reason to use the organization’s official site or Google Play instead.",
+    "surfaceJob": "A short dated Android safety report with a bounded reader action.",
+    "desiredReaderFeeling": "I know what would need to happen for this reported chain and can review a specific app request calmly."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific plainClarity check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific readerValue check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "do not approve the request until you have checked the developer and why that specific app needs it.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific laidiesVoice check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "this is a review step, not a reason to switch accessibility off everywhere.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific engagingEnjoyable check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The warning sign is not ‘Android has a new virus.’",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific factualIntegrity check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Zimperium reported RatHat on September 16",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific freshnessReviewability check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Zimperium reported RatHat on September 16",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific surfaceFit check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A new Android threat asks people to install a fake app.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific datedChange check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Zimperium reported RatHat on September 16",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific consequenceAndUncertainty check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It does not prove a message has infected your phone",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific dailyLifeConnection check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If a text, ad or pop-up asks you to download an Android app",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific communicationBenchmark check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Its reported route starts when someone manually downloads",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific explainBack check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the useful question is which app is asking, why it needs that access and whether you trust its developer.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A surprise link asks for an app and sensitive access. What should I check?",
+        "probeResponse": "Use the organization’s official source or Google Play, then identify the developer and why this particular app needs access. Do not treat receiving the message as proof of infection.",
+        "expectedEvidence": "Retain the separate install and permission steps without treating legitimate accessibility tools as automatically suspicious."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific unseenTransfer check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "why that specific app needs it",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A surprise link asks for an app and sensitive access. What should I check?",
+        "probeResponse": "Use the organization’s official source or Google Play, then identify the developer and why this particular app needs access. Do not treat receiving the message as proof of infection.",
+        "expectedEvidence": "Retain the separate install and permission steps without treating legitimate accessibility tools as automatically suspicious."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific usefulAction check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "find the app through Google Play or the organization’s official website instead.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Exact prose was read in full; this passage supports the candidate-specific analogyIntegrity check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It is: a surprise link wants you to install an app and hand it extra control.",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete RatHat article was checked for this registered failure family; the dated report, scope limit, mechanism and specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+        "sha256": "bd967d0859c422930f8d1c42eabcfec02b4bd3d0e3aecefd658a02cfe366f082"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "delivery-route",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Its reported route starts when someone manually downloads an app file outside the Play Store",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+          "sha256": "bd967d0859c422930f8d1c42eabcfec02b4bd3d0e3aecefd658a02cfe366f082"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Zimperium says RatHat is primarily distributed through targeted smishing and malvertising that leads victims to deceptive third-party download portals, then lures them into manually downloading malicious APKs.",
+            "locator": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts"
+          }
+        ],
+        "scopeAndFreshness": "Zimperium report dated September 16, 2026; vendor-reported delivery chain, not a prevalence or remote-infection claim."
+      },
+      {
+        "claimId": "accessibility-request",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Zimperium says the malware then tries to persuade the person to turn on Accessibility access.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+          "sha256": "bd967d0859c422930f8d1c42eabcfec02b4bd3d0e3aecefd658a02cfe366f082"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Zimperium says a critical dependency is Accessibility Service activation, acquired through a localized lure.",
+            "locator": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts"
+          },
+          {
+            "excerpt": "Google says some legitimate disability-support apps might ask to turn on accessibility settings; with that access, an app can read screen content and interact with apps on a person's behalf.",
+            "locator": "https://support.google.com/android/answer/12623953?hl=en"
+          }
+        ],
+        "scopeAndFreshness": "Report describes the malware family; Google’s guidance preserves legitimate assistive uses."
+      },
+      {
+        "claimId": "google-reader-guidance",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.",
+            "locator": "complete exact story"
+          },
+          {
+            "excerpt": "Google says not to allow them unless you trust the developer.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+          "sha256": "bd967d0859c422930f8d1c42eabcfec02b4bd3d0e3aecefd658a02cfe366f082"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Google recommends always keeping Google Play Protect on.",
+            "locator": "https://support.google.com/googleplay/answer/2812853?hl=en"
+          },
+          {
+            "excerpt": "Google says not to allow restricted settings unless you trust the app developer.",
+            "locator": "https://support.google.com/android/answer/12623953?hl=en"
+          }
+        ],
+        "scopeAndFreshness": "Official Google help pages captured September 19, 2026."
+      }
+    ],
+    "reviewedThrough": "2026-09-19T17:40:01Z",
+    "nextTrigger": "Reopen Zimperium for a correction or Google for a material Play Protect/restricted-settings guidance change.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior candidate receipt is reused; this is a private candidate for Zimperium’s September 16 RatHat report."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The article states a bounded reported chain and current guidance; its outcome is pending a distinct independent editor, not a producer admission."
+  }
+}

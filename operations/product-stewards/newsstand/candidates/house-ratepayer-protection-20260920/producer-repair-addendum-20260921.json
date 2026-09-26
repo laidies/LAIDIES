@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "laidies.newsstand-producer-repair-addendum.v1",
+  "candidateId": "house-ratepayer-protection-20260920",
+  "repairedAt": "2026-09-21T21:59:06.602Z",
+  "repairs": [
+    {
+      "defect": "Official Senate schedule record had capture:null.",
+      "repair": "Bound the exact September 21 normal-web capture of the official Senate floor page.",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/sources/senate-floor-schedule-20260921.json",
+        "sha256": "65e4ecd7f977a5f266f0ba178fde30735e52dcf040f996b1ef669f92ec348d20"
+      }
+    },
+    {
+      "defect": "The opening began “No.” although the visible headline and section deck did not pose a yes-or-no question.",
+      "repair": "Removed the dangling response and retained the immediate declarative status answer.",
+      "story": {
+        "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/story.json",
+        "sha256": "67abbf73258360b455899301b544026c6dc2d912a6ad7bd965a8afb312747b29"
+      }
+    }
+  ],
+  "checks": {
+    "sourceRecordsWithExactCaptures": 5,
+    "producerContract": "PASS",
+    "producerProseReview": "PASS",
+    "storyTypeCoverage": "PASS",
+    "ordinaryWordCount": 342,
+    "externalPreflight": {
+      "status": "HOLD",
+      "soleReason": "published story image is missing or incomplete",
+      "providerCalled": false
+    }
+  },
+  "nextSteps": [
+    "Produce and independently admit a story-specific image.",
+    "Run the independent prose/factual review only after the image-bound exact packet passes the unmodified pre-review gate."
+  ]
+}

@@ -1,0 +1,1128 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "surface": "NEWSSTAND_WEEKLY",
+  "contentClass": "NEWS",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "maker": "/root/california_order_producer",
+  "reviewer": {
+    "id": "claude-fable-newsstand-weekly",
+    "principalId": "anthropic:claude-fable-5:newsstand-weekly:medium",
+    "role": "independent Weekly editorial and factual reviewer",
+    "modelFamily": "anthropic",
+    "modelEffort": "medium",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-26T15:53:07.702Z",
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "The v16 provider attempt is preserved but superseded because its evidence packet omitted the EFF passage. This receipt binds the distinct v17 full review of the corrected evidence packet and unchanged public prose."
+  ],
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/publication-manifest.json",
+      "sha256": "13d773847694d9d496ea90e521d9da969561f08c68c0ec75fbd80b5e253871eb"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/review-text.json",
+      "sha256": "bcf764fecbf5807f556f629c720700c788ee2b9a6533099279747958a5f25c1b"
+    }
+  },
+  "calibration": {
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-weekly:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Which of this week's AI headlines actually changed my duties, bills, risk or access, and which are still studies, proposals or attributed findings?",
+    "promisedPayoff": "A single verb-reading tool that separates implemented change from pending decisions across six developments.",
+    "centralMentalModel": "Each development sits in a different decision chain; the operative verb (study, enact, pass, report, release) tells you what exists now and what step is still missing.",
+    "dailyLifeConnection": "The reader's electricity bill, payment card safety and access to Claude or GPT-6 features on their own plan are the concrete stakes.",
+    "surfaceJob": "A dated weekly news roundup for September 16-23, 2026 that reports what happened and bounds each claim to its source.",
+    "desiredReaderFeeling": "Calm and oriented: able to reread any headline and locate its real status without alarm or false reassurance."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Sentences are short and each technical term (rate structure, anonymized and aggregated, interim report) is defined at first meaningful use in P002.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week’s Weekly asked how to tell a promise from proof. This week needs a sharper tool: read the verb.</p><p>An agency can <strong>study</strong> a safeguard. A legislature can <strong>enact</strong> a reporting duty. One chamber can <strong>pass</strong> a proposal. Investigators can <strong>report</strong> a campaign. A company can <strong>release</strong> a product. All are real developments, but they do not create the same protection, evidence or access.</p><h3>California: study the switch, start the reporting</h3><p>California’s September 18 executive order took effect immediately. It accelerated existing oversight work and set November 16 for recommendations on possible legal amendments, including independently checked shutoffs for advanced AI systems, onsite verifiers and broader incident reporting. It did not install a universal AI kill switch. The Electronic Frontier Foundation supports broader reporting and third-party investigations while warning that shutoff effectiveness remains active research and government control could threaten protected speech.</p><p>On September 21, California also made SB 1168 and AB 1577 law. They are two of seven data-centre bills signed that day; this Weekly does not claim to explain the other five. SB 1168 tells the utilities commission to assess opportunities for rate structures — the rules used to divide utility charges among customer groups — including data centres’ share of grid and procurement costs. An assessment is not an adopted tariff or a calculated household saving.</p><p>AB 1577 creates local and state reporting for covered data centres with at least 10 megawatts of electrical capacity. Its public releases must be anonymized and aggregated — combined so a public release does not expose one protected customer record — and its first specified statewide load-trend assessment belongs in the 2029 energy-policy report. Named public, research, safety, national-security, publicly owned and utility facilities are excluded from the cited reporting provisions.</p><h3>Washington: a House vote is still a proposal</h3><p>The US House passed H.R. 9340 by 417–3 on September 16. If enacted, it would require state regulators and nonregulated utilities to consider a standard for qualifying computing sites with at least 100 megawatts of peak demand. Under that standard, a large customer’s rate would recover the additional grid-upgrade cost needed to serve it.</p><p>The bill would require consideration and a determination; it would not itself set one nationwide retail rate. A September 17 unanimous-consent attempt in the Senate drew an objection. The current official sources in this packet do not establish a Senate vote or enactment. Your bill still depends on the relevant utility, regulator, project and approved rate design.</p><h3>Card skimmers: an investigation, not your exposure notice</h3><p>BleepingComputer reported on September 23 that security firm Gambit had investigated AI-assisted agents used in a retail card-skimming campaign. Gambit calls its underlying publication an interim report and separates recovered material and observed checks from estimates about scale and cost.</p><p>The consumer consequence is serious: card skimmers steal payment details from online stores. The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card. Quantities and claims about the AI role remain attributed to the investigators until affected parties or independent evidence narrow the scope.</p><h3>Product changes you may actually encounter</h3><p>Anthropic said on September 16 that Claude Cowork and chat are merging into one Claude. The practical change is that longer work can begin in an ordinary conversation rather than a separately chosen mode. The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice. Claude Docs and Slides are beta features on paid plans.</p><p>OpenAI also announced GPT-6 Sol and Luna in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users. Free and Go users can access Luna in the desktop app. The models were not yet available in Chat, and the company said rollout through the day could delay visibility. OpenAI says its performance and reliability comparisons come from its own evaluations, not independent proof that everyone should switch. For ordinary work, access and the task matter before a benchmark table does.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The week is not one story about AI speeding up or government catching up. It is a set of different decision chains. The California order leads to recommendations. The state laws lead to proceedings, reports and later public data. The House bill still needs enactment and local rate decisions. The security report needs corroboration or affected-party notices. Product releases still depend on plan, app and rollout.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond headlines, the reader gains a reusable verb test plus concrete next-evidence checks for bills, cards and product access in P004 and P005.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a headline sounds finished, replace its loudest noun with the operative verb. “Kill switch” becomes “recommend.” “Ratepayer protection” becomes “consider.” “AI card theft” becomes “investigators report.” That small edit often reveals the next evidence you actually need.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>For an electricity claim, look for the commission proceeding, local permit or approved rate. For a security claim, look for an affected retailer, issuer notice or updated investigation before assuming personal exposure. For a product announcement, check your plan and the surface named in the source: Work, Codex, Chat, desktop or another app are not interchangeable.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>Last week’s Weekly asked how to tell a promise from proof. This week needs a sharper tool: read the verb.</p><p>An agency can <strong>study</strong> a safeguard. A legislature can <strong>enact</strong> a reporting duty. One chamber can <strong>pass</strong> a proposal. Investigators can <strong>report</strong> a campaign. A company can <strong>release</strong> a product. All are real developments, but they do not create the same protection, evidence or access.</p><h3>California: study the switch, start the reporting</h3><p>California’s September 18 executive order took effect immediately. It accelerated existing oversight work and set November 16 for recommendations on possible legal amendments, including independently checked shutoffs for advanced AI systems, onsite verifiers and broader incident reporting. It did not install a universal AI kill switch. The Electronic Frontier Foundation supports broader reporting and third-party investigations while warning that shutoff effectiveness remains active research and government control could threaten protected speech.</p><p>On September 21, California also made SB 1168 and AB 1577 law. They are two of seven data-centre bills signed that day; this Weekly does not claim to explain the other five. SB 1168 tells the utilities commission to assess opportunities for rate structures — the rules used to divide utility charges among customer groups — including data centres’ share of grid and procurement costs. An assessment is not an adopted tariff or a calculated household saving.</p><p>AB 1577 creates local and state reporting for covered data centres with at least 10 megawatts of electrical capacity. Its public releases must be anonymized and aggregated — combined so a public release does not expose one protected customer record — and its first specified statewide load-trend assessment belongs in the 2029 energy-policy report. Named public, research, safety, national-security, publicly owned and utility facilities are excluded from the cited reporting provisions.</p><h3>Washington: a House vote is still a proposal</h3><p>The US House passed H.R. 9340 by 417–3 on September 16. If enacted, it would require state regulators and nonregulated utilities to consider a standard for qualifying computing sites with at least 100 megawatts of peak demand. Under that standard, a large customer’s rate would recover the additional grid-upgrade cost needed to serve it.</p><p>The bill would require consideration and a determination; it would not itself set one nationwide retail rate. A September 17 unanimous-consent attempt in the Senate drew an objection. The current official sources in this packet do not establish a Senate vote or enactment. Your bill still depends on the relevant utility, regulator, project and approved rate design.</p><h3>Card skimmers: an investigation, not your exposure notice</h3><p>BleepingComputer reported on September 23 that security firm Gambit had investigated AI-assisted agents used in a retail card-skimming campaign. Gambit calls its underlying publication an interim report and separates recovered material and observed checks from estimates about scale and cost.</p><p>The consumer consequence is serious: card skimmers steal payment details from online stores. The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card. Quantities and claims about the AI role remain attributed to the investigators until affected parties or independent evidence narrow the scope.</p><h3>Product changes you may actually encounter</h3><p>Anthropic said on September 16 that Claude Cowork and chat are merging into one Claude. The practical change is that longer work can begin in an ordinary conversation rather than a separately chosen mode. The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice. Claude Docs and Slides are beta features on paid plans.</p><p>OpenAI also announced GPT-6 Sol and Luna in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users. Free and Go users can access Luna in the desktop app. The models were not yet available in Chat, and the company said rollout through the day could delay visibility. OpenAI says its performance and reliability comparisons come from its own evaluations, not independent proof that everyone should switch. For ordinary work, access and the task matter before a benchmark table does.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult and direct ('Your bill still depends on...', 'not your exposure notice'); no condescension or borrowed persona in P002 or P004.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week’s Weekly asked how to tell a promise from proof. This week needs a sharper tool: read the verb.</p><p>An agency can <strong>study</strong> a safeguard. A legislature can <strong>enact</strong> a reporting duty. One chamber can <strong>pass</strong> a proposal. Investigators can <strong>report</strong> a campaign. A company can <strong>release</strong> a product. All are real developments, but they do not create the same protection, evidence or access.</p><h3>California: study the switch, start the reporting</h3><p>California’s September 18 executive order took effect immediately. It accelerated existing oversight work and set November 16 for recommendations on possible legal amendments, including independently checked shutoffs for advanced AI systems, onsite verifiers and broader incident reporting. It did not install a universal AI kill switch. The Electronic Frontier Foundation supports broader reporting and third-party investigations while warning that shutoff effectiveness remains active research and government control could threaten protected speech.</p><p>On September 21, California also made SB 1168 and AB 1577 law. They are two of seven data-centre bills signed that day; this Weekly does not claim to explain the other five. SB 1168 tells the utilities commission to assess opportunities for rate structures — the rules used to divide utility charges among customer groups — including data centres’ share of grid and procurement costs. An assessment is not an adopted tariff or a calculated household saving.</p><p>AB 1577 creates local and state reporting for covered data centres with at least 10 megawatts of electrical capacity. Its public releases must be anonymized and aggregated — combined so a public release does not expose one protected customer record — and its first specified statewide load-trend assessment belongs in the 2029 energy-policy report. Named public, research, safety, national-security, publicly owned and utility facilities are excluded from the cited reporting provisions.</p><h3>Washington: a House vote is still a proposal</h3><p>The US House passed H.R. 9340 by 417–3 on September 16. If enacted, it would require state regulators and nonregulated utilities to consider a standard for qualifying computing sites with at least 100 megawatts of peak demand. Under that standard, a large customer’s rate would recover the additional grid-upgrade cost needed to serve it.</p><p>The bill would require consideration and a determination; it would not itself set one nationwide retail rate. A September 17 unanimous-consent attempt in the Senate drew an objection. The current official sources in this packet do not establish a Senate vote or enactment. Your bill still depends on the relevant utility, regulator, project and approved rate design.</p><h3>Card skimmers: an investigation, not your exposure notice</h3><p>BleepingComputer reported on September 23 that security firm Gambit had investigated AI-assisted agents used in a retail card-skimming campaign. Gambit calls its underlying publication an interim report and separates recovered material and observed checks from estimates about scale and cost.</p><p>The consumer consequence is serious: card skimmers steal payment details from online stores. The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card. Quantities and claims about the AI role remain attributed to the investigators until affected parties or independent evidence narrow the scope.</p><h3>Product changes you may actually encounter</h3><p>Anthropic said on September 16 that Claude Cowork and chat are merging into one Claude. The practical change is that longer work can begin in an ordinary conversation rather than a separately chosen mode. The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice. Claude Docs and Slides are beta features on paid plans.</p><p>OpenAI also announced GPT-6 Sol and Luna in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users. Free and Go users can access Luna in the desktop app. The models were not yet available in Chat, and the company said rollout through the day could delay visibility. OpenAI says its performance and reliability comparisons come from its own evaluations, not independent proof that everyone should switch. For ordinary work, access and the task matter before a benchmark table does.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>When a headline sounds finished, replace its loudest noun with the operative verb. “Kill switch” becomes “recommend.” “Ratepayer protection” becomes “consider.” “AI card theft” becomes “investigators report.” That small edit often reveals the next evidence you actually need.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The noun-to-verb substitution device in P004 ('Kill switch' becomes 'recommend') sustains interest without spectacle; restraint suits the material.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a headline sounds finished, replace its loudest noun with the operative verb. “Kill switch” becomes “recommend.” “Ratepayer protection” becomes “consider.” “AI card theft” becomes “investigators report.” That small edit often reveals the next evidence you actually need.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Last week’s Weekly asked how to tell a promise from proof. This week needs a sharper tool: read the verb.</p><p>An agency can <strong>study</strong> a safeguard. A legislature can <strong>enact</strong> a reporting duty. One chamber can <strong>pass</strong> a proposal. Investigators can <strong>report</strong> a campaign. A company can <strong>release</strong> a product. All are real developments, but they do not create the same protection, evidence or access.</p><h3>California: study the switch, start the reporting</h3><p>California’s September 18 executive order took effect immediately. It accelerated existing oversight work and set November 16 for recommendations on possible legal amendments, including independently checked shutoffs for advanced AI systems, onsite verifiers and broader incident reporting. It did not install a universal AI kill switch. The Electronic Frontier Foundation supports broader reporting and third-party investigations while warning that shutoff effectiveness remains active research and government control could threaten protected speech.</p><p>On September 21, California also made SB 1168 and AB 1577 law. They are two of seven data-centre bills signed that day; this Weekly does not claim to explain the other five. SB 1168 tells the utilities commission to assess opportunities for rate structures — the rules used to divide utility charges among customer groups — including data centres’ share of grid and procurement costs. An assessment is not an adopted tariff or a calculated household saving.</p><p>AB 1577 creates local and state reporting for covered data centres with at least 10 megawatts of electrical capacity. Its public releases must be anonymized and aggregated — combined so a public release does not expose one protected customer record — and its first specified statewide load-trend assessment belongs in the 2029 energy-policy report. Named public, research, safety, national-security, publicly owned and utility facilities are excluded from the cited reporting provisions.</p><h3>Washington: a House vote is still a proposal</h3><p>The US House passed H.R. 9340 by 417–3 on September 16. If enacted, it would require state regulators and nonregulated utilities to consider a standard for qualifying computing sites with at least 100 megawatts of peak demand. Under that standard, a large customer’s rate would recover the additional grid-upgrade cost needed to serve it.</p><p>The bill would require consideration and a determination; it would not itself set one nationwide retail rate. A September 17 unanimous-consent attempt in the Senate drew an objection. The current official sources in this packet do not establish a Senate vote or enactment. Your bill still depends on the relevant utility, regulator, project and approved rate design.</p><h3>Card skimmers: an investigation, not your exposure notice</h3><p>BleepingComputer reported on September 23 that security firm Gambit had investigated AI-assisted agents used in a retail card-skimming campaign. Gambit calls its underlying publication an interim report and separates recovered material and observed checks from estimates about scale and cost.</p><p>The consumer consequence is serious: card skimmers steal payment details from online stores. The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card. Quantities and claims about the AI role remain attributed to the investigators until affected parties or independent evidence narrow the scope.</p><h3>Product changes you may actually encounter</h3><p>Anthropic said on September 16 that Claude Cowork and chat are merging into one Claude. The practical change is that longer work can begin in an ordinary conversation rather than a separately chosen mode. The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice. Claude Docs and Slides are beta features on paid plans.</p><p>OpenAI also announced GPT-6 Sol and Luna in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users. Free and Go users can access Luna in the desktop app. The models were not yet available in Chat, and the company said rollout through the day could delay visibility. OpenAI says its performance and reliability comparisons come from its own evaluations, not independent proof that everyone should switch. For ordinary work, access and the task matter before a benchmark table does.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated weekly that answers what happened September 16-23 and why it matters, with covered period and refresh date stated; scope limits explicit ('does not claim to explain the other five').",
+      "artifactEvidence": [
+        {
+          "excerpt": "This week’s AI news: what changed, and what is still a proposal",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Last week’s Weekly asked how to tell a promise from proof. This week needs a sharper tool: read the verb.</p><p>An agency can <strong>study</strong> a safeguard. A legislature can <strong>enact</strong> a reporting duty. One chamber can <strong>pass</strong> a proposal. Investigators can <strong>report</strong> a campaign. A company can <strong>release</strong> a product. All are real developments, but they do not create the same protection, evidence or access.</p><h3>California: study the switch, start the reporting</h3><p>California’s September 18 executive order took effect immediately. It accelerated existing oversight work and set November 16 for recommendations on possible legal amendments, including independently checked shutoffs for advanced AI systems, onsite verifiers and broader incident reporting. It did not install a universal AI kill switch. The Electronic Frontier Foundation supports broader reporting and third-party investigations while warning that shutoff effectiveness remains active research and government control could threaten protected speech.</p><p>On September 21, California also made SB 1168 and AB 1577 law. They are two of seven data-centre bills signed that day; this Weekly does not claim to explain the other five. SB 1168 tells the utilities commission to assess opportunities for rate structures — the rules used to divide utility charges among customer groups — including data centres’ share of grid and procurement costs. An assessment is not an adopted tariff or a calculated household saving.</p><p>AB 1577 creates local and state reporting for covered data centres with at least 10 megawatts of electrical capacity. Its public releases must be anonymized and aggregated — combined so a public release does not expose one protected customer record — and its first specified statewide load-trend assessment belongs in the 2029 energy-policy report. Named public, research, safety, national-security, publicly owned and utility facilities are excluded from the cited reporting provisions.</p><h3>Washington: a House vote is still a proposal</h3><p>The US House passed H.R. 9340 by 417–3 on September 16. If enacted, it would require state regulators and nonregulated utilities to consider a standard for qualifying computing sites with at least 100 megawatts of peak demand. Under that standard, a large customer’s rate would recover the additional grid-upgrade cost needed to serve it.</p><p>The bill would require consideration and a determination; it would not itself set one nationwide retail rate. A September 17 unanimous-consent attempt in the Senate drew an objection. The current official sources in this packet do not establish a Senate vote or enactment. Your bill still depends on the relevant utility, regulator, project and approved rate design.</p><h3>Card skimmers: an investigation, not your exposure notice</h3><p>BleepingComputer reported on September 23 that security firm Gambit had investigated AI-assisted agents used in a retail card-skimming campaign. Gambit calls its underlying publication an interim report and separates recovered material and observed checks from estimates about scale and cost.</p><p>The consumer consequence is serious: card skimmers steal payment details from online stores. The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card. Quantities and claims about the AI role remain attributed to the investigators until affected parties or independent evidence narrow the scope.</p><h3>Product changes you may actually encounter</h3><p>Anthropic said on September 16 that Claude Cowork and chat are merging into one Claude. The practical change is that longer work can begin in an ordinary conversation rather than a separately chosen mode. The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice. Claude Docs and Slides are beta features on paid plans.</p><p>OpenAI also announced GPT-6 Sol and Luna in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users. Free and Go users can access Luna in the desktop app. The models were not yet available in Chat, and the company said rollout through the day could delay visibility. OpenAI says its performance and reliability comparisons come from its own evaluations, not independent proof that everyone should switch. For ordinary work, access and the task matter before a benchmark table does.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The week is not one story about AI speeding up or government catching up. It is a set of different decision chains. The California order leads to recommendations. The state laws lead to proceedings, reports and later public data. The House bill still needs enactment and local rate decisions. The security report needs corroboration or affected-party notices. Product releases still depend on plan, app and rollout.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Concrete household anchors: your electricity bill depends on utility, regulator and rate design; your card exposure needs an issuer notice; your app access depends on plan and surface.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week’s Weekly asked how to tell a promise from proof. This week needs a sharper tool: read the verb.</p><p>An agency can <strong>study</strong> a safeguard. A legislature can <strong>enact</strong> a reporting duty. One chamber can <strong>pass</strong> a proposal. Investigators can <strong>report</strong> a campaign. A company can <strong>release</strong> a product. All are real developments, but they do not create the same protection, evidence or access.</p><h3>California: study the switch, start the reporting</h3><p>California’s September 18 executive order took effect immediately. It accelerated existing oversight work and set November 16 for recommendations on possible legal amendments, including independently checked shutoffs for advanced AI systems, onsite verifiers and broader incident reporting. It did not install a universal AI kill switch. The Electronic Frontier Foundation supports broader reporting and third-party investigations while warning that shutoff effectiveness remains active research and government control could threaten protected speech.</p><p>On September 21, California also made SB 1168 and AB 1577 law. They are two of seven data-centre bills signed that day; this Weekly does not claim to explain the other five. SB 1168 tells the utilities commission to assess opportunities for rate structures — the rules used to divide utility charges among customer groups — including data centres’ share of grid and procurement costs. An assessment is not an adopted tariff or a calculated household saving.</p><p>AB 1577 creates local and state reporting for covered data centres with at least 10 megawatts of electrical capacity. Its public releases must be anonymized and aggregated — combined so a public release does not expose one protected customer record — and its first specified statewide load-trend assessment belongs in the 2029 energy-policy report. Named public, research, safety, national-security, publicly owned and utility facilities are excluded from the cited reporting provisions.</p><h3>Washington: a House vote is still a proposal</h3><p>The US House passed H.R. 9340 by 417–3 on September 16. If enacted, it would require state regulators and nonregulated utilities to consider a standard for qualifying computing sites with at least 100 megawatts of peak demand. Under that standard, a large customer’s rate would recover the additional grid-upgrade cost needed to serve it.</p><p>The bill would require consideration and a determination; it would not itself set one nationwide retail rate. A September 17 unanimous-consent attempt in the Senate drew an objection. The current official sources in this packet do not establish a Senate vote or enactment. Your bill still depends on the relevant utility, regulator, project and approved rate design.</p><h3>Card skimmers: an investigation, not your exposure notice</h3><p>BleepingComputer reported on September 23 that security firm Gambit had investigated AI-assisted agents used in a retail card-skimming campaign. Gambit calls its underlying publication an interim report and separates recovered material and observed checks from estimates about scale and cost.</p><p>The consumer consequence is serious: card skimmers steal payment details from online stores. The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card. Quantities and claims about the AI role remain attributed to the investigators until affected parties or independent evidence narrow the scope.</p><h3>Product changes you may actually encounter</h3><p>Anthropic said on September 16 that Claude Cowork and chat are merging into one Claude. The practical change is that longer work can begin in an ordinary conversation rather than a separately chosen mode. The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice. Claude Docs and Slides are beta features on paid plans.</p><p>OpenAI also announced GPT-6 Sol and Luna in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users. Free and Go users can access Luna in the desktop app. The models were not yet available in Chat, and the company said rollout through the day could delay visibility. OpenAI says its performance and reliability comparisons come from its own evaluations, not independent proof that everyone should switch. For ordinary work, access and the task matter before a benchmark table does.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>For an electricity claim, look for the commission proceeding, local permit or approved rate. For a security claim, look for an affected retailer, issuer notice or updated investigation before assuming personal exposure. For a product announcement, check your plan and the surface named in the source: Work, Codex, Chat, desktop or another app are not interchangeable.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose (what changed for me), concrete causal chains per development in P003, and a better next question per section via watch-fors and P005; no imitation of any explainer's persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The week is not one story about AI speeding up or government catching up. It is a set of different decision chains. The California order leads to recommendations. The state laws lead to proceedings, reports and later public data. The House bill still needs enactment and local rate decisions. The security report needs corroboration or affected-party notices. Product releases still depend on plan, app and rollout.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>For an electricity claim, look for the commission proceeding, local permit or approved rate. For a security claim, look for an affected retailer, issuer notice or updated investigation before assuming personal exposure. For a product announcement, check your plan and the surface named in the source: Work, Codex, Chat, desktop or another app are not interchangeable.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>When a headline sounds finished, replace its loudest noun with the operative verb. “Kill switch” becomes “recommend.” “Ratepayer protection” becomes “consider.” “AI card theft” becomes “investigators report.” That small edit often reveals the next evidence you actually need.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "P002 and P003 supply enough mechanism to answer why a 417-3 House vote changes no one's bill yet: the standard operates only after enactment plus state-level consideration and an approved rate design.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week’s Weekly asked how to tell a promise from proof. This week needs a sharper tool: read the verb.</p><p>An agency can <strong>study</strong> a safeguard. A legislature can <strong>enact</strong> a reporting duty. One chamber can <strong>pass</strong> a proposal. Investigators can <strong>report</strong> a campaign. A company can <strong>release</strong> a product. All are real developments, but they do not create the same protection, evidence or access.</p><h3>California: study the switch, start the reporting</h3><p>California’s September 18 executive order took effect immediately. It accelerated existing oversight work and set November 16 for recommendations on possible legal amendments, including independently checked shutoffs for advanced AI systems, onsite verifiers and broader incident reporting. It did not install a universal AI kill switch. The Electronic Frontier Foundation supports broader reporting and third-party investigations while warning that shutoff effectiveness remains active research and government control could threaten protected speech.</p><p>On September 21, California also made SB 1168 and AB 1577 law. They are two of seven data-centre bills signed that day; this Weekly does not claim to explain the other five. SB 1168 tells the utilities commission to assess opportunities for rate structures — the rules used to divide utility charges among customer groups — including data centres’ share of grid and procurement costs. An assessment is not an adopted tariff or a calculated household saving.</p><p>AB 1577 creates local and state reporting for covered data centres with at least 10 megawatts of electrical capacity. Its public releases must be anonymized and aggregated — combined so a public release does not expose one protected customer record — and its first specified statewide load-trend assessment belongs in the 2029 energy-policy report. Named public, research, safety, national-security, publicly owned and utility facilities are excluded from the cited reporting provisions.</p><h3>Washington: a House vote is still a proposal</h3><p>The US House passed H.R. 9340 by 417–3 on September 16. If enacted, it would require state regulators and nonregulated utilities to consider a standard for qualifying computing sites with at least 100 megawatts of peak demand. Under that standard, a large customer’s rate would recover the additional grid-upgrade cost needed to serve it.</p><p>The bill would require consideration and a determination; it would not itself set one nationwide retail rate. A September 17 unanimous-consent attempt in the Senate drew an objection. The current official sources in this packet do not establish a Senate vote or enactment. Your bill still depends on the relevant utility, regulator, project and approved rate design.</p><h3>Card skimmers: an investigation, not your exposure notice</h3><p>BleepingComputer reported on September 23 that security firm Gambit had investigated AI-assisted agents used in a retail card-skimming campaign. Gambit calls its underlying publication an interim report and separates recovered material and observed checks from estimates about scale and cost.</p><p>The consumer consequence is serious: card skimmers steal payment details from online stores. The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card. Quantities and claims about the AI role remain attributed to the investigators until affected parties or independent evidence narrow the scope.</p><h3>Product changes you may actually encounter</h3><p>Anthropic said on September 16 that Claude Cowork and chat are merging into one Claude. The practical change is that longer work can begin in an ordinary conversation rather than a separately chosen mode. The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice. Claude Docs and Slides are beta features on paid plans.</p><p>OpenAI also announced GPT-6 Sol and Luna in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users. Free and Go users can access Luna in the desktop app. The models were not yet available in Chat, and the company said rollout through the day could delay visibility. OpenAI says its performance and reliability comparisons come from its own evaluations, not independent proof that everyone should switch. For ordinary work, access and the task matter before a benchmark table does.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The week is not one story about AI speeding up or government catching up. It is a set of different decision chains. The California order leads to recommendations. The state laws lead to proceedings, reports and later public data. The House bill still needs enactment and local rate decisions. The security report needs corroboration or affected-party notices. Product releases still depend on plan, app and rollout.</p>",
+          "locator": "P003"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why does a 417-3 House vote on H.R. 9340 not change anyone's electricity bill this week?",
+        "response": "Because a one-chamber vote only moves a proposal along a chain: the Senate must pass it and it must be enacted, and even then the bill would only require state regulators and nonregulated utilities to consider a cost-recovery standard for sites with 100 MW or more of peak demand and make a determination. A household bill changes only after a specific regulator approves a rate design for a specific utility, and a September 17 unanimous-consent attempt in the Senate already drew an objection.",
+        "expectedEvidence": "An accurate answer must include: one-chamber passage is not enactment; the bill mandates consideration and a determination, not a nationwide rate; the 100 MW qualifying threshold; and the dependence on local regulator and rate design.",
+        "assessment": "The article supplies every element of this causal chain explicitly in P002 and P003, so a reader can produce this answer in ordinary language without outside knowledge; explain-back succeeds."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The verb-and-decision-chain tool in P004 transfers cleanly to novel situations (e.g., a regulator 'opening a consultation' on chatbot age checks) because it keys on operative verbs, not this week's facts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a headline sounds finished, replace its loudest noun with the operative verb. “Kill switch” becomes “recommend.” “Ratepayer protection” becomes “consider.” “AI card theft” becomes “investigators report.” That small edit often reveals the next evidence you actually need.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>No new routine is compulsory because six developments happened. The useful habit is narrower: ask what changed now, who is covered and what still requires a later decision.</p>",
+          "locator": "P006"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's tool, what should the reader conclude about whether their employer must remove emotion-recognition software now?",
+        "response": "Replace the headline noun 'ban' with the operative verb: the Commission 'proposed' or 'opened comment on' a guideline. Nothing is currently prohibited; the decision chain still requires the comment period to close, the guideline to be adopted, and national authorities to set enforcement rules. The next evidence to seek is the adopted final text and a national regulator's implementation date, not the headline.",
+        "expectedEvidence": "Correct transfer requires identifying the operative verb, mapping the remaining steps in the decision chain, and naming the specific next document that would change the answer.",
+        "assessment": "The verb test and decision-chain framing from P004 and P003 apply directly to this unseen regulatory scenario and produce the right bounded conclusion, so the mechanism transfers."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Actions are specific and proportionate per claim type in P005: look for the commission proceeding, the issuer notice, or the named surface and plan; P006 explicitly declines to invent a compulsory routine.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For an electricity claim, look for the commission proceeding, local permit or approved rate. For a security claim, look for an affected retailer, issuer notice or updated investigation before assuming personal exposure. For a product announcement, check your plan and the surface named in the source: Work, Codex, Chat, desktop or another app are not interchangeable.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>No new routine is compulsory because six developments happened. The useful habit is narrower: ask what changed now, who is covered and what still requires a later decision.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The piece uses almost no analogy; the one figurative move, swapping a headline noun for its operative verb in P004, maps exactly onto the legal and procedural mechanism it describes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a headline sounds finished, replace its loudest noun with the operative verb. “Kill switch” becomes “recommend.” “Ratepayer protection” becomes “consider.” “AI card theft” becomes “investigators report.” That small edit often reveals the next evidence you actually need.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim in P002 traces to a supplied primary or attributed excerpt with attribution retained (Gambit findings via BleepingComputer, EFF position, provider statements) and no claim exceeds its source's scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week’s Weekly asked how to tell a promise from proof. This week needs a sharper tool: read the verb.</p><p>An agency can <strong>study</strong> a safeguard. A legislature can <strong>enact</strong> a reporting duty. One chamber can <strong>pass</strong> a proposal. Investigators can <strong>report</strong> a campaign. A company can <strong>release</strong> a product. All are real developments, but they do not create the same protection, evidence or access.</p><h3>California: study the switch, start the reporting</h3><p>California’s September 18 executive order took effect immediately. It accelerated existing oversight work and set November 16 for recommendations on possible legal amendments, including independently checked shutoffs for advanced AI systems, onsite verifiers and broader incident reporting. It did not install a universal AI kill switch. The Electronic Frontier Foundation supports broader reporting and third-party investigations while warning that shutoff effectiveness remains active research and government control could threaten protected speech.</p><p>On September 21, California also made SB 1168 and AB 1577 law. They are two of seven data-centre bills signed that day; this Weekly does not claim to explain the other five. SB 1168 tells the utilities commission to assess opportunities for rate structures — the rules used to divide utility charges among customer groups — including data centres’ share of grid and procurement costs. An assessment is not an adopted tariff or a calculated household saving.</p><p>AB 1577 creates local and state reporting for covered data centres with at least 10 megawatts of electrical capacity. Its public releases must be anonymized and aggregated — combined so a public release does not expose one protected customer record — and its first specified statewide load-trend assessment belongs in the 2029 energy-policy report. Named public, research, safety, national-security, publicly owned and utility facilities are excluded from the cited reporting provisions.</p><h3>Washington: a House vote is still a proposal</h3><p>The US House passed H.R. 9340 by 417–3 on September 16. If enacted, it would require state regulators and nonregulated utilities to consider a standard for qualifying computing sites with at least 100 megawatts of peak demand. Under that standard, a large customer’s rate would recover the additional grid-upgrade cost needed to serve it.</p><p>The bill would require consideration and a determination; it would not itself set one nationwide retail rate. A September 17 unanimous-consent attempt in the Senate drew an objection. The current official sources in this packet do not establish a Senate vote or enactment. Your bill still depends on the relevant utility, regulator, project and approved rate design.</p><h3>Card skimmers: an investigation, not your exposure notice</h3><p>BleepingComputer reported on September 23 that security firm Gambit had investigated AI-assisted agents used in a retail card-skimming campaign. Gambit calls its underlying publication an interim report and separates recovered material and observed checks from estimates about scale and cost.</p><p>The consumer consequence is serious: card skimmers steal payment details from online stores. The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card. Quantities and claims about the AI role remain attributed to the investigators until affected parties or independent evidence narrow the scope.</p><h3>Product changes you may actually encounter</h3><p>Anthropic said on September 16 that Claude Cowork and chat are merging into one Claude. The practical change is that longer work can begin in an ordinary conversation rather than a separately chosen mode. The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice. Claude Docs and Slides are beta features on paid plans.</p><p>OpenAI also announced GPT-6 Sol and Luna in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users. Free and Go users can access Luna in the desktop app. The models were not yet available in Chat, and the company said rollout through the day could delay visibility. OpenAI says its performance and reliability comparisons come from its own evaluations, not independent proof that everyone should switch. For ordinary work, access and the task matter before a benchmark table does.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The week is not one story about AI speeding up or government catching up. It is a set of different decision chains. The California order leads to recommendations. The state laws lead to proceedings, reports and later public data. The House bill still needs enactment and local rate decisions. The security report needs corroboration or affected-party notices. Product releases still depend on plan, app and rollout.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Each development carries its event date (September 16-23), the covered period and September 26 source refresh are stated, and each claim names a checkable primary surface (roll call, bill text, signed order, provider posts).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week’s Weekly asked how to tell a promise from proof. This week needs a sharper tool: read the verb.</p><p>An agency can <strong>study</strong> a safeguard. A legislature can <strong>enact</strong> a reporting duty. One chamber can <strong>pass</strong> a proposal. Investigators can <strong>report</strong> a campaign. A company can <strong>release</strong> a product. All are real developments, but they do not create the same protection, evidence or access.</p><h3>California: study the switch, start the reporting</h3><p>California’s September 18 executive order took effect immediately. It accelerated existing oversight work and set November 16 for recommendations on possible legal amendments, including independently checked shutoffs for advanced AI systems, onsite verifiers and broader incident reporting. It did not install a universal AI kill switch. The Electronic Frontier Foundation supports broader reporting and third-party investigations while warning that shutoff effectiveness remains active research and government control could threaten protected speech.</p><p>On September 21, California also made SB 1168 and AB 1577 law. They are two of seven data-centre bills signed that day; this Weekly does not claim to explain the other five. SB 1168 tells the utilities commission to assess opportunities for rate structures — the rules used to divide utility charges among customer groups — including data centres’ share of grid and procurement costs. An assessment is not an adopted tariff or a calculated household saving.</p><p>AB 1577 creates local and state reporting for covered data centres with at least 10 megawatts of electrical capacity. Its public releases must be anonymized and aggregated — combined so a public release does not expose one protected customer record — and its first specified statewide load-trend assessment belongs in the 2029 energy-policy report. Named public, research, safety, national-security, publicly owned and utility facilities are excluded from the cited reporting provisions.</p><h3>Washington: a House vote is still a proposal</h3><p>The US House passed H.R. 9340 by 417–3 on September 16. If enacted, it would require state regulators and nonregulated utilities to consider a standard for qualifying computing sites with at least 100 megawatts of peak demand. Under that standard, a large customer’s rate would recover the additional grid-upgrade cost needed to serve it.</p><p>The bill would require consideration and a determination; it would not itself set one nationwide retail rate. A September 17 unanimous-consent attempt in the Senate drew an objection. The current official sources in this packet do not establish a Senate vote or enactment. Your bill still depends on the relevant utility, regulator, project and approved rate design.</p><h3>Card skimmers: an investigation, not your exposure notice</h3><p>BleepingComputer reported on September 23 that security firm Gambit had investigated AI-assisted agents used in a retail card-skimming campaign. Gambit calls its underlying publication an interim report and separates recovered material and observed checks from estimates about scale and cost.</p><p>The consumer consequence is serious: card skimmers steal payment details from online stores. The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card. Quantities and claims about the AI role remain attributed to the investigators until affected parties or independent evidence narrow the scope.</p><h3>Product changes you may actually encounter</h3><p>Anthropic said on September 16 that Claude Cowork and chat are merging into one Claude. The practical change is that longer work can begin in an ordinary conversation rather than a separately chosen mode. The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice. Claude Docs and Slides are beta features on paid plans.</p><p>OpenAI also announced GPT-6 Sol and Luna in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users. Free and Go users can access Luna in the desktop app. The models were not yet available in Chat, and the company said rollout through the day could delay visibility. OpenAI says its performance and reliability comparisons come from its own evaluations, not independent proof that everyone should switch. For ordinary work, access and the task matter before a benchmark table does.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "This week’s AI news: what changed, and what is still a proposal",
+          "locator": "P001"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article's whole structure separates what newly happened (order effective, laws signed, House vote, report published, releases) from what remains future (recommendations, proceedings, Senate action, corroboration, rollout completion) in P002 and P003.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week’s Weekly asked how to tell a promise from proof. This week needs a sharper tool: read the verb.</p><p>An agency can <strong>study</strong> a safeguard. A legislature can <strong>enact</strong> a reporting duty. One chamber can <strong>pass</strong> a proposal. Investigators can <strong>report</strong> a campaign. A company can <strong>release</strong> a product. All are real developments, but they do not create the same protection, evidence or access.</p><h3>California: study the switch, start the reporting</h3><p>California’s September 18 executive order took effect immediately. It accelerated existing oversight work and set November 16 for recommendations on possible legal amendments, including independently checked shutoffs for advanced AI systems, onsite verifiers and broader incident reporting. It did not install a universal AI kill switch. The Electronic Frontier Foundation supports broader reporting and third-party investigations while warning that shutoff effectiveness remains active research and government control could threaten protected speech.</p><p>On September 21, California also made SB 1168 and AB 1577 law. They are two of seven data-centre bills signed that day; this Weekly does not claim to explain the other five. SB 1168 tells the utilities commission to assess opportunities for rate structures — the rules used to divide utility charges among customer groups — including data centres’ share of grid and procurement costs. An assessment is not an adopted tariff or a calculated household saving.</p><p>AB 1577 creates local and state reporting for covered data centres with at least 10 megawatts of electrical capacity. Its public releases must be anonymized and aggregated — combined so a public release does not expose one protected customer record — and its first specified statewide load-trend assessment belongs in the 2029 energy-policy report. Named public, research, safety, national-security, publicly owned and utility facilities are excluded from the cited reporting provisions.</p><h3>Washington: a House vote is still a proposal</h3><p>The US House passed H.R. 9340 by 417–3 on September 16. If enacted, it would require state regulators and nonregulated utilities to consider a standard for qualifying computing sites with at least 100 megawatts of peak demand. Under that standard, a large customer’s rate would recover the additional grid-upgrade cost needed to serve it.</p><p>The bill would require consideration and a determination; it would not itself set one nationwide retail rate. A September 17 unanimous-consent attempt in the Senate drew an objection. The current official sources in this packet do not establish a Senate vote or enactment. Your bill still depends on the relevant utility, regulator, project and approved rate design.</p><h3>Card skimmers: an investigation, not your exposure notice</h3><p>BleepingComputer reported on September 23 that security firm Gambit had investigated AI-assisted agents used in a retail card-skimming campaign. Gambit calls its underlying publication an interim report and separates recovered material and observed checks from estimates about scale and cost.</p><p>The consumer consequence is serious: card skimmers steal payment details from online stores. The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card. Quantities and claims about the AI role remain attributed to the investigators until affected parties or independent evidence narrow the scope.</p><h3>Product changes you may actually encounter</h3><p>Anthropic said on September 16 that Claude Cowork and chat are merging into one Claude. The practical change is that longer work can begin in an ordinary conversation rather than a separately chosen mode. The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice. Claude Docs and Slides are beta features on paid plans.</p><p>OpenAI also announced GPT-6 Sol and Luna in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users. Free and Go users can access Luna in the desktop app. The models were not yet available in Chat, and the company said rollout through the day could delay visibility. OpenAI says its performance and reliability comparisons come from its own evaluations, not independent proof that everyone should switch. For ordinary work, access and the task matter before a benchmark table does.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The week is not one story about AI speeding up or government catching up. It is a set of different decision chains. The California order leads to recommendations. The state laws lead to proceedings, reports and later public data. The House bill still needs enactment and local rate decisions. The security report needs corroboration or affected-party notices. Product releases still depend on plan, app and rollout.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>No new routine is compulsory because six developments happened. The useful habit is narrower: ask what changed now, who is covered and what still requires a later decision.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (household bill path, card exposure, plan-specific access) while uncertainty survives: no Senate vote established, no victim list, provider-only evaluations, rollout-dependent visibility.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week’s Weekly asked how to tell a promise from proof. This week needs a sharper tool: read the verb.</p><p>An agency can <strong>study</strong> a safeguard. A legislature can <strong>enact</strong> a reporting duty. One chamber can <strong>pass</strong> a proposal. Investigators can <strong>report</strong> a campaign. A company can <strong>release</strong> a product. All are real developments, but they do not create the same protection, evidence or access.</p><h3>California: study the switch, start the reporting</h3><p>California’s September 18 executive order took effect immediately. It accelerated existing oversight work and set November 16 for recommendations on possible legal amendments, including independently checked shutoffs for advanced AI systems, onsite verifiers and broader incident reporting. It did not install a universal AI kill switch. The Electronic Frontier Foundation supports broader reporting and third-party investigations while warning that shutoff effectiveness remains active research and government control could threaten protected speech.</p><p>On September 21, California also made SB 1168 and AB 1577 law. They are two of seven data-centre bills signed that day; this Weekly does not claim to explain the other five. SB 1168 tells the utilities commission to assess opportunities for rate structures — the rules used to divide utility charges among customer groups — including data centres’ share of grid and procurement costs. An assessment is not an adopted tariff or a calculated household saving.</p><p>AB 1577 creates local and state reporting for covered data centres with at least 10 megawatts of electrical capacity. Its public releases must be anonymized and aggregated — combined so a public release does not expose one protected customer record — and its first specified statewide load-trend assessment belongs in the 2029 energy-policy report. Named public, research, safety, national-security, publicly owned and utility facilities are excluded from the cited reporting provisions.</p><h3>Washington: a House vote is still a proposal</h3><p>The US House passed H.R. 9340 by 417–3 on September 16. If enacted, it would require state regulators and nonregulated utilities to consider a standard for qualifying computing sites with at least 100 megawatts of peak demand. Under that standard, a large customer’s rate would recover the additional grid-upgrade cost needed to serve it.</p><p>The bill would require consideration and a determination; it would not itself set one nationwide retail rate. A September 17 unanimous-consent attempt in the Senate drew an objection. The current official sources in this packet do not establish a Senate vote or enactment. Your bill still depends on the relevant utility, regulator, project and approved rate design.</p><h3>Card skimmers: an investigation, not your exposure notice</h3><p>BleepingComputer reported on September 23 that security firm Gambit had investigated AI-assisted agents used in a retail card-skimming campaign. Gambit calls its underlying publication an interim report and separates recovered material and observed checks from estimates about scale and cost.</p><p>The consumer consequence is serious: card skimmers steal payment details from online stores. The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card. Quantities and claims about the AI role remain attributed to the investigators until affected parties or independent evidence narrow the scope.</p><h3>Product changes you may actually encounter</h3><p>Anthropic said on September 16 that Claude Cowork and chat are merging into one Claude. The practical change is that longer work can begin in an ordinary conversation rather than a separately chosen mode. The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice. Claude Docs and Slides are beta features on paid plans.</p><p>OpenAI also announced GPT-6 Sol and Luna in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users. Free and Go users can access Luna in the desktop app. The models were not yet available in Chat, and the company said rollout through the day could delay visibility. OpenAI says its performance and reliability comparisons come from its own evaluations, not independent proof that everyone should switch. For ordinary work, access and the task matter before a benchmark table does.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>For an electricity claim, look for the commission proceeding, local permit or approved rate. For a security claim, look for an affected retailer, issuer notice or updated investigation before assuming personal exposure. For a product announcement, check your plan and the surface named in the source: Work, Codex, Chat, desktop or another app are not interchangeable.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>No new routine is compulsory because six developments happened. The useful habit is narrower: ask what changed now, who is covered and what still requires a later decision.</p>",
+          "locator": "P006"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Definitions appear only where the mechanism needs them and are immediately used; no term list accumulates.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Sections share a discipline (verb, scope, missing step) but the prose varies in structure and length per development; no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No decorative comparisons; the single figurative device does real explanatory work on the mechanism.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Each conclusion is preceded by its causal steps: enactment paths, rollout stages, and evidence chains are shown, not asserted.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Advice is case-specific: commission proceeding for electricity, issuer notice for cards, named plan and surface for products.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Every technical term (rate structure, aggregated release, interim report, unanimous consent context) is explained at or near first use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "P003 explicitly links each actor to its downstream step, showing how effects move through each decision chain.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is carefully bounded ('current official sources in this packet do not establish a Senate vote'); hedges match evidence throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Every time-sensitive claim carries its event date, and the closing note states the covered period and September 26 source refresh.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Prose is concrete and plain; no motivational or vague corporate language appears.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Restrained but not dry: the verb-substitution device and direct second-person stakes keep human interest alive.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is mentioned or leaned on.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The opening promise of a sharper tool is delivered in P004 and applied across all six developments.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Familiar anchors (bill, card, app) each return to the specific legal or rollout mechanism that governs them.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Voice is original and consistent; no imitation of a known communicator's mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle intrudes; understanding leads throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The hook is two short paragraphs; the causal explanation occupies the bulk of the piece with full development per section.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Status conclusions ('still a proposal', 'not your exposure notice') are each backed immediately by the procedural steps that justify them.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "P006 deliberately deflates: 'No new routine is compulsory'; the ending is narrower than the material, not grander.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers all six developments in the supplied reader job and adds a transferable reading tool; no single task swallows the purpose.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human reason (telling current duties from future decisions) is established in P001-P002 before any procedural machinery begins.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No single worked example dominates; the six items get proportionate space against the shared tool.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The organising perspective is the reader's exposure and access, not specialist taxonomy; procedure appears only where the reader's outcome depends on it.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "reviewedThrough": "2026-09-26",
+    "nextTrigger": "Any later Senate action, enactment, California implementation, affected-party confirmation, correction, or rollout change.",
+    "correctionOwner": "NewsStand product steward",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-input.json",
+        "sha256": "09d99cb61e54e6f67842559e12508ae510e72e011e46a3472d83c42c118d186d"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/source-clause-coverage-20260926.json",
+        "sha256": "2611a7bd9b539d459846c96310e892c3d3b8ca0707d96f84e1500d8b045f46b9"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/california-ai-oversight-order-1.json",
+        "sha256": "a401ebad2738f46d66711e145aba77a00ac1430ede0fb716dc0040388809f22f"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/california-ai-oversight-order-2.json",
+        "sha256": "fadef4f781eed57fe7ba03b1d7593410a9173f80eddc2253c094694526446ebe"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/california-data-centre-laws-1.json",
+        "sha256": "af795595a091bf8e99cd7ddc87aaadb8fa2b7df8ec045c7ed073942ecc69d5e6"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/california-data-centre-laws-2.json",
+        "sha256": "8e9391aa66d44f2745a26171ce0f93672145a3d8ea8fa1d55e41e8d4aa75c52f"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/california-data-centre-laws-3.json",
+        "sha256": "c9eb6d25061cc78da08ea87152cf4321842a5abdd0826995c159a132807edf96"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/house-ratepayer-protection-1.json",
+        "sha256": "1e6c5a2aab298b758a9a8fe0e67a1ba7a23a44adec6f9134913aafe9c6b63323"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/house-ratepayer-protection-2.json",
+        "sha256": "254e9681a4c0d19b751d666f723b5147eb2ea6ca03c7d0bcd93d34f0b45d1eea"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/house-ratepayer-protection-3.json",
+        "sha256": "9343944b55060f70d027eef8e875eedd313fd02661ad38c4d67955453d521aeb"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/card-skimmer-investigation-1.json",
+        "sha256": "d966d69efdbec35c379f2652d156a36ba321a3ddc5bf202f8bcbfd689863d480"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/card-skimmer-investigation-2.json",
+        "sha256": "bb1014669878967835fea6c65776f9c9c5a31be7f4a3b6c2365f129c351ab399"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/claude-cowork-merge-1.json",
+        "sha256": "ee5197e76acf88b253a2cf7d123e89a3e86a328c148740c9391f793aad9f7c1c"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/sources-actual-20260926/gpt6-sol-luna-1.json",
+        "sha256": "6282400e82f1fcd24aec79efd3679063652051753f9ea8236e7fb9564e1e3130"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "california-ai-oversight-order",
+        "claim": "California order directs recommendations, including possible statutory amendments.",
+        "candidateEvidence": [
+          {
+            "excerpt": "It did not install a universal AI kill switch.",
+            "locator": "complete exact Weekly"
+          }
+        ],
+        "sourceIds": [
+          "california-ai-oversight-order-1",
+          "california-ai-oversight-order-2"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "The Government Operations Agency, in consultation with the Governor’s Office of Emergency Services, shall, no later than November 16, 2026, submit to my office recommendations, developed in consultation with national experts, addressing the technical feasibility and potential efficacy of amendments to existing state laws regarding AI safety and security, including at least the following:",
+            "locator": "https://www.gov.ca.gov/wp-content/uploads/2026/09/FINAL-N-9-26-AI-EO-9.18.26-SIGNED.pdf"
+          },
+          {
+            "excerpt": "EFF supports the focus on expanding reporting requirements under SB 53 for loss-of-control incidents, alongside third-party investigations. ... the effectiveness of kill switches in advanced AI systems remains an area of active research. ... government-controlled kill switches run the risk of being used as a form of retaliation against protected speech.",
+            "locator": "https://www.eff.org/deeplinks/2026/09/eff-statement-california-governors-executive-order-ai"
+          }
+        ],
+        "scopeAndFreshness": "Signed order and current EFF statement refreshed September 26; recommendation directive, not an installed universal switch.",
+        "status": "VERIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-input.json",
+          "sha256": "09d99cb61e54e6f67842559e12508ae510e72e011e46a3472d83c42c118d186d"
+        }
+      },
+      {
+        "claimId": "california-data-centre-laws",
+        "claim": "California enacted selected data-centre reporting and assessment duties.",
+        "candidateEvidence": [
+          {
+            "excerpt": "An assessment is not an adopted tariff or a calculated household saving.",
+            "locator": "complete exact Weekly"
+          }
+        ],
+        "sourceIds": [
+          "california-data-centre-laws-1",
+          "california-data-centre-laws-2",
+          "california-data-centre-laws-3"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          },
+          {
+            "excerpt": "“Data center” does not include a facility with an electrical capacity of less than 10 megawatts. Beginning with the 2029 integrated energy policy report required pursuant to subdivision (a) of Section 25302, and in subsequent biennial reports required pursuant to subdivision (a) of Section 25302 thereafter as determined by the commission, the commission shall include an assessment of electrical load trends for data centers.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "Governor Newsom today signed seven bills to strengthen California’s approach to data centers — requiring data centers to report about water and electricity use.",
+            "locator": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/"
+          },
+          {
+            "excerpt": "This section does not apply to a publicly funded research facility, public safety facility, publicly funded national security facility, publicly owned facility, or other utility facility, including, but not limited to, a facility operated for the purpose of providing telecommunications services to the public by a terrestrial facilities-based telecommunications, cable, or internet service provider.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "The commission shall annually publish the information submitted pursuant to subdivision (b) in an anonymized and aggregated format on its internet website.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          }
+        ],
+        "scopeAndFreshness": "SB1168 and AB1577 primary bill texts and the Governor’s count refreshed September 26. SB1168 directs an assessment, not a tariff; AB1577 contains the 10MW threshold, 2029 reporting assessment and stated exclusions. Article covers neither all seven bills nor a calculated household saving.",
+        "status": "VERIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-input.json",
+          "sha256": "09d99cb61e54e6f67842559e12508ae510e72e011e46a3472d83c42c118d186d"
+        }
+      },
+      {
+        "claimId": "house-ratepayer-protection",
+        "claim": "House-passed bill establishes a standard only if enacted.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The bill would require consideration and a determination; it would not itself set one nationwide retail rate.",
+            "locator": "complete exact Weekly"
+          }
+        ],
+        "sourceIds": [
+          "house-ratepayer-protection-1",
+          "house-ratepayer-protection-2",
+          "house-ratepayer-protection-3"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Not later than 1 year after the date of enactment of this paragraph, each State regulatory authority (with respect to each electric utility for which the State has ratemaking authority) and each nonregulated electric utility shall commence consideration under section 111, or set a hearing date for consideration, with respect to the standard established by paragraph (22) of section 111(d).",
+            "locator": "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm"
+          },
+          {
+            "excerpt": "yea, 417\nnay, 3",
+            "locator": "https://clerk.house.gov/Votes/2026312"
+          },
+          {
+            "excerpt": "A Senate Democrat objected, blocking the bill from Senate passage.",
+            "locator": "https://www.husted.senate.gov/media/press-releases/husted-bill-to-protect-americans-from-footing-the-bill-for-new-data-centers-blocked-from-passage/"
+          },
+          {
+            "excerpt": "Last Action Date Listed September 16, 2026; Bill Version Engrossed in House (EH)",
+            "locator": "https://www.govinfo.gov/app/details/BILLS-119hr9340eh"
+          },
+          {
+            "excerpt": "have, in the aggregate, a peak electric demand of 100 megawatts or more at a single site or campus.",
+            "locator": "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm"
+          }
+        ],
+        "scopeAndFreshness": "House text, Clerk vote and official status surfaces refreshed September 26. The normal Congress.gov action-page attempt was inaccessible; the article now limits its Senate statement to the supplied sources, which do not establish a Senate vote or enactment.",
+        "status": "VERIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-input.json",
+          "sha256": "09d99cb61e54e6f67842559e12508ae510e72e011e46a3472d83c42c118d186d"
+        }
+      },
+      {
+        "claimId": "card-skimmer-investigation",
+        "claim": "Report attributes card-skimming findings to Gambit.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The evidence supplied here does not identify a complete victim list, establish that a particular reader’s card was taken or support a made-up instruction to cancel every card.",
+            "locator": "complete exact Weekly"
+          }
+        ],
+        "sourceIds": [
+          "card-skimmer-investigation-1",
+          "card-skimmer-investigation-2"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Despite the broad targeting, findings from cybersecurity startup Gambit indicate that the attacker stole more than 600,000 valid card details from two companies and deployed skimmer malware on the websites of five other organizations to collect payment data.",
+            "locator": "https://www.bleepingcomputer.com/news/security/malicious-ai-agents-steal-600k-credit-cards-infect-100-plus-sites-with-skimmers/"
+          },
+          {
+            "excerpt": "The report is dated September 22, 2026 and labels itself an interim report.",
+            "locator": "https://gambit.security/blog-posts/autonomous-ai-agents-online-retailers-25-a-company"
+          }
+        ],
+        "scopeAndFreshness": "BleepingComputer report refreshed September 26; no individual exposure conclusion.",
+        "status": "VERIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-input.json",
+          "sha256": "09d99cb61e54e6f67842559e12508ae510e72e011e46a3472d83c42c118d186d"
+        }
+      },
+      {
+        "claimId": "claude-cowork-merge",
+        "claim": "Anthropic announced a Cowork/chat product merge.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The rollout starts with Pro and Max over several weeks; Team and Free are to follow, while Enterprise administrators get advance notice.",
+            "locator": "complete exact Weekly"
+          }
+        ],
+        "sourceIds": [
+          "claude-cowork-merge-1"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Cowork and chat are now one Claude.",
+            "locator": "https://claude.com/blog/cowork-is-now-claude"
+          },
+          {
+            "excerpt": "This is rolling out to Pro and Max plans first, in the Claude app on web, desktop, and mobile over the coming weeks to existing and new users on these plans. There’s nothing to turn on. Team and Free plans will follow soon, and Enterprise admins will hear from us at least 30 days before anything changes for their organizations.",
+            "locator": "https://claude.com/blog/cowork-is-now-claude"
+          },
+          {
+            "excerpt": "Claude Docs and Claude Slides are new today, and Claude Design now works inside your conversations too. Ask for a document, and you and Claude write it together. Ask for a presentation, and Claude drafts the slides. You can edit directly, present straight from Claude, or download as PowerPoint or PDF. All three are in beta on paid plans, and Enterprise admins choose when to turn them on.",
+            "locator": "https://claude.com/blog/cowork-is-now-claude"
+          }
+        ],
+        "scopeAndFreshness": "Provider source refreshed September 26; account access remains plan, beta and rollout dependent.",
+        "status": "VERIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-input.json",
+          "sha256": "09d99cb61e54e6f67842559e12508ae510e72e011e46a3472d83c42c118d186d"
+        }
+      },
+      {
+        "claimId": "gpt6-sol-luna",
+        "claim": "OpenAI announced Sol and Luna for Work and Codex.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The models were not yet available in Chat, and the company said rollout through the day could delay visibility.",
+            "locator": "complete exact Weekly"
+          }
+        ],
+        "sourceIds": [
+          "gpt6-sol-luna-1"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "GPT‑6 Sol and GPT‑6 Luna are available in ChatGPT Work and Codex starting today for all Plus, Pro, Business, Enterprise, and Edu users. Free and Go users can access GPT‑6 Luna in the desktop app. These models are not yet available in Chat.",
+            "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+          },
+          {
+            "excerpt": "To keep service stable for everyone, we plan to roll out these models in ChatGPT gradually throughout the day. If you don’t see the new models in ChatGPT Work or Codex, please try again later.",
+            "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+          },
+          {
+            "excerpt": "Evaluations of GPT were performed in our research environment or via our API, which may provide slightly different output from production ChatGPT due to differences in the system prompts, tools available, etc.",
+            "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+          }
+        ],
+        "scopeAndFreshness": "Official release source inspected September 26. Article retains exact availability, rollout and provider-evaluation limits; it does not claim any individual account result or independent performance proof.",
+        "status": "VERIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-input.json",
+          "sha256": "09d99cb61e54e6f67842559e12508ae510e72e011e46a3472d83c42c118d186d"
+        }
+      }
+    ]
+  },
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/weekly-news-editorial-policy.json",
+      "sha256": "1bd57b1b88a2b0ac530fdc1e6c8112269327417dfcaae197173785137ee62d9e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/assembled-v17-r2-20260926/news-editorial-analysis.json",
+      "sha256": "4c07137da5441c7b689c0594d4fa8c5d7161ff66cdd48b7679ec66cf829c3c0e"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/assembled-v17-r2-20260926/independent-raw-report.json",
+    "sha256": "25b678beb4eefd5f770aefa158132f0362fcc379889030c18e5bac2053bc9010"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "weekly-promises-and-proof-20260916",
+    "repairSummary": "Removes repeated sponsored chat and advances from promise/proof to six distinct operative verbs."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 5,
+    "priorComparable": {
+      "candidateId": "weekly-promises-and-proof-20260916",
+      "reviewIssues": 0,
+      "reviewCycles": 1
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW",
+    "evidencePacket": {
+      "rounds": 2,
+      "gaps": 1
+    }
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All reader outcomes pass, all news checks pass, and every failure family is clear with specific supporting evidence; no repair candidate is warranted."
+  }
+}

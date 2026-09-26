@@ -1,0 +1,1197 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "openai-data-agent-20260910",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/weekly_recovery",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T03:17:10.793Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/review-text.json",
+      "sha256": "3738311bf27f7d5165a6ae180736587ec5c16a9c34b48e34cb20f661953abaff"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/publication-manifest.json",
+      "sha256": "78be6e8b042ba874276f58c1767ac960bff4dae81cf506cbe502d33c132f5aa7"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/rendered-article.html",
+      "sha256": "d229eaf866ce0ab11c3c56a64eef4e1ce8d760e793775c2ba1fec54dca0f1238"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "If ChatGPT can build a dashboard from my company data, what should I trust and what must I check before using or sharing the number?",
+    "promisedPayoff": "The reader learns that a polished dashboard inherits the connected source, the company's metric definition and the account's permissions, and gets a concrete pre-share verification routine.",
+    "centralMentalModel": "A dashboard answer is shaped by three upstream constraints — which sources administrators connected, which rule defines the metric, and which tables/rows/columns the account may see — none of which the smooth interface proves.",
+    "dailyLifeConnection": "Asking 'how many active customers do we have?' at work and getting two polished but different dashboards because two teams count activity differently.",
+    "surfaceJob": "A dated news article: report the September 10 Data agent release, its scope and controls, and the missing external accuracy benchmark.",
+    "desiredReaderFeeling": "Capable and appropriately skeptical: able to use the tool while knowing exactly which three things to check before trusting a number."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every technical term (permission, metric definition, plugin) is glossed in plain language at first meaningful use; sentences are short and concrete.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released a Data agent in ChatGPT Work on September 10. It is a workplace data tool that can connect an approved account to company data, investigate a question and build a dashboard. A colleague can ask why sales slowed without first writing a database query.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The agent can only work with the sources its administrators connect and the records its account is already allowed to see. A <strong>permission</strong> means which tables, rows and columns the connected account is allowed to see. A <strong>metric definition</strong> is the rule a company uses to decide what a number includes.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>OpenAI's controls separate who can use a plugin, which read or write actions it may take and when ChatGPT asks for approval. For an early test, let the agent prepare the dashboard while sending messages or changing records still requires a person.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader gains the source-definition-permission model and a specific pre-share check routine.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The agent can only work with the sources its administrators connect and the records its account is already allowed to see. A <strong>permission</strong> means which tables, rows and columns the connected account is allowed to see. A <strong>metric definition</strong> is the rule a company uses to decide what a number includes.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Before sharing a Data agent result, open the evidence behind its findings. Name the source and date, state the metric definition, and compare one important figure with the trusted report your team already uses. If the totals differ, stop there and investigate.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult voice without condescension or borrowed persona; the cocktail-party line is conversational and accurate.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The useful change is that a colleague can ask a business question in ordinary language and receive a dashboard without first writing a database query. The plain question does not remove the machinery underneath it.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Ask: “Which data and definition produced this answer, and what happens if it is wrong?”</p>",
+          "locator": "P012"
+        },
+        {
+          "excerpt": "“OpenAI's new Data agent can turn a workplace question into a dashboard. The smooth interface does not make the number self-proving: the connected source, your company's definition and the account's permissions still shape the answer.”",
+          "locator": "P013"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The active-customers example sustains interest and gives an 'aha' about identical-looking dashboards answering different questions; no forced humour.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The useful change is that a colleague can ask a business question in ordinary language and receive a dashboard without first writing a database query. The plain question does not remove the machinery underneath it.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Ask: “Which data and definition produced this answer, and what happens if it is wrong?”</p>",
+          "locator": "P012"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated news article: what happened on September 10, how it works, what controls exist, and the evidence gap — proper bounded scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released a Data agent in ChatGPT Work on September 10. It is a workplace data tool that can connect an approved account to company data, investigate a question and build a dashboard. A colleague can ask why sales slowed without first writing a database query.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The plugin is available through ChatGPT Work. Administrators install it, connect its data sources and decide who may use them. OpenAI announced no standalone plugin price.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The largest evidence gap is accuracy. VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published. OpenAI described an internal comparison with its own data tools but supplied no public number. There is no independent hands-on benchmark yet showing how reliably it answers questions across customers' systems.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The 'why did sales slow' and 'active customers' workplace situations are recognizable to any nontechnical professional.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released a Data agent in ChatGPT Work on September 10. It is a workplace data tool that can connect an approved account to company data, investigate a question and build a dashboard. A colleague can ask why sales slowed without first writing a database query.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human question first, concrete causal chain through source-definition-permission, retained benchmark limit, and a better next question; no imitation of any communicator's voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The largest evidence gap is accuracy. VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published. OpenAI described an internal comparison with its own data tools but supplied no public number. There is no independent hands-on benchmark yet showing how reliably it answers questions across customers' systems.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Ask: “Which data and definition produced this answer, and what happens if it is wrong?”</p>",
+          "locator": "P012"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The mechanism in P007-P008 supports an accurate ordinary-language answer to why two correct-looking dashboards can disagree (see explainBack below).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The agent can only work with the sources its administrators connect and the records its account is already allowed to see. A <strong>permission</strong> means which tables, rows and columns the connected account is allowed to see. A <strong>metric definition</strong> is the rule a company uses to decide what a number includes.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+          "locator": "P008"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why can two polished Data agent dashboards give different numbers for the same question, and why doesn't permission enforcement fix that?",
+        "response": "Because the dashboard's number is produced upstream of the interface: the agent only reads the sources administrators connected and the rows the account may see, and then applies whatever rule the company uses to define the metric. Two teams with different definitions of 'active customer' produce two correct-looking dashboards answering different questions. Permissions only control access; they cannot prove the connected source is complete, that the definition fits this decision, or that the explanation is right.",
+        "expectedEvidence": "The article must state the access limits (connected sources, allowed records), define permission and metric definition, and explicitly separate what permissions do and do not guarantee.",
+        "assessment": "P007 supplies the access limits and both definitions; P008 supplies the two-definitions example and the explicit limit statement, so the article fully supports this causal answer in ordinary language."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The source-definition-permission model transfers cleanly to a new scenario not in the article (see unseenTransfer below).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The agent can only work with the sources its administrators connect and the records its account is already allowed to see. A <strong>permission</strong> means which tables, rows and columns the connected account is allowed to see. A <strong>metric definition</strong> is the rule a company uses to decide what a number includes.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Before sharing a Data agent result, open the evidence behind its findings. Name the source and date, state the metric definition, and compare one important figure with the trusted report your team already uses. If the totals differ, stop there and investigate.</p>",
+          "locator": "P009"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "The dashboard shows a confident 34-day average. What should the manager check before presenting it, using the article's mechanism?",
+        "response": "First, source: the number comes only from the connected ATS, so contractor and executive hires are invisibly excluded — completeness must be verified, not assumed. Second, definition: state which start point (posting vs first interview) the metric used, since two polished answers could differ by weeks. Third, permission: the account's row limits silently shape the population counted. Then compare the figure against the trusted quarterly HR report before sharing, and stop if they differ.",
+        "expectedEvidence": "The article's mechanism must generalize: connected-source limits (P007), definition ambiguity (P008), permission-shaped visibility (P007) and the compare-with-trusted-report action (P009).",
+        "assessment": "The mechanism transfers cleanly to this new HR scenario with no additional concepts required, confirming the article teaches a reusable model rather than a one-off caution."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Actions are specific and proportionate: name source and date, state the definition, compare one figure with a trusted report, keep write actions human-approved during early testing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Before sharing a Data agent result, open the evidence behind its findings. Name the source and date, state the metric definition, and compare one important figure with the trusted report your team already uses. If the totals differ, stop there and investigate.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>OpenAI's controls separate who can use a plugin, which read or write actions it may take and when ChatGPT asks for approval. For an early test, let the agent prepare the dashboard while sending messages or changing records still requires a person.</p>",
+          "locator": "P010"
+        },
+        {
+          "excerpt": "<p>OpenAI says business-product data is not used to train its models by default. Check your organization's account, retention rules, permissions and workplace policy before adding sensitive data.</p>",
+          "locator": "P011"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The active-customers comparison maps the definition mechanism accurately and explicitly retains its limits: permissions limit access but do not prove completeness or fit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "“OpenAI's new Data agent can turn a workplace question into a dashboard. The smooth interface does not make the number self-proving: the connected source, your company's definition and the account's permissions still shape the answer.”",
+          "locator": "P013"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "All material claims trace to their assigned sources with attribution retained; vendor claims are marked 'OpenAI says' and the benchmark absence is attributed to VentureBeat. The one editorial gloss (metric definition) is accurate and clearly definitional rather than a factual claim about OpenAI.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI says the agent can use approved data warehouses, business-intelligence dashboards and files in Google Drive or SharePoint. It can recommend next steps, share findings and carry out actions through connected tools when the user approves them.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The largest evidence gap is accuracy. VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published. OpenAI described an internal comparison with its own data tools but supplied no public number. There is no independent hands-on benchmark yet showing how reliably it answers questions across customers' systems.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>OpenAI says business-product data is not used to train its models by default. Check your organization's account, retention rules, permissions and workplace policy before adding sensitive data.</p>",
+          "locator": "P011"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The September 10 release date, September 10 VentureBeat report and listed accessed-at dates make every time-sensitive claim traceable and checkable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released a Data agent in ChatGPT Work on September 10. It is a workplace data tool that can connect an approved account to company data, investigate a question and build a dashboard. A colleague can ask why sales slowed without first writing a database query.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The largest evidence gap is accuracy. VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published. OpenAI described an internal comparison with its own data tools but supplied no public number. There is no independent hands-on benchmark yet showing how reliably it answers questions across customers' systems.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "This is a single-event release story; the new release and the same-day reporting on the benchmark gap are clearly dated, with no conflation of older events.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released a Data agent in ChatGPT Work on September 10. It is a workplace data tool that can connect an approved account to company data, investigate a question and build a dashboard. A colleague can ask why sales slowed without first writing a database query.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The largest evidence gap is accuracy. VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published. OpenAI described an internal comparison with its own data tools but supplied no public number. There is no independent hands-on benchmark yet showing how reliably it answers questions across customers' systems.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (differing totals, wrongly shared numbers) and uncertainty survives: no public benchmark, no independent hands-on evaluation, and permissions explicitly do not prove completeness or fit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The largest evidence gap is accuracy. VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published. OpenAI described an internal comparison with its own data tools but supplied no public number. There is no independent hands-on benchmark yet showing how reliably it answers questions across customers' systems.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Before sharing a Data agent result, open the evidence behind its findings. Name the source and date, state the metric definition, and compare one important figure with the trusted report your team already uses. If the totals differ, stop there and investigate.</p>",
+          "locator": "P009"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The two definitions are immediately put to work in the active-customers mechanism rather than accumulating separately.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop the explanation progressively; no repeated scaffolds across sections.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The active-customers example is a mechanism-bearing example, not decorative flavour.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal steps from question to dashboard through source, definition and permission are shown, not merely asserted.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Advice is concrete: name source and date, state the definition, compare one figure, keep write actions human-gated.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Permission, metric definition and plugin are all explained at or before first meaningful use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Sources, definitions, permissions and approval controls are shown interacting to shape one answer, not listed separately.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Vendor claims carry 'OpenAI says' attribution and the missing benchmark is stated plainly; certainty matches evidence.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The September 10 release, September 10 VentureBeat report and access dates make all time-sensitive claims checkable.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete throughout; no vague corporate or motivational filler.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The checklist elements are embedded in a human situation with a recognizable stake, not a dry manual.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is mentioned in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's 'check the definition' promise is fully paid off by P007-P009.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The active-customers example returns to the technical mechanism: permissions limit access but do not prove completeness or fit.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation of a communicator's persona or mannerisms; the voice is the publication's own.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No spectacle or humour interferes with the explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The mechanism receives more space than the hook; the connector list is brief while P007-P008 carry the explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The headline's caution is earned by the mechanism before advice is issued.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending is a proportionate question about data, definition and consequence, not a grand moral.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers release facts, mechanism, controls, privacy default and verification — the full reader job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human motivation (asking a business question without writing a query, then trusting the answer) precedes the machinery.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The active-customers example serves the mechanism briefly and does not crowd out the news or advice.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "This is a bounded news report whose organizing perspective is exactly the reader's decision about trusting a number, not specialist taxonomy.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+        "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "release",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI released a Data agent in ChatGPT Work on September 10. It is a workplace data tool that can connect an approved account to company data, investigate a question and build a dashboard. A colleague can ask why sales slowed without first writing a database query.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work. OpenAI says it connects to approved sources including Amazon Redshift, Datadog, Google BigQuery, ClickHouse, Databricks, MongoDB and Snowflake, and can also use files and documents from Google Drive and SharePoint. OpenAI says it uses an organization's business terms, metric definitions, custom calculations and data relationships from semantic layers and trusted sources to interpret data. OpenAI says enterprise administrators choose which data connections and roles are available, while queries enforce the connected account's existing table, row and column permissions. OpenAI says users can ask follow-up questions and review the evidence behind findings, then build, edit, share and refresh interactive dashboards. OpenAI says the agent can recommend next steps, share findings through Slack or email, and carry out actions the user approves through connected tools. OpenAI says the Data plugin appears in the Plugins directory in ChatGPT Work; administrators can install it, configure relevant data-source plugins and manage who can use them.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          },
+          {
+            "excerpt": "Primary for the September 10 release, product scope, connections, permissions, workflow and availability claims. Limitation: Feature, internal-adoption and customer-result descriptions are vendor claims. The release supplies no public accuracy benchmark and no new standalone price.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          }
+        ],
+        "scopeAndFreshness": "OpenAI's release page dates the Data agent release September 10, 2026 in ChatGPT Work, matching P002 exactly."
+      },
+      {
+        "claimId": "core-workflow",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI released a Data agent in ChatGPT Work on September 10. It is a workplace data tool that can connect an approved account to company data, investigate a question and build a dashboard. A colleague can ask why sales slowed without first writing a database query.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>The useful change is that a colleague can ask a business question in ordinary language and receive a dashboard without first writing a database query. The plain question does not remove the machinery underneath it.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work. OpenAI says it connects to approved sources including Amazon Redshift, Datadog, Google BigQuery, ClickHouse, Databricks, MongoDB and Snowflake, and can also use files and documents from Google Drive and SharePoint. OpenAI says it uses an organization's business terms, metric definitions, custom calculations and data relationships from semantic layers and trusted sources to interpret data. OpenAI says enterprise administrators choose which data connections and roles are available, while queries enforce the connected account's existing table, row and column permissions. OpenAI says users can ask follow-up questions and review the evidence behind findings, then build, edit, share and refresh interactive dashboards. OpenAI says the agent can recommend next steps, share findings through Slack or email, and carry out actions the user approves through connected tools. OpenAI says the Data plugin appears in the Plugins directory in ChatGPT Work; administrators can install it, configure relevant data-source plugins and manage who can use them.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          },
+          {
+            "excerpt": "Primary for the September 10 release, product scope, connections, permissions, workflow and availability claims. Limitation: Feature, internal-adoption and customer-result descriptions are vendor claims. The release supplies no public accuracy benchmark and no new standalone price.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          }
+        ],
+        "scopeAndFreshness": "Source describes connecting approved sources, asking follow-up questions, reviewing evidence and building dashboards, matching the article's workflow summary."
+      },
+      {
+        "claimId": "connected-actions",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI says the agent can use approved data warehouses, business-intelligence dashboards and files in Google Drive or SharePoint. It can recommend next steps, share findings and carry out actions through connected tools when the user approves them.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work. OpenAI says it connects to approved sources including Amazon Redshift, Datadog, Google BigQuery, ClickHouse, Databricks, MongoDB and Snowflake, and can also use files and documents from Google Drive and SharePoint. OpenAI says it uses an organization's business terms, metric definitions, custom calculations and data relationships from semantic layers and trusted sources to interpret data. OpenAI says enterprise administrators choose which data connections and roles are available, while queries enforce the connected account's existing table, row and column permissions. OpenAI says users can ask follow-up questions and review the evidence behind findings, then build, edit, share and refresh interactive dashboards. OpenAI says the agent can recommend next steps, share findings through Slack or email, and carry out actions the user approves through connected tools. OpenAI says the Data plugin appears in the Plugins directory in ChatGPT Work; administrators can install it, configure relevant data-source plugins and manage who can use them.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          },
+          {
+            "excerpt": "Primary for the September 10 release, product scope, connections, permissions, workflow and availability claims. Limitation: Feature, internal-adoption and customer-result descriptions are vendor claims. The release supplies no public accuracy benchmark and no new standalone price.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          }
+        ],
+        "scopeAndFreshness": "Source states the agent can recommend next steps, share findings through Slack or email, and carry out user-approved actions through connected tools; the article retains the approval condition."
+      },
+      {
+        "claimId": "administrator-setup",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The plugin is available through ChatGPT Work. Administrators install it, connect its data sources and decide who may use them. OpenAI announced no standalone plugin price.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work. OpenAI says it connects to approved sources including Amazon Redshift, Datadog, Google BigQuery, ClickHouse, Databricks, MongoDB and Snowflake, and can also use files and documents from Google Drive and SharePoint. OpenAI says it uses an organization's business terms, metric definitions, custom calculations and data relationships from semantic layers and trusted sources to interpret data. OpenAI says enterprise administrators choose which data connections and roles are available, while queries enforce the connected account's existing table, row and column permissions. OpenAI says users can ask follow-up questions and review the evidence behind findings, then build, edit, share and refresh interactive dashboards. OpenAI says the agent can recommend next steps, share findings through Slack or email, and carry out actions the user approves through connected tools. OpenAI says the Data plugin appears in the Plugins directory in ChatGPT Work; administrators can install it, configure relevant data-source plugins and manage who can use them.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          },
+          {
+            "excerpt": "Primary for the September 10 release, product scope, connections, permissions, workflow and availability claims. Limitation: Feature, internal-adoption and customer-result descriptions are vendor claims. The release supplies no public accuracy benchmark and no new standalone price.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          },
+          {
+            "excerpt": "OpenAI's help page says app access controls who can use a connected app, actions control what it can do, and permissions control when ChatGPT asks before using it. Administrators can separately enable supported read and write actions and set whether future actions are enabled. The documented permission choices include always ask, allow read actions, allow low-risk actions and, where supported for an individual app, allow all actions. OpenAI says provider approval, OAuth scopes and ChatGPT action settings are separate checks.",
+            "locator": "https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-for-plugins-and-apps"
+          },
+          {
+            "excerpt": "Primary current documentation for workspace plugin access, read/write action controls and approval settings. Limitation: Exact options depend on workspace, role and app. This source does not establish which settings any reader's employer has chosen.",
+            "locator": "https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-for-plugins-and-apps"
+          }
+        ],
+        "scopeAndFreshness": "Release page says admins install from the Plugins directory, configure data-source plugins and manage who can use them; help-center source corroborates access controls."
+      },
+      {
+        "claimId": "no-standalone-price",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The plugin is available through ChatGPT Work. Administrators install it, connect its data sources and decide who may use them. OpenAI announced no standalone plugin price.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work. OpenAI says it connects to approved sources including Amazon Redshift, Datadog, Google BigQuery, ClickHouse, Databricks, MongoDB and Snowflake, and can also use files and documents from Google Drive and SharePoint. OpenAI says it uses an organization's business terms, metric definitions, custom calculations and data relationships from semantic layers and trusted sources to interpret data. OpenAI says enterprise administrators choose which data connections and roles are available, while queries enforce the connected account's existing table, row and column permissions. OpenAI says users can ask follow-up questions and review the evidence behind findings, then build, edit, share and refresh interactive dashboards. OpenAI says the agent can recommend next steps, share findings through Slack or email, and carry out actions the user approves through connected tools. OpenAI says the Data plugin appears in the Plugins directory in ChatGPT Work; administrators can install it, configure relevant data-source plugins and manage who can use them.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          },
+          {
+            "excerpt": "Primary for the September 10 release, product scope, connections, permissions, workflow and availability claims. Limitation: Feature, internal-adoption and customer-result descriptions are vendor claims. The release supplies no public accuracy benchmark and no new standalone price.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          }
+        ],
+        "scopeAndFreshness": "The source excerpt's stated limitation confirms the release supplies no new standalone price; the article correctly frames this as an absence of announcement."
+      },
+      {
+        "claimId": "benchmark-gap",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The largest evidence gap is accuracy. VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published. OpenAI described an internal comparison with its own data tools but supplied no public number. There is no independent hands-on benchmark yet showing how reliably it answers questions across customers' systems.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "VentureBeat reported on September 10 that the Data agent connects to enterprise data sources and turns findings into dashboards, recommendations and follow-up actions. OpenAI told VentureBeat that the product stitches existing context together at use time rather than creating a new persistent context layer. VentureBeat reported that OpenAI has not published a retrieval-accuracy or correctness benchmark for the external Data agent product. The report says OpenAI described an internal comparison against its own data tools but did not provide a published number; VentureBeat characterized that as an internal comparison rather than an independently verified benchmark. VentureBeat concluded that the shift does not remove the need for data engineering because access controls and audit trails still need maintenance.",
+            "locator": "https://venturebeat.com/data/openais-new-data-agent-skips-the-one-thing-rivals-like-databricks-are-racing-to-publish-a-benchmark"
+          },
+          {
+            "excerpt": "Independent reporting based on an interview with OpenAI's enterprise technology lead; primary for what the reporter asked and what OpenAI disclosed about external evaluation. Limitation: The article is reporting and analysis, not a hands-on evaluation of Data agent outputs or an independent product benchmark.",
+            "locator": "https://venturebeat.com/data/openais-new-data-agent-skips-the-one-thing-rivals-like-databricks-are-racing-to-publish-a-benchmark"
+          }
+        ],
+        "scopeAndFreshness": "VentureBeat's interview-based report states no retrieval-accuracy or correctness benchmark has been published for the external product; the article attributes this correctly."
+      },
+      {
+        "claimId": "internal-comparison",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The largest evidence gap is accuracy. VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published. OpenAI described an internal comparison with its own data tools but supplied no public number. There is no independent hands-on benchmark yet showing how reliably it answers questions across customers' systems.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "VentureBeat reported on September 10 that the Data agent connects to enterprise data sources and turns findings into dashboards, recommendations and follow-up actions. OpenAI told VentureBeat that the product stitches existing context together at use time rather than creating a new persistent context layer. VentureBeat reported that OpenAI has not published a retrieval-accuracy or correctness benchmark for the external Data agent product. The report says OpenAI described an internal comparison against its own data tools but did not provide a published number; VentureBeat characterized that as an internal comparison rather than an independently verified benchmark. VentureBeat concluded that the shift does not remove the need for data engineering because access controls and audit trails still need maintenance.",
+            "locator": "https://venturebeat.com/data/openais-new-data-agent-skips-the-one-thing-rivals-like-databricks-are-racing-to-publish-a-benchmark"
+          },
+          {
+            "excerpt": "Independent reporting based on an interview with OpenAI's enterprise technology lead; primary for what the reporter asked and what OpenAI disclosed about external evaluation. Limitation: The article is reporting and analysis, not a hands-on evaluation of Data agent outputs or an independent product benchmark.",
+            "locator": "https://venturebeat.com/data/openais-new-data-agent-skips-the-one-thing-rivals-like-databricks-are-racing-to-publish-a-benchmark"
+          }
+        ],
+        "scopeAndFreshness": "VentureBeat reports OpenAI described an internal comparison against its own data tools without a published number, exactly as the article states."
+      },
+      {
+        "claimId": "source-definition-permission",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The agent can only work with the sources its administrators connect and the records its account is already allowed to see. A <strong>permission</strong> means which tables, rows and columns the connected account is allowed to see. A <strong>metric definition</strong> is the rule a company uses to decide what a number includes.</p>",
+            "locator": "P007"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work. OpenAI says it connects to approved sources including Amazon Redshift, Datadog, Google BigQuery, ClickHouse, Databricks, MongoDB and Snowflake, and can also use files and documents from Google Drive and SharePoint. OpenAI says it uses an organization's business terms, metric definitions, custom calculations and data relationships from semantic layers and trusted sources to interpret data. OpenAI says enterprise administrators choose which data connections and roles are available, while queries enforce the connected account's existing table, row and column permissions. OpenAI says users can ask follow-up questions and review the evidence behind findings, then build, edit, share and refresh interactive dashboards. OpenAI says the agent can recommend next steps, share findings through Slack or email, and carry out actions the user approves through connected tools. OpenAI says the Data plugin appears in the Plugins directory in ChatGPT Work; administrators can install it, configure relevant data-source plugins and manage who can use them.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          },
+          {
+            "excerpt": "Primary for the September 10 release, product scope, connections, permissions, workflow and availability claims. Limitation: Feature, internal-adoption and customer-result descriptions are vendor claims. The release supplies no public accuracy benchmark and no new standalone price.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          }
+        ],
+        "scopeAndFreshness": "Source states admins choose which connections and roles are available and queries enforce the connected account's existing table, row and column permissions."
+      },
+      {
+        "claimId": "permission-meaning",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The agent can only work with the sources its administrators connect and the records its account is already allowed to see. A <strong>permission</strong> means which tables, rows and columns the connected account is allowed to see. A <strong>metric definition</strong> is the rule a company uses to decide what a number includes.</p>",
+            "locator": "P007"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work. OpenAI says it connects to approved sources including Amazon Redshift, Datadog, Google BigQuery, ClickHouse, Databricks, MongoDB and Snowflake, and can also use files and documents from Google Drive and SharePoint. OpenAI says it uses an organization's business terms, metric definitions, custom calculations and data relationships from semantic layers and trusted sources to interpret data. OpenAI says enterprise administrators choose which data connections and roles are available, while queries enforce the connected account's existing table, row and column permissions. OpenAI says users can ask follow-up questions and review the evidence behind findings, then build, edit, share and refresh interactive dashboards. OpenAI says the agent can recommend next steps, share findings through Slack or email, and carry out actions the user approves through connected tools. OpenAI says the Data plugin appears in the Plugins directory in ChatGPT Work; administrators can install it, configure relevant data-source plugins and manage who can use them.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          },
+          {
+            "excerpt": "Primary for the September 10 release, product scope, connections, permissions, workflow and availability claims. Limitation: Feature, internal-adoption and customer-result descriptions are vendor claims. The release supplies no public accuracy benchmark and no new standalone price.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          }
+        ],
+        "scopeAndFreshness": "The article's gloss of permission as which tables, rows and columns the account may see mirrors the source's 'existing table, row and column permissions'."
+      },
+      {
+        "claimId": "definition-meaning",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The agent can only work with the sources its administrators connect and the records its account is already allowed to see. A <strong>permission</strong> means which tables, rows and columns the connected account is allowed to see. A <strong>metric definition</strong> is the rule a company uses to decide what a number includes.</p>",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+            "locator": "P008"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work. OpenAI says it connects to approved sources including Amazon Redshift, Datadog, Google BigQuery, ClickHouse, Databricks, MongoDB and Snowflake, and can also use files and documents from Google Drive and SharePoint. OpenAI says it uses an organization's business terms, metric definitions, custom calculations and data relationships from semantic layers and trusted sources to interpret data. OpenAI says enterprise administrators choose which data connections and roles are available, while queries enforce the connected account's existing table, row and column permissions. OpenAI says users can ask follow-up questions and review the evidence behind findings, then build, edit, share and refresh interactive dashboards. OpenAI says the agent can recommend next steps, share findings through Slack or email, and carry out actions the user approves through connected tools. OpenAI says the Data plugin appears in the Plugins directory in ChatGPT Work; administrators can install it, configure relevant data-source plugins and manage who can use them.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          },
+          {
+            "excerpt": "Primary for the September 10 release, product scope, connections, permissions, workflow and availability claims. Limitation: Feature, internal-adoption and customer-result descriptions are vendor claims. The release supplies no public accuracy benchmark and no new standalone price.",
+            "locator": "https://openai.com/index/put-data-to-work/"
+          }
+        ],
+        "scopeAndFreshness": "The source mentions the agent uses metric definitions from semantic layers but does not itself define the term; the article's plain-language gloss ('the rule a company uses to decide what a number includes') is a reasonable, consistent editorial definition rather than a directly sourced statement."
+      },
+      {
+        "claimId": "action-controls",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI's controls separate who can use a plugin, which read or write actions it may take and when ChatGPT asks for approval. For an early test, let the agent prepare the dashboard while sending messages or changing records still requires a person.</p>",
+            "locator": "P010"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI's help page says app access controls who can use a connected app, actions control what it can do, and permissions control when ChatGPT asks before using it. Administrators can separately enable supported read and write actions and set whether future actions are enabled. The documented permission choices include always ask, allow read actions, allow low-risk actions and, where supported for an individual app, allow all actions. OpenAI says provider approval, OAuth scopes and ChatGPT action settings are separate checks.",
+            "locator": "https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-for-plugins-and-apps"
+          },
+          {
+            "excerpt": "Primary current documentation for workspace plugin access, read/write action controls and approval settings. Limitation: Exact options depend on workspace, role and app. This source does not establish which settings any reader's employer has chosen.",
+            "locator": "https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-for-plugins-and-apps"
+          }
+        ],
+        "scopeAndFreshness": "Help-center source separates app access (who), actions (what read/write it may do) and permissions (when ChatGPT asks); the article's summary preserves this three-way separation."
+      },
+      {
+        "claimId": "business-training-default",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI says business-product data is not used to train its models by default. Check your organization's account, retention rules, permissions and workplace policy before adding sensitive data.</p>",
+            "locator": "P011"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+          "sha256": "8b33072f0f8de2c11e3e9b76241cbeeef413e67e5ee39c7e8492087f035e2566"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI says it does not use data from its listed business products, including inputs and outputs, for training or improving models by default. OpenAI says business data is encrypted at rest and in transit between customers, OpenAI and its service providers. OpenAI lists role-based controls for ChatGPT Work, connected tools and workspace agents among Enterprise features.",
+            "locator": "https://openai.com/business-data/"
+          },
+          {
+            "excerpt": "Primary for OpenAI's current business-data training, encryption and access-control statements. Limitation: These are OpenAI's stated platform commitments. An organization still has to check its exact plan, retention, data residency, connected-source and employer-policy requirements.",
+            "locator": "https://openai.com/business-data/"
+          }
+        ],
+        "scopeAndFreshness": "Business-data source states data from listed business products is not used for training by default; the article retains 'OpenAI says' and the by-default limit, and adds appropriate check-your-plan caution matching the source's limitation."
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen all four sources on the publication day; redraft if availability, permissions, data handling, pricing or benchmark evidence changes.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate reports this Data agent release."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All outcomes pass and all failure families are clear; the mechanism supports both an accurate explain-back and a novel transfer scenario, so no new defect pattern is evidenced."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=1; evidence gaps repaired=0; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/independent-review/final-v2/news-editorial-analysis.json",
+      "sha256": "b7408c021c6d0a6f5c0676c04d93a0c2675fa57d88995514187394995550ecdf"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/independent-review/final-v2/independent-raw-report.json",
+    "sha256": "77343854996722ed94584d32a0e93eab68dddaa1fe25138cac636bd595154222"
+  }
+}

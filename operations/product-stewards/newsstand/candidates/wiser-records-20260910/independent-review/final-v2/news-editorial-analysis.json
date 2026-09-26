@@ -1,0 +1,92 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "wiser-records-20260910",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "a92bfb374bbbed9fd88d8de7df2381ea9aba6cb546f820fa0fd9fb60c5e50bc6",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why does the article insist that 5,944 non-affirmations cannot be read as 5,944 denials of care?",
+      "response": "Because a non-affirmation is a first-stage payment decision, not the end of the process. After a non-affirmation, the request can be corrected, resubmitted or appealed, and providers could also choose post-service review instead. CMS even calculates vendor savings payments only from non-affirmations that are not later approved or successfully appealed—so the program's own payment design acknowledges that many non-affirmations get reversed. Counting all 20,397 decisions, or even all 5,944 non-affirmations, as final denials of care conflates a checkpoint status with a care outcome.",
+      "expectedEvidence": "An accurate answer must distinguish decisions from denials, name at least one post-decision route (correction, resubmission, appeal or post-service review), and tie the payment-calculation rule to why non-affirmation is not final.",
+      "assessment": "The article's mechanism in P003, P006 and P008 fully supports this answer in ordinary language; the explain-back succeeds without gaps."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mechanism, how should a reader evaluate the 31,000-rejections claim before repeating it?",
+      "response": "Check whether the cited table counts total determinations or rejections—here the heading says determinations processed, which likely includes approvals, exactly as WISeR's page 322 counted 20,397 decisions of which most were affirmations. Then ask whether a rejection at this stage is final: is there a correction, redetermination or appeal route, and does the agency's own metrics design treat reversed rejections differently? Only rejections that survive those routes approximate final adverse outcomes. Also ask whether the AI or a human officer makes the final determination, and whether the snapshot date makes the claim checkable.",
+      "expectedEvidence": "Application of decisions-vs-denials disaggregation, stage-vs-final-outcome distinction, human-decision locus, and dated-snapshot checkability to the new domain.",
+      "assessment": "The article's mechanism transfers cleanly and completely to this unseen scenario; transfer succeeds."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The Sept 8 release, the vendor pre-launch warning, the aged-request table and the miscounted claim are each explained with their causal sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 8, the Electronic Frontier Foundation published internal Centers for Medicare &amp; Medicaid Services records about WISeR, Medicare’s AI-assisted prior-authorization pilot. They show one vendor expected to launch without full functionality and later reports tracked requests still waiting after days or weeks.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The records also correct EFF’s central claim. EFF says two vendors denied more than 20,000 requests. Its cited March 30 table reports 20,397 total decisions: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the request meets Medicare's requirements. A <strong>non-affirmation</strong> means it was not approved at that point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Prior authorization, affirmation, non-affirmation, auto-affirm and Original Medicare are all defined at first meaningful use in context.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The records also correct EFF’s central claim. EFF says two vendors denied more than 20,000 requests. Its cited March 30 table reports 20,397 total decisions: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the request meets Medicare's requirements. A <strong>non-affirmation</strong> means it was not approved at that point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p><strong>Prior authorization</strong> means a provider asks before treatment for assurance that Medicare will pay. In WISeR, a participating company uses AI and other technology to review whether documentation meets Medicare rules; CMS says a licensed clinician determines any recommendation not to pay.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequence is grounded in a specific reader situation: a delayed selected request for someone on Original Medicare in one of six named states.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The pilot covers selected services in <strong>Original Medicare</strong>—the federal fee-for-service program, distinct from private Medicare Advantage plans—in Arizona, New Jersey, Ohio, Oklahoma, Texas and Washington. CMS says it excludes emergencies, inpatient-only services and services whose delay would pose substantial risk.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If a selected request is delayed for someone using Original Medicare in one of the six states, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process details appear; the advice given is supported by the CMS-described stages and routes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If a selected request is delayed for someone using Original Medicare in one of the six states, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        },
+        {
+          "excerpt": "A payment-review status is not a final care outcome. Track the stage, human decision and what happened after correction, resubmission or appeal.",
+          "locator": "P012"
+        },
+        {
+          "excerpt": "<p>The useful distinction is between a payment checkpoint and a treatment decision: a payment review can delay care, but it is not the same as an AI choosing a treatment. Providers can instead proceed to review after service and before payment.</p>",
+          "locator": "P006"
+        }
+      ]
+    }
+  }
+}

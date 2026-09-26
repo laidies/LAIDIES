@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "newsstand-independent-visual-review.v1",
+  "reviewedAt": "2026-09-26T14:10:00Z",
+  "reviewerPrincipal": "/root/morning_aidb_20260920",
+  "reviewScope": "Successor review of unchanged pixels after inspecting the maker's new checksum-bound completion record. The original independent HOLD remains historical evidence.",
+  "supersedes": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/art-generated/independent-review.json",
+    "sha256": "97db550cadf39334259e251d94541880e15d8b4850b6ee84e5707144ac1cc5f6",
+    "priorDecision": "HOLD",
+    "resolvedDefect": "The maker's post-generation inspection and completion binding were absent."
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/art-generated/gpt-services-v1.png",
+    "sha256": "2ea5fb27fc515983368c1dcd4af946d69fb0e3dbbdaddad184477ffea62395f8",
+    "dimensions": {"width": 1536, "height": 1024}
+  },
+  "smallRender": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/art-generated/independent-review-390px.png",
+    "sha256": "d4b1e168324b4fb000753337f14b0f38cead41a308552987fe46f97d86575497",
+    "dimensions": {"width": 390, "height": 260}
+  },
+  "makerCompletion": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/art-generated/producer-completion.json",
+    "sha256": "d89fd276aabe79fda6d1be45a6b69b3748c19eb3c8ee35daae2cf02fa967ab97",
+    "makerInspection": {"path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/art-generated/maker-inspection.json", "sha256": "527726fc9a8f6a88ae3000925ae87f68be58e6b62f70d9a467e64769f9b67bbd"}
+  },
+  "articleBinding": {"path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/article.md", "sha256": "c3ec42c326f6b0d48ea469e259be033bd9c6eb6f177684664b310b17d15b858d"},
+  "findings": [
+    "At full size, the phone shows empty speech bubbles, the centre laptop shows abstract coloured panels, and the right-hand terminal shows non-lettered code-like bars; these are visually distinct conceptual services rather than an asserted OpenAI interface.",
+    "At 390px, the three devices remain separately identifiable. The unnumbered mechanical counter and blank receipt remain visible beside the terminal, while no line connects the phone to the counter.",
+    "No people, character likenesses, logos, readable words, letters, numerals, currency symbols, prices, access badges, checkmarks, robots or anatomy defects are visible.",
+    "All devices, counter and paper are physically supported and correctly oriented. Ink contours, crosshatching, halftone and paper grain use an adult editorial-comic register with cyan, cobalt, tangerine and magenta accents on cream."
+  ],
+  "decision": "PASS",
+  "decisionReason": "The unchanged image clears the pixel and semantic checks, and the producer completion now binds the exact image hash and maker full/390px inspection that the prior HOLD required.",
+  "limitations": [
+    "Visual PASS only: it is not source, prose, editorial, issue-admission, access, pricing or publication approval.",
+    "The scene is conceptual and makes no claim to reproduce product UI or establish availability."
+  ],
+  "nextAction": "Bind this independent PASS to the candidate's private visual/preflight chain, then continue the remaining existing producer and editorial gates."
+}

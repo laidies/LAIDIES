@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "newsstand-interface-copy-artifact-v1",
+  "candidateId": "newsstand-availability-label-20260926",
+  "maker": "/root",
+  "surface": "NEWSSTAND_STATUS_BAR",
+  "scope": "Copy only; no layout or state-machine change.",
+  "exactCopy": {
+    "pluralTitle": "On the rack: The Daily and The Weekly.",
+    "singleTitlePattern": "On the rack: {eligible publication label}.",
+    "detail": "See each edition’s publication date below.",
+    "pluralSystemStatus": "{count} publications on the rack.",
+    "singularSystemStatus": "1 publication on the rack."
+  },
+  "derivation": {
+    "labelsSource": "content/site/newsstand-catchup-v1.js labels map",
+    "eligibleList": "Use only the existing ordered list whose effectivePublicationState is current; do not relabel archive, stale, quiet, hold, or unavailable editions.",
+    "datePresentation": "Retain the edition-specific dates already rendered below; do not use dataset lastCheckedAt as a shared publication date."
+  }
+}

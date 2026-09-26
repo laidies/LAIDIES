@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "newsstand-interface-structural-repair-independent-admission-v1",
+  "candidateId": "newsstand-availability-label-20260926",
+  "decision": "PASS_EXISTING_COPY_REUSE_AND_REMOVAL",
+  "maker": "/root",
+  "reviewer": "/root/california_order_producer",
+  "reviewerRole": "Independent rendered NewsStand interface reviewer",
+  "reviewedAt": "2026-09-26T15:45:03Z",
+  "scope": "Exact existing-copy reuse and removal only; no new public prose is authored and this is not a prose-contract waiver.",
+  "implementation": {
+    "path": "content/site/newsstand-catchup-v1.js",
+    "sha256": "ea8ed293a2e06668f31aefe9279f4eb863240962b75f78da2dac62c8e2f7aa82"
+  },
+  "proposal": {
+    "path": "operations/product-stewards/newsstand/candidates/newsstand-availability-label-20260926/structural-reuse-proposal.json",
+    "sha256": "2108dabf367f02223124e2d0adaaa4c05052b6c9032006a0f8eaaf065a62dd08"
+  },
+  "checks": [
+    {
+      "path": "operations/product-stewards/newsstand/evidence/news-recovery-20260926/selector-two-editions.log",
+      "sha256": "86fff14080eb04dc5aafecd0455630e538d88a3cc92b1d98a665ae3932830c56",
+      "result": "PASS 4 assertions; Weekly=current fixture."
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/news-recovery-20260926/selector-one-edition-repaired-test.log",
+      "sha256": "40cc9b3fd6e66490e1830713b70bdeb22316562a214ca9752745e5dcc11a06ba",
+      "result": "PASS 4 assertions; Weekly=quiet fixture; existing Open today’s paper action preserved."
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/news-recovery-20260926/california-status-local-browser.log",
+      "sha256": "a489b7f8a29358142e540e7a14684e5498871aa0f1e81943f46de0849a1773ff",
+      "result": "PASS 70 browser checks at desktop, mobile, archive, keyboard and article routes."
+    }
+  ],
+  "preservedFailureEvidence": {
+    "path": "operations/product-stewards/newsstand/evidence/news-recovery-20260926/selector-one-edition.log",
+    "sha256": "eaefea09e5e297d62ec6758c63c5ed35c960c20235f7c0f7879f402f223f9e1f",
+    "disposition": "Test expectation defect only: it expected the multi-edition action label in the one-edition fixture. Product behavior was correct; the repaired test asserts title and state-dependent action separately."
+  },
+  "artifactFirstInspection": {
+    "url": "http://127.0.0.1:17788/newsstand.html",
+    "actualState": "Two presented publication pointers: Daily September 26 and retained Weekly covering September 9–16; Big Picture remains an archive item and Breaking is quiet.",
+    "domFindings": [
+      "The status region accessible name is Choose a paper.",
+      "The primary multi-edition control accessible name is Choose a paper.",
+      "Aggregate detail and role=status text are empty.",
+      "Weekly retains its explicit September 9–16 coverage text.",
+      "Daily and Weekly controls, Front PAiGE, latest stories, Big Picture and recurring desks remain exposed."
+    ],
+    "visualFindings": [
+      "At the actual desktop render, the hidden status text does not create blank visible chrome because the redesign intentionally hides .ns-newsroom-bar__status.",
+      "The front-page hierarchy, illustrations and edition controls show no visible displacement or overlap from the text removal."
+    ]
+  },
+  "accessibilityJudgment": "PASS. The section keeps a nonempty aria-labelledby target, state-dependent primary action labels remain accurate in one- and two-edition fixtures, and misleading aggregate freshness is no longer announced. Edition-specific labels and dates remain available.",
+  "truthJudgment": "PASS. Existing copy is reused, false aggregate freshness/date claims are removed, and archived or quiet publications are not called unavailable.",
+  "limits": [
+    "This admission covers the local exact implementation and rendered fixtures. It is not deployment or live-public verification authority.",
+    "The earlier new-microcopy proposal remains HOLD and is not admitted by this record."
+  ]
+}

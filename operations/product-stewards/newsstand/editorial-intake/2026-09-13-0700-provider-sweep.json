@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "newsstand-provider-sweep-v1",
+  "phase": "2026-09-13_0700_VANCOUVER_FRESHNESS_RESEARCH",
+  "scope": "Read-only source research. This receipt changes no canonical NewsStand data, coverage-progress, CURRENT-CYCLE, public prose, issue, or release.",
+  "priorProviderSweep": "operations/product-stewards/newsstand/editorial-intake/2026-09-12-2000-provider-sweep.json",
+  "coverageComparedAgainst": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+  "coverageDispositionCount": 39,
+  "sourceChecks": [
+    {
+      "source": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "checkedAt": "2026-09-13T14:02:07Z",
+      "result": "CHECKED",
+      "observed": "The leading dated entry remains September 11 storage engineering. The next items remain the September 10 antimicrobial profile, data-to-work, financial-services, GPT-Live-1 and Agents API posts.",
+      "reconciliation": "The storage item is already EXCLUDED; the listed September 10 events are already PUBLISHED or EXCLUDED. No newly identified event from this source."
+    },
+    {
+      "source": "Anthropic Newsroom",
+      "url": "https://www.anthropic.com/news",
+      "checkedAt": "2026-09-13T14:02:08Z",
+      "result": "CHECKED",
+      "observed": "The latest dated newsroom item remains the September 10 threat-intelligence report describing disrupted malicious Claude use. No later dated item is shown.",
+      "reconciliation": "Already PUBLISHED as anthropic-threat-report-20260910. No newly identified event from this source."
+    },
+    {
+      "source": "Google DeepMind News",
+      "url": "https://deepmind.google/blog/",
+      "checkedAt": "2026-09-13T14:02:09Z",
+      "result": "CHECKED",
+      "observed": "The current September index still leads with Gemini 3.8 Flash/Cyber, AlphaGenome Atlas, WeatherNext 3, proactive cyber defence and agentic video understanding.",
+      "reconciliation": "AlphaGenome Atlas is PUBLISHED; no new dated event was observed."
+    },
+    {
+      "source": "Gemini API changelog",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "checkedAt": "2026-09-13T14:02:27Z",
+      "result": "CHECKED",
+      "observed": "The latest dated changelog entry remains September 3 Lyria 3.5 public preview, followed by September 2 Gemini 3.8 Flash GA and September 1 agentic video understanding.",
+      "reconciliation": "No newer dated API change was observed."
+    },
+    {
+      "source": "AP Artificial Intelligence",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "checkedAt": "2026-09-13T14:02:20Z",
+      "result": "CHECKED",
+      "observed": "The current AI area still lists Amodei pacing, Anthropic misuse, the Senate Hugging Face inquiry, California chatbot laws, and the Pentagon/Anthropic ruling. The current AP link for the Pentagon ruling is https://apnews.com/article/anthropic-pentagon-lawsuit-supply-chain-risk-f15e3c30186385e73e72bee82d85b05c.",
+      "reconciliation": "The first four events are PUBLISHED. The Pentagon ruling is the already EXCLUDED August 27 event anthropic-pentagon-ruling-20260827, whose prior review established no new September order or restrictions change. No newly identified event from this source."
+    },
+    {
+      "source": "Reuters Artificial Intelligence",
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "checkedAt": "2026-09-13T14:02:21Z",
+      "result": "TOOL_FAILURE",
+      "observed": "Direct category reopen failed as a non-retryable URL-open error; no Reuters agenda or article content was available.",
+      "reconciliation": "This cannot support a no-news conclusion. It remains a source-access hold."
+    },
+    {
+      "source": "FTC press releases",
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "checkedAt": "2026-09-13T14:02:22Z",
+      "result": "CHECKED",
+      "observed": "The current top releases remain the September 10 horseracing-budget notice and September 9 obsolete health-app-policy withdrawal. Neither describes an AI event.",
+      "reconciliation": "No newly identified AI event from this source."
+    },
+    {
+      "source": "EFF Artificial Intelligence",
+      "url": "https://www.eff.org/issues/ai",
+      "checkedAt": "2026-09-13T14:02:40Z",
+      "result": "CHECKED",
+      "observed": "The latest update remains the September 8 Medicare AI prior-authorization records release; the page describes approximately 1,000 pages of litigation-obtained records.",
+      "reconciliation": "Already PUBLISHED as eff-wiser-records-20260908. No newly identified event from this source."
+    },
+    {
+      "source": "Nature machine-learning index",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "checkedAt": "2026-09-13T14:02:40Z",
+      "result": "CHECKED",
+      "observed": "The visible current entries remain September 10 CRISP and PathSegmentor, September 11 Briefing Chat, and the September 9 breast-cancer-drug report.",
+      "reconciliation": "CRISP is PUBLISHED; PathSegmentor is EXCLUDED; Briefing Chat is already recorded as duplicate AlphaGenome context; the breast-cancer report remains an access/evidence hold after its exact article retry below."
+    },
+    {
+      "source": "BleepingComputer AI",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "checkedAt": "2026-09-13T14:03:14Z",
+      "result": "CHECKED",
+      "observed": "The lead items remain September 11 Anthropic misuse reporting and the September 10 PaperCut campaign; the index also retains September 9 China-model-distillation reporting.",
+      "reconciliation": "These correspond to already PUBLISHED anthropic-threat-report-20260910, papercut-ai-campaign-20260910 and china-distillation-advisory-20260908. No newly identified event from this source."
+    }
+  ],
+  "exactRetries": [
+    {
+      "source": "Dario Amodei pacing statement",
+      "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+      "checkedAt": "2026-09-13T14:03:26Z",
+      "result": "RECOVERED_SOURCE_STILL_AVAILABLE",
+      "observed": "The direct post is accessible and describes a three-step proposal, including an Anthropic commitment to embedded third-party evaluators with employee-like access.",
+      "reconciliation": "Already PUBLISHED as anthropic-amodei-pacing-20260912; this is verification of an existing source, not a new lead."
+    },
+    {
+      "source": "ProteinTalks Nature paper",
+      "url": "https://www.nature.com/articles/s41586-026-11001-9",
+      "checkedAt": "2026-09-13T14:02:44Z",
+      "result": "TOOL_FAILURE_UNSAFE_REDIRECT",
+      "observed": "The exact request returned a 500 error and redirected to a cookie-authorization URL marked unsafe. No bypass was attempted and no paper content was recovered.",
+      "reconciliation": "proteintalks-20260909 remains EVIDENCE_BLOCKED: main methods/results and independent expert interpretation are still missing."
+    },
+    {
+      "source": "Cognition X post",
+      "url": "https://x.com/cognition/status/2098142686486356185",
+      "checkedAt": "2026-09-13T14:02:45Z",
+      "result": "TOOL_FAILURE_403",
+      "observed": "Exact direct request returned 403 Forbidden; no post content was recovered.",
+      "reconciliation": "This is in the EVIDENCE_BLOCKED devin-voice-20260911 recovery family. It does not reopen the separately EXCLUDED cognition-swe2-20260910 lead."
+    },
+    {
+      "source": "Bot X post",
+      "url": "https://x.com/bot/status/2098183353665261979",
+      "checkedAt": "2026-09-13T14:02:46Z",
+      "result": "TOOL_FAILURE_403",
+      "observed": "Exact direct request returned 403 Forbidden; no post content was recovered.",
+      "reconciliation": "grokbot-sales-integrations remains EVIDENCE_BLOCKED pending a dated accessible primary announcement."
+    },
+    {
+      "source": "Nature breast-cancer-drug report",
+      "url": "https://www.nature.com/articles/d41586-026-02845-2",
+      "checkedAt": "2026-09-13T14:02:47Z",
+      "result": "TOOL_FAILURE_UNSAFE_REDIRECT",
+      "observed": "The exact request returned a 500 error and redirected to a cookie-authorization URL marked unsafe. No bypass was attempted.",
+      "reconciliation": "The report remains a medical-research EVIDENCE_HOLD; index copy cannot establish validation, clinical availability or reader-safe implications."
+    }
+  ],
+  "eligibleLeads": [],
+  "holds": [
+    {
+      "lead": "Reuters AI agenda",
+      "reason": "The current Reuters category was not readable; no agenda was enumerated.",
+      "nextRetryAt": "2026-09-13T17:00:00Z"
+    },
+    {
+      "lead": "proteintalks-20260909",
+      "reason": "Exact Nature paper still redirected to unsafe cookie authorization; full methods/results and independent interpretation remain unavailable.",
+      "nextRetryAt": "2026-09-13T17:00:00Z"
+    },
+    {
+      "lead": "devin-voice-20260911 and grokbot-sales-integrations",
+      "reason": "Their exact X posts returned 403; neither establishes a dated accessible primary announcement.",
+      "nextRetryAt": "2026-09-13T17:00:00Z"
+    },
+    {
+      "lead": "Nature breast-cancer-drug report",
+      "reason": "Exact article access is blocked by an unsafe cookie redirect; source and clinical-stage evidence cannot be inferred from index text.",
+      "nextRetryAt": "2026-09-13T17:00:00Z"
+    }
+  ],
+  "result": "No eligible new lead was identified by the fresh official and independent checks. Accessible material reconciles to the 39 existing dispositions; unreadable sources remain named evidence holds rather than proof that no material exists.",
+  "publicWrite": false
+}

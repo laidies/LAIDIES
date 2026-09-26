@@ -1,0 +1,501 @@
+{
+  "facts": {
+    "attestations": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "claims": {
+      "openai-call": {
+        "state": "supported",
+        "reason": "OpenAI post dated 2026-09-09 calls for 'mandatory, capability-based national regulation'; Reuters reports the Wednesday push for mandatory national requirements.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "reuters-openai-policy-report"
+        ]
+      },
+      "openai-requirements": {
+        "state": "supported",
+        "reason": "Both sources list common testing, independent assessments, cybersecurity protections and incident reporting; the article's list matches without addition.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "reuters-openai-policy-report"
+        ]
+      },
+      "openai-scope": {
+        "state": "supported",
+        "reason": "OpenAI's excerpt says requirements should apply to 'the handful of well-resourced laboratories' and not startups or small developers; article mirrors this scope faithfully.",
+        "passages": [
+          "P002",
+          "P005"
+        ],
+        "sourceIds": [
+          "openai-policy-window"
+        ]
+      },
+      "federal-status": {
+        "state": "supported",
+        "reason": "Reuters excerpt states 'Congress yet to enact a federal framework on AI law'; article attributes this to Reuters correctly.",
+        "passages": [
+          "P003"
+        ],
+        "sourceIds": [
+          "reuters-openai-policy-report"
+        ]
+      },
+      "sponsors-status": {
+        "state": "supported",
+        "reason": "Sanders office announcement dated Sept 3 (six days before Sept 9) expressly calls it 'forthcoming legislation'; article preserves the forthcoming status.",
+        "passages": [
+          "P004"
+        ],
+        "sourceIds": [
+          "sanders-casar-announcement"
+        ]
+      },
+      "pause-mechanism": {
+        "state": "supported",
+        "reason": "Announcement excerpt: pause advanced AI development until a new federal regulatory body 'has established clear rules and model review process'; article matches both regulator and review conditions.",
+        "passages": [
+          "P004",
+          "P006"
+        ],
+        "sourceIds": [
+          "sanders-casar-announcement"
+        ]
+      },
+      "ban-mechanism": {
+        "state": "supported",
+        "reason": "Announcement excerpt states the Act 'would permanently ban the development and deployment of superintelligent AI'; article retains 'what the sponsors call' attribution.",
+        "passages": [
+          "P004",
+          "P006"
+        ],
+        "sourceIds": [
+          "sanders-casar-announcement"
+        ]
+      },
+      "capability-meaning": {
+        "state": "supported",
+        "reason": "OpenAI excerpt calls for 'capability-based national regulation' with obligations 'proportionate to capabilities and risks'; the article's plain-language gloss of rules strengthening with abilities and risks is a faithful rendering.",
+        "passages": [
+          "P005"
+        ],
+        "sourceIds": [
+          "openai-policy-window"
+        ]
+      },
+      "openai-brake": {
+        "state": "supported",
+        "reason": "OpenAI excerpt: governments should 'establish shared safety bars for when and how development should slow or stop'; article quotes the mechanism accurately.",
+        "passages": [
+          "P005"
+        ],
+        "sourceIds": [
+          "openai-policy-window"
+        ]
+      },
+      "superintelligence-definition": {
+        "state": "qualified",
+        "reason": "Source lists 'surpass human intelligence or have the capacity to overthrow human governments, or... subverting shutdown commands'; article compresses the governments clause into 'defeat important forms of human control.' Faithful in substance and attributed as the sponsors' definition, but a mild generalization of one enumerated element.",
+        "passages": [
+          "P006"
+        ],
+        "sourceIds": [
+          "sanders-casar-announcement"
+        ]
+      },
+      "not-today": {
+        "state": "supported",
+        "reason": "Both OpenAI and Reuters excerpts state fully autonomous recursive self-improvement 'is not happening today'; article attributes it to OpenAI and marks it as separate.",
+        "passages": [
+          "P006"
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "reuters-openai-policy-report"
+        ]
+      },
+      "mechanism-comparison": {
+        "state": "supported",
+        "reason": "The contrast — continue-with-duties versus stop-until-rules-exist — is directly derivable from OpenAI's testing/assessment/reporting framework and the Sanders-Casar pause condition; no invented middle ground.",
+        "passages": [
+          "P007"
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "sanders-casar-announcement"
+        ]
+      },
+      "no-bill-number": {
+        "state": "supported",
+        "reason": "The announcement excerpts name the Act but supply no bill number, and the source limitation confirms no verified bill number or final text; the article's negative claim is checkable against the supplied excerpts.",
+        "passages": [
+          "P007"
+        ],
+        "sourceIds": [
+          "sanders-casar-announcement"
+        ]
+      },
+      "conditional-effects": {
+        "state": "supported",
+        "reason": "Framed as conditional ('if either approach became law') and limited to elements actually present in both proposals: testing, independent assessment, incident reporting; explicitly labelled proposed, not current rights.",
+        "passages": [
+          "P008"
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "sanders-casar-announcement"
+        ]
+      },
+      "reading-tool": {
+        "state": "supported",
+        "reason": "The four-category status ladder is an editorial device grounded in the sources' actual statuses: OpenAI post is a company position, Sanders-Casar is an announced proposal, and Reuters confirms no enacted federal framework.",
+        "passages": [
+          "P009"
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "sanders-casar-announcement",
+          "reuters-openai-policy-report"
+        ]
+      }
+    },
+    "outcomes": {
+      "factualIntegrity": {
+        "state": "pass",
+        "reason": "All material claims trace to assigned source excerpts with attribution and limits retained; the one qualified paraphrase (superintelligence definition) preserves meaning and sponsor attribution.",
+        "passages": [
+          "P003",
+          "P006",
+          "P007"
+        ]
+      },
+      "freshnessReviewability": {
+        "state": "pass",
+        "reason": "Sept 9 OpenAI call and Sept 3 announcement are dated, sourced with access dates, and the article states nothing changed federal law, making time-sensitive claims checkable.",
+        "passages": [
+          "P002",
+          "P004",
+          "P003"
+        ]
+      },
+      "datedChange": {
+        "state": "pass",
+        "reason": "The article sequences the Sept 3 announcement against the Sept 9 policy push ('Six days earlier') and repeatedly separates new proposals from unchanged law.",
+        "passages": [
+          "P004",
+          "P003",
+          "P009"
+        ]
+      },
+      "consequenceAndUncertainty": {
+        "state": "pass",
+        "reason": "Consequences are concrete (what labs must test, what assessors may examine, which incidents get reported) yet held conditional; uncertainty about enactment and missing bill number survives to the end.",
+        "passages": [
+          "P008",
+          "P007",
+          "P009"
+        ]
+      }
+    },
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "Every claim is supported or acceptably qualified and all four factual outcomes pass; the qualified definition paraphrase is within normal editorial compression, not a defect requiring repair."
+    },
+    "summary": "All fifteen claims verify against their assigned source excerpts with attribution and legal-status limits intact. One claim (superintelligence-definition) is qualified: 'defeat important forms of human control' compresses the source's 'overthrow human governments' clause, but the sponsor attribution and shutdown-command example are preserved. Dates, sequencing and the proposals-versus-law distinction are accurate throughout."
+  },
+  "reader": {
+    "attestations": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "reverseBrief": {
+      "humanQuestion": "AI safety rules are in the headlines — did anything actually become law, and how do the two competing plans differ?",
+      "promisedPayoff": "The reader can tell a company request from a forthcoming bill from enacted law, and can see where each proposal would apply its brake.",
+      "centralMentalModel": "Two braking systems: OpenAI's capability-based brake tightens as demonstrated risk grows while development continues; Sanders-Casar applies the brake first, pausing development until a regulator exists and permanently banning a defined superintelligence category.",
+      "dailyLifeConnection": "Anyone who reads headlines claiming 'AI rules are coming' can use the four-question check — speaker, legal vehicle, covered systems, trigger — to classify what actually changed.",
+      "surfaceJob": "A dated news article reporting the Sept 9 OpenAI policy push and the Sept 3 Sanders-Casar announcement, separating both from enacted law.",
+      "desiredReaderFeeling": "Calm and equipped: the reader knows nothing became law and has a durable tool for the next policy headline."
+    },
+    "outcomes": {
+      "plainClarity": {
+        "state": "pass",
+        "reason": "Every technical term (capability-based, frontier labs, superintelligence) receives a plain gloss at first meaningful use; sentences are short and legal status is never ambiguous.",
+        "passages": [
+          "P005",
+          "P006",
+          "P003"
+        ]
+      },
+      "readerValue": {
+        "state": "pass",
+        "reason": "Beyond the headline, the reader gains the two-brakes contrast and a reusable four-question ladder for classifying future policy claims.",
+        "passages": [
+          "P007",
+          "P009"
+        ]
+      },
+      "laidiesVoice": {
+        "state": "pass",
+        "reason": "Warm, candid, adult tone — 'This is a company asking for legislation; it is not legislation' is direct without condescension, and no borrowed persona appears.",
+        "passages": [
+          "P003",
+          "P005",
+          "P010"
+        ]
+      },
+      "engagingEnjoyable": {
+        "state": "pass",
+        "reason": "The braking-systems frame and the burden-placement contrast sustain interest in what could be dry status reporting; no forced humour.",
+        "passages": [
+          "P005",
+          "P006",
+          "P007"
+        ]
+      },
+      "surfaceFit": {
+        "state": "pass",
+        "reason": "It reports what happened on which dates, why it matters, and stays within a bounded news scope without drifting into advocacy or forecasting.",
+        "passages": [
+          "P002",
+          "P004",
+          "P008"
+        ]
+      },
+      "dailyLifeConnection": {
+        "state": "pass",
+        "reason": "The reader situation is concrete and recurrent — encountering a headline saying AI safety rules are coming — with a specific procedure for it.",
+        "passages": [
+          "P009",
+          "P010"
+        ]
+      },
+      "communicationBenchmark": {
+        "state": "pass",
+        "reason": "Human purpose (is any of this law?) leads, causality is concrete (each brake's trigger point), and the ending hands over a better next question rather than imitating any explainer's voice.",
+        "passages": [
+          "P003",
+          "P007",
+          "P009"
+        ]
+      },
+      "explainBack": {
+        "state": "pass",
+        "reason": "The article supports an accurate causal answer to why the two proposals differ: each places the evidentiary burden at a different point in development.",
+        "passages": [
+          "P005",
+          "P006",
+          "P007"
+        ]
+      },
+      "unseenTransfer": {
+        "state": "pass",
+        "reason": "The four-question ladder in P009 transfers cleanly to novel policy headlines; my invented state-licensing scenario resolves correctly using only the article's tools.",
+        "passages": [
+          "P009",
+          "P007"
+        ]
+      },
+      "usefulAction": {
+        "state": "pass",
+        "reason": "The action is specific and proportionate: check speaker, legal vehicle, covered systems and trigger before believing rules changed — not generic 'be careful' advice.",
+        "passages": [
+          "P009"
+        ]
+      },
+      "analogyIntegrity": {
+        "state": "pass",
+        "reason": "The single braking-system comparison maps accurately: brake point equals the legal trigger for slowing or stopping, and the limits (proposals only, no bill number) survive the analogy.",
+        "passages": [
+          "P005",
+          "P006",
+          "P007"
+        ]
+      }
+    },
+    "newsChecks": {
+      "incidentExplained": {
+        "state": "pass",
+        "reason": "Both events — the Sept 9 OpenAI request and the Sept 3 Sanders-Casar announcement — are dated, sequenced and causally distinguished from any legal change.",
+        "passages": [
+          "P002",
+          "P004",
+          "P003"
+        ]
+      },
+      "termsExplainedInContext": {
+        "state": "pass",
+        "reason": "Capability-based, frontier labs and superintelligence are each defined in the sentence where they first matter, with the superintelligence definition explicitly attributed to the sponsors.",
+        "passages": [
+          "P005",
+          "P006",
+          "P011"
+        ]
+      },
+      "readerConsequenceSpecific": {
+        "state": "pass",
+        "reason": "The consequence is grounded in a recognizable situation — reading a headline claiming AI safety rules are coming — with the concrete verified change stated (a policy push, not law).",
+        "passages": [
+          "P009",
+          "P008"
+        ]
+      },
+      "noInternalNotesOrInventedAdvice": {
+        "state": "pass",
+        "reason": "No internal operating notes or process details leak; all advice derives from the sources' documented statuses rather than invented guidance.",
+        "passages": [
+          "P009",
+          "P010"
+        ]
+      }
+    },
+    "families": {
+      "glossaryAccumulation": {
+        "state": "clear",
+        "reason": "Terms are defined only where they do explanatory work in the mechanism comparison, never stacked as a list.",
+        "passages": []
+      },
+      "templateRepetition": {
+        "state": "clear",
+        "reason": "Paragraphs develop from event to mechanism to comparison to tool; no repeated scaffold.",
+        "passages": []
+      },
+      "decorativeAnalogy": {
+        "state": "clear",
+        "reason": "The braking-systems comparison carries the causal load — it locates each proposal's trigger point rather than decorating.",
+        "passages": []
+      },
+      "referenceConfetti": {
+        "state": "clear",
+        "reason": "No pop-culture or gratuitous references anywhere in the artifact.",
+        "passages": []
+      },
+      "missingMechanism": {
+        "state": "clear",
+        "reason": "Each proposal's mechanism (duties-while-developing vs pause-then-ban) is given with its trigger and coverage.",
+        "passages": []
+      },
+      "genericAction": {
+        "state": "clear",
+        "reason": "The closing action names four specific checks rather than generic vigilance.",
+        "passages": []
+      },
+      "jargonBeforeMeaning": {
+        "state": "clear",
+        "reason": "Capability-based, frontier labs and superintelligence are all glossed at first meaningful use.",
+        "passages": []
+      },
+      "disconnectedSystem": {
+        "state": "clear",
+        "reason": "The actors, proposals and legal status are connected into one comparative picture of where the burden sits.",
+        "passages": []
+      },
+      "factlessConfidence": {
+        "state": "clear",
+        "reason": "Certainty is confined to what sources support; enactment, bill number and effectiveness stay explicitly open.",
+        "passages": []
+      },
+      "staleUnreviewableClaims": {
+        "state": "clear",
+        "reason": "Both events are dated (Sept 3 and Sept 9), sourced and marked checked as of the stated review time.",
+        "passages": []
+      },
+      "corporateSludge": {
+        "state": "clear",
+        "reason": "Prose is concrete throughout; even OpenAI's policy language is translated rather than echoed.",
+        "passages": []
+      },
+      "joylessInstruction": {
+        "state": "clear",
+        "reason": "The comparison frame and direct voice keep the piece from becoming a checklist despite its status-classification content.",
+        "passages": []
+      },
+      "benchmarkNameDrop": {
+        "state": "clear",
+        "reason": "No communication benchmark or famous explainer is mentioned anywhere.",
+        "passages": []
+      },
+      "curiosityWithoutPayoff": {
+        "state": "clear",
+        "reason": "The headline's implicit question — did anything change — is answered immediately and repeatedly.",
+        "passages": []
+      },
+      "familiarExampleWithoutTechnicalReturn": {
+        "state": "clear",
+        "reason": "The braking-system frame returns to the technical specifics of triggers, coverage and reporting duties.",
+        "passages": []
+      },
+      "communicationPastiche": {
+        "state": "clear",
+        "reason": "The voice is house-original; no imitation of another communicator's mannerisms.",
+        "passages": []
+      },
+      "entertainmentBeforeUnderstanding": {
+        "state": "clear",
+        "reason": "No spectacle; the light framing serves the comparison rather than displacing it.",
+        "passages": []
+      },
+      "mechanismCompressedBehindHook": {
+        "state": "clear",
+        "reason": "There is no elongated hook; the mechanism comparison occupies the centre of the piece.",
+        "passages": []
+      },
+      "prematureClickBeforeMechanism": {
+        "state": "clear",
+        "reason": "The conclusion that nothing changed is asserted early but immediately earned with the Reuters status and source limits.",
+        "passages": []
+      },
+      "inflatedTakeawayEnding": {
+        "state": "clear",
+        "reason": "The ending stays bounded: 'the verified change is a public policy push. The law has not changed.'",
+        "passages": []
+      },
+      "purposeTooNarrow": {
+        "state": "clear",
+        "reason": "The piece covers both proposals, their mechanisms, legal status and a transferable reading tool — the full supplied job.",
+        "passages": []
+      },
+      "mechanismBeforeMotivation": {
+        "state": "clear",
+        "reason": "The human stake — whether headlines mean law changed — is established before any mechanism detail.",
+        "passages": []
+      },
+      "workedExampleOvertakesBookPurpose": {
+        "state": "clear",
+        "reason": "Not applicable in structure; neither proposal's detail crowds out the comparative purpose.",
+        "passages": []
+      },
+      "technicalExplainerVoice": {
+        "state": "clear",
+        "reason": "The organising perspective is reader orientation to policy claims, exactly right for a bounded news report.",
+        "passages": []
+      }
+    },
+    "explainBack": {
+      "question": "Why would the same AI lab face different obligations at different times under OpenAI's plan but potentially none at all under a Sanders-Casar pause — what causal difference in the two mechanisms produces that?",
+      "answer": "OpenAI's mechanism ties obligations to demonstrated capability: as a lab's systems show stronger abilities and risks, testing, independent assessment, cybersecurity and reporting duties tighten, and shared safety bars decide when work must slow or stop — so development continues while producing evidence. The Sanders-Casar mechanism ties permission to institutional readiness instead: advanced development is paused until a new regulator exists and has published rules and a review process, and their defined superintelligence category is banned permanently regardless of any regulator. So under OpenAI's plan the lab works under escalating duties; under the pause, the lab cannot proceed at all until public infrastructure exists.",
+      "expectedEvidence": "P005 (capability-based duties, safety bars, development continues), P006 (pause until regulator and rules exist, permanent ban on the defined category), P007 (burden placed at different points).",
+      "assessment": "The article supports this causal answer fully in ordinary language; the trigger difference (capability evidence vs regulator existence) is explicit in P005–P007."
+    },
+    "unseenTransfer": {
+      "scenario": "A month later, a state governor holds a press conference announcing a plan to require licences for companies training large AI models in her state, and a tech blog headlines it 'AI training now requires a licence.'",
+      "question": "Using this article's tools, what should a reader conclude about whether AI training licences are now legally required?",
+      "answer": "Apply the four checks from P009: the speaker is a governor, not a legislature; the legal vehicle is an announced plan — neither an introduced bill nor enacted law, so like the Sanders-Casar announcement it creates no requirement today; covered systems are undefined until actual text exists (compare the missing bill number in P007); and no trigger event for licensing has legal force yet. Conclusion: nothing is required now; the verified change is a public policy push, and the reader should look for introduced legislative text with a number before treating the headline as a rule.",
+      "expectedEvidence": "P009 supplies the four-question ladder; P004 and P007 model how an announced proposal without a bill number is classified; P003 models the 'no legal requirement today' conclusion.",
+      "assessment": "The transfer succeeds: the article's status ladder and trigger analysis resolve a genuinely new scenario absent from the piece without needing outside knowledge."
+    },
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "All outcomes and news checks pass and all twenty-four failure families are clear; explain-back and the invented transfer both resolve using only the article's mechanisms."
+    },
+    "summary": "A well-bounded dated news article that answers legal status first, explains both proposed braking mechanisms with their triggers and coverage, keeps attribution and uncertainty intact, and ends with a specific transferable four-question tool. No failure families present; explain-back and a novel state-licensing transfer scenario both succeed on the article's own mechanisms."
+  }
+}

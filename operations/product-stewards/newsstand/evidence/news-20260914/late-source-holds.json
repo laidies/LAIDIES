@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "laidies-newsstand-late-source-holds.v1",
+  "editionDate": "2026-09-14",
+  "checkedAt": "2026-09-14T22:57:56Z",
+  "reviewerId": "/root/puzzle_visual_reconcile",
+  "scope": "Independent bounded source refresh for four retained holds. No coverage, candidate, review, canonical or public mutation.",
+  "transportBoundary": "Normal web search/open only. No alternate transport, proxy, credential, cookie injection, URL rewriting or mirror was used.",
+  "nonRetryableUrls": [
+    {
+      "url": "https://www.nature.com/articles/s41586-026-11001-9",
+      "action": "NOT_RETRIED",
+      "reason": "Known nonretryable Nature URL; this refresh used distinct institutional context only. Its prior checkedAt was not advanced."
+    },
+    {
+      "url": "https://www.nature.com/articles/d41586-026-02845-2",
+      "action": "NOT_RETRIED",
+      "reason": "Known nonretryable Nature URL; this refresh used distinct institutional context only. Its prior checkedAt was not advanced."
+    },
+    {
+      "url": "https://www.nature.com/articles/s41593-026-02446-2",
+      "action": "NOT_RETRIED",
+      "reason": "Known nonretryable Nature URL and outside the four active hold checks; its prior checkedAt was not advanced."
+    }
+  ],
+  "holds": [
+    {
+      "id": "proteintalks-20260909",
+      "eventFamily": "ProteinTalks virtual-cell proteomics and breast-cancer drug-response research",
+      "priorStatus": "EVIDENCE_BLOCKED",
+      "refreshSources": [
+        {
+          "url": "https://en.westlake.edu.cn/faculty/tiannan-guo.html",
+          "sourceType": "author-affiliated institutional faculty page",
+          "accessResult": "CHECKED",
+          "observed": "Westlake University lists An operational perturbation proteomics-based virtual cell model among Tiannan Guo's representative publications, with the author list and Nature 2026 publication context.",
+          "limitation": "This confirms research provenance only. It supplies neither independently reviewed clinical limits nor the complete methods and results needed for a medical story."
+        }
+      ],
+      "disposition": "EVIDENCE_BLOCKED",
+      "missingInput": "Admissible full methods/results and independent clinical-limit verification.",
+      "notRetried": [
+        "https://www.nature.com/articles/s41586-026-11001-9"
+      ]
+    },
+    {
+      "id": "nature-breast-cancer-drug-prediction-20260909",
+      "eventFamily": "ProteinTalks virtual-cell proteomics and breast-cancer drug-response research",
+      "priorStatus": "EVIDENCE_BLOCKED",
+      "refreshSources": [
+        {
+          "url": "https://en.westlake.edu.cn/faculty/tiannan-guo.html",
+          "sourceType": "author-affiliated institutional faculty page",
+          "accessResult": "CHECKED",
+          "observed": "The Westlake faculty page corroborates the paper title, collaborators and Nature 2026 context but does not provide the independent Nature news assessment or establish patient benefit.",
+          "limitation": "The page cannot replace the blocked independent report and does not separate retrospective association, organoid testing and prospective clinical outcomes."
+        }
+      ],
+      "disposition": "EVIDENCE_BLOCKED",
+      "missingInput": "Accessible independent medical reporting or expert context that verifies the clinical limits of the research.",
+      "notRetried": [
+        "https://www.nature.com/articles/d41586-026-02845-2"
+      ]
+    },
+    {
+      "id": "devin-voice-20260911",
+      "eventFamily": "Reported Devin Voice launch",
+      "priorStatus": "EVIDENCE_BLOCKED",
+      "refreshSources": [
+        {
+          "url": "https://x.com/cognition/status/2098142686486356185",
+          "sourceType": "exact primary X announcement",
+          "accessResult": "BLOCKED",
+          "httpStatus": 403,
+          "observed": "Normal web open returned Internal Error / Forbidden; no post text was recovered."
+        },
+        {
+          "url": "https://docs.devin.ai/release-notes/overview",
+          "sourceType": "official product documentation",
+          "accessResult": "CHECKED",
+          "observed": "The accessible release notes document a May 13 Voice Recording While Devin Is Working feature for recording and sending voice follow-ups.",
+          "limitation": "That older feature does not establish the identity, scope or release date of the separately reported September Devin Voice launch."
+        }
+      ],
+      "disposition": "EVIDENCE_BLOCKED",
+      "missingInput": "Accessible exact dated Cognition announcement or an official release record that identifies Devin Voice and its launch scope."
+    },
+    {
+      "id": "grokbot-sales-integrations",
+      "eventFamily": "Reported Grok Bot sales integrations",
+      "priorStatus": "EVIDENCE_BLOCKED",
+      "refreshSources": [
+        {
+          "url": "https://x.com/bot/status/2098183353665261979",
+          "sourceType": "exact primary X announcement",
+          "accessResult": "BLOCKED",
+          "httpStatus": 403,
+          "observed": "Normal web open returned Internal Error / Forbidden; no post text was recovered."
+        },
+        {
+          "url": "https://x.ai/news/grok-bot-for-enterprise",
+          "sourceType": "official product announcement",
+          "accessResult": "CHECKED",
+          "publishedDate": "2026-09-03",
+          "observed": "The official announcement establishes Grok Bot for Enterprise, governance controls and examples of sales work, including drafting outreach and updating decks from live notes."
+        },
+        {
+          "url": "https://x.ai/bot/marketplace",
+          "sourceType": "official current product catalogue",
+          "accessResult": "CHECKED",
+          "observed": "The current marketplace lists sales bots such as Outbound Prospecting, GTM Loop Closer, Sales Call Coach and Meeting Recap Deck."
+        },
+        {
+          "url": "https://docs.x.ai/grok/connectors",
+          "sourceType": "official current documentation",
+          "accessResult": "CHECKED",
+          "lastUpdated": "2026-07-17",
+          "observed": "The connector documentation lists Salesforce among built-in connectors and describes a wider connector catalogue.",
+          "limitation": "These official pages establish product capabilities but do not recover the exact September X announcement or prove which integrations were newly announced in that post."
+        }
+      ],
+      "disposition": "EVIDENCE_BLOCKED",
+      "missingInput": "Accessible exact dated announcement that identifies the newly announced sales integrations and distinguishes them from already documented Grok Bot capabilities."
+    }
+  ],
+  "outcome": {
+    "newEligibleStories": [],
+    "holdsRetained": 4,
+    "coverageUpdatedByThisLane": false,
+    "providerReviewSpend": false,
+    "publicWrite": false
+  }
+}

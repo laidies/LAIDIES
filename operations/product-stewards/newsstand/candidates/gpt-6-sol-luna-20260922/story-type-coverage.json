@@ -1,0 +1,57 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "model-tool-release",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "OpenAI introduced GPT-6 Sol and Luna on September 22 and placed them in Work and Codex.",
+    "plainLanguageIdentity": "A model release whose availability and price differ by product surface.",
+    "evidenceBasis": "OpenAI’s official release and current ChatGPT release notes, inspected September 26.",
+    "evidenceLimits": "OpenAI is the provider source; no account-specific picker was inspected and no independent performance result is claimed.",
+    "readerRelevance": "The reader can distinguish a developer API price from a ChatGPT plan charge and check the service she actually uses.",
+    "affectedPeople": "Readers using ChatGPT Chat, Work or Codex and developers paying for API use; exact access depends on plan and workspace.",
+    "changesNow": "OpenAI states the models are available in Work and Codex, are not yet in Chat, and may roll out gradually.",
+    "uncertainty": "A release does not establish a particular account’s model picker or cost.",
+    "readerAction": "Identify whether the relevant service is Chat, Work or Codex, then inspect its current model picker and plan/workspace details.",
+    "betterQuestion": "Which service changed, and does this price use a developer token meter or a subscription plan?"
+  },
+  "typeAnswers": {
+    "model-tool-release": {
+      "productRange": "OpenAI presents Sol and Luna as GPT-6 models across Work, Codex and its API.",
+      "newCapabilities": "The provider makes performance and cost claims; this article does not independently validate them.",
+      "bestFitTasks": "No reader-specific task recommendation is made.",
+      "notFor": "The announcement does not prove that a particular Chat account can select either model.",
+      "nearestAlternatives": "Other models may appear in a service picker, but no comparison is recommended here.",
+      "availability": "OpenAI says Work and Codex availability, separate from Chat, with plan/workspace dependence and a gradual rollout.",
+      "freePaidBoundary": "The official release specifies availability by named plans and a Luna desktop-app route for Free and Go; it does not establish every account view.",
+      "costBoundary": "The listed API rates are per-token developer usage charges, not a monthly ChatGPT subscription price.",
+      "limitations": "No live account picker, account-specific cost or independent benchmark result was inspected.",
+      "technicalExampleProportionality": "No benchmark table is used because it does not answer the reader’s access-and-bill question.",
+      "vendorEvidenceBoundary": "Release, availability, pricing and performance information are OpenAI claims."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "OpenAI introduced GPT-6 Sol and Luna on September 22.",
+    "actualMeaningExact": "Those figures are not a ChatGPT subscription price.",
+    "mechanismExact": "A model name can appear in more than one OpenAI service.",
+    "familiarExampleExact": "You might use Chat personally and Work through an employer, and the lists of available models can differ.",
+    "jargon": [
+      {
+        "term": "API",
+        "plainMeaning": "the developer-facing connection that lets software send work to a model and pay for the text it processes"
+      },
+      {
+        "term": "workspace",
+        "plainMeaning": "a shared work account whose plan and settings can affect which model choices appear"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "Token-based developer billing",
+        "learningPayoff": "Explains why processed text can be a usage meter rather than a monthly subscription price.",
+        "disposition": "link",
+        "destination": "/library.html#ai-fundamentals-101::%40ch-4-4-2-what-a-token-actually-is"
+      }
+    ]
+  }
+}

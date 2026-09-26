@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "newsstand-weekly-field-correction-independent-admission.v1",
+  "decision": "ACCEPT_PRIVATE_CORRECTION_PROPOSAL",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "proposal": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/correction-20260926/correction-proposal.json",
+    "sha256": "599b3ae1e052b6490e52d80ffd8c53c7a602666ec83308097a93f330bb5f656a"
+  },
+  "validation": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/correction-20260926/validation.json",
+    "sha256": "a021fa6b4a14234d3ed335bed1a306d18f588669037acb67180d0b57a77134e7"
+  },
+  "reviewedAt": "2026-09-26T16:11:16.454Z",
+  "reviewedBy": "/root/california_order_producer",
+  "reviewerRole": "Independent NewsStand correction reviewer",
+  "maker": "/root",
+  "checks": {
+    "currentPublishedStoryUniquelyBound": "PASS",
+    "exactBeforeFieldMatches": "PASS",
+    "exactAfterIsPreviouslyReviewedPrefix": "PASS",
+    "onlyClosingNoteChanges": "PASS",
+    "falsePendingStatusRemoved": "PASS",
+    "readerContract": "PASS",
+    "weeklyPointerUnchanged": "PASS",
+    "newReaderClaimIntroduced": "PASS_NONE",
+    "canonicalWrite": "PASS_NONE"
+  },
+  "limitations": [
+    "This admission covers only the exact closing_note suffix deletion. It does not admit any other story, issue, pointer, service, source or layout change.",
+    "Public correction history, predecessor retrieval, canonical mutation, deployment and live verification remain root-owned transaction steps."
+  ]
+}

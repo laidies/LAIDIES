@@ -1,0 +1,133 @@
+{
+  "checkedAt": "2026-09-16T14:53:27.376Z",
+  "contract": {
+    "errors": [],
+    "status": "READY_TO_DRAFT"
+  },
+  "coverageErrors": [],
+  "lengthErrors": [],
+  "draft": {
+    "errors": [],
+    "qualityVerdict": null
+  },
+  "producerReceipt": {
+    "errors": [],
+    "verdict": "PASS",
+    "qualityAuthority": "NONE"
+  },
+  "sourceBudget": {
+    "schemaVersion": "newsstand-source-budget-v1",
+    "candidateId": "chatgpt-sponsored-agents-20260916",
+    "method": "Conservative allocation of every source-derived phrase across visible fields, including headline, synthesis, cocktail line and source label. Article.md mirrors story.json and is not counted twice.",
+    "limits": {
+      "OpenAI": 200
+    },
+    "allocations": [
+      {
+        "allocationId": "headline",
+        "publisher": "OpenAI",
+        "field": "headline",
+        "exactDerivedText": "A new ChatGPT ad can open a separate conversation with the seller",
+        "words": 12
+      },
+      {
+        "allocationId": "event",
+        "publisher": "OpenAI",
+        "field": "the_story",
+        "exactDerivedText": "OpenAI announced September 16 that it is testing Sponsored Agents with select US advertisers.",
+        "words": 14
+      },
+      {
+        "allocationId": "choice",
+        "publisher": "OpenAI",
+        "field": "the_story",
+        "exactDerivedText": "After clicking an ad in ChatGPT, a person can choose to open a clearly labelled conversation with an agent sponsored by that business.",
+        "words": 23
+      },
+      {
+        "allocationId": "separation",
+        "publisher": "OpenAI",
+        "field": "the_story",
+        "exactDerivedText": "OpenAI says the sponsored conversation is separate from the person’s original chat and from ChatGPT’s independent answers.",
+        "words": 17
+      },
+      {
+        "allocationId": "availability-limit",
+        "publisher": "OpenAI",
+        "field": "the_story",
+        "exactDerivedText": "The announcement does not give broader availability details.",
+        "words": 8
+      },
+      {
+        "allocationId": "speaker",
+        "publisher": "OpenAI",
+        "field": "laidies_read",
+        "exactDerivedText": "You are talking to a seller about what it offers, through an AI agent inside ChatGPT.",
+        "words": 16
+      },
+      {
+        "allocationId": "handoff",
+        "publisher": "OpenAI",
+        "field": "what_this_means",
+        "exactDerivedText": "The important hand-off happens when you click the ad and choose the new conversation.",
+        "words": 14
+      },
+      {
+        "allocationId": "label",
+        "publisher": "OpenAI",
+        "field": "what_this_means",
+        "exactDerivedText": "Pause there long enough to notice the label and who is speaking.",
+        "words": 12
+      },
+      {
+        "allocationId": "cocktail",
+        "publisher": "OpenAI",
+        "field": "cocktail_party",
+        "exactDerivedText": "After the ad click, you’re chatting with the seller.",
+        "words": 9
+      },
+      {
+        "allocationId": "source-label",
+        "publisher": "OpenAI",
+        "field": "sources[0].label",
+        "exactDerivedText": "OpenAI — Reimagining advertising with AI",
+        "words": 6
+      }
+    ],
+    "totals": {
+      "OpenAI": 131
+    },
+    "quoteDerivedWords": 0,
+    "withinLimits": true,
+    "unmappedSourceDerivedClaims": [],
+    "otherVisibleOrigins": [
+      {
+        "fields": [
+          "laidies_read",
+          "what_this_means"
+        ],
+        "origin": "Producer-created seller interpretation and desk-lamp shopping example",
+        "treatment": "Original practical consequence; no source-derived product facts."
+      },
+      {
+        "fields": [
+          "class_notes"
+        ],
+        "origin": "Verified live Library §20.8",
+        "treatment": "Background on incentives; explicitly not evidence about Sponsored Agents."
+      },
+      {
+        "fields": [
+          "heroVisual.alt"
+        ],
+        "origin": "Exact illustration inspection",
+        "treatment": "Visual description, not provider fact."
+      }
+    ]
+  },
+  "visualAdmission": {
+    "path": "operations/product-stewards/newsstand/candidates/chatgpt-sponsored-agents-20260916/art/independent-review.json",
+    "sha256": "8b69fadadfb2dc27c90f979427bd57b6189ec9d44fedf1923749e7df8d639205"
+  },
+  "editorialCallMade": false
+}

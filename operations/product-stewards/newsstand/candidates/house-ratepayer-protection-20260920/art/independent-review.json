@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "laidies-newsstand-independent-visual-review.v1",
+  "stage": "INDEPENDENT_PIXEL_REVIEW",
+  "reviewer": {
+    "principal": "/root/morning_aidb_20260920",
+    "role": "independent visual reviewer",
+    "distinctFromProducer": "/root"
+  },
+  "reviewedAt": "2026-09-23T03:20:00Z",
+  "verdict": "PASS_VISUAL",
+  "scope": "Pixel review of the supplied hero and mobile-preview assets only. This does not admit article prose, establish source freshness, or publish any asset.",
+  "inputs": {
+    "producerContract": {
+      "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/art/producer-contract.json",
+      "sha256": "a72ca72c1cce8942f13202a5ad3350bd056c83a3370f476954a4a897ce1afa1e"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/article.md",
+      "reviewedForVisualClaimLimits": true
+    },
+    "hero": {
+      "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/art/house-grid-costs-v2.png",
+      "sha256": "c595b0e795749d22b1140366bcb0f3c17b6697edb28c86db5f04649f2002d41e",
+      "dimensions": "1536x1024"
+    },
+    "mobilePreview": {
+      "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/art/mobile-preview.png",
+      "sha256": "3a67d1062641178fed7e09818dd53ef2d6c32e13bda8cd9647a7e5ad3a68b07d",
+      "dimensions": "390x260"
+    },
+    "styleReference": {
+      "path": "/Users/alisoneakin/Projects/laidies-current-visual-references-20260906/assets/homepage/approved-references/women-ai-pop-art-approved-20260830.png",
+      "sha256": "0742816929be694e0e9fcfa11c3ae047173814e6112419176a71a994273828a5",
+      "inspected": true
+    }
+  },
+  "findings": [
+    {
+      "criterion": "semantic fit and claim limits",
+      "result": "PASS",
+      "evidence": "The paper-plan composition separates a neighbourhood model and a server-building model while routing both to one substation. The two blank binders support a planning/cost-allocation reading. It shows neither enacted law nor a changed household bill."
+    },
+    {
+      "criterion": "prohibited meaning",
+      "result": "PASS",
+      "evidence": "No falling bill, savings arrow, price claim, approved stamp, signature, official insignia, generic robot, or numerical consumption comparison is visible."
+    },
+    {
+      "criterion": "text and identity",
+      "result": "PASS",
+      "evidence": "No readable words, pseudo-readable labels, people, character likenesses, or anatomy are visible."
+    },
+    {
+      "criterion": "physical and compositional integrity",
+      "result": "PASS",
+      "evidence": "Models, folders, writing tools, desk and substation are coherently supported. At mobile size, the neighbourhood, server building, common substation and distinct cyan/tangerine routes remain identifiable."
+    },
+    {
+      "criterion": "style",
+      "result": "PASS",
+      "evidence": "Hero uses the approved adult editorial pop-art language: inked comic detail, print/halftone texture, dark navy field, magenta and cyan accents, and purposeful still-life composition."
+    }
+  ],
+  "limitations": [
+    "This review found no pixel repair. It does not validate the producer contract metadata that still labels the stage PRE_RENDER or says no image has been generated; those record-state statements are outside this pixel verdict and require separate producer-record reconciliation before binding.",
+    "No live NewsStand crop, accessibility implementation, prose admission, or publication review was performed."
+  ],
+  "nextAction": "Eligible for the next non-visual gate only after the producer reconciles its stale contract record-state fields; no visual regeneration is required by this review."
+}

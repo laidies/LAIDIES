@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "laidies-newsstand-independent-visual-review.v1",
+  "candidateId": "openai-agent-australia-medicare-20260924",
+  "reviewedAt": "2026-09-25T03:25:44.829Z",
+  "reviewer": "/root/morning_aidb_20260920",
+  "roleDistinctFromMaker": true,
+  "inspectionOrder": [
+    "Viewed full-resolution image pixels before reading maker outcome.",
+    "Then read the bound visual contract and maker record."
+  ],
+  "bindings": {
+    "image": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/art-generated/statistics-v1.png",
+      "sha256": "f1dd76f7a189320ddf895f75ec6d054e0b65b4d9cba89ec0582d11e98dd54a65",
+      "dimensions": "1536x1024 PNG"
+    },
+    "producerContract": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/art-generated/producer-contract.json",
+      "sha256": "5945eeafa6764a9d6b69c6d3c84635ec2b3b711aeb04d8f7be5aa4194e51f7a0"
+    },
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/story.json",
+      "sha256": "fc42de1ed5675c0300c599e274b301de31cf39c3382bea5cdaddc5b57659789e"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/article.md",
+      "sha256": "62800793d74796b068dd5454ddb19cf972c9f53b198bf790beec37b31a3b9c7e"
+    }
+  },
+  "pixelFindings": {
+    "style": "PASS: adult editorial print treatment is visible through strong ink outlines, halftone texture, navy, orange and magenta accents.",
+    "semanticScope": "PARTIAL: Australia silhouette, aggregate charts, computer and archive compartment support a statistics-portal boundary without people, patient cards, logos or breach symbolism.",
+    "physicalCoherence": "HOLD: the long foreground chart sheet visually converges with the orange drawer-label area, making its support/relationship to the cabinet ambiguous.",
+    "generatedText": "HOLD: small pseudo-label-like marks are visible on the foreground statistical sheets and dashboard/chart areas. The contract requires no generated letters or numbers.",
+    "mobile": "HOLD: no actual mobile preview was supplied, so the required crop/legibility inspection was not possible.",
+    "anatomyAndLikeness": "PASS: no people, body parts, likenesses or named characters are shown."
+  },
+  "verdict": "HOLD_REPAIR_REQUIRED",
+  "requiredRepair": [
+    "Remove all pseudo-text, generated labels and number-like marks from every chart surface.",
+    "Place the long sheet clearly on the desk or visibly free above it; do not align it with a drawer label slot.",
+    "Supply an actual mobile preview for separate pixel inspection."
+  ],
+  "admissionAuthority": false,
+  "publicationAuthority": false
+}

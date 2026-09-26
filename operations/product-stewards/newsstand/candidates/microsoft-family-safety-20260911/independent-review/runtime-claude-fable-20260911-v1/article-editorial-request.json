@@ -1,0 +1,2886 @@
+{
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "reader": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "reverseBrief": {
+            "type": "object",
+            "properties": {
+              "humanQuestion": {
+                "type": "string",
+                "minLength": 15
+              },
+              "promisedPayoff": {
+                "type": "string",
+                "minLength": 15
+              },
+              "centralMentalModel": {
+                "type": "string",
+                "minLength": 15
+              },
+              "dailyLifeConnection": {
+                "type": "string",
+                "minLength": 15
+              },
+              "surfaceJob": {
+                "type": "string",
+                "minLength": 15
+              },
+              "desiredReaderFeeling": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "humanQuestion",
+              "promisedPayoff",
+              "centralMentalModel",
+              "dailyLifeConnection",
+              "surfaceJob",
+              "desiredReaderFeeling"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "plainClarity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerValue": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "laidiesVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "engagingEnjoyable": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "surfaceFit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "dailyLifeConnection": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationBenchmark": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "explainBack": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "unseenTransfer": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "usefulAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "analogyIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "plainClarity",
+              "readerValue",
+              "laidiesVoice",
+              "engagingEnjoyable",
+              "surfaceFit",
+              "dailyLifeConnection",
+              "communicationBenchmark",
+              "explainBack",
+              "unseenTransfer",
+              "usefulAction",
+              "analogyIntegrity"
+            ],
+            "additionalProperties": false
+          },
+          "newsChecks": {
+            "type": "object",
+            "properties": {
+              "incidentExplained": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "termsExplainedInContext": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerConsequenceSpecific": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "noInternalNotesOrInventedAdvice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "incidentExplained",
+              "termsExplainedInContext",
+              "readerConsequenceSpecific",
+              "noInternalNotesOrInventedAdvice"
+            ],
+            "additionalProperties": false
+          },
+          "families": {
+            "type": "object",
+            "properties": {
+              "glossaryAccumulation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "templateRepetition": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "decorativeAnalogy": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "referenceConfetti": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "missingMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "genericAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "jargonBeforeMeaning": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "disconnectedSystem": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "factlessConfidence": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "staleUnreviewableClaims": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "corporateSludge": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "joylessInstruction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "benchmarkNameDrop": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "curiosityWithoutPayoff": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "familiarExampleWithoutTechnicalReturn": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationPastiche": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "entertainmentBeforeUnderstanding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismCompressedBehindHook": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "prematureClickBeforeMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "inflatedTakeawayEnding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "purposeTooNarrow": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismBeforeMotivation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "workedExampleOvertakesBookPurpose": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "technicalExplainerVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "glossaryAccumulation",
+              "templateRepetition",
+              "decorativeAnalogy",
+              "referenceConfetti",
+              "missingMechanism",
+              "genericAction",
+              "jargonBeforeMeaning",
+              "disconnectedSystem",
+              "factlessConfidence",
+              "staleUnreviewableClaims",
+              "corporateSludge",
+              "joylessInstruction",
+              "benchmarkNameDrop",
+              "curiosityWithoutPayoff",
+              "familiarExampleWithoutTechnicalReturn",
+              "communicationPastiche",
+              "entertainmentBeforeUnderstanding",
+              "mechanismCompressedBehindHook",
+              "prematureClickBeforeMechanism",
+              "inflatedTakeawayEnding",
+              "purposeTooNarrow",
+              "mechanismBeforeMotivation",
+              "workedExampleOvertakesBookPurpose",
+              "technicalExplainerVoice"
+            ],
+            "additionalProperties": false
+          },
+          "explainBack": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "unseenTransfer": {
+            "type": "object",
+            "properties": {
+              "scenario": {
+                "type": "string",
+                "minLength": 15
+              },
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "scenario",
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "reverseBrief",
+          "outcomes",
+          "newsChecks",
+          "families",
+          "explainBack",
+          "unseenTransfer",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      },
+      "facts": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "claims": {
+            "type": "object",
+            "properties": {
+              "framework-date": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "microsoft-safe-participation-framework",
+                        "microsoft-copilot-young-people-support",
+                        "microsoft-windows-age-api",
+                        "microsoft-family-safety-fixes",
+                        "windows-central-family-scope-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "copilot-signin": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "microsoft-safe-participation-framework",
+                        "microsoft-copilot-young-people-support",
+                        "microsoft-windows-age-api",
+                        "microsoft-family-safety-fixes",
+                        "windows-central-family-scope-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "copilot-age": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "microsoft-safe-participation-framework",
+                        "microsoft-copilot-young-people-support",
+                        "microsoft-windows-age-api",
+                        "microsoft-family-safety-fixes",
+                        "windows-central-family-scope-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "family-fixes": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "microsoft-safe-participation-framework",
+                        "microsoft-copilot-young-people-support",
+                        "microsoft-windows-age-api",
+                        "microsoft-family-safety-fixes",
+                        "windows-central-family-scope-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "remaining-family-limits": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "microsoft-safe-participation-framework",
+                        "microsoft-copilot-young-people-support",
+                        "microsoft-windows-age-api",
+                        "microsoft-family-safety-fixes",
+                        "windows-central-family-scope-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "age-api-preview": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "microsoft-safe-participation-framework",
+                        "microsoft-copilot-young-people-support",
+                        "microsoft-windows-age-api",
+                        "microsoft-family-safety-fixes",
+                        "windows-central-family-scope-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "future-function": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "microsoft-safe-participation-framework",
+                        "microsoft-copilot-young-people-support",
+                        "microsoft-windows-age-api",
+                        "microsoft-family-safety-fixes",
+                        "windows-central-family-scope-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "age-signal": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "microsoft-safe-participation-framework",
+                        "microsoft-copilot-young-people-support",
+                        "microsoft-windows-age-api",
+                        "microsoft-family-safety-fixes",
+                        "windows-central-family-scope-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "developer-choice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "microsoft-safe-participation-framework",
+                        "microsoft-copilot-young-people-support",
+                        "microsoft-windows-age-api",
+                        "microsoft-family-safety-fixes",
+                        "windows-central-family-scope-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "independent-limit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "microsoft-safe-participation-framework",
+                        "microsoft-copilot-young-people-support",
+                        "microsoft-windows-age-api",
+                        "microsoft-family-safety-fixes",
+                        "windows-central-family-scope-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "current-action": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "microsoft-safe-participation-framework",
+                        "microsoft-copilot-young-people-support",
+                        "microsoft-windows-age-api",
+                        "microsoft-family-safety-fixes",
+                        "windows-central-family-scope-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "framework-date",
+              "copilot-signin",
+              "copilot-age",
+              "family-fixes",
+              "remaining-family-limits",
+              "age-api-preview",
+              "future-function",
+              "age-signal",
+              "developer-choice",
+              "independent-limit",
+              "current-action"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "factualIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "freshnessReviewability": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "datedChange": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "consequenceAndUncertainty": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "factualIntegrity",
+              "freshnessReviewability",
+              "datedChange",
+              "consequenceAndUncertainty"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "claims",
+          "outcomes",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "reader",
+      "facts"
+    ],
+    "additionalProperties": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an independent editorial reviewer. Inspect the exact artifact before judging. Be specific, proportionate and honest. A real defect, insufficient evidence and an execution failure are different. Return final structured judgments only; never invent human observations."
+    },
+    {
+      "role": "user",
+      "content": "Read the COMPLETE ARTIFACT first:\n{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"An account’s age information, a product’s access rule and a family control do different jobs. Ask which layer changed before expecting a new safeguard.\",\"closing_note\":null,\"cocktail_party\":\"“Microsoft has current Copilot age rules and Family Safety fixes, but its wider Windows age signals are still an Insider preview. An age category can inform an app; it does not create the app’s safeguards.”\",\"concepts\":[\"age signal\",\"Windows Insider\",\"family controls\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"Microsoft updated family controls. Its wider Windows age signals are still in preview.\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"LAiDIES NewsStand evidence-checking illustration\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"microsoft-family-safety-20260911\",\"laidies_read\":\"<p>The useful way to read this is as three separate layers. A Microsoft account can carry age information. Copilot can use that information to set its own access rules. Family Safety provides separate controls for screen time, apps, spending and activity reports.</p><p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p><p>A <strong>Windows Insider</strong> is a person using a preview version of Windows before a feature reaches the general public. Independent reporting from Windows Central confirms that the Family Safety changes update existing controls and that the age tools remain limited to Insiders. It does not test whether approvals are faster, reports are more accurate or young people are safer. Those remain Microsoft’s claims.</p>\",\"lastCheckedAt\":\"2026-09-11T07:30:57-07:00\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"microsoft-family-safety-20260911\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:microsoft-family-safety-20260911\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"microsoft-safe-participation-framework\",\"label\":\"Microsoft — Safe Participation Framework\",\"publisherType\":\"company-primary-release\",\"url\":\"https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"microsoft-copilot-young-people-support\",\"label\":\"Microsoft Support — Copilot for young people\",\"publisherType\":\"company-primary-documentation\",\"url\":\"https://support.microsoft.com/en-us/privacy/microsoft-copilot/young-people\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"microsoft-windows-age-api\",\"label\":\"Microsoft Windows — Windows age signals and family protections\",\"publisherType\":\"company-primary-release\",\"url\":\"https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"microsoft-family-safety-fixes\",\"label\":\"Microsoft Windows — Family Safety fixes\",\"publisherType\":\"company-primary-release\",\"url\":\"https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"windows-central-family-scope-report\",\"label\":\"Windows Central — Family controls and age API rollout\",\"publisherType\":\"reporting\",\"url\":\"https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"Microsoft\",\"Copilot\",\"Family Safety\",\"Windows age signals\",\"young people\"],\"the_story\":\"<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p><p>Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.</p><p>A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.</p>\",\"themes\":[\"consumer products\",\"family controls\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-11T07:30:57-07:00\",\"watch_fors\":null,\"what_this_means\":\"<p>If you help manage a family account, the current step is concrete: update the Family Safety app or use its web page for the controls that exist now. For Copilot, check whether the person is using the updated personal-account app; Microsoft’s cited support page does not govern work or school accounts.</p><p>When another age-safety headline arrives, ask which layer it describes: a rule inside one product, a family control you can use, or a Windows signal an app may choose to use. The next evidence worth watching is general Windows availability and independent testing of whether the changes actually reduce errors or harm.</p>\"}\n\n\nEXACT PASSAGE REFERENCES:\n[P001] Microsoft updated family controls. Its wider Windows age signals are still in preview.\n\n[P002] Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.\n\n[P003] Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.\n\n[P004] A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.\n\n[P005] The useful way to read this is as three separate layers. A Microsoft account can carry age information. Copilot can use that information to set its own access rules. Family Safety provides separate controls for screen time, apps, spending and activity reports.\n\n[P006] The account supplies an age signal—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.\n\n[P007] A Windows Insider is a person using a preview version of Windows before a feature reaches the general public. Independent reporting from Windows Central confirms that the Family Safety changes update existing controls and that the age tools remain limited to Insiders. It does not test whether approvals are faster, reports are more accurate or young people are safer. Those remain Microsoft’s claims.\n\n[P008] If you help manage a family account, the current step is concrete: update the Family Safety app or use its web page for the controls that exist now. For Copilot, check whether the person is using the updated personal-account app; Microsoft’s cited support page does not govern work or school accounts.\n\n[P009] When another age-safety headline arrives, ask which layer it describes: a rule inside one product, a family control you can use, or a Windows signal an app may choose to use. The next evidence worth watching is general Windows availability and independent testing of whether the changes actually reduce errors or harm.\n\n[P010] “Microsoft has current Copilot age rules and Family Safety fixes, but its wider Windows age signals are still an Insider preview. An age category can inform an app; it does not create the app’s safeguards.”\n\n[P011] An account’s age information, a product’s access rule and a family control do different jobs. Ask which layer changed before expecting a new safeguard.\n\nAssess this complete dated NEWS article for What changed in Microsoft’s family protections, what works now and are Windows age checks universal? Separate current Copilot and Family Safety changes from an Insider-only age signal and from unproved safety outcomes.. Check every material factual claim against the supplied source excerpts, retaining attribution and limits. Independently judge reader comprehension and editorial craft. Supply an actual causal explain-back and invent and solve a new transfer scenario absent from this article. These are AI editorial analyses, never observed humans. Do not inherit the maker's conclusions; none are supplied.\n\nRUBRIC AND EVIDENCE:\n{\"communicationAuthority\":{\"benchmarkId\":\"HANNAH_FRY_COMMUNICATION_LENS_V2\",\"benchmark\":{\"path\":\"operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md\",\"sha256\":\"7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3\"},\"mode\":\"PROPORTIONAL\",\"surfaceAdaptation\":\"Answer what works now first, make account-to-signal-to-app visible and keep preview and company-evidence limits beside the relevant claims.\",\"imitationBoundary\":\"ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA\",\"dimensions\":{\"humanQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish a current account rule and family controls from a preview platform signal and a developer’s later choice.\",\"plannedEvidence\":\"The exact story uses one screen-time request, then transfers the mechanism to an app deciding how to adapt for a teen account.\"},\"usefulCuriosity\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish a current account rule and family controls from a preview platform signal and a developer’s later choice.\",\"plannedEvidence\":\"The exact story uses one screen-time request, then transfers the mechanism to an app deciding how to adapt for a teen account.\"},\"invisibleProcessConcrete\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish a current account rule and family controls from a preview platform signal and a developer’s later choice.\",\"plannedEvidence\":\"The exact story uses one screen-time request, then transfers the mechanism to an app deciding how to adapt for a teen account.\"},\"familiarTechnicalMovement\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish a current account rule and family controls from a preview platform signal and a developer’s later choice.\",\"plannedEvidence\":\"The exact story uses one screen-time request, then transfers the mechanism to an app deciding how to adapt for a teen account.\"},\"limitationsConsequences\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish a current account rule and family controls from a preview platform signal and a developer’s later choice.\",\"plannedEvidence\":\"The exact story uses one screen-time request, then transfers the mechanism to an app deciding how to adapt for a teen account.\"},\"humourSurprise\":{\"disposition\":\"NOT_APPLICABLE\",\"reason\":\"Help a beginner distinguish a current account rule and family controls from a preview platform signal and a developer’s later choice.\",\"plannedEvidence\":\"The exact story uses one screen-time request, then transfers the mechanism to an app deciding how to adapt for a teen account.\"},\"betterNextQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish a current account rule and family controls from a preview platform signal and a developer’s later choice.\",\"plannedEvidence\":\"The exact story uses one screen-time request, then transfers the mechanism to an app deciding how to adapt for a teen account.\"}},\"explanationArc\":{\"mode\":\"PROPORTIONAL\",\"retainedMoves\":[\"dated announcement\",\"current family controls\",\"account-to-age-signal mechanism\",\"Insider preview boundary\",\"company-evidence boundary\",\"specific layer check\"],\"adaptation\":\"The current reader consequence leads; the mechanism receives the centre; the landing identifies which product layer a future claim concerns.\"},\"analogyChecks\":[],\"discoveryChecks\":[{\"question\":\"Does every Windows app receive an age check today?\",\"answer\":\"No. The Windows Age APIs are available to Windows Insiders, and app developers must choose whether and how to use the signal.\"},{\"question\":\"Does an app receive the account’s full birth date?\",\"answer\":\"Microsoft says the API can supply a limited age category or verification status without the full date of birth.\"},{\"question\":\"Do Microsoft’s announcements prove safer outcomes?\",\"answer\":\"No. The sources establish product changes and company claims; they do not measure whether harm fell.\"}]},\"failureDefinitions\":{\"glossaryAccumulation\":\"Separate definitions accumulate without connecting how the system works.\",\"templateRepetition\":\"Repeated paragraph scaffolds replace a developing explanation.\",\"decorativeAnalogy\":\"A familiar comparison adds flavour but fails to explain a specific causal mechanism.\",\"referenceConfetti\":\"Pop-culture or other references accumulate without a useful explanatory job.\",\"missingMechanism\":\"The reader gets labels or conclusions without the necessary causal steps.\",\"genericAction\":\"Advice such as verify or be careful lacks a concrete useful action for this case.\",\"jargonBeforeMeaning\":\"Necessary technical language is left unexplained in its first meaningful context.\",\"disconnectedSystem\":\"Parts are named separately without showing how information or effects move between them.\",\"factlessConfidence\":\"Certainty exceeds the evidence actually available.\",\"staleUnreviewableClaims\":\"A material time-sensitive claim cannot be traced and checked for its stated date.\",\"corporateSludge\":\"Vague corporate or motivational language obscures the concrete meaning.\",\"joylessInstruction\":\"The prose becomes a dry checklist or terminology manual with little human interest.\",\"benchmarkNameDrop\":\"Mentioning a communication benchmark or famous explainer substitutes for clear explanation.\",\"curiosityWithoutPayoff\":\"A hook raises curiosity but never delivers the promised explanation.\",\"familiarExampleWithoutTechnicalReturn\":\"A familiar example never reconnects to the actual technical mechanism.\",\"communicationPastiche\":\"Wording, persona or mannerisms imitate a communicator instead of original clear explanation.\",\"entertainmentBeforeUnderstanding\":\"Humour or spectacle gets in the way of understanding.\",\"mechanismCompressedBehindHook\":\"The hook occupies the piece while the causal explanation is rushed.\",\"prematureClickBeforeMechanism\":\"The conclusion or reveal is asserted before its explanation earns understanding.\",\"inflatedTakeawayEnding\":\"The ending inflates a bounded finding into a grand claim or moral.\",\"purposeTooNarrow\":\"The scope is narrower than the supplied reader job; one task becomes the whole purpose.\",\"mechanismBeforeMotivation\":\"Technical machinery begins before the artifact establishes the destination-level human reason for this knowledge. Stakes inside one worked example do not satisfy this when the destination promises broader cross-context orientation; the reader must first see why the knowledge matters beyond that example.\",\"workedExampleOvertakesBookPurpose\":\"One worked example crowds out the broader foundational orientation the book promises.\",\"technicalExplainerVoice\":\"The organising perspective is specialist taxonomy or workflow inspection instead of the reader orientation promised by the destination. Judge what the prose asks the reader to care about, not just friendly vocabulary: for a broad foundational opening, second-person warmth and a lived example do not clear this defect when tracing technical operations remains the main reason for learning, without the promised practical and civic orientation. In a bounded news report or how-to, explaining its specific mechanism can be exactly the right perspective.\"},\"outcomeDefinitions\":{\"plainClarity\":\"A smart reader without technical AI training can follow each sentence.\",\"readerValue\":\"The reader gains a useful understanding or decision beyond the headline.\",\"laidiesVoice\":\"Warm, candid, adult, conversational LAiDIES voice; no condescension or borrowed persona.\",\"engagingEnjoyable\":\"The human question and explanation sustain interest; humour is earned rather than mandatory.\",\"factualIntegrity\":\"Material claims are supported by the actual sources and correctly attributed.\",\"freshnessReviewability\":\"The event, reporting date and limitations make time-sensitive claims checkable.\",\"surfaceFit\":\"A dated news article answers what happened and why it matters within its proper scope.\",\"datedChange\":\"Old events are distinguished from newly reported evidence or responses.\",\"consequenceAndUncertainty\":\"Consequences are concrete and uncertainty survives the explanation.\",\"dailyLifeConnection\":\"A familiar work/life situation helps the professional reader understand the mechanism.\",\"communicationBenchmark\":\"Human purpose, concrete causality and a useful next question; no imitation of Hannah Fry.\",\"explainBack\":\"The mechanism supports an accurate answer to a causal question in ordinary language.\",\"unseenTransfer\":\"The mechanism can be applied to a genuinely new concrete situation absent from the article.\",\"usefulAction\":\"A specific proportionate action follows from the explanation where applicable.\",\"analogyIntegrity\":\"Each comparison maps the mechanism accurately and retains relevant limits.\"},\"newsCheckDefinitions\":{\"incidentExplained\":\"The actual incident and relevant causal sequence are understandable.\",\"termsExplainedInContext\":\"Necessary AI terms gain plain meaning at first meaningful use.\",\"readerConsequenceSpecific\":\"The consequence is grounded in a recognizable specific reader situation.\",\"noInternalNotesOrInventedAdvice\":\"No internal LAiDIES operating notes, commercially distinctive process details, or unsupported advice appear.\"},\"claims\":[{\"claimId\":\"framework-date\",\"claim\":\"Microsoft published a youth-safety framework on September 10\",\"sourceIds\":[\"microsoft-safe-participation-framework\"]},{\"claimId\":\"copilot-signin\",\"claim\":\"everyone must now sign in to use Copilot\",\"sourceIds\":[\"microsoft-safe-participation-framework\"]},{\"claimId\":\"copilot-age\",\"claim\":\"the support page sets a minimum age of 13, or higher where regional rules require it\",\"sourceIds\":[\"microsoft-safe-participation-framework\",\"microsoft-copilot-young-people-support\"]},{\"claimId\":\"family-fixes\",\"claim\":\"requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed\",\"sourceIds\":[\"microsoft-family-safety-fixes\",\"windows-central-family-scope-report\"]},{\"claimId\":\"remaining-family-limits\",\"claim\":\"usage-time accuracy still needs work and some families may still have problems\",\"sourceIds\":[\"microsoft-family-safety-fixes\"]},{\"claimId\":\"age-api-preview\",\"claim\":\"The Windows Age APIs are available to Windows Insiders now\",\"sourceIds\":[\"microsoft-windows-age-api\",\"windows-central-family-scope-report\"]},{\"claimId\":\"future-function\",\"claim\":\"one announced function is promised for a future update\",\"sourceIds\":[\"microsoft-windows-age-api\"]},{\"claimId\":\"age-signal\",\"claim\":\"an age category or verification status an account can pass to an app without giving it a full date of birth\",\"sourceIds\":[\"microsoft-windows-age-api\"]},{\"claimId\":\"developer-choice\",\"claim\":\"The app developer still decides what experience follows from the signal\",\"sourceIds\":[\"microsoft-windows-age-api\"]},{\"claimId\":\"independent-limit\",\"claim\":\"It does not test whether approvals are faster, reports are more accurate or young people are safer\",\"sourceIds\":[\"windows-central-family-scope-report\",\"microsoft-family-safety-fixes\"]},{\"claimId\":\"current-action\",\"claim\":\"update the Family Safety app or use its web page for the controls that exist now\",\"sourceIds\":[\"microsoft-family-safety-fixes\"]}],\"sources\":[{\"id\":\"microsoft-safe-participation-framework\",\"url\":\"https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/\",\"authority\":\"Microsoft's September 10 primary announcement for its youth-safety framework and current Copilot account rule.\",\"passages\":[\"Microsoft’s Safe Participation Framework serves as a foundation for our work today, and we expect it to continue evolving as technology, research, and societal expectations change. We do not claim to have all the answers.\",\"All users must now sign in to use Copilot, and access is restricted for children under 13 (or older where required by local law).\",\"We have also implemented measures to reduce exposure to harmful content, directing users to crisis support resources when self-harm risks are detected, and encouraging healthy use through transparency, break reminders, reporting tools, and guardrails to protect against delusional outputs.\",\"Through our new Windows Age application programming interface (API), expanded age assurance capabilities, and enhanced family safety tools, Microsoft is helping establish a more consistent and privacy-conscious foundation for age-appropriate experiences across the broader ecosystem.\"],\"limitation\":\"This is a company policy announcement. It establishes what Microsoft says it changed and intends, but it does not independently measure whether the protections work or describe one uniform rollout across every Copilot product and account type.\",\"source\":{\"url\":\"https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/\",\"passage\":\"Microsoft’s Safe Participation Framework serves as a foundation for our work today, and we expect it to continue evolving as technology, research, and societal expectations change. We do not claim to have all the answers. All users must now sign in to use Copilot, and access is restricted for children under 13 (or older where required by local law). We have also implemented measures to reduce exposure to harmful content, directing users to crisis support resources when self-harm risks are detected, and encouraging healthy use through transparency, break reminders, reporting tools, and guardrails to protect against delusional outputs. Through our new Windows Age application programming interface (API), expanded age assurance capabilities, and enhanced family safety tools, Microsoft is helping establish a more consistent and privacy-conscious foundation for age-appropriate experiences across the broader ecosystem.\",\"passageLocator\":\"https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/\",\"additionalPassage\":\"Microsoft's September 10 primary announcement for its youth-safety framework and current Copilot account rule. Limitation: This is a company policy announcement. It establishes what Microsoft says it changed and intends, but it does not independently measure whether the protections work or describe one uniform rollout across every Copilot product and account type.\",\"additionalPassageLocator\":\"https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/\"}},{\"id\":\"microsoft-copilot-young-people-support\",\"url\":\"https://support.microsoft.com/en-us/privacy/microsoft-copilot/young-people\",\"authority\":\"Current Microsoft support page for the updated personal-account Copilot experience and its age and account boundaries.\",\"passages\":[\"An updated version of the Microsoft Copilot app for web, desktop, and mobile devices is available as of August 18, 2026.\",\"This article applies only when you sign in with a Microsoft account, such as a personal email address, when using the Microsoft Copilot app on web, desktop, or mobile.\",\"This article does not apply when you sign in to the Microsoft Copilot app or use Copilot in Microsoft 365 apps with a work, school, or organizational (Microsoft Entra) account.\",\"You must be at least 13 years old to use Copilot, and in some countries or regions, the minimum age may be higher depending on regional requirements.\",\"Your parent or guardian may be able to manage how you use Copilot. They can use tools like Microsoft Family Safety or settings on your device.\"],\"limitation\":\"This page covers Microsoft's updated Copilot app for personal Microsoft accounts. It explicitly excludes work, school and organizational accounts and warns that an older app version follows different documentation.\",\"source\":{\"url\":\"https://support.microsoft.com/en-us/privacy/microsoft-copilot/young-people\",\"passage\":\"An updated version of the Microsoft Copilot app for web, desktop, and mobile devices is available as of August 18, 2026. This article applies only when you sign in with a Microsoft account, such as a personal email address, when using the Microsoft Copilot app on web, desktop, or mobile. This article does not apply when you sign in to the Microsoft Copilot app or use Copilot in Microsoft 365 apps with a work, school, or organizational (Microsoft Entra) account. You must be at least 13 years old to use Copilot, and in some countries or regions, the minimum age may be higher depending on regional requirements. Your parent or guardian may be able to manage how you use Copilot. They can use tools like Microsoft Family Safety or settings on your device.\",\"passageLocator\":\"https://support.microsoft.com/en-us/privacy/microsoft-copilot/young-people\",\"additionalPassage\":\"Current Microsoft support page for the updated personal-account Copilot experience and its age and account boundaries. Limitation: This page covers Microsoft's updated Copilot app for personal Microsoft accounts. It explicitly excludes work, school and organizational accounts and warns that an older app version follows different documentation.\",\"additionalPassageLocator\":\"https://support.microsoft.com/en-us/privacy/microsoft-copilot/young-people\"}},{\"id\":\"microsoft-windows-age-api\",\"url\":\"https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/\",\"authority\":\"Microsoft's September 8 primary explanation of how Windows account age signals are designed to reach apps and the exact preview availability.\",\"passages\":[\"User account → age signal → age-appropriate experience and controls\",\"GetUserAgeRangeAsync: Provides non-personally identifiable age group categories for apps to utilize in providing safe and age-appropriate user experiences, while protecting the date of birth data and overall privacy of users. Age groupings available via the API include- under 10, 10-12, 13-15, 16-17, 18+.\",\"Apps receive only the age-related signal needed for the experience and not sensitive personal data such as full date of birth.\",\"The Windows Age APIs are broadly available to Windows Insiders now and will be available to all Windows users soon. The CheckAgeStatusAsync API will be available with a future update.\"],\"limitation\":\"The age APIs are a Windows Insider preview, not a universal current Windows control. Microsoft describes the intended privacy and safety design; this source does not prove how third-party apps will use the signal or that it reduces harm.\",\"source\":{\"url\":\"https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/\",\"passage\":\"User account → age signal → age-appropriate experience and controls GetUserAgeRangeAsync: Provides non-personally identifiable age group categories for apps to utilize in providing safe and age-appropriate user experiences, while protecting the date of birth data and overall privacy of users. Age groupings available via the API include- under 10, 10-12, 13-15, 16-17, 18+. Apps receive only the age-related signal needed for the experience and not sensitive personal data such as full date of birth. The Windows Age APIs are broadly available to Windows Insiders now and will be available to all Windows users soon. The CheckAgeStatusAsync API will be available with a future update.\",\"passageLocator\":\"https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/\",\"additionalPassage\":\"Microsoft's September 8 primary explanation of how Windows account age signals are designed to reach apps and the exact preview availability. Limitation: The age APIs are a Windows Insider preview, not a universal current Windows control. Microsoft describes the intended privacy and safety design; this source does not prove how third-party apps will use the signal or that it reduces harm.\",\"additionalPassageLocator\":\"https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/\"}},{\"id\":\"microsoft-family-safety-fixes\",\"url\":\"https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/\",\"authority\":\"Microsoft's September 8 primary release for Family Safety fixes available in its current mobile apps and web experience.\",\"passages\":[\"Parental approvals for app access, screen time extensions, and purchases now happen faster than before, reducing wait times and frustration for parents and kids alike.\",\"Activity reporting now includes broader app coverage across all applications used on a child’s PC, providing a more complete and trustworthy view. Additional improvements to usage time accuracy are also on the way.\",\"Family funding balance was not reflecting proper updated balance but now this issue has been addressed, and parents can now easily manage the funds for their children.\",\"All of the above fixes are available in the latest versions of the Family Safety mobile app both iOS and Android. You can also access Family Safety on the web.\",\"While we have made important progress, some families may still run into issues.\"],\"limitation\":\"These are Microsoft's product descriptions and availability claims. The page supplies no independent performance test, quantified improvement or evidence that all earlier reporting and approval problems are resolved.\",\"source\":{\"url\":\"https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/\",\"passage\":\"Parental approvals for app access, screen time extensions, and purchases now happen faster than before, reducing wait times and frustration for parents and kids alike. Activity reporting now includes broader app coverage across all applications used on a child’s PC, providing a more complete and trustworthy view. Additional improvements to usage time accuracy are also on the way. Family funding balance was not reflecting proper updated balance but now this issue has been addressed, and parents can now easily manage the funds for their children. All of the above fixes are available in the latest versions of the Family Safety mobile app both iOS and Android. You can also access Family Safety on the web. While we have made important progress, some families may still run into issues.\",\"passageLocator\":\"https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/\",\"additionalPassage\":\"Microsoft's September 8 primary release for Family Safety fixes available in its current mobile apps and web experience. Limitation: These are Microsoft's product descriptions and availability claims. The page supplies no independent performance test, quantified improvement or evidence that all earlier reporting and approval problems are resolved.\",\"additionalPassageLocator\":\"https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/\"}},{\"id\":\"windows-central-family-scope-report\",\"url\":\"https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification\",\"authority\":\"Independent September 9 technical reporting that distinguishes updates to existing Family Safety controls from the Insider-only Windows Age API rollout.\",\"passages\":[\"The first change Microsoft highlighted is not a new feature, but a speed boost to an existing one.\",\"Microsoft has also made it easier for parents to keep track of web activity, app activity, and spending. Managing family groups has been improved as well, including options that make it simpler to add or remove members.\",\"The new Windows Age APIs are available now to Windows Insiders and should ship to all Windows users soon.\"],\"limitation\":\"This report independently confirms the product and rollout framing from Microsoft's pages. It does not independently test safety outcomes, approval speed, activity-report accuracy or privacy behavior.\",\"source\":{\"url\":\"https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification\",\"passage\":\"The first change Microsoft highlighted is not a new feature, but a speed boost to an existing one. Microsoft has also made it easier for parents to keep track of web activity, app activity, and spending. Managing family groups has been improved as well, including options that make it simpler to add or remove members. The new Windows Age APIs are available now to Windows Insiders and should ship to all Windows users soon.\",\"passageLocator\":\"https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification\",\"additionalPassage\":\"Independent September 9 technical reporting that distinguishes updates to existing Family Safety controls from the Insider-only Windows Age API rollout. Limitation: This report independently confirms the product and rollout framing from Microsoft's pages. It does not independently test safety outcomes, approval speed, activity-report accuracy or privacy behavior.\",\"additionalPassageLocator\":\"https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification\"}}]}\n\nReturn reader and facts objects matching the supplied output schema. Give concise specific reasons with actual paragraph references. Clear failure-family judgments may use an empty reference list for absence across the whole artifact. Present/uncertain families and every outcome/claim require supporting paragraphs. Each fact must use source IDs belonging to that claim. Each reader/facts learningDisposition must be NO_NEW_DEFECT only if that part has no failed or uncertain assessment; otherwise use candidate repair or evidence gap. You are independent from artifact maker OpenAI /root. Attest truthfully to reading the complete artifact first and independence. Do not inspect earlier verdicts or diagnose paperwork."
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  },
+  "max_completion_tokens": 8500,
+  "temperature": 0.05,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

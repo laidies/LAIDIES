@@ -1,0 +1,114 @@
+{
+  "schema": "newsstand-scout-sweep.v1",
+  "checkedAt": "2026-09-13T20:04:25Z",
+  "scope": "Tier 2 private source recovery. This record does not publish, alter a shared cursor, or merge cross-channel identities by title/date.",
+  "priorRecords": [
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-0700-aidb-source-checks.json",
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1000-root-sweep.json",
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1000-newsletter-reconciliation.json"
+  ],
+  "captureDirectory": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1300-scout-captures",
+  "sourceChecks": [
+    {
+      "role": "AIDB_website_index",
+      "url": "https://aidailybrief.ai/agent.json",
+      "status": "CHECKED",
+      "httpStatus": 200,
+      "rawSha256": "31d597b83d6a5bf34e78acb0b2b0f7560a491543e6b290be19fed677e868f168",
+      "stableEditionListSha256": "1167f6f2c6512d3c1760ca0a60deae63a3288ebf5ed8702b466abc9785e77491",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1300-scout-captures/agent.json",
+      "comparison": "Raw bytes differ from the 07:00/10:00 captures because the generated timestamp changed. The dated edition list remains led by Sep13 and has no Sep12 edition.",
+      "disposition": "UNCHANGED_COMPLETE_CURRENT_EDITION"
+    },
+    {
+      "role": "AIDB_Sep13_JSON",
+      "url": "https://aidailybrief.ai/e/2026-09-13.json",
+      "status": "CHECKED",
+      "httpStatus": 200,
+      "sha256": "211cd14f8eb38f38fcd7a19cb8e54632093b73ffca1a041fddfc05c6bd341752",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1300-scout-captures/sep13.json",
+      "comparison": "Exact match to the completed 07:00 Sep13 item review JSON hash; no item reread or new lead is created.",
+      "disposition": "UNCHANGED_COMPLETE_CURRENT_EDITION"
+    },
+    {
+      "role": "AIDB_Sep13_transcript",
+      "url": "https://aidailybrief.ai/e/2026-09-13/transcript.md",
+      "status": "CHECKED",
+      "httpStatus": 200,
+      "sha256": "ed2661a829e7d649d68d00199bcfc4865a2759efd7c5f69d9484e5762a67fbb8",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1300-scout-captures/sep13-transcript.md",
+      "comparison": "Exact match to the completed 07:00 Sep13 transcript review hash; no item reread or new lead is created.",
+      "disposition": "UNCHANGED_COMPLETE_CURRENT_EDITION"
+    },
+    {
+      "role": "AIDB_Sep12_JSON",
+      "url": "https://aidailybrief.ai/e/2026-09-12.json",
+      "status": "MISSING",
+      "httpStatus": 404,
+      "sha256": "50ca884c766133300eb9eb634279d4b6a417cc6d6465fb7008d39960e8c43eca",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1300-scout-captures/sep12.json",
+      "disposition": "HOLD_AIDB_SOURCE_COVERAGE",
+      "missingInput": "A public Sep12 edition JSON or a publisher-linked complete-content source.",
+      "nextRetryAt": "2026-09-13T23:00:00Z"
+    },
+    {
+      "role": "AIDB_Sep12_transcript",
+      "url": "https://aidailybrief.ai/e/2026-09-12/transcript.md",
+      "status": "MISSING",
+      "httpStatus": 404,
+      "sha256": "88dbac475df4d46c7f4b24b1a73b1dde87f2ff9d5313fb8cc2780ea72d3bf034",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1300-scout-captures/sep12-transcript.md",
+      "disposition": "HOLD_AIDB_SOURCE_COVERAGE",
+      "missingInput": "A public Sep12 transcript or other legitimate complete-content source.",
+      "nextRetryAt": "2026-09-13T23:00:00Z"
+    },
+    {
+      "role": "AIDB_Beehiiv_index",
+      "url": "https://aidailybrief.beehiiv.com/",
+      "status": "CHECKED",
+      "httpStatus": 200,
+      "sha256": "59d74f2f650eba2ac986d55754bd82fe3806b607039db5e46ee05a1f73cfd4d1",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1300-scout-captures/beehiiv-index.html",
+      "comparison": "Index still exposes the previously reconciled Sep8–11 publisher-note slugs and no Sep13 page. Existing reconciliation remains the authority; no title-only alias is asserted.",
+      "disposition": "UNCHANGED_CHANNEL_RECONCILIATION_HOLD",
+      "nextRetryAt": "2026-09-13T23:00:00Z"
+    },
+    {
+      "role": "AIDB_Apple_index",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "status": "CHECKED",
+      "httpStatus": 200,
+      "sha256": "f813993244fbd7726fd40e1211e34dc2ce1da1197cfd5097667f2cd3d2f23eb0",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1300-scout-captures/apple-index.html",
+      "exactLatestEpisodeUrl": "https://podcasts.apple.com/us/podcast/10-ways-to-think-bigger-with-opportunity-ai/id1680633614?i=1000789330156",
+      "comparison": "Apple still exposes the existing Sep13 raw identity. Its exact website JSON/transcript pair already matches the complete 07:00 review; this does not merge the channels solely from the shared title.",
+      "disposition": "UNCHANGED_SEPARATE_RAW_IDENTITY"
+    },
+    {
+      "role": "Allie_K_Miller_resources",
+      "url": "https://www.alliekmiller.com/resources",
+      "status": "CHECKED",
+      "httpStatus": 200,
+      "sha256": "dcb76dc397a3470a57d02f53dd14c872da8863ec86e2302ed28ce7caf8ba0b4f",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1300-scout-captures/allie-resources.html",
+      "comparison": "Exact match to the 07:00 capture. The route remains undated resources/commercial links without a date-verifiable independently corroborated event.",
+      "disposition": "UNCHANGED_NO_EVENT"
+    },
+    {
+      "role": "Ethan_Mollick_feed",
+      "url": "https://www.oneusefulthing.org/feed",
+      "status": "CHECKED",
+      "httpStatus": 200,
+      "sha256": "09a6d47f7fb3cd4ab536a04894249efb4d01b2078d8c093fb766b0e002be0941",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1300-scout-captures/mollick-feed.xml",
+      "comparison": "Raw bytes differ from the 07:00 capture, but the latest item remains Aug31 'Agency and Agents' at https://www.oneusefulthing.org/p/agency-and-agents, already MERGE/WATCH in Sep3/Sep4 AIDB records.",
+      "disposition": "UNCHANGED_NO_NEW_EVENT"
+    }
+  ],
+  "newEligibleLeads": [],
+  "remainingHolds": [
+    "Sep12 AIDB complete-content edition remains absent at both expected URLs; retry at 23:00Z.",
+    "Newsletter and Apple sources are checked but retain separate channel identities until an exact identity binding permits reconciliation."
+  ],
+  "mutations": {"publicContent": false, "sharedCursor": false, "inventory": false}
+}

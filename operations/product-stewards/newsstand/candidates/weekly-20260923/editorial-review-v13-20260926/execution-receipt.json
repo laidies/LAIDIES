@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "laidies.newsstand-editorial-review-execution-receipt.v1",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "attempt": "editorial-review-v13-20260926",
+  "attemptedAt": "2026-09-26T15:21:05Z",
+  "runner": "/tmp/newsstand-run-pilot-v13-480s.mjs",
+  "providerRoute": "claude-fable-5",
+  "effort": "medium",
+  "timeoutSeconds": 480,
+  "governingTimeoutFinding": "No governing timeout maximum was found in the review-runtime README or applicable local policy search. The 240-second value is an implementation literal in run-pilot.mjs; v13 used a private temporary runner with 480 seconds and unchanged protocol/model/effort.",
+  "status": "COMPLETED_PROTOCOL_FAILURE_PRESERVED",
+  "artifacts": {
+    "request": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v13-20260926/article-editorial-request.json",
+      "sha256": "425e0507624aba36d37ae1e79195d14ea69074354d4947aa4dd9b06c019c5d92"
+    },
+    "packet": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v13-20260926/article-editorial-packet.json",
+      "sha256": "5a9fcd090dd97891a7e864cd514e21c8c239d7b053fbd8f33cef1257667ce4e0"
+    },
+    "raw": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v13-20260926/article-editorial-provider.raw.json",
+      "sha256": "281c8b80de0370f0aee0541e0c25f5529cb8c5e50e82c550f248b648b878e3ac"
+    },
+    "judgment": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v13-20260926/article-editorial-judgment.json",
+      "sha256": "2d07110c94d86927633485857d24bf8b96fad746d8cf672f383eb05909cb3f34"
+    },
+    "failure": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v13-20260926/article-editorial-failure.json",
+      "sha256": "413fb830eb812eb026192999f9692f0e028eb4224eb7eba90ba9a876d2486d8d"
+    }
+  },
+  "result": "Claude completed in 152474 ms. Reader assessment passed; facts marked only card-skimmer investigation QUALIFIED because the Gambit interim-report passage was not supplied. Runtime rejected the overall judgment because facts learningDisposition=CANDIDATE_REPAIR_ONLY while no individual claim was HOLD or CONTRADICTED.",
+  "nextAction": "Do not replay v13. Bind the exact Gambit interim-report passage if another distinct review is justified; resolve the protocol learning-disposition consistency rule before relying on a fresh result.",
+  "admissionAuthority": false,
+  "publicationAuthority": false
+}

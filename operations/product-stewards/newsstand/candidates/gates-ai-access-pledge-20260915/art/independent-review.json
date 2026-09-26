@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "gates-ai-access-pledge-20260915-art",
+  "stage": "INDEPENDENT_VISUAL_ADMISSION",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root/puzzle_visual_reconcile",
+    "reviewedAt": "2026-09-15T23:24:29Z",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true,
+    "independentFromMaker": true,
+    "calibration": {
+      "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/art/calibration.json",
+      "sha256": "bd7b1ab665f618561e2c100d060a3c925894b16d17bffefb44345545ad925772"
+    }
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/art/producer-contract-render.json",
+    "sha256": "429ada02cae987070dcf5cd1128f109065e0f2ae6daa543f5c99ea305b67666d"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/art/producer-self-review.json",
+    "sha256": "a364c3b54df6a248a4374d538f32e76bca0fb0f92a75df9b793cf5d2dd25c433"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/art/illustration-v1.png",
+    "sha256": "6f755fa8c659859728e5ef6b81dbdf5c06fc0aa167134a2689e513fa4321f250",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/story.json",
+    "sha256": "942935aacb078ed0737ad414e9cf7cc87f424c6e0f89620512ba8423ac3b3941",
+    "kind": "TEXT",
+    "locator": "headline",
+    "exactTextOrSilentPurpose": "Gates Foundation pledges $1B for AI access. Useful for whom?"
+  },
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/art/mobile-preview.png",
+    "sha256": "80c72d3605e74c174488570897c7cff4df679b32781b9615143f35e4c2a117a5"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "Open blank book and unnamed local map accompany a phone with two empty speech bubbles; language and setting supplement device access without showing a successful translation or benefit.",
+      "artifactLocator": "book, phone and map"
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Controlled navy/cobalt ink hatching and halftone, warm clean paper, yellow and restrained pink match the viewed editorial print grammar; no orange Google desk repeat.",
+      "artifactLocator": "whole image"
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "Map contains unnamed streets, field blocks and river, without place labels or canonical town claim. No people, characters or logos.",
+      "artifactLocator": "map and whole image"
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "Phone screen faces upward, phone lies on folded paper map; open book shows coherent pages and spine, all supported on surface. Pink ribbon is attached book detail rather than floating prop.",
+      "artifactLocator": "phone base, map folds and book spine"
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "Book has only blue ruling; both bubbles empty. Map street/field marks contain no discernible letters, numbers or cardinal compass glyphs. No seals, checkmarks or real product UI.",
+      "artifactLocator": "book pages, phone screen and map"
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "Contemporary phone and ordinary paper book/map carry no historical era claim; no clothing or people.",
+      "artifactLocator": "whole image"
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "Three dominant objects serve access, language representation and local conditions. Book ribbon is a subordinate structural detail; no unrelated desk clutter.",
+      "artifactLocator": "book, phone and map"
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "Actually viewed390x260 supplied preview: ruled book, two separated speech bubbles and street/field/river map remain distinct. Meaning relies on large objects rather than tiny text.",
+      "artifactLocator": "mobile-preview.png"
+    }
+  ],
+  "visibleDefects": [],
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT",
+    "rationale": "No new reusable pixel defect found in actual full and mobile inspection."
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First rendered source illustration for this Gates funding/local-context story; earlier state was an unrendered preparation."
+  },
+  "ratchet": {
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "repeatedKnownDefects": 0
+  },
+  "limitations": [
+    "Reviewer authored Gates prose and prepared art brief; root generated/rendered image and performed maker inspection. This is role-distinct source-art review, not independent prose admission.",
+    "Source-art and390x260 proportional preview only; integrated live crop/runtime not covered.",
+    "Calibration reuses current same-principal actual failure-description calibration with retained timestamp; no unbound negative raster or observed human test claimed."
+  ]
+}

@@ -1,0 +1,3889 @@
+
+=== PDF PAGE 1 ===
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+ 
+     
+      
+  
+ 
+   
+ 
+ 
+    
+    
+   
+ 
+Graduating into Disruption: Labor Market Outcomes for AI-Exposed College 
+Majors 
+by 
+Cody Orr 
+U.S. Census Bureau 
+Lee C. Tucker 
+U.S. Census Bureau 
+Lawrence Warren 
+U.S. Census Bureau 
+CES 26-56 September 2026 
+The research program of the Center for Economic Studies (CES) produces a wide range of 
+economic analyses to improve the statistical programs of the U.S. Census Bureau. Many of these 
+analyses take the form of CES research papers. The papers have not undergo ne the review 
+accorded Census Bureau publications and no endorsement should be inferred. Any opinions and 
+conclusions expressed herein are those of the author(s) and do not represent the views of the 
+U.S. Census Bureau. All results have been reviewed to ensure that no confidential information is 
+disclosed. Republication in whole or part must be cleared with the authors. 
+Papers in the series are posted on www.census.gov/library/working-papers/series/ces-wp.html. 
+For information about the series, contact Danielle H. Sandler, Editor, Discussion Papers, U.S. 
+Census Bureau, Center for Economic Studies, 4600 Silver Hill Road, Washington, DC 20233, 
+CES.Working.Papers@census.gov. 
+
+=== PDF PAGE 2 ===
+ 
+ 
+  
+   
+   
+      
+   
+  
+  
+    
+    
+     
+   
+    
+      
+ 
+    
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+   
+   
+  
+1
+Abstract 
+How are new college graduates affected by the rise of artificial intelligence, and what can this tell 
+us about the mechanisms behind AI's overall labor market effects? We use administrative records 
+on college graduates to observe how economic outcomes among college majors with differing 
+levels of labor market AI exposure have evolved since large language models became available. 
+We find that post-graduation employment, earnings, and job switching patterns among the most 
+AI-exposed college majors began to diverge immediately following the introduction of ChatGPT 
+in late 2022. In regression-adjusted estimates, the most AI-exposed decile of college majors saw 
+their likelihood of initial employment decline by five percentage points, while full -quarter initial 
+earnings declined by thirteen percent. This earnings decline is comparable in magnitude to the 
+earnings losses associated with graduating into a large recession. Roughly half of the decline in 
+earnings is attributable to lower earnings within the industry sectors that employ these 
+graduates, with the remainder resulting from a shift in the industry mix into lower-wage sectors 
+such as restaurants and retail. The effects attenuate as graduates move further from labor 
+market entry but remain substantial for the most exposed majors. 
+Keyword: Artificial Intelligence, College major, Postsecondary employment outcomes 
+JEL Classification: J23, J24, I26, O33 
+0F 
+* We would like to thank Lucia Foster and David Wasser for helpful comments and discussions. This research uses 
+data from the Census Bureau’s Longitudinal Employer-Household Dynamics Program, which was partially 
+supported by the following National Science Foundation Grants SES-9978093, SES-0339191 and ITR-0427889; 
+National Institute on Aging Grant AG018854; and grants from the Alfred P. Sloan Foundation. Any opinions and 
+conclusions expressed herein are those of the authors and do not represent the views of the U.S. Census Bureau. 
+The Census Bureau has ensured appropriate access and use of confidential data and has reviewed these results for 
+disclosure avoidance protection (Project Number 7517475: CBDRB -FY26-CES011-011). 
+
+=== PDF PAGE 3 ===
+1 Introduction 
+Over the past several years, rapid advances in large language models (LLMs) and generative 
+artifcial intelligence have substantially expanded the set of tasks that software can perform au-
+tonomously. Unlike earlier waves of automation, such as industrial robotics or routine-task com-
+puterization, which primarily substituted for predictable manual or clerical activities (e.g., Autor 
+and Dorn, 2013), generative AI extends automation into information processing, communication, 
+and other non-routine cognitive activities that are central to many high-skill and college-intensive 
+occupations. This development has triggered widespread and increasing adoption across frms 
+(Bonney et al., 2024; Bick et al., 2026), raising fundamental questions about how labor demand, 
+wages, and occupational structure respond when a general-purpose technology augments or sub-
+stitutes for cognitive labor. Understanding these effects is therefore central to evaluating the distri-
+butional and aggregate consequences of AI-driven technological change in the labor market. 
+These questions are particularly salient for new college graduates. Recent analyses have found 
+evidence of sizable effects of AI among young workers at the occupation and industry levels (Bryn-
+jolfsson et al., 2025; Hosseini Maasoum and Lichtinger, 2025; Tucker, 2026). Focusing on grad-
+uates allows us to study these effects at the clearly-defned point of labor market entry. This is an 
+important margin because labor market conditions at graduation have also been shown to affect 
+initial employment and earnings and to infuence longer-run career trajectories (Oreopoulos et al., 
+2012; Altonji et al., 2016; Haltiwanger et al., 2018; Scott-Clayton et al., 2025). These fndings 
+suggest that the rise of AI could have long-term consequences for early career workers, especially 
+recent college graduates who have made costly human capital investments in AI-exposed felds. 
+Recent college graduates also offer several identifcation advantages for studying these effects. 
+With limited prior work experience, much of recent graduates’ accumulated human capital is ob-
+servable through their college education, particularly their feld of study. AI exposure is typically 
+defned at the task or occupation level. College major provides a natural way to characterize the 
+tasks and skills that graduates are likely to supply to the labor market and, through the occupations 
+that use those skills, their exposure to changes in labor demand. Most importantly, major is de-
+2 
+
+=== PDF PAGE 4 ===
+termined before post-college employment outcomes are observed. Defning AI exposure by major 
+therefore allows us to follow graduates through employment, nonemployment, and changes in oc-
+cupation and industry without defning their exposure using the job they ultimately obtain. This 
+is particularly useful in a setting where changes in demand for AI-exposed skills may themselves 
+affect whether and where graduates become employed. 
+In this paper, we provide novel evidence on the effects of AI on new college graduates by an-
+alyzing the post-graduation labor market outcomes of bachelor’s degree graduates from a subset 
+of institutions in the Census Bureau’s Post-Secondary Employment Outcomes (PSEO) data, cov-
+ering roughly 29% of U.S. bachelor’s degrees conferred from 2016 to 2024. We frst construct a 
+measure of AI exposure at the level of college major by combining task-level exposure scores with 
+the occupational composition of recent graduates observed in the American Community Survey 
+(ACS). For each major, we recover the distribution of occupations for young college graduates 
+and map these occupations to task-based AI exposure measures from Eloundou et al. (2024). This 
+produces a pre-ChatGPT measure of the AI exposure associated with the labor market opportu-
+nities of graduates from each major. We then link these graduates to their labor market histories 
+in the Longitudinal Employer-Household Dynamics (LEHD) data and compare employment and 
+earnings outcomes across majors with different levels of AI exposure around the widespread in-
+troduction of LLMs in late 2022. Our event-time design estimates whether graduates from more 
+exposed felds experienced differential labor market outcomes following the introduction of these 
+technologies relative to their fellow graduates in less-exposed majors. 
+We fnd that graduates in the top decile of AI-exposed majors experienced a fve-percentage 
+point decline in their likelihood of employment in the quarter after graduation in comparison to 
+graduates in the bottom six deciles of AI exposure. They also saw declines in associated quarterly 
+earnings of about thirteen percent relative to the least exposed felds, attenuating to about fve 
+percent after two years. Taking into account the role of partial employment during a quarter, our 
+estimates for the most exposed graduates are comparable in magnitude to the effects of entering 
+the labor market during a large recession (Altonji et al., 2016; Oreopoulos et al., 2012). The 
+3 
+
+=== PDF PAGE 5 ===
+employment rate of new college graduates remains high even at short time horizons, refecting the 
+typical pattern of quick transition into the labor market. However, we fnd that negative changes to 
+these patterns are concentrated in the top decile of majors, which are composed largely of computer 
+science, information systems, and other degree felds closely related to software development. 
+Employment and earnings are two important margins along which we can measure the impact 
+of AI on new graduates, but neither outcome alone reveals how graduates adjust. Our matched 
+employer-employee framework and longitudinal design allow us to observe where graduates be-
+come employed, and identify a quantitatively important margin of worker adjustment. We show 
+that about half of the earnings decline among graduates in the most AI-exposed decile comes 
+from changes in the sectoral composition of employment. Following the introduction of ChatGPT, 
+the most AI-exposed college graduates saw their employment shift substantially away from high-
+paying industry sectors such as Information and Professional, Scientifc and Technical Services, 
+and toward lower-paying industries such as Retail Trade and Accommodation and Food Services. 
+In comparison, the industry composition of less-exposed graduates changed little over the same 
+period. This sectoral reallocation is consistent with greater underemployment among exposed 
+graduates early in their careers.
+1 Increased job switching rates and attenuated earnings effects at 
+longer horizons are consistent with subsequent adjustment as these workers move from their initial 
+jobs toward higher-paying employment. However, given the recency of ChatGPT’s release and the 
+limited time series, we cannot yet assess when or whether exposed graduates will catch up to their 
+peers who graduated before LLMs became widely available. 
+Our results also help to reconcile two seemingly incongruous fndings in the emerging liter -
+ature. Studies of hiring and employment in AI-exposed occupations and industries fnd substan-
+tial declines among young workers (Brynjolfsson et al., 2025; Hosseini Maasoum and Lichtinger, 
+2025; Tucker, 2026). Other studies fnd little evidence that workers previously employed in highly 
+exposed occupations have experienced greater increases in unemployment (Eckhardt and Gold-
+1Abel and Deitz (2016) develop a measure of underemployment based on jobs that typically do not require a 
+college degree. We do not develop such a measure, but the shifts we observe are toward sectors with lower college-
+educated employment (U.S. Census Bureau, 2025). 
+4 
+
+=== PDF PAGE 6 ===
+schlag, 2025; Massenkoff and McCrory, 2026). Research designs like these necessarily condition 
+on employment and assign exposure using an occupation or industry that is itself an ex post labor 
+market outcome. This makes it diffcult to capture adjustment that occurs through delayed em-
+ployment or sorting into different occupations and sectors. Our results show that these margins are 
+important. Graduates from the most exposed majors remain strongly attached to the labor market, 
+but they adjust to weaker demand at entry. They are less likely to fnd employment immediately 
+after graduation and, when employed, are more likely to begin their careers in lower-paying sec-
+tors. 
+Reduced employment among AI-exposed workers could arise through several mechanisms, of 
+which direct substitution of skilled labor is only one. We therefore examine alternative explana-
+tions for the differential outcomes we observe. Our results are not readily explained by a pure 
+increase in graduate supply. Although the supply of graduates in the top exposure decile rose 
+sharply before 2022, employment kept pace until the post-ChatGPT period, when it fell below 
+trend even as supply growth slowed. Our estimates are robust to controlling for differences across 
+majors in their work-from-home intensity, a prominent alternative explanation for the employment 
+declines associated with AI exposure (Lambert and Schindler, 2026). Our estimates are also ro-
+bust to alternative measures of AI exposure (e.g., the usage-based measure of Handa et al., 2025). 
+Additionally, although increases in self-employment or graduate school attainment might explain 
+a substantial portion of declines in initial employment, we fnd evidence that these patterns may be 
+more consistent with weak labor demand than with increased opportunity. 
+The remainder of the paper proceeds as follows. Section 2 describes the PSEO, ACS, and 
+LEHD data and the construction of our major-level AI exposure measure. Section 3 presents the 
+empirical strategy. Section 4 reports the main employment, earnings, industry, and job-switching 
+results and examines how they evolve with time since graduation. Sections 5 and 6 examine het-
+erogeneity across majors and variation in the distribution of occupation-level exposure. Section 7 
+discusses the mechanisms and broader implications of the fndings, and Section 8 concludes. 
+5 
+
+=== PDF PAGE 7 ===
+2 Data sources 
+2.1 Graduate data 
+Our sample of graduates comes from the U.S. Census Bureau’s Post-Secondary Employment Out-
+comes (PSEO) data product. PSEO is constructed from a collection of graduation and transcript 
+records voluntarily provided by postsecondary institutions and state higher education systems 
+across the United States. These records contain the date of graduation, degree-conferring insti-
+tution identifed by Offce of Postsecondary Education ID, and declared majors for every gradu-
+ate.
+2 For this research, we utilize the roster of graduates from twenty-seven data partners across 
+twenty-four states representing over 350 institutions. While additional partners exist in the PSEO 
+partnership and consented to have their data included, we restricted our sample to institutions with 
+at least one bachelor’s degree graduate in every year between 2012 and 2024.
+3 Appendix Table A1 
+contains the list of participating systems. 
+We make three sample restrictions from the graduate sample. First, we exclude students with 
+three or more majors. Double majors have the combination of their two majors treated as a single 
+unique major. For instance, someone who double majors in “Accounting” and “Finance” is treated 
+as majoring in “Accounting-Finance”. Second, we exclude students who graduated from a college 
+that does not appear in our data in every year from 2012 to 2024. This removes colleges that closed 
+or opened during our sample period and colleges that have not provided up-to-date data to PSEO. 
+Finally, we exclude students who majored in a feld that only one college produced graduates 
+in. These observations would be automatically dropped in our fxed effects models involving 
+major-college dummy variables, but we drop them at the onset to exclude them from all analyses. 
+Our fltered sample consists of 6,665,500 graduate records, capturing approximately 29% of all 
+bachelor’s degrees conferred from 2016 to 2024.
+4 
+2The PSEO data categorize majors by their Classifcation of Instructional Program code as defned by the U.S. 
+Department of Education. We crosswalk these codes to the felds of degree utilized by the Census Bureau for the 
+American Community Survey. 
+3In future work, we hope to include degree levels beyond the bachelor’s level; however, data limitations force us 
+to restrict our attention to bachelor’s graduates at this time. 
+4All statistics in this paper other than those derived solely from publicly available data are rounded according to 
+6 
+
+=== PDF PAGE 8 ===
+Appendix Table A2 presents summary statistics for institutions in our sample based on publicly 
+available data in the Integrated Postsecondary Education Data System (IPEDS) for academic year 
+2022. Relative to the broader postsecondary landscape in the United States, our set of institutions 
+are signifcantly more likely to be public as opposed to private or for-proft. They are also more 
+likely to be located in cities as opposed to suburbs, towns, or rural areas, have enrollments above 
+20,000 students, and be classifed as doctoral-degree granting with either “very high” or “high” 
+research output. These institutions also graduate students that are slightly more likely to be male 
+and white (non-Hispanic). Overall, these differences are similar to those documented by Orr (2025) 
+for the entire PSEO sample, not just the set of institutions participating in this particular research. 
+Nonetheless, if the effects of AI are heterogeneous by institution type, then our estimates of AI’s 
+impacts may only be representative of this subset of institutions, and not the full postsecondary 
+landscape.
+5 
+2.2 GenAI Exposure 
+There are multiple measures of AI exposure in the nascent literature, but the measure developed 
+in Eloundou et al. (2024) has become a widely used benchmark. Eloundou et al. use the GPT-4 
+large language model to classify detailed work activities and tasks in the Department of Labor’s 
+occupation database (O*NET) as either AI-exposed or not. They determine exposure by asking 
+whether GPT-4 can reduce the time it takes to complete the task by at least half, giving a full point 
+if yes and half a point if GPT-4 could reduce the time by half if it had access to additional software. 
+Occupational exposure measures are the sum of task exposures. Their preferred weighting scheme, 
+known as GPT-4 Beta, gives core tasks (as indicated in O*NET) twice the weight as supplemental 
+tasks. The GPT-4 Beta measure is used as a primary measure of occupational exposure in several 
+recent analyses of employment and hiring (Brynjolfsson et al., 2025; Chandar, 2025; Hyman et al., 
+the U.S. Census Bureau’s disclosure avoidance rules. 
+5Note that our baseline regression specifcations all include institution-by-major fxed effects, so we identify 
+outcomes from variation over time within each institution and major rather than from variation across the composition 
+of institutions. Future work will examine heterogeneity in outcomes across the different types of institutions we can 
+observe. 
+7 
+
+=== PDF PAGE 9 ===
+2025; Johnston and Makridis, 2026; Tucker, 2026) and has been used to discipline quantitative 
+analyses of AI’s labor market and aggregate effects (Acemoglu, 2025; Freund and Mann, 2026). 
+The measure is also informative about realized adoption. Bick et al. (2026) fnd that predicted 
+occupational exposure is positively associated with individuals’ reported generative AI use at work, 
+while Tucker (2026) fnds that the GPT-4 Beta measure is highly predictive of subsector-level AI 
+utilization reported by frms in the Census Bureau’s Business Trends and Outlook Survey (BTOS).6 
+The Eloundou et al. GPT-4 Beta measure is part of a class of exposure measures based on 
+AI’s capacity to perform certain tasks, but not necessarily refective of its actual usage. In contrast, 
+Handa et al. (2025) use an automatic classifer to analyze millions of actual prompts to Claude.ai 
+and map them to O*NET tasks and objectives. In Appendix B, we explore whether our conclusions 
+differ when calculating major-level exposure using several alternative measures of occupation-level 
+exposure, including the measure of Handa et al. There is general agreement in which majors are 
+most exposed regardless, and our results are robust to adopting an alternative measure. 
+AI adoption patterns continue to evolve, and the measures used in this paper predate many 
+model innovations as well as the widespread diffusion of agentic platforms. Accordingly, we view 
+AI exposure measures as snapshots of a rapidly changing technology.
+7 The underlying extent 
+of college majors’ AI exposure may evolve as new model and platform capabilities arise. More 
+generally, technical exposure does not translate mechanically into adoption or labor substitution. 
+Lindenlaub et al. (2026) show that adoption depends on AI’s comparative advantage relative to a 
+particular worker, accounting for both AI user costs and worker productivity, while Lashkari et al. 
+(2026) emphasize fxed implementation costs and the scale at which a task is performed. For now, 
+consistent with much of the empirical literature, we treat exposure as a fxed pre-period assignment. 
+The effects we estimate are in relation to this fxed assignment, based on deciles of exposure. The 
+variation in our coeffcients over time may relate to the changing intensity of AI capability or 
+6The GPT-4 Beta measure has the third highest predictive power for BTOS utilization in the measures examined in 
+Tucker (2026) with the core and total measures in Eisfeldt et al. (2023) having the highest predictive power. We choose 
+to use the GPT-4 Beta measure because it is highly correlated with the Eisfeldt et al. measure in our setting (Spearman 
+rank correlation of 0.93 at the college major level) but enables direct comparison with more research quantifying the 
+effects of AI. Select results using the Eisfeldt et al. exposure measure are contained in Appendix B. 
+7In general, if major-level exposure changes over time, our specifcations should capture the relevant effects of AI 
+exposure as long as these changes are rank-preserving. 
+8 
+
+=== PDF PAGE 10 ===
+changes in the labor market response to AI. We cannot necessarily distinguish between these two 
+margins. 
+2.3 Occupation and major mapping 
+The natural unit of work classifcation to defne AI exposure is the task, but rarely do worker-level 
+data contain task-level records. Instead, the collection of tasks generally performed by occupations 
+are provided by O*NET, and AI exposure is aggregated to the occupation level based on the listed 
+tasks. One way to map the occupation-level exposure measures to college majors, as we must do in 
+this work, is to use a distribution of realized occupations for graduates of each major to construct 
+an occupation-weighted-average (Timmerman, 2025). Since the vast majority of state Unemploy-
+ment Insurance wage records do not provide occupation, we do this with survey data. Beginning 
+in 2009, the American Community Survey (ACS) started asking respondents with a bachelor’s de-
+gree for the majors associated with their degree. In addition, the ACS asks respondents to describe 
+the occupation of their primary job worked in the last week. To make the major-occupation dis-
+tribution more relevant to our population of interest, we use ACS survey years 2018 to 2022 and 
+restrict the sample to workers aged 21 to 29 with only a bachelor’s degree (Ruggles et al., 2025).
+8 
+With major-occupation distributions estimated, we develop our baseline AI exposure measure as 
+the graduate-weighted mean of occupational exposure scores. To examine one possible dimension 
+of heterogeneity in exposure, we also defne a second measure based on the share of occupations 
+worked by a major that is in the top quintile (at the occupation level) of AI exposure. This al-
+ternative measure allows us to differentiate between majors that work in occupations consistently 
+exposed to a moderate level of AI versus majors that work in a mix of very low and highly exposed 
+occupations. The results are presented in Section B. 
+In Appendix Table A3, we provide a detailed list of the AI exposure scores that we construct 
+for each major, including our baseline GPT-4 Beta measure, as well as measures such as Handa et 
+8We choose the 21-29 age range to ensure suffcient sample size for each college major while also capturing the set 
+of possible early career occupations that are relevant for a recent graduate. Additionally, if the career ladder faced by 
+recent graduates involves later occupational switches to more exposed occupations, we want to capture that potential 
+exposure. 
+9 
+
+=== PDF PAGE 11 ===
+al.’s observed AI usage and the core task exposure measure of Eisfeldt et al. (2023). Notably, the 
+most exposed decile of college majors in our baseline measure is heavily dominated by computer 
+science, information systems, and other majors linked to software development. However, the 
+overall mix of majors with above-average AI exposure is much broader. 
+2.4 Employment data 
+Our labor market outcomes come from the Census Bureau’s Longitudinal Employer-Household 
+Dynamics (LEHD) program. The LEHD data are built from state Unemployment Insurance wage 
+records and the Quarterly Census of Employment and Wages and contain the employment status, 
+earnings, and employer characteristics for over 95% of jobs in participating states (U.S. Bureau 
+of Labor Statistics, 2026b). In addition, the LEHD data contain worker-level demographic and 
+residence information obtained from a variety of administrative and survey sources.
+9 
+All but two states – Alaska and Michigan – have data available for every quarter between Q1 
+2016 and Q3 2025. To minimize classifying employed individuals from Alaska and Michigan as 
+unemployed, and to mitigate compositional changes from Alaska and Michigan workers appearing 
+for some years of the sample, we exclude from our sample any individuals who are employed 
+in Alaska or Michigan during the analyzed time period and any individuals residing in Alaska or 
+Michigan during the analyzed time period. Thus, employment rates should be interpreted precisely 
+as the likelihood of having UI-covered employment in a state other than Alaska or Michigan among 
+individuals currently residing in a state other than Alaska or Michigan. 
+The bottom-left panel of Figure 1 plots the mean log of real full-quarter earnings for the domi-
+nant job two quarters post-graduation (hereafter, initial earnings)
+10. This corresponds to graduates 
+who were employed one-quarter post-graduation through at least three-quarters post-graduation 
+9LEHD data identify the state and frm in which each worker is employed, but typically impute an establishment 
+assignment for each worker in the frm based on distance from place of residence and candidate establishment sizes 
+(Tucker et al., 2024). We obtain industry of employment from the establishment-level record, which comes from 
+QCEW. In limited cases where an establishment identifer is not imputed, we use the modal employment-weighted 
+industry of the frm in the state. 
+10All earnings in this paper are adjusted for infation according to the CPI-U, not seasonally adjusted series (U.S. 
+Bureau of Labor Statistics, 2026a) 
+10 
+
+=== PDF PAGE 12 ===
+in the same job, so the effect of mid-quarter job transitions on earnings is minimized.11 As with 
+employment, the fgure shows that initial earnings increased prior to ChatGPT’s public release. 
+We also observe a steep decline for the top quintile in the quarters following November 2022, 
+though all graduates appear to see declining quarterly earnings in recent quarters. From 2022Q4 
+to 2024Q4, initial earnings fell for all groups by four to nine log points. 
+The right two panels of Figure 1 present the same outcomes for eight quarters post-graduation. 
+Here we observe less pronounced changes over time, including pre-2022, during the COVID-19 
+pandemic period, and post-ChatGPT-3.5, and all quintiles of exposure appear to have fairly similar 
+trends throughout the entire time horizon. It is important to note that the horizontal axis denotes the 
+measurement quarter, not the graduation quarter. For instance, observations observed in 2024Q1 
+graduated in 2022Q1. Only the last few quarters include students who graduated post-ChatGPT, 
+and the majority of the “post” period data points refect students who graduated pre-ChatGPT but 
+experienced the release of ChatGPT within two years of graduating. 
+We present one more piece of descriptive evidence in Figure 2 on the effects of AI before mov-
+ing to our empirical strategy. Because the LEHD data are job-level fles, we can track individuals 
+over time and observe whether they changed jobs within the frst two years of their post-collegiate 
+career.
+12 Job switching is an important outcome in this context because employer changes ac-
+count for a substantial share of early-career earnings growth (Topel and Ward, 1992; Hahn et al., 
+2021), and an early switch may allow initially underemployed graduates to move toward a better 
+job match. The trend in job switching is fairly constant prior to the COVID-19 pandemic for the 
+two most-exposed quintiles before dropping during the pandemic period. Conversely, the least 
+exposed quintiles have declining job switching rates in the years leading up to the COVID-19 pan-
+demic that hasten in their decline in 2020. Following the pandemic, each exposure group saw 
+increases in job switching that surpassed the pre-pandemic peaks, consistent with the popular con-
+11A worker’s dominant job is the job with the highest earnings during the quarter among all full-quarter jobs. 
+12We defne a job switch as occurring if the graduate’s frst observed dominant job in the quarters strictly following 
+graduation was with a different frm, identifed by State Employer Identifcation Number (SEIN), than the employer 
+of their dominant job eight quarters post-graduation. If the graduate has multiple employers in the frst quarter post-
+graduation, we compare against the employer with the highest earnings. If a graduate has no employment eight quarters 
+post-graduation, they are excluded from the analysis. If a graduate left their original employer but was re-hired before 
+the two year mark, they would not be considered as having switched jobs. 
+11 
+
+=== PDF PAGE 13 ===
+Figure 1: Employment and earnings for recent college graduates 
+.6
+.65
+.7
+.75
+.8
+.85
+.9
+Share employed
+2016 2018 2020 2022 2024 2026
+Quarter
+Employment one quarter post-grad
+.6
+.65
+.7
+.75
+.8
+.85
+.9
+Share employed
+2016 2018 2020 2022 2024 2026
+Quarter
+Employment eight quarters post-grad
+8.6
+8.8
+9
+9.2
+9.4
+9.6
+9.8
+10
+Log quarterly earnings
+2016 2018 2020 2022 2024 2026
+Quarter
+Earnings two quarters post-grad
+8.6
+8.8
+9
+9.2
+9.4
+9.6
+9.8
+10
+Log quarterly earnings
+2016 2018 2020 2022 2024 2026
+Quarter
+Earnings eight quarters post-grad
+Quintiles 1-3 Quintile 4 Quintile 5
+GPT-4 Beta major-level exposure
+Notes: Employment share calculated as the fraction of graduates with non-zero earnings for the quarter. Log 
+quarterly earnings based on earnings reported for the dominant job if the worker had positive earnings in that same 
+job in both the preceding and subsequent quarters. November 2022, corresponding to the release of ChatGPT-3.5, 
+marked with a red line. Number of observations: 6,665,500. All results were approved for release by the U.S. Census 
+Bureau, authorization number CBDRB-FY26-CES011-011. 
+12 
+
+=== PDF PAGE 14 ===
+ception of a “Great Resignation” over this period. Immediately after the release of ChatGPT, job 
+switching quickly fell again. By 2025, job switching was lower for all exposure groups than their 
+respective COVID-19 troughs, though there are signs of a reversal for those who graduated in the 
+middle of 2023. 
+Figure 2: Job switching rates two years post-graduation 
+.3
+.4
+.5
+.6
+.7Job switch probability
+2016 2018 2020 2022 2024 2026
+Quarter
+Quintiles 1-3 Quintile 4 Quintile 5
+GPT-4 Beta major-level exposure
+Notes: Job switches are identifed by a change in the State Employer Identifcation Number (SEIN) of a graduate’s 
+dominant employer eight quarters post-graduation relative to the SEIN of the frst dominant job held post-graduation. 
+The denominator is all graduates with positive earnings in the eighth quarter post-graduation. Time labels on the 
+x-axis are based on outcome measurement, the 8th quarter post-graduation. November 2022, corresponding to the 
+release of ChatGPT-3.5, marked with a red line. Number of observations: 4,679,050. All results were approved for 
+release by the U.S. Census Bureau, authorization number CBDRB-FY26-CES011-011. 
+The patterns shown in Figures 1 and 2 suggest that AI may be having an impact on new grad-
+uates. However, on their own, these patterns are not suffcient to conclude that exposure to AI is 
+the cause of worsening labor market outcomes. For example, graduates from colleges that pro-
+duce a disproportionately high share of exposed majors may be concentrated in geographies and 
+industries with worsening labor prospects. Differences in institution and program quality could 
+drive observed patterns over time if the size and composition of programs are shifting. Seasonal 
+13 
+
+=== PDF PAGE 15 ===
+patterns in hiring and earnings might obscure more persistent trends. And, confounding factors 
+like the rise of work-from-home may affect trends in ways that cannot be disentangled from the 
+raw observational evidence alone. For these reasons, we proceed with a regression-based empirical 
+strategy. Later, in Section 7, we extend this model to consider remote work and other alternative 
+explanations for the patterns we observe. 
+3 Empirical Strategy 
+To address the range of concerns outlined in the previous section, we estimate the following high-
+dimensional fxed effects model as our baseline specifcation. Let y
+it be an outcome for graduate i 
+in time period t, m(i) the major of graduate i, E(m) the AI exposure for major m, d an AI exposure 
+decile, c(i) the college of graduate i, and q(t) the quarter of the year for period t. Our baseline 
+estimating equation takes the form: 
+yit = ∑ ∑ βds1[E(m(i)) ∈ d,t = s] + δc(i),m(i) + φc(i),t + τm(i),q(t) + εit . (1) 
+s∈/2022 d>6 
+In this specifcation, δc(i),m(i) captures time-invariant factors absorbed by the interaction of col-
+lege and major. For example, colleges often have specialties in certain majors that consistently 
+perform well; the inclusion of δ
+c(i),m(i) ensures that our results are not driven by changes in the 
+size of these programs relative to the broader sample, only by variation within these programs. 
+φ
+c(i),t captures time-varying factors that affect an entire college. For example, an increase in re-
+sources for a career services center or a shock to the local labor markets into which the college’s 
+graduates typically enter would be absorbed by this fxed effect. τ
+m(i),q(t) captures heterogeneous 
+seasonal patterns for each major, which were shown in Figure 1 to be non-trivial. This seasonality 
+represents both fuctuating labor market conditions and job hiring throughout the year as well as 
+compositional changes in the types of students graduating at different times of year. Finally, each 
+β
+ds coeffcient captures the average effect in quarter s of graduating with a major with a particular 
+exposure to AI relative to the excluded group. 
+14 
+
+=== PDF PAGE 16 ===
+We choose to discretize AI exposure into deciles while grouping the bottom six deciles as a 
+pooled baseline. Thus, our event study coeffcients can be interpreted as the effect of AI on highly 
+exposed majors relative to a majority of lesser exposed majors, net of the difference between these 
+majors in the corresponding quarter in calendar year 2022.
+13 This approach roughly follows the 
+recent analyses of early-career outcomes in Brynjolfsson et al. (2025) and Tucker (2026), both of 
+whom construct exposure quintiles and fnd that the effects of AI are nonlinear and concentrated 
+in the top quintile of exposed occupations or industries. The choice to disaggregate into exposure 
+deciles is for two reasons. First, given the size of our sample, we have suffcient power to examine 
+nonlinearities at this level of detail. Second, because we map occupation-level AI exposure to 
+college majors, the variation in exposure scores across majors is inherently compressed relative to 
+that of the underlying occupation distribution. For example, the ninetieth percentile of exposure at 
+the major level (0.50) is nearly the same as sixtieth percentile of exposure at the occupation level 
+(0.49). In Section 5, we estimate an alternative specifcation for two of our outcome measures with 
+major-specifc event study coeffcients net of the same set of underlying fxed effects as Equation 
+(1). Such a specifcation allows us to compare several alternative measures of major-level AI 
+exposure, including an alternative construction of exposure based on the share of occupations in 
+the top quintile of Eloundou et al.’s GPT-4 Beta measure, shown in Section 6. 
+To interpret β
+ds as a causal effect of AI exposure requires several identifying assumptions. The 
+frst is that absent the introduction of ChatGPT, the change in outcomes from 2022 onward for 
+AI exposed majors in deciles seven through ten would have been the same as that experienced by 
+the bottom six deciles. Note that this may not be the full causal effect of AI exposure – we only 
+observe outcomes for the bottom six deciles post-2022 in a world where ChatGPT is released, and 
+it is plausible that generative AI and LLMs have an effect on students in the bottom six deciles 
+of the exposure distribution.
+14 This parallel trends assumption would fail if certain shocks occur 
+13While the underlying exposure variable is continuous, discretizing exposure and estimating a saturated model 
+where every discrete category enters with an indicator variable preserves an average treatment on the treated interpre-
+tation (as opposed to treatment on the treated given a specifc treatment dosage) without requiring an assumption of 
+homogeneous potential outcomes (conditional on treatment dose) for all treated observations (Callaway et al., Forth-
+coming). 
+14As shown in A1, almost all majors have some share of their jobs in occupations that are highly exposed to AI. 
+15 
+
+=== PDF PAGE 17 ===
+that disproportionately affect majors in the top deciles of AI exposure and these shocks occur 
+concurrently with the widespread adoption of AI tools. In Section 7, we consider and evaluate 
+potential confounders that might threaten this assumption, most notably the rise of work-from-
+home, which is strongly positively correlated with AI exposure at the occupation level (Lambert 
+and Schindler, 2026).
+15 
+A second assumption for a difference-in-differences estimation is no anticipation of treatment 
+or other time-varying endogenous behavior. This assumption would be violated if highly ex-
+posed students or employers anticipated the capabilities of LLMs like ChatGPT and preemptively 
+changed their majors, job search, or hiring strategies. It would also be violated if students changed 
+their majors following ChatGPT’s release, such as to reduce their own expected AI exposure. We 
+believe the scope of anticipatory adjustment is small in the short window where the capabilities 
+and public release timing of LLMs were reasonably well understood.
+16 Similarly, college grad-
+uates have limited ability to change their major when they are close to completion, though the 
+concern of endogenous major switching becomes increasingly salient among later cohorts. In gen-
+eral, anticipation of AI by graduates would cause us to underestimate the effects of AI on highly 
+exposed majors as graduates try to preemptively mitigate the impacts of a weakening labor market. 
+Whether post-ChatGPT major switching increases or decreases measured employment and earn-
+ings outcomes likely depends on where major switchers sit in the conditional earnings distribution 
+of both their source and destination majors.
+17 
+Finally, difference-in-differences methods such as this one rely on a Stable Unit Treatment 
+Value Assumption (SUTV A). This requires independence between the potential outcome of each 
+observation and the actual treatment status of other observations (Imbens and Rubin, 2015). We 
+provide reduced form estimates in this paper, but general equilibrium effects in the market for 
+15Our analyses use 2022 as a reference period, and so we formally only require parallel trends from 2022 onward, 
+not in the pre-pandemic or pandemic periods. However, we provide estimates from 2016 onward because these periods 
+help to identify fxed effects and are informative of the relationship between employment and earnings of these major 
+groups over a longer period. 
+16Notably, Eisfeldt et al. (2023) fnd little evidence of anticipation in stock market valuations or other measures of 
+behavior among AI-exposed frms. 
+17The graduate data on which we rely contains some information about major switching, and we intend to evaluate 
+the magnitude and direction of major switching in future work. 
+16 
+
+=== PDF PAGE 18 ===
+new college graduates may exist, and typically these violate SUTV A. For example, AI may affect 
+market wages in the occupations that employ both more- and less-exposed college graduates. It is 
+not clear ex ante what direction general equilibrium effects would bias our results. 
+4 Results 
+4.1 Short-term outcomes 
+4.1.1 Initial Employment 
+The frst outcome we consider is the likelihood of having observed employment for any duration 
+during the quarter immediately following graduation.
+18 Event study coeffcients and their 95% 
+confdence intervals are plotted in Figure 3.19 Because we include detailed major by quarter-of-
+year fxed effects, all four quarters of 2022 are absorbed as the reference period and plotted as 
+zeros. The red dashed line denotes the release of ChatGPT-3.5 in November of 2022, and the gray 
+shaded box indicates cohorts who graduated after its release. We differentiate between these two 
+time periods to consider whether effects are more or less pronounced among existing participants 
+in the labor market versus new entrants. The distinction is minimal at such a short post-graduation 
+duration, but it becomes more salient when we analyze longer-term outcomes. 
+In the quarters prior to 2020, the event study coeffcients are usually statistically indistinguish-
+able from zero across all deciles, implying that differences in the employment rate across deciles 
+were stable before the pandemic, and that these differences had largely reverted to their long-run 
+levels by 2022. The COVID-19 pandemic and subsequent recovery is not entirely controlled for by 
+the included set of fxed effects. Deciles seven, eight, and ten have negative pandemic coeffcients, 
+suggesting that graduates in these majors had worse employment outcomes during the COVID pan-
+demic and relatively muted recoveries compared to graduates from the bottom six deciles. Decile 
+18We refer to this as initial employment, and to the earnings measure as initial earnings. Graduates may have either 
+pre-graduation employment, or employment in the quarter of graduation, but these measures are intended to capture 
+labor market outcomes in the frst full period where we can reliably measure them. 
+19In this fgure and all subsequent regression analyses, standard errors are clustered by college major. 
+17 
+
+=== PDF PAGE 19 ===
+nine, by contrast, had a stronger post-pandemic recovery, and many of the pre-ChatGPT event 
+study coeffcients for this decile are negative. 2022 may have been an unusually strong labor mar -
+ket for these graduates, and accordingly the subsequent results for this decile should be viewed 
+with this in mind. 
+Post-ChatGPT, there is a small to moderate decline in employment relative to the control group 
+across the top four deciles with a particularly large effect for the tenth decile. For deciles seven, 
+eight, and especially ten, these are statistically signifcant declines: an average of two percentage 
+points for deciles seven and eight and fve percentage points for decile ten relative to 2022. In these 
+deciles, recent trends also appear to be a distinct departure from the pre-pandemic period. Decile 
+nine also shows evidence of statistically signifcant declines in employment relative to 2022, and 
+of a similar magnitude to those for deciles seven, eight, and ten; however, since recent coeffcient 
+estimates are not statistically lower than the pre-pandemic average, this might refect reversion to 
+long-run trends rather than a negative effect of AI on this decile. 
+Overall, the results of Figure 3 suggest that there was an immediate decline in the initial em-
+ployment rate following ChatGPT’s introduction among a sizable share of college graduates, but 
+employment effects are clearly most acute among the most-exposed decile of majors. The rel-
+atively fat pre-trends and precise timing help to rule out some alternative explanations, such as 
+heterogeneity in the post-pandemic recovery or the effects of a tight labor market in the reference 
+period. 
+18 
+
+=== PDF PAGE 20 ===
+Figure 3: Share employed one-quarter post-graduation 
+-.1
+-.05
+0
+.05
+.1
+-.1
+-.05
+0
+.05
+.1
+2016 2018 2020 2022 2024 2026 2016 2018 2020 2022 2024 2026
+Exposure decile: 7 Exposure decile: 8
+Exposure decile: 9 Exposure decile: 10
+Share employed
+Quarter
+Notes: Employment share calculated as the fraction of graduates with non-zero earnings for the quarter. Estimates 
+from a regression with institution-major, institution-quarter, and major-quarter of year fxed effects. Standard errors 
+are clustered by college major. Error bars denote 95% confdence intervals. Quarter denotes observation period. 
+November 2022, corresponding to the release of ChatGPT-3.5, marked with a red line. The gray shaded region 
+identifes cohorts who graduated after the release of ChatGPT-3.5. Number of observations: 5,685,000. All results 
+were approved for release by the U.S. Census Bureau, authorization number CBDRB-FY26-CES011-011. 
+19 
+
+=== PDF PAGE 21 ===
+4.1.2 Initial Earnings 
+Our next outcome, shown in Figure 4, is a measure of average initial earnings, defned as log quar-
+terly earnings in the dominant job for workers with full-quarter employment. To be considered 
+full-quarter employed, a worker must have positive earnings in the previous, current, and subse-
+quent quarter; because of this structure, we measure this outcome two quarters after graduation. 
+In each plotted exposure decile, the pre-COVID pandemic coeffcients are positive and often 
+statistically different from zero: an average coeffcient of one log point for decile seven, fve log 
+points for deciles eight and nine, and three log points for decile ten. Thus, real earnings in 2022 
+among more exposed graduates had already begun to decline in comparison to those of less exposed 
+graduates. This could refect a weaker post-COVID pandemic recovery through 2022 among the 
+occupations and industries that hire these majors. Alternatively, it could refect a structural trend of 
+declining demand for these graduates’ labor that predates ChatGPTs release, such as what might 
+occur due to the rise of remote work. We test this hypothesis explicitly in Section 7. 
+From 2023 onward, the event study coeffcients for deciles seven, eight, and nine are slightly 
+negative but not consistently statistically different from zero. Relative to the long-run average 
+pre-COVID pandemic, they represent meaningful declines: three log points for deciles seven and 
+eight and one log point for decile nine. It is possible that earnings would have recovered to their 
+pre-pandemic average if not for ChatGPT, and the uptick in earnings for students who graduated 
+less than two quarters prior to the release of ChatGPT suggests this might be the case. The top 
+exposure decile, however, has an undeniable decline in earnings following the release of ChatGPT. 
+By 2025, the quarterly earnings for this group were down 14 log points relative to the 2022 change 
+of the least exposed deciles, and even more in comparison to the pre-pandemic average. 
+20 
+
+=== PDF PAGE 22 ===
+Figure 4: Log quarterly earnings two-quarters post-graduation 
+-.2
+-.15
+-.1
+-.05
+0
+.05
+.1
+.15
+.2
+-.2
+-.15
+-.1
+-.05
+0
+.05
+.1
+.15
+.2
+2016 2018 2020 2022 2024 2026 2016 2018 2020 2022 2024 2026
+Exposure decile: 7 Exposure decile: 8
+Exposure decile: 9 Exposure decile: 10
+Log quarterly earnings
+Quarter
+Notes: Log quarterly earnings based on earnings reported for the dominant job if the worker had positive earnings in 
+that same job in both the preceding and subsequent quarters. Estimates from a regression with institution-major, 
+institution-quarter, and major-quarter of year fxed effects. Standard errors are clustered by college major. Error bars 
+denote 95% confdence intervals. Quarter denotes observation period. November 2022, corresponding to the release 
+of ChatGPT-3.5, marked with a red line. The gray shaded region identifes cohorts who graduated after the release of 
+ChatGPT-3.5. Number of observations: 3,225,000. All results were approved for release by the U.S. Census Bureau, 
+authorization number CBDRB-FY26-CES011-011. 
+As we discuss in Section 8, the effects we observe compare in magnitude to the earnings losses 
+of graduates entering the labor market during a recession. The appearance of an incomplete post-
+COVID-19 recovery among the most AI-exposed graduates motivates our subsequent analysis in 
+21 
+
+=== PDF PAGE 23 ===
+Section 7 to rule out alternative explanations. 
+4.1.3 Industry 
+There are two broad explanations for the earnings declines we observe. Either graduates with the 
+most exposed majors are receiving reduced pay to perform the same jobs that prior cohorts were 
+employed in, or they are accepting jobs in a lower-paying range of the employment distribution. 
+This latter possibility is supported by the literature on cyclical effects. Both Altonji et al. (2016) 
+and Oreopoulos et al. (2012) fnd evidence consistent with such a pattern, either by measuring 
+changes in the prevalence of high-paying occupations, or by constructing measures of matched frm 
+quality. We follow this literature and decompose our estimated earnings effect into the portion due 
+to changes in the industry composition of exposed graduates’ initial jobs versus reduced earnings 
+by graduates employed within the same initial industries. 
+We quantify the shifting industry sector composition of college graduates in Figure 5. The left 
+panel plots the percentage point change in the distribution of graduate employment following grad-
+uation by industry sector, defned by NAICS 2-digit sector, from 2022 to 2024 among the bottom 
+six exposure deciles.
+20 Positive values refect a higher share of graduates heading into a sector, 
+while negative values refect declining shares. Sectors are sorted by their mean 2022 quarterly 
+earnings among this subset of graduates, and data points are scaled by their 2022 employment 
+share among the set of majors. Among these less-exposed graduates, there is a small negative 
+relationship between earnings and sectoral share; the lowest paying industries grew slightly while 
+large industries near the middle of the earnings distribution shrank. The right panel plots the same 
+relationship for the most AI-exposed decile of majors. Here, the pattern becomes pronounced, as 
+the most AI-exposed graduates shifted out of their highest-paying industries and into their lowest 
+paying ones. New graduates in the most-exposed decile became more than two percentage points 
+more likely to end up in Accommodation & Food Services, and similarly more likely to take a 
+job in Retail Trade, despite these being two of the lowest-paying sectors for these graduates. Con-
+20The employment measure used in this analysis is full-quarter employment two quarters after graduation, aligning 
+it with our measure of initial full-quarter earnings and allowing us to decompose effects. 
+22 
+
+=== PDF PAGE 24 ===
+versely, the highest paying sector, Information, shrunk its share of exposed graduate employment 
+by over three percentage points. The share of top-decile jobs in the Professional, Scientifc, and 
+Technical sector, the largest source of high paying jobs for highly-exposed majors, contracted by 
+nearly six percentage points. Notably, Tucker (2026) fnds that these two sectors have among the 
+highest rates of AI exposure. 
+Figure 5 highlights the role that industry-level patterns might be playing in outcomes of new 
+graduates. The same adoption costs and scale effects that might lead AI’s effects to be nonlinear 
+in occupation- or major-level exposure may also lead its effects to be highly concentrated among 
+specifc industries (e.g., Lashkari et al., 2026), and our fndings are consistent with the concentrated 
+pattern of industry-level effects found by Tucker (2026). However, sectoral shocks that occur 
+around the time of ChatGPT’s introduction could threaten identifcation of AI’s impacts. As we 
+discuss further in Section 7, Tucker (2026) does not fnd evidence that alternative explanations 
+such as monetary policy shocks are the cause of the observed industry-level patterns. On balance, 
+the evidence supports AI as the primary reason for sectoral declines. 
+This compositional shift in employment is quantitatively important to the overall earnings 
+changes among exposed graduates that we observe. In Figure 6, we decompose the change in 
+real earnings since 2022 by an “across-industry composition effect”, which is the change in indus-
+try size relative to 2022 multiplied by mean 2022 earnings, and a “within-industry earnings effect”, 
+which is the change in mean quarterly earnings for the industry relative to 2022 multiplied by in-
+dustry size.
+21 When added together, these effects mechanically equal the total change in average 
+quarterly earnings over time. The fgure shows that from 2016 to 2022, the vast majority of earn-
+ings growth for most majors came from earnings growth within industry, rather than compositional 
+shifts. And, that pattern continues to hold among less-exposed college graduates with respect to 
+earnings declines in more recent years. In contrast, since 2022 approximately half of the overall 
+earnings decline for the top decile of AI-exposed new graduates is explained by their movement 
+into lower-paying sectors. Absent industry shifts, average real earnings in 2024 for AI-exposed 
+21To address seasonality concerns, this fgure aggregates average full-quarter earnings based on the year of obser -
+vation. 
+23 
+
+=== PDF PAGE 25 ===
+Figure 5: Change in industry composition by AI exposure 
+Retail Trade
+Accommodation and 
+Food Serives
+Information
+Professional, Scientific
+and Technical
+-.06
+-.04
+-.02
+0
+.02
+.04
+22-24 change in industry share (pp)
+8.5 9 9.5 10
+Mean log quarterly earnings (2022)
+Exposure deciles 1-6
+Retail Trade
+Accommodation and 
+Food Serives
+Information
+Professional, Scientific
+and Technical-.06
+-.04
+-.02
+0
+.02
+.04
+22-24 change in industry share (pp)
+8.5 9 9.5 10
+Mean log quarterly earnings (2022)
+Exposure decile 10
+Notes: Industry is defned by the 2-digit NAICS code associated with the establishment of a worker’s dominant 
+full-quarter job two quarters post-graduation. The change in industry share from 2022 to 2024 is based on graduates 
+from July 2021 to June 2022 (whose two quarter post-graduation period corresponds to January 2022 to December 
+2022) relative to graduates from July 2023 to June 2024. The mean log quarterly earnings are constructed with the 
+dominant full-quarter earnings of graduates from the specifed exposure deciles. A linear trend weighted by 
+exposure-decile industry size is plotted with a dashed line. Number of observations: 512,900. All results were 
+approved for release by the U.S. Census Bureau, authorization number CBDRB-FY26-CES011-011. 
+24 
+
+=== PDF PAGE 26 ===
+majors would still have declined nearly eight percent to below their 2019 levels. However, the 
+additional role of changes in sectoral composition means that total average earnings declined by 
+ffteen percent, placing real earnings at levels last seen before 2016. 
+Figure 6: Decomposing earnings effect 
+-.15
+-.1
+-.05
+0
+.05
+2016 2018 2020 2022 2024 2016 2018 2020 2022 2024
+Exposure deciles 1-6 Exposure decile 10
+Total Within-industry earnings effect Across-industry composition effect
+Log quarterly earnings relative to 2022
+Year
+Notes: Industry is defned by the 2-digit NAICS code associated with the establishment of a worker’s dominant 
+full-quarter job two quarters post-graduation. Mean log quarterly earnings are constructed with the dominant 
+full-quarter earnings of graduates from the specifed exposure deciles. The within-industry earnings effect is equal to 
+annual industry share multiplied by the change in mean earnings from 2022. The across-industry composition effect 
+is equal to the change in industry share from 2022 multiplied by 2022 earnings. Number of observations: 2,284,900. 
+All results were approved for release by the U.S. Census Bureau, authorization number CBDRB-FY26-CES011-011. 
+In sum, graduates with majors highly exposed to AI are less likely to be employed in the 
+quarter following graduation than less-exposed graduates. Once they do fnd employment, they are 
+signifcantly more likely to work in lower paying industries. Even graduates who fnd employment 
+in traditionally high paying industries are receiving lower pay on average. Altogether, the short-
+term effects of AI on the labor market outcomes of highly AI-exposed graduates are markedly 
+negative. 
+25 
+
+=== PDF PAGE 27 ===
+4.2 Longer-term outcomes 
+4.2.1 Employment 
+In the previous section, we documented large, negative declines in employment and earnings for 
+graduates with majors in the top decile of AI exposure. Now, we examine the persistence of 
+those effects. Our window is limited by the relative recency of ChatGPT’s release and the lag 
+in availability of the administrative data sources we use. Nonetheless, by looking at outcomes 
+four and eight quarters after graduation, we can begin to see how new graduates’ labor market 
+outcomes evolve following the initial post-graduation shock. We can also begin to isolate the role 
+of graduation timing, since the longer time horizons provide additional post-2022 comparisons of 
+cohorts who graduated before ChatGPT’s release to those that graduated after. 
+Figure 7 presents the coeffcients from two regressions with the outcomes of employment four 
+quarters post-graduation and employment eight quarters post-graduation. By the end of their frst 
+full year post-graduation, graduates with majors in the seventh, eighth, and tenth deciles of expo-
+sure have recovered nearly half of their immediate employment declines, but a decline still exists 
+relative to the baseline group: an average of -1.4 percentage points for deciles seven and eight and 
+an average of -4.2 percentage points for decile ten from 2024 onward. 
+By two years post-graduation, there is minimal evidence of employment declines for graduates 
+with majors in exposure deciles seven through nine relative to majors in deciles one through six. 
+Estimated event study coeffcients for the top decile, by contrast, continue to be negative with an 
+average value of -2.0 percentage points from 2024 onward. 
+26 
+
+=== PDF PAGE 28 ===
+Figure 7: Share employed one and two years post-graduation 
+-.1
+-.05
+0
+.05
+.1
+-.1
+-.05
+0
+.05
+.1
+-.1
+-.05
+0
+.05
+.1
+-.1
+-.05
+0
+.05
+.1
+2016 2018 2020 2022 2024 2026
+Exposure decile: 7
+Exposure decile: 8
+Exposure decile: 9
+Exposure decile: 10
+Share employed four quarters post-grad
+Quarter
+-.1
+-.05
+0
+.05
+.1
+-.1
+-.05
+0
+.05
+.1
+-.1
+-.05
+0
+.05
+.1
+-.1
+-.05
+0
+.05
+.1
+2016 2018 2020 2022 2024 2026
+Exposure decile: 7
+Exposure decile: 8
+Exposure decile: 9
+Exposure decile: 10
+Share employed eight quarters post-grad
+Quarter
+Notes: Employment share calculated as the fraction of graduates with non-zero earnings for the quarter. Estimates 
+from a regression with institution-major, institution-quarter, and major-quarter of year fxed effects. Standard errors 
+are clustered by college major. Error bars denote 95% confdence intervals. Quarter denotes observation period. 
+November 2022, corresponding to the release of ChatGPT-3.5, marked with a red line. The gray shaded region 
+identifes cohorts who graduated after the release of ChatGPT-3.5. Number of observations: 5,747,000 four quarters 
+post-graduation and 5,740,000 eight quarters post-graduation. All results were approved for release by the U.S. 
+Census Bureau, authorization number CBDRB-FY26-CES011-011. 
+27 
+
+=== PDF PAGE 29 ===
+4.2.2 Earnings 
+When analyzing the period two quarters after graduation in Section 4.1.2, we observed a consistent 
+pattern of statistically signifcant positive event study coeffcients prior to the COVID pandemic, 
+possibly refecting an incomplete pandemic recovery as of 2022. Yet, when compared against 
+the long-run average, we found evidence of negative effects in exposure deciles seven through 
+nine, and a pronounced decline in average earnings for the most AI-exposed decile. In Figure 8, 
+we evaluate the same outcome four and eight quarters after graduation to see whether earnings 
+patterns converge. 
+Regardless of exposure decile, the fgure shows persistence in the previously observed pattern 
+of positive pre-period coeffcients. This is congruent with an underlying pandemic recovery expla-
+nation for the observed pre-trends. Moreover, among deciles seven through nine, a consistent story 
+emerges. By one year post-graduation, negative coeffcients on earnings among graduates in these 
+deciles attenuate close to zero. Despite the small declines in employment rate observed at one year 
+in the previous subsection, this suggests that graduates in these majors ultimately fnd jobs that pay 
+a similar wage premium to the ones they might have expected to obtain before ChatGPT’s release, 
+and that they do so within one to two years. 
+In the most AI-exposed decile, the story is substantially less reassuring. Statistically signifcant 
+negative effects on average full-quarter earnings persist for at least two years among post-2022 
+graduates. One year out of school, earnings have declined by an average of 8.1 log points from 
+2024 onward, and two years post-graduation, earnings remain 3.3 log points lower than they would 
+have been if they had followed the trend of the six least-exposed deciles. 
+28 
+
+=== PDF PAGE 30 ===
+Figure 8: Log quarterly earnings one and two years post-graduation 
+-.2
+-.1
+0
+.1
+.2
+-.2
+-.1
+0
+.1
+.2
+-.2
+-.1
+0
+.1
+.2
+-.2
+-.1
+0
+.1
+.2
+2016 2018 2020 2022 2024 2026
+Exposure decile: 7
+Exposure decile: 8
+Exposure decile: 9
+Exposure decile: 10
+Log quarterly earnings four quarters post-grad
+Quarter
+-.2
+-.1
+0
+.1
+.2
+-.2
+-.1
+0
+.1
+.2
+-.2
+-.1
+0
+.1
+.2
+-.2
+-.1
+0
+.1
+.2
+2016 2018 2020 2022 2024 2026
+Exposure decile: 7
+Exposure decile: 8
+Exposure decile: 9
+Exposure decile: 10
+Log quarterly earnings eight quarters post-grad
+Quarter
+Notes: Log quarterly earnings based on earnings reported for the dominant job if the worker had positive earnings in 
+that same job in both the preceding and subsequent quarters. Estimates from a regression with institution-major, 
+institution-quarter, and major-quarter of year fxed effects. Standard errors are clustered by college major. Error bars 
+denote 95% confdence intervals. Quarter denotes observation period. November 2022, corresponding to the release 
+of ChatGPT-3.5, marked with a red line. The gray shaded region identifes cohorts who graduated after the release of 
+ChatGPT-3.5. Number of observations: 3,666,000 four quarters post-graduation and 3,814,000 eight quarters 
+post-graduation. All results were approved for release by the U.S. Census Bureau, authorization number 
+CBDRB-FY26-CES011-011. 
+29 
+
+=== PDF PAGE 31 ===
+Overall, these longer-term earnings and employment results suggest that the impacts of AI on 
+most graduates are reasonably transitory. While AI may be having an impact on initial job fnding 
+and subsequent earnings, these effects do not persist for long among graduates of majors in expo-
+sure deciles seven through nine. Although the available time series is short and AI’s capabilities 
+and impacts may evolve, there is little evidence here to suggest long-term scarring among such 
+graduates. In contrast, the results paint a concerning picture of the labor market for graduates in 
+the most AI-exposed decile of majors, including the possibility of persistent effects to earnings 
+over several years. 
+4.2.3 Job switching 
+Our fnal baseline outcome of interest is job switching, shown in Figure 9. As previously defned 
+in Section 2.4, we fag a job switch as occurring when a graduate’s observed dominant job was 
+with a different frm than the frm of their dominant job eight quarters post-graduation. We also 
+showed that job switching of recent graduates reached a peak in 2022, frequently attributed to the 
+unwinding of the pandemic and the unusually tight labor market at that time. This complicates the 
+choice of a reference period, and for this reason, we fnd it more instructive to compare post-2022 
+coeffcients to the long-run pre-2022 average, rather than to 2022 alone. While the magnitude of 
+coeffcient point estimates refects the difference from 2022, differences in coeffcients between 
+other time periods can be interpreted as the percentage point decline in the probability of a job 
+switch between those periods. 
+Figure 9 shows that among the top four deciles of exposure, job switching probabilities fell 
+from their 2022 peak back to COVID-pandemic levels through much of 2023 and 2024 (average 
+coeffcient of -5.9 percentage points in 2024) before increasing rapidly in 2025 through the end 
+of our data series (average coeffcient of -2.7 percentage points in 2025). The timing of higher 
+job switching corresponds precisely with the cohorts of students who graduated after the release 
+of ChatGPT. Students who graduated prior to ChatGPT but reached their two-year tenure in the 
+labor market post-college after the release of ChatGPT were less likely to switch jobs, similar to 
+30 
+
+=== PDF PAGE 32 ===
+students who were two years removed from college during the COVID pandemic. This suggests 
+that pre-ChatGPT graduates who already found jobs before ChatGPT’s release may have foregone 
+voluntary job switching in light of a weak labor market. Conversely, post-ChatGPT graduates 
+were comparatively more likely to switch, potentially because the weak labor market at time of 
+entry led them to take lower-paying or less desirable initial jobs that they later sought to leave. 
+Although this timing pattern is observed across exposure deciles, the eight-quarter earnings fgures 
+of the preceding subsection suggest that graduates of the most-exposed decile may have been less 
+successful in switching to higher-paying jobs. 
+5 Results by major 
+Thus far, we have presented the event study coeffcients from Eq. 1 with college majors grouped 
+into deciles. Discretizing exposure is useful for concisely identifying non-linearities in the effects 
+of AI, as well as pooling together small majors or rare double-major combinations to assist in 
+statistical inference, but no part of our empirical strategy strictly requires us to do so. We addition-
+ally estimate event studies with the same fxed effect structure but major-specifc year coeffcients 
+rather than decile group. This provides point estimates of effects for all suffciently popular majors 
+and double-major combinations.
+22 
+Our major-specifc estimating equation is: 
+yit = ∑ ∑ βms1[m(i) = m,t = s] + δc(i),m(i) + φc(i),t + τm(i),q(t) + εit . (2) 
+s̸=2022 m 
+Each fxed effect term has the same defnition and interpretation as in Equation 1; however, the 
+coeffcients βms now denote the difference between major m’s outcome in year s and its corre-
+sponding outcome in 2022. Note that for the purposes of regression, an arbitrary major was chosen 
+as the reference major in each year; we recenter the coeffcients to be relative to the overall aver -
+22Majors or double-major combinations with fewer than 1,000 observations across all years are grouped together in 
+a residual category. This residual group is not plotted in subsequent fgures, but this ensures that all graduates continue 
+to contribute to identifcation of fxed effects. 
+31 
+
+=== PDF PAGE 33 ===
+Figure 9: Job switching eight-quarters post-graduation 
+-.1
+-.05
+0
+.05
+.1
+-.1
+-.05
+0
+.05
+.1
+2016 2018 2020 2022 2024 2026 2016 2018 2020 2022 2024 2026
+Exposure decile: 7 Exposure decile: 8
+Exposure decile: 9 Exposure decile: 10
+Job switch probability
+Quarter
+Notes: Job switches are identifed by a change in the State Employer Identifcation Number (SEIN) of a graduate’s 
+dominant employer eight quarters post-graduation relative to the SEIN of the frst dominant job held post-graduation. 
+The denominator is all graduates with positive earnings in the eighth quarter post-graduation. Estimates from a 
+regression with institution-major, institution-quarter, and major-quarter of year fxed effects. Standard errors are 
+clustered by college major. Error bars denote 95% confdence intervals. November 2022, corresponding to the release 
+of ChatGPT-3.5, marked with a red line. The gray shaded region identifes cohorts who graduated after the release of 
+ChatGPT-3.5. Number of observations: 4,660,000. All results were approved for release by the U.S. Census Bureau, 
+authorization number CBDRB-FY26-CES011-011. 
+32 
+
+=== PDF PAGE 34 ===
+age across all majors in the corresponding year, so that plotted point estimates refect the change 
+in employment or earnings since 2022 relative to the weighted average change. When comparing 
+with the prior decile-based results, one should keep in mind this change in reference group and 
+interpretation. 
+Figures 10 and 11 present scatterplots of the major-specifc outcome coeffcients for the year 
+2024. Each major is represented by a bubble scaled to the number of graduates from 2018-2022, 
+and its position on the horizontal axis corresponds to their standardized baseline GPT-4 Beta ex-
+posure score. The decile thresholds used to previously classify majors are denoted by alternating 
+gray bars. Selected majors are labeled, including ones at the extremes of the exposure distribution. 
+Appendix Table A3 contains the number of graduates for each major, their exposure score, and the 
+2024 event study coeffcients and standard errors for reference. 
+As Figure 10 shows, major-level initial employment outcomes are clearly negatively correlated 
+with AI exposure. The vast majority of graduates in the bottom two deciles have higher employ-
+ment rates in 2024 versus 2022, and graduates in deciles three through six are split between majors 
+with positive and negative employment changes. An infection occurs at decile seven, and nearly 
+all majors in this decile or higher have negative employment changes. Decile ten, which is pre-
+dominantly composed of computer science and adjacent majors, has the most negative employment 
+outcomes, mirroring our previous baseline results. 
+Figure 11 shows results for initial earnings. Consistent with our baseline regression results, 
+the fgure shows that the relationship between earnings and exposure is more nonlinear than it is 
+between employment and exposure, and more dramatic within the top decile. The majors in the 
+lowest decile of exposure universally had 2022-2024 earnings growth above the overall average, 
+and almost all the majors in the tenth decile of exposure have substantially lower earnings growth, 
+but the majors in-between are nearly uniformly distributed between positive and negative earnings. 
+As discussed in Section 4.1.2, this is partially due to the use of 2022 as a reference period; new 
+graduate initial earnings in 2022 were already below pre-pandemic levels, possibly because of an 
+incomplete post-pandemic recovery. Comparing 2024 to the longer run average would likely yield 
+33 
+
+=== PDF PAGE 35 ===
+a steeper slope over the exposure distribution. 
+A couple of very small felds notwithstanding, the three majors with the largest earnings de-
+clines – Computer Science, Computer and Information Systems-General, and Computer Engineer-
+ing – are also the three majors with the largest employment declines. Fewer of these graduates 
+found jobs immediately after graduation, and those who did so received lower earnings. Also, 
+recall that our measure of initial earnings is dominant full-quarter earnings, so the earnings effects 
+are unlikely to be a result of delayed employment reducing the numbers of weeks worked in the 
+measurement period. 
+6 Heterogeneity for highly exposed occupations 
+Our baseline measure of AI exposure at the college major level refects the average ex ante exposure 
+of a graduate entering the labor market with that major. One concern with this mean-based mapping 
+of majors to occupational exposure is that it might mask important variation across majors who 
+have the same mean exposure but different underlying distributions of that exposure. The potential 
+for negative outcomes might correspond not just to how exposed a graduate expects to be on 
+average, but to how likely they are to obtain a highly AI-exposed job. As discussed in Section 2.2, 
+frms’ labor substitution decisions are a function of comparative advantage, adoption costs, and 
+task scale, all of which might lead frms to invest in labor substitution only at the highest levels 
+of exposure. Moreover, if workers’ willingness to take a lower-paying but less exposed job in 
+another occupation (similar to the pattern we observe for industries) depends on nonlinear future 
+displacement risk, then the contribution of these compositional effects to overall earnings losses 
+will similarly depend on the extent of high exposure rather than the average level of exposure 
+across all jobs. 
+Consider, as a stylized example, two majors with nearly identical average AI exposure across 
+occupations: Journalism and Accounting. Suppose that Journalism majors work exclusively in two 
+occupations: Broadcast Journalist, which has a low AI exposure score, and Proofreader, which 
+34 
+
+=== PDF PAGE 36 ===
+Figure 10: Initial employment by major 
+6107
+4101
+5301
+3401
+5098
+5200
+3600
+1901
+6203
+2414
+6206
+6207
+6201
+62022408
+3702
+3701
+2106
+6212
+2100
+2105
+2101
+2407
+2102
+-.1
+-.075
+-.05
+-.025
+0
+.025
+.05
+.075
+.1
+Change in employment rate
+-2 -1 0 1 2 3
+Standardized GPT-4 Beta exposure
+1901: Communications
+2100: Computer and Info. Systems-General
+2101: Computer Programming
+2102: Computer Science
+2105: Info. Sciences
+2106: Computer Admin. Mgmt. and Security
+2407: Computer Engineering
+2408: Electrical Engineering
+2414: Mechanical Engineering
+3401: Liberal Arts
+3600: Biology
+3701: Applied Mathematics
+3702: Statistics
+4101: Physical Fitness, Parks, Rec., and Leisure
+5098: Multi-disciplinary or General Science
+5200: Psychology
+5301: Criminal Justice and Fire Protection
+6107: Nursing
+6201: Accounting
+6202: Actuarial Science
+6203: Business Mgmt. and Admin.
+6206: Marketing
+6207: Finance
+6212: Mgmt. Info. Systems and Statistics
+Notes: Employment share calculated as the fraction of graduates with non-zero earnings for the quarter. Estimates 
+based on a regression of employment on major-year coeffcients with institution-major, institution-quarter, and 
+major-quarter of year fxed effects. Reference year 2022. Coeffcients re-centered relative to overall year average. 
+Bubble sizes correspond to count of graduates from 2018 to 2022. Only coeffcients for the year 2024 and majors 
+with at least 1,000 graduates between 2018 and 2022 are plotted. Shaded regions denote alternating deciles of 
+exposure. Number of observations: 5,685,000. All results were approved for release by the U.S. Census Bureau, 
+authorization number CBDRB-FY26-CES011-011. 
+35 
+
+=== PDF PAGE 37 ===
+Figure 11: Initial earnings by major 
+6107
+4101
+5301
+3401
+5098
+5200
+3600
+1901
+6203
+2414
+6206
+6207
+6201
+6202
+2408
+3702
+3701 2106
+6212
+2100
+2105
+2101
+2407
+2102
+-.2
+-.15
+-.1
+-.05
+0
+.05
+.1
+.15
+.2
+Change in log quarterly earnings
+-2 0 2 4
+Standardized GPT-4 Beta exposure
+1901: Communications
+2100: Computer and Info. Systems-General
+2101: Computer Programming
+2102: Computer Science
+2105: Info. Sciences
+2106: Computer Admin. Mgmt. and Security
+2407: Computer Engineering
+2408: Electrical Engineering
+2414: Mechanical Engineering
+3401: Liberal Arts
+3600: Biology
+3701: Applied Mathematics
+3702: Statistics
+4101: Physical Fitness, Parks, Rec., and Leisure
+5098: Multi-disciplinary or General Science
+5200: Psychology
+5301: Criminal Justice and Fire Protection
+6107: Nursing
+6201: Accounting
+6202: Actuarial Science
+6203: Business Mgmt. and Admin.
+6206: Marketing
+6207: Finance
+6212: Mgmt. Info. Systems and Statistics
+Notes: Log quarterly earnings based on earnings reported for the dominant job if the worker had positive earnings in 
+that same job in both the preceding and subsequent quarters. Estimates based on a regression of earnings on 
+major-year coeffcients with institution-major, institution-quarter, and major-quarter of year fxed effects. Reference 
+year 2022. Coeffcients re-centered relative to overall year average. Bubble sizes correspond to count of graduates 
+from 2018 to 2022. Only coeffcients for the year 2024 and majors with at least 1,000 graduates between 2018 and 
+2022 are plotted. Shaded regions denote alternating deciles of exposure. Number of observations: 3,225,000. All 
+results were approved for release by the U.S. Census Bureau, authorization number CBDRB-FY26-CES011-011. 
+36 
+
+=== PDF PAGE 38 ===
+has a high exposure score and might hypothetically be substituted with AI. By contrast, suppose 
+Accounting majors work exclusively in occupations with moderately high exposure, below the 
+level where frms might opt to substitute. If negative employment and earnings outcomes are 
+driven by current labor substitution, then we would expect Journalism majors to be more negatively 
+impacted than Accounting majors. 
+To test this possibility, we construct an alternative major-level exposure measure based on the 
+share of the major’s employment in the top occupational AI exposure quintile. The distribution of 
+this measure is compared with mean occupation scores in Appendix Figure A1. Note that every 
+major has some share of their occupations in the top quintile of exposure, and 82% of majors have 
+at least ten percent of their occupations in the top quintile. Even the majors we classify in our base-
+line reference group could experience signifcant reductions in their labor market opportunities if 
+effects are driven by only the most exposed occupations being replaced with AI.
+23 In keeping with 
+our previous stylized example, Journalism majors have 36% of their occupational distribution in 
+the top exposure quintile while Accounting majors have only 16% of their occupation distribution 
+in the top exposure quintile, despite their nearly identical mean exposure. 
+In general, the two exposure measures are highly correlated, but the correlation is highest at 
+the bottom (correlation=0.78 in baseline deciles 1 through 6) and very top of the distribution (cor-
+relation=0.87 in decile ten). More variation in the share-based measure is found among baseline 
+deciles seven, eight, and nine (correlation=0.29, 0.21, and 0.16, respectively). It is this variation 
+that permits us to isolate the potentially distinct relationship between these two measures of expo-
+sure and our outcomes of interest. 
+Figure 12 plots each major in the seventh through ninth deciles of mean occupation score 
+along with a trend line between the major’s share of occupations in the top exposure quintile 
+and the major’s 2024 event study coeffcient in the initial employment and earnings regressions 
+23This fnding may also refect that many college majors obtain many general skills, and that such skills can be 
+applied to a broad range of occupations (e.g., Gathmann and Sch ¨onberg, 2010). Prior research has found that future 
+earnings are positively associated with the occupational specifcity of one’s college major, and that graduates who 
+work in felds unrelated to their feld of study earn less (Kinsler and Pavan, 2015; Leighton and Speer, 2020). To 
+the extent that AI might be negatively impacting all new graduates, our methodology based on comparisons across 
+exposure deciles may understate the magnitude of effects. 
+37 
+
+=== PDF PAGE 39 ===
+from Figures 10 and 11. Due to the high correlation between mean occupation score and share 
+of occupations in the top quintile, we exclude the other deciles. The left panel shows that a ten 
+percentage point increase in the share of occupations in the top exposure quintile is associated with 
+a 1.5 percentage point lower initial employment share for decile seven and a 1.2 percentage point 
+lower employment share for decile nine.
+24 These are substantial magnitudes in comparison to the 
+mean 2024 event study coeffcients for the majors in these deciles (-0.005 and -0.013, respectively). 
+The relationship between the share of occupations in the top exposure quintile and employment for 
+the eighth decile is effectively zero. The right panel shows an even stronger relationship between 
+a major’s share of occupations in the top exposure quintile and its decline in initial earnings. A ten 
+percentage point increase in the share of occupations in the top exposure quintile for the seventh, 
+eighth, and ninth deciles is associated with decreases of 2.3, 4.0, and 4.8 log points of quarterly 
+earnings, respectively. The mean event study coeffcients for these deciles in 2024 are -1.3, -
+0.7, and -0.8 log points. Thus, variation in the share of occupations in the top quintile is highly 
+informative of the earnings effects by major within the interior exposed deciles. 
+We also re-estimate our baseline event study with the share of each major’s occupations in the 
+top quintile of exposure treated as a continuous explanatory variable with time-varying effects. 
+The results are in Appendix Figure A2. Across all majors, a ten percentage point increase in the 
+share of a major’s occupation in the top exposure quintile is associated with a 1.3 percentage point 
+decline in the likelihood of employment one quarter post-graduation and a 3 log point decline in 
+initial quarterly earnings from 2024 onward relative to 2022.
+25 
+24The standard deviation in the share of occupations in the top quintile is 0.12, so this is equivalent to an increase 
+of roughly 83% of a standard deviation. 
+25Callaway et al. (Forthcoming) show that a two-way fxed effects model with continuous treatment, such as the one 
+estimated here, cannot recover the true global average causal response, but instead recovers a weakly causal weighted 
+average of treatment effects under a stronger parallel trends assumption. Any interpretation of these coeffcients should 
+be done with caution. Nonetheless, after applying these coeffcients to the occupation share averages for each decile, 
+these regressions predict a 4.3 percentage point decline in employment and a 10.9 log point decline in initial earnings 
+for the most-exposed decile from 2024 onward, slightly smaller than the baseline estimates of 4.8 percentage points 
+and 12.6 log points shown in Figures 3 and 4, respectively. 
+38 
+
+=== PDF PAGE 40 ===
+Figure 12: Initial labor market outcomes and share of occupations in top quintile 
+-.1
+-.05
+0
+.05
+.1
+Event-study coefficient
+0 .1 .2 .3 .4
+Share of occupations in
+top exposure quintile
+Employment
+-.15
+-.1
+-.05
+0
+.05
+.1
+.15
+Event-study coefficient
+0 .1 .2 .3 .4
+Share of occupations in
+top exposure quintile
+Quarterly Earnings
+Decile 7 Decile 8 Decile 9
+Notes: Employment share calculated as the fraction of graduates with non-zero earnings for the quarter. Log quarterly 
+earnings based on earnings reported for the dominant job if the worker had positive earnings in that same job in both 
+the preceding and subsequent quarters. Estimates based on a regression of employment or earnings on major-year 
+coeffcients with institution-major, institution-quarter, and major-quarter of year fxed effects. Reference year 2022. 
+Coeffcients re-centered relative to overall year average. Only coeffcients for the year 2024 and majors with at least 
+1,000 graduates between 2018 and 2022 are plotted. A linear trend weighted by number of observations in each major 
+is also plotted. Number of observations: 5,685,000 in employment regression and 3,225,000 in earnings regression. 
+All results were approved for release by the U.S. Census Bureau, authorization number CBDRB-FY26-CES011-011. 
+39 
+
+=== PDF PAGE 41 ===
+7 Alternative explanations 
+7.1 Work-from-home 
+Our fxed effects specifcation identifes the effects of AI conditional on the assumption that there 
+are no time-varying major-specifc shocks correlated with AI exposure. If such a shock does exist 
+and coincides with ChatGPT’s release, it might lead one to misattribute changes in outcomes to 
+AI. In a recent paper, Lambert and Schindler (2026) argue that this is the case with work-from-
+home. The authors fnd that almost all of the labor market declines that other authors attribute to 
+AI are likely the result of increased work-from-home rates following the COVID pandemic. The 
+challenge in disentangling the two explanations arises from their high correlation. At the occu-
+pation level, Lambert and Schindler document a 0.77 correlation between work-from-home and 
+AI exposure; we fnd that the correlation rises to 0.88 at the college major-level. In general, high 
+underlying correlations such as these can make regression estimates noisy and unstable, limiting 
+the ability to distinguish between explanatory covariates. 
+We take two approaches to incorporate work-from-home into our estimates, the details of 
+which are provided in Appendix C. Although neither approach fully resolves the aforementioned 
+collinearity issue, they represent the natural extension of existing approaches in the literature to our 
+setting. First, we augment our baseline model by controlling for a continuous work-from-home 
+rate estimated for each college major and year using the ACS PUMS.
+26 The revised coeffcients 
+provide little evidence to suggest that our estimates are being driven by the rise of remote work. 
+Our second specifcation, which is a replication of Lambert and Schindler (2026), fxes major-level 
+work-from-home rates at their 2022 values, and both AI exposure and work-from-home are stan-
+dardized and treated as continuous variables with separate event study series. This model clearly 
+suffers from collinearity, and the pre-period event-study coeffcients move in opposite directions 
+26We construct work-from-home rates as the fraction of employed bachelor’s degree holders aged 21-29 that an-
+swered the question “how did [you] usually get to work last week” with “worked from home” in the ACS. Responses 
+are aggregated by feld of degree and survey year and weighted by ACS person weights. Alternative measures involve 
+the share of new job positions that list work-from-home (Hansen et al., 2023) or assessing the feasibility of remote 
+work for each occupation (Dingel and Neiman, 2020). 
+40 
+
+=== PDF PAGE 42 ===
+away from zero when neither AI nor work-from-home should be affecting the labor market in this 
+time period. The post-period coeffcients for initial employment are nearly identical to those of 
+our baseline model, and the coeffcients for initial earnings attenuate up toward zero by the same 
+amount the pre-period coeffcients also increased, so the difference relative to the long-run average 
+is preserved. In sum, although our ability to isolate the effects of work-from-home and AI exposure 
+is limited, available evidence indicates that our results are robust to this concern. 
+7.2 Oversupply of exposed graduates 
+The number of graduates with majors at the very top of the exposure distribution grew dramatically 
+in recent years. Figure A3 shows that total graduates in top decile majors increased 24% from 
+academic year 2017 to 2022, presumably refecting strong interest in the computer-related subjects 
+that compose this decile. Conversely, the number of graduates with majors in the bottom six 
+deciles changed little. This suggests that the employment and earnings declines we observe could 
+simply be a result of an oversupply of graduates with AI-exposed majors relative to a constant or 
+slower-growing demand for their labor. 
+Overall, trends in new graduate absorption provide limited evidence for this hypothesis. The 
+fgure shows that the rise in the number of top-decile graduates was met with a nearly identical 
+rate of increase in the number of initially employed graduates, except for a brief period due to 
+COVID-19. This suggests that demand for these majors was suffcient to absorb supply and hold 
+the employment rate constant through 2022. From academic year 2022 to 2024, the growth of the 
+most exposed majors slowed to under 3% per year, but the count of employed graduates broke 
+trend and declined 3% over the period. No other exposure decile experienced divergence in the 
+number of graduates and the level of initial post-graduation employment. 
+7.3 Alternative economic activities: Self-employment and graduate school 
+The LEHD jobs data cover almost all wage earners in the United States. Nonetheless, new gradu-
+ates could be engaged in other productive economic activities that would not be measured as em-
+41 
+
+=== PDF PAGE 43 ===
+ployment in these data. Most notably, LEHD data do not include information on self-employment, 
+nor do they contain information on graduate school enrollment, both of which often occur in lieu 
+of covered employment. To the extent that rates of self-employment or graduate school enrollment 
+changed differentially across exposure deciles from 2022 onward, we would classify these as a de-
+crease in employment. Alternatively, if these activities are coupled with covered wage and salary 
+employment (such as a part-time job while enrolled), we might observe larger declines in average 
+earnings than would be observed absent the change in the composition of economic activities. To 
+assess these possibilities, we evaluate both outcomes using responses from 21-24 year old bachelor 
+degree recipients in the ACS.
+27 
+The results of this analysis are shown in Appendix Figures A14 and A15. From 2022 to 2024, 
+the self-employment rate among graduates in the top decile of AI exposure increased by 0.48 per-
+centage points, from 1.01 percent to 1.49 percent, while the self-employment rate for the bottom six 
+deciles of graduates increased by only 0.06 percentage points. Over the same time period, the grad-
+uate school enrollment rate among graduates in the top decile increased by 1.66 percentage points, 
+from 16.20 percent to 17.86 percent, while the graduate school enrollment rate for the bottom six 
+deciles decreased by 0.50 percentage points.
+28 Taken at face value, changes in self-employment 
+and graduate school enrollment may explain up to half of the fve percentage point decline in initial 
+employment of the most exposed graduates that we observe in our baseline estimates. 
+While this analysis suggests the role of these alternative activities is substantial, it need not 
+imply that our baseline estimates overstate AI’s effects, in particular on earnings. For example, 
+workers might be opting into self-employment or graduate school precisely because they cannot 
+27There are a few caveats to this analysis. First, the ACS does not contain date of graduation, so analysis using the 
+ACS may not capture outcomes immediately following graduation. Second, the ACS data may not be comparable to 
+our primary analytic sample, for reasons including the age restriction we apply to the ACS, the institutional composi-
+tion of our graduate data, and the inclusion in the ACS of individuals who obtained their undergraduate degree abroad, 
+which is a large fraction of graduate school enrollees in felds like Computer and Information Sciences (National Cen-
+ter for Science and Engineering Statistics, 2026). Finally, we are unable to control for time-varying institution effects 
+in the ACS, meaning that some changes in institutional composition and local labor market effects may impact these 
+estimates. 
+28This pattern also largely aligns with comprehensive data from U.S. academic institutions, which shows that 
+graduate enrollment in Computer and Information Science graduate enrollment increased rapidly from 2020 to 2022, 
+peaked in 2023, and then modestly declined in 2024 (National Center for Science and Engineering Statistics, 2026). 
+Note that ACS data do not distinguish feld of graduate study, so our estimates include changes to enrollment in other 
+felds that might occur in response to labor market conditions. 
+42 
+
+=== PDF PAGE 44 ===
+obtain traditional employment. Conversely, workers could opt into self-employment to take ad-
+vantage of new opportunities brought about by the new technology, though this appears unlikely to 
+be the case, at least in terms of current income. Appendix Figure A16 compares median earnings 
+of self-employed and traditionally-employed graduates aged 21-24 in the ACS across deciles of 
+major-level AI exposure.
+29 It shows that self-employed recent college graduates earn less than 
+their traditionally-employed colleagues, in particular among the most AI-exposed college majors. 
+The self-employed earnings gap narrows from 2022-2024, but it remains large in the top decile 
+where young self-employed graduates earn less than a third of their traditionally-employed coun-
+terparts. This suggests that the increase in self-employment could be in part attributable to weak 
+labor demand; however, the overall effect of self-employment on our estimates of earnings effects 
+depends on where these self-employed individuals would sit in the earnings distribution if they 
+held a wage and salary job instead. 
+7.4 Other factors 
+Monetary tightening provides another possible explanation. Interest rates rose sharply during 
+2022, and their lagged effects could coincide with the diffusion of ChatGPT, particularly because 
+computer-related majors comprise a large share of the top exposure decile, and these graduates are 
+particularly likely to enter into specifc industries. Tucker (2026) fnds that AI-exposed industries 
+are not substantially more sensitive to monetary policy shocks on average. A historical decomposi-
+tion suggests that monetary policy shocks through 2023 can account for at most about one-quarter 
+of the relative decline in early-career employment through 2025Q2, and these shocks do not re-
+produce the observed sharp decline in early-career hiring around the introduction of ChatGPT. 
+Monetary tightening may therefore have contributed to the broader weakening of the early-career 
+labor market, but it cannot account for the full differential change among AI-exposed workers. 
+Other contemporaneous changes, including the post-pandemic normalization of hiring, the con-
+traction in technology-sector employment, changes in college enrollment and major choice, and 
+29Since the ACS asks about earnings over the last 12 months, we restrict to individuals who worked at least 40 
+weeks over that period. This likely excludes the most recent graduates but preserves comparability across groups. 
+43 
+
+=== PDF PAGE 45 ===
+shifts in demand for particular skills, are more diffcult to separate from the effects of generative 
+AI. Our fxed effects absorb shocks common to graduates from the same college and persistent 
+differences across college-major programs, but they do not account for time-varying shocks to par-
+ticular felds that coincide with the diffusion of generative AI. The movement of exposed graduates 
+away from their traditional industries, together with evidence that hiring declines associated with 
+AI exposure occur within a broad set of sectors (Tucker, 2026), makes a narrow technology-sector 
+explanation less compelling. Considered jointly, the sharp timing of the estimated changes, their 
+concentration at the top of the exposure distribution, the accompanying sectoral reallocation, and 
+their robustness to the alternative explanations mentioned here point to a substantial role for gener-
+ative AI in shaping the labor market entry of recent graduates. These fndings do not rule out every 
+contemporaneous shock correlated with AI exposure, but they are suggestive that the technology 
+has already begun to alter the opportunities available to graduates from the most exposed felds. 
+8 Discussion 
+Overall, our results suggest that there was a fairly immediate and concentrated deterioration in 
+the early labor market outcomes of graduates from the most AI-exposed felds following the in-
+troduction of ChatGPT-3.5. Our results point to a disruption that operates most strongly through 
+labor market entry and the quality of the initial jobs obtained by graduates from the most AI-
+exposed felds. Following the introduction of ChatGPT, graduates from these felds became less 
+likely to fnd employment immediately after graduation and experienced substantial earnings de-
+clines. Among those who became employed, an important part of the adjustment occurred through 
+changes in the sectors they worked. Employment shifted away from relatively high-paying sectors 
+such as Information and Professional, Scientifc, and Technical Services and toward lower-paying 
+sectors such as Retail Trade and Accommodation and Food Services. The differential effects be-
+come smaller as workers move further from graduation, and job-switching rates increase among 
+the cohorts that entered the labor market after ChatGPT. These patterns are consistent with some 
+44 
+
+=== PDF PAGE 46 ===
+exposed graduates initially accepting weaker matches and subsequently moving toward better jobs, 
+although employment and earnings for the most exposed graduates do not fully recover within our 
+measurement window. 
+These effects help reconcile seemingly different fndings in the emerging literature. Studies 
+of hiring and employment in AI-exposed occupations and industries fnd sizable declines among 
+young workers (Brynjolfsson et al., 2025; Tucker, 2026), while studies following workers already 
+employed in exposed occupations fnd little evidence of increased unemployment (Eckhardt and 
+Goldschlag, 2025; Massenkoff and McCrory, 2026).
+30 Because our exposure measure is fxed by 
+college major before these outcomes are realized, we can follow this adjustment without condi-
+tioning on the occupation or industry in which a graduate is ultimately observed. Graduates from 
+highly exposed majors remain strongly attached to the labor market and their adjustment occurs 
+importantly at labor market entry. They are less likely to enter employment immediately and are 
+more likely to sort into lower-paying sectors when they do. This, however, comes at a substantially 
+larger earnings effect than the changes observed within the employed individuals in an exposed 
+sector. Thus, modest employment or unemployment effects can coexist with substantial deteriora-
+tion in job quality and early-career opportunities. 
+The pattern we observe closely resembles the effects of entering the labor market during a 
+recession. Weak demand at graduation reduces employment and earnings and shifts new gradu-
+ates toward lower-paying occupations, employers, and industries (Oreopoulos et al., 2012; Altonji 
+et al., 2016). Our estimated decline in quarterly earnings of approximately thirteen percent shortly 
+after graduation is larger than the nine to ten percent initial annual earnings losses estimated in 
+the recession literature.
+31 An important difference, however, is that recessions generate broad ag-
+gregate labor market slack, while the shock we study is concentrated among a subset of felds. 
+Less-exposed parts of the labor market may therefore absorb affected graduates, helping to explain 
+30Classifying unemployed workers by exposure is also diffcult because prior occupation and industry are not 
+consistently reported in survey data (e.g., Gimbel et al., 2026). 
+31Our measure attenuates to about seven percent after one year, but our earnings measures condition on full-quarter 
+employment and do not include partial-period employment. Much of the recession literature, by contrast, measure 
+annual earnings. Annual earnings additionally capture losses from delayed or intermittent employment, making the 
+magnitudes not directly comparable. Because of this, we consider our estimates to be consistent with the magnitude 
+of a recession. 
+45 
+
+=== PDF PAGE 47 ===
+the modest employment decline alongside substantial movement into lower-paying industries. 
+Several mechanisms could generate or interact with the labor market effects we observe, al-
+though our data do not allow us to fully distinguish among them. The most direct is substitution 
+of tasks previously performed by new graduates. AI may also transform jobs without eliminating 
+them. When some tasks are automated, workers may specialize in the tasks that remain, and the 
+effect on labor demand will depend on workers’ comparative advantage across the full task bundle 
+as well as user costs of AI (Freund and Mann, 2026; Lindenlaub et al., 2026). These mechanisms 
+provide one explanation for why our results are concentrated among the most exposed majors. AI-
+driven changes in demand may also amplify these effects at labor market entry. Huckfeldt (2022) 
+shows that hiring becomes more selective during downturns and pushes displaced workers into 
+lower-skill jobs. A similar response to weaker demand for AI-exposed skills could disproportion-
+ately affect new entrants and help explain the movement we observe into lower-paying sectors. 
+AI might also reduce frms’ labor demand by affecting how workers acquire skills early in 
+their careers. For example, entry-level tasks often serve both productive and training roles. If AI 
+automates the work through which junior employees acquire tacit knowledge, frms may hire fewer 
+new workers, reduce training, or reorganize career progression even when experienced workers 
+beneft from the technology (Garicano and Rayo, 2025; Ide, 2025). These mechanisms could also 
+disproportionately affect labor market entrants who have yet to accumulate skills and training on 
+the job. The literature on recessions has shown that delayed employment or entry into lower-
+paying jobs can reduce the accumulation of relevant experience and place graduates on different 
+career paths (Oreopoulos et al., 2012). If this is also true of the most AI-exposed graduates, then 
+the negative outcomes we observe may be persistent. 
+One concern with explanations based on labor substitution is that impacts on early career work-
+ers seem to precede widespread AI adoption by frms (e.g., Bonney et al., 2024). One plausible 
+explanation for this discrepancy is that AI may also affect the information available to employers 
+when hiring new workers. Employers use observable markers of worker skill as signals of ability 
+when choosing which workers to hire, and skill signals have the greatest impact on hiring when 
+46 
+
+=== PDF PAGE 48 ===
+they are easily verifed (Piopiunik et al., 2020). The widespread availability of generative AI to 
+students may reduce the informativeness of observable signals like grades, assignments, and work 
+samples if employers cannot distinguish underlying skill from AI-assisted performance. Consis-
+tent with this possibility, Hausman et al. (2026) and Chirikov (2026) both study variation in the AI 
+exposure of university courses and fnd that AI availability raises grades, compressing the under -
+lying grade distribution in ways that could reduce signal informativeness. Although higher grades 
+could in principle refect subject-specifc learning gains, Chirikov (2026) also fnds that grades in-
+crease the most in AI-exposed courses where homework is weighted more heavily, likely refecting 
+differences in students’ ability to produce work with AI tools rather than differences in AI’s ability 
+to aid in learning.
+32 The quick erosion of education signals leading to reduced hiring would be 
+consistent with an effect of AI that preempts AI’s widespread adoption by frms or use to alter 
+frms’ business processes (e.g., Bonney et al., 2024; Babina et al., 2024). It might also help explain 
+the importance of graduation timing in our job switching results. Whether such a signaling issue 
+might be persistent or transitory may depend on the ability of technological or pedagogical changes 
+to more clearly distinguish skill acquisition from AI use. 
+In general, these labor demand channels do not imply that the negative changes must persist. 
+Productivity gains may raise labor demand elsewhere, and our results show that workers adjust by 
+moving into less-exposed tasks and sectors. Consistent with the possibility of worker adjustment, 
+Hyman et al. (2025) fnd substantial returns to training among workers from AI-exposed occu-
+pations, driven primarily by transitions into less-exposed work. At the same time, productivity 
+gains at adopting frms and the creation of new tasks may offset direct displacement by expand-
+ing output or creating demand for AI-complementary skills (Acemoglu and Restrepo, 2018; Autor 
+et al., 2026). In the longer run, Kording and Marinescu (2025) emphasize that AI can generate 
+offsetting productivity and substitution effects, raising output while reallocating labor away from 
+automated cognitive tasks. At the same time, a technology-driven change in relative skill demand 
+32Studies at the secondary school level also fnd that positive effects of unrestricted AI availability on assignment 
+performance correspond to negative effects in subsequent evaluations of learning (Bastani et al., 2025; Str¨omberg 
+et al., 2026) 
+47 
+
+=== PDF PAGE 49 ===
+may be more persistent than a cyclical downturn because the original jobs or tasks may not re-
+turn. Our short post period does not allow us to determine whether worker reallocation, retraining, 
+productivity gains, and the creation of new tasks will ultimately offset the initial disruption we 
+observe. 
+We outlined several ways in which generative AI could produce the patterns we observe, but 
+other contemporaneous changes may also have contributed to the differential outcomes of ex-
+posed graduates. We consider several prominent alternatives, particularly addressing work-from-
+home, changes in graduate supply, and increases in self-employment or graduate school enroll-
+ment. These exercises do not readily explain the timing or concentration of our estimates, although 
+our design cannot rule out other time-varying shocks to particular felds that coincide with the dif-
+fusion of generative AI. Taken together, the timing of the estimated changes, their concentration 
+at the top of the exposure distribution, and the accompanying sectoral reallocation are consistent 
+with an important role for generative AI in shaping the labor market entry of recent graduates. 
+The longer-run consequences remain uncertain. Increased job switching and attenuated earn-
+ings effects suggest that some exposed graduates adjust after initially entering weaker jobs. Whether 
+these adjustments, together with retraining, productivity gains, and the creation of new tasks, are 
+suffcient to offset the initial disruption or instead leave persistent effects on job matching and 
+human capital accumulation remains to be seen. 
+9 Conclusion 
+This paper provides new evidence on how the rapid diffusion of generative AI has affected the 
+labor market entry of recent college graduates. We assign AI exposure based on the pre-period 
+occupational employment associated with a graduate’s feld of study and use linked employment 
+histories to follow employment, earnings, employers, and industries after graduation. We fnd 
+negative effects following the introduction of ChatGPT are concentrated among graduates from 
+the most AI-exposed majors. These graduates are less likely to fnd employment immediately 
+48 
+
+=== PDF PAGE 50 ===
+after graduation and experience substantial declines in earnings when employed. About half of the 
+earnings decline refects a shift away from high-paying industry sectors and toward lower-paying 
+sectors such as Retail Trade and Accommodation and Food Services. The effects we estimate 
+generally attenuate as workers move further from graduation. We also observe results related to 
+job switching that suggest graduation timing may be a factor for exposed college majors. 
+These results suggest that the early labor market effects of generative AI are observable, but 
+that new labor market entrants adjust to changes in labor demand by changing where they begin 
+their careers. These adjustments may have outsized impacts for new graduates, whose frst jobs 
+provide both earnings and opportunities to demonstrate and accumulate skills. Our results do 
+not identify a single mechanism behind these changes. Reduced demand for entry-level tasks, 
+changes in training and hiring, and weaker educational signals may all contribute, and the long-run 
+effects will depend on how frms, workers, and educational institutions adapt. The short post-
+ChatGPT period also limits what we can say about persistence. Even so, the evidence shows that 
+highly exposed graduates have borne substantial costs in the initial adjustment to generative AI. 
+Understanding whether these workers ultimately recover, and how the technology reshapes entry-
+level career paths and human capital accumulation, will be central to assessing the longer-run 
+distributional consequences of AI. 
+49 
+
+=== PDF PAGE 51 ===
+References 
+ABEL , J. R. AND R. D EITZ (2016): “Working as a Barista After College Is Not as Common as 
+You Might Think,” Tech. rep., Federal Reserve Bank of New York. 
+ACEMOGLU , D. (2025): “The Simple Macroeconomics of AI,” Economic Policy, 40, 13–58. 
+ACEMOGLU , D. AND P. RESTREPO (2018): “The Race Between Man and Machine: Implications 
+of Technology for Growth, Factor Shares, and Employment,” American Economic Review, 108, 
+1488–1542. 
+ALTONJI , J. G., L. B. K AHN , AND J. D. S PEER (2016): “Cashier or Consultant? Entry Labor 
+Market Conditions, Field of Study, and Career Success,” Journal of Labor Economics, 34, S361– 
+S401. 
+AUTOR , D., C. C HIN , A. S ALOMONS , AND B. S EEGMILLER (2026): “What Makes New Work 
+Different from More Work?” Annual Review of Economics, 18. 
+AUTOR , D. H. AND D. D ORN (2013): “The Growth of Low-Skill Service Jobs and the Polariza-
+tion of the US Labor Market,” American Economic Review, 103, 1553–1597. 
+BABINA , T., A. F EDYK , A. H E, AND J. H ODSON (2024): “Artifcial Intelligence, Firm Growth, 
+and Product Innovation,” Journal of Financial Economics, 151, 103745. 
+¨ BASTANI , H., O. B ASTANI , A. SUNGU , H. GE, O. KABAKCI , AND R. MARIMAN (2025): “Gen-
+erative AI Without Guardrails Can Harm Learning: Evidence from High School Mathematics,” 
+Proceedings of the National Academy of Sciences, 122, e2422633122. 
+BICK , A., A. B LANDIN , AND D. J. D EMING (2026): “The Rapid Adoption of Fenerative AI,” 
+Management Science, forthcoming. 
+BONNEY , K., C. B REAUX , C. B UFFINGTON , E. D INLERSOZ , L. S. F OSTER , N. G OLDSCHLAG , 
+J. C. H ALTIWANGER , Z. K ROFF , AND K. S AVAGE (2024): “Tracking Firm Use of AI in Real 
+Time: A Snapshot from the Business Trends and Outlook Survey,” Tech. rep., National Bureau 
+of Economic Research. 
+B
+RYNJOLFSSON , E., B. C HANDAR , AND R. C HEN (2025): “Canaries in the Coal Mine? Six 
+Facts about the Recent Employment Effects of Artifcial Intelligence,” Working paper, Stanford 
+Digital Economy Lab. 
+C
+ALLAWAY, B., A. G OODMAN -BACON , AND P. H. C. S ANT ’ANNA (Forthcoming): 
+“Difference-in-Differences with a Continuous Treatment,” American Economic Review. 
+CHANDAR , B. (2025): “Tracking Employment Changes in AI-Exposed Jobs,” SSRN Electronic 
+Paper 5384519, Social Science Research Network. 
+CHIRIKOV , I. (2026): “Artifcial Intelligence and Grade Infation,” CSHE Higher Education Work-
+ing Paper Series 26-3, Center for Studies in Higher Education. 
+50 
+
+=== PDF PAGE 52 ===
+DINGEL , J. I. AND B. N EIMAN (2020): “How Many Jobs Can Be Done at Home?” Journal of 
+Public Economics, 189, 104235. 
+ECKHARDT , S. AND N. G OLDSCHLAG (2025): “AI and Jobs: The Final Word (Until the Next 
+One),” Tech. rep., Economic Innovation Group (EIG). 
+EISFELDT , A. L., G. S CHUBERT , AND M. B. Z HANG (2023): “Generative AI and Firm Values,” 
+NBER Working Paper 31222, National Bureau of Economic Research. 
+ELOUNDOU , T., S. M ANNING , P. M ISHKIN , AND D. R OCK (2024): “GPTs are GPTs: Labor 
+market impact potential of LLMs,” Science, 384, 1306–1308. 
+FREUND , L. AND L. M ANN (2026): “Job Transformation, Specialization, and the Labor Market 
+Effects of AI,” Tech. rep., CESifo Working Paper. 
+GARICANO , L. AND L. R AYO (2025): “Training in the Age of AI: A Theory of Career Viability,” 
+CEPR Discussion Paper 20634, Centre for Economic Policy Research, Paris and London. 
+GATHMANN , C. AND U. S CH ¨ONBERG (2010): “How General Is Human Capital? A Task-Based 
+Approach,” Journal of Labor Economics, 28, 1–49. 
+GIMBEL , M., J. K ENDALL , AND R. N UNN (2026): “What We Do and Don’t Know About How 
+AI is Affecting the Labor Market,” Tech. rep., The Budget Lab at Yale, accessed: 2026-08-18. 
+HAHN , J. K., H. R. H YATT, AND H. P. J ANICKI (2021): “Job Ladders and Growth in Earnings, 
+Hours, and Wages,” European Economic Review, 133, 103654. 
+HALTIWANGER , J., H. H YATT, AND E. MCENTARFER (2018): “Who Moves Up the Job Ladder?” 
+Journal of Labor Economics, 36, S301–S336. 
+HANDA , K., A. T AMKIN , M. M CCAIN , S. H UANG , E. D URMUS , S. H ECK , J. M UELLER , 
+J. HONG , S. R ITCHIE , T. BELONAX , K. K. T ROY, D. A MODEI , J. K APLAN , J. C LARK , AND 
+D. GANGULI (2025): “Which Economic Tasks are Performed with AI? Evidence from Millions 
+of Claude Conversations,” Working Paper 2503.04761, arXiv. 
+HANSEN , S., P. J. L AMBERT , N. B LOOM , S. J. D AVIS, R. S ADUN , AND B. T ASKA (2023): 
+“Remote Work across Jobs, Companies, and Space,” NBER Working Paper 31007, National 
+Bureau of Economic Research. 
+HAUSMAN , N., O. R IGBI , AND S. W EISBURD (2026): “Generative AI’s Impact on Student 
+Achievement and Implications for Worker Productivity,” Review of Corporate Finance Studies, 
+cfag009. 
+HOSSEINI MAASOUM , S. M. AND G. L ICHTINGER (2025): “Generative AI as Seniority-Biased 
+Technological change: Evidence from US R ´ e and Job Posting Data,” SSRN Electronicesum´ 
+Paper 5425555, Social Science Research Network. 
+HUCKFELDT , C. (2022): “Understanding the Scarring Effect of Recessions,” American Economic 
+Review, 112, 1273–1310. 
+51 
+
+=== PDF PAGE 53 ===
+HYMAN , B. G., B. L AHEY, K. N I, AND L. P ILOSSOPH (2025): “How Retrainable Are AI-
+Exposed Workers?” NBER Working Paper 34174, National Bureau of Economic Research. 
+IDE, E. (2025): “Automation, AI, and the Intergenerational Transmission of Knowledge,” CEPR 
+Discussion Paper 20940, Centre for Economic Policy Research, Paris and London. 
+IMBENS , G. W. AND D. B. R UBIN (2015): “Causal inference in statistics, social, and biomedical 
+sciences,” New York, 517. 
+JOHNSTON , A. AND C. M AKRIDIS (2026): “AI, Output, and Employment,” Working Paper 
+12579, CESifo, Munich. 
+KINSLER , J. AND R. PAVAN (2015): “The Specifcity of General Human Capital: Evidence from 
+College Major Choice,” Journal of Labor Economics, 33, 933–972. 
+KORDING , K. AND I. M ARINESCU (2025): “(Artifcial) Intelligence Saturation and the Future of 
+Work,” Brookings Center on Regulation and Markets Working Paper. 
+LAMBERT , P. J. AND Y. SCHINDLER (2026): “The Broken Ladder: AI, Remote Work, and Early-
+Career Hiring,” SSRN Electronic Paper 6787638, Social Science Research Network. 
+LASHKARI , D., W. L I, C. Q IU, AND N. T HOMPSON (2026): “AI, Scale, and Task-Based Theory 
+of Automation,” Working paper. 
+LEIGHTON , M. AND J. D. S PEER (2020): “Labor Market Returns to College Major Specifcity,” 
+European Economic Review, 128, 103489. 
+LINDENLAUB , I., R. O H, M. A. R ODRIGUEZ , AND L. V ELDKAMP (2026): “Beyond Exposure: 
+Predicting AI Adoption Based on Comparative Advantage,” NBER Working Paper 35271, Na-
+tional Bureau of Economic Research. 
+MASSENKOFF , M. AND P. MCCRORY (2026): “Labor Market Impacts of AI: A New Measure 
+and Early Evidence,” Research, Anthropic. 
+NATIONAL CENTER FOR SCIENCE AND ENGINEERING STATISTICS (2026): “Postdoctoral Ap-
+pointments Rise While Graduate Enrollment Slows,” NCSES Report NSF 26-308, U.S. National 
+Science Foundation, Alexandria, V A, data from the Survey of Graduate Students and Postdoc-
+torates in Science and Engineering (GSS). 
+O
+REOPOULOS , P., T. V ON WACHTER , AND A. H EISZ (2012): “The Short- and Long-Term Ca-
+reer Effects of Graduating in a Recession,” American Economic Journal: Applied Economics, 
+4, 1–29. 
+ORR, C. (2025): “Estimating the Graduate Coverage of Post-Secondary Employment Outcomes,” 
+CES Working Paper Series CES-25-61, U.S. Census Bureau. 
+PIOPIUNIK , M., G. S CHWERDT , L. S IMON , AND L. W OESSMANN (2020): “Skills, Signals, and 
+Employability: An Experimental Investigation,” European Economic Review, 123, 103374. 
+52 
+
+=== PDF PAGE 54 ===
+RUGGLES , S., S. F LOOD , M. S OBEK , D. B ACKMAN , G. C OOPER , J. A. R. D REW, 
+S. RICHARDS , R. R ODGERS , J. S CHROEDER , AND K. C. W. W ILLIAMS . (2025): “IPUMS 
+USA: Version 16.0 [dataset],” . 
+SCOTT-CLAYTON , J., V. MINAYA, C. L IBASSI , AND J. K. T HOMAS (2025): “Who Rides Out the 
+Storm? The Immediate Post-College Transition and its Role in Socioeconomic Earnings Gaps,” 
+NBER Working Paper 34366, National Bureau of Economic Research. 
+STR ¨OMBERG , D., V. L EI, AND Y. WU (2026): “The Generative AI Learning Penalty: Evidence 
+from Chinese Secondary Education,” CEPR Discussion Paper DP21577, CEPR Press, Paris and 
+London. 
+T
+IMMERMAN , J. X. (2025): “Educational Exposure to Generative Artifcial Intelligence,” FEDS 
+notes, Board of Governors of the Federal Reserve System, Washington. 
+TOPEL , R. H. AND M. P. W ARD (1992): “Job Mobility and the Careers of Young Men,” The 
+Quarterly Journal of Economics, 107, 439–479. 
+TUCKER , L., M. Y I, F. B ABALIEVSKY , H. P. J ANICKI , S. R. T IBBETS , AND L. W ARREN 
+(2024): “Revisions to the LEHD Establishment Imputation Procedure and Applications to Ad-
+ministrative Job Frame,” CES Working Paper Series CES-24-51, U.S. Census Bureau. 
+T
+UCKER , L. C. (2026): “You’re (Not) Hired: Artifcial Intelligence and Early Career Hiring in the 
+Quarterly Workforce Indicators,” CES Working Paper Series CES-26-27, U.S. Census Bureau. 
+U.S. BUREAU OF LABOR STATISTICS (2026a): “Consumer Price Index - CPI-U. U.S. City Av-
+erage, All Items, Not Seasonally Adjusted, Series ID: CUUR0000SA0.” https://data.bls. 
+gov/timeseries/CUUR0000SA0, accessed September 8, 2026. 
+——— (2026b): “Quarterly Census of Employment and Wages,” https://www.bls.gov/cew/ 
+overview.html, accessed: 2026-05-08. 
+U.S. CENSUS BUREAU (2025): “Educational Attainment in the United States: 2024,” CPS De-
+tailed Tables, Current Population Survey Annual Social and Economic Supplement (ASEC). 
+53 
+
+=== PDF PAGE 55 ===
+Appendix 
+A Additional Tables and Figures 
+Table A1: List of PSEO partners included in sample 
+Bryant University 
+The City University of New York 
+Connecticut State Colleges and Universities 
+Georgia Independent College Association 
+Illinois Board of Higher Education 
+Indiana Commission for Higher Education 
+Iowa Board of Regents 
+Louisiana Board of Regents 
+Massachusetts Department of Higher Education 
+Missouri Department of Higher Education and Workforce Development 
+Montana University System 
+New Jersey Offce of the Secretary of Higher Education 
+New Mexico Higher Education Department 
+Ohio Department of Higher Education 
+Oklahoma State Regents for Higher Education 
+The Pennsylvania State University 
+South Carolina Commission on Higher Education 
+Tennessee Higher Education Commission 
+Texas Higher Education Coordinating Board 
+University of Hawai’i System 
+University of North Carolina System 
+University System of Georgia 
+University of Texas System 
+University of Wisconsin System 
+Utah System of Higher Education 
+West Virginia Higher Education Policy Commission 
+Western Governors University 
+54 
+
+=== PDF PAGE 56 ===
+Table A2: Characteristics of PSEO institutions 
+Sample % Overall % 
+Institution characteristics 
+Public 92.7 53.4 
+Locale: City 67.0 61.0 
+Locale: Suburban 18.5 25.5 
+Size: Over 20,000 55.8 43.9 
+Carnegie: Doctoral Very High Research 43.2 32.6 
+Carnegie: Doctoral High Research 20.4 13.7 
+Carnegie: Master’s Colleges (All Sizes) 26.7 27.1 
+Student characteristics 
+Female 57.7 59.0 
+American Indian or Alaska Native 0.5 0.4 
+Asian 7.5 8.4 
+Black or African American 10.0 8.8 
+Hispanic 15.6 16.5 
+Native Hawaiian / Pacifc Islander 0.1 0.2 
+White (Non-Hispanic) 57.0 52.4 
+Two or more races 3.7 4.0 
+Notes: Data from the Integrated Postsecondary Education Data System (IPEDS) 
+2022 “Institution Characteristics” and “Completions” surveys. The PSEO insti-
+tution sample is identifed by crosswalking OPEID to UnitID using information 
+provided by College Scorecard. For privacy considerations and disclosure avoid-
+ance, student characteristics are derived using the counts of students in IPEDS 
+alone, not the characteristics of students in the PSEO microdata. Not all levels of 
+each variable are shown. 
+55 
+
+=== PDF PAGE 57 ===
+56 
+Table A3: AI Exposure by Field of Degree 
+Field of Degree N2018-22 Beta Core Usage Share top Employment Earnings 
+GPT-4 Beta Decile: 10 
+2102: Computer Science 
+2407: Computer Engineering 
+2101: Computer Programming 
+2105: Information Sciences 
+2100: Computer and Information Systems-General 
+6212: Management Information Systems and Statistics 
+2106: Computer Administration Management and Security 
+3701: Applied Mathematics 
+3702: Statistics 
+2408: Electrical Engineering 
+6202: Actuarial Science 
+3700: Mathematics 
+2401: Aerospace Engineering 
+6205: Business Economics 
+2107: Computer Networking and Telecommunications 
+1902: Journalism 
+43,500 
+18,500 
+6,400 
+18,000 
+63,000 
+27,500 
+14,000 
+2,700 
+3,900 
+27,000 
+1,900 
+22,500 
+7,400 
+6,100 
+2,300 
+21,500 
+3.40 
+3.17 
+2.60 
+2.15 
+2.07 
+1.90 
+1.88 
+1.74 
+1.61 
+1.48 
+1.41 
+1.09 
+1.08 
+1.05 
+1.04 
+1.02 
+2.90 
+2.56 
+2.11 
+2.27 
+2.19 
+2.27 
+2.34 
+1.57 
+1.60 
+1.10 
+1.19 
+0.98 
+0.59 
+1.17 
+1.05 
+0.97 
+1.65 
+1.18 
+1.91 
+1.61 
+1.39 
+1.51 
+1.57 
+1.33 
+1.41 
+-0.39 
+0.04 
+0.71 
+-1.02 
+1.36 
+0.89 
+0.99 
+0.662 
+0.598 
+0.543 
+0.523 
+0.556 
+0.483 
+0.545 
+0.383 
+0.393 
+0.267 
+0.259 
+0.327 
+0.174 
+0.284 
+0.426 
+0.357 
+-0.061 
+-0.068 
+-0.023 
+-0.011 
+-0.054 
+-0.021 
+-0.033 
+-0.011 
+-0.026 
+-0.011 
+-0.014 
+-0.015 
+-0.032 
+-0.038 
+-0.071 
+-0.011 
+(0.001) 
+(0.002) 
+(0.003) 
+(0.002) 
+(0.002) 
+(0.001) 
+(0.003) 
+(0.003) 
+(0.002) 
+(0.001) 
+(0.003) 
+(0.001) 
+(0.003) 
+(0.002) 
+(0.004) 
+(0.002) 
+-0.190 
+-0.120 
+-0.113 
+-0.079 
+-0.142 
+-0.089 
+-0.096 
+-0.101 
+-0.081 
+0.016 
+0.113 
+-0.051 
+-0.091 
+0.020 
+-0.056 
+-0.066 
+(0.003) 
+(0.004) 
+(0.008) 
+(0.007) 
+(0.003) 
+(0.003) 
+(0.008) 
+(0.008) 
+(0.006) 
+(0.003) 
+(0.007) 
+(0.003) 
+(0.007) 
+(0.006) 
+(0.010) 
+(0.005) 
+GPT-4 Beta Decile: 9 
+6201: Accounting 
+6207: Finance 
+5501: Economics 
+5599: Miscellaneous Social Sciences 
+2409: Engineering Mechanics, Physics, and Science 
+5007: Physics 
+6204: Operations, Logistics and E-Commerce 
+2412: Industrial and Manufacturing Engineering 
+6099: Miscellaneous Fine Arts 
+1904: Advertising and Public Relations 
+2404: Biomedical Engineering 
+2418: Nuclear Engineering 
+2405: Chemical Engineering 
+82,500 
+75,500 
+31,000 
+1,000 
+1,700 
+7,700 
+18,000 
+13,500 
+2,700 
+23,000 
+12,500 
+1,400 
+18,500 
+0.98 
+0.98 
+0.93 
+0.93 
+0.92 
+0.85 
+0.80 
+0.80 
+0.77 
+0.72 
+0.71 
+0.65 
+0.61 
+1.26 
+1.21 
+1.18 
+0.71 
+1.06 
+0.66 
+1.09 
+1.15 
+0.31 
+0.89 
+0.76 
+0.47 
+0.91 
+1.77 
+1.87 
+1.33 
+0.37 
+-0.44 
+0.03 
+0.37 
+-0.40 
+0.61 
+1.48 
+-0.39 
+-1.10 
+-1.14 
+0.162 
+0.276 
+0.285 
+0.268 
+0.230 
+0.249 
+0.284 
+0.195 
+0.324 
+0.262 
+0.212 
+0.131 
+0.120 
+-0.001 
+-0.021 
+-0.001 
+0.067 
+-0.012 
+-0.027 
+-0.019 
+-0.019 
+-0.041 
+-0.032 
+-0.030 
+-0.052 
+0.000 
+(0.001) 
+(0.001) 
+(0.001) 
+(0.004) 
+(0.004) 
+(0.001) 
+(0.002) 
+(0.002) 
+(0.004) 
+(0.002) 
+(0.002) 
+(0.003) 
+(0.002) 
+0.031 
+-0.009 
+-0.052 
+-0.029 
+-0.008 
+-0.104 
+-0.002 
+0.021 
+-0.105 
+-0.062 
+-0.083 
+0.102 
+0.039 
+(0.002) 
+(0.004) 
+(0.004) 
+(0.015) 
+(0.009) 
+(0.004) 
+(0.005) 
+(0.005) 
+(0.009) 
+(0.005) 
+(0.005) 
+(0.009) 
+(0.005) 
+GPT-4 Beta Decile: 8 
+6206: Marketing 
+6210: International Business 
+2402: Biological Engineering 
+1903: Mass Media 
+2502: Electrical Engineering Technology 
+5504: Geography 
+5402: Public Policy 
+2414: Mechanical Engineering 
+83,000 
+4,700 
+3,600 
+31,000 
+2,700 
+6,200 
+1,300 
+59,000 
+0.59 
+0.57 
+0.57 
+0.54 
+0.54 
+0.53 
+0.53 
+0.53 
+0.58 
+0.63 
+0.71 
+0.17 
+0.45 
+0.47 
+0.81 
+0.59 
+1.51 
+1.04 
+-0.79 
+0.62 
+-0.25 
+-0.02 
+0.68 
+-1.21 
+0.258 
+0.263 
+0.173 
+0.274 
+0.236 
+0.280 
+0.234 
+0.110 
+-0.003 
+-0.004 
+0.038 
+-0.018 
+-0.006 
+0.009 
+-0.060 
+-0.009 
+(0.001) 
+(0.002) 
+(0.003) 
+(0.002) 
+(0.003) 
+(0.001) 
+(0.005) 
+(0.001) 
+-0.045 
+-0.034 
+0.103 
+-0.069 
+0.117 
+0.117 
+-0.045 
+0.039 
+(0.003) 
+(0.008) 
+(0.007) 
+(0.003) 
+(0.006) 
+(0.003) 
+(0.010) 
+(0.003) 
+Continued on next page 
+
+=== PDF PAGE 58 ===
+57 
+Table A3 – continued from previous page 
+Field of Degree N2018-22 Beta Core Usage Share top Employment Earnings 
+5505: International Relations 
+2419: Petroleum Engineering 
+5002: Atmospheric Sciences and Meteorology 
+6103: Health and Medical Administrative Services 
+6299: Miscellaneous Business 
+4,600 
+3,600 
+1,400 
+23,000 
+14,000 
+0.53 
+0.51 
+0.48 
+0.47 
+0.46 
+0.83 
+0.25 
+0.54 
+0.41 
+0.51 
+0.64 
+-1.18 
+-1.01 
+0.65 
+0.91 
+0.268 
+0.139 
+0.146 
+0.277 
+0.237 
+0.020 
+0.038 
+-0.004 
+0.009 
+0.008 
+(0.003) 
+(0.004) 
+(0.003) 
+(0.003) 
+(0.002) 
+0.008 
+0.047 
+-0.143 
+0.038 
+-0.015 
+(0.006) 
+(0.007) 
+(0.006) 
+(0.005) 
+(0.004) 
+GPT-4 Beta Decile: 7 
+6203: Business Management and Administration 
+2413: Materials Engineering 
+2400: General Engineering 
+1901: Communications 
+6209: Human Resources and Personnel Management 
+5506: Political Science and Government 
+2410: Environmental Engineering 
+3302: Composition and Speech 
+158,000 
+4,500 
+2,600 
+64,000 
+17,500 
+44,000 
+2,400 
+6,000 
+0.46 
+0.42 
+0.40 
+0.39 
+0.37 
+0.36 
+0.35 
+0.33 
+0.44 
+0.80 
+0.40 
+0.41 
+0.44 
+0.59 
+0.58 
+0.21 
+0.79 
+-0.98 
+-0.77 
+0.87 
+0.19 
+0.57 
+-1.56 
+0.45 
+0.257 
+0.139 
+0.175 
+0.257 
+0.192 
+0.253 
+0.079 
+0.270 
+-0.009 
+-0.014 
+0.050 
+-0.003 
+0.007 
+-0.003 
+0.028 
+0.016 
+(0.001) 
+(0.003) 
+(0.006) 
+(0.001) 
+(0.002) 
+(0.001) 
+(0.002) 
+(0.003) 
+-0.005 
+0.026 
+0.051 
+-0.044 
+-0.015 
+-0.011 
+0.022 
+-0.001 
+(0.003) 
+(0.008) 
+(0.017) 
+(0.002) 
+(0.005) 
+(0.002) 
+(0.006) 
+(0.006) 
+GPT-4 Beta Decile: 6 
+2500: Engineering Technologies 5,500 0.29 0.40 -0.16 0.258 0.024 (0.003) 0.041 (0.006) 
+6200: General Business 45,000 0.29 0.34 0.68 0.255 -0.009 (0.003) 0.014 (0.007) 
+2603: Other Foreign Languages 2,100 0.28 0.19 0.40 0.247 -0.016 (0.003) 0.054 (0.007) 
+5401: Public Administration 6,300 0.27 0.49 0.13 0.252 -0.010 (0.004) -0.035 (0.008) 
+2499: Energy Systems Engineering 3,700 0.26 0.18 -1.15 0.115 0.014 (0.002) 0.063 (0.006) 
+3202: Pre-Law and Legal Studies 3,500 0.22 0.42 0.70 0.211 0.004 (0.003) 0.044 (0.010) 
+3301: English Language and Literature 45,500 0.22 0.17 0.47 0.257 -0.005 (0.001) -0.028 (0.002) 
+2599: Energy Systems Technologies/Technicians 15,000 0.20 0.14 -0.87 0.207 -0.008 (0.002) 0.067 (0.004) 
+1401: Architecture 14,000 0.19 -0.15 -1.20 0.100 -0.006 (0.002) -0.015 (0.005) 
+2403: Architectural Engineering 1,200 0.18 0.13 -1.39 0.119 -0.006 (0.004) 0.089 (0.009) 
+2406: Civil Engineering 25,500 
+0.16 -0.05 -1.81 0.059 0.033 (0.001) 0.077 (0.003) 
+6006: Art History and Criticism 1,800 0.15 0.19 0.49 0.235 0.047 (0.002) -0.007 (0.006) 
+6004: Commercial Art and Graphic Design 21,500 0.14 -0.67 0.44 0.136 -0.004 (0.002) -0.070 (0.005) 
+1501: Area, Ethnic, Cultural, Gender, and Group Studies 5,900 0.14 0.18 0.35 0.234 -0.002 (0.002) -0.028 (0.006) 
+2601: Linguistics and Comparative Language and Literature 5,500 0.10 -0.04 0.22 0.226 0.006 (0.002) 0.018 (0.004) 
+4001: Intercultural and International Studies 5,700 0.10 0.17 0.33 0.215 -0.034 (0.003) -0.030 (0.006) 
+2602: French, German, Latin and Other Language Studies 9,300 0.08 0.10 0.21 0.218 0.025 (0.001) 0.011 (0.004) 
+2001: Communication Technologies 2,700 0.01 -0.57 0.28 0.214 0.032 (0.004) -0.032 (0.009) 
+1102: Agricultural Economics 3,800 -0.01 -0.14 -0.11 0.201 -0.048 (0.004) 0.013 (0.009) 
+1199: Miscellaneous Agriculture 1,900 -0.02 0.07 0.44 0.225 0.037 (0.003) -0.021 (0.006) 
+3611: Neuroscience 7,500 -0.04 -0.15 -0.44 0.160 0.009 (0.003) 0.031 (0.006) 
+6005: Film, Video and Photographic Arts 9,000 -0.05 -0.75 -0.03 0.203 0.024 (0.004) -0.046 (0.007) 
+5502: Anthropology and Archeology 9,800 -0.08 -0.06 0.07 0.200 -0.017 (0.001) -0.034 (0.003) 
+1104: Food Science 2,300 -0.08 0.16 -0.63 0.128 -0.040 (0.003) 0.047 (0.008) 
+5004: Geology and Earth Science 8,300 -0.09 -0.10 -0.77 0.133 -0.040 (0.001) 0.010 (0.004) 
+GPT-4 Beta Decile: 5 
+Continued on next page 
+
+=== PDF PAGE 59 ===
+58 
+Table A3 – continued from previous page 
+Field of Degree N2018-22 Beta Core Usage Share top Employment Earnings 
+3603: Molecular Biology 
+2504: Mechanical Engineering Related Technologies 
+4801: Philosophy and Religious Studies 
+3601: Biochemical Sciences 
+2503: Industrial Production Technologies 
+5003: Chemistry 
+5507: Sociology 
+6402: History 
+6110: Community and Public Health 
+6211: Hospitality Management 
+3606: Microbiology and Immunology 
+1301: Environmental Science 
+6000: Fine Arts 
+1101: Agriculture Production and Management 
+6002: Music 
+2501: Engineering and Industrial Management 
+4007: Interdisciplinary Social Sciences 
+3605: Genetics 
+3699: Miscellaneous Biology 
+5500: General Social Sciences 
+5299: Miscellaneous Psychology 
+4,900 
+6,100 
+7,200 
+13,000 
+7,100 
+20,500 
+34,000 
+31,500 
+30,500 
+14,000 
+4,600 
+14,500 
+16,500 
+19,000 
+20,000 
+2,600 
+4,500 
+1,900 
+6,100 
+4,600 
+4,100 
+-0.10 
+-0.11 
+-0.12 
+-0.17 
+-0.17 
+-0.20 
+-0.22 
+-0.24 
+-0.25 
+-0.28 
+-0.28 
+-0.30 
+-0.33 
+-0.33 
+-0.34 
+-0.36 
+-0.36 
+-0.37 
+-0.41 
+-0.41 
+-0.43 
+-0.14 
+0.11 
+-0.08 
+-0.20 
+0.09 
+-0.12 
+-0.17 
+-0.18 
+-0.22 
+-0.31 
+-0.30 
+-0.09 
+-0.76 
+-0.44 
+-0.68 
+-0.02 
+-0.32 
+-0.51 
+-0.44 
+-0.45 
+-0.38 
+-0.60 
+-1.51 
+-0.04 
+-0.48 
+-1.36 
+-0.49 
+-0.06 
+-0.03 
+-0.10 
+-0.29 
+-0.52 
+-0.58 
+0.04 
+-0.44 
+-0.47 
+-0.80 
+-0.26 
+-0.83 
+-0.74 
+-0.22 
+-0.34 
+0.137 
+0.122 
+0.194 
+0.136 
+0.136 
+0.122 
+0.200 
+0.202 
+0.189 
+0.153 
+0.155 
+0.156 
+0.168 
+0.217 
+0.166 
+0.108 
+0.149 
+0.094 
+0.134 
+0.205 
+0.155 
+0.003 
+-0.010 
+-0.008 
+0.018 
+0.018 
+-0.014 
+0.014 
+0.004 
+0.009 
+0.000 
+0.005 
+-0.004 
+0.006 
+0.009 
+0.013 
+-0.012 
+-0.007 
+-0.004 
+-0.024 
+0.030 
+0.012 
+(0.004) 
+(0.003) 
+(0.001) 
+(0.001) 
+(0.003) 
+(0.001) 
+(0.001) 
+(0.001) 
+(0.002) 
+(0.002) 
+(0.002) 
+(0.001) 
+(0.001) 
+(0.002) 
+(0.001) 
+(0.005) 
+(0.002) 
+(0.004) 
+(0.003) 
+(0.004) 
+(0.008) 
+-0.065 
+0.048 
+0.130 
+-0.044 
+0.026 
+0.030 
+0.033 
+0.001 
+0.004 
+0.012 
+0.056 
+0.005 
+-0.007 
+0.047 
+-0.014 
+0.064 
+0.034 
+0.020 
+0.017 
+-0.043 
+-0.001 
+(0.009) 
+(0.007) 
+(0.004) 
+(0.004) 
+(0.007) 
+(0.003) 
+(0.002) 
+(0.002) 
+(0.004) 
+(0.004) 
+(0.005) 
+(0.003) 
+(0.003) 
+(0.005) 
+(0.003) 
+(0.009) 
+(0.006) 
+(0.007) 
+(0.006) 
+(0.013) 
+(0.013) 
+GPT-4 Beta Decile: 4 
+6108: Pharmacy, Pharmaceutical Sciences, and Admin. 
+3600: Biology 
+3402: Humanities 
+5200: Psychology 
+3,400 
+129,000 
+1,900 
+165,000 
+-0.44 
+-0.48 
+-0.49 
+-0.51 
+-0.70 
+-0.51 
+-0.44 
+-0.43 
+-1.01 
+-0.42 
+-0.30 
+-0.18 
+0.087 
+0.164 
+0.192 
+0.180 
+0.050 
+0.004 
+0.071 
+0.008 
+(0.006) 
+(0.001) 
+(0.005) 
+(0.001) 
+0.064 
+0.001 
+0.032 
+0.018 
+(0.009) 
+(0.002) 
+(0.011) 
+(0.002) 
+GPT-4 Beta Decile: 3 
+5098: Multi-disciplinary or General Science 
+6007: Studio Arts 
+5503: Criminology 
+4002: Nutrition Sciences 
+5403: Human Services and Community Organization 
+3401: Liberal Arts 
+3608: Physiology 
+6106: Health and Medical Preparatory Programs 
+1303: Natural Resources Management 
+6001: Drama and Theater Arts 
+6003: Visual and Performing Arts 
+2901: Family and Consumer Sciences 
+5404: Social Work 
+2399: Miscellaneous Education 
+70,000 
+15,000 
+12,000 
+5,300 
+3,800 
+78,500 
+8,500 
+2,600 
+8,800 
+14,000 
+6,200 
+41,000 
+38,000 
+12,500 
+-0.52 
+-0.54 
+-0.55 
+-0.55 
+-0.60 
+-0.67 
+-0.74 
+-0.74 
+-0.75 
+-0.75 
+-0.77 
+-0.79 
+-0.80 
+-0.80 
+-0.59 
+-0.84 
+-0.47 
+-0.89 
+-0.63 
+-0.58 
+-0.75 
+-0.79 
+-0.57 
+-0.80 
+-0.87 
+-0.74 
+-0.72 
+-0.69 
+-0.41 
+-0.08 
+-0.42 
+-0.62 
+-0.44 
+-0.36 
+-0.47 
+-0.42 
+-1.03 
+-0.32 
+-0.40 
+-0.54 
+-0.54 
+-0.42 
+0.170 
+0.159 
+0.190 
+0.111 
+0.151 
+0.163 
+0.143 
+0.144 
+0.120 
+0.164 
+0.141 
+0.139 
+0.142 
+0.097 
+0.003 
+0.013 
+-0.003 
+0.009 
+-0.038 
+-0.005 
+0.025 
+0.042 
+0.005 
+-0.010 
+0.017 
+0.018 
+0.025 
+0.034 
+(0.002) 
+(0.002) 
+(0.002) 
+(0.003) 
+(0.004) 
+(0.001) 
+(0.003) 
+(0.007) 
+(0.002) 
+(0.002) 
+(0.003) 
+(0.001) 
+(0.002) 
+(0.004) 
+-0.009 
+-0.069 
+0.070 
+0.048 
+0.021 
+-0.010 
+0.018 
+-0.120 
+0.063 
+0.019 
+0.062 
+0.041 
+0.047 
+0.061 
+(0.005) 
+(0.004) 
+(0.007) 
+(0.005) 
+(0.013) 
+(0.004) 
+(0.007) 
+(0.015) 
+(0.006) 
+(0.004) 
+(0.006) 
+(0.004) 
+(0.003) 
+(0.009) 
+Continued on next page 
+
+=== PDF PAGE 60 ===
+59 
+Table A3 – continued from previous page 
+Field of Degree N2018-22 Beta Core Usage Share top Employment Earnings 
+6199: Miscellaneous Health Medical Professions 
+6102: Communication Disorders Sciences and Services 
+12,500 
+21,500 
+-0.82 
+-0.83 
+-1.22 
+-0.83 
+-0.89 
+-0.62 
+0.109 
+0.136 
+0.011 
+0.018 
+(0.002) 
+(0.001) 
+-0.066 
+0.048 
+(0.005) 
+(0.003) 
+GPT-4 Beta Decile: 2 
+6100: General Medical and Health Services 
+3604: Ecology 
+5301: Criminal Justice and Fire Protection 
+2311: Social Science or History Teacher Education 
+2308: Science Teacher Education 
+2314: Art and Music Education 
+5901: Transportation Sciences and Technologies 
+2305: Mathematics Teacher Education 
+2313: Language and Drama Education 
+4101: Physical Fitness, Parks, Recreation, and Leisure 
+2309: Secondary Teacher Education 
+2300: General Education 
+1302: Forestry 
+3609: Zoology 
+1105: Plant Science and Agronomy 
+1103: Animal Sciences 
+2306: Physical and Health Education Teaching 
+21,500 
+4,200 
+88,000 
+3,000 
+1,500 
+6,400 
+7,900 
+2,000 
+3,500 
+100,000 
+5,000 
+6,200 
+2,100 
+4,000 
+4,100 
+18,000 
+12,000 
+-0.83 
+-0.88 
+-0.91 
+-0.93 
+-1.00 
+-1.04 
+-1.05 
+-1.09 
+-1.12 
+-1.13 
+-1.13 
+-1.16 
+-1.18 
+-1.20 
+-1.23 
+-1.31 
+-1.33 
+-0.76 
+-0.78 
+-0.80 
+-0.84 
+-0.93 
+-1.05 
+-1.38 
+-0.95 
+-0.99 
+-0.96 
+-0.95 
+-1.07 
+-1.30 
+-1.06 
+-1.08 
+-1.09 
+-1.15 
+-0.60 
+-0.99 
+-0.76 
+-0.58 
+-0.80 
+-0.68 
+-1.26 
+-0.31 
+-0.54 
+-0.73 
+-0.54 
+-0.69 
+-1.71 
+-1.22 
+-1.28 
+-1.08 
+-0.78 
+0.159 
+0.096 
+0.154 
+0.075 
+0.071 
+0.068 
+0.145 
+0.056 
+0.059 
+0.144 
+0.063 
+0.076 
+0.075 
+0.110 
+0.094 
+0.133 
+0.084 
+0.018 
+-0.025 
+0.011 
+0.019 
+-0.023 
+0.019 
+0.025 
+0.039 
+-0.002 
+0.005 
+0.047 
+0.024 
+0.009 
+0.017 
+-0.003 
+0.017 
+0.020 
+(0.002) 
+(0.004) 
+(0.002) 
+(0.002) 
+(0.004) 
+(0.002) 
+(0.003) 
+(0.003) 
+(0.002) 
+(0.001) 
+(0.002) 
+(0.003) 
+(0.004) 
+(0.003) 
+(0.002) 
+(0.002) 
+(0.003) 
+0.014 
+0.066 
+0.050 
+-0.035 
+0.030 
+0.005 
+-0.044 
+0.066 
+-0.080 
+-0.016 
+0.049 
+-0.012 
+0.015 
+0.124 
+-0.025 
+0.068 
+0.030 
+(0.004) 
+(0.011) 
+(0.004) 
+(0.006) 
+(0.008) 
+(0.005) 
+(0.009) 
+(0.007) 
+(0.008) 
+(0.002) 
+(0.007) 
+(0.007) 
+(0.011) 
+(0.010) 
+(0.005) 
+(0.005) 
+(0.006) 
+GPT-4 Beta Decile: 1 
+6107: Nursing 
+6109: Treatment Therapy Professions 
+2304: Elementary Education 
+2312: Teacher Education: Multiple Levels 
+6105: Medical Technologies Technicians 
+2310: Special Needs Education 
+2307: Early Childhood Education 
+2301: Educational Administration and Supervision 
+6104: Medical Assisting Services 
+222,000 
+11,500 
+52,000 
+10,500 
+17,000 
+16,000 
+17,500 
+1,000 
+5,600 
+-1.37 
+-1.38 
+-1.40 
+-1.41 
+-1.41 
+-1.41 
+-1.51 
+-1.62 
+-2.23 
+-1.50 
+-1.29 
+-1.31 
+-1.34 
+-1.41 
+-1.13 
+-1.38 
+-1.26 
+-2.13 
+-1.74 
+-1.33 
+-0.85 
+-0.82 
+-1.82 
+-1.25 
+-1.13 
+-1.68 
+-2.06 
+0.030 
+0.078 
+0.044 
+0.041 
+0.045 
+0.043 
+0.057 
+0.069 
+0.073 
+0.028 
+-0.001 
+0.019 
+0.008 
+0.030 
+0.020 
+0.015 
+-0.001 
+0.037 
+(0.002) 
+(0.003) 
+(0.001) 
+(0.002) 
+(0.002) 
+(0.002) 
+(0.002) 
+(0.006) 
+(0.003) 
+0.039 
+0.014 
+0.020 
+0.065 
+0.068 
+0.081 
+0.051 
+0.110 
+0.051 
+(0.005) 
+(0.007) 
+(0.002) 
+(0.006) 
+(0.006) 
+(0.004) 
+(0.005) 
+(0.016) 
+(0.008) 
+Note: “N” denotes the number of graduates between 2018-2022 who majored in the specifed feld. “Beta” is the Eloundou et al., GPT-4 Beta score. “Core” 
+is the Eisfeldt et al. core task exposure score. “Usage” is the Handa et al. observed task-usage score. All three scores are individually standardized to be mean 
+zero with a variance of one. “Share top” is the share of a major’s occupations in the top quintile of occupation-level exposure defned by the GPT-4 Beta score. 
+“Employment” and “Earnings” are the major-specifc coeffcients (centered at zero) and standard errors (clustered by major) for the year 2024 (with 2022 as the 
+reference year) from the event study in Equation (2) with the employment rate and log full-quarter earnings from dominant job as outcomes. Horizontal lines mark 
+the decile cutoffs based on the GPT-4 Beta score. Only majors with at least 1,000 graduates are included. 
+
+=== PDF PAGE 61 ===
+Figure A1 plots each major by its exposure using the weighted mean of occupation exposure on 
+the x axis, and the share of each major’s occupations that are in the top quintile of exposure on the 
+y axis. The two measures are highly correlated, but there is substantial variation in mean exposure 
+and top-quintile share, especially in some middle deciles. For instance, Journalism and Accounting 
+have similar mean exposure measures, but Journalism has a much higher share of occupations in 
+the highest quintile of the Eloundou et al. exposure measure. 
+Figure A1: Comparing Eloundou exposure specifcations 
+Journalism
+Accounting
+0
+.1
+.2
+.3
+.4
+.5
+.6
+.7
+Share of occupations in top exposure quintile
+-3 -2 -1 0 1 2 3 4
+Standardized average of occupation exposure
+Notes: Weighted average of occupation exposure is the Eloundou GPT-4 occupation-level score averaged over each 
+college major’s occupation distribution from the ACS. Share of occupations in the top exposure quintile is the percent 
+of a major’s employed graduates with an occupation-level score above 0.567. Bubble sizes correspond to count of 
+graduates from 2018 to 2022. Only majors with at least 1,000 graduates are plotted. Shaded regions denote 
+alternating deciles of exposure. 
+60 
+
+=== PDF PAGE 62 ===
+Figure A2 re-estimates our baseline event-study specifcation using the share of each major’s 
+occupations in the top quintile of the GPT-4 Beta occupation-level exposure score as the explana-
+tory variable. This specifcation uses variation across all majors to examine whether labor market 
+outcomes deteriorate more for felds whose graduates are concentrated in the most AI-exposed oc-
+cupations. Callaway et al. (Forthcoming) show that a two-way fxed effects model with continuous 
+treatment, such as the one estimated here, cannot recover the true global average causal response, 
+but instead recovers a weakly causal weighted average of treatment effects under a stronger parallel 
+trends assumption. Any interpretation of these coeffcients should be done with caution. 
+Figure A2: Regressions on share of occupations in top quintile 
+-.25
+-.2
+-.15
+-.1
+-.05
+0
+.05
+.1
+.15
+.2
+.25
+Share employed
+2016 2018 2020 2022 2024 2026
+Quarter
+Employment one quarter post-grad
+-.4
+-.3
+-.2
+-.1
+0
+.1
+.2
+.3
+.4
+Log quarterly earnings
+2016 2018 2020 2022 2024 2026
+Quarter
+Earnings two quarters post-grad
+Notes: Coeffcients correspond to effects of moving from no employment share in the top exposure quintile of 
+occupations to 100% employment share in the top quintile of occupations based on Eloundou et al. (2024). 
+Employment share calculated as the fraction of graduates with non-zero earnings for the quarter. Log quarterly 
+earnings based on earnings reported for the dominant job if the worker had positive earnings in that same job in both 
+the preceding and subsequent quarters. Estimates from a regression with institution-major, institution-quarter, and 
+major-quarter of year fxed effects. Quarter denotes observation period. November 2022, corresponding to the release 
+of ChatGPT-3.5, marked with a red line. The gray shaded region identifes cohorts who graduated after the release of 
+ChatGPT-3.5. Number of observations: 5,685,000 in employment regression and 3,225,000 in earnings regression. 
+All results were approved for release by the U.S. Census Bureau, authorization number CBDRB-FY26-CES011-011. 
+61 
+
+=== PDF PAGE 63 ===
+Figure A3 plots the count of graduates by GPT-4 Beta exposure decile and the count of those 
+graduates employed one quarter after graduation. Both counts are relative to 2022. While we use 
+the count of graduates in PSEO to measure growth in each major, the fgure is very similar when 
+using national graduate counts from the IPEDS surveys. We aggregate to academic year and index 
+to 2022 to permit comparisons with IPEDS. 
+Figure A3: Supply and employment of graduates relative to 2022 
+.7
+.8
+.9
+1
+1.1
+.7
+.8
+.9
+1
+1.1
+2016 2018 2020 2022 2024
+2016 2018 2020 2022 2024 2016 2018 2020 2022 2024
+Exposure deciles 1-6 Exposure decile 7 Exposure decile 8
+Exposure decile 9 Exposure decile 10
+Total graduates Count employed graduates
+Count relative to 2022
+Academic yearNotes: Figure contains count of graduates in PSEO by Eloundou et al. GPT-4 Beta exposure decile relative to 2022 
+value (dark blue) and count of employed graduates one quarter post-graduation relative to 2022 value (light blue). 
+November 2022, corresponding to the release of ChatGPT-3.5, marked with a red line. Number of observations: 
+4,821,600. All results were approved for release by the U.S. Census Bureau, authorization number 
+CBDRB-FY26-CES011-011. 
+62 
+
+=== PDF PAGE 64 ===
+B Alternative sources of AI exposure 
+In Section 2.2, we contrasted our chosen AI exposure measure, Eloundou et al.’s potential task per-
+formance ratings as scored by GPT-4, with those derived from actual usage statistics, such as the 
+measure of Handa et al. (2025). We also alluded to another measure, developed by Eisfeldt et al. 
+(2023), that is also exposure-based but has the highest correlation with current industry-level adop-
+tion of AI (Tucker, 2026). We use our major-level event study regressions to evaluate how closely 
+the outcome relationships estimated using these three measures align. Figure A4 presents the lo-
+cal polynomial-smoothed trend between each major’s exposure percentile, separately by source, 
+and major-specifc event-study coeffcients for the change in initial employment or initial earnings 
+from 2022 to 2024. 
+Figure A4: Major-level event study coeffcients by different AI measures 
+-.04
+-.02
+0
+.02
+.04
+Event-study coefficient
+0 20 40 60 80 100
+Exposure percentile
+Employment
+-.15
+-.1
+-.05
+0
+.05
+Event-study coefficient
+0 20 40 60 80 100
+Exposure percentile
+Quarterly earnings
+Eloundou et al., GPT-4 Beta Eisfeldt et al., Core Handa et al., Observed
+Notes: Employment share calculated as the fraction of graduates with non-zero earnings for the quarter. Log 
+quarterly earnings based on earnings reported for the dominant job if the worker had positive earnings in that same 
+job in both the preceding and subsequent quarters. Estimates based on a regression of employment or earnings on 
+major-year coeffcients with institution-major, institution-quarter, and major-quarter of year fxed effects. Reference 
+year 2022. Coeffcients re-centered relative to overall year average. Only coeffcients for the year 2024 and majors 
+with at least 1,000 graduates between 2018 and 2022 are included. A local polynomial ft with a Epanechnikov kernel 
+and bandwidth of three plotted for each exposure percentile. Number of observations: 5,685,000 in employment 
+regression and 3,225,000 in earnings regression. All results were approved for release by the U.S. Census Bureau, 
+authorization number CBDRB-FY26-CES011-011. 
+Through the eightieth percentile, the reordering of majors caused by varying exposure mea-
+surements does not change the observed relationship between exposure percentile and initial labor 
+market declines. Around the ninetieth percentile of exposure defned by Eloundou et al. or Eisfeldt 
+et al., the estimated event-study coeffcients are substantially lower than the trend that would be 
+63 
+
+=== PDF PAGE 65 ===
+extrapolated from the less exposed majors. By contrast, the smoothed polynomial based on the 
+Handa exposure measure decreases around the ninetieth percentile but rebounds to the trend es-
+tablished by less exposed majors. The cause for this can be seen in Appendix Figures A5 and A6 
+where the major-specifc event-study coeffcients are plotted by the standardized Handa exposure 
+score. The Eloundou et al. and Eisfeldt et al. measures both order business majors like Accounting 
+and Finance as less exposed than computer science majors, and the largest observed labor market 
+declines are in these computer science felds. Handa swaps this ordering. 
+One nice feature of the Handa measure is that the authors incorporate additional task-level 
+details intended to distinguish between automative or augmentative usage of AI. If the augmen-
+tative/automative split of the tasks performed via AI on behalf of majors differs, then we might 
+expect different effects corresponding to the labor complementarity or substitution corresponding 
+to that usage. The majors that are primarily exposed to AI’s augmentative usage might beneft 
+from the exposure, owing to increased productivity and the necessity of their continued human 
+input, while the majors that are primary exposed to automative usage might be more vulnerable 
+to displacement or reduced earnings. While this story of underlying heterogeneity is compelling, 
+our analysis fnds little evidence to support it. Figure A7 plots the share of AI prompts classifed 
+as “automative” in Handa et al.’s usage data against their standardized exposure score. There is a 
+wide dispersion in the share of automative prompts at the low end of the exposure distribution, but 
+this is partially a result of fewer prompts available to be classifed. The top half of the exposure 
+distribution has a tight band of automative shares between 0.33 and 0.41, and narrower ranges 
+of exposure have an even tighter range of automative shares. For descriptive purposes, business 
+majors (high exposure, small labor market effects) and computer & information systems majors 
+(high exposure, large labor market effects) are highlighted. There is no observable difference in the 
+share of prompts that are automative for business majors versus computer & information systems 
+majors, and across all majors, there is no signifcant relationship between the share of prompts that 
+are automative and labor market outcomes after controlling for exposure. 
+64 
+
+=== PDF PAGE 66 ===
+Figure A5: Share employed one-quarter post-graduation 
+6107
+2414
+5301
+4101
+3600
+5098
+3401
+5200
+6203
+1901
+2100
+3702
+1904
+6206
+6212
+2106
+2105
+2102
+6201
+6207
+2101
+2407
+5501
+6205
+-.1
+-.075
+-.05
+-.025
+0
+.025
+.05
+.075
+.1
+Change in employment rate
+-2 -1 0 1 2
+Standardized Handa et al. observed usage exposure
+1901: Communications
+1904: Advertising and Public Relations
+2100: Computer and Info. Systems-General
+2101: Computer Programming
+2102: Computer Science
+2105: Info. Sciences
+2106: Computer Admin. Mgmt. and Security
+2407: Computer Engineering
+2414: Mechanical Engineering
+3401: Liberal Arts
+3600: Biology
+3702: Statistics
+4101: Physical Fitness, Parks, Rec., and Leisure
+5098: Multi-disciplinary or General Science
+5200: Psychology
+5301: Criminal Justice and Fire Protection
+5501: Economics
+6107: Nursing
+6201: Accounting
+6203: Business Mgmt. and Admin.
+6205: Business Economics
+6206: Marketing
+6207: Finance
+6212: Mgmt. Info. Systems and Statistics
+Notes: Employment share calculated as the fraction of graduates with non-zero earnings for the quarter. Estimates 
+based on a regression of employment on major-year coeffcients with institution-major, institution-quarter, and 
+major-quarter of year fxed effects. Reference year 2022. Coeffcients re-centered relative to overall year average. 
+Bubble sizes correspond to count of graduates from 2018 to 2022. Only coeffcients for the year 2024 and majors 
+with at least 1,000 graduates between 2018 and 2022 are plotted. Shaded regions denote alternating deciles of 
+exposure. Number of observations: 5,685,000. All results were approved for release by the U.S. Census Bureau, 
+authorization number CBDRB-FY26-CES011-011. 
+65 
+
+=== PDF PAGE 67 ===
+Figure A6: Log quarterly earnings two-quarters post-graduation 
+6107
+2414
+5301
+4101
+3600
+5098
+3401
+5200 6203
+1901
+2407
+5501
+6205
+2100
+3702
+2105
+6206
+6212
+2106
+1904
+2102
+6201
+6207
+2101
+-.2
+-.15
+-.1
+-.05
+0
+.05
+.1
+.15
+.2
+Change in log quarterly earnings
+-2 -1 0 1 2
+Standardized Handa et al. observed usage exposure
+1901: Communications
+1904: Advertising and Public Relations
+2100: Computer and Info. Systems-General
+2101: Computer Programming
+2102: Computer Science
+2105: Info. Sciences
+2106: Computer Admin. Mgmt. and Security
+2407: Computer Engineering
+2414: Mechanical Engineering
+3401: Liberal Arts
+3600: Biology
+3702: Statistics
+4101: Physical Fitness, Parks, Rec., and Leisure
+5098: Multi-disciplinary or General Science
+5200: Psychology
+5301: Criminal Justice and Fire Protection
+5501: Economics
+6107: Nursing
+6201: Accounting
+6203: Business Mgmt. and Admin.
+6205: Business Economics
+6206: Marketing
+6207: Finance
+6212: Mgmt. Info. Systems and Statistics
+Notes: Log quarterly earnings based on earnings reported for the dominant job if the worker had positive earnings in 
+that same job in both the preceding and subsequent quarters. Estimates based on a regression of earnings on 
+major-year coeffcients with institution-major, institution-quarter, and major-quarter of year fxed effects. Reference 
+year 2022. Coeffcients re-centered relative to overall year average. Bubble sizes correspond to count of graduates 
+from 2018 to 2022. Only coeffcients for the year 2024 and majors with at least 1,000 graduates between 2018 and 
+2022 are plotted. Shaded regions denote alternating deciles of exposure. Number of observations: 3,225,000. All 
+results were approved for release by the U.S. Census Bureau, authorization number CBDRB-FY26-CES011-011. 
+66 
+
+=== PDF PAGE 68 ===
+Figure A7: Share of automative tasks by major 
+0
+.1
+.2
+.3
+.4
+.5
+Automative share of tasks
+-2 -1 0 1 2
+Standardized Handa et al. observed exposure
+Business Computer and Information Systems
+Notes: Standardized Handa exposure is Handa et al. occupation-level score averaged over each college major’s 
+occupation distribution from the ACS. Automative share of tasks is the percent of a major’s prompts, calculated by 
+averaging over the major’s occupation-level shares, classifed as “directive” or “feedback loop”. Bubble sizes 
+correspond to count of graduates from 2018 to 2022. Only majors with at least 1,000 graduates are plotted. 67 
+
+=== PDF PAGE 69 ===
+C Work-from-home 
+We construct work-from-home rates as the fraction of employed bachelor degree holder’s aged 21-
+29 that answered the question “how did [you] usually get to work last week” with “worked from 
+home” in the ACS. Responses are aggregated by feld of degree and survey year and weighted by 
+ACS person weights. This measure is highly correlated with the Eloundou et al. GPT-4 Beta AI 
+exposure score, as demonstrated in Figure A8. The large positive correlation between exposure 
+and work-from-home is visible throughout the entire exposure distribution. 
+Figure A8: Correlation of work-from-home and AI exposure 
+0
+.1
+.2
+.3
+.4
+.5
+Work-from-home rate (2022)
+-3 -2 -1 0 1 2 3 4
+Standardized GPT-4 Beta exposure
+Notes: Eloundou et al. GPT-4 Beta occupation-level score averaged over each college major’s occupation distribution 
+from the ACS to create major-level score. Work-from-home rates are the fraction of employed bachelor’s degree 
+holders aged 21-29 in the ACS that answered the question “how did [you] usually get to work last week” with 
+“worked from home”, aggregated by major and weighted by ACS person weights. Bubble sizes correspond to count 
+of graduates from 2018 to 2022. Only majors with at least 1,000 graduates are plotted. Shaded regions denote 
+alternating deciles of exposure. Number of observations in ACS: 83,064. 
+In our frst specifcation, we allow the work-from-home rate to vary by year and estimate the 
+effect of work-from-home using both variation across occupations and variation over time. 33,34 
+33The 2025 ACS PUMS were not available at the time of writing this manuscript, so we used 2024 work-from-home 
+rates for 2025. 
+34We considered allowing for geographic variation in work-from-home to allow for time-varying coeffcients on its 
+effects, but the sample sizes in the ACS are too small to consistently measure work-from-home rates by major, year, 
+68 
+
+=== PDF PAGE 70 ===
+The precise estimating equation is, 
+yit = ∑ ∑ βds1[E(m(i)) = d,t = s] + γW (m(i),t) + δc(i),m(i) + φc(i),t + τm(i),q(t) + εit . (3) 
+s∈/2022 d>6 
+where W (m(i),t) is the work-from-home rate for major m(i) in time period t. Figures A9 and A10 
+present the results of this specifcation for outcomes of initial employment and initial earnings, 
+respectively, along with the previously estimated baseline results for comparison. 
+Figure A9 shows that even when work-from-home is included in the regression, overall patterns 
+of employment look fairly similar. The coeffcients in the pre-period uniformly decrease when 
+the additional covariate is added, but, with the exception of decile nine, they remain consistently 
+indistinct from zero. In the post-period, none of the coeffcients are practically or statistically 
+different from their values in the baseline model without work-from-home controls. The coeffcient 
+on work-from-home is -0.013 with a standard error of 0.0022. Similarly, Figure A10 shows that 
+estimated event study coeffcients of AI exposure on initial earnings are indistinguishable from 
+their baseline values in both the pre- and post-periods. Here, the coeffcient on work-from-home is 
+-0.0065 with a standard error of 0.0047. Overall, these results provide little evidence to suggest that 
+our estimates are being driven by the rise of remote work. Even when compared to pre-pandemic 
+averages, initial employment rates and initial earnings still appear to have declined after 2022, 
+especially among the most-exposed decile. 
+One concern with the specifcation of Equation 3, time-constant AI exposure modeled with 
+time-varying effects and time-varying work-from-home restricted to a time-invariant effect, is any 
+changes over time in the relationship between work-from-home and employment/earnings will 
+incorrectly be attributed to AI exposure. This motivates our second robustness check, which is a 
+replication of Lambert and Schindler (2026). Major-level work-from-home rates are fxed at their 
+2022 values, and both AI exposure and work-from-home are standardized and treated as continuous 
+variables with separate event study series. Specifcally, 
+h i 
+y
+it = ∑ βsE(m(i)) + γsW (m(i),2022) + δc(i),m(i) + φc(i),t + τm(i),q(t) + εit . (4) 
+s∈/2022 
+The coeffcients βs and γs represent the marginal effects of a one standard deviation increase in AI 
+exposure or work-from-home rates, respectively. 
+In Lambert and Schindler, almost all of the negative employment and earnings effects load onto 
+work-from-home. Figures A11 and A12 show that we do not reproduce this fnding. Notably, one 
+would expect that the estimated effect of AI and work-from-home should be near zero from 2016 to 
+2020, since neither was prevalent in this time frame. Yet, we estimate large, offsetting coeffcients 
+and state. 
+69 
+
+=== PDF PAGE 71 ===
+Figure A9: Initial employment with time varying work-from-home control 
+-.1
+-.05
+0
+.05
+.1
+-.1
+-.05
+0
+.05
+.1
+2016 2018 2020 2022 2024 2026 2016 2018 2020 2022 2024 2026
+Exposure decile: 7 Exposure decile: 8
+Exposure decile: 9 Exposure decile: 10
+Baseline Work-from-home control
+Share employed
+Quarter
+Notes: Employment share calculated as the fraction of graduates with non-zero earnings for the quarter. Coeffcients 
+from regression with time varying work-from-home rates included as controls in addition to institution-major, 
+institution-quarter, and major-quarter of year fxed effects. Standard errors are clustered by college major. Error bars 
+denote 95% confdence intervals. Baseline model estimates and confdence intervals without work-from-home 
+controls are plotted in light blue. Quarter denotes observation period. November 2022, corresponding to the release 
+of ChatGPT-3.5, marked with a red line. The gray shaded region identifes cohorts who graduated after the release of 
+ChatGPT-3.5. Number of observations: 5,685,000. All results were approved for release by the U.S. Census Bureau, 
+authorization number CBDRB-FY26-CES011-011. 
+70 
+
+=== PDF PAGE 72 ===
+Figure A10: Initial earnings with time varying work-from-home control 
+-.2
+-.15
+-.1
+-.05
+0
+.05
+.1
+.15
+.2
+-.2
+-.15
+-.1
+-.05
+0
+.05
+.1
+.15
+.2
+2016 2018 2020 2022 2024 2026 2016 2018 2020 2022 2024 2026
+Exposure decile: 7 Exposure decile: 8
+Exposure decile: 9 Exposure decile: 10
+Baseline Work-from-home control
+Log quarterly earnings
+Quarter
+Notes: Log quarterly earnings based on earnings reported for the dominant job if the worker had positive earnings in 
+that same job in both the preceding and subsequent quarters. Coeffcients from regression with time varying 
+work-from-home rates included as controls in addition to institution-major, institution-quarter, and major-quarter of 
+year fxed effects. Standard errors are clustered by college major. Error bars denote 95% confdence intervals. 
+Baseline model estimates and confdence intervals without work-from-home controls are plotted in light blue. 
+Quarter denotes observation period. November 2022, corresponding to the release of ChatGPT-3.5, marked with a 
+red line. The gray shaded region identifes cohorts who graduated after the release of ChatGPT-3.5. Number of 
+observations: 3,225,000. All results were approved for release by the U.S. Census Bureau, authorization number 
+CBDRB-FY26-CES011-011. 
+71 
+
+=== PDF PAGE 73 ===
+prior to the COVID pandemic, with widened standard errors consistent with collinearity issues. 
+The estimated effect of AI exposure on initial employment following the release of ChatGPT (Fig-
+ure A11) is consistently negative and similar to the effect of AI exposure in a restricted model 
+where work-from-home is excluded (shown in shaded blue). The coeffcients on work-from-home 
+are predominantly near zero, and if anything, trending upward. When initial quarterly earnings 
+are the outcome (Figure A12), the post-period coeffcients on both explanatory variables are sta-
+tistically indistinguishable from zero. Note that pre-period estimates on the AI exposure covariate 
+are above zero, so the post-period coeffcients are still a departure from the long-run average. For 
+work-from-home, the post-period coeffcients on earnings are little changed in comparison to the 
+pre-period. 
+Figure A11: Initial employment with continuous exposure and 2022 work-from-home 
+-.08
+-.06
+-.04
+-.02
+0
+.02
+.04
+.06
+.08
+2016 2018 2020 2022 2024 2026 2016 2018 2020 2022 2024 2026
+Eloundou GPT-4 exposure Work-from-home
+Baseline Work-from-home control
+Share employed
+Quarter
+Notes: Employment share calculated as the fraction of graduates with non-zero earnings for the quarter. Coeffcient 
+from regression with Eloundou et al. GPT-4 Beta exposure (left panel) and 2022 work-from-home rates (right panel) 
+treated as continuous variables in addition to institution-major, institution-quarter, and major-quarter of year fxed 
+effects. Standard errors are clustered by college major. Error bars denote 95% confdence intervals. A restricted 
+model with only GPT-4 Beta exposure, in addition to the fxed effects, plotted in light blue with 95% confdence 
+interval range. Quarter denotes observation period. November 2022, corresponding to the release of ChatGPT-3.5, 
+marked with a red line. The gray shaded region identifes cohorts who graduated after the release of ChatGPT-3.5. 
+Number of observations: 5,685,000. All results were approved for release by the U.S. Census Bureau, authorization 
+number CBDRB-FY26-CES011-011. 
+It is unclear how much the specifcation of Equation 4 can really tell us. As previously men-
+tioned, both variables are highly correlated, more so in our setting than in Lambert and Schindler’s, 
+and a model that exploits neither time nor spatial variation may be unable to reliably distinguish 
+72 
+
+=== PDF PAGE 74 ===
+Figure A12: Initial earnings with continuous exposure and 2022 work-from-home 
+-.2
+-.15
+-.1
+-.05
+0
+.05
+.1
+.15
+.2
+2016 2018 2020 2022 2024 2026 2016 2018 2020 2022 2024 2026
+Eloundou GPT-4 exposure Work-from-home
+Baseline Work-from-home control
+Log quarterly earnings
+Quarter
+Notes: Log quarterly earnings based on earnings reported for the dominant job if the worker had positive earnings in 
+that same job in both the preceding and subsequent quarters. Coeffcient from regression with Eloundou et al. GPT-4 
+Beta exposure (left panel) and 2022 work-from-home rates (right panel) treated as continuous variables in addition to 
+institution-major, institution-quarter, and major-quarter of year fxed effects. Standard errors are clustered by college 
+major. Error bars denote 95% confdence intervals. A restricted model with only GPT-4 Beta exposure, in addition to 
+the fxed effects, plotted in light blue with 95% confdence interval range. Quarter denotes observation period. 
+November 2022, corresponding to the release of ChatGPT-3.5, marked with a red line. The gray shaded region 
+identifes cohorts who graduated after the release of ChatGPT-3.5. Number of observations: 3,225,000. All results 
+were approved for release by the U.S. Census Bureau, authorization number CBDRB-FY26-CES011-011. 
+73 
+
+=== PDF PAGE 75 ===
+among the two mechanisms. Additionally, we have shown the relationship between AI and la-
+bor outcomes to be non-linear with negative effects concentrated among the most exposed majors. 
+Treating exposure as a continuous variable with a linear relationship across all majors likely under-
+states effects for the top decile. Finally, as referenced previously, the coeffcients from a continuous 
+difference-in-differences model are weighted averages of causal responses which cannot be inter -
+preted as the global average causal response (Callaway et al., Forthcoming). The weights push the 
+coeffcients away from the global average causal response in different ways for each covariate. 
+Another concern with a work-from-home explanation for the labor market declines among the 
+most AI-exposed college graduates is that the pattern of changes in remote work simply does not 
+align with the pattern of those declines. As shown in Appendix Figure A13, the rate of work-
+from-home for the most exposed decile of majors early in their career is higher than that of all 
+other exposure deciles prior to the COVID-19 pandemic, increases during the pandemic faster than 
+other exposure deciles, peaks in 2021 above other exposure deciles, and decreases through 2024 
+by more than all but the ninth exposure decile.
+35 If work-from-home was the cause of worsening 
+labor market conditions, we would expect outcomes to improve from 2022 to 2023 as work-from-
+home rates declined, and to improve more for higher exposure deciles as their work-from-home 
+rate declines were greater. Instead, we observe worsening outcomes following 2022 concentrated 
+among majors most exposed to AI. 
+In sum, we do not replicate the patterns of Lambert and Schindler (2026), although it is not 
+obvious that we should expect to do so in our particular setting. Previous studies look at workers as 
+a whole, or entry-level workers, or frm-level hiring rates, but we are the frst to restrict our analy-
+sis exclusively to new college graduates. Published hypotheses as to why work-from-home would 
+depress hiring–such as the higher cost of training in a remote setting–could look very different for 
+recent graduates, whether mitigated because of their specialized training, or exacerbated by their 
+limited work experience. Alternatively, the negative effects of remote work and AI on labor de-
+mand could be complementary forces. For instance, both work-from-home and AI might increase 
+the costs of monitoring worker effort or learning on-the-job, and the existence of one technology 
+might magnify the impacts of the other. 
+35The fact that work-from-home rates were highest for decile ten pre-COVID pandemic and increased the most 
+during the pandemic might suggest the occupations these majors work in are the least costly for frms to allow to 
+work remotely. If so, this is another reason to expect work-from-home to have fewer detrimental effects on the most 
+AI-exposed graduates than lesser exposed graduates. 
+74 
+
+=== PDF PAGE 76 ===
+Figure A13: Work-from-home over time 
+0
+.1
+.2
+.3
+.4
+Work-from-home rate
+2014 2016 2018 2020 2022 2024
+Year
+Deciles 1-6 Deciles 7-8
+Decile 9 Decile 10
+GPT-4 Beta major-level exposure
+Notes: Work-from-home rates are the fraction of employed bachelor’s degree holders aged 21-29 in the ACS that 
+answered the question “how did [you] usually get to work last week” with “worked from home”, aggregated by major 
+and weighted by ACS person weights. Separate plots are presented for Eloundou et al. GPT-4 Beta exposure deciles 
+with deciles one through six and seven through eight combined together. Number of observations in ACS: 832,282. 
+75 
+
+=== PDF PAGE 77 ===
+D Alternative economic activities 
+Figure A14: Self-employment rates over time 
+0
+.005
+.01
+.015
+.02
+.025
+.03
+Self-employment rate
+2014 2016 2018 2020 2022 2024
+Year
+Deciles 1-6 Deciles 7-8
+Decile 9 Decile 10
+GPT-4 Beta major-level exposure
+Notes: Self-employed rates are the fraction of bachelor’s degree holders aged 21-24 in the ACS that answered the 
+question “Which one of the following best describes this [your] employment last week or the most recent 
+employment in the past 5 years?” with “Owner of [incorporated/non-incorporated] business, professional practice, or 
+farm”, aggregated by major and weighted by ACS person weights. Separate plots are presented for Eloundou et al. 
+GPT-4 Beta exposure deciles with deciles one through six and seven through eight combined together. Number of 
+observations in ACS: 309,468. 
+76 
+
+=== PDF PAGE 78 ===
+Figure A15: Graduate school enrollment over time 
+0
+.05
+.1
+.15
+.2
+.25
+.3
+.35
+Graduate school enrollment
+2014 2016 2018 2020 2022 2024
+Year
+Deciles 1-6 Deciles 7-8
+Decile 9 Decile 10
+GPT-4 Beta major-level exposure
+Notes: Graduate school enrollment rates are the fraction of bachelor’s degree holders aged 21-24 in the ACS that 
+answered the question “At any time in the last 3 months, [have you] attended school or college?” with “Yes” and 
+“What grade or level was this person attending?” with “Graduate or professional school beyond a bachelor’s degree”, 
+aggregated by major and weighted by ACS person weights. Separate plots are presented for Eloundou et al. GPT-4 
+Beta exposure deciles with deciles one through six and seven through eight combined together. Number of 
+observations in ACS: 309,468. 
+77 
+
+=== PDF PAGE 79 ===
+Figure A16: Median total income by employment type over time 
+9
+9.5
+10
+10.5
+11
+11.5
+12
+9
+9.5
+10
+10.5
+11
+11.5
+12
+2014 2016 2018 2020 2022 2024 2014 2016 2018 2020 2022 2024
+Exposure decile: 1-6 Exposure decile: 7-8
+Exposure decile: 9 Exposure decile: 10
+Wage earners Self-employed
+Median log total income (2024 dollars)
+Year
+Notes: Total income is the value provided to the question “What was [your] total income during the past 12 months?” 
+among bachelor’s degree holders aged 21-24 who are currently employed and worked at least 40 weeks over the last 
+year. Income is adjusted to 2024 dollars using the CPI-U not-seasonally adjusted series. Income reported separately 
+for “wage earners” – those who answered the question, “Which one of the following best describes this [your] 
+employment last week or the most recent employment in the past 5 years?” with an answer in either the “private 
+sector employee” or “government employee” categories – and “self-employed” – those who answered the same 
+question with, “’Owner of [incorporated/non-incorporated] business, professional practice, or farm”. Number of 
+observations in ACS: 181,840. 
+78 

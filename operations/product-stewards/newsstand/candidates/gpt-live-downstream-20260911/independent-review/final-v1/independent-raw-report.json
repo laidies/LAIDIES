@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "laidies-newsstand-combined-editorial-raw.v1",
+  "candidateId": "gpt-live-downstream-20260911",
+  "storySha256": "25fb4f641789f38d1591b6057536c16e54b46fcfdca0c715870203e4c19db561",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "verdict": "PASS",
+  "findings": {
+    "reader": "A well-executed bounded news article: the caller's encounter leads, the voice-layer/backend/record mechanism sits at the center, Yelp's claims stay labeled and limited, and the ending gives a specific confirmation routine plus the next evidence to watch for. Explain-back and a novel dental-scheduling transfer both succeed on the article's mechanism alone.",
+    "facts": "The artifact accurately reports the September 10 GPT-Live-1 API release and Yelp's same-day Host/Hatch integration, keeps the voice-layer/backend distinction faithful to OpenAI's documentation, correctly labels Yelp's testing results as company-reported with stated evidentiary limits, and states the developer price with its caller-fee caveat; every material claim is supported and all outcomes pass, so no new defect is registered."
+  },
+  "readerProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-provider.raw.json",
+    "sha256": "abc44b2eb602cac6705c5a32dd8a0a390f66f92b54069a8efdb6dd3be98e7012"
+  },
+  "readerJudgment": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-judgment.json",
+    "sha256": "9e5393c170be4427a0f1ac72cb4d958f21ef86752bfe1714fd6c46f021e8b8e3"
+  },
+  "factualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/runtime-claude-fable-20260911-v3/article-facts-provider.raw.json",
+    "sha256": "aab2a6c03b1bfb2caa7bcce1c716d05017ee860a8f5246fd657e0fe70e2c552b"
+  },
+  "factualJudgment": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/runtime-claude-fable-20260911-v3/article-facts-judgment.json",
+    "sha256": "5849697030d99b31317a9aef97d31cde0704937e8cd8ae364cf0f99a383b21e2"
+  },
+  "preservedAttempts": [
+    {
+      "status": "PROTOCOL_NORMALIZATION_FAILURE_DESPITE_PASSING_ASSESSMENTS",
+      "failure": {
+        "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-failure.json",
+        "sha256": "303d18245653d9659daa1f7750a942de38289efe27d7adcbbd9a22f8f7a3db7e"
+      },
+      "judgment": {
+        "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-judgment.json",
+        "sha256": "9e5393c170be4427a0f1ac72cb4d958f21ef86752bfe1714fd6c46f021e8b8e3"
+      }
+    },
+    {
+      "status": "FACTUAL_HOLD_MISSING_EXACT_YELP_EXCERPT",
+      "checked": {
+        "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/runtime-claude-fable-20260911-v2/article-facts-checked.json",
+        "sha256": "51d4f6a51392b23ebaba70495a0d49c9649f157af02c8996618aeae68ec8deb7"
+      },
+      "judgment": {
+        "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/runtime-claude-fable-20260911-v2/article-facts-judgment.json",
+        "sha256": "4e1e9a7172723551003dd936817f2ad13bed0eac67693690ff523303a796f110"
+      }
+    }
+  ],
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  }
+}

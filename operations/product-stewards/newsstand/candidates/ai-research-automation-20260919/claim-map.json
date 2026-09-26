@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "newsstand-claim-map-v1",
+  "candidateId": "ai-research-automation-20260919",
+  "claims": [
+    {
+      "claimId": "anthropic-index",
+      "claim": "As of August 2026, Anthropic says Claude led 26% of measured AI research work, performed at least collaboratively in more than 90%, and was fully autonomous in none.",
+      "sourceIds": [
+        "anthropic-measuring-pace-20260919"
+      ],
+      "status": "QUALIFIED",
+      "limit": "Anthropic internal prototype index; self-measured and method-dependent."
+    },
+    {
+      "claimId": "anthropic-level",
+      "claim": "Anthropic says “led” means completing most of a defined task from a high-level prompt while a human supervises; fully autonomous work removes the human.",
+      "sourceIds": [
+        "anthropic-measuring-pace-20260919"
+      ],
+      "status": "QUALIFIED",
+      "limit": "Anthropic uses an Epoch AI scale; boundary judgments can differ."
+    },
+    {
+      "claimId": "openai-workdays",
+      "claim": "OpenAI says that by mid-August its research organization used 3.1 agent-workdays for every human workday.",
+      "sourceIds": [
+        "openai-research-acceleration-20260906"
+      ],
+      "status": "QUALIFIED",
+      "limit": "Internal provider metric using a standard eight-hour workday."
+    },
+    {
+      "claimId": "openai-human-role",
+      "claim": "OpenAI says people still set research priorities, judge results, and decide whether to scale, pause or deploy.",
+      "sourceIds": [
+        "openai-research-acceleration-20260906"
+      ],
+      "status": "QUALIFIED",
+      "limit": "Provider description of current internal practice."
+    },
+    {
+      "claimId": "openai-intervention",
+      "claim": "OpenAI says over half of successful four-to-eight-hour tasks in the studied six months involved at least one intervention.",
+      "sourceIds": [
+        "openai-research-acceleration-20260906"
+      ],
+      "status": "QUALIFIED",
+      "limit": "Successful tasks with ground-truth outcomes; provider classifier and internal sample."
+    }
+  ]
+}

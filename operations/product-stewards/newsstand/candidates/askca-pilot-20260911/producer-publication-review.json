@@ -1,0 +1,1380 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "askca-pilot-20260911",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "principalId": "/root/weekly_recovery",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-11T16:31:21.200Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/publication-manifest.json",
+      "sha256": "a5a4d7526d3da6cd5e7b2d45dfb29bd0acb3dec6fc4a8536223635fb59707f23"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/review-text.json",
+      "sha256": "03ad57777a6d650ee5b4edda19eb38f060e2fea207e94a21baabae9db2de9c0e"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/rendered-article.html",
+      "sha256": "a534b5bc269803b7c15121206e90e090d6528c0b959666137e26dcd5608a6175"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Can Californians use AskCA now, what is the October test supposed to do, and how much should a resident trust its guidance?",
+    "promisedPayoff": "Separate open recruitment from hands-on access and understand the navigation-to-agency boundary.",
+    "centralMentalModel": "AskCA offers a route through official sources and links; the agency record still decides the outcome.",
+    "dailyLifeConnection": "A resident needs family or disaster help without knowing the responsible department.",
+    "surfaceJob": "September 11 explanation of the September 9 announcement and current October schedule.",
+    "desiredReaderFeeling": "I know what is open, what happens later, how it is meant to help and what I must confirm."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies plainClarity evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "not a generally available finished chatbot",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies readerValue evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "different front door into government",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies laidiesVoice evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Treat AskCA’s answer as a route",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies engagingEnjoyable evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If you need help after a disaster",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies factualIntegrity evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "may be wrong, outdated or unsuited",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies freshnessReviewability evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "current pilot page says hands-on testing begins in October",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies surfaceFit evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "government chatbot test starts in October",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies datedChange evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "opened sign-ups September 9",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies consequenceAndUncertainty evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "no measured accuracy or service outcome",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies dailyLifeConnection evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "family services, starting a business",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies communicationBenchmark evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The responsible agency and its current records",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies explainBack evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "AskCA a navigation layer",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Can AskCA decide whether a resident gets a state service?",
+        "probeResponse": "No. It is meant to search official sources and route a resident toward next steps and links; the responsible agency and its records determine eligibility or the actual service outcome.",
+        "expectedEvidence": "Navigation layer and agency decision remain distinct.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies unseenTransfer evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "relevant service",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A school chatbot suggests a financial-aid form. What transfers?",
+        "probeResponse": "Use the chatbot as a route, then confirm the deadline and eligibility in the official aid record before acting.",
+        "expectedEvidence": "The route-versus-decision distinction transfers.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies usefulAction evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "confirm important guidance with the state agency",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies analogyIntegrity evidence while keeping recruitment, pilot use, service navigation, agency outcome and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "different front door into government",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete story avoids glossaryAccumulation; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete story avoids templateRepetition; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete story avoids decorativeAnalogy; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete story avoids referenceConfetti; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete story avoids missingMechanism; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete story avoids genericAction; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete story avoids jargonBeforeMeaning; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete story avoids disconnectedSystem; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete story avoids factlessConfidence; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete story avoids staleUnreviewableClaims; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete story avoids corporateSludge; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete story avoids joylessInstruction; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete story avoids benchmarkNameDrop; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete story avoids curiosityWithoutPayoff; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete story avoids familiarExampleWithoutTechnicalReturn; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete story avoids communicationPastiche; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete story avoids entertainmentBeforeUnderstanding; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete story avoids mechanismCompressedBehindHook; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete story avoids prematureClickBeforeMechanism; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete story avoids inflatedTakeawayEnding; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete story avoids purposeTooNarrow; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete story avoids mechanismBeforeMotivation; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete story avoids workedExampleOvertakesBookPurpose; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete story avoids technicalExplainerVoice; exact timing, one personal-life mechanism, the agency boundary and source-backed action remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+        "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "pilot-timing",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "California opened sign-ups September 9 for an AskCA pilot; the current pilot page says hands-on testing begins in October",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "california-governor-askca-release",
+          "askca-pilot-page",
+          "statescoop-askca-report"
+        ],
+        "scopeAndFreshness": "Announcement, recruitment and hands-on use dates remain separate.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "California has developed AskCA, a new AI-powered tool to help Californians better connect with state services through a streamlined model designed around life events like finding a job, starting a business, or recovering from a disaster. The state is now seeking volunteers to help test and refine this new tool.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Starting today, Californians can sign up to be part of the pilot.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Testers must be 18 years or older and a California resident.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The prototype was built by the Office of Data and Innovation to navigate people through life events including, for example:",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The California Office of Data and Innovation built AskCA’s knowledge base in collaboration with Anthropic’s Claude model, with security support from the California Department of Technology.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "CalHR is the first department to deploy the AskCA prototype in a live public service, powering a new AI‑driven job‑skills‑matching feature launching September 30 on CalCareers.ca.gov.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Subject matter experts from across state government are continually helping to inform the responses to improve AskCA’s accuracy.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "California is making a digital assistant to help people find and navigate state services. We want your help to make it the best it can be.",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "Be 18 years or older",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "Live in California",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "In October, you can explore the digital assistant on your own. You will be able to chat with the AI and rate responses. You’ll get surveys to share your experience.",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          },
+          {
+            "excerpt": "AskCA is a prototype developed by the state’s Office of Data and Innovation to help Californians find resources based on life events, such as finding a job, starting a business, accessing family services and recovering from disasters.",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          },
+          {
+            "excerpt": "California’s next test will be whether AskCA can move beyond retrieval toward actually connecting residents with government services. The state is seeking Californians to beta test the tool, while CalHR plans to deploy its technology for AI-powered job matching starting Sept. 30.",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          }
+        ]
+      },
+      {
+        "claimId": "prototype-purpose",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AskCA is a prototype designed to help people find and navigate California government services by starting with a life event instead of an agency name",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "california-governor-askca-release",
+          "askca-pilot-page",
+          "statescoop-askca-report"
+        ],
+        "scopeAndFreshness": "Current intended scope, not measured outcome.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "California has developed AskCA, a new AI-powered tool to help Californians better connect with state services through a streamlined model designed around life events like finding a job, starting a business, or recovering from a disaster. The state is now seeking volunteers to help test and refine this new tool.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Starting today, Californians can sign up to be part of the pilot.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Testers must be 18 years or older and a California resident.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The prototype was built by the Office of Data and Innovation to navigate people through life events including, for example:",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The California Office of Data and Innovation built AskCA’s knowledge base in collaboration with Anthropic’s Claude model, with security support from the California Department of Technology.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "CalHR is the first department to deploy the AskCA prototype in a live public service, powering a new AI‑driven job‑skills‑matching feature launching September 30 on CalCareers.ca.gov.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Subject matter experts from across state government are continually helping to inform the responses to improve AskCA’s accuracy.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "California is making a digital assistant to help people find and navigate state services. We want your help to make it the best it can be.",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "Be 18 years or older",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "Live in California",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "In October, you can explore the digital assistant on your own. You will be able to chat with the AI and rate responses. You’ll get surveys to share your experience.",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          },
+          {
+            "excerpt": "AskCA is a prototype developed by the state’s Office of Data and Innovation to help Californians find resources based on life events, such as finding a job, starting a business, accessing family services and recovering from disasters.",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          },
+          {
+            "excerpt": "California’s next test will be whether AskCA can move beyond retrieval toward actually connecting residents with government services. The state is seeking Californians to beta test the tool, while CalHR plans to deploy its technology for AI-powered job matching starting Sept. 30.",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          }
+        ]
+      },
+      {
+        "claimId": "eligibility-activity",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "limited to California residents age 18 or older. In October, participants will be able to chat with the assistant, rate its responses and complete surveys",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "askca-pilot-page",
+          "california-governor-askca-release"
+        ],
+        "scopeAndFreshness": "Exact current pilot eligibility and described activity.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "California is making a digital assistant to help people find and navigate state services. We want your help to make it the best it can be.",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "Be 18 years or older",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "Live in California",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "In October, you can explore the digital assistant on your own. You will be able to chat with the AI and rate responses. You’ll get surveys to share your experience.",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "California has developed AskCA, a new AI-powered tool to help Californians better connect with state services through a streamlined model designed around life events like finding a job, starting a business, or recovering from a disaster. The state is now seeking volunteers to help test and refine this new tool.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Starting today, Californians can sign up to be part of the pilot.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Testers must be 18 years or older and a California resident.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The prototype was built by the Office of Data and Innovation to navigate people through life events including, for example:",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The California Office of Data and Innovation built AskCA’s knowledge base in collaboration with Anthropic’s Claude model, with security support from the California Department of Technology.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "CalHR is the first department to deploy the AskCA prototype in a live public service, powering a new AI‑driven job‑skills‑matching feature launching September 30 on CalCareers.ca.gov.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Subject matter experts from across state government are continually helping to inform the responses to improve AskCA’s accuracy.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          }
+        ]
+      },
+      {
+        "claimId": "not-general-launch",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AskCA is not a generally available finished chatbot today",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "askca-pilot-page",
+          "askca-about"
+        ],
+        "scopeAndFreshness": "Inference from current recruitment page and prototype status, not a claim of permanent restriction.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "California is making a digital assistant to help people find and navigate state services. We want your help to make it the best it can be.",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "Be 18 years or older",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "Live in California",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "In October, you can explore the digital assistant on your own. You will be able to chat with the AI and rate responses. You’ll get surveys to share your experience.",
+            "locator": "https://ask.ca.gov/"
+          },
+          {
+            "excerpt": "This is a prototype. By signing up for the pilot testing, your feedback will help us improve it. It may not always get things right — every question you ask helps us make it better.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We're making it easier. Tell us what you're going through — whether that's finding a state job, recovering from a disaster, or having a child — and we'll help you find the right programs, services, and next steps.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "No government jargon. No personal information. Just tell us what you're dealing with.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We pull from state, federal, and county sources in real time to find accurate answers.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We give you clear next steps and direct links. You spend less time searching.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We do NOT train the model based on your conversations.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "Our team reviews conversations to find gaps and catch errors.",
+            "locator": "https://ask.ca.gov/about"
+          }
+        ]
+      },
+      {
+        "claimId": "calcareers-separate",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "separate September 30 CalCareers pilot that will use the same engine to match a person’s résumé with state-job classifications",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "california-governor-askca-release",
+          "statescoop-askca-report"
+        ],
+        "scopeAndFreshness": "Planned date and distinct departmental use, not completed launch.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "California has developed AskCA, a new AI-powered tool to help Californians better connect with state services through a streamlined model designed around life events like finding a job, starting a business, or recovering from a disaster. The state is now seeking volunteers to help test and refine this new tool.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Starting today, Californians can sign up to be part of the pilot.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Testers must be 18 years or older and a California resident.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The prototype was built by the Office of Data and Innovation to navigate people through life events including, for example:",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The California Office of Data and Innovation built AskCA’s knowledge base in collaboration with Anthropic’s Claude model, with security support from the California Department of Technology.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "CalHR is the first department to deploy the AskCA prototype in a live public service, powering a new AI‑driven job‑skills‑matching feature launching September 30 on CalCareers.ca.gov.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Subject matter experts from across state government are continually helping to inform the responses to improve AskCA’s accuracy.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          },
+          {
+            "excerpt": "AskCA is a prototype developed by the state’s Office of Data and Innovation to help Californians find resources based on life events, such as finding a job, starting a business, accessing family services and recovering from disasters.",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          },
+          {
+            "excerpt": "California’s next test will be whether AskCA can move beyond retrieval toward actually connecting residents with government services. The state is seeking Californians to beta test the tool, while CalHR plans to deploy its technology for AI-powered job matching starting Sept. 30.",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          }
+        ]
+      },
+      {
+        "claimId": "life-event-example",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "If you need help after a disaster but do not know which department owns the program, the assistant is meant to supply a starting route. The same design covers family services, starting a business and finding a state job",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "california-governor-askca-release",
+          "askca-about"
+        ],
+        "scopeAndFreshness": "Plain personal-life example of the state's intended design.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "California has developed AskCA, a new AI-powered tool to help Californians better connect with state services through a streamlined model designed around life events like finding a job, starting a business, or recovering from a disaster. The state is now seeking volunteers to help test and refine this new tool.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Starting today, Californians can sign up to be part of the pilot.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Testers must be 18 years or older and a California resident.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The prototype was built by the Office of Data and Innovation to navigate people through life events including, for example:",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The California Office of Data and Innovation built AskCA’s knowledge base in collaboration with Anthropic’s Claude model, with security support from the California Department of Technology.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "CalHR is the first department to deploy the AskCA prototype in a live public service, powering a new AI‑driven job‑skills‑matching feature launching September 30 on CalCareers.ca.gov.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Subject matter experts from across state government are continually helping to inform the responses to improve AskCA’s accuracy.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "This is a prototype. By signing up for the pilot testing, your feedback will help us improve it. It may not always get things right — every question you ask helps us make it better.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We're making it easier. Tell us what you're going through — whether that's finding a state job, recovering from a disaster, or having a child — and we'll help you find the right programs, services, and next steps.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "No government jargon. No personal information. Just tell us what you're dealing with.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We pull from state, federal, and county sources in real time to find accurate answers.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We give you clear next steps and direct links. You spend less time searching.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We do NOT train the model based on your conversations.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "Our team reviews conversations to find gaps and catch errors.",
+            "locator": "https://ask.ca.gov/about"
+          }
+        ]
+      },
+      {
+        "claimId": "search-mechanism",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AskCA searches state, federal and county sources, then returns next steps and direct links",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "askca-about"
+        ],
+        "scopeAndFreshness": "State-described mechanism, attributed.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "This is a prototype. By signing up for the pilot testing, your feedback will help us improve it. It may not always get things right — every question you ask helps us make it better.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We're making it easier. Tell us what you're going through — whether that's finding a state job, recovering from a disaster, or having a child — and we'll help you find the right programs, services, and next steps.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "No government jargon. No personal information. Just tell us what you're dealing with.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We pull from state, federal, and county sources in real time to find accurate answers.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We give you clear next steps and direct links. You spend less time searching.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We do NOT train the model based on your conversations.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "Our team reviews conversations to find gaps and catch errors.",
+            "locator": "https://ask.ca.gov/about"
+          }
+        ]
+      },
+      {
+        "claimId": "builder-model",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "California built its knowledge base with Anthropic’s Claude model and says government specialists help shape responses",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "california-governor-askca-release"
+        ],
+        "scopeAndFreshness": "Government account of builder and response process.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "California has developed AskCA, a new AI-powered tool to help Californians better connect with state services through a streamlined model designed around life events like finding a job, starting a business, or recovering from a disaster. The state is now seeking volunteers to help test and refine this new tool.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Starting today, Californians can sign up to be part of the pilot.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Testers must be 18 years or older and a California resident.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The prototype was built by the Office of Data and Innovation to navigate people through life events including, for example:",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "The California Office of Data and Innovation built AskCA’s knowledge base in collaboration with Anthropic’s Claude model, with security support from the California Department of Technology.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "CalHR is the first department to deploy the AskCA prototype in a live public service, powering a new AI‑driven job‑skills‑matching feature launching September 30 on CalCareers.ca.gov.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          },
+          {
+            "excerpt": "Subject matter experts from across state government are continually helping to inform the responses to improve AskCA’s accuracy.",
+            "locator": "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/"
+          }
+        ]
+      },
+      {
+        "claimId": "agency-boundary",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The responsible agency and its current records still determine eligibility, benefits, permits or other service outcomes",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "askca-about",
+          "askca-conditions"
+        ],
+        "scopeAndFreshness": "Editorial boundary between navigation advice and official agency outcome.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "This is a prototype. By signing up for the pilot testing, your feedback will help us improve it. It may not always get things right — every question you ask helps us make it better.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We're making it easier. Tell us what you're going through — whether that's finding a state job, recovering from a disaster, or having a child — and we'll help you find the right programs, services, and next steps.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "No government jargon. No personal information. Just tell us what you're dealing with.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We pull from state, federal, and county sources in real time to find accurate answers.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We give you clear next steps and direct links. You spend less time searching.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We do NOT train the model based on your conversations.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "Our team reviews conversations to find gaps and catch errors.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "ODI values, but does not guarantee, the accuracy of content on AskCA.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "The AI can make mistakes. It might give you information that is wrong, out of date, or not right for your specific situation. Always double-check important info with the actual state agency.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "Since this is an AI, please do not type in sensitive details including your Social Security number or private health information.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may use information you send us to improve our services or to respond to you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may forward your information to other state employees who may be better able to help you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          }
+        ]
+      },
+      {
+        "claimId": "independent-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "StateScoop independently reported the announcement and prototype design, but supplied no measured accuracy or service outcome",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "statescoop-askca-report"
+        ],
+        "scopeAndFreshness": "Absence claim limited to the complete reviewed report.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          },
+          {
+            "excerpt": "AskCA is a prototype developed by the state’s Office of Data and Innovation to help Californians find resources based on life events, such as finding a job, starting a business, accessing family services and recovering from disasters.",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          },
+          {
+            "excerpt": "California’s next test will be whether AskCA can move beyond retrieval toward actually connecting residents with government services. The state is seeking Californians to beta test the tool, while CalHR plans to deploy its technology for AI-powered job matching starting Sept. 30.",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          }
+        ]
+      },
+      {
+        "claimId": "accuracy-warning",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AskCA may not always get things right. Its conditions warn that answers may be wrong, outdated or unsuited to a person’s situation",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "askca-about",
+          "askca-conditions"
+        ],
+        "scopeAndFreshness": "State's own current limitation, not an error-rate measurement.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "This is a prototype. By signing up for the pilot testing, your feedback will help us improve it. It may not always get things right — every question you ask helps us make it better.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We're making it easier. Tell us what you're going through — whether that's finding a state job, recovering from a disaster, or having a child — and we'll help you find the right programs, services, and next steps.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "No government jargon. No personal information. Just tell us what you're dealing with.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We pull from state, federal, and county sources in real time to find accurate answers.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We give you clear next steps and direct links. You spend less time searching.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We do NOT train the model based on your conversations.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "Our team reviews conversations to find gaps and catch errors.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "ODI values, but does not guarantee, the accuracy of content on AskCA.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "The AI can make mistakes. It might give you information that is wrong, out of date, or not right for your specific situation. Always double-check important info with the actual state agency.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "Since this is an AI, please do not type in sensitive details including your Social Security number or private health information.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may use information you send us to improve our services or to respond to you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may forward your information to other state employees who may be better able to help you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          }
+        ]
+      },
+      {
+        "claimId": "agency-check",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "double-check important information with the actual agency",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "askca-conditions"
+        ],
+        "scopeAndFreshness": "Direct state conditions guidance.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ODI values, but does not guarantee, the accuracy of content on AskCA.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "The AI can make mistakes. It might give you information that is wrong, out of date, or not right for your specific situation. Always double-check important info with the actual state agency.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "Since this is an AI, please do not type in sensitive details including your Social Security number or private health information.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may use information you send us to improve our services or to respond to you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may forward your information to other state employees who may be better able to help you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          }
+        ]
+      },
+      {
+        "claimId": "conversation-use",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "conversations are not used to train the model and staff review conversations for gaps and errors",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "askca-about"
+        ],
+        "scopeAndFreshness": "State-stated current practices.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "This is a prototype. By signing up for the pilot testing, your feedback will help us improve it. It may not always get things right — every question you ask helps us make it better.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We're making it easier. Tell us what you're going through — whether that's finding a state job, recovering from a disaster, or having a child — and we'll help you find the right programs, services, and next steps.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "No government jargon. No personal information. Just tell us what you're dealing with.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We pull from state, federal, and county sources in real time to find accurate answers.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We give you clear next steps and direct links. You spend less time searching.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We do NOT train the model based on your conversations.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "Our team reviews conversations to find gaps and catch errors.",
+            "locator": "https://ask.ca.gov/about"
+          }
+        ]
+      },
+      {
+        "claimId": "information-sharing",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "information sent may be used to improve services or forwarded to state employees who can help",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "askca-conditions"
+        ],
+        "scopeAndFreshness": "Current conditions; not a claim of universal forwarding.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ODI values, but does not guarantee, the accuracy of content on AskCA.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "The AI can make mistakes. It might give you information that is wrong, out of date, or not right for your specific situation. Always double-check important info with the actual state agency.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "Since this is an AI, please do not type in sensitive details including your Social Security number or private health information.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may use information you send us to improve our services or to respond to you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may forward your information to other state employees who may be better able to help you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          }
+        ]
+      },
+      {
+        "claimId": "sensitive-details",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "not to enter Social Security numbers or private health information",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "askca-conditions"
+        ],
+        "scopeAndFreshness": "Direct state privacy action.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ODI values, but does not guarantee, the accuracy of content on AskCA.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "The AI can make mistakes. It might give you information that is wrong, out of date, or not right for your specific situation. Always double-check important info with the actual state agency.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "Since this is an AI, please do not type in sensitive details including your Social Security number or private health information.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may use information you send us to improve our services or to respond to you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may forward your information to other state employees who may be better able to help you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          }
+        ]
+      },
+      {
+        "claimId": "reader-use",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Treat AskCA’s answer as a route to the relevant service, then confirm important guidance with the state agency responsible for it",
+            "locator": "P009"
+          }
+        ],
+        "sourceIds": [
+          "askca-about",
+          "askca-conditions"
+        ],
+        "scopeAndFreshness": "Proportionate action grounded in the navigation design and conditions.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "This is a prototype. By signing up for the pilot testing, your feedback will help us improve it. It may not always get things right — every question you ask helps us make it better.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We're making it easier. Tell us what you're going through — whether that's finding a state job, recovering from a disaster, or having a child — and we'll help you find the right programs, services, and next steps.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "No government jargon. No personal information. Just tell us what you're dealing with.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We pull from state, federal, and county sources in real time to find accurate answers.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We give you clear next steps and direct links. You spend less time searching.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "We do NOT train the model based on your conversations.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "Our team reviews conversations to find gaps and catch errors.",
+            "locator": "https://ask.ca.gov/about"
+          },
+          {
+            "excerpt": "ODI values, but does not guarantee, the accuracy of content on AskCA.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "The AI can make mistakes. It might give you information that is wrong, out of date, or not right for your specific situation. Always double-check important info with the actual state agency.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "Since this is an AI, please do not type in sensitive details including your Social Security number or private health information.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may use information you send us to improve our services or to respond to you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          },
+          {
+            "excerpt": "We may forward your information to other state employees who may be better able to help you.",
+            "locator": "https://ask.ca.gov/conditions-of-use"
+          }
+        ]
+      },
+      {
+        "claimId": "next-evidence",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "whether independent evaluation later shows that residents reach the right service and complete what they came to do",
+            "locator": "P010"
+          }
+        ],
+        "sourceIds": [
+          "statescoop-askca-report"
+        ],
+        "scopeAndFreshness": "Future evidence question, not a current effectiveness claim.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/source-evidence.json",
+          "sha256": "a77f4f820d09b174c7ad6e88a72ca49e27183fef2acc3770a24b234137086b08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          },
+          {
+            "excerpt": "AskCA is a prototype developed by the state’s Office of Data and Innovation to help Californians find resources based on life events, such as finding a job, starting a business, accessing family services and recovering from disasters.",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          },
+          {
+            "excerpt": "California’s next test will be whether AskCA can move beyond retrieval toward actually connecting residents with government services. The state is seeking Californians to beta test the tool, while CalHR plans to deploy its technology for AI-powered job matching starting Sept. 30.",
+            "locator": "https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen every source on publication day; redraft for a changed pilot date or eligibility rule, general availability, corrected conditions, measured independent accuracy or service outcomes, or a withdrawal.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate reports this September 9 AskCA pilot invitation and its current October participation schedule."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The producer preflight repaired one omitted source excerpt before independent dispatch, leaving no unresolved defect after separating recruitment, pilot use, the CalCareers plan, state claims, independent evidence and agency outcomes."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Public release remains separate."
+  ]
+}

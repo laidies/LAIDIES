@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-09-16T14:25:23.415Z",
+  "completedAt": "2026-09-16T14:26:40.792Z",
+  "exitCode": 0,
+  "command": [
+    "node",
+    "operations/product-stewards/newsstand/review-runtime/run-pilot.mjs",
+    "article",
+    "claude",
+    "--candidate-dir",
+    "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/",
+    "--calibration",
+    "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/",
+    "--output",
+    "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/editorial-review-v1/"
+  ],
+  "stdout": "{\"name\":\"article-editorial\",\"verdict\":\"PASS\",\"model\":[\"claude-haiku-4-5-20251001\",\"claude-fable-5\"],\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":22630,\"cache_read_input_tokens\":0,\"output_tokens\":6001,\"output_tokens_details\":{\"thinking_tokens\":375},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":22630,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":6001,\"cache_read_input_tokens\":0,\"cache_creation_input_tokens\":22630,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":22630},\"type\":\"message\",\"model\":null}],\"speed\":\"standard\"},\"replayed\":false}\n",
+  "stderr": ""
+}

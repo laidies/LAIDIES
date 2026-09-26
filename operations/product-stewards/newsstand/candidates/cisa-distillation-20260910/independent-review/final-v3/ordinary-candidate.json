@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "newsstand-ordinary-story-candidate-v2",
+  "candidateStatus": "READY_FOR_ISSUE_ADMISSION",
+  "candidateId": "cisa-distillation-20260910",
+  "editionDate": "2026-09-10",
+  "story": {
+    "id": "cisa-distillation-20260910",
+    "slug": "cisa-distillation-20260910",
+    "edition": "daily",
+    "status": "hold",
+    "publishedAt": null,
+    "updatedAt": "2026-09-10T20:42:30.000-07:00",
+    "lastCheckedAt": "2026-09-10T20:42:30.000-07:00",
+    "sourceApproval": {
+      "record": "newsstand:source-approval:cisa-distillation-20260910",
+      "status": "independent-review-required"
+    },
+    "correction": null,
+    "correctionHistory": [],
+    "retraction": null,
+    "predecessorStoryIds": [],
+    "successorStoryIds": [],
+    "relationshipType": null,
+    "bigPicture": null,
+    "thread": null,
+    "thread_subtitle": null,
+    "thread_entry": null,
+    "headline": "U.S. agencies accuse six Chinese AI companies of copying restricted capabilities. China says the claim is groundless.",
+    "heroVisual": {
+      "src": "/assets/newsstand/design-20260830/latest-provider-switch-20260901-v2.png",
+      "alt": "Colourful translucent computers and cables arranged as connected AI systems.",
+      "credit": "LAiDIES NewsStand illustration"
+    },
+    "the_story": "<p>On September 8, the FBI, National Security Agency and CISA accused six Chinese AI companies of using “industrial-scale” knowledge distillation to extract restricted capabilities from U.S. AI systems. The advisory names DeepSeek, Moonshot AI, Alibaba, MiniMax, StepFun and Z.AI and says the activity began by late 2024. Its phrase “likely with Chinese government awareness” is an agency assessment, not a public legal finding.</p><p>China’s Commerce Ministry rejected the allegations on September 9. It called them groundless, described distillation as a normal technical and commercial practice, and accused the United States of protecting an AI monopoly. AP reported that four of the named companies did not immediately respond to its requests for comment.</p><p>The agencies urged AI providers to strengthen detection, respond to suspected misuse and share intelligence. The sources reviewed for this September 10 article establish no prosecution, court ruling or sanction arising from the advisory.</p>",
+    "laidies_read": "<p><strong>Distillation</strong> is a normal way to train one AI system from many answers produced by another. The more capable system is often called the teacher; the new one is the student. The student model learns patterns from the teacher model’s outputs rather than receiving the teacher’s original internal files.</p><p>The method is like an apprentice studying many demonstrations from an expert. The comparison stops at the learning pattern: AI training may involve millions of outputs and formal access rules. A <strong>frontier model</strong> means one of the most capable AI systems currently available.</p><p>The disputed line is permission. The U.S. agencies allege the six companies gathered billions of pieces of output across millions of requests, used unauthorized access and violated provider rules or regional limits. China denies that account and says the United States is recasting an industry practice as a security threat. Neither government’s statement lets the public inspect the underlying account records.</p>",
+    "what_this_means": "<p>This is an allegation about six named companies, not evidence that every Chinese AI model was trained improperly. A model being cheaper, open or highly capable does not prove where its training examples came from.</p><p>The dispute matters because model access, international competition and future restrictions may turn on evidence that is mostly held by governments and providers. When a headline says one model copied another, ask: “What was learned from the other model, under what permission, and what public evidence supports the allegation?”</p>",
+    "cocktail_party": "“Distillation is a standard way for one AI model to learn from another model’s outputs. U.S. agencies allege six Chinese companies crossed the line through unauthorized access and industrial scale; China denies the accusation. The public evidence does not yet resolve that dispute.”",
+    "watch_fors": null,
+    "closing_note": null,
+    "class_notes": "Keep the method and the accusation separate. Distillation describes how a student model learns from a teacher model’s outputs; permission, access rules and evidence determine the disputed boundary.",
+    "sources": [
+      {
+        "id": "cisa-aa26-251a",
+        "label": "CISA, NSA and FBI — China-based AI companies conducting industrial-scale distillation campaigns",
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a",
+        "publisherType": "government",
+        "accessedAt": "2026-09-10",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "mofcom-response",
+        "label": "China Ministry of Commerce — Response to the U.S. distillation advisory",
+        "url": "https://www.mofcom.gov.cn/xwfb/xwfyrth/art/2026/art_1439afbf24d941bfaefba078aacf340c.html",
+        "publisherType": "government",
+        "accessedAt": "2026-09-10",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "ap-china-response",
+        "label": "Associated Press — China rejects U.S. AI-distillation claims",
+        "url": "https://apnews.com/article/0f6ca61301630134607551b1dab0d632",
+        "publisherType": "reporting",
+        "accessedAt": "2026-09-10",
+        "approvalStatus": "reviewed"
+      }
+    ],
+    "aidb_credit": null,
+    "themes": [
+      "AI governance and competition",
+      "technology security"
+    ],
+    "concepts": [
+      "knowledge distillation",
+      "training provenance",
+      "permission"
+    ],
+    "tags": [
+      "CISA",
+      "NSA",
+      "FBI",
+      "China",
+      "distillation"
+    ],
+    "saint_lane": null,
+    "badge": "THE LATEST"
+  },
+  "storyTypeCoverage": {
+    "schema": "laidies.newsstand-story-type-coverage.v1",
+    "primaryType": "safety-incident",
+    "overlays": [],
+    "universalAnswers": {
+      "whatHappened": "U.S. agencies issued a September 8 advisory accusing six Chinese AI companies of unauthorized industrial-scale distillation; China denied the claims on September 9.",
+      "plainLanguageIdentity": "Distillation trains one AI system using many outputs from another. It is a common technique; the dispute is about alleged unauthorized access, scale and extraction of restricted capabilities.",
+      "evidenceBasis": "The full CISA advisory, China Commerce Ministry response and AP reporting were reopened on September 10.",
+      "evidenceLimits": "The U.S. agencies did not publish enough underlying account evidence for outsiders to reproduce every attribution or quantity, and China’s denial does not resolve those allegations.",
+      "readerRelevance": "The dispute helps explain how newer models can learn from existing systems and why permission, provenance and evidence matter when governments label that learning theft or security abuse.",
+      "affectedPeople": "Users and organizations choosing AI models, the six named Chinese companies, U.S. model providers and the public affected by U.S.-China technology policy.",
+      "changesNow": "The U.S. advisory asks AI providers to tighten detection and information sharing; China says it may respond if the United States acts against the companies.",
+      "uncertainty": "The public record does not establish which alleged acts were independently verified, which rules or laws each act violated, or how much the alleged activity improved any model.",
+      "readerAction": "Ask whether a report describes ordinary authorized training or alleged unauthorized collection, and what evidence supports the difference.",
+      "betterQuestion": "What was learned from the other model, under what permission, and what public evidence supports the allegation?"
+    },
+    "typeAnswers": {
+      "safety-incident": {
+        "incident": "U.S. agencies allege six Chinese companies used unauthorized, industrial-scale distillation against U.S. frontier AI systems from at least late 2024; China denies the charge.",
+        "harm": "The agencies allege extraction of restricted proprietary capabilities and evasion of provider restrictions, affecting model-provider security and international technology competition.",
+        "affectedPeople": "The named companies and providers, customers relying on model provenance and security, and people affected by possible U.S.-China restrictions or countermeasures.",
+        "failedControl": "The advisory alleges providers could not reliably connect distributed high-volume use across accounts and routes; operational bypass details are omitted from the reader article.",
+        "responsibility": "AI providers control access and terms, companies control how they train models, governments make policy and enforcement claims, and independent institutions must test evidence and legal conclusions.",
+        "confirmedUnknown": "The advisory and response are confirmed public documents. The alleged conduct, quantities, government awareness, legal status and model-performance effects are disputed or not independently established in the public record.",
+        "remediation": "The agencies recommend stronger provider detection, response and cross-company information sharing; no completed enforcement action is established by these sources.",
+        "recurrenceRisk": "Distillation remains a normal technique and alleged unauthorized use can recur; clearer permissions, auditable provenance and independent evidence would improve accountability."
+      }
+    },
+    "translation": {
+      "schema": "laidies.newsstand-reader-translation.v1",
+      "newsVersionExact": "On September 8, the FBI, National Security Agency and CISA accused six Chinese AI companies of using “industrial-scale” knowledge distillation",
+      "actualMeaningExact": "Distillation is a normal way to train one AI system from many answers produced by another",
+      "mechanismExact": "The student model learns patterns from the teacher model’s outputs rather than receiving the teacher’s original internal files",
+      "familiarExampleExact": "The method is like an apprentice studying many demonstrations from an expert",
+      "jargon": [
+        {
+          "term": "distillation",
+          "plainMeaning": "a normal way to train one AI system from many answers produced by another"
+        },
+        {
+          "term": "frontier model",
+          "plainMeaning": "one of the most capable AI systems currently available"
+        }
+      ],
+      "learningConnections": [
+        {
+          "concept": "AI model training provenance and permission",
+          "learningPayoff": "The article itself supplies the directly relevant distinction because no governed LAiDIES lesson was identified for model distillation and authorization.",
+          "disposition": "gap",
+          "owner": "NewsStand and Learning ecosystem steward",
+          "trigger": "Add a direct link only when LAiDIES admits a lesson on AI training provenance or knowledge distillation.",
+          "recordPath": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/learning-gap.json"
+        }
+      ]
+    }
+  },
+  "storySha256": "30f3c2c374e57e387408fb1f0038cf5c4789aa218e7aa4748fdb7f555b44e52c",
+  "publicationBase": {
+    "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/publication-base.js",
+    "sha256": "7f98e0f390e3dac1386bd6158c5a8c64ec31e60ebbd0e0109971205631a0c610"
+  },
+  "sourceText": {
+    "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/review-text.json",
+    "sha256": "c1d3738dcbdd1b549edc865b69ac30b61b418f1ace92d0109ab4eac91a415c35"
+  },
+  "claimMap": {
+    "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/independent-review/final-v3/publication-claim-map.json",
+    "sha256": "b0b0c10530eb63f0d885175393449259327fc0c88260e186768c07707a51254d"
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/producer-contract.json",
+    "sha256": "1a63d34796ae91a26c581d8f81b14c68bce3c81a45d03e15dd930f2f88ee9524"
+  },
+  "draftPreparation": {
+    "writerInput": {
+      "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/writer-input-current.json",
+      "sha256": "2c7579da41812f56578af5e3bc83856fc270f2504969952e876befb9139b7106"
+    },
+    "observations": {
+      "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/producer-observations.json",
+      "sha256": "c7d5d0be0fb84c72c64cb4f2351ffb46d9068f5eafdaf3b020ab8c8672f6ace8"
+    }
+  },
+  "sources": [
+    {
+      "id": "cisa-aa26-251a",
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/editorial-input.json",
+        "sha256": "3670170d860250b43d251f0036a9ba97a5c5d6683811ceae482deed1e5ff9128"
+      }
+    },
+    {
+      "id": "mofcom-response",
+      "url": "https://www.mofcom.gov.cn/xwfb/xwfyrth/art/2026/art_1439afbf24d941bfaefba078aacf340c.html",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/editorial-input.json",
+        "sha256": "3670170d860250b43d251f0036a9ba97a5c5d6683811ceae482deed1e5ff9128"
+      }
+    },
+    {
+      "id": "ap-china-response",
+      "url": "https://apnews.com/article/0f6ca61301630134607551b1dab0d632",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/editorial-input.json",
+        "sha256": "3670170d860250b43d251f0036a9ba97a5c5d6683811ceae482deed1e5ff9128"
+      }
+    }
+  ],
+  "reviewEvidence": {
+    "producer": {
+      "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/producer-publication-review.json",
+      "sha256": "4fcd22ac514ff5a8c10e72fd05339fc399e35f9213adb59b3f7bf04dab8dfdfb"
+    },
+    "independent": {
+      "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/independent-review/final-v3/independent-review.json",
+      "sha256": "0884f7ace4d80435d8af2fb7d26722cfcd9c9059da53788445299fd4fba9ccf6"
+    },
+    "independentRawReport": {
+      "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/independent-review/final-v3/independent-raw-report.json",
+      "sha256": "fe47072e0c3ab0c9b41ddd6133c68f2e6ab4515d3008b75711c49376b78aba74"
+    }
+  },
+  "lineage": null
+}

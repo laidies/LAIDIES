@@ -1,0 +1,644 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "california-data-centre-laws-20260921",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/california_order_producer",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/california_order_producer",
+    "principalId": "/root/california_order_producer",
+    "role": "Producer exact complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-26T15:27:27.828Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/publication-manifest.json",
+      "sha256": "b879397c3628ee0d3f2531f84aa4e07fdbc5d4b551074455a121c0a6588f6bb7"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/review-text.json",
+      "sha256": "1378defb09ac4e93ef73214b050d38640a1dd6b9e45e357ee2e8bcc85908a625"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/rendered-article.html",
+      "sha256": "484889ab35457ad91d4b854c86f2288b4a7eda593f1017c106b88e9ef6d78721"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/california_order_producer",
+    "reviewedAt": "2026-09-24T18:37:40.252Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "California signed seven data-centre laws. What do SB 1168 and AB 1577 actually change for residents now?",
+    "promisedPayoff": "Separate enacted reporting and commission-assessment duties from an adopted utility rate, an immediate bill change or a promise that all seven laws have been explained.",
+    "centralMentalModel": "A law can start a commission process or create reporting duties without already deciding the rate or producing a household saving.",
+    "dailyLifeConnection": "A California resident reading that data centres will now pay their way and wondering whether her electricity bill or a proposed local project changes today.",
+    "surfaceJob": "A narrow Daily legal-policy brief on SB 1168 rate-structure assessment and AB 1577 reporting, not a comprehensive account of the seven-law package.",
+    "desiredReaderFeeling": "I know what became law, what information may become available, and why no household saving is guaranteed yet."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies plainClarity while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Neither law gives households an immediate bill credit",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies readerValue while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "look for the later commission proceeding and an approved rate",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies laidiesVoice while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your bill did not change today.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies engagingEnjoyable while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The laws are real; an approved rate, household saving and facility-level public dossier are not here yet.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies factualIntegrity while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "“Assess opportunities” is the important phrase.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies freshnessReviewability while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "California made SB 1168 and AB 1577 law on September 21.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies surfaceFit while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "California started data-centre rate and reporting work. Your bill did not change today.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies datedChange while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "California made SB 1168 and AB 1577 law on September 21.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies consequenceAndUncertainty while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies dailyLifeConnection while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For an electricity-bill claim",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies communicationBenchmark while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The law starts work inside a new or existing commission proceeding.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies explainBack while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The law starts work inside a new or existing commission proceeding.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "California signed seven data-centre laws. What do SB 1168 and AB 1577 actually change for residents now?",
+        "probeResponse": "California enacted two laws covered here. SB 1168 makes the utility regulator assess possible ways to allocate data-centre costs, but it does not choose a rate. AB 1577 creates reporting for covered facilities, with aggregate public releases and exclusions. A specific bill effect needs a later approved rate.",
+        "expectedEvidence": "Two-law scope, SB 1168 assessment rather than adopted rate, AB 1577 reporting scope and aggregate-publication limit, and no immediate bill effect.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies unseenTransfer while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "not the signing headline alone.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A headline says a new law protects customers. How should I test the claim?",
+        "probeResponse": "For another claim that a new law protects customers, I should identify the operative verb, the decision-maker, the covered group and the later order or rate that would create the claimed result.",
+        "expectedEvidence": "Operative verb, decision-maker, covered group and later rate or order.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies usefulAction while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "look for the later commission proceeding and an approved rate",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete exact prose satisfies analogyIntegrity while keeping enacted duties separate from later implementation and outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The laws are real; an approved rate, household saving and facility-level public dossier are not here yet.",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The exact prose contains no glossaryAccumulation defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The exact prose contains no templateRepetition defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The exact prose contains no decorativeAnalogy defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The exact prose contains no referenceConfetti defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The exact prose contains no missingMechanism defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The exact prose contains no genericAction defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The exact prose contains no jargonBeforeMeaning defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The exact prose contains no disconnectedSystem defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The exact prose contains no factlessConfidence defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The exact prose contains no staleUnreviewableClaims defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The exact prose contains no corporateSludge defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The exact prose contains no joylessInstruction defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The exact prose contains no benchmarkNameDrop defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The exact prose contains no curiosityWithoutPayoff defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The exact prose contains no familiarExampleWithoutTechnicalReturn defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The exact prose contains no communicationPastiche defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The exact prose contains no entertainmentBeforeUnderstanding defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The exact prose contains no mechanismCompressedBehindHook defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The exact prose contains no prematureClickBeforeMechanism defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The exact prose contains no inflatedTakeawayEnding defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The exact prose contains no purposeTooNarrow defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The exact prose contains no mechanismBeforeMotivation defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The exact prose contains no workedExampleOvertakesBookPurpose defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The exact prose contains no technicalExplainerVoice defect; its mechanism, scope and limits are attached to the relevant law.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+        "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/source-packet.json",
+        "sha256": "f020b4960d19227163e775f3a110b71a7618e9c6d5787e476f82ef062796a00c"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/source-evidence.json",
+        "sha256": "052f6d35cf4caacd726243fa1a6559c90eb52a68336edc59f7902ed1cf309298"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "two-of-seven",
+        "claim": "SB 1168 and AB 1577 became law September 21 and are two of seven data-centre bills signed that day.",
+        "candidateEvidence": [
+          {
+            "excerpt": "California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "sb-status",
+          "ab-status",
+          "governor-seven"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Approved by Governor September 21, 2026. Filed with Secretary of State September 21, 2026.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          },
+          {
+            "excerpt": "Approved by Governor September 21, 2026. Filed with Secretary of State September 21, 2026.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "Governor Newsom today signed seven bills to strengthen California’s approach to data centers — requiring data centers to report about water and electricity use.",
+            "locator": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/"
+          }
+        ],
+        "scopeAndFreshness": "Official signing announcement and chaptered text checked September 26. The story covers only these two laws.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        }
+      },
+      {
+        "claimId": "sb-assess-opportunities",
+        "claim": "SB 1168 requires the Public Utilities Commission to assess opportunities for rate structures addressing data-centre grid, load and procurement costs and pressure on residential customers.",
+        "candidateEvidence": [
+          {
+            "excerpt": "SB 1168 tells the California Public Utilities Commission to assess opportunities for rate structures",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "sb-opening",
+          "sb-grid",
+          "sb-load",
+          "sb-residential"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          },
+          {
+            "excerpt": "Ensure data centers pay their reasonable share of costs associated with transmission and distribution needs, regardless of whether the data centers interconnect at the transmission or distribution level.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          },
+          {
+            "excerpt": "Ensure data centers pay for their proportionate share of load increases and procurements needed to reliably serve their loads while maintaining consistency with the applicable integrated resource planning requirements.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          },
+          {
+            "excerpt": "Alleviate cost pressures on residential ratepayers, including, but not limited to, customers enrolled in the California Alternate Rates for Energy program described in Section 739.1 and the Family Electric Rate Assistance program described in Section 739.12.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          }
+        ],
+        "scopeAndFreshness": "Chaptered SB 1168 checked September 26. The law requires an assessment inside a proceeding; no adopted tariff or savings result is supplied.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        }
+      },
+      {
+        "claimId": "no-immediate-bill-result",
+        "claim": "The cited laws do not establish an immediate bill credit, adopted rate or guaranteed household saving.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Neither law gives households an immediate bill credit or proves that electricity rates will fall.",
+            "locator": "The Story"
+          },
+          {
+            "excerpt": "It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.",
+            "locator": "The LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "sb-operative-verb"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+          }
+        ],
+        "scopeAndFreshness": "Bounded inference from the operative assessment duty and absence of any supplied adopted tariff or bill calculation.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        }
+      },
+      {
+        "claimId": "ab-local-and-state-reporting",
+        "claim": "AB 1577 creates local permit-stage estimates and state reporting when covered data centres are connected to power and at least annually.",
+        "candidateEvidence": [
+          {
+            "excerpt": "must supply estimates when seeking a discretionary local approval. Once a facility is connected to power, owners report specified information to the state, with further reporting at least annually.",
+            "locator": "The LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "ab-permit",
+          "ab-energization",
+          "ab-annual"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Upon applying for a discretionary permit, entitlement, or land use authorization required for the construction or operation of a data center, the owner or operator of the data center shall submit to the applicable local agency an estimate of all of the following information, to the extent applicable to the proposed facility:",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "The commission shall establish a process for the owner or operator of a data center to submit all of the following information to the commission upon energization of the data center and following any substantive change to information previously submitted pursuant to this paragraph:",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "The commission shall establish a process for the owner or operator of a data center to submit all of the following information to the commission at least annually following energization, disaggregated by month over the reporting period unless otherwise specified by the commission.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          }
+        ],
+        "scopeAndFreshness": "Chaptered AB 1577 checked September 26. The commission specifies submission manner and timing.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        }
+      },
+      {
+        "claimId": "ab-publication-timing",
+        "claim": "AB 1577 requires annual anonymized aggregate publication and a data-centre load-trend assessment beginning with the 2029 integrated energy policy report.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The Energy Commission must publish submitted information annually in anonymized and aggregated form",
+            "locator": "What This Means for You"
+          },
+          {
+            "excerpt": "Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.",
+            "locator": "What This Means for You"
+          }
+        ],
+        "sourceIds": [
+          "ab-aggregate",
+          "ab-2029"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "The commission shall annually publish the information submitted pursuant to subdivision (b) in an anonymized and aggregated format on its internet website.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "Beginning with the 2029 integrated energy policy report required pursuant to subdivision (a) of Section 25302, and in subsequent biennial reports required pursuant to subdivision (a) of Section 25302 thereafter as determined by the commission, the commission shall include an assessment of electrical load trends for data centers.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          }
+        ],
+        "scopeAndFreshness": "Public release is aggregate, not a promised facility-level dossier.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        }
+      },
+      {
+        "claimId": "ab-threshold-exclusions-privacy",
+        "claim": "AB 1577 excludes sub-10-megawatt and named public or utility facilities and protects customer-specific data from disclosure.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities.",
+            "locator": "What This Means for You"
+          },
+          {
+            "excerpt": "combined so the public release does not expose one customer’s protected data.",
+            "locator": "What This Means for You"
+          }
+        ],
+        "sourceIds": [
+          "ab-threshold",
+          "ab-exclusions",
+          "ab-privacy"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "“Data center” does not include a facility with an electrical capacity of less than 10 megawatts.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "This section does not apply to a publicly funded research facility, public safety facility, publicly funded national security facility, publicly owned facility, or other utility facility, including, but not limited to, a facility operated for the purpose of providing telecommunications services to the public by a terrestrial facilities-based telecommunications, cable, or internet service provider.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          },
+          {
+            "excerpt": "The State Energy Resources Conservation and Development Commission or a local agency shall not disclose information submitted pursuant to Section 65909.3 of this code or to subdivision (b) of Section 25302.10 of the Public Resources Code in a manner that would result in the disclosure of personally identifiable information or energy consumption data for a specific data center customer.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+          }
+        ],
+        "scopeAndFreshness": "These limits apply to the cited AB 1577 provisions, not automatically to the other five signed laws.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+          "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-26",
+    "nextTrigger": "CPUC proceeding or rate action, Energy Commission implementation guidance, correction, statutory amendment or publication after September 26.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 2,
+    "reviewIssues": 2,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First NewsStand candidate on enacted California SB 1168 and AB 1577 as a paired rate-assessment and reporting mechanism."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The producer repaired both defects from the first September 26 response before redispatch: plain language replaces energization, and the permit-stage sentence now stays within the exact supplied statutory excerpt. The prior raw response and ratchet preserve those defects."
+  },
+  "limitations": [
+    "The operative texts of the other five signed laws were not reviewed; the story does not describe them.",
+    "No CPUC tariff, utility-specific allocation, local permit outcome or household-bill result is established.",
+    "The Energy Commission will specify submission manner and timeframe.",
+    "Producer explain-back and transfer are AI simulations; no human-reader comprehension observation was made.",
+    "The exact v3 hero image passed maker inspection and role-distinct visual review; this does not establish prose admission or publication readiness.",
+    "Fresh source bindings were read on September 26. The official signing page and chaptered SB 1168 and AB 1577 texts remain materially unchanged. SB 1168 still requires an assessment rather than adopting a tariff; AB 1577 retains its reporting scope, exclusions, aggregate-publication limit and 2029 assessment. Qualified independent editorial review is pending."
+  ]
+}

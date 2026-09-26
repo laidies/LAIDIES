@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "newsstand-source-evidence-v1",
+  "candidateId": "un-climate-ai-energy-20260921",
+  "checkedAt": "2026-09-21T21:51:45.685435+00:00",
+  "records": [
+    {
+      "id": "stiell-speech",
+      "url": "https://unfccc.int/news/un-climate-chief-major-keynote-thanks-to-global-renewables-humanity-avoided-almost-half-a-trillion",
+      "publisher": "UNFCCC",
+      "authority": "Original transcript of September21 speech",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/morning-20260921/stiell-primary-transcript.json",
+        "sha256": "19d931caf6ba4a54902e69ea7cebce6f3d728d45aa48e985d5ba55119d329752"
+      },
+      "locators": [
+        "L14-L26 event identity",
+        "L78-L91 AI requests and assertions"
+      ],
+      "verifiedScope": "Simon Stiell asked companies for climate targets, efficiency, energy/water disclosure, renewable data-centre power and broadly shared benefits. His speech does not enact a rule or measure an individual household bill.",
+      "sourceUseWordLimit": 200,
+      "limits": [
+        "Do not repeat math-breakthrough assertion or unverified IRENA statistics.",
+        "Attribute pollution/bill assertions to the speaker; no independent causality established.",
+        "License to operate is public-support language here, not an identified legal license revocation."
+      ]
+    },
+    {
+      "id": "ap-climate-week",
+      "url": "https://apnews.com/article/climate-change-un-fuel-ai-renewables-f3208930e39c7d233bdc24315065dcd2",
+      "publisher": "Associated Press",
+      "authority": "Independent reporting and attributed perspectives",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/morning-20260921/research/ap-climate-article-body-raw.json",
+        "sha256": "9ea9bbe3f5864f411952c71dd4501eed1d606a3755b9a628bfef7443048b2813"
+      },
+      "locators": [
+        "L1844-L1864 AI section"
+      ],
+      "verifiedScope": "Reports debate over AI/data-centre energy demand, public concern and an industry representative\u2019s efficiency/possible-benefit argument.",
+      "sourceUseWordLimit": 100,
+      "limits": [
+        "Industry claims are attributed, not verified outcomes.",
+        "Individual bill anecdote is not causal evidence.",
+        "Do not repeat unrecovered renewables-report data."
+      ]
+    }
+  ],
+  "nextAction": "Source-bound narrow speech story can proceed without the unrelated IRENA figures; review exact prose and art before publication."
+}

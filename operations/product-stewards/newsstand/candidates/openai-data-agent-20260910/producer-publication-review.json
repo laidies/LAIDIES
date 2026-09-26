@@ -1,0 +1,675 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "openai-data-agent-20260910",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "principalId": "/root/weekly_recovery",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-10T20:14:23.000-07:00",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/publication-manifest.json",
+      "sha256": "7f4df62cf750a9b9226b6f9b8bacda424995bf5d311cbdfe051915dfd2e3d775"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/review-text.json",
+      "sha256": "f46ea7288ca36a38d488f618c7d0266eab0035406dd1468156cba76c7fb207fa"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/rendered-article.html",
+      "sha256": "d229eaf866ce0ab11c3c56a64eef4e1ce8d760e793775c2ba1fec54dca0f1238"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "If ChatGPT can build a dashboard from my company data, what should I trust and check before I use it?",
+    "promisedPayoff": "Understand how connected sources, company definitions and permissions shape the answer, and know what to verify before sharing or acting on it.",
+    "centralMentalModel": "The connected sources, organization definitions and account permissions determine what the agent can retrieve and how it interprets the result.",
+    "dailyLifeConnection": "A manager checks a polished sales dashboard before sharing it.",
+    "surfaceJob": "Dated ordinary product news prepared privately for overnight freshness.",
+    "desiredReaderFeeling": "I know which questions make a generated dashboard safer to use at work."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific plainClarity evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It is a workplace data tool that can connect an approved account to company data, investigate a question and build a dashboard.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific readerValue evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before sharing a Data agent result, open the evidence behind its findings.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific laidiesVoice evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The plain question does not remove the machinery underneath it.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific engagingEnjoyable evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Both dashboards can look polished and still answer different questions.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific factualIntegrity evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "There is no independent hands-on benchmark yet showing how reliably it answers questions across customers' systems.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific freshnessReviewability evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI released a Data agent in ChatGPT Work on September 10.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific surfaceFit evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A colleague can ask why sales slowed without first writing a database query.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific datedChange evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI released a Data agent in ChatGPT Work on September 10.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific consequenceAndUncertainty evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific dailyLifeConnection evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Imagine asking for active customers.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific communicationBenchmark evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Which data and definition produced this answer, and what happens if it is wrong?",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific explainBack evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The agent can only work with the sources its administrators connect and the records its account is already allowed to see.",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain what shapes a Data agent answer.",
+        "probeResponse": "Its connected sources and my account permissions control what it can retrieve; the company's metric definitions shape what the numbers mean, so I still check the source and one important total.",
+        "expectedEvidence": "Connected source, permission, definition and verification."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific unseenTransfer evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If the totals differ, stop there and investigate.",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Apply the mechanism to support tickets.",
+        "probeResponse": "I would check whether reopened and duplicate tickets count, confirm the date range and compare the total with our trusted report before changing staffing.",
+        "expectedEvidence": "Different metric, definition and decision consequence."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific usefulAction evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Name the source and date, state the metric definition, and compare one important figure with the trusted report your team already uses.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies candidate-specific analogyIntegrity evidence while keeping product claims and evidence limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Both dashboards can look polished and still answer different questions.",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete article avoids glossaryAccumulation; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete article avoids templateRepetition; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete article avoids decorativeAnalogy; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete article avoids referenceConfetti; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete article avoids missingMechanism; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete article avoids genericAction; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete article avoids jargonBeforeMeaning; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete article avoids disconnectedSystem; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete article avoids factlessConfidence; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete article avoids staleUnreviewableClaims; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete article avoids corporateSludge; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete article avoids joylessInstruction; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete article avoids benchmarkNameDrop; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete article avoids curiosityWithoutPayoff; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete article avoids familiarExampleWithoutTechnicalReturn; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete article avoids communicationPastiche; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete article avoids entertainmentBeforeUnderstanding; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete article avoids mechanismCompressedBehindHook; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete article avoids prematureClickBeforeMechanism; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete article avoids inflatedTakeawayEnding; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete article avoids purposeTooNarrow; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete article avoids mechanismBeforeMotivation; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete article avoids workedExampleOvertakesBookPurpose; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete article avoids technicalExplainerVoice; one dated release, one mechanism, its evidence limit and one workplace check remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+        "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "release",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI released a Data agent in ChatGPT Work on September 10.",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work.",
+            "locator": "openai-data-agent passages"
+          }
+        ],
+        "scopeAndFreshness": "Same-day vendor release date and product identity."
+      },
+      {
+        "claimId": "core-workflow",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "connect an approved account to company data, investigate a question and build a dashboard",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work.",
+            "locator": "openai-data-agent passages"
+          }
+        ],
+        "scopeAndFreshness": "Vendor-described capabilities; no accuracy result implied."
+      },
+      {
+        "claimId": "connected-actions",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "recommend next steps, share findings and carry out actions through connected tools when the user approves them",
+            "locator": "the_story paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work.",
+            "locator": "openai-data-agent passages"
+          }
+        ],
+        "scopeAndFreshness": "Vendor-described workflow, bounded by user approval and connected tools."
+      },
+      {
+        "claimId": "administrator-setup",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Administrators install it, connect its data sources and decide who may use them",
+            "locator": "the_story paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work.",
+            "locator": "openai-data-agent passages"
+          },
+          {
+            "excerpt": "OpenAI's help page says app access controls who can use a connected app, actions control what it can do, and permissions control when ChatGPT asks before using it.",
+            "locator": "openai-plugin-controls passages"
+          }
+        ],
+        "scopeAndFreshness": "Current vendor release and control documentation."
+      },
+      {
+        "claimId": "no-standalone-price",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI announced no standalone plugin price.",
+            "locator": "the_story paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work.",
+            "locator": "openai-data-agent passages"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the inspected release page; no claim about other costs."
+      },
+      {
+        "claimId": "benchmark-gap",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published.",
+            "locator": "the_story paragraph 4"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "VentureBeat reported on September 10 that the Data agent connects to enterprise data sources and turns findings into dashboards, recommendations and follow-up actions.",
+            "locator": "venturebeat-data-agent passages"
+          }
+        ],
+        "scopeAndFreshness": "Independent same-day reporting; not an evaluation of the product."
+      },
+      {
+        "claimId": "internal-comparison",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI described an internal comparison with its own data tools but supplied no public number.",
+            "locator": "the_story paragraph 4"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "VentureBeat reported on September 10 that the Data agent connects to enterprise data sources and turns findings into dashboards, recommendations and follow-up actions.",
+            "locator": "venturebeat-data-agent passages"
+          }
+        ],
+        "scopeAndFreshness": "Reported company disclosure; explicitly not independently verified."
+      },
+      {
+        "claimId": "source-definition-permission",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The agent can only work with the sources its administrators connect and the records its account is already allowed to see.",
+            "locator": "laidies_read paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work.",
+            "locator": "openai-data-agent passages"
+          }
+        ],
+        "scopeAndFreshness": "Mechanism synthesis of current administrator and query-permission claims."
+      },
+      {
+        "claimId": "permission-meaning",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "which tables, rows and columns the connected account is allowed to see",
+            "locator": "laidies_read paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work.",
+            "locator": "openai-data-agent passages"
+          }
+        ],
+        "scopeAndFreshness": "Plain restatement of the specific permission levels OpenAI lists."
+      },
+      {
+        "claimId": "definition-meaning",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "the rule a company uses to decide what a number includes",
+            "locator": "laidies_read paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work.",
+            "locator": "openai-data-agent passages"
+          }
+        ],
+        "scopeAndFreshness": "Plain explanation of OpenAI's metric-definition input."
+      },
+      {
+        "claimId": "action-controls",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "controls separate who can use a plugin, which read or write actions it may take and when ChatGPT asks for approval",
+            "locator": "what_this_means paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI's help page says app access controls who can use a connected app, actions control what it can do, and permissions control when ChatGPT asks before using it.",
+            "locator": "openai-plugin-controls passages"
+          }
+        ],
+        "scopeAndFreshness": "Current OpenAI Help Center control distinctions."
+      },
+      {
+        "claimId": "business-training-default",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "business-product data is not used to train its models by default",
+            "locator": "what_this_means paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/source-evidence.json",
+          "sha256": "341b614362f4be1c244ae9d95cf9c7222dcd2b45e9c8207c1a7e2fefd06f1e24"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI says it does not use data from its listed business products, including inputs and outputs, for training or improving models by default.",
+            "locator": "openai-business-data passages"
+          }
+        ],
+        "scopeAndFreshness": "OpenAI's stated default for listed business products; organization-specific checks retained."
+      }
+    ],
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Reopen all four sources on the publication day; redraft if availability, permissions, data handling, pricing or benchmark evidence changes.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate reports this Data agent release."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Producer found no registered or new reusable defect after source and full-prose review; independent review remains required."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Image and public release remain separate gates."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "reviewedAt": "2026-09-13T17:03:00Z",
+  "reviewer": "independent:/root/crossword_row_review",
+  "candidate": {
+    "path": "newsstand.html",
+    "sha256": "f77850e6824abffec4fe2bf4247dc8c36477a0e46f7b8cf8b3ae8d55020b053d",
+    "delta": "archiveItemSearchText now appends storySearchText only when the indexed item maps to a current non-retracted story that canExpose in search scope."
+  },
+  "checks": [
+    {
+      "kind": "candidate browser regression",
+      "method": "Fresh Chrome against a local static server with the candidate source and exact published archive index, then type exact query 'pets'.",
+      "result": "pass",
+      "observed": "1 back issue found. The baseline same-server check before the candidate returned 0."
+    },
+    {
+      "kind": "admission guard",
+      "method": "Run the actual CommonJS Newsstand contract against the current Pets story cloned with published, hold and retracted states.",
+      "result": "pass",
+      "observed": "published search scope canExpose=true; hold canExpose=false; retracted canExpose=false. The candidate adds no full-story search text unless that guard is true, and independently excludes an indexed retracted status."
+    },
+    {
+      "kind": "scope",
+      "method": "Inspect candidate diff and test the exact published archive index.",
+      "result": "pass",
+      "observed": "No archive item is added or reordered. Existing date/theme/concept filtering runs before the richer term check and is unchanged."
+    }
+  ],
+  "finding": "ACCEPT_FOR_RELEASE. The repair fixes the reproduced exact plural Pets search while preserving index admission and filters. It also makes the placeholder's promised tag and source search meaningful for eligible published stories.",
+  "limits": [
+    "The existing archive search has a separate early-load timing weakness: a search made before the asynchronous index arrives uses the fallback list and is not automatically rerun when the index arrives. It did not cause the normally loaded Pets failure and is outside this bounded repair.",
+    "The candidate uses the current story record as additional searchable text but continues to render only the admitted archive item; it must not be broadened to synthesize archive records."
+  ]
+}

@@ -7,15 +7,20 @@ import process from "node:process";
 
 const root = path.resolve(process.env.LUMINAIRY_ROOT || process.cwd());
 const profilePath = path.resolve(process.env.LUMINAIRY_PROFILES_PATH || path.join(root, "content/luminairy-profiles.json"));
+const sourcePacketPath = path.resolve(process.env.LUMINAIRY_SOURCE_PACKET_PATH || path.join(root, "operations/product-stewards/luminairy/profile-source-evidence-2026-08-23.md"));
+const hannahResourcesPath = path.resolve(process.env.LUMINAIRY_HANNAH_RESOURCES_PATH || path.join(root, "operations/product-stewards/luminairy/hannah-fry-resource-links-2026-09-02.json"));
+const successorAuthorityPath = process.env.LUMINAIRY_SUCCESSOR_AUTHORITY_PATH ? path.resolve(process.env.LUMINAIRY_SUCCESSOR_AUTHORITY_PATH) : null;
+const repositoryRoot = path.resolve(process.env.LUMINAIRY_REPOSITORY_ROOT || process.cwd());
+const claimsOnly = process.env.LUMINAIRY_CLAIMS_ONLY === "1";
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
 const profiles = JSON.parse(fs.readFileSync(profilePath, "utf8"));
 const claims = JSON.parse(read("content/luminairy-claims.json"));
 const receiptManifest = JSON.parse(read("content/luminairy-editorial-receipts.json"));
 const html = read("luminairy.html");
-const css = read("content/luminairy-v2.css");
+const css = claimsOnly ? "" : read("content/luminairy-v2.css");
 const gate = read("content/site/luminairy-claim-gate.js");
-const sourcePacket = read("operations/product-stewards/luminairy/profile-source-evidence-2026-08-23.md");
-const hannahResources = JSON.parse(read("operations/product-stewards/luminairy/hannah-fry-resource-links-2026-09-02.json"));
+const sourcePacket = fs.readFileSync(sourcePacketPath, "utf8");
+const hannahResources = JSON.parse(fs.readFileSync(hannahResourcesPath, "utf8"));
 const errors = [];
 const today = new Date().toISOString().slice(0, 10);
 const publicJwks = {
@@ -28,6 +33,16 @@ const publicJwks = {
     kty: "EC", crv: "P-256",
     x: "0SG_saUrurdGJZ4e8wFG23hvpV8vQUNm3YPad28WKWs",
     y: "Gss04vUhNOgxvRkVn6M_QwK9Js42hogAD6JGsfMZhG8"
+  },
+  "luminairy-editorial-offline-r5-20260902": {
+    kty: "EC", crv: "P-256",
+    x: "PbQCO9tuJRrhE83ZuXq2UU0WLbz979M3zqmDpIc58zA",
+    y: "BT6SvRIfLRzXD9l_zAQyckGdAfvkcBvvOJAZtL0fwXA"
+  },
+  "luminairy-editorial-offline-r7-20260913": {
+    kty: "EC", crv: "P-256",
+    x: "fRtk0R-l92fVzpT0IZnKSR94xey0OenkRUO-gEjG9TA",
+    y: "idZvxdnzVzsuCz33khsumZU8824MD64buI33tcFs-6Q"
   }
 };
 
@@ -44,6 +59,7 @@ function receiptPayload(receipt) {
     profileId: receipt.profileId,
     profileSha256: receipt.profileSha256,
     sourcePacketSha256: receipt.sourcePacketSha256,
+    ...(receipt.resourceEvidenceSha256 ? { resourceEvidenceSha256: receipt.resourceEvidenceSha256 } : {}),
     verifiedOn: receipt.verifiedOn,
     recheckOn: receipt.recheckOn,
     reviewedOn: receipt.reviewedOn,
@@ -63,11 +79,12 @@ if (claims.receiptManifest !== "/content/luminairy-editorial-receipts.json") err
 if (receiptManifest.schemaVersion !== 2 || receiptManifest.authorityModel !== "offline-p256-signed-profile-receipts") errors.push("receipt authority mismatch");
 if (claims.sourcePacketSha256 !== sha256(sourcePacket)) errors.push("source packet hash mismatch");
 if (!html.includes("luminairy-claim-gate.js") || html.indexOf("luminairy-claim-gate.js") > html.indexOf("luminairy-app.js")) errors.push("runtime gate must load before app");
-for (const [keyId, publicJwk] of Object.entries(publicJwks)) {
-  if (!gate.includes(keyId) || !gate.includes(publicJwk.x) || !gate.includes(publicJwk.y)) errors.push(`runtime trusted key mismatch ${keyId}`);
+for (const keyId of receiptManifest.trustedKeyIds || []) {
+  const publicJwk = publicJwks[keyId];
+  if (!publicJwk || !gate.includes(keyId) || !gate.includes(publicJwk.x) || !gate.includes(publicJwk.y)) errors.push(`runtime trusted key mismatch ${keyId}`);
 }
 if (!html.includes(claims.correctionRoute)) errors.push("visible correction route mismatch");
-if (!css.includes("--lum-sapphire") || !css.includes("--lum-amber") || !css.includes("--lum-pink") || !css.includes("--lum-red")) errors.push("four wing/anti palettes are not present");
+if (!claimsOnly && (!css.includes("--lum-sapphire") || !css.includes("--lum-amber") || !css.includes("--lum-pink") || !css.includes("--lum-red"))) errors.push("four wing/anti palettes are not present");
 
 const expected = { saints: 13, mavens: 23, trailblazers: 7 };
 const profileEntries = new Map();
@@ -81,11 +98,13 @@ for (const wing of Object.keys(expected)) {
     if (!profile.id || profileEntries.has(key)) errors.push(`duplicate/missing profile identity ${key}`);
     profileEntries.set(key, { wing, profile });
     if (!profile.name || !profile.role || !profile.about || !profile.lesson || !profile.image) errors.push(`incomplete public profile ${key}`);
-    if (!fs.existsSync(localPath(profile.image))) errors.push(`missing image ${profile.image}`);
+    if (!claimsOnly && !fs.existsSync(localPath(profile.image))) errors.push(`missing image ${profile.image}`);
     if (wing === "saints") {
-      if (!profile.song || !profile.songLabel) errors.push(`Saint song assignment missing ${profile.id}`);
-      else if (profile.songStatus !== "deferred" && !fs.existsSync(localPath(profile.song))) errors.push(`missing Saint song bytes ${profile.song}`);
-      if (profile.songStatus === "deferred" && fs.existsSync(localPath(profile.song))) errors.push(`deferred Saint song unexpectedly has bytes ${profile.song}`);
+      if (!claimsOnly) {
+        if (!profile.song || !profile.songLabel) errors.push(`Saint song assignment missing ${profile.id}`);
+        else if (profile.songStatus !== "deferred" && !fs.existsSync(localPath(profile.song))) errors.push(`missing Saint song bytes ${profile.song}`);
+        if (profile.songStatus === "deferred" && fs.existsSync(localPath(profile.song))) errors.push(`deferred Saint song unexpectedly has bytes ${profile.song}`);
+      }
     } else {
       if (!Array.isArray(profile.links) || profile.links.length < 1) errors.push(`work/source link missing ${key}`);
       for (const link of profile.links || []) if (!/^https:\/\//.test(link.url || "")) errors.push(`non-HTTPS external link ${key}`);
@@ -107,8 +126,31 @@ const expectedHannahLinks = [
 ];
 if (JSON.stringify((hannah?.links || []).map((link) => [link.type, link.label, link.url])) !== JSON.stringify(expectedHannahLinks)) errors.push("Hannah Fry watch/read/listen/follow destinations mismatch");
 if (hannah?.freshness !== "Role and destinations checked 2 Sep 2026") errors.push("Hannah Fry destination freshness label mismatch");
-if (hannahResources.status !== "independently-reviewed-signed-profile-successor" || hannahResources.admission?.profileSha256 !== sha256(profilePayload("mavens", hannah))) errors.push("Hannah Fry resource review/admission binding mismatch");
+const hannahProfileSha256 = sha256(profilePayload("mavens", hannah));
+if (hannahResources.status !== "independently-reviewed-signed-profile-successor") errors.push("Hannah Fry resource review status mismatch");
 if (!hannahResources.excluded?.some((entry) => entry.url === "https://hannahfry.co.uk/" && /content-free lander/.test(entry.reason) && !/redirect/.test(entry.reason))) errors.push("Hannah Fry content-free lander exclusion mismatch");
+function validateHannahSuccessorAuthority() {
+  if (!successorAuthorityPath) {
+    errors.push("Hannah Fry r7 receipt requires an explicit successor authority");
+    return;
+  }
+  const authority = JSON.parse(fs.readFileSync(successorAuthorityPath, "utf8"));
+  if (authority.schemaVersion !== "laidies.luminairy-successor-profile-authority.v1" || authority.profileId !== "hannah-fry" || authority.wing !== "mavens" || authority.decision !== "ACCEPT_EXACT_REVIEWED_ABOUT_SUCCESSOR" || authority.profileSha256 !== hannahProfileSha256 || authority.historicGlobalSourcePacketSha256 !== claims.sourcePacketSha256 || authority.unchangedResourceEvidenceSha256 !== "a564787fb1a22799ddb45e3719454ee7726a4dd496f9e2ffb344fa98d1cdcadc" || authority.historicResourceAdmissionProfileSha256 !== hannahResources.admission?.profileSha256 || JSON.stringify(authority.changedProfileFields) !== JSON.stringify(["about"])) errors.push("Hannah Fry successor authority binding mismatch");
+  for (const input of [authority.candidate, authority.proseEvidence, authority.independentProseReview, authority.rootProseDisposition, authority.signingRecovery, authority.signedReceipt, ...(authority.publicPaths || [])]) {
+    const target = input?.path && path.resolve(repositoryRoot, input.path);
+    if (!input?.sha256 || !target || !fs.existsSync(target) || sha256(fs.readFileSync(target)) !== input.sha256) errors.push(`Hannah Fry successor authority input mismatch ${input?.path || "missing-path"}`);
+  }
+  const expectedPublicPaths = ["luminairy.html", "content/luminairy-profiles.json", "content/luminairy-claims.json", "content/luminairy-editorial-receipts.json", "content/site/luminairy-claim-gate.js"];
+  const declared = new Map((authority.publicPaths || []).map((input) => [input.path, input.sha256]));
+  for (const relative of expectedPublicPaths) {
+    const input = path.join(root, relative);
+    const repoRelative = path.relative(repositoryRoot, input);
+    if (!declared.has(repoRelative) || !fs.existsSync(input) || declared.get(repoRelative) !== sha256(fs.readFileSync(input))) errors.push(`Hannah Fry successor authority public-file mismatch ${relative}`);
+  }
+}
+const hannahReceipt = receiptManifest.receipts?.find((receipt) => receipt.claimId === "mavens-hannah-fry");
+if (hannahReceipt?.keyId === "luminairy-editorial-offline-r7-20260913") validateHannahSuccessorAuthority();
+else if (hannahResources.admission?.profileSha256 !== hannahProfileSha256) errors.push("Hannah Fry resource review/admission binding mismatch");
 
 if (!Array.isArray(claims.records) || claims.records.length !== profileEntries.size) errors.push("claim coverage mismatch");
 if (!Array.isArray(receiptManifest.receipts) || receiptManifest.receipts.length !== profileEntries.size) errors.push("receipt coverage mismatch");
@@ -124,7 +166,7 @@ const receiptClaims = new Set();
 for (const receipt of receiptManifest.receipts || []) {
   const record = recordMap.get(receipt.claimId);
   const publicJwk = publicJwks[receipt.keyId];
-  if (!record || receiptClaims.has(receipt.claimId) || !publicJwk || !receiptManifest.trustedKeyIds?.includes(receipt.keyId) || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.supportDecision !== "exact-profile-reviewed-and-supported") errors.push(`receipt mismatch ${receipt.claimId}`);
+  if (!record || receiptClaims.has(receipt.claimId) || !publicJwk || !receiptManifest.trustedKeyIds?.includes(receipt.keyId) || receipt.profileSha256 !== record.profileSha256 || receipt.sourcePacketSha256 !== claims.sourcePacketSha256 || receipt.resourceEvidenceSha256 !== record.resourceEvidenceSha256 || receipt.supportDecision !== "exact-profile-reviewed-and-supported") errors.push(`receipt mismatch ${receipt.claimId}`);
   try {
     const valid = crypto.verify("sha256", Buffer.from(receiptPayload(receipt)), { key: crypto.createPublicKey({ key: publicJwk, format: "jwk" }), dsaEncoding: "ieee-p1363" }, Buffer.from(receipt.signature || "", "base64"));
     if (!valid) errors.push(`signature invalid ${receipt.claimId}`);
@@ -137,4 +179,4 @@ if (errors.length) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-console.log(`LUMINAiRY CLAIM VALIDATION PASS: ${profileEntries.size} complete profiles, exact assets, sources, songs, and offline-signed receipts`);
+console.log(`LUMINAiRY CLAIM VALIDATION PASS: ${profileEntries.size} complete profiles, sources, and offline-signed receipts${claimsOnly ? " (claims-only: CSS/assets/song bytes not evaluated)" : ", exact assets and songs"}`);

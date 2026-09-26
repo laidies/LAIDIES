@@ -1,0 +1,58 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "safety-incident",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "GreyNoise reported on September 9 that a likely Russian-speaking actor used hundreds of AI agents in an August 31 campaign against vulnerable PaperCut NG/MF servers.",
+    "plainLanguageIdentity": "PaperCut NG/MF is self-hosted software organizations use to manage printing, copying and scanning; the incident concerns its application servers, not an ordinary printer becoming intelligent.",
+    "evidenceBasis": "GreyNoise's complete primary report, PaperCut's September 10 security bulletin and BleepingComputer's complete September 10 report were reopened on September 11.",
+    "evidenceLimits": "GreyNoise owns the specific AI attribution and victim counts. PaperCut confirms active exploitation and customer incidents but says it has not independently verified GreyNoise's indicators and did not receive them through customer reports.",
+    "readerRelevance": "A person may only see a printer at a school, clinic or office, while the organization can run a management server connected to wider Windows accounts and systems.",
+    "affectedPeople": "The reported victims are organizations across 48 countries and the people whose accounts or services depend on those networks; specific data-theft or ransomware outcomes are not established.",
+    "changesNow": "PaperCut published maintenance releases on September 10 and recommends them for all NG/MF customers; it says public, unpatched servers continue to be targeted.",
+    "uncertainty": "The actor's motive, any later data theft or ransomware outcome, and independent confirmation of GreyNoise's exact campaign counts remain unknown.",
+    "readerAction": "A non-administrator can ask whether her organization runs PaperCut NG/MF and whether its application server has moved to a current maintenance release; administrators should follow the vendor bulletin and incident-response process.",
+    "betterQuestion": "What did AI coordinate, which underlying software weakness made access possible, and which parts of the incident are confirmed by the vendor rather than reported by one research firm?"
+  },
+  "typeAnswers": {
+    "safety-incident": {
+      "incident": "GreyNoise says an actor began on August 31, used an AI-agent system to develop and run attacks, and compromised at least 440 PaperCut instances at 395 organizations in 48 countries.",
+      "harm": "GreyNoise reports unauthorized access and says domain-administrator control was reached at 12 organizations. The report does not establish a completed data-theft or ransomware outcome.",
+      "affectedPeople": "Organizations using vulnerable PaperCut NG/MF servers and people relying on their connected school, business or public-service networks may be affected; named victims and personal identities are omitted.",
+      "failedControl": "Internet-reachable, vulnerable PaperCut application servers created the opening; GreyNoise also reports that a web firewall blocked one attempt, showing the campaign did not succeed uniformly.",
+      "responsibility": "The malicious actor controls the attack; PaperCut owns the product updates and customer guidance; organizations control patching and network exposure; AI providers control their services and safeguards.",
+      "confirmedUnknown": "PaperCut confirms active exploitation and customer incidents, but not GreyNoise's indicators, counts or AI attribution. GreyNoise says the actor's motive is unknown.",
+      "remediation": "PaperCut published maintenance releases 26.0.5, 25.0.13 and 24.1.10 and recommends them for all NG/MF customers; it reports that most application servers are now patched or behind a firewall.",
+      "recurrenceRisk": "PaperCut says public, unpatched servers continue to be targeted. Updating the server, restricting exposure and following incident guidance reduce the opening but do not prove every compromise has been found."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "GreyNoise says hundreds of AI agents helped an attacker compromise at least 440 PaperCut installations at 395 organizations in 48 countries.",
+    "actualMeaningExact": "GreyNoise says the actor combined AI coordination with existing offensive tools and vulnerabilities in internet-facing PaperCut servers.",
+    "mechanismExact": "GreyNoise describes Codex as the harness coordinating the work and DeepSeek—not an OpenAI model—as the model powering the agents.",
+    "familiarExampleExact": "A person may only see a school or office printer, while PaperCut can run on a server connected to the organization’s Windows directory.",
+    "jargon": [
+      {
+        "term": "AI agent",
+        "plainMeaning": "software that can plan and carry out several steps with tools instead of stopping at one answer"
+      },
+      {
+        "term": "harness",
+        "plainMeaning": "the coordinating software around a model that starts, routes and monitors agent jobs"
+      },
+      {
+        "term": "domain administrator",
+        "plainMeaning": "a powerful permission that can manage connected Windows accounts and systems across an organization"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "AI agents coordinate tools and multiple steps",
+        "learningPayoff": "AI Fundamentals 101 explains why an agent can keep taking steps after a chatbot would stop at an answer.",
+        "disposition": "link",
+        "destination": "/library.html#ai-fundamentals-101::%40ch-2-2-4-agentic-ai-the-layer-that-acts"
+      }
+    ]
+  }
+}

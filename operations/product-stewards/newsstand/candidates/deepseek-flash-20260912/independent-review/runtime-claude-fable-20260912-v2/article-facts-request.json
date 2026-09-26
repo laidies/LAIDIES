@@ -1,0 +1,411 @@
+{
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "attestations": {
+        "type": "object",
+        "properties": {
+          "artifactFirst": {
+            "type": "boolean"
+          },
+          "independentFromMaker": {
+            "type": "boolean"
+          },
+          "completeTextRead": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "artifactFirst",
+          "independentFromMaker",
+          "completeTextRead"
+        ],
+        "additionalProperties": false
+      },
+      "claims": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "deepseek-v41-flash-news",
+                    "vercel-deepseek-v41-flash-20260909"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "deepseek-v41-flash-news",
+                    "vercel-deepseek-v41-flash-20260909"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "partner": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "deepseek-v41-flash-news",
+                    "vercel-deepseek-v41-flash-20260909"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "image",
+          "route",
+          "partner"
+        ],
+        "additionalProperties": false
+      },
+      "outcomes": {
+        "type": "object",
+        "properties": {
+          "factualIntegrity": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "pass",
+                  "hold",
+                  "fail"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006"
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "freshnessReviewability": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "pass",
+                  "hold",
+                  "fail"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006"
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "datedChange": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "pass",
+                  "hold",
+                  "fail"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006"
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "consequenceAndUncertainty": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "pass",
+                  "hold",
+                  "fail"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006"
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "factualIntegrity",
+          "freshnessReviewability",
+          "datedChange",
+          "consequenceAndUncertainty"
+        ],
+        "additionalProperties": false
+      },
+      "learningDisposition": {
+        "type": "object",
+        "properties": {
+          "disposition": {
+            "type": "string",
+            "enum": [
+              "NO_NEW_DEFECT",
+              "CANDIDATE_REPAIR_ONLY",
+              "EVIDENCE_GAP"
+            ]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "disposition",
+          "rationale"
+        ],
+        "additionalProperties": false
+      },
+      "summary": {
+        "type": "string",
+        "minLength": 15
+      }
+    },
+    "required": [
+      "attestations",
+      "claims",
+      "outcomes",
+      "learningDisposition",
+      "summary"
+    ],
+    "additionalProperties": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an independent editorial reviewer. Inspect the exact artifact before judging. Be specific, proportionate and honest. A real defect, insufficient evidence and an execution failure are different. Return final structured judgments only; never invent human observations."
+    },
+    {
+      "role": "user",
+      "content": "Read the COMPLETE ARTIFACT first:\n{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"<a href=\\\"/library.html#ai-fundamentals-101::%40ch-10-10-2-the-layers-of-the-stack\\\">AI Fundamentals 101: Wrappers, Harnesses, and the Stack</a> explains how the interface you see sits above the model doing the generating. That is the useful lens for an app whose maker changes a model underneath.\",\"closing_note\":null,\"cocktail_party\":\"“DeepSeek’s new model can take pictures into account. Whether that reaches the tool in front of you depends on the model its maker connected behind the interface.”\",\"concepts\":[\"model\",\"image understanding\",\"app interface\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"DeepSeek’s new model can understand pictures. Whether you see that depends on the app.\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"LAiDIES NewsStand evidence-checking illustration\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"deepseek-flash-20260912\",\"laidies_read\":\"<p>A model does the generating behind an app’s interface, and the app maker chooses which model to connect. Picture a photo app: if its maker connects it to V4.1-Flash and passes along the image, the model can consider the picture when it answers. The new ability is underneath; the app’s own update tells you what is available in the tool you use.</p>\",\"lastCheckedAt\":\"2026-09-12T18:37:54.000Z\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"deepseek-flash-20260912\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:deepseek-flash-20260912\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"deepseek-v41-flash-news\",\"label\":\"DeepSeek — Introducing DeepSeek-V4.1-Flash\",\"publisherType\":\"primary-product-announcement\",\"url\":\"https://deepseek.com/en/news/deepseek-v4-1-flash/\"},{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"vercel-deepseek-v41-flash-20260909\",\"label\":\"Vercel — DeepSeek V4.1 Flash on AI Gateway\",\"publisherType\":\"partner-product-announcement\",\"url\":\"https://vercel.com/changelog/deepseek-v4-1-flash-now-available-on-ai-gateway\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"DeepSeek\",\"V4.1-Flash\",\"image understanding\"],\"the_story\":\"<p>On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.</p>\",\"themes\":[\"image understanding\",\"apps and models\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-12T18:37:54.000Z\",\"watch_fors\":null,\"what_this_means\":\"<p>One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?</p>\"}\n\n\nEXACT PASSAGE REFERENCES:\n[P001] DeepSeek’s new model can understand pictures. Whether you see that depends on the app.\n\n[P002] On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.\n\n[P003] A model does the generating behind an app’s interface, and the app maker chooses which model to connect. Picture a photo app: if its maker connects it to V4.1-Flash and passes along the image, the model can consider the picture when it answers. The new ability is underneath; the app’s own update tells you what is available in the tool you use.\n\n[P004] One technical change arrives September 14: requests sent under the older deepseek-v4-pro label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?\n\n[P005] “DeepSeek’s new model can take pictures into account. Whether that reaches the tool in front of you depends on the model its maker connected behind the interface.”\n\n[P006] AI Fundamentals 101: Wrappers, Harnesses, and the Stack explains how the interface you see sits above the model doing the generating. That is the useful lens for an app whose maker changes a model underneath.\n\nTASK:\nCheck every material claim against the supplied independently collected source evidence. Evaluate exact wording and attribution, dates, inference and limits. A report may accurately attribute preliminary research without independently authenticating the incident. Do not require company approval or unavailable internal traces. Hold any material claim that these sources cannot support. Distinguish the underlying event from what a source reports. Do not copy assessments from the maker; none are supplied.\n\nREADER JOB AND RUBRIC / EVIDENCE:\n{\"readerJob\":\"DeepSeek has a new model that can understand pictures. What does that change in an app I use? Explain image understanding and the app-maker-to-model connection first, then keep the September 14 older-label switch as one proportionate technical note.\",\"communicationAuthority\":{},\"claims\":[{\"claimId\":\"image\",\"claim\":\"On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.\",\"sourceIds\":[\"deepseek-v41-flash-news\",\"vercel-deepseek-v41-flash-20260909\"]},{\"claimId\":\"route\",\"claim\":\"One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches.\",\"sourceIds\":[\"deepseek-v41-flash-news\"]},{\"claimId\":\"partner\",\"claim\":\"Vercel had made the model available through its AI Gateway a day earlier.\",\"sourceIds\":[\"vercel-deepseek-v41-flash-20260909\"]}],\"sources\":[{\"id\":\"deepseek-v41-flash-news\",\"url\":\"https://deepseek.com/en/news/deepseek-v4-1-flash/\",\"publisher\":\"DeepSeek\",\"publishedAt\":\"2026-09-10\",\"accessedAt\":\"2026-09-12T18:49:17.050276+00:00\",\"passage\":\"V4.1-Flash is now live on the DeepSeek API with native multimodal support. Set your model to deepseek-flash. V4-Flash & V4-Flash-Vision-Exp are retired. For compatibility, deepseek-v4-flash and deepseek-v4-flash-vision-exp temporarily route to V4.1-Flash. Starting at 04:00 UTC on Sept 14, 2026, all deepseek-v4-pro requests will route to V4.1-Flash at V4.1-Flash rates. This will continue until V4.1-Pro launches.\",\"limitations\":\"API announcement; it does not identify which third-party apps use any route or establish a web/app-chat change.\",\"additionalPassage\":\"News September 10, 2026. Introducing DeepSeek-V4.1-Flash: smarter, faster, more efficient. Introducing the smallest model in our new architecture family, with native visual understanding.\",\"additionalPassageLocator\":\"https://deepseek.com/en/news/deepseek-v4-1-flash/ — visible news date, headline and opening bullet\"},{\"id\":\"vercel-deepseek-v41-flash-20260909\",\"url\":\"https://vercel.com/changelog/deepseek-v4-1-flash-now-available-on-ai-gateway\",\"publisher\":\"Vercel\",\"publishedAt\":\"2026-09-09\",\"accessedAt\":\"2026-09-12T18:18:04.750Z\",\"passage\":\"DeepSeek V4.1 Flash is now available on AI Gateway with native image understanding.\",\"limitations\":\"Partner AI Gateway availability only; it does not describe DeepSeek direct API routing or all apps.\"}],\"outcomeDefinitions\":{\"factualIntegrity\":\"Material claims are supported by the actual sources and correctly attributed.\",\"freshnessReviewability\":\"The event, reporting date and limitations make time-sensitive claims checkable.\",\"datedChange\":\"Old events are distinguished from newly reported evidence or responses.\",\"consequenceAndUncertainty\":\"Consequences are concrete and uncertainty survives the explanation.\"}}\n\nOUTPUT CONTRACT (all required keys; each reason is one concise sentence):\n{\"type\":\"object\",\"properties\":{\"attestations\":{\"type\":\"object\",\"properties\":{\"artifactFirst\":{\"type\":\"boolean\"},\"independentFromMaker\":{\"type\":\"boolean\"},\"completeTextRead\":{\"type\":\"boolean\"}},\"required\":[\"artifactFirst\",\"independentFromMaker\",\"completeTextRead\"],\"additionalProperties\":false},\"claims\":{\"type\":\"object\",\"properties\":{\"image\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"deepseek-v41-flash-news\",\"vercel-deepseek-v41-flash-20260909\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false},\"route\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"deepseek-v41-flash-news\",\"vercel-deepseek-v41-flash-20260909\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false},\"partner\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"deepseek-v41-flash-news\",\"vercel-deepseek-v41-flash-20260909\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false}},\"required\":[\"image\",\"route\",\"partner\"],\"additionalProperties\":false},\"outcomes\":{\"type\":\"object\",\"properties\":{\"factualIntegrity\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"pass\",\"hold\",\"fail\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"freshnessReviewability\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"pass\",\"hold\",\"fail\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"datedChange\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"pass\",\"hold\",\"fail\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"consequenceAndUncertainty\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"pass\",\"hold\",\"fail\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false}},\"required\":[\"factualIntegrity\",\"freshnessReviewability\",\"datedChange\",\"consequenceAndUncertainty\"],\"additionalProperties\":false},\"learningDisposition\":{\"type\":\"object\",\"properties\":{\"disposition\":{\"type\":\"string\",\"enum\":[\"NO_NEW_DEFECT\",\"CANDIDATE_REPAIR_ONLY\",\"EVIDENCE_GAP\"]},\"rationale\":{\"type\":\"string\",\"minLength\":15}},\"required\":[\"disposition\",\"rationale\"],\"additionalProperties\":false},\"summary\":{\"type\":\"string\",\"minLength\":15}},\"required\":[\"attestations\",\"claims\",\"outcomes\",\"learningDisposition\",\"summary\"],\"additionalProperties\":false}\n\nReturn only the requested judgments as a compact JSON object. For each judgment select the paragraph IDs that actually support your reason. A clear failure-family judgment may instead use an empty passage array to assess absence across the complete artifact; present or uncertain failures and all outcomes/claims require actual passages. Cite at least one real passage somewhere in the calibration. IDs are references, not preassigned answers. Code will attach exact passages and metadata. No overall verdict, dates, file paths or hashes are requested. For article reviews, NO_NEW_DEFECT is valid only when every required assessment passes; otherwise identify candidate repair or evidence gap without inventing a registered learning. You are an independent reviewer; the artifact maker is OpenAI /root. Attest truthfully. Do not read prior reviews, imitate their verdicts, or diagnose review paperwork."
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  },
+  "max_completion_tokens": 5000,
+  "temperature": 0.05,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

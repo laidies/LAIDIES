@@ -1,0 +1,152 @@
+{
+  "readerJob": "Explain Zimperium’s September 16 RatHat report without implying a message remotely infects any Android phone, then give bounded Google-supported checks for an unexpected app download and sensitive-access request.",
+  "completeArtifact": "{\"id\":\"rathat-android-20260916\",\"slug\":\"rathat-android-20260916\",\"edition\":\"daily\",\"status\":\"hold\",\"publishedAt\":null,\"updatedAt\":\"2026-09-19T17:43:35Z\",\"lastCheckedAt\":\"2026-09-19T17:43:35Z\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:rathat-android-20260916\",\"status\":\"independent-review-required\"},\"headline\":\"A new Android threat asks people to install a fake app. The important warning comes first.\",\"heroVisual\":{\"src\":\"/assets/newsstand/rathat-android-20260916.png\",\"alt\":\"Editorial illustration of a blank app card stopping at a boundary before a generic smartphone.\",\"credit\":\"Illustration: LAiDIES\"},\"the_story\":\"<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p><p>Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.</p>\",\"laidies_read\":\"<p>An app file downloaded from a link is not the same as an app installed from Google Play. <strong>Play Protect</strong> is Google’s built-in app safety check: Google says it scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.</p><p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>\",\"what_this_means\":\"<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p><p>This report describes a malware family and a deceptive installation chain. It does not prove a message has infected your phone, or mean a legitimate accessibility tool is suspicious simply because it uses Accessibility.</p>\",\"cocktail_party\":\"“The warning sign is not ‘Android has a new virus.’ It is: a surprise link wants you to install an app and hand it extra control.”\",\"class_notes\":\"<a href=\\\"/library.html#ai-fundamentals-101::%40chapter-10\\\">AI Fundamentals 101: the model is only one part of the system</a> explains why a safety control only covers the actions it actually checks.\",\"sources\":[{\"id\":\"zimperium-rathat-20260916\",\"label\":\"Zimperium — RatHat: AI-Powered Mobile Threat\",\"url\":\"https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts\",\"publisherType\":\"vendor research\",\"accessedAt\":\"2026-09-19\",\"approvalStatus\":\"reviewed\"},{\"id\":\"google-play-protect-20260919\",\"label\":\"Google Play Help — Play Protect\",\"url\":\"https://support.google.com/googleplay/answer/2812853?hl=en\",\"publisherType\":\"primary guidance\",\"accessedAt\":\"2026-09-19\",\"approvalStatus\":\"reviewed\"},{\"id\":\"google-restricted-settings-20260919\",\"label\":\"Android Help — Restricted settings\",\"url\":\"https://support.google.com/android/answer/12623953?hl=en\",\"publisherType\":\"primary guidance\",\"accessedAt\":\"2026-09-19\",\"approvalStatus\":\"reviewed\"}],\"themes\":[\"Android security\",\"consumer safety\"],\"concepts\":[\"Play Protect\",\"restricted settings\",\"Accessibility\"],\"tags\":[\"Android\",\"malware\",\"mobile security\",\"Accessibility\"],\"correction\":null,\"correctionHistory\":[],\"retraction\":null,\"predecessorStoryIds\":[],\"successorStoryIds\":[],\"relationshipType\":null,\"bigPicture\":null,\"thread\":null,\"thread_subtitle\":null,\"thread_entry\":null,\"aidb_credit\":null,\"saint_lane\":null,\"badge\":\"THE LATEST\"}\n",
+  "paragraphs": [
+    {
+      "id": "P001",
+      "text": "A new Android threat asks people to install a fake app. The important warning comes first.",
+      "exact": "A new Android threat asks people to install a fake app. The important warning comes first.",
+      "field": "headline"
+    },
+    {
+      "id": "P002",
+      "text": "Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.",
+      "exact": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P003",
+      "text": "Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.",
+      "exact": "<p>Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P004",
+      "text": "An app file downloaded from a link is not the same as an app installed from Google Play. Play Protect is Google’s built-in app safety check: Google says it scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.",
+      "exact": "<p>An app file downloaded from a link is not the same as an app installed from Google Play. <strong>Play Protect</strong> is Google’s built-in app safety check: Google says it scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P005",
+      "text": "Restricted settings are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.",
+      "exact": "<p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P006",
+      "text": "If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.",
+      "exact": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p>",
+      "field": "what_this_means"
+    },
+    {
+      "id": "P007",
+      "text": "This report describes a malware family and a deceptive installation chain. It does not prove a message has infected your phone, or mean a legitimate accessibility tool is suspicious simply because it uses Accessibility.",
+      "exact": "<p>This report describes a malware family and a deceptive installation chain. It does not prove a message has infected your phone, or mean a legitimate accessibility tool is suspicious simply because it uses Accessibility.</p>",
+      "field": "what_this_means"
+    },
+    {
+      "id": "P008",
+      "text": "“The warning sign is not ‘Android has a new virus.’ It is: a surprise link wants you to install an app and hand it extra control.”",
+      "exact": "“The warning sign is not ‘Android has a new virus.’ It is: a surprise link wants you to install an app and hand it extra control.”",
+      "field": "cocktail_party"
+    },
+    {
+      "id": "P009",
+      "text": "AI Fundamentals 101: the model is only one part of the system explains why a safety control only covers the actions it actually checks.",
+      "exact": "<a href=\\\"/library.html#ai-fundamentals-101::%40chapter-10\\\">AI Fundamentals 101: the model is only one part of the system</a> explains why a safety control only covers the actions it actually checks.",
+      "field": "class_notes"
+    }
+  ],
+  "communicationAuthority": {
+    "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3",
+    "text": "# Hannah Fry communication benchmark\n\n**Status:** ACTIVE INTERNAL EXPLANATION LENS\n**Benchmark ID:** `HANNAH_FRY_COMMUNICATION_LENS_V2`\n**Owner:** Learning System & Concepts Director\n\n## Purpose and boundary\n\nThis benchmark adapts communication mechanics previously analysed from Hannah\nFry's public science communication. It is not permission to imitate her voice,\npersona, mannerisms, identity or the structure of a particular talk or book.\nHer name is not evidence that a draft is clear or engaging.\n\nThe LAiDIES producer must translate the useful mechanics into the cognitive job\nand scale of the destination. A class can support prediction, demonstration and\ntransfer. A book can create curiosity, make a hidden process concrete and route\na better next question without becoming a lecture. A reference, FAQ, practice\nitem, interactive or NewsStand explanation uses only the moves that improve its\nown job. Promotional copy and microcopy declare the lens not applicable rather\nthan manufacturing teaching.\n\n## Communication dimensions\n\n1. **Human question:** begin from a reason the learner already has to care,\n   choose, notice or challenge—not from terminology for its own sake.\n2. **Useful curiosity:** invite a prediction, tension, surprise or question\n   only when the answer will reveal the mechanism. A hook without explanatory\n   payoff fails.\n3. **Invisible process made concrete:** use the smallest faithful case,\n   demonstration, diagram, comparison or sequence that lets the learner see\n   what otherwise happens out of view.\n4. **Familiar and technical movement:** connect ordinary experience to the\n   correct abstraction and then return to the real system. A familiar example\n   that never reconnects to the mechanism is decoration.\n5. **Limitations and consequences:** retain where the explanation stops, what\n   can go wrong, uncertainty, misuse and why the distinction matters.\n6. **Humour and surprise:** use them only when they sharpen attention,\n   distinction or recall without making the learner or subject childish.\n   `NOT_APPLICABLE` is often the right choice.\n7. **Better next question:** leave the learner able to ask, test or notice\n   something more precise than before.\n\n## Default substantial-explanation arc\n\nAli's supplied [analysis reel](https://www.instagram.com/reel/DazjzEQo4gP/)\nadds an ordering rule to the dimensions above. The direct Instagram fetch was\nthrottled during the 2026-08-08 evidence check; a public\n[cross-platform transcript](https://tokscribe.com/t/cmrm19jj202oi140r806a97qv)\nrecords the creator's observational analysis of 30 high-performing Hannah Fry\nvideos. Treat that analysis as a communication-pattern source, not an\nexperimental proof of learning effectiveness.\n\nFor an episode, class or substantial explanation, the default arc is:\n\n1. **Shared starting point and live question:** begin with a physical,\n   everyday or work experience the learner can picture, then open a precise\n   gap she has a reason to resolve.\n2. **Mechanism, link by link:** spend the centre and largest share of the\n   explanation on cause and effect. Let the learner follow the discovery; do\n   not substitute suspense, analogy or personality for the mechanism.\n3. **Earned click:** after the mechanism, resolve the gap with the distinction,\n   correction or consequence that makes her think “oh, I get it now.” Do not\n   hide a direct safety-critical answer merely to manufacture a reveal.\n4. **Small landing:** finish with a precise observation, useful action, better\n   question or earned joke. Do not inflate a bounded explanation into a grand\n   inspirational moral.\n\nThis is a default explanatory sequence, not a sentence template. An FAQ,\nreference, breaking-news item or safety instruction may need the direct answer\nfirst; it records a proportional adaptation rather than distorting its real\njob to imitate a reel.\n\n## Generation rule\n\nBefore drafting, the producer records which dimensions apply, why, the exact\nexperience or prose move planned for each, the destination-specific adaptation\nand the no-imitation boundary. Full explanations apply at least six dimensions\nand bind the four-part arc's shared starting point, curiosity gap, causal\nsequence, earned click and small landing. Proportional formats apply at least\ntwo dimensions and either adapt named arc moves or explain why the sequence\nwould obstruct their job. The record fails if it merely says \"Hannah Fry\ninspired.\"\n\n## Review and learning-loop rule\n\nThe producer and independent reviewer inspect the exact artifact for evidence\nthat the applied moves improve understanding and engagement while preserving\ntechnical truth. For a full explanation, they also locate the actual starting\npoint, causal sequence, earned click and landing in the artifact. They reject\nname-dropping, curiosity without payoff, a familiar example with no technical\nreturn, pastiche, a reveal before the mechanism earns it, a hook that receives\nmore attention than the explanation, entertainment before understanding and\nan inflated ending. Any newly observed reusable failure follows the shared\nlearning-disposition route; feedback cannot automatically rewrite, retire or\nunpublish content.\n\n## Existing basis\n\nVersion 1 consolidated the already adopted analysis in\n`operations/classes/CLASS-MEDIA-PRODUCTION-STANDARD.md` and\n`operations/product-stewards/LEARNING-CONTENT-STANDARD.md`. The research basis\nand its 2026-08-02 check date remain in the Classes standard. Version 2 adds\nAli's 2026-08-08 ordering decision from the supplied reel analysis. Because\nproducer contracts bind the exact benchmark bytes, this revision invalidates\nstale communication designs before further drafting. A future evidence refresh\nmay revise this lens through Learning-owner admission; it may not silently\nchange an in-flight producer contract.\n"
+  },
+  "claims": [
+    {
+      "id": "reported-route",
+      "claim": "Zimperium reported RatHat as Android malware spread through deceptive download pages and says its route begins with manual installation outside Google Play.",
+      "scope": "Vendor research report, not a prevalence or remote-infection claim.",
+      "sourceIds": [
+        "zimperium-rathat-20260916"
+      ]
+    },
+    {
+      "id": "accessibility",
+      "claim": "The report says Accessibility Service activation is a critical dependency; Google explains that access can read screen content and interact with apps on a person's behalf.",
+      "scope": "The report describes this family; Google also says legitimate disability-support apps may need the setting.",
+      "sourceIds": [
+        "zimperium-rathat-20260916",
+        "google-restricted-settings-20260919"
+      ]
+    },
+    {
+      "id": "google-guidance",
+      "claim": "Google recommends keeping Play Protect on and says not to allow restricted settings unless the developer is trusted.",
+      "scope": "Official general guidance; not a guarantee of clean-device status.",
+      "sourceIds": [
+        "google-play-protect-20260919",
+        "google-restricted-settings-20260919"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "zimperium-rathat-20260916",
+      "url": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts",
+      "authority": "Zimperium primary malware-research disclosure.",
+      "limitation": "Vendor research describes a claimed observed delivery chain; it does not show every phone is infected or establish prevalence.",
+      "source": {
+        "url": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts",
+        "passage": "Zimperium says RatHat is primarily distributed through targeted smishing and malvertising that leads victims to deceptive third-party download portals, then lures them into manually downloading malicious APKs.",
+        "additionalPassage": "Zimperium says a critical dependency is Accessibility Service activation, acquired through a localized lure."
+      }
+    },
+    {
+      "id": "google-play-protect-20260919",
+      "url": "https://support.google.com/googleplay/answer/2812853?hl=en",
+      "authority": "Google official Play Protect guidance.",
+      "limitation": "Protective feature description, not a guarantee.",
+      "source": {
+        "url": "https://support.google.com/googleplay/answer/2812853?hl=en",
+        "passage": "Google Play Protect checks apps and devices for harmful behavior, including potentially harmful apps from other sources; it can warn, deactivate or remove harmful apps.",
+        "additionalPassage": "Google recommends always keeping Google Play Protect on."
+      }
+    },
+    {
+      "id": "google-restricted-settings-20260919",
+      "url": "https://support.google.com/android/answer/12623953?hl=en",
+      "authority": "Google official Android restricted-settings guidance.",
+      "limitation": "Legitimate disability-support apps may need accessibility settings; this is not a basis for blanket disabling.",
+      "source": {
+        "url": "https://support.google.com/android/answer/12623953?hl=en",
+        "passage": "Google says not to allow restricted settings unless you trust the app developer.",
+        "additionalPassage": "Google says some legitimate disability-support apps might ask to turn on accessibility settings; with that access, an app can read screen content and interact with apps on a person's behalf.\nGoogle advises an unsure reader to use the organization’s official website or search an app store they trust, such as Google Play."
+      }
+    }
+  ],
+  "sourcePacket": {
+    "binding": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/source-evidence.json",
+      "sha256": "cbf784a9ecaf24d848186129b7f171433cc775128092cbed12490c9c705175ed"
+    },
+    "rawCaptures": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/zimperium-primary-start.raw.txt",
+        "sha256": "edae5bdb1d0d1fe028c80d8692f1fa711ed3988fe7eb8e8754872fcfa04a3fad"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/zimperium-primary-end.raw.txt",
+        "sha256": "fc08f03ffe03259bccf873f483bb276d108b05a0b37b163ce3ee522ff7c6f862"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/google-android-guidance-web.raw.txt",
+        "sha256": "f85607e273781358bb5c44f6ac97b6b017bf47198d228344bc644da18d487373"
+      }
+    ],
+    "safetyBoundary": "Only supplied normal-source captures are used; no exploit mechanism, blocked-source recovery or alternate-route capture is relied on."
+  },
+  "reviewBoundary": {
+    "status": "PENDING_DISTINCT_INDEPENDENT_REVIEW",
+    "instruction": "Begin with the complete article and the complete supplied source passages. The producer receipt is not editorial evidence."
+  }
+}

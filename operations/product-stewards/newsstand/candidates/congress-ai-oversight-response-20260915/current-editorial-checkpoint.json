@@ -1,0 +1,94 @@
+{
+  "status": "ACTUAL_QUALIFIED_EDITORIAL_PASS_BOUND_ART",
+  "candidateId": "congress-ai-oversight-response-20260915",
+  "checkedAt": "2026-09-16T00:03:59.679Z",
+  "story": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/story.json",
+    "sha256": "a7753ba736a4c9fa5995cf118f021b42cc4445a7a3f85e7b5688470e21c3cc3d"
+  },
+  "reviewText": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/review-text.json",
+    "sha256": "8b9739bb671ba75266d67c582f485f1c7b57cdbc2cce51624d27bbce3350baf4"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/producer-publication-review.json",
+    "sha256": "4f302527e6291b7bb5433bb713ef47a540661f431131985dcc181eb65a00a6f3"
+  },
+  "visualAdmission": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/art/independent-review-library-v2.json",
+    "sha256": "74280fc3ec5503af907ea639cb940a41179323a7c10aeae81a530cd51bc35bc0"
+  },
+  "actualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/editorial-review-v1/article-editorial-provider.raw.json",
+    "sha256": "076a7a1f62fe13eae580da31c7b23f75790baab401633984ac7d0555bc131e75"
+  },
+  "editorialResult": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/editorial-review-v1/article-result.json",
+    "sha256": "9bb45acb9c2ae963054b3e0add0e639bdfa9ed71529964eafb85a346a99a76af"
+  },
+  "sourceBudget": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/source-budget-final.json",
+    "sha256": "30fcf02238f018b60961103aceb64b7fba104352afb28bdc661698fb5a22cd2c"
+  },
+  "preflight": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/art-bound-preflight.json",
+    "sha256": "fddf5e69087196575bf3c3d27e05fd49571a9ff30f2b29030a14be6b3be2be96"
+  },
+  "subscriptionRoute": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/editorial-subscription-route.json",
+    "sha256": "ab2216c8894524ab303c0d7d90ceddb80b1302fad59a28c79e0b1a63b1b64677"
+  },
+  "providerModels": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "durationMs": 87757,
+  "editorialAttempts": 1,
+  "predispatchValidationFailuresNotProviderAttempts": 1,
+  "libraryAnchorRepair": {
+    "defectIssues": 1,
+    "knownRequirementRepeated": true,
+    "priorRecordsPreserved": "pre-library-anchor/",
+    "freshReview": true
+  },
+  "actualFactClaims": [
+    {
+      "id": "house",
+      "state": "qualified",
+      "reason": "AP L1816 confirms Democrats 'convening in private on Tuesday in the House to discuss AI'. The article's added calendar date 'September 15' is a reasonable dateline inference from the same-day reporting but is not literally in the excerpt."
+    },
+    {
+      "id": "sanders",
+      "state": "supported",
+      "reason": "AP L1816: 'Sen. Bernie Sanders, I-Vt., is hosting his colleagues for a briefing with experts on Wednesday' — matches the article exactly."
+    },
+    {
+      "id": "thune",
+      "state": "supported",
+      "reason": "AP L1872: Thune 'said he spoke that night with Sen. Amy Klobuchar... about a path forward on legislation'; the article's attributed phrasing 'says he discussed' preserves the attribution."
+    },
+    {
+      "id": "kennedy",
+      "state": "supported",
+      "reason": "AP L1877: Kennedy 'plans to offer a so-called kill switch measure on Wednesday that would require developers to have the capacity to shut down their systems if needed' — matched, including the conditional 'if needed'."
+    },
+    {
+      "id": "johnson",
+      "state": "supported",
+      "reason": "AP L1880: Johnson was downbeat on legislation, 'calling instead for Trump to summon AI leaders for a meeting' — the article's 'favors an AI-leaders meeting' is a faithful compression."
+    },
+    {
+      "id": "stage",
+      "state": "supported",
+      "reason": "AP describes only meetings, briefings and planned measures; Kennedy's measure 'would need the Senate's full support to advance', fast movement 'seems unlikely', and the House is about to adjourn — nothing enacted, matching P003."
+    }
+  ],
+  "canonicalWrites": false,
+  "queueWrites": false,
+  "ordinaryCandidateAssembledByThisLane": false,
+  "limitations": [
+    "Actual AI editorial/fact assessment, no human comprehension test.",
+    "Independent source-art/mobile exact companion admission, integrated live runtime owned by root.",
+    "Parent root owns admission assembly and public release."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "newsstand-current-reader-authority-comparison-v1",
+  "checkedAt": "2026-09-20T17:08:54.025Z",
+  "currentCanonical": {
+    "repository": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage",
+    "branch": "homepage-redesign",
+    "head": "05406ef9d0f3fa1edd7bed584814604150ec8ffc",
+    "readerContract": {
+      "path": "content/newsstand-reader-contract.js",
+      "sha256": "5d6429b768aa54409a6514d50242c07e15bd3e894355671e0423ac0417dc5315",
+      "publishedStoryImageRequirement": false
+    },
+    "browserContract": {
+      "path": "scripts/test-newsstand-reader-contract.mjs",
+      "sha256": "384472ddb5d582b7e142c758b44c739a3d4f83b915ec2f457edbc7c48d3bf718",
+      "textFirstLeadRequiredForStoryWithoutAdmittedVisual": true
+    }
+  },
+  "producerWorktree": {
+    "repository": "/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907",
+    "branch": "ops/newsstand-recurring-20260905",
+    "readerContract": {
+      "path": "content/newsstand-reader-contract.js",
+      "sha256": "1ad2e39123cdc91e49b2df48459b125b2a9b4932f32cb7ef6d6764c6a48efe88",
+      "publishedStoryImageRequirement": true,
+      "introducedByCommit": "078444d8a4e8e3204845e7b59614a13e786de7f4"
+    }
+  },
+  "decision": "USE_CURRENT_CANONICAL_TEXT_FIRST_READER_CONTRACT",
+  "reason": "The current canonical reader contract does not reject a published story without heroVisual, and the current browser contract expressly requires a truthful text-first lead when no admitted visual exists. The older producer worktree image gate is absent from current canonical ancestry.",
+  "visualDecision": {
+    "heroVisual": null,
+    "newAssetCreated": false,
+    "reason": "No image is required by current authority; creating art would add a separate Tier 1 meaning-bearing artifact and admission burden without improving this short policy explainer."
+  }
+}

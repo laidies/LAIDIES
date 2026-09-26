@@ -1,0 +1,11 @@
+Gates Foundation pledges $1B for AI access. Useful for whom?
+
+The Gates Foundation is pledging $1 billion over two years for AI access in health, education, agriculture and local languages, AP reported on September 15. It is a funding pledge, not evidence of benefits already delivered.
+
+The foundation’s 2026 Goalkeepers report argues that AI tools need to work in local languages and reflect local circumstances. An answer can be understandable and still be unusable: imagine a health worker receiving clear guidance that depends on a clinic or treatment unavailable where she works. Translating the words would not create that missing service.  That is why the report calls for local language data—examples that represent how people actually speak—and evaluation in the settings the tools are meant to serve. Its proposed goal is useful support for health workers, teachers and farmers, rather than replacing their judgment.
+
+AP reports University of Vermont sociologist Jonathan Shaffer warning that marginalized people may remain missing from the data and weak health infrastructure remains a barrier.  Many promising tools are still pilots, the foundation says. Funding, deployment and a demonstrated benefit are different things. For a project announced under this pledge, ask: who and where was it tested, compared with what, and what improved? A classroom pilot does not become effective simply because it won a grant.  AP discloses Gates Foundation funding for Africa health and development coverage; it retains editorial responsibility.
+
+“AI access means more than being able to open a chatbot. Can it actually help in the place you live?”
+
+Follow the evidence distinction in  Working with AI 101: Trusting the Output (And Checking It) .

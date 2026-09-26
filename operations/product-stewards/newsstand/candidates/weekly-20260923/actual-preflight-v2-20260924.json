@@ -1,0 +1,12 @@
+{
+  "schema": "newsstand-actual-preflight-receipt-v1",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "checkedAt": "2026-09-24T05:05:00Z",
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/weekly-20260923/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-preflight-v6-20260924/ --preflight-only",
+  "exitCode": 1,
+  "providerCalled": false,
+  "result": "HOLD_MISSING_PUBLISHED_STORY_IMAGE",
+  "stdout": "",
+  "stderrSummary": "Repair pre-review package before calling the independent editor: prepared draft: weekly-changes-need-different-verbs-20260923 published story image is missing or incomplete",
+  "interpretation": "After repairing the uncertain Sol/Luna date, Markdown heading boundaries and internal omission note, the full unmodified preflight passes reporting modules, model-release utility, producer contract, prose review and package bindings, then stops only at the required image."
+}

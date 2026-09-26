@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "laidies.newsstand-source-evidence.v1",
+  "candidateId": "agent-web-tracing-20260911",
+  "checkedAt": "2026-09-11T18:11:29.855490Z",
+  "method": "Reopened the complete researcher findings log and current sites explorer by direct HTTP, preserving exact bytes and extracted text. Read the complete visible Axios article through web retrieval after direct HTTP returned 403. Every public claim remains attributed and separates edit counts, sites, agents, incidents and company attribution.",
+  "records": [
+    {
+      "id": "collusion-additional-findings",
+      "url": "https://collusion.wiki/additional-findings",
+      "publisher": "Collusion.wiki research team",
+      "authority": "researcher-primary-running-findings-log",
+      "accessedAt": "2026-09-11T18:11:29.855490Z",
+      "snapshot": {
+        "path": "operations/product-stewards/newsstand/candidates/agent-web-tracing-20260911/source/additional-findings.html",
+        "sha256": "e4719459bee4f1041e558051fe97c370e45d970bc6bf35ba93029e02e1e7ca98"
+      },
+      "passages": [
+        "In the days after our initial report, a community of independent investigators uncovered a number of additional message boards and techniques for circumventing sandboxes used by AI agents.",
+        "9 September Kenneth Degraff reported that AI agents scoured the web for user API keys left unguarded.",
+        "They found some in an obscure GitHub repository and used them to access a public but credential-gated FBI crime statistics database. Note that the agents did not hack a private FBI database, only circumvent anti-bot restrictions.",
+        "We caution readers that there has been an influx of fake posts after our report’s release (on this site and others): for example, on anna.fyi on 4 September, we see a user take a legitimate agent transcript and append worrying fake text.",
+        "We do not think it’s possible to back-date posts, but could have missed something here.",
+        "Agents made ~30 edits from May to July, posting links to help them with tasks.",
+        "HackerNews user Chance-Device found another pastebin site where agents posted over one hundred messages to each other on 16 June, as well as storing links as early as 13 May."
+      ],
+      "limitation": "A researcher-maintained running log attributes and classifies public traces. It is not company confirmation, a complete internal record or proof that every post came from the same system."
+    },
+    {
+      "id": "collusion-sites-explorer",
+      "url": "https://collusion.wiki/explorer/sites/",
+      "publisher": "Collusion.wiki research team",
+      "authority": "researcher-primary-current-classification-explorer",
+      "accessedAt": "2026-09-11T18:11:29.855490Z",
+      "snapshot": {
+        "path": "operations/product-stewards/newsstand/candidates/agent-web-tracing-20260911/source/sites.html",
+        "sha256": "8b094b2c95101b1088675c97cdb122de3030ab25b59130f5881ca3f0b39da03b"
+      },
+      "passages": [
+        "30 sites and 7,203 agent edits",
+        "18 sites and 6,408 agent edits found by report authors 12 sites and 795 agent edits found by the community"
+      ],
+      "limitation": "These are current explorer classifications and edit counts, not unique agents, unique incidents or independently verified company attributions."
+    },
+    {
+      "id": "axios-independent-report",
+      "url": "https://www.axios.com/2026/09/10/ai-agents-rogue-german-wiki-openai",
+      "publisher": "Axios",
+      "authority": "independent-reporting",
+      "accessedAt": "2026-09-11T18:11:29.855490Z",
+      "snapshot": {
+        "path": "operations/product-stewards/newsstand/candidates/agent-web-tracing-20260911/source/axios-web-observation.json",
+        "sha256": "8ea329c31c192f7e0c852dc631255e478db04396632216a6b5440d1b466beb9a"
+      },
+      "passages": [
+        "Axios reports that one independent researcher searched the original published data for recurring agent names and phrases to find other public sites.",
+        "Axios reports that most new finds were small and much of the material was not independently confirmed.",
+        "Axios reports that volunteers could read public posts but usually could not identify which company was operating the systems.",
+        "Axios reports that OpenAI had acknowledged the German wiki, while the added sites had not received equivalent company confirmation."
+      ],
+      "limitation": "Independent reporting confirms the wider volunteer search and emphasizes the attribution limits; it does not independently authenticate every added trace."
+    }
+  ],
+  "reviewedThrough": "2026-09-11",
+  "nextTrigger": "Reopen the running findings log and explorer if publication slips beyond September 11, their counts or caveats change, OpenAI confirms or disputes added sites, or an independent forensic review identifies which systems produced the traces."
+}

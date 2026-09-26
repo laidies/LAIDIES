@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "laidies-newsstand-combined-editorial-raw.v1",
+  "candidateId": "california-chatbot-law-20260910",
+  "storySha256": "5c3dee66f135287507847be8ddda2ca84742e7acb105254e4aef4e332fc001f8",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "verdict": "PASS",
+  "findings": {
+    "reader": "A clear, well-sourced dated news article that correctly separates signing, operative dates, concrete safeguards and audit timetables, grounds the stakes in a real family question, and preserves uncertainty about future effectiveness. All reader outcomes pass and no failure families are present.",
+    "facts": "Factually sound article: signing, scope, operative date, defaults, memory exception, prohibited behaviours, family context and audit provisions all match the enrolled text, sponsor release and AP report with correct attribution. The status-lag claim is qualified only because the check-timing phrasing slightly exceeds the source excerpt; its substance and framing remain accurate."
+  },
+  "readerProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/independent-review/runtime-claude-fable-20260911-v2/article-editorial-provider.raw.json",
+    "sha256": "83b5c01ede536f68d0889da0761215621d7921b0f4a5d2d86dd04f0127f26e00"
+  },
+  "factualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/independent-review/runtime-claude-fable-20260911-v2/article-editorial-provider.raw.json",
+    "sha256": "83b5c01ede536f68d0889da0761215621d7921b0f4a5d2d86dd04f0127f26e00"
+  },
+  "factualJudgment": {
+    "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/independent-review/runtime-claude-fable-20260911-v2/article-editorial-judgment.json",
+    "sha256": "5485b5dd11957de818676ea8a64e1ef57ed7e07a96779989ed74253dac34a856"
+  },
+  "failedInitialAttempt": {
+    "status": "PRESERVED_PROTOCOL_FAILURE_AFTER_CLAIM_EXCERPT_MISMATCH",
+    "failure": {
+      "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/independent-review/runtime-claude-fable-20260911-v1/article-editorial-failure.json",
+      "sha256": "6bc73287cb42af53d329335826233f81f7ed09c9bf87e9d22b89b78a9128d9e1"
+    },
+    "judgment": {
+      "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/independent-review/runtime-claude-fable-20260911-v1/article-editorial-judgment.json",
+      "sha256": "7680eba15a2e3106e76e9a0ac74f673e79b0dc2fcb09e12a1865f9f471f5775f"
+    }
+  },
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  }
+}

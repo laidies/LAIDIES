@@ -1,0 +1,7 @@
+# Try this today — production brief
+
+The existing Daily label is Try this today; no invented new character, fake quotation or founder anecdote. Ali wants a small useful act of curiosity or mutual support, including asking questions even when you think others know the answer. Build thirty distinct optional daily entries, a month of choices, not an achievement streak. Everyday life and community belong alongside occasional work. No claim that women lack confidence; no mass-produced empowerment language. No obligation to spend money, sign up, post publicly or give unpaid mentoring.
+
+Each entry has one situation and one doable act, with a concrete check on whether it helped. The act may ask, investigate, give credit, invite, offer useful feedback or share opportunity. Where another person is involved, keep consent and agency. An optional related destination must be exact and useful. Entries without a real destination can stand alone. Do not invent product capabilities or source quotations; these are original editorial activity suggestions, not reported science or evidence of effectiveness.
+
+First representative check: one clarification question, one specific credit action and one low-risk AI comparison. Verify each is possible without insider knowledge, required purchases or public exposure, and that the reader can tell what to do. Only then complete the bank. Review all thirty together for repetition and tone as well as each item for usefulness. Publication requires actual producer and independent review; this brief supplies no approval.

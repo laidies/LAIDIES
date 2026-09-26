@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "newsstand-independent-source-capture-v1",
+  "lane": "/root/aft_school_story",
+  "triggerAt": "2026-09-16T14:01:00Z",
+  "observationRecordedAt": "2026-09-16T14:08:13Z",
+  "timestampNote": "The normal-web reader reported Crawled: today, not a fetch timestamp. The record time is the first shell timestamp captured after the bounded reads; the reads occurred after the scheduled trigger and no later than this record time.",
+  "sources": [
+    {
+      "sourceId": "ap-ai-hub-20260916-morning",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "access": "NORMAL_RENDERED_SUCCESS",
+      "readScope": "Rendered rolling index inspected for current headline inventory.",
+      "materialNewItems": [
+        "Americans are increasingly concerned about the environmental impact of AI, new poll finds",
+        "Zuckerberg distances Meta from calls for a coordinated approach on an AI slowdown",
+        "AI rivals found rare agreement on safety. Putting it into practice is harder"
+      ]
+    },
+    {
+      "sourceId": "ap-norc-ai-environment-poll-20260916",
+      "url": "https://apnews.com/article/ai-environmental-impact-data-centers-trump-228d625ab7c62cd583bc67d65074f7d4",
+      "access": "NORMAL_RENDERED_SUCCESS",
+      "readScope": "Complete article body inspected, rendered lines 1750-1876, including findings, opposing/qualifying views and methodology.",
+      "sourceFacts": [
+        "AP reports 53% of US adults were extremely or very concerned about AI's environmental impacts, compared with 41% in its 2025 poll.",
+        "About six in ten supported limiting the number of new data centres, and about two thirds supported requiring clean energy for them.",
+        "The article reports majority concern about local electricity-price and water-supply effects.",
+        "The AP-NORC poll interviewed 3,424 adults from July 6-24, 2026 and reports a plus or minus 2.2 percentage-point sampling error.",
+        "The sample combined NORC's probability-based AmeriSpeak panel with opt-in online panels; NORC says it used TrueNorth calibration for potential nonprobability-sample bias."
+      ],
+      "limits": [
+        "This measures US public opinion, not data-centre environmental performance or the correctness of any concern.",
+        "The 12-point change is a percentage-point change, not a 12% relative increase.",
+        "Questions about AI broadly and questions about data centres must not be merged into one measure.",
+        "The article describes political subgroup differences; no women-specific result was reported."
+      ],
+      "samePublisherInteractive": {
+        "url": "https://interactives.ap.org/embeds/z2kFq/2/",
+        "access": "NORMAL_RENDERED_SUCCESS",
+        "readScope": "Complete short embed text inspected; it repeated the sample dates, sample size and margin of sampling error. Treated as the same AP-NORC source family, not an independent source."
+      },
+      "visitorSourceBudget": {
+        "publisherFamily": "Associated Press and AP-NORC interactive",
+        "aggregateMaximumWords": 100,
+        "allVisibleFields": true
+      }
+    },
+    {
+      "sourceId": "ap-zuckerberg-slowdown-response-20260916",
+      "url": "https://apnews.com/article/ai-zuckerberg-meta-slowdown-2f4eab05b1e931456d00ebc2fe93c989",
+      "access": "NORMAL_RENDERED_SUCCESS",
+      "readScope": "Complete article body inspected, rendered lines 1750-1814.",
+      "sourceFacts": [
+        "AP reports Zuckerberg argued that each lab should choose the pace required to train safely rather than wait for a coordinated slowdown.",
+        "He cited Meta's delayed Muse release and argued that compute should serve people rather than a race toward recursive self-improvement."
+      ],
+      "limits": "A participant's stated position, not proof that company-by-company pacing works or that Muse is safe.",
+      "visitorSourceBudget": {
+        "publisher": "Associated Press",
+        "aggregateMaximumWords": 100,
+        "allVisibleFields": true
+      }
+    },
+    {
+      "sourceId": "ap-ai-slowdown-feasibility-20260916",
+      "url": "https://apnews.com/article/ai-slowdown-challenges-anthropic-openai-trump-b61f28b6212338e88c0baec31f661701",
+      "access": "NORMAL_RENDERED_SUCCESS",
+      "readScope": "Complete article body inspected through rendered line 1885; relevant implementation and criticism section lines 1831-1873.",
+      "sourceFacts": [
+        "AP describes the proposed embedded-evaluator access as employee-like access with offices, badges and company laptops.",
+        "AP reports criticism that assessors could remain company-controlled until measures and standards are public, and that industry-written standards could concentrate power.",
+        "The report distinguishes public attention and voluntary commitments from implementation."
+      ],
+      "limits": "Detailed independent reporting, but not the original company posts or a completed evaluator-access agreement.",
+      "visitorSourceBudget": {
+        "publisher": "Associated Press",
+        "aggregateMaximumWords": 100,
+        "allVisibleFields": true
+      }
+    }
+  ]
+}

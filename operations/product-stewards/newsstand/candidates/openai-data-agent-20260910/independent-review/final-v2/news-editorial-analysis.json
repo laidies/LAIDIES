@@ -1,0 +1,92 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "openai-data-agent-20260910",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "3738311bf27f7d5165a6ae180736587ec5c16a9c34b48e34cb20f661953abaff",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can two polished Data agent dashboards give different numbers for the same question, and why doesn't permission enforcement fix that?",
+      "response": "Because the dashboard's number is produced upstream of the interface: the agent only reads the sources administrators connected and the rows the account may see, and then applies whatever rule the company uses to define the metric. Two teams with different definitions of 'active customer' produce two correct-looking dashboards answering different questions. Permissions only control access; they cannot prove the connected source is complete, that the definition fits this decision, or that the explanation is right.",
+      "expectedEvidence": "The article must state the access limits (connected sources, allowed records), define permission and metric definition, and explicitly separate what permissions do and do not guarantee.",
+      "assessment": "P007 supplies the access limits and both definitions; P008 supplies the two-definitions example and the explicit limit statement, so the article fully supports this causal answer in ordinary language."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "The dashboard shows a confident 34-day average. What should the manager check before presenting it, using the article's mechanism?",
+      "response": "First, source: the number comes only from the connected ATS, so contractor and executive hires are invisibly excluded — completeness must be verified, not assumed. Second, definition: state which start point (posting vs first interview) the metric used, since two polished answers could differ by weeks. Third, permission: the account's row limits silently shape the population counted. Then compare the figure against the trusted quarterly HR report before sharing, and stop if they differ.",
+      "expectedEvidence": "The article's mechanism must generalize: connected-source limits (P007), definition ambiguity (P008), permission-shaped visibility (P007) and the compare-with-trusted-report action (P009).",
+      "assessment": "The mechanism transfers cleanly to this new HR scenario with no additional concepts required, confirming the article teaches a reusable model rather than a one-off caution."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The September 10 release, what the agent does, how it is administered and what evidence is missing form a coherent causal sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released a Data agent in ChatGPT Work on September 10. It is a workplace data tool that can connect an approved account to company data, investigate a question and build a dashboard. A colleague can ask why sales slowed without first writing a database query.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The plugin is available through ChatGPT Work. Administrators install it, connect its data sources and decide who may use them. OpenAI announced no standalone plugin price.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The largest evidence gap is accuracy. VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published. OpenAI described an internal comparison with its own data tools but supplied no public number. There is no independent hands-on benchmark yet showing how reliably it answers questions across customers' systems.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Permission and metric definition are defined in plain words at their first meaningful use inside the mechanism, not as a detached glossary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The agent can only work with the sources its administrators connect and the records its account is already allowed to see. A <strong>permission</strong> means which tables, rows and columns the connected account is allowed to see. A <strong>metric definition</strong> is the rule a company uses to decide what a number includes.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequence is grounded in a specific situation: sharing a dashboard number that answers a different question than the decision requires.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Before sharing a Data agent result, open the evidence behind its findings. Name the source and date, state the metric definition, and compare one important figure with the trusted report your team already uses. If the totals differ, stop there and investigate.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>Ask: “Which data and definition produced this answer, and what happens if it is wrong?”</p>",
+          "locator": "P012"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; advice tracks the documented controls (read/write separation, approval prompts, training default) rather than invention.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Before sharing a Data agent result, open the evidence behind its findings. Name the source and date, state the metric definition, and compare one important figure with the trusted report your team already uses. If the totals differ, stop there and investigate.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>OpenAI's controls separate who can use a plugin, which read or write actions it may take and when ChatGPT asks for approval. For an early test, let the agent prepare the dashboard while sending messages or changing records still requires a person.</p>",
+          "locator": "P010"
+        },
+        {
+          "excerpt": "<p>OpenAI says business-product data is not used to train its models by default. Check your organization's account, retention rules, permissions and workplace policy before adding sensitive data.</p>",
+          "locator": "P011"
+        }
+      ]
+    }
+  }
+}

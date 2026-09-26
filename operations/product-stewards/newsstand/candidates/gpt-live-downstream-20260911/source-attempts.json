@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-09-11T02:36:19-07:00",
+  "attempts": [
+    {
+      "url": "https://openai.com/index/introducing-gpt-live-1-in-the-api/",
+      "status": "FULL_SOURCE_READ_VIA_BROWSER_LAYER",
+      "observation": "The September 10 release page resolved in full through the current browsing layer. Direct curl returned HTTP 403, so no local HTML snapshot is represented as a successful primary capture. The linked official developer documentation was downloaded separately as exact Markdown."
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/live",
+      "status": "FULL_PRIMARY_MARKDOWN_CAPTURED",
+      "capture": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-snapshots/openai-gpt-live-docs.md",
+      "sha256": "e23b586647f870690c7475c089b1da3ac67481345747fe54f8a339c5c5d3f642"
+    },
+    {
+      "url": "https://www.businesswire.com/news/home/20260909348516/en/",
+      "status": "DIRECT_HTTP_403_FULL_SYNDICATED_RELEASE_CAPTURED",
+      "observation": "The direct Business Wire URL returned HTTP 403. The full Yelp-authored Business Wire release resolved through its publisher-linked syndication mirror and was captured in HTML and extracted text.",
+      "capture": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-snapshots/yelp-hatch-businesswire-mirror.html",
+      "sha256": "951420a567996f93de521e9665c8e462d7a787a8059daa38e8991d77ebd468d7"
+    },
+    {
+      "url": "https://thenewstack.io/gpt-live-1-voice-api/",
+      "status": "DISCOVERED_NOT_USED_FOR_OUTCOME_CLAIMS",
+      "observation": "Same-day independent technical reporting was found, but it primarily restated the release and customer claims. No independent September 10 efficacy evaluation, rollout count or transaction-success study was found."
+    }
+  ]
+}

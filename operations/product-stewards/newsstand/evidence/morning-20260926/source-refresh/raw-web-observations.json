@@ -1,0 +1,301 @@
+{
+  "schemaVersion": "newsstand-source-refresh-observations-v1",
+  "observedAt": "2026-09-26T14:01:44Z",
+  "editorialDate": "2026-09-26",
+  "operator": "/root/california_order_producer",
+  "mode": "MORNING_SIX_DESK_PROVIDER_DEEPMIND_AND_AIDB_IDENTITY_SWEEP",
+  "routeGuard": {
+    "command": "node scripts/check-practitioner-signal-pilot.mjs --newsstand-only --as-of 2026-09-26",
+    "result": "NEWSSTAND SOURCE ROUTES PASS desks=6 sources=8 research_completion_certified=false"
+  },
+  "sourceObservations": [
+    {
+      "sourceId": "SRC-AP-AI",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "outcome": "CHECKED_NO_NEW_DISTINCT_EVENT",
+      "webRefs": [
+        "turn1235view0",
+        "turn1236view0"
+      ],
+      "returnedEvidence": [
+        "The visible top items remained OpenAI model-misalignment coverage and the AI-slowdown lawsuit, both existing identities."
+      ],
+      "assessment": "Current AP AI hub inspected; no distinct new Sep26 event was established."
+    },
+    {
+      "sourceId": "SRC-NATURE-ML",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "outcome": "CHECKED_TWO_NEW_RESEARCH_IDENTITIES_EXCLUDED_FROM_DAILY_PRODUCTION",
+      "webRefs": [
+        "turn1235view1",
+        "turn1236view1",
+        "turn1236view2",
+        "turn1243view2",
+        "turn1245view4"
+      ],
+      "returnedEvidence": [
+        "Physics informed machine learning predicts binding free energy changes in protein-RNA complexes upon mutations, Communications Biology research, Sep26.",
+        "SpaCEy links spatial tissue patterns to clinical outcomes using explainable graph neural networks, Nature Communications research, Sep26.",
+        "The index describes prediction and association results; it does not establish clinical deployment or individual treatment outcomes."
+      ],
+      "assessment": "Two Sep26 biomedical research identities were enumerated. Both remain research findings without a concrete current ordinary-reader action or verified clinical consequence; they are excluded from Daily production at index stage, not represented as clinical proof."
+    },
+    {
+      "sourceId": "SRC-FTC-AI",
+      "url": "https://www.ftc.gov/industry/technology/artificial-intelligence",
+      "outcome": "CHECKED_NO_NEW_ITEM",
+      "webRefs": [
+        "turn1235view2",
+        "turn1236view3"
+      ],
+      "returnedEvidence": [
+        "Latest visible AI index entry remained the Aug27 active-listening orders."
+      ],
+      "assessment": "No Sep26 FTC AI item appeared."
+    },
+    {
+      "sourceId": "SRC-EFF-AI",
+      "url": "https://www.eff.org/issues/ai",
+      "outcome": "CHECKED_NO_NEW_ITEM",
+      "webRefs": [
+        "turn1235view3",
+        "turn1236view4"
+      ],
+      "returnedEvidence": [
+        "Latest visible update remained EFF's Sep18 statement on California's AI executive order."
+      ],
+      "assessment": "No later EFF AI item appeared; the Sep18 statement is already candidate-bound."
+    },
+    {
+      "sourceId": "SRC-BLEEPINGCOMPUTER-AI",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "outcome": "CHECKED_NEW_OPENAI_USER_IMAGE_DISCLOSURE",
+      "webRefs": [
+        "turn1235view4",
+        "turn1236view5",
+        "turn1237view0",
+        "turn1241view0",
+        "turn1242search0",
+        "turn1243view1"
+      ],
+      "returnedEvidence": [
+        "Index headline: OpenAI's AI agents accidentally uploaded user-provided images to third-party sites, Sep26 08:28.",
+        "The index link resolved to a stale unrelated page in the tool and the guessed article URL was inaccessible.",
+        "TechCrunch Sep25 full report says OpenAI disclosed 53 user-provided images were posted to image-hosting sites as unlisted links, some remained online, and OpenAI said it could not identify the affected users to notify them."
+      ],
+      "assessment": "A material privacy follow-up exists. The independent report is complete, while the current Bleeping link identity is broken in the tool and the accessible official OpenAI page omits the image-specific timeline/detail from its rendered body. Keep source-blocked pending exact primary passage and scope, and do not imply all ChatGPT images were exposed."
+    },
+    {
+      "sourceId": "SRC-OPENAI-NEWS",
+      "url": "https://openai.com/news/",
+      "outcome": "CHECKED_NO_NEW_INDEX_ITEM",
+      "webRefs": [
+        "turn1235view5",
+        "turn1236view6"
+      ],
+      "returnedEvidence": [
+        "No Sep26 newsroom item appeared in the current index."
+      ],
+      "assessment": "No new newsroom-index identity; the separate evolving incident page was inspected directly."
+    },
+    {
+      "sourceId": "SRC-OPENAI-INCIDENT",
+      "url": "https://openai.com/hugging-face-incident-and-misalignment/",
+      "outcome": "CHECKED_EVOLVING_PRIMARY_PAGE_IMAGE_DETAIL_NOT_RENDERED",
+      "webRefs": [
+        "turn1243view0",
+        "turn1244view0",
+        "turn1244view1"
+      ],
+      "returnedEvidence": [
+        "OpenAI says it is reviewing model activity on the internet during training and evaluation and notifying affected third parties on a rolling basis.",
+        "The page defines agent spam and says the review is ongoing, but the tool-rendered body did not expose the 53-image detail reported by TechCrunch."
+      ],
+      "assessment": "Official context supports an ongoing training/evaluation review, not a universal consumer product breach. Exact image-specific primary detail remains missing from the accessible rendering."
+    },
+    {
+      "sourceId": "SRC-ANTHROPIC-NEWS",
+      "url": "https://www.anthropic.com/news",
+      "outcome": "CHECKED_NO_NEW_ITEM",
+      "webRefs": [
+        "turn1235view6",
+        "turn1236view7"
+      ],
+      "returnedEvidence": [
+        "Latest listed newsroom identity remained the Sep23 enzyme-system research."
+      ],
+      "assessment": "No Sep26 Anthropic newsroom item appeared."
+    },
+    {
+      "sourceId": "SRC-GOOGLE-AI-DEVELOPERS",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "outcome": "CHECKED_NO_NEW_ITEM",
+      "webRefs": [
+        "turn1235view7",
+        "turn1236view8"
+      ],
+      "returnedEvidence": [
+        "Latest visible changelog entry remained Sep22 Gemini 3.8 Flash TTS general availability."
+      ],
+      "assessment": "No Sep23-Sep26 Gemini API changelog item appeared."
+    },
+    {
+      "sourceId": "SRC-DEEPMIND-NEWS",
+      "url": "https://deepmind.google/blog/",
+      "outcome": "CHECKED_STALE_GAP_RESOLVED",
+      "webRefs": [
+        "turn1235view8",
+        "turn1236view9",
+        "turn1243view3",
+        "turn1244view2",
+        "turn1246search0",
+        "turn1246search1"
+      ],
+      "returnedEvidence": [
+        "Current index top entries include Gemini 3.8 Flash/Cyber, Gemini 3.8 Live with Live Avatar, Private AI Compute memory, TTS, Live, AlphaGenome Atlas, WeatherNext3 and other September identities.",
+        "Official Google result dates Flash/Cyber Sep2 and Live Avatar Sep24; Live Avatar is limited to Gemini Enterprise and custom avatar creation is allowlisted."
+      ],
+      "assessment": "Actual DeepMind index inspection closes the stale observation. The only newly dispositioned identity is Sep24 Live Avatar; its enterprise-only availability and absent personal consumer access make it low ordinary-reader priority, so it is excluded rather than promoted."
+    },
+    {
+      "sourceId": "SRC-GEMINI-RELEASE-NOTES",
+      "url": "https://gemini.google/release-notes/",
+      "outcome": "CHECKED_NO_NEW_CONSUMER_RELEASE_NOTE",
+      "webRefs": [
+        "turn1235view9",
+        "turn1236view10",
+        "turn1243view4"
+      ],
+      "returnedEvidence": [
+        "Latest dated consumer release note remains Sep10 Windows app."
+      ],
+      "assessment": "No Sep11-Sep26 consumer Gemini release-note entry appeared."
+    },
+    {
+      "sourceId": "SRC-FTC-PRESS",
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "outcome": "CHECKED_NO_NEW_AI_ITEM",
+      "webRefs": [
+        "turn1247view0"
+      ],
+      "returnedEvidence": [
+        "Latest releases are Sep24 Rules of Practice and impersonation-rule consultation; neither establishes a distinct AI event. The latest visible AI-specific item remains the Aug27 active-listening orders."
+      ],
+      "assessment": "Current general FTC press index inspected; no new AI-specific event."
+    },
+    {
+      "sourceId": "SRC-EFF-UPDATES",
+      "url": "https://www.eff.org/updates",
+      "outcome": "CHECKED_NO_NEW_DISTINCT_AI_EVENT",
+      "webRefs": [
+        "turn1247view1"
+      ],
+      "returnedEvidence": [
+        "Sep24 DraftKings behavioral-advertising article is visible and predates this cycle; Sep18 California AI order statement remains the latest directly general-AI policy item."
+      ],
+      "assessment": "Current general EFF updates index inspected; no Sep26 distinct AI event established."
+    },
+    {
+      "sourceId": "SRC-BLEEPINGCOMPUTER-NEWS",
+      "url": "https://www.bleepingcomputer.com/news/",
+      "outcome": "CHECKED_NEW_OPENAI_USER_IMAGE_DISCLOSURE",
+      "webRefs": [
+        "turn1247view2"
+      ],
+      "returnedEvidence": [
+        "Top item Sep26 08:28 says OpenAI agents uploaded user-provided images to third-party image-hosting services during research and evaluation tasks."
+      ],
+      "assessment": "General index confirms the same material OpenAI privacy identity found on the AI index; one lead, not a duplicate."
+    }
+  ],
+  "aidbObservations": [
+    {
+      "channel": "website",
+      "url": "https://aidailybrief.ai/agent.json",
+      "outcome": "CHECKED_INDEX_ENDS_SEP24",
+      "webRefs": [
+        "turn1235view10",
+        "turn1236view11",
+        "turn1243view5"
+      ],
+      "returnedEvidence": [
+        "agent.json generated 2026-09-26T14:01:54.147Z; newest website edition remains Sep24 AI Agents Are Moving Into the Real World."
+      ],
+      "assessment": "Complete website identity enumeration only; metadata is not full edition content."
+    },
+    {
+      "channel": "podcast",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "outcome": "PARTIAL_CURRENT_IDENTITIES_UNCHANGED",
+      "webRefs": [
+        "turn1235view11",
+        "turn1236view12",
+        "turn1243view6"
+      ],
+      "returnedEvidence": [
+        "Latest remains Sep25 How People Are Actually Using Jev; the current six-item Apple window is retained from the Sep25 evening inventory."
+      ],
+      "assessment": "Episode identities and descriptions were inspected; no audio or full transcript was reviewed."
+    },
+    {
+      "channel": "newsletter",
+      "url": "https://aidailybrief.beehiiv.com/",
+      "outcome": "NONRETRYABLE_ORIGINAL_PRESERVED_NOT_OPENED",
+      "webRefs": [],
+      "returnedEvidence": [
+        "No request was made to the retained NONRETRYABLE newsletter route."
+      ],
+      "assessment": "Original failedAt, checkedAt and capture remain unchanged; current inventory cannot claim newsletter completeness."
+    }
+  ],
+  "expectedEditionAttempts": [
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-25",
+      "outcome": "BLOCKED_INTERNAL_ERROR",
+      "webRef": "turn1245view0"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-25.md",
+      "outcome": "BLOCKED_INTERNAL_ERROR",
+      "webRef": "turn1245view1"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-25.json",
+      "outcome": "BLOCKED_INTERNAL_ERROR",
+      "webRef": "turn1245view2"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-25/transcript.md",
+      "outcome": "BLOCKED_INTERNAL_ERROR",
+      "webRef": "turn1245view3"
+    }
+  ],
+  "leadDispositions": [
+    {
+      "leadId": "openai-agent-user-images-third-party-20260925",
+      "disposition": "NEW_EVIDENCE_BLOCKED",
+      "reason": "Material privacy consequence in complete independent reporting, but the accessible official page does not expose the image-specific passage/timeline and the Bleeping article link is broken in the tool. Scope must stay confined to research/training agents and the reported 53 images."
+    },
+    {
+      "leadId": "google-gemini-live-avatar-20260924",
+      "disposition": "EXCLUDED_LOW_ORDINARY_READER_PRIORITY",
+      "reason": "Official source limits availability to Gemini Enterprise, with custom avatar creation allowlisted; no current ordinary personal account access was established."
+    },
+    {
+      "leadId": "nature-pred-mutpri-20260926",
+      "disposition": "EXCLUDED_RESEARCH_ONLY_NO_CURRENT_READER_CONSEQUENCE",
+      "reason": "Index reports predictive research, not clinical use or a present treatment decision."
+    },
+    {
+      "leadId": "nature-spacey-clinical-outcomes-20260926",
+      "disposition": "EXCLUDED_RESEARCH_ONLY_NO_CURRENT_READER_CONSEQUENCE",
+      "reason": "The paper links tissue patterns to outcomes; no clinical deployment or individual prediction consequence was established."
+    }
+  ],
+  "forbiddenOrRetainedRoutes": {
+    "newsletterOpened": false,
+    "oldDatedEndpointsRetried": false,
+    "nonretryableRowsToRemainByteUnchanged": true
+  },
+  "completeness": "PARTIAL: all eight six-desk routes, DeepMind, Gemini consumer notes, AIDB website and Apple index were inspected. The AIDB newsletter route remained unrequested under NONRETRYABLE policy; Sep25 expected edition endpoints remained inaccessible; no AIDB full audio/transcript was reviewed."
+}

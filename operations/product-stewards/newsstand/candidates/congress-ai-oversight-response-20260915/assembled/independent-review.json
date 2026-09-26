@@ -1,0 +1,983 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "congress-ai-oversight-response-20260915",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/aft_school_story",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-16T00:03:39.942Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/review-text.json",
+      "sha256": "8b9739bb671ba75266d67c582f485f1c7b57cdbc2cce51624d27bbce3350baf4"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/publication-manifest.json",
+      "sha256": "f0e45b9af042aa8bc25712fd7174be64f817ecdefd9cba37e0afbfdc0eeece20"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/rendered-article.html",
+      "sha256": "41198f7dacf3e4b3afebf268f59e7027362c1c085fa33b5df1d8c5be5e417a76"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Is Congress actually protecting me from AI right now, or just talking about it?",
+    "promisedPayoff": "The reader can sort each reported congressional step into briefing, intention, or operative obligation and knows what to look for next.",
+    "centralMentalModel": "A ladder from announcement → proposal text → decision/passage → implementation evidence; only the top rung changes protections in practice.",
+    "dailyLifeConnection": "A parent or worker reading headlines should not assume workplace software or a child's chatbot has changed because lawmakers held meetings (P005).",
+    "surfaceJob": "A dated daily news brief reporting September 15 congressional responses with a stage-of-action boundary and one follow-up question.",
+    "desiredReaderFeeling": "Calm, oriented skepticism: informed about who is doing what without false reassurance or alarm."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Short declarative sentences; 'shutdown capability' is defined in plain words at first use; no unexplained jargon anywhere.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>AP reports House Democrats meeting privately Tuesday, September 15, about AI; Senator Bernie Sanders plans an expert briefing Wednesday. Senate leader John Thune says he discussed a legislative path with Amy Klobuchar. John Kennedy plans a Wednesday measure requiring developers to be able to shut systems down if needed. House Speaker Mike Johnson favors an AI-leaders meeting.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This report describes meetings and intentions, not enacted protections. Shutdown capability means the ability to stop a system if needed.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline the reader gains a reusable sorting tool: promise vs decision vs implementation, plus the exact next question to ask.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Keep the stages separate. A briefing can help people understand a problem. A planned measure tells you what someone wants to offer. Neither description supplies the text of an operative obligation, its start date or evidence that a developer has implemented it. Nor does the shutdown proposal tell you how a particular AI product would be stopped.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>When the next report appears, look for the actual proposal and the status of the decision. “Approved” still needs a subject: approved by whom, for which step? Keep a promise, a decision and evidence of implementation separate. This story does not establish new protections for a particular account or activity.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult and direct ('Keep the stages separate'); no condescension, no borrowed explainer persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This report describes meetings and intentions, not enacted protections. Shutdown capability means the ability to stop a system if needed.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>For a parent or worker reading about AI protections, the useful question is: who would have to do what, when, and what makes that obligation operative? An announcement of intent is a reason to follow the next step, rather than assume your workplace software or a child’s chatbot has changed.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“Ask what has actually changed, not only who promised to act.”",
+          "locator": "P007"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Interest is sustained by the genuine human stake (has anything changed for me?) rather than forced humour; proportionate for a news brief.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For a parent or worker reading about AI protections, the useful question is: who would have to do what, when, and what makes that obligation operative? An announcement of intent is a reason to follow the next step, rather than assume your workplace software or a child’s chatbot has changed.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“Ask what has actually changed, not only who promised to act.”",
+          "locator": "P007"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Dated news brief answers what happened (named actors, days) and why it matters within scope; no scope creep.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Congress discusses AI protections. Reported plans are not new law.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>AP reports House Democrats meeting privately Tuesday, September 15, about AI; Senator Bernie Sanders plans an expert briefing Wednesday. Senate leader John Thune says he discussed a legislative path with Amy Klobuchar. John Kennedy plans a Wednesday measure requiring developers to be able to shut systems down if needed. House Speaker Mike Johnson favors an AI-leaders meeting.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>When the next report appears, look for the actual proposal and the status of the decision. “Approved” still needs a subject: approved by whom, for which step? Keep a promise, a decision and evidence of implementation separate. This story does not establish new protections for a particular account or activity.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Concrete anchor to workplace software and a child's chatbot grounds the abstraction in recognizable reader situations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For a parent or worker reading about AI protections, the useful question is: who would have to do what, when, and what makes that obligation operative? An announcement of intent is a reason to follow the next step, rather than assume your workplace software or a child’s chatbot has changed.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose first, concrete stage-based causality, and a useful next question (P006–P007); principles applied without imitating any communicator.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For a parent or worker reading about AI protections, the useful question is: who would have to do what, when, and what makes that obligation operative? An announcement of intent is a reason to follow the next step, rather than assume your workplace software or a child’s chatbot has changed.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>When the next report appears, look for the actual proposal and the status of the decision. “Approved” still needs a subject: approved by whom, for which step? Keep a promise, a decision and evidence of implementation separate. This story does not establish new protections for a particular account or activity.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "“Ask what has actually changed, not only who promised to act.”",
+          "locator": "P007"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The staged mechanism in P004 supports an accurate ordinary-language answer to why the kill-switch plan changes nothing today; my explain-back below succeeds using only the article's model.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This report describes meetings and intentions, not enacted protections. Shutdown capability means the ability to stop a system if needed.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Keep the stages separate. A briefing can help people understand a problem. A planned measure tells you what someone wants to offer. Neither description supplies the text of an operative obligation, its start date or evidence that a developer has implemented it. Nor does the shutdown proposal tell you how a particular AI product would be stopped.</p>",
+          "locator": "P004"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why doesn't Senator Kennedy's planned kill-switch measure mean your chatbot or workplace AI can already be shut down under a legal requirement?",
+        "response": "Because a planned measure sits at the announcement stage. For an obligation to bind developers, there must be actual legislative text, passage by the chamber (AP notes it would need the Senate's full support to advance), enactment, an effective start date, and then evidence that developers implemented the shutdown capacity. None of those steps has occurred, so today nothing about any particular product's shutdown behaviour is legally required or verified.",
+        "expectedEvidence": "A correct answer must distinguish intention from operative obligation, name at least the missing steps (text, passage/enactment, start date, implementation evidence) drawn from P004, and conclude that no product-level change exists today (P006).",
+        "assessment": "The article's mechanism in P003–P004 and boundary in P006 fully support this answer in ordinary language; the explain-back succeeds without external knowledge."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The announcement→enactment→implementation ladder transfers cleanly to my invented state-bill scenario without needing facts absent from the article.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Keep the stages separate. A briefing can help people understand a problem. A planned measure tells you what someone wants to offer. Neither description supplies the text of an operative obligation, its start date or evidence that a developer has implemented it. Nor does the shutdown proposal tell you how a particular AI product would be stopped.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>When the next report appears, look for the actual proposal and the status of the decision. “Approved” still needs a subject: approved by whom, for which step? Keep a promise, a decision and evidence of implementation separate. This story does not establish new protections for a particular account or activity.</p>",
+          "locator": "P006"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's model, what should the parent conclude and check?",
+        "response": "Nothing has changed yet. An announced bill is an intention, not an operative obligation. The parent should look for the bill's actual text, whether it has passed both chambers and been signed, its effective date, and evidence the specific app implemented age verification. 'Moves to require' still needs a subject and a step: introduced by whom, approved by whom, in force when? Until implementation evidence exists, the app behaves exactly as before.",
+        "expectedEvidence": "Application of the announcement→text→passage/enactment→effective date→implementation ladder from P004 and the 'approved by whom, for which step' probe from P006 to a case absent from the article.",
+        "assessment": "The mechanism transfers cleanly to this new jurisdiction and product type with no strain, confirming the article teaches a genuinely reusable model rather than a one-off fact."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Action is specific and proportionate: look for the actual proposal text, ask 'approved by whom, for which step', and follow the next report rather than assume change.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When the next report appears, look for the actual proposal and the status of the decision. “Approved” still needs a subject: approved by whom, for which step? Keep a promise, a decision and evidence of implementation separate. This story does not establish new protections for a particular account or activity.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "“Ask what has actually changed, not only who promised to act.”",
+          "locator": "P007"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No figurative analogies are used; the stage-ladder framing maps literally to the legislative process and retains its limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Keep the stages separate. A briefing can help people understand a problem. A planned measure tells you what someone wants to offer. Neither description supplies the text of an operative obligation, its start date or evidence that a developer has implemented it. Nor does the shutdown proposal tell you how a particular AI product would be stopped.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "All six material claims trace to the AP excerpt with attribution retained ('AP reports', 'says'); no claim exceeds the source, and the only addition is a benign dateline date.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>AP reports House Democrats meeting privately Tuesday, September 15, about AI; Senator Bernie Sanders plans an expert briefing Wednesday. Senate leader John Thune says he discussed a legislative path with Amy Klobuchar. John Kennedy plans a Wednesday measure requiring developers to be able to shut systems down if needed. House Speaker Mike Johnson favors an AI-leaders meeting.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This report describes meetings and intentions, not enacted protections. Shutdown capability means the ability to stop a system if needed.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Named actors, specific days, a cited AP source and a recorded lastCheckedAt make every time-sensitive claim checkable for its stated date.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Congress discusses AI protections. Reported plans are not new law.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>AP reports House Democrats meeting privately Tuesday, September 15, about AI; Senator Bernie Sanders plans an expert briefing Wednesday. Senate leader John Thune says he discussed a legislative path with Amy Klobuchar. John Kennedy plans a Wednesday measure requiring developers to be able to shut systems down if needed. House Speaker Mike Johnson favors an AI-leaders meeting.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "New September 15 responses are clearly distinguished from prior reporting via linked September 13/14 stories, and the stage framing separates today's intentions from any future enacted change.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>AP reports House Democrats meeting privately Tuesday, September 15, about AI; Senator Bernie Sanders plans an expert briefing Wednesday. Senate leader John Thune says he discussed a legislative path with Amy Klobuchar. John Kennedy plans a Wednesday measure requiring developers to be able to shut systems down if needed. House Speaker Mike Johnson favors an AI-leaders meeting.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Keep the stages separate. A briefing can help people understand a problem. A planned measure tells you what someone wants to offer. Neither description supplies the text of an operative obligation, its start date or evidence that a developer has implemented it. Nor does the shutdown proposal tell you how a particular AI product would be stopped.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "Track who proposes a protection, what it would require and what establishes that it operates. Related reporting: <a href=\\\"/newsstand.html?story=trump-ai-safeguards-20260913\\\">September 13 remarks</a> and <a href=\\\"/newsstand.html?story=trump-ai-guardrails-response-20260914\\\">September 14 response</a>. Background on why AI can act, not just answer: <a href=\\\"/library.html#ai-fundamentals-101::%40ch-14-14-1-what-makes-an-agent-different-from-a-chatbot\\\">AI Fundamentals 101 §14.1 — What Makes an Agent Different From a Chatbot</a>.",
+          "locator": "P008"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequence is concrete (workplace software, child's chatbot unchanged) and uncertainty survives: the piece explicitly withholds any claim that protections exist or will pass.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For a parent or worker reading about AI protections, the useful question is: who would have to do what, when, and what makes that obligation operative? An announcement of intent is a reason to follow the next step, rather than assume your workplace software or a child’s chatbot has changed.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>When the next report appears, look for the actual proposal and the status of the decision. “Approved” still needs a subject: approved by whom, for which step? Keep a promise, a decision and evidence of implementation separate. This story does not establish new protections for a particular account or activity.</p>",
+          "locator": "P006"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Only two terms are defined and each is immediately connected to how the legislative process works.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Each paragraph does distinct work: report, boundary, consequence, next question; no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogies used; the piece explains literally throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The only references are two related stories and one Library chapter, each with a stated explanatory job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal steps from plan to operative obligation (text, start date, implementation evidence) are spelled out in P004.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Advice is case-specific: ask who approved which step, look for proposal text and implementation evidence.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Shutdown capability and operative obligation are both explained at first meaningful use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Briefing, planned measure, and enactment are explicitly related as stages, not listed as disconnected parts.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is carefully bounded: the piece asserts only what AP reports and repeatedly flags what is not established.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Days and names are given, AP is cited, and lastCheckedAt is recorded; claims are checkable for their stated dates.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete and plain throughout; no vague motivational filler.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Human stakes (parent, worker, child's chatbot) keep the brief from becoming a dry checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is mentioned anywhere in reader-facing text.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline question — do plans change protections? — is answered directly and repeatedly.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The workplace/chatbot example returns immediately to the mechanism: no obligation is yet operative.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Voice is original and house-consistent; no imitation of another communicator's mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle competes with the explanation; tone is proportionate to a news brief.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "There is no oversized hook; the reported facts lead and the stage mechanism gets full space in P004–P006.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The conclusion (not new law) is asserted in the headline but earned immediately by the staged explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending deflates rather than inflates: it explicitly says no new protections are established for any account or activity.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "All five reported congressional actions are covered plus the general intent-vs-effect lesson; scope matches the stated job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human reason (has your protection changed?) frames the piece before any procedural machinery.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not applicable in kind and not present: no single example crowds out the piece's purpose.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Organising perspective is reader orientation (what changed for you), which is exactly right for a bounded news report.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/editorial-input.json",
+        "sha256": "a3d01928ccc8df6de05170e6444077f80c21ae3a122bab0d8ec4c98bccc4821c"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "house",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>AP reports House Democrats meeting privately Tuesday, September 15, about AI; Senator Bernie Sanders plans an expert briefing Wednesday. Senate leader John Thune says he discussed a legislative path with Amy Klobuchar. John Kennedy plans a Wednesday measure requiring developers to be able to shut systems down if needed. House Speaker Mike Johnson favors an AI-leaders meeting.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/editorial-input.json",
+          "sha256": "a3d01928ccc8df6de05170e6444077f80c21ae3a122bab0d8ec4c98bccc4821c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L1812: WASHINGTON (AP) — The technology industry’s cite192†increasingly urgent warnings about the potential harm of artificial intelligence are slamming into political intransigence in Washington, offering a fresh test of the federal government’s willingness and ability to confront what may become a cite193†defining issue of the era .\nL1813: cite194†President Donald Trump is leading the opposition to recent calls by tech leaders seeking greater government oversight, including Anthropic’s Dario Amodei, OpenAI’s Sam Altman and xAI’s Elon Musk.\nL1814: \nL1815: The president dismissed efforts to limit the technology on Monday as a “conspiracy.” Other leading Republicans including Vice President JD Vance have expressed caution. House Speaker Mike Johnson has largely deferred to the White House.\nL1816: Democrats, meanwhile, are pressing for a more robust response, convening in private on Tuesday in the House to discuss AI. cite195†Sen. Bernie Sanders, I-Vt., is hosting his colleagues for a briefing with experts on Wednesday. Top candidates on the ballot this year such as Sen. Jon Ossoff of Georgia are pressing for sweeping action in Washington. And former President Barack Obama is encouraging those with White House aspirations to develop a “very clear plan” to address AI concerns.\nL1817: The contrasting responses illustrate a yawning disconnect emerging between a tech sector warning of AI’s existential threats to humanity and a federal government often struggling to accomplish basic functions under the weight of intense partisanship and election-year pressure.\nL1818: “The signals we’re receiving from our political leaders are not representing an understanding of the crisis that I think we are in fact in,” said Max Stier, the president and chief executive of the nonpartisan cite196†Partnership for Public Service . “Delay is going to prove very costly.”\nL1819: \nL1820: Related Stories\nL1821: \nL1822: cite197†Trump’s push to restrict mail ballots has failed. Other efforts to reshape the midterms are ongoing L1823: \nL1824: 6 MIN READ\nL1825: \nL1826: cite197†12 L1827: cite198†Trump and the court: If he wins, he’s happy. When he loses, he ridicules justices he appointed L1828: \nL1829: 3 MIN READ\nL1830: \nL1831: cite198†31 L1832: \nL1833: cite199†Americans value press freedom, but new surveys show support for restrictions in certain cases L1834: \nL1835: 5 MIN READ\nL1836: There are notable exceptions to the partisan divide. Sen. Josh Hawley, R-Mo., opened an investigation last week into OpenAI for its artificial intelligence system cite200†hacking into another AI company on its own . And, speaking at a Washington AI conference on Tuesday, Trump ally Steve Bannon embraced overlapping views with Sanders on the issue.\nL1837: \nL1838: “We have to rise above it,” Bannon said. “This is a hinge in history.”\nL1839: \nL1840: Read More\nL1841: ## Congress and the White House have responded to past crises\nL1842: \nL1843: Congress and the White House have managed to respond swiftly to past crises and the intensifying AI debate is emerging as a new referendum on whether they can do so again.\nL1844: During Trump’s first term, his team worked with Democrats in control of Congress to stabilize the economy as federal agencies worked to produce a vaccine to combat the COVID-19 pandemic. As the economy teetered on collapse in 2007 and 2008, President cite201†George W. Bush’s Republican administration teamed with congressional Democrats to inject money into the financial system.\nL1845: \nL1846: But Congress has long been reluctant to regulate the technology industry.\nL1847: Sign up for the Ground Game Newsletter: Your guide to the biggest stories in politics, policy and U.S. elections.\nL1848: \nL1849: [Input]\nL1850: \nL1851: Email address [Input: Email address]\nL1852: \nL1853: [Button: Sign up ]\nL1854: \nL1855: [Input] By checking this box, you agree to AP's cite164†Terms of Use and acknowledge that AP may collect and use your data pursuant to our cite165†Privacy Policy .\nL1856: \nL1857: This site is protected by reCAPTCHA and the Google cite202†Privacy Policy†policies.google.com and cite203†Terms of Service†policies.google.com apply.\nL1858: The Biden administration called on lawmakers to develop policies after a 2023 executive order on AI oversight, which Trump rescinded soon after returning to office. As the technology has progressed at a rapid clip, Congress has refrained from imposing rules or funding ways for people to successfully adjust to the potential changes from AI.\nL1859: A bipartisan working group on artificial intelligence formed by then-Senate Majority Leader Chuck Schumer released a report in 2024 recommending the U.S. spend at least $32 billion over the next three years to develop artificial intelligence and implement safeguards around it. But there was little follow up. Similarly, a bipartisan bill on internet safety for children has repeatedly stalled.\nL1860: “We never do anything until we have a holy heck moment,” said Sen. Mark Warner, a Virginia Democrat and former technology executive.\nL1861: \nL1862: Lawmakers in both parties agree more guardrails are needed, but even narrow attempts at regulation have fallen apart and a certain skepticism has set in.\nL1863: \nL1864: “Have we gotten election security done?” asked Sen. Rick Scott, R-Fla. “Did we balance a budget? Oh, did we pass a budget? See, what have we gotten done? So you think we’re going to get AI done?”\nL1865: Ossoff cast the AI debate as an example of Washington’s inability to tackle anything big.\nL1866: \nL1867: “What fills us with dread is the crushing weakness of our politics against the massive stakes of our times,” he said during a Sunday reelection rally in Athens, Georgia.\nL1868: ## A renewed sense of urgency for government oversight\nL1869: \nL1870: There are some signs of renewed urgency.\nL1871: \nL1872: After the tech leaders called for greater oversight on Saturday, Senate Majority Leader John Thune, R-S.D., said he spoke that night with Sen. Amy Klobuchar, D-Minn., about a “path forward” on legislation they’re working on.\nL1873: \nL1874: “You don’t want to stifle innovation, but I think you also want to make sure that the more advanced threats can be mitigated and there’s a capability and place to do that,” he said.\nL1875: “I also think,” he added, “that there is a way in which Congress can put guardrails around those types of more consequential threats without, in any way, harming our ability to stay ahead in the AI race.”\nL1876: \nL1877: Sen. John Kennedy, R-La., said he plans to offer a so-called kill switch measure on Wednesday that would require developers to have the capacity to shut down their systems if needed. It would need the Senate’s full support to advance.\nL1878: “AI is becoming an issue, particularly in the last few days,” he said.\nL1879: \nL1880: But with a dwindling calendar ahead of the November election, any fast movement on legislation seems unlikely. In the House, Johnson seemed downbeat on the prospect of a legislative response, calling instead for Trump to summon AI leaders for a meeting to resolve concerns.\nL1881: \nL1882: “The reflex of legislative bodies is to cover things up with red tape and hyper regulation,” he said.\nL1883: ## Trump emerges as a roadblock\nL1884: \nL1885: And any legislation that emerges would require Trump’s support, which appears unlikely at the moment.\nL1886: \nL1887: “All I can tell you is my own perspective on this,” said Hawley, who has introduced bipartisan legislation requiring federal tracking of AI safety concerns tied to national security, civil liberties and labor protections. “We need to protect working people. We need to protect kids online. We need to protect folks who are threatened by data centers.”\nL1888: “We also need to make sure,” he added, “these frontier models are not going to blow up the internet and/or the world.”\nL1889: \nL1890: For veterans of past crises, the congressional inertia is baffling.\nL1891: \nL1892: “Earth to Washington: You’re pushing an open door,” cite204†Rahm Emanuel, Obama’s chief of staff in the wake of the financial crisis and a potential 2028 presidential candidate, said in an interview. “In my entire time of public service, I’ve never had an industry or a CEO ask for regulation and oversight.”\nL1893: cite205†Rep. Don Beyer, a Virginia Democrat who is a leader in the Congressional Artificial Intelligence Caucus, said Congress is “capable” of passing stronger AI rules. He said he thinks there’s sufficient support for multiple bills, including a bipartisan measure that would establish guardrails for AI models and another that includes the kill switch provision.\nL1894: \nL1895: “It’s very much a leadership issue,” Beyer said as the House is poised to adjourn at the end of the week and not return until after the elections.\nL1896: ___\nL1897: \nL1898: Associated Press writers Josh Boak, Lisa Mascaro and Kevin Freking in Washington and Bill Barrow in Athens, Georgia, contributed to this report.\n",
+            "locator": "https://apnews.com/article/ai-regulation-trump-congress-tech-politics-d2d1bac8e8666c681937665596a4f603"
+          }
+        ],
+        "scopeAndFreshness": "AP L1816 confirms Democrats 'convening in private on Tuesday in the House to discuss AI'. The article's added calendar date 'September 15' is a reasonable dateline inference from the same-day reporting but is not literally in the excerpt."
+      },
+      {
+        "claimId": "sanders",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>AP reports House Democrats meeting privately Tuesday, September 15, about AI; Senator Bernie Sanders plans an expert briefing Wednesday. Senate leader John Thune says he discussed a legislative path with Amy Klobuchar. John Kennedy plans a Wednesday measure requiring developers to be able to shut systems down if needed. House Speaker Mike Johnson favors an AI-leaders meeting.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/editorial-input.json",
+          "sha256": "a3d01928ccc8df6de05170e6444077f80c21ae3a122bab0d8ec4c98bccc4821c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L1812: WASHINGTON (AP) — The technology industry’s cite192†increasingly urgent warnings about the potential harm of artificial intelligence are slamming into political intransigence in Washington, offering a fresh test of the federal government’s willingness and ability to confront what may become a cite193†defining issue of the era .\nL1813: cite194†President Donald Trump is leading the opposition to recent calls by tech leaders seeking greater government oversight, including Anthropic’s Dario Amodei, OpenAI’s Sam Altman and xAI’s Elon Musk.\nL1814: \nL1815: The president dismissed efforts to limit the technology on Monday as a “conspiracy.” Other leading Republicans including Vice President JD Vance have expressed caution. House Speaker Mike Johnson has largely deferred to the White House.\nL1816: Democrats, meanwhile, are pressing for a more robust response, convening in private on Tuesday in the House to discuss AI. cite195†Sen. Bernie Sanders, I-Vt., is hosting his colleagues for a briefing with experts on Wednesday. Top candidates on the ballot this year such as Sen. Jon Ossoff of Georgia are pressing for sweeping action in Washington. And former President Barack Obama is encouraging those with White House aspirations to develop a “very clear plan” to address AI concerns.\nL1817: The contrasting responses illustrate a yawning disconnect emerging between a tech sector warning of AI’s existential threats to humanity and a federal government often struggling to accomplish basic functions under the weight of intense partisanship and election-year pressure.\nL1818: “The signals we’re receiving from our political leaders are not representing an understanding of the crisis that I think we are in fact in,” said Max Stier, the president and chief executive of the nonpartisan cite196†Partnership for Public Service . “Delay is going to prove very costly.”\nL1819: \nL1820: Related Stories\nL1821: \nL1822: cite197†Trump’s push to restrict mail ballots has failed. Other efforts to reshape the midterms are ongoing L1823: \nL1824: 6 MIN READ\nL1825: \nL1826: cite197†12 L1827: cite198†Trump and the court: If he wins, he’s happy. When he loses, he ridicules justices he appointed L1828: \nL1829: 3 MIN READ\nL1830: \nL1831: cite198†31 L1832: \nL1833: cite199†Americans value press freedom, but new surveys show support for restrictions in certain cases L1834: \nL1835: 5 MIN READ\nL1836: There are notable exceptions to the partisan divide. Sen. Josh Hawley, R-Mo., opened an investigation last week into OpenAI for its artificial intelligence system cite200†hacking into another AI company on its own . And, speaking at a Washington AI conference on Tuesday, Trump ally Steve Bannon embraced overlapping views with Sanders on the issue.\nL1837: \nL1838: “We have to rise above it,” Bannon said. “This is a hinge in history.”\nL1839: \nL1840: Read More\nL1841: ## Congress and the White House have responded to past crises\nL1842: \nL1843: Congress and the White House have managed to respond swiftly to past crises and the intensifying AI debate is emerging as a new referendum on whether they can do so again.\nL1844: During Trump’s first term, his team worked with Democrats in control of Congress to stabilize the economy as federal agencies worked to produce a vaccine to combat the COVID-19 pandemic. As the economy teetered on collapse in 2007 and 2008, President cite201†George W. Bush’s Republican administration teamed with congressional Democrats to inject money into the financial system.\nL1845: \nL1846: But Congress has long been reluctant to regulate the technology industry.\nL1847: Sign up for the Ground Game Newsletter: Your guide to the biggest stories in politics, policy and U.S. elections.\nL1848: \nL1849: [Input]\nL1850: \nL1851: Email address [Input: Email address]\nL1852: \nL1853: [Button: Sign up ]\nL1854: \nL1855: [Input] By checking this box, you agree to AP's cite164†Terms of Use and acknowledge that AP may collect and use your data pursuant to our cite165†Privacy Policy .\nL1856: \nL1857: This site is protected by reCAPTCHA and the Google cite202†Privacy Policy†policies.google.com and cite203†Terms of Service†policies.google.com apply.\nL1858: The Biden administration called on lawmakers to develop policies after a 2023 executive order on AI oversight, which Trump rescinded soon after returning to office. As the technology has progressed at a rapid clip, Congress has refrained from imposing rules or funding ways for people to successfully adjust to the potential changes from AI.\nL1859: A bipartisan working group on artificial intelligence formed by then-Senate Majority Leader Chuck Schumer released a report in 2024 recommending the U.S. spend at least $32 billion over the next three years to develop artificial intelligence and implement safeguards around it. But there was little follow up. Similarly, a bipartisan bill on internet safety for children has repeatedly stalled.\nL1860: “We never do anything until we have a holy heck moment,” said Sen. Mark Warner, a Virginia Democrat and former technology executive.\nL1861: \nL1862: Lawmakers in both parties agree more guardrails are needed, but even narrow attempts at regulation have fallen apart and a certain skepticism has set in.\nL1863: \nL1864: “Have we gotten election security done?” asked Sen. Rick Scott, R-Fla. “Did we balance a budget? Oh, did we pass a budget? See, what have we gotten done? So you think we’re going to get AI done?”\nL1865: Ossoff cast the AI debate as an example of Washington’s inability to tackle anything big.\nL1866: \nL1867: “What fills us with dread is the crushing weakness of our politics against the massive stakes of our times,” he said during a Sunday reelection rally in Athens, Georgia.\nL1868: ## A renewed sense of urgency for government oversight\nL1869: \nL1870: There are some signs of renewed urgency.\nL1871: \nL1872: After the tech leaders called for greater oversight on Saturday, Senate Majority Leader John Thune, R-S.D., said he spoke that night with Sen. Amy Klobuchar, D-Minn., about a “path forward” on legislation they’re working on.\nL1873: \nL1874: “You don’t want to stifle innovation, but I think you also want to make sure that the more advanced threats can be mitigated and there’s a capability and place to do that,” he said.\nL1875: “I also think,” he added, “that there is a way in which Congress can put guardrails around those types of more consequential threats without, in any way, harming our ability to stay ahead in the AI race.”\nL1876: \nL1877: Sen. John Kennedy, R-La., said he plans to offer a so-called kill switch measure on Wednesday that would require developers to have the capacity to shut down their systems if needed. It would need the Senate’s full support to advance.\nL1878: “AI is becoming an issue, particularly in the last few days,” he said.\nL1879: \nL1880: But with a dwindling calendar ahead of the November election, any fast movement on legislation seems unlikely. In the House, Johnson seemed downbeat on the prospect of a legislative response, calling instead for Trump to summon AI leaders for a meeting to resolve concerns.\nL1881: \nL1882: “The reflex of legislative bodies is to cover things up with red tape and hyper regulation,” he said.\nL1883: ## Trump emerges as a roadblock\nL1884: \nL1885: And any legislation that emerges would require Trump’s support, which appears unlikely at the moment.\nL1886: \nL1887: “All I can tell you is my own perspective on this,” said Hawley, who has introduced bipartisan legislation requiring federal tracking of AI safety concerns tied to national security, civil liberties and labor protections. “We need to protect working people. We need to protect kids online. We need to protect folks who are threatened by data centers.”\nL1888: “We also need to make sure,” he added, “these frontier models are not going to blow up the internet and/or the world.”\nL1889: \nL1890: For veterans of past crises, the congressional inertia is baffling.\nL1891: \nL1892: “Earth to Washington: You’re pushing an open door,” cite204†Rahm Emanuel, Obama’s chief of staff in the wake of the financial crisis and a potential 2028 presidential candidate, said in an interview. “In my entire time of public service, I’ve never had an industry or a CEO ask for regulation and oversight.”\nL1893: cite205†Rep. Don Beyer, a Virginia Democrat who is a leader in the Congressional Artificial Intelligence Caucus, said Congress is “capable” of passing stronger AI rules. He said he thinks there’s sufficient support for multiple bills, including a bipartisan measure that would establish guardrails for AI models and another that includes the kill switch provision.\nL1894: \nL1895: “It’s very much a leadership issue,” Beyer said as the House is poised to adjourn at the end of the week and not return until after the elections.\nL1896: ___\nL1897: \nL1898: Associated Press writers Josh Boak, Lisa Mascaro and Kevin Freking in Washington and Bill Barrow in Athens, Georgia, contributed to this report.\n",
+            "locator": "https://apnews.com/article/ai-regulation-trump-congress-tech-politics-d2d1bac8e8666c681937665596a4f603"
+          }
+        ],
+        "scopeAndFreshness": "AP L1816: 'Sen. Bernie Sanders, I-Vt., is hosting his colleagues for a briefing with experts on Wednesday' — matches the article exactly."
+      },
+      {
+        "claimId": "thune",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>AP reports House Democrats meeting privately Tuesday, September 15, about AI; Senator Bernie Sanders plans an expert briefing Wednesday. Senate leader John Thune says he discussed a legislative path with Amy Klobuchar. John Kennedy plans a Wednesday measure requiring developers to be able to shut systems down if needed. House Speaker Mike Johnson favors an AI-leaders meeting.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/editorial-input.json",
+          "sha256": "a3d01928ccc8df6de05170e6444077f80c21ae3a122bab0d8ec4c98bccc4821c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L1812: WASHINGTON (AP) — The technology industry’s cite192†increasingly urgent warnings about the potential harm of artificial intelligence are slamming into political intransigence in Washington, offering a fresh test of the federal government’s willingness and ability to confront what may become a cite193†defining issue of the era .\nL1813: cite194†President Donald Trump is leading the opposition to recent calls by tech leaders seeking greater government oversight, including Anthropic’s Dario Amodei, OpenAI’s Sam Altman and xAI’s Elon Musk.\nL1814: \nL1815: The president dismissed efforts to limit the technology on Monday as a “conspiracy.” Other leading Republicans including Vice President JD Vance have expressed caution. House Speaker Mike Johnson has largely deferred to the White House.\nL1816: Democrats, meanwhile, are pressing for a more robust response, convening in private on Tuesday in the House to discuss AI. cite195†Sen. Bernie Sanders, I-Vt., is hosting his colleagues for a briefing with experts on Wednesday. Top candidates on the ballot this year such as Sen. Jon Ossoff of Georgia are pressing for sweeping action in Washington. And former President Barack Obama is encouraging those with White House aspirations to develop a “very clear plan” to address AI concerns.\nL1817: The contrasting responses illustrate a yawning disconnect emerging between a tech sector warning of AI’s existential threats to humanity and a federal government often struggling to accomplish basic functions under the weight of intense partisanship and election-year pressure.\nL1818: “The signals we’re receiving from our political leaders are not representing an understanding of the crisis that I think we are in fact in,” said Max Stier, the president and chief executive of the nonpartisan cite196†Partnership for Public Service . “Delay is going to prove very costly.”\nL1819: \nL1820: Related Stories\nL1821: \nL1822: cite197†Trump’s push to restrict mail ballots has failed. Other efforts to reshape the midterms are ongoing L1823: \nL1824: 6 MIN READ\nL1825: \nL1826: cite197†12 L1827: cite198†Trump and the court: If he wins, he’s happy. When he loses, he ridicules justices he appointed L1828: \nL1829: 3 MIN READ\nL1830: \nL1831: cite198†31 L1832: \nL1833: cite199†Americans value press freedom, but new surveys show support for restrictions in certain cases L1834: \nL1835: 5 MIN READ\nL1836: There are notable exceptions to the partisan divide. Sen. Josh Hawley, R-Mo., opened an investigation last week into OpenAI for its artificial intelligence system cite200†hacking into another AI company on its own . And, speaking at a Washington AI conference on Tuesday, Trump ally Steve Bannon embraced overlapping views with Sanders on the issue.\nL1837: \nL1838: “We have to rise above it,” Bannon said. “This is a hinge in history.”\nL1839: \nL1840: Read More\nL1841: ## Congress and the White House have responded to past crises\nL1842: \nL1843: Congress and the White House have managed to respond swiftly to past crises and the intensifying AI debate is emerging as a new referendum on whether they can do so again.\nL1844: During Trump’s first term, his team worked with Democrats in control of Congress to stabilize the economy as federal agencies worked to produce a vaccine to combat the COVID-19 pandemic. As the economy teetered on collapse in 2007 and 2008, President cite201†George W. Bush’s Republican administration teamed with congressional Democrats to inject money into the financial system.\nL1845: \nL1846: But Congress has long been reluctant to regulate the technology industry.\nL1847: Sign up for the Ground Game Newsletter: Your guide to the biggest stories in politics, policy and U.S. elections.\nL1848: \nL1849: [Input]\nL1850: \nL1851: Email address [Input: Email address]\nL1852: \nL1853: [Button: Sign up ]\nL1854: \nL1855: [Input] By checking this box, you agree to AP's cite164†Terms of Use and acknowledge that AP may collect and use your data pursuant to our cite165†Privacy Policy .\nL1856: \nL1857: This site is protected by reCAPTCHA and the Google cite202†Privacy Policy†policies.google.com and cite203†Terms of Service†policies.google.com apply.\nL1858: The Biden administration called on lawmakers to develop policies after a 2023 executive order on AI oversight, which Trump rescinded soon after returning to office. As the technology has progressed at a rapid clip, Congress has refrained from imposing rules or funding ways for people to successfully adjust to the potential changes from AI.\nL1859: A bipartisan working group on artificial intelligence formed by then-Senate Majority Leader Chuck Schumer released a report in 2024 recommending the U.S. spend at least $32 billion over the next three years to develop artificial intelligence and implement safeguards around it. But there was little follow up. Similarly, a bipartisan bill on internet safety for children has repeatedly stalled.\nL1860: “We never do anything until we have a holy heck moment,” said Sen. Mark Warner, a Virginia Democrat and former technology executive.\nL1861: \nL1862: Lawmakers in both parties agree more guardrails are needed, but even narrow attempts at regulation have fallen apart and a certain skepticism has set in.\nL1863: \nL1864: “Have we gotten election security done?” asked Sen. Rick Scott, R-Fla. “Did we balance a budget? Oh, did we pass a budget? See, what have we gotten done? So you think we’re going to get AI done?”\nL1865: Ossoff cast the AI debate as an example of Washington’s inability to tackle anything big.\nL1866: \nL1867: “What fills us with dread is the crushing weakness of our politics against the massive stakes of our times,” he said during a Sunday reelection rally in Athens, Georgia.\nL1868: ## A renewed sense of urgency for government oversight\nL1869: \nL1870: There are some signs of renewed urgency.\nL1871: \nL1872: After the tech leaders called for greater oversight on Saturday, Senate Majority Leader John Thune, R-S.D., said he spoke that night with Sen. Amy Klobuchar, D-Minn., about a “path forward” on legislation they’re working on.\nL1873: \nL1874: “You don’t want to stifle innovation, but I think you also want to make sure that the more advanced threats can be mitigated and there’s a capability and place to do that,” he said.\nL1875: “I also think,” he added, “that there is a way in which Congress can put guardrails around those types of more consequential threats without, in any way, harming our ability to stay ahead in the AI race.”\nL1876: \nL1877: Sen. John Kennedy, R-La., said he plans to offer a so-called kill switch measure on Wednesday that would require developers to have the capacity to shut down their systems if needed. It would need the Senate’s full support to advance.\nL1878: “AI is becoming an issue, particularly in the last few days,” he said.\nL1879: \nL1880: But with a dwindling calendar ahead of the November election, any fast movement on legislation seems unlikely. In the House, Johnson seemed downbeat on the prospect of a legislative response, calling instead for Trump to summon AI leaders for a meeting to resolve concerns.\nL1881: \nL1882: “The reflex of legislative bodies is to cover things up with red tape and hyper regulation,” he said.\nL1883: ## Trump emerges as a roadblock\nL1884: \nL1885: And any legislation that emerges would require Trump’s support, which appears unlikely at the moment.\nL1886: \nL1887: “All I can tell you is my own perspective on this,” said Hawley, who has introduced bipartisan legislation requiring federal tracking of AI safety concerns tied to national security, civil liberties and labor protections. “We need to protect working people. We need to protect kids online. We need to protect folks who are threatened by data centers.”\nL1888: “We also need to make sure,” he added, “these frontier models are not going to blow up the internet and/or the world.”\nL1889: \nL1890: For veterans of past crises, the congressional inertia is baffling.\nL1891: \nL1892: “Earth to Washington: You’re pushing an open door,” cite204†Rahm Emanuel, Obama’s chief of staff in the wake of the financial crisis and a potential 2028 presidential candidate, said in an interview. “In my entire time of public service, I’ve never had an industry or a CEO ask for regulation and oversight.”\nL1893: cite205†Rep. Don Beyer, a Virginia Democrat who is a leader in the Congressional Artificial Intelligence Caucus, said Congress is “capable” of passing stronger AI rules. He said he thinks there’s sufficient support for multiple bills, including a bipartisan measure that would establish guardrails for AI models and another that includes the kill switch provision.\nL1894: \nL1895: “It’s very much a leadership issue,” Beyer said as the House is poised to adjourn at the end of the week and not return until after the elections.\nL1896: ___\nL1897: \nL1898: Associated Press writers Josh Boak, Lisa Mascaro and Kevin Freking in Washington and Bill Barrow in Athens, Georgia, contributed to this report.\n",
+            "locator": "https://apnews.com/article/ai-regulation-trump-congress-tech-politics-d2d1bac8e8666c681937665596a4f603"
+          }
+        ],
+        "scopeAndFreshness": "AP L1872: Thune 'said he spoke that night with Sen. Amy Klobuchar... about a path forward on legislation'; the article's attributed phrasing 'says he discussed' preserves the attribution."
+      },
+      {
+        "claimId": "kennedy",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>AP reports House Democrats meeting privately Tuesday, September 15, about AI; Senator Bernie Sanders plans an expert briefing Wednesday. Senate leader John Thune says he discussed a legislative path with Amy Klobuchar. John Kennedy plans a Wednesday measure requiring developers to be able to shut systems down if needed. House Speaker Mike Johnson favors an AI-leaders meeting.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>This report describes meetings and intentions, not enacted protections. Shutdown capability means the ability to stop a system if needed.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/editorial-input.json",
+          "sha256": "a3d01928ccc8df6de05170e6444077f80c21ae3a122bab0d8ec4c98bccc4821c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L1812: WASHINGTON (AP) — The technology industry’s cite192†increasingly urgent warnings about the potential harm of artificial intelligence are slamming into political intransigence in Washington, offering a fresh test of the federal government’s willingness and ability to confront what may become a cite193†defining issue of the era .\nL1813: cite194†President Donald Trump is leading the opposition to recent calls by tech leaders seeking greater government oversight, including Anthropic’s Dario Amodei, OpenAI’s Sam Altman and xAI’s Elon Musk.\nL1814: \nL1815: The president dismissed efforts to limit the technology on Monday as a “conspiracy.” Other leading Republicans including Vice President JD Vance have expressed caution. House Speaker Mike Johnson has largely deferred to the White House.\nL1816: Democrats, meanwhile, are pressing for a more robust response, convening in private on Tuesday in the House to discuss AI. cite195†Sen. Bernie Sanders, I-Vt., is hosting his colleagues for a briefing with experts on Wednesday. Top candidates on the ballot this year such as Sen. Jon Ossoff of Georgia are pressing for sweeping action in Washington. And former President Barack Obama is encouraging those with White House aspirations to develop a “very clear plan” to address AI concerns.\nL1817: The contrasting responses illustrate a yawning disconnect emerging between a tech sector warning of AI’s existential threats to humanity and a federal government often struggling to accomplish basic functions under the weight of intense partisanship and election-year pressure.\nL1818: “The signals we’re receiving from our political leaders are not representing an understanding of the crisis that I think we are in fact in,” said Max Stier, the president and chief executive of the nonpartisan cite196†Partnership for Public Service . “Delay is going to prove very costly.”\nL1819: \nL1820: Related Stories\nL1821: \nL1822: cite197†Trump’s push to restrict mail ballots has failed. Other efforts to reshape the midterms are ongoing L1823: \nL1824: 6 MIN READ\nL1825: \nL1826: cite197†12 L1827: cite198†Trump and the court: If he wins, he’s happy. When he loses, he ridicules justices he appointed L1828: \nL1829: 3 MIN READ\nL1830: \nL1831: cite198†31 L1832: \nL1833: cite199†Americans value press freedom, but new surveys show support for restrictions in certain cases L1834: \nL1835: 5 MIN READ\nL1836: There are notable exceptions to the partisan divide. Sen. Josh Hawley, R-Mo., opened an investigation last week into OpenAI for its artificial intelligence system cite200†hacking into another AI company on its own . And, speaking at a Washington AI conference on Tuesday, Trump ally Steve Bannon embraced overlapping views with Sanders on the issue.\nL1837: \nL1838: “We have to rise above it,” Bannon said. “This is a hinge in history.”\nL1839: \nL1840: Read More\nL1841: ## Congress and the White House have responded to past crises\nL1842: \nL1843: Congress and the White House have managed to respond swiftly to past crises and the intensifying AI debate is emerging as a new referendum on whether they can do so again.\nL1844: During Trump’s first term, his team worked with Democrats in control of Congress to stabilize the economy as federal agencies worked to produce a vaccine to combat the COVID-19 pandemic. As the economy teetered on collapse in 2007 and 2008, President cite201†George W. Bush’s Republican administration teamed with congressional Democrats to inject money into the financial system.\nL1845: \nL1846: But Congress has long been reluctant to regulate the technology industry.\nL1847: Sign up for the Ground Game Newsletter: Your guide to the biggest stories in politics, policy and U.S. elections.\nL1848: \nL1849: [Input]\nL1850: \nL1851: Email address [Input: Email address]\nL1852: \nL1853: [Button: Sign up ]\nL1854: \nL1855: [Input] By checking this box, you agree to AP's cite164†Terms of Use and acknowledge that AP may collect and use your data pursuant to our cite165†Privacy Policy .\nL1856: \nL1857: This site is protected by reCAPTCHA and the Google cite202†Privacy Policy†policies.google.com and cite203†Terms of Service†policies.google.com apply.\nL1858: The Biden administration called on lawmakers to develop policies after a 2023 executive order on AI oversight, which Trump rescinded soon after returning to office. As the technology has progressed at a rapid clip, Congress has refrained from imposing rules or funding ways for people to successfully adjust to the potential changes from AI.\nL1859: A bipartisan working group on artificial intelligence formed by then-Senate Majority Leader Chuck Schumer released a report in 2024 recommending the U.S. spend at least $32 billion over the next three years to develop artificial intelligence and implement safeguards around it. But there was little follow up. Similarly, a bipartisan bill on internet safety for children has repeatedly stalled.\nL1860: “We never do anything until we have a holy heck moment,” said Sen. Mark Warner, a Virginia Democrat and former technology executive.\nL1861: \nL1862: Lawmakers in both parties agree more guardrails are needed, but even narrow attempts at regulation have fallen apart and a certain skepticism has set in.\nL1863: \nL1864: “Have we gotten election security done?” asked Sen. Rick Scott, R-Fla. “Did we balance a budget? Oh, did we pass a budget? See, what have we gotten done? So you think we’re going to get AI done?”\nL1865: Ossoff cast the AI debate as an example of Washington’s inability to tackle anything big.\nL1866: \nL1867: “What fills us with dread is the crushing weakness of our politics against the massive stakes of our times,” he said during a Sunday reelection rally in Athens, Georgia.\nL1868: ## A renewed sense of urgency for government oversight\nL1869: \nL1870: There are some signs of renewed urgency.\nL1871: \nL1872: After the tech leaders called for greater oversight on Saturday, Senate Majority Leader John Thune, R-S.D., said he spoke that night with Sen. Amy Klobuchar, D-Minn., about a “path forward” on legislation they’re working on.\nL1873: \nL1874: “You don’t want to stifle innovation, but I think you also want to make sure that the more advanced threats can be mitigated and there’s a capability and place to do that,” he said.\nL1875: “I also think,” he added, “that there is a way in which Congress can put guardrails around those types of more consequential threats without, in any way, harming our ability to stay ahead in the AI race.”\nL1876: \nL1877: Sen. John Kennedy, R-La., said he plans to offer a so-called kill switch measure on Wednesday that would require developers to have the capacity to shut down their systems if needed. It would need the Senate’s full support to advance.\nL1878: “AI is becoming an issue, particularly in the last few days,” he said.\nL1879: \nL1880: But with a dwindling calendar ahead of the November election, any fast movement on legislation seems unlikely. In the House, Johnson seemed downbeat on the prospect of a legislative response, calling instead for Trump to summon AI leaders for a meeting to resolve concerns.\nL1881: \nL1882: “The reflex of legislative bodies is to cover things up with red tape and hyper regulation,” he said.\nL1883: ## Trump emerges as a roadblock\nL1884: \nL1885: And any legislation that emerges would require Trump’s support, which appears unlikely at the moment.\nL1886: \nL1887: “All I can tell you is my own perspective on this,” said Hawley, who has introduced bipartisan legislation requiring federal tracking of AI safety concerns tied to national security, civil liberties and labor protections. “We need to protect working people. We need to protect kids online. We need to protect folks who are threatened by data centers.”\nL1888: “We also need to make sure,” he added, “these frontier models are not going to blow up the internet and/or the world.”\nL1889: \nL1890: For veterans of past crises, the congressional inertia is baffling.\nL1891: \nL1892: “Earth to Washington: You’re pushing an open door,” cite204†Rahm Emanuel, Obama’s chief of staff in the wake of the financial crisis and a potential 2028 presidential candidate, said in an interview. “In my entire time of public service, I’ve never had an industry or a CEO ask for regulation and oversight.”\nL1893: cite205†Rep. Don Beyer, a Virginia Democrat who is a leader in the Congressional Artificial Intelligence Caucus, said Congress is “capable” of passing stronger AI rules. He said he thinks there’s sufficient support for multiple bills, including a bipartisan measure that would establish guardrails for AI models and another that includes the kill switch provision.\nL1894: \nL1895: “It’s very much a leadership issue,” Beyer said as the House is poised to adjourn at the end of the week and not return until after the elections.\nL1896: ___\nL1897: \nL1898: Associated Press writers Josh Boak, Lisa Mascaro and Kevin Freking in Washington and Bill Barrow in Athens, Georgia, contributed to this report.\n",
+            "locator": "https://apnews.com/article/ai-regulation-trump-congress-tech-politics-d2d1bac8e8666c681937665596a4f603"
+          }
+        ],
+        "scopeAndFreshness": "AP L1877: Kennedy 'plans to offer a so-called kill switch measure on Wednesday that would require developers to have the capacity to shut down their systems if needed' — matched, including the conditional 'if needed'."
+      },
+      {
+        "claimId": "johnson",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>AP reports House Democrats meeting privately Tuesday, September 15, about AI; Senator Bernie Sanders plans an expert briefing Wednesday. Senate leader John Thune says he discussed a legislative path with Amy Klobuchar. John Kennedy plans a Wednesday measure requiring developers to be able to shut systems down if needed. House Speaker Mike Johnson favors an AI-leaders meeting.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/editorial-input.json",
+          "sha256": "a3d01928ccc8df6de05170e6444077f80c21ae3a122bab0d8ec4c98bccc4821c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L1812: WASHINGTON (AP) — The technology industry’s cite192†increasingly urgent warnings about the potential harm of artificial intelligence are slamming into political intransigence in Washington, offering a fresh test of the federal government’s willingness and ability to confront what may become a cite193†defining issue of the era .\nL1813: cite194†President Donald Trump is leading the opposition to recent calls by tech leaders seeking greater government oversight, including Anthropic’s Dario Amodei, OpenAI’s Sam Altman and xAI’s Elon Musk.\nL1814: \nL1815: The president dismissed efforts to limit the technology on Monday as a “conspiracy.” Other leading Republicans including Vice President JD Vance have expressed caution. House Speaker Mike Johnson has largely deferred to the White House.\nL1816: Democrats, meanwhile, are pressing for a more robust response, convening in private on Tuesday in the House to discuss AI. cite195†Sen. Bernie Sanders, I-Vt., is hosting his colleagues for a briefing with experts on Wednesday. Top candidates on the ballot this year such as Sen. Jon Ossoff of Georgia are pressing for sweeping action in Washington. And former President Barack Obama is encouraging those with White House aspirations to develop a “very clear plan” to address AI concerns.\nL1817: The contrasting responses illustrate a yawning disconnect emerging between a tech sector warning of AI’s existential threats to humanity and a federal government often struggling to accomplish basic functions under the weight of intense partisanship and election-year pressure.\nL1818: “The signals we’re receiving from our political leaders are not representing an understanding of the crisis that I think we are in fact in,” said Max Stier, the president and chief executive of the nonpartisan cite196†Partnership for Public Service . “Delay is going to prove very costly.”\nL1819: \nL1820: Related Stories\nL1821: \nL1822: cite197†Trump’s push to restrict mail ballots has failed. Other efforts to reshape the midterms are ongoing L1823: \nL1824: 6 MIN READ\nL1825: \nL1826: cite197†12 L1827: cite198†Trump and the court: If he wins, he’s happy. When he loses, he ridicules justices he appointed L1828: \nL1829: 3 MIN READ\nL1830: \nL1831: cite198†31 L1832: \nL1833: cite199†Americans value press freedom, but new surveys show support for restrictions in certain cases L1834: \nL1835: 5 MIN READ\nL1836: There are notable exceptions to the partisan divide. Sen. Josh Hawley, R-Mo., opened an investigation last week into OpenAI for its artificial intelligence system cite200†hacking into another AI company on its own . And, speaking at a Washington AI conference on Tuesday, Trump ally Steve Bannon embraced overlapping views with Sanders on the issue.\nL1837: \nL1838: “We have to rise above it,” Bannon said. “This is a hinge in history.”\nL1839: \nL1840: Read More\nL1841: ## Congress and the White House have responded to past crises\nL1842: \nL1843: Congress and the White House have managed to respond swiftly to past crises and the intensifying AI debate is emerging as a new referendum on whether they can do so again.\nL1844: During Trump’s first term, his team worked with Democrats in control of Congress to stabilize the economy as federal agencies worked to produce a vaccine to combat the COVID-19 pandemic. As the economy teetered on collapse in 2007 and 2008, President cite201†George W. Bush’s Republican administration teamed with congressional Democrats to inject money into the financial system.\nL1845: \nL1846: But Congress has long been reluctant to regulate the technology industry.\nL1847: Sign up for the Ground Game Newsletter: Your guide to the biggest stories in politics, policy and U.S. elections.\nL1848: \nL1849: [Input]\nL1850: \nL1851: Email address [Input: Email address]\nL1852: \nL1853: [Button: Sign up ]\nL1854: \nL1855: [Input] By checking this box, you agree to AP's cite164†Terms of Use and acknowledge that AP may collect and use your data pursuant to our cite165†Privacy Policy .\nL1856: \nL1857: This site is protected by reCAPTCHA and the Google cite202†Privacy Policy†policies.google.com and cite203†Terms of Service†policies.google.com apply.\nL1858: The Biden administration called on lawmakers to develop policies after a 2023 executive order on AI oversight, which Trump rescinded soon after returning to office. As the technology has progressed at a rapid clip, Congress has refrained from imposing rules or funding ways for people to successfully adjust to the potential changes from AI.\nL1859: A bipartisan working group on artificial intelligence formed by then-Senate Majority Leader Chuck Schumer released a report in 2024 recommending the U.S. spend at least $32 billion over the next three years to develop artificial intelligence and implement safeguards around it. But there was little follow up. Similarly, a bipartisan bill on internet safety for children has repeatedly stalled.\nL1860: “We never do anything until we have a holy heck moment,” said Sen. Mark Warner, a Virginia Democrat and former technology executive.\nL1861: \nL1862: Lawmakers in both parties agree more guardrails are needed, but even narrow attempts at regulation have fallen apart and a certain skepticism has set in.\nL1863: \nL1864: “Have we gotten election security done?” asked Sen. Rick Scott, R-Fla. “Did we balance a budget? Oh, did we pass a budget? See, what have we gotten done? So you think we’re going to get AI done?”\nL1865: Ossoff cast the AI debate as an example of Washington’s inability to tackle anything big.\nL1866: \nL1867: “What fills us with dread is the crushing weakness of our politics against the massive stakes of our times,” he said during a Sunday reelection rally in Athens, Georgia.\nL1868: ## A renewed sense of urgency for government oversight\nL1869: \nL1870: There are some signs of renewed urgency.\nL1871: \nL1872: After the tech leaders called for greater oversight on Saturday, Senate Majority Leader John Thune, R-S.D., said he spoke that night with Sen. Amy Klobuchar, D-Minn., about a “path forward” on legislation they’re working on.\nL1873: \nL1874: “You don’t want to stifle innovation, but I think you also want to make sure that the more advanced threats can be mitigated and there’s a capability and place to do that,” he said.\nL1875: “I also think,” he added, “that there is a way in which Congress can put guardrails around those types of more consequential threats without, in any way, harming our ability to stay ahead in the AI race.”\nL1876: \nL1877: Sen. John Kennedy, R-La., said he plans to offer a so-called kill switch measure on Wednesday that would require developers to have the capacity to shut down their systems if needed. It would need the Senate’s full support to advance.\nL1878: “AI is becoming an issue, particularly in the last few days,” he said.\nL1879: \nL1880: But with a dwindling calendar ahead of the November election, any fast movement on legislation seems unlikely. In the House, Johnson seemed downbeat on the prospect of a legislative response, calling instead for Trump to summon AI leaders for a meeting to resolve concerns.\nL1881: \nL1882: “The reflex of legislative bodies is to cover things up with red tape and hyper regulation,” he said.\nL1883: ## Trump emerges as a roadblock\nL1884: \nL1885: And any legislation that emerges would require Trump’s support, which appears unlikely at the moment.\nL1886: \nL1887: “All I can tell you is my own perspective on this,” said Hawley, who has introduced bipartisan legislation requiring federal tracking of AI safety concerns tied to national security, civil liberties and labor protections. “We need to protect working people. We need to protect kids online. We need to protect folks who are threatened by data centers.”\nL1888: “We also need to make sure,” he added, “these frontier models are not going to blow up the internet and/or the world.”\nL1889: \nL1890: For veterans of past crises, the congressional inertia is baffling.\nL1891: \nL1892: “Earth to Washington: You’re pushing an open door,” cite204†Rahm Emanuel, Obama’s chief of staff in the wake of the financial crisis and a potential 2028 presidential candidate, said in an interview. “In my entire time of public service, I’ve never had an industry or a CEO ask for regulation and oversight.”\nL1893: cite205†Rep. Don Beyer, a Virginia Democrat who is a leader in the Congressional Artificial Intelligence Caucus, said Congress is “capable” of passing stronger AI rules. He said he thinks there’s sufficient support for multiple bills, including a bipartisan measure that would establish guardrails for AI models and another that includes the kill switch provision.\nL1894: \nL1895: “It’s very much a leadership issue,” Beyer said as the House is poised to adjourn at the end of the week and not return until after the elections.\nL1896: ___\nL1897: \nL1898: Associated Press writers Josh Boak, Lisa Mascaro and Kevin Freking in Washington and Bill Barrow in Athens, Georgia, contributed to this report.\n",
+            "locator": "https://apnews.com/article/ai-regulation-trump-congress-tech-politics-d2d1bac8e8666c681937665596a4f603"
+          }
+        ],
+        "scopeAndFreshness": "AP L1880: Johnson was downbeat on legislation, 'calling instead for Trump to summon AI leaders for a meeting' — the article's 'favors an AI-leaders meeting' is a faithful compression."
+      },
+      {
+        "claimId": "stage",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>This report describes meetings and intentions, not enacted protections. Shutdown capability means the ability to stop a system if needed.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>Keep the stages separate. A briefing can help people understand a problem. A planned measure tells you what someone wants to offer. Neither description supplies the text of an operative obligation, its start date or evidence that a developer has implemented it. Nor does the shutdown proposal tell you how a particular AI product would be stopped.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/editorial-input.json",
+          "sha256": "a3d01928ccc8df6de05170e6444077f80c21ae3a122bab0d8ec4c98bccc4821c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L1812: WASHINGTON (AP) — The technology industry’s cite192†increasingly urgent warnings about the potential harm of artificial intelligence are slamming into political intransigence in Washington, offering a fresh test of the federal government’s willingness and ability to confront what may become a cite193†defining issue of the era .\nL1813: cite194†President Donald Trump is leading the opposition to recent calls by tech leaders seeking greater government oversight, including Anthropic’s Dario Amodei, OpenAI’s Sam Altman and xAI’s Elon Musk.\nL1814: \nL1815: The president dismissed efforts to limit the technology on Monday as a “conspiracy.” Other leading Republicans including Vice President JD Vance have expressed caution. House Speaker Mike Johnson has largely deferred to the White House.\nL1816: Democrats, meanwhile, are pressing for a more robust response, convening in private on Tuesday in the House to discuss AI. cite195†Sen. Bernie Sanders, I-Vt., is hosting his colleagues for a briefing with experts on Wednesday. Top candidates on the ballot this year such as Sen. Jon Ossoff of Georgia are pressing for sweeping action in Washington. And former President Barack Obama is encouraging those with White House aspirations to develop a “very clear plan” to address AI concerns.\nL1817: The contrasting responses illustrate a yawning disconnect emerging between a tech sector warning of AI’s existential threats to humanity and a federal government often struggling to accomplish basic functions under the weight of intense partisanship and election-year pressure.\nL1818: “The signals we’re receiving from our political leaders are not representing an understanding of the crisis that I think we are in fact in,” said Max Stier, the president and chief executive of the nonpartisan cite196†Partnership for Public Service . “Delay is going to prove very costly.”\nL1819: \nL1820: Related Stories\nL1821: \nL1822: cite197†Trump’s push to restrict mail ballots has failed. Other efforts to reshape the midterms are ongoing L1823: \nL1824: 6 MIN READ\nL1825: \nL1826: cite197†12 L1827: cite198†Trump and the court: If he wins, he’s happy. When he loses, he ridicules justices he appointed L1828: \nL1829: 3 MIN READ\nL1830: \nL1831: cite198†31 L1832: \nL1833: cite199†Americans value press freedom, but new surveys show support for restrictions in certain cases L1834: \nL1835: 5 MIN READ\nL1836: There are notable exceptions to the partisan divide. Sen. Josh Hawley, R-Mo., opened an investigation last week into OpenAI for its artificial intelligence system cite200†hacking into another AI company on its own . And, speaking at a Washington AI conference on Tuesday, Trump ally Steve Bannon embraced overlapping views with Sanders on the issue.\nL1837: \nL1838: “We have to rise above it,” Bannon said. “This is a hinge in history.”\nL1839: \nL1840: Read More\nL1841: ## Congress and the White House have responded to past crises\nL1842: \nL1843: Congress and the White House have managed to respond swiftly to past crises and the intensifying AI debate is emerging as a new referendum on whether they can do so again.\nL1844: During Trump’s first term, his team worked with Democrats in control of Congress to stabilize the economy as federal agencies worked to produce a vaccine to combat the COVID-19 pandemic. As the economy teetered on collapse in 2007 and 2008, President cite201†George W. Bush’s Republican administration teamed with congressional Democrats to inject money into the financial system.\nL1845: \nL1846: But Congress has long been reluctant to regulate the technology industry.\nL1847: Sign up for the Ground Game Newsletter: Your guide to the biggest stories in politics, policy and U.S. elections.\nL1848: \nL1849: [Input]\nL1850: \nL1851: Email address [Input: Email address]\nL1852: \nL1853: [Button: Sign up ]\nL1854: \nL1855: [Input] By checking this box, you agree to AP's cite164†Terms of Use and acknowledge that AP may collect and use your data pursuant to our cite165†Privacy Policy .\nL1856: \nL1857: This site is protected by reCAPTCHA and the Google cite202†Privacy Policy†policies.google.com and cite203†Terms of Service†policies.google.com apply.\nL1858: The Biden administration called on lawmakers to develop policies after a 2023 executive order on AI oversight, which Trump rescinded soon after returning to office. As the technology has progressed at a rapid clip, Congress has refrained from imposing rules or funding ways for people to successfully adjust to the potential changes from AI.\nL1859: A bipartisan working group on artificial intelligence formed by then-Senate Majority Leader Chuck Schumer released a report in 2024 recommending the U.S. spend at least $32 billion over the next three years to develop artificial intelligence and implement safeguards around it. But there was little follow up. Similarly, a bipartisan bill on internet safety for children has repeatedly stalled.\nL1860: “We never do anything until we have a holy heck moment,” said Sen. Mark Warner, a Virginia Democrat and former technology executive.\nL1861: \nL1862: Lawmakers in both parties agree more guardrails are needed, but even narrow attempts at regulation have fallen apart and a certain skepticism has set in.\nL1863: \nL1864: “Have we gotten election security done?” asked Sen. Rick Scott, R-Fla. “Did we balance a budget? Oh, did we pass a budget? See, what have we gotten done? So you think we’re going to get AI done?”\nL1865: Ossoff cast the AI debate as an example of Washington’s inability to tackle anything big.\nL1866: \nL1867: “What fills us with dread is the crushing weakness of our politics against the massive stakes of our times,” he said during a Sunday reelection rally in Athens, Georgia.\nL1868: ## A renewed sense of urgency for government oversight\nL1869: \nL1870: There are some signs of renewed urgency.\nL1871: \nL1872: After the tech leaders called for greater oversight on Saturday, Senate Majority Leader John Thune, R-S.D., said he spoke that night with Sen. Amy Klobuchar, D-Minn., about a “path forward” on legislation they’re working on.\nL1873: \nL1874: “You don’t want to stifle innovation, but I think you also want to make sure that the more advanced threats can be mitigated and there’s a capability and place to do that,” he said.\nL1875: “I also think,” he added, “that there is a way in which Congress can put guardrails around those types of more consequential threats without, in any way, harming our ability to stay ahead in the AI race.”\nL1876: \nL1877: Sen. John Kennedy, R-La., said he plans to offer a so-called kill switch measure on Wednesday that would require developers to have the capacity to shut down their systems if needed. It would need the Senate’s full support to advance.\nL1878: “AI is becoming an issue, particularly in the last few days,” he said.\nL1879: \nL1880: But with a dwindling calendar ahead of the November election, any fast movement on legislation seems unlikely. In the House, Johnson seemed downbeat on the prospect of a legislative response, calling instead for Trump to summon AI leaders for a meeting to resolve concerns.\nL1881: \nL1882: “The reflex of legislative bodies is to cover things up with red tape and hyper regulation,” he said.\nL1883: ## Trump emerges as a roadblock\nL1884: \nL1885: And any legislation that emerges would require Trump’s support, which appears unlikely at the moment.\nL1886: \nL1887: “All I can tell you is my own perspective on this,” said Hawley, who has introduced bipartisan legislation requiring federal tracking of AI safety concerns tied to national security, civil liberties and labor protections. “We need to protect working people. We need to protect kids online. We need to protect folks who are threatened by data centers.”\nL1888: “We also need to make sure,” he added, “these frontier models are not going to blow up the internet and/or the world.”\nL1889: \nL1890: For veterans of past crises, the congressional inertia is baffling.\nL1891: \nL1892: “Earth to Washington: You’re pushing an open door,” cite204†Rahm Emanuel, Obama’s chief of staff in the wake of the financial crisis and a potential 2028 presidential candidate, said in an interview. “In my entire time of public service, I’ve never had an industry or a CEO ask for regulation and oversight.”\nL1893: cite205†Rep. Don Beyer, a Virginia Democrat who is a leader in the Congressional Artificial Intelligence Caucus, said Congress is “capable” of passing stronger AI rules. He said he thinks there’s sufficient support for multiple bills, including a bipartisan measure that would establish guardrails for AI models and another that includes the kill switch provision.\nL1894: \nL1895: “It’s very much a leadership issue,” Beyer said as the House is poised to adjourn at the end of the week and not return until after the elections.\nL1896: ___\nL1897: \nL1898: Associated Press writers Josh Boak, Lisa Mascaro and Kevin Freking in Washington and Bill Barrow in Athens, Georgia, contributed to this report.\n",
+            "locator": "https://apnews.com/article/ai-regulation-trump-congress-tech-politics-d2d1bac8e8666c681937665596a4f603"
+          }
+        ],
+        "scopeAndFreshness": "AP describes only meetings, briefings and planned measures; Kennedy's measure 'would need the Senate's full support to advance', fast movement 'seems unlikely', and the House is about to adjourn — nothing enacted, matching P003."
+      }
+    ],
+    "reviewedThrough": "2026-09-15",
+    "nextTrigger": "Wednesdayevents/proposaltext orpublicationafterSeptember15.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First exact congressional-response prose; earlierTrump/Amodeievents aredistinctpublishedstories."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All reader outcomes and news checks pass and every failure family is clear; the artifact executes its bounded news job with correct scope and honest limits."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=1; evidence gaps repaired=0; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/assembled/news-editorial-analysis.json",
+      "sha256": "041fa8815b3dacca2355ca6e38efeb8ad4bd14ba55b269241c159901ef209e52"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/assembled/independent-raw-report.json",
+    "sha256": "2feca077d8833e990838cbe55344acc149ba48323321e52e1100c651e461345f"
+  }
+}

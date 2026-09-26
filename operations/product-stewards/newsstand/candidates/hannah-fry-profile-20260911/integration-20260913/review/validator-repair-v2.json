@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "laidies.luminairy-validator-repair-receipt.v1",
+  "checkedAt": "2026-09-13T15:55:36.900Z",
+  "scope": "Standalone validator compatibility repair only; no public or canonical write.",
+  "script": {
+    "path": "scripts/validate-luminairy-claims.mjs",
+    "sha256": "5ffdccb50d6908b709edc514037169c4ef90e781d7648f31df416a9b33ce7870"
+  },
+  "preservedChecks": [
+    "LUMINAIRY_PROFILES_PATH override",
+    "sourcePacketSha256 compared with actual source packet bytes in every mode",
+    "Hannah resource status and content-free lander exclusion",
+    "full-mode CSS, image, and Saint-song checks"
+  ],
+  "compatibilityFixes": [
+    "Pinned r5 and r7 public JWKs",
+    "Receipt payload includes optional resourceEvidenceSha256, matching runtime gate",
+    "Each receipt resource evidence digest must equal its claim record",
+    "r7 Hannah successor requires v2 authority that binds prior resource admission profile and every declared input/public file"
+  ],
+  "runs": {
+    "frozenBase": "PASS with explicit profile/source/resource paths",
+    "integration": "PASS with explicit profile/source/resource/authority-v2 paths",
+    "tamperedSource": {
+      "result": "PASS fail-closed",
+      "output": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/validator-tampered-source.out",
+      "sha256": "d758616892943b575fc10047bb1d66b38cca1d0665a2c80b72fedf2c9cb0b021"
+    },
+    "tamperedHistoricResource": {
+      "result": "PASS fail-closed",
+      "output": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/validator-tampered-historic-resource-v2.out",
+      "sha256": "0212a73b1169a57f4981b2c9f5a20ca467a41e26f55eb55b73611cd3cc43a5ae"
+    }
+  },
+  "claimsOnly": "Explicit fixture mode skips only CSS, image, and Saint-song existence because those bytes are absent from the five-file frozen fixture. It continues source packet, resource-record, profile, claim, receipt, signature, and authority checks."
+}

@@ -1,0 +1,646 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "house-ratepayer-protection-20260920",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/california_order_producer",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/california_order_producer",
+    "principalId": "/root/california_order_producer",
+    "role": "Producer exact complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-23T14:46:55.063Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/publication-manifest.json",
+      "sha256": "b3ae656ef782562765d36ecabb103235a8d69efa8cd773b66c91e9e5663c2124"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/review-text.json",
+      "sha256": "1541708f4f9649a3060b400e9be20080898494e0ae9f3cd24d4edcba18fe2ac5"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/rendered-article.html",
+      "sha256": "5d257a247d7bb55860573a79d7c8d0c9e50b8bd85089fdbdbbf16b31a62b7b4f"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/california_order_producer",
+    "reviewedAt": "2026-09-21T21:58:23.925Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Did Congress make AI data centres pay for grid upgrades, and will that lower my electricity bill?",
+    "promisedPayoff": "Separate the House vote from enacted law, show how the proposal would allocate upgrade costs, and explain why no household bill result is guaranteed.",
+    "centralMentalModel": "The bill would require state regulators and nonregulated utilities to consider a cost-allocation standard; consideration is not automatic nationwide adoption, and House passage is not law.",
+    "dailyLifeConnection": "A household ratepayer seeing claims that data centres will either raise or stop raising her electricity bill.",
+    "surfaceJob": "Daily legal-policy brief on the September 16 House passage and September 17 Senate objection, current through September 21.",
+    "desiredReaderFeeling": "I know what Congress did, what the proposal would ask utility decision-makers to consider, and why my bill has not changed because of this vote."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies plainClarity while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That vote did not make the bill law",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies readerValue while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "which utility or commission is deciding",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies laidiesVoice while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your rate did not change.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies engagingEnjoyable while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It would not itself impose one identical rate across the country.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies factualIntegrity while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "begin consideration or set a hearing within one year",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies freshnessReviewability while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "No inspected official source establishes Senate passage of H.R. 9340 or enactment through September 23.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies surfaceFit while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The House passed a data-centre power bill. Your rate did not change.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies datedChange while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "passed H.R. 9340, the Ratepayer Protection Act, by 417–3 on September 16",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies consequenceAndUncertainty while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "it guarantees neither adoption of its standard nor a household saving.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies dailyLifeConnection while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your electricity bill is set through your utility and its regulator or other governing authority.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies communicationBenchmark while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Whether those upgrade costs reach existing customers depends on local rules, the project and the approved rate design.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies explainBack while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The House passed a plan for states and utilities to consider",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Did Congress make AI data centres pay for grid upgrades, and will that lower my electricity bill?",
+        "probeResponse": "The House approved a proposal, but it is not law. If enacted, it would make state regulators and nonregulated utilities consider a standard for allocating a qualifying large computing site’s upgrade costs, while leaving the actual determination and any household-rate effect to later decisions.",
+        "expectedEvidence": "House passage, no enactment, mandatory consideration, local determination and no guaranteed bill effect.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies unseenTransfer while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "whether you are looking at a bill, an enacted rule or an approved rate case.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A headline says Congress made a new industry pay. How should I test it?",
+        "probeResponse": "For another headline saying Congress made an industry pay, separate the chamber vote from enactment, read whether the law requires consideration or adoption, and identify the local regulator or rate case that would create the real charge.",
+        "expectedEvidence": "Separate chamber action, enactment, operative verb, local decision-maker and actual rate case.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies usefulAction while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "which utility or commission is deciding, which upgrade is needed, who would pay under the proposed rate",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies analogyIntegrity while preserving legal status, regulatory mechanism and outcome limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A “federal standard” can sound automatic.",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The exact prose contains no glossaryAccumulation defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The exact prose contains no templateRepetition defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The exact prose contains no decorativeAnalogy defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The exact prose contains no referenceConfetti defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The exact prose contains no missingMechanism defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The exact prose contains no genericAction defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The exact prose contains no jargonBeforeMeaning defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The exact prose contains no disconnectedSystem defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The exact prose contains no factlessConfidence defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The exact prose contains no staleUnreviewableClaims defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The exact prose contains no corporateSludge defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The exact prose contains no joylessInstruction defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The exact prose contains no benchmarkNameDrop defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The exact prose contains no curiosityWithoutPayoff defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The exact prose contains no familiarExampleWithoutTechnicalReturn defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The exact prose contains no communicationPastiche defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The exact prose contains no entertainmentBeforeUnderstanding defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The exact prose contains no mechanismCompressedBehindHook defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The exact prose contains no prematureClickBeforeMechanism defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The exact prose contains no inflatedTakeawayEnding defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The exact prose contains no purposeTooNarrow defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The exact prose contains no mechanismBeforeMotivation defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The exact prose contains no workedExampleOvertakesBookPurpose defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The exact prose contains no technicalExplainerVoice defect.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/editorial-input.json",
+        "sha256": "d1a795b9559d83a40ac213689725cbcd332721d21146374a06ce9bc2f81b6585"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/source-packet.json",
+        "sha256": "af921543bf1e5b33366f9e08ff36a01b28c679e9ebad204af447b571f68dc896"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/source-evidence.json",
+        "sha256": "32ea660ff3cd05dc55815ea7df3843d21b6a37b7a7b894edd23a5999e1f17969"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "house-passage",
+        "claim": "The House passed H.R. 9340 by 417–3 on September 16.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The U.S. House passed H.R. 9340, the Ratepayer Protection Act, by 417–3 on September 16.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "clerk-date",
+          "clerk-question",
+          "husted-vote-count"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Sep 16, 2026, 06:53 PM | 119th Congress, 2nd Session",
+            "locator": "https://clerk.house.gov/Votes/2026312"
+          },
+          {
+            "excerpt": "Vote Question: On Motion to Suspend the Rules and Pass, as Amended",
+            "locator": "https://clerk.house.gov/Votes/2026312"
+          },
+          {
+            "excerpt": "The Ratepayer Protection Act passed the U.S. House of Representatives on Sept. 16, 2026, by an overwhelming, bipartisan vote of 417-3.",
+            "locator": "https://www.husted.senate.gov/media/press-releases/husted-bill-to-protect-americans-from-footing-the-bill-for-new-data-centers-blocked-from-passage/"
+          }
+        ],
+        "scopeAndFreshness": "Official House roll-call record and a Senate sponsor participant account checked September 23; House passage is not enactment.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/editorial-input.json",
+          "sha256": "d1a795b9559d83a40ac213689725cbcd332721d21146374a06ce9bc2f81b6585"
+        }
+      },
+      {
+        "claimId": "large-load-scope",
+        "claim": "The proposed standard covers specified non-residential computing facilities with peak demand of 100 megawatts or more at one site or campus.",
+        "candidateEvidence": [
+          {
+            "excerpt": "a covered non-residential computing or data facility with peak demand of at least 100 megawatts at one site or campus.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "bill-scope"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "have, in the aggregate, a peak electric demand of 100 megawatts or more at a single site or campus.",
+            "locator": "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm"
+          }
+        ],
+        "scopeAndFreshness": "House-engrossed definition checked September 23; not an enacted definition.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/editorial-input.json",
+          "sha256": "d1a795b9559d83a40ac213689725cbcd332721d21146374a06ce9bc2f81b6585"
+        }
+      },
+      {
+        "claimId": "proposed-cost-standard",
+        "claim": "The proposed standard says a qualifying customer rate would recover the full incremental upgrade cost and require financial assurance before the upgrade.",
+        "candidateEvidence": [
+          {
+            "excerpt": "its rate would be designed to recover the full “incremental cost” — the additional grid-upgrade cost needed to serve that particular large customer. The customer would also provide financial assurance before construction.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "bill-rate",
+          "bill-assurance"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "A rate charged, or entered into, by an electric utility for providing electric service to a large-load customer shall be designed to recover from the large-load customer the full, incremental cost of any generation, transmission, or distribution upgrade necessary to serve the load of such large-load customer",
+            "locator": "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm"
+          },
+          {
+            "excerpt": "Before making any generation, transmission, or distribution upgrade that is necessary to serve the load of a large-load customer, an electric utility shall require the large-load customer provide to the electric utility financial assurances or contributions to cover the cost of such upgrade.",
+            "locator": "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm"
+          }
+        ],
+        "scopeAndFreshness": "Would apply only if enacted and through the applicable state or nonregulated-utility process.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/editorial-input.json",
+          "sha256": "d1a795b9559d83a40ac213689725cbcd332721d21146374a06ce9bc2f81b6585"
+        }
+      },
+      {
+        "claimId": "consideration-timetable",
+        "claim": "If enacted, authorities would begin consideration within one year and complete consideration and make a determination within two.",
+        "candidateEvidence": [
+          {
+            "excerpt": "begin consideration or set a hearing within one year, then complete it and make a determination within two.",
+            "locator": "The LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "bill-one-year",
+          "bill-two-years"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Not later than 1 year after the date of enactment of this paragraph, each State regulatory authority (with respect to each electric utility for which the State has ratemaking authority) and each nonregulated electric utility shall commence consideration under section 111, or set a hearing date for consideration, with respect to the standard",
+            "locator": "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm"
+          },
+          {
+            "excerpt": "Not later than 2 years after the date of enactment of this paragraph, each State regulatory authority (with respect to each electric utility for which the State has ratemaking authority) and each nonregulated electric utility shall complete the consideration and make the determination under section 111 with respect to the standard",
+            "locator": "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm"
+          }
+        ],
+        "scopeAndFreshness": "The federal obligation is consideration and determination; the House text does not itself set every local rate.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/editorial-input.json",
+          "sha256": "d1a795b9559d83a40ac213689725cbcd332721d21146374a06ce9bc2f81b6585"
+        }
+      },
+      {
+        "claimId": "senate-objection",
+        "claim": "Husted sought unanimous-consent Senate passage on September 17 and Heinrich objected.",
+        "candidateEvidence": [
+          {
+            "excerpt": "On September 17, Senator Jon Husted tried to secure Senate passage by unanimous consent. Senator Martin Heinrich objected",
+            "locator": "The LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "husted-attempt",
+          "husted-objection",
+          "heinrich-objection"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Sen. Jon Husted (R-Ohio) today brought his Ratepayer Protection Act to the Senate floor, seeking its passage by unanimous consent—a process that expedites consideration of legislation in the United States Senate.",
+            "locator": "https://www.husted.senate.gov/media/press-releases/husted-bill-to-protect-americans-from-footing-the-bill-for-new-data-centers-blocked-from-passage/"
+          },
+          {
+            "excerpt": "A Senate Democrat objected, blocking the bill from Senate passage.",
+            "locator": "https://www.husted.senate.gov/media/press-releases/husted-bill-to-protect-americans-from-footing-the-bill-for-new-data-centers-blocked-from-passage/"
+          },
+          {
+            "excerpt": "U.S. Senator Martin Heinrich (D-N.M.), Ranking Member of the U.S. Senate Energy and Natural Resources Committee, took to the Senate floor to object to Senate passage of the Ratepayer Protection Act",
+            "locator": "https://www.heinrich.senate.gov/newsroom/press-releases/heinrich-offers-his-grid-savings-act-to-force-ai-data-centers-to-pay-for-grid-upgrades-highlights-how-husted-backed-bill-falls-short"
+          }
+        ],
+        "scopeAndFreshness": "Matching participant accounts checked September 23; their policy and savings claims remain advocacy.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/editorial-input.json",
+          "sha256": "d1a795b9559d83a40ac213689725cbcd332721d21146374a06ce9bc2f81b6585"
+        }
+      },
+      {
+        "claimId": "no-current-bill-effect",
+        "claim": "The House vote did not itself change household rates, and the proposal guarantees neither local adoption nor household savings.",
+        "candidateEvidence": [
+          {
+            "excerpt": "That vote did not make the bill law or change a household electricity rate.",
+            "locator": "The Story"
+          },
+          {
+            "excerpt": "it guarantees neither adoption of its standard nor a household saving.",
+            "locator": "What This Means for You"
+          }
+        ],
+        "sourceIds": [
+          "bill-status-limit",
+          "bill-consideration-limit"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Engrossed in House",
+            "locator": "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm"
+          },
+          {
+            "excerpt": "shall complete the consideration and make the determination under section 111 with respect to the standard",
+            "locator": "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm"
+          }
+        ],
+        "scopeAndFreshness": "Legal-status and mechanism inference, checked through September 23. No utility rate case or household outcome is claimed.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/editorial-input.json",
+          "sha256": "d1a795b9559d83a40ac213689725cbcd332721d21146374a06ce9bc2f81b6585"
+        }
+      },
+      {
+        "claimId": "senate-companion-referral",
+        "claim": "A separate Senate bill with the same title, S.5028, was referred to the Energy and Natural Resources Committee on September 18; this is not Senate passage of H.R. 9340.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Senate bill S.5028 was referred to committee September 18.",
+            "locator": "The LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "official-status-refresh-20260923"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "09-18-2026 | S.5028 | Ratepayer Protection Act Latest Action: Read twice and referred to the Committee on Energy and Natural Resources.",
+            "locator": "https://www.husted.senate.gov/legislation/legislative-record/"
+          }
+        ],
+        "scopeAndFreshness": "Current official Husted legislative record checked September 23. The Senate bill number is kept distinct from H.R. 9340.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/editorial-input.json",
+          "sha256": "d1a795b9559d83a40ac213689725cbcd332721d21146374a06ce9bc2f81b6585"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-23",
+    "nextTrigger": "Any Senate action on H.R. 9340 or S.5028, amendment, enactment, state proceeding, utility rate case or publication after September 23.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First NewsStand candidate on H.R. 9340 and this federal-state utility cost-allocation mechanism."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The producer found no unresolved prose, factual or semantic defect. The purpose-built visual passed independent pixel review; distinct external prose and factual admission remains pending."
+  },
+  "limitations": [
+    "The complete Congress.gov H.R. 9340 action page remained blocked to the normal web client; the September 23 check is bounded to the named official sources.",
+    "No inspected official source establishes Senate passage of H.R. 9340 or enactment through September 23.",
+    "S.5028 is a separate Senate bill and its committee referral is not Senate passage of H.R. 9340.",
+    "No utility rate case or household-bill outcome is established.",
+    "Producer explain-back and transfer are AI simulations; no human-reader comprehension observation was made.",
+    "The visual passed independent pixel review, but no public NewsStand crop or live placement has been checked."
+  ]
+}

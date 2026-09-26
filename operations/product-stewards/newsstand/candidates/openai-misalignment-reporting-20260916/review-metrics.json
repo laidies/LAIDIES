@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "laidies.newsstand-review-metrics.v1",
+  "candidateId": "openai-misalignment-reporting-20260916",
+  "proseReview": {
+    "reviewIssues": 1,
+    "reviewCycles": 4,
+    "providerAttempts": [
+      {
+        "directory": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/editorial-review-v1",
+        "result": "PASS",
+        "resultSha256": "49013d5a6038b696b1fa988949f49a635c656d2f95132b2a950a2e8c95a2b649",
+        "completedAt": "2026-09-19T17:03:44.432Z",
+        "note": "Original exact prose passed; superseded by novice-facing wording repair."
+      },
+      {
+        "directory": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/editorial-review-v2",
+        "result": "PASS",
+        "resultSha256": "7b21d1c10055f5c625cb5fcd487cbe153510e9a5b6a7d59d99933cd60c832f1b",
+        "completedAt": "2026-09-19T17:24:39.000Z",
+        "note": "Fresh exact prose review after headline and permission-language repair."
+      },
+      {
+        "directory": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/editorial-review-v3",
+        "result": "PASS",
+        "resultSha256": "8bd73c905dbc27da31f03137ede6552803a3ad40ee0b93525f480c5867f69c6d",
+        "completedAt": "2026-09-19T17:32:00.000Z",
+        "note": "Fresh actual review after canonical stable serialization repair required for ordinary-candidate assembly."
+      },
+      {
+        "directory": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/editorial-review-v4",
+        "result": "PASS",
+        "resultSha256": "d275e64acc3a5cc76c07e204d03754cd90d5735618d0d094fc542dad6f6f29c4",
+        "completedAt": "2026-09-19T17:15:59.167Z",
+        "note": "Fresh actual review after a held-story timestamp correction required by ordinary-candidate validation."
+      }
+    ]
+  },
+  "sourcePacket": {
+    "rounds": 2,
+    "gaps": 1,
+    "repaired": 1,
+    "actualIssue": "The first authored editorial packet had a review-text envelope instead of the exact story and source excerpts not individually addressable by the runtime. The review runner stopped before provider dispatch. The packet was rebuilt from the exact current story, full preserved raw primary and AP captures, and exact source passages.",
+    "finalPacket": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/editorial-input.json",
+      "sha256": "8da5d5554c90ae6ee57ac40c25b3cf632efe5eb45c1f966a415609c168b481ec"
+    },
+    "rawBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-20260919/provider-full.json",
+        "sha256": "b4f8bc4d5a8a438bf7f296a7cfaa09fd383c023381bf1eb63fe9a62a30d7adb7"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-20260919/independent-captures/material-opens.json",
+        "sha256": "d6546c0395193221ddf04cdfe8233ce5e86493c262bb9a11561323914c1cfacd"
+      }
+    ]
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 1,
+    "reviewCycles": 4,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "observation": "V1, v2, v3 and v4 are actual combined Claude reviews. V2 repaired novice-facing headline and permissions language. V3 corrected canonical stable serialization; v4 corrected only the held-story timestamp so it precedes its independent review. Each new exact review artifact was independently re-reviewed.",
+  "reviewTextSha256": "ff4023e7686d2164875380139746d596d260296b5f306169219f847ba503dd8e",
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/producer-publication-review.json",
+    "sha256": "9d3227864763ca8390591e194027b55b5df4c49b1b1367b8a35f07bc909c772a"
+  },
+  "independentResult": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/editorial-review-v4/article-result.json",
+    "sha256": "d275e64acc3a5cc76c07e204d03754cd90d5735618d0d094fc542dad6f6f29c4"
+  },
+  "evidencePacket": {
+    "rounds": 2,
+    "gaps": 1,
+    "repaired": 1,
+    "observation": "The original packet envelope and individually addressable source passages were repaired before v1; raw source captures remained unchanged."
+  }
+}

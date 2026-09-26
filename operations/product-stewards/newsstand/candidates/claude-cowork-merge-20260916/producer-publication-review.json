@@ -1,0 +1,534 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "claude-cowork-merge-20260916",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/aft_school_story",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/aft_school_story",
+    "principalId": "/root/aft_school_story",
+    "role": "Producer exact complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-19T17:41:30.769Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/publication-manifest.json",
+      "sha256": "55038509dacc6a319d6711f09e8a4965ca00a5d5b8aee9aedc8eabf6b9ecdf3b"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/review-text.json",
+      "sha256": "b665d947c5d535c4c15c2099b2d097b8f79052103e89915befefdc61a30c74a7"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/rendered-article.html",
+      "sha256": "5ef171467bc5c10c386e769379fa1476a3c206999f9df47b7f1ebae259ce3674"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/aft_school_story",
+    "reviewedAt": "2026-09-15T23:13:39.848Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "If Claude no longer asks me to choose Chat or Cowork, what changed and what still needs my decision?",
+    "promisedPayoff": "Know when the merged experience reaches an account, what Manual and Auto mean, and how to start one low-risk personal task.",
+    "centralMentalModel": "One conversation can shift from answering to carrying out a longer job; the user still sets permissions and checks the result.",
+    "dailyLifeConnection": "Turn a small set of appliance manuals into an editable maintenance checklist.",
+    "surfaceJob": "September 16 private Daily candidate about Claude merging chat and Cowork.",
+    "desiredReaderFeeling": "I can try the new experience without surrendering the important choices."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A person can ask a quick question or hand over a longer, multi-step task without choosing a mode first.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "LAiDIES would use the longer-work option when a task has named inputs and a document to check.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "attach three appliance manuals and ask Claude to make an editable seasonal-maintenance checklist",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The change removes a doorway; it does not promise every task will succeed.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those are vendor descriptions, not proof a task will finish well.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic announced September 16",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Claude is folding quick questions and longer Cowork jobs into one conversation",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic announced September 16 that it is merging Claude chat and Cowork into one Claude experience.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Same-plan accounts may differ.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "attach three appliance manuals",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "what an agent may do, when it must ask and when it must stop",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A person can ask a quick question or hand over a longer, multi-step task without choosing a mode first.",
+          "locator": "The Story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "If Claude no longer asks me to choose Chat or Cowork, what changed and what still needs my decision?",
+        "probeResponse": "Claude is removing the need to choose Chat or Cowork first. The same conversation can answer or carry out a longer task, while I still choose permissions.",
+        "expectedEvidence": "One conversation can answer or do longer work; access is staged and permissions remain a user choice.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic says Manual asks before actions; Auto reduces check-ins.",
+          "locator": "LAiDIES Read"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What should I check if another AI tool also removes its mode picker?",
+        "probeResponse": "For a different agentic tool, I should check what it may access, when it asks and whether local work needs an app left open.",
+        "expectedEvidence": "Check access, permission points, local execution requirements and result review.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "inspect every date or safety instruction against the originals",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "attach three appliance manuals and ask Claude to make an editable seasonal-maintenance checklist",
+          "locator": "What This Means"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Actual read avoids glossaryAccumulation: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Actual read avoids templateRepetition: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Actual read avoids decorativeAnalogy: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Actual read avoids referenceConfetti: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Actual read avoids missingMechanism: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Actual read avoids genericAction: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Actual read avoids jargonBeforeMeaning: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Actual read avoids disconnectedSystem: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Actual read avoids factlessConfidence: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Actual read avoids staleUnreviewableClaims: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Actual read avoids corporateSludge: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Actual read avoids joylessInstruction: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Actual read avoids benchmarkNameDrop: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Actual read avoids curiosityWithoutPayoff: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Actual read avoids familiarExampleWithoutTechnicalReturn: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Actual read avoids communicationPastiche: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Actual read avoids entertainmentBeforeUnderstanding: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Actual read avoids mechanismCompressedBehindHook: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Actual read avoids prematureClickBeforeMechanism: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Actual read avoids inflatedTakeawayEnding: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Actual read avoids purposeTooNarrow: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Actual read avoids mechanismBeforeMotivation: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Actual read avoids workedExampleOvertakesBookPurpose: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Actual read avoids technicalExplainerVoice: the dated merge, rollout boundary, permission mechanism and household transfer remain connected without a performance promise.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
+        "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/source-packet.json",
+        "sha256": "cd6240525d8db15ae1e438f6b2603291f37a79422f9c0a9f2dabf5227a3a544a"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/source-observations.json",
+        "sha256": "b522d527fd6744615222e6e44ec9a8715e14a01f0e48f3288efd0f1313522c85"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "event",
+        "claim": "Anthropic announced September 16 that Claude chat and Cowork are merging into one experience.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic announced September 16 that it is merging Claude chat and Cowork into one Claude experience.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "anthropic-cowork-merge-blog-20260916"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Starting today, Claude Cowork and chat are merging into one Claude.",
+            "locator": "https://claude.com/blog/cowork-is-now-claude"
+          }
+        ],
+        "scopeAndFreshness": "Official September 16 announcement, fully reread September 19.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
+          "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
+        }
+      },
+      {
+        "claimId": "rollout",
+        "claim": "Rollout is gradual, beginning with Pro and Max; same-plan accounts can differ; Team and Free follow; Enterprise receives at least 30 days notice.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Rollout is gradual: Pro and Max first across web, desktop and mobile. Team and Free follow; Enterprise gets at least 30 days’ notice. Same-plan accounts may differ.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "anthropic-cowork-merge-blog-20260916",
+          "anthropic-cowork-merge-help-20260919"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "This is rolling out to Pro and Max plans first, in the Claude app on web, desktop, and mobile over the coming weeks to existing and new users on these plans. There’s nothing to turn on. Team and Free plans will follow soon, and Enterprise admins will hear from us at least 30 days before anything changes for their organizations.",
+            "locator": "https://claude.com/blog/cowork-is-now-claude"
+          },
+          {
+            "excerpt": "even accounts on the same plan will see the changes at different times",
+            "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
+          }
+        ],
+        "scopeAndFreshness": "Staged provider rollout, not universal availability; reread September 19.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
+          "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
+        }
+      },
+      {
+        "claimId": "permissions",
+        "claim": "Manual asks before actions; Auto reduces check-ins; the setting covers the conversation.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic says Manual asks before actions; Auto reduces check-ins. The setting covers the conversation.",
+            "locator": "LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "anthropic-cowork-merge-help-20260919"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Auto: Claude keeps working without stopping to ask about each step, and automated safety checks run before it takes an action.\nManual (default): Claude asks before it takes actions, and you choose whether to allow each one.\nThe setting applies to the whole conversation.",
+            "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
+          }
+        ],
+        "scopeAndFreshness": "Permission behavior documented September 19; no safety guarantee.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
+          "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
+        }
+      },
+      {
+        "claimId": "execution",
+        "claim": "Local work requires Desktop open; cloud work may continue after laptop closure.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Local work needs Claude Desktop open; cloud work may continue after the laptop closes.",
+            "locator": "What This Means"
+          }
+        ],
+        "sourceIds": [
+          "anthropic-cowork-merge-help-20260919"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Tasks that use files or apps on your computer need Claude Desktop open.\nMore involved tasks keep running in the cloud even if you close your laptop",
+            "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
+          }
+        ],
+        "scopeAndFreshness": "Documented behavior, not evidence of reliable completion.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
+          "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-19",
+    "nextTrigger": "Material rollout, plan, permission or execution change; or publication after September 19.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First story on the September 16 Claude chat/Cowork product merge; prior Anthropic stories cover different model, safety and research events."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Rollout, permission and local-versus-cloud distinctions were resolved before independent review."
+  },
+  "limitations": [
+    "Producer AI simulations; no observed human comprehension test.",
+    "Both factual sources are Anthropic-owned product pages; no independent quality or adoption evidence.",
+    "Final public asset copy, ordinary assembly, issue admission, canonical write and deployment remain outside this lane."
+  ]
+}

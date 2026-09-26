@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "newsstand-source-refresh-observations-v1",
+  "observedAt": "2026-09-25T20:04:50Z",
+  "editorialDate": "2026-09-25",
+  "operator": "/root/california_order_producer",
+  "mode": "BOUNDED_CURRENT_INDEX_AND_DUE_AIDB_RECOVERY",
+  "sourceObservations": [
+    {
+      "sourceId": "SRC-AP-AI",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "outcome": "PARTIAL_CURRENT_INDEX",
+      "webRefs": ["turn1201view0", "turn1209view0"],
+      "lineEvidence": ["turn1209view0:1918-1965"],
+      "assessment": "The current hub returned a navigation-heavy page and a visible AI list. Its visible items match existing coverage identities including OpenAI misalignment, the House ratepayer bill, the slowdown debate and UN AI cooperation. No new dated AP item was established from the returned view."
+    },
+    {
+      "sourceId": "SRC-NATURE-ML",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "outcome": "CURRENT_INDEX_MATERIAL_ITEMS_FOLLOWED",
+      "webRefs": ["turn1201view1", "turn1203view1", "turn1205view2", "turn1205view3", "turn1205view4", "turn1216search0"],
+      "lineEvidence": ["turn1203view1:104-149", "turn1205view2:13-26", "turn1205view3:13-27"],
+      "assessment": "The index exposes three September 24 items: laboratory-device coordination, the existing Australian Medicare agent incident, and an AlphaFold virus-complex database. The first two article pages were opened; the AlphaFold index click returned Internal Error, then one exact-title Nature search recovered the correct article identity and a substantial publisher excerpt. The Medicare item matches an existing candidate. The other two lack complete primary methods/database evidence in this receipt and remain source holds."
+    },
+    {
+      "sourceId": "SRC-FTC-AI",
+      "url": "https://www.ftc.gov/industry/technology/artificial-intelligence",
+      "outcome": "CURRENT_INDEX_NO_NEW_ITEM",
+      "webRefs": ["turn1201view2", "turn1209view2"],
+      "lineEvidence": ["turn1209view2:21-69"],
+      "assessment": "The latest visible 2026 AI-index item remains the August 27 finalized active-listening orders. No September item appears in the returned AI index."
+    },
+    {
+      "sourceId": "SRC-EFF-AI",
+      "url": "https://www.eff.org/issues/ai",
+      "outcome": "CURRENT_INDEX_NO_NEW_ITEM",
+      "webRefs": ["turn1201view3", "turn1209view3"],
+      "lineEvidence": ["turn1209view3:149-163"],
+      "assessment": "The latest visible update remains EFF's September 18 California executive-order statement, already bound to the California oversight candidate. No later item appears in the returned index."
+    },
+    {
+      "sourceId": "SRC-BLEEPINGCOMPUTER-AI",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "outcome": "CURRENT_INDEX_TWO_NEW_ITEMS_FOLLOWED",
+      "webRefs": ["turn1201view4", "turn1203view4", "turn1205view0", "turn1205view1", "turn1207view0"],
+      "lineEvidence": ["turn1203view4:4-38", "turn1205view0:4-35", "turn1205view1:4-38"],
+      "assessment": "Two September 25 reports were read. The Claude Code cloud-credit report gives eligibility, amounts and expiry dates, but its linked provider claim route was restricted. The reported $500 ChatGPT Pro Max plan is explicitly unannounced, has no launch date or confirmed limits, and includes speculative hardware linkage. Both remain source holds rather than launch news."
+    },
+    {
+      "sourceId": "SRC-OPENAI-NEWS",
+      "url": "https://openai.com/news/",
+      "outcome": "CURRENT_INDEX_NO_NEW_ITEM",
+      "webRefs": ["turn1201view5", "turn1209view4"],
+      "lineEvidence": ["turn1209view4:40-55"],
+      "assessment": "The latest visible official entries remain dated September 23. Those identities are already dispositioned in current coverage. No September 24 or 25 release appears."
+    },
+    {
+      "sourceId": "SRC-ANTHROPIC-NEWS",
+      "url": "https://www.anthropic.com/news",
+      "outcome": "CURRENT_INDEX_NO_NEW_ITEM",
+      "webRefs": ["turn1201view6", "turn1203view6"],
+      "lineEvidence": ["turn1203view6:15-29"],
+      "assessment": "The latest visible official item remains the September 23 Claude enzyme-system research announcement; current coverage already contains that identity. No September 24 or 25 newsroom item appears."
+    },
+    {
+      "sourceId": "SRC-GOOGLE-AI-DEVELOPERS",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "outcome": "CURRENT_CHANGELOG_NO_NEW_ITEM",
+      "webRefs": ["turn1201view7", "turn1209view5"],
+      "lineEvidence": ["turn1209view5:88-96", "turn1203view7:98-115"],
+      "assessment": "The latest visible changelog entry remains September 22 TTS general availability, followed by September 18 and 17 entries. No September 24 or 25 entry appears."
+    }
+  ],
+  "aidbObservations": [
+    {
+      "channel": "website-index",
+      "url": "https://aidailybrief.ai/agent.json",
+      "outcome": "CURRENT_METADATA_NO_SEP25_EDITION",
+      "webRefs": ["turn1201view8", "turn1203view8"],
+      "lineEvidence": ["turn1203view8:0-32"],
+      "assessment": "The index was generated at 2026-09-25T19:54:32.178Z and still lists September 24 as its newest edition. It is metadata, not complete edition content."
+    },
+    {
+      "channel": "podcast",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "outcome": "NEW_SEP25_EPISODE_METADATA_ONLY",
+      "webRefs": ["turn1201view9", "turn1210view0", "turn1211view0"],
+      "episodeUrl": "https://podcasts.apple.com/us/podcast/how-people-are-actually-using-jev/id1680633614?i=1000791661738",
+      "lineEvidence": ["turn1210view0:21-38", "turn1211view0:7-14", "turn1211view0:49-55"],
+      "assessment": "Apple identifies a September 25, 18:07 UTC, 26-minute episode titled 'How People Are Actually Using Jev' and supplies a short description. No full audio or transcript was reviewed. The website index has not established a cross-channel edition identity."
+    },
+    {
+      "channel": "sep24-publisher-endpoints",
+      "urls": [
+        "https://aidailybrief.ai/e/2026-09-24.md",
+        "https://aidailybrief.ai/e/2026-09-24.json",
+        "https://aidailybrief.ai/e/2026-09-24/transcript.md"
+      ],
+      "outcome": "INACCESSIBLE",
+      "webRefs": ["turn1208view0", "turn1208view1", "turn1208view2"],
+      "assessment": "The distinct publisher markdown, JSON and transcript endpoints each returned tool inaccessibility. No complete September 24 edition or transcript was recovered."
+    },
+    {
+      "channel": "sep23-publisher-endpoints",
+      "urls": [
+        "https://aidailybrief.ai/e/2026-09-23",
+        "https://aidailybrief.ai/e/2026-09-23.md",
+        "https://aidailybrief.ai/e/2026-09-23/transcript.md"
+      ],
+      "outcome": "INACCESSIBLE",
+      "webRefs": ["turn1217view0", "turn1217view1", "turn1217view2"],
+      "assessment": "The due September 23 HTML, markdown and transcript routes each returned tool inaccessibility. Their prior BLOCKED status remains accurate; no complete content was recovered."
+    }
+  ],
+  "leadDispositions": [
+    {
+      "leadId": "openai-agent-australia-medicare-20260924",
+      "disposition": "EXISTING_CANDIDATE_NO_DUPLICATE",
+      "sourceUrl": "https://www.nature.com/articles/d41586-026-03024-z",
+      "reason": "The Nature item matches the existing named Medicare candidate and adds no separate event identity."
+    },
+    {
+      "leadId": "typesafe-jev-system-one-20260915",
+      "disposition": "EXISTING_HOLD_METADATA_UPDATE_ONLY",
+      "sourceUrl": "https://podcasts.apple.com/us/podcast/how-people-are-actually-using-jev/id1680633614?i=1000791661738",
+      "reason": "The Apple description is relevant practitioner metadata but is not a full transcript or independent evaluation of Jev's performance, cost or reliability claims."
+    },
+    {
+      "leadId": "anthropic-claude-code-cloud-credits-20260923",
+      "disposition": "NEW_EVIDENCE_HOLD",
+      "sourceUrl": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-rolls-out-up-to-250-in-free-claude-code-credits-but-only-for-cloud-sessions/",
+      "reason": "Concrete time-limited reader consequence is reported, but the linked provider claim route is restricted and no official eligibility/terms record was recovered."
+    },
+    {
+      "leadId": "chatgpt-pro-max-unannounced-plan-20260925",
+      "disposition": "NEW_EVIDENCE_HOLD",
+      "sourceUrl": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-is-preparing-a-500-chatgpt-pro-max-plan-with-faster-codex/",
+      "reason": "The report explicitly says the plan is unannounced, unavailable on an unknown date and missing confirmed limits; hardware linkage is speculation."
+    },
+    {
+      "leadId": "nature-lab-device-agent-interoperability-20260924",
+      "disposition": "NEW_EVIDENCE_HOLD",
+      "sourceUrl": "https://www.nature.com/articles/d41586-026-02990-8",
+      "reason": "The accessible Nature lead paragraph does not identify enough primary platform/methods evidence to assess validation, scope or ordinary-reader consequence."
+    },
+    {
+      "leadId": "alphafold-virus-complex-database-20260924",
+      "disposition": "NEW_EVIDENCE_HOLD",
+      "sourceUrl": "https://www.nature.com/articles/d41586-026-03022-1",
+      "reason": "Nature says the predictions need experimental confirmation and describes limitations including omitted sugars and larger complexes; no original database/methods record was inspected. No health or pandemic-preparedness outcome can be inferred."
+    }
+  ],
+  "nonretryablePreserved": [
+    "All retained NONRETRYABLE rows in the predecessor coverage record",
+    "No Nature /nature route, blocked X post, Reuters route, PKU route or historic blocked AIDB endpoint was reopened"
+  ],
+  "completeness": "PARTIAL: all eight current source indexes across six desks were inspected. AP was navigation-heavy. The AIDB September 25 podcast identity is metadata-only; no full transcript was reviewed, and the publisher index still ends at September 24."
+}

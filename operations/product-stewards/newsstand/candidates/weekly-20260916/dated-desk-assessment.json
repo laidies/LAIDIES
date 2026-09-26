@@ -1,0 +1,240 @@
+{
+  "schemaVersion": "newsstand-weekly-source-assessment.v1",
+  "asOf": "2026-09-19",
+  "reviewedAt": "2026-09-19T14:26:33.845379Z",
+  "publicationDate": "2026-09-19",
+  "status": "LATE_RECOVERY_FINAL_SELECTION_FOR_PRODUCER_REVIEW",
+  "reviewer": "/root/aft_school_story",
+  "supersedes": {
+    "path": "operations/product-stewards/newsstand/evidence/evening-20260915/weekly-source-assessment.json",
+    "sha256": "d3629b30067d4d744dead19a1a79afd2016a9b726755b830cd2bc15e90557dc1",
+    "reason": "The evening assessment was provisional. Morning source checks narrowed the synthesis and resolved event-date limits."
+  },
+  "coveredPeriod": "2026-09-09 through 2026-09-16 America/Vancouver; September 18 update is separately dated post-period context",
+  "desks": [
+    {
+      "id": "accountability",
+      "disposition": "SELECTED",
+      "sourceIds": [
+        "amodei",
+        "school-announcement",
+        "school-contract"
+      ],
+      "reason": "The essay proposes outside review; the school agreement supplies a signed but opt-in accountability mechanism. The Weekly keeps proposal, commitment and contract distinct."
+    },
+    {
+      "id": "medical_science",
+      "disposition": "HOLD",
+      "sourceIds": [
+        "crisp-pathology-20260912"
+      ],
+      "reason": "CRISP remains valuable Daily coverage, but the fresh primary PDF returned an internal error and the landing was marked nonretryable. Without a fresh complete primary read, it is excluded from this Weekly synthesis; the existing Daily is not undone."
+    },
+    {
+      "id": "product_releases",
+      "disposition": "SELECTED",
+      "sourceIds": [
+        "google",
+        "openai"
+      ],
+      "reason": "Both change conversations a broad nontechnical reader may encounter, with exact rollout/test limits attached."
+    },
+    {
+      "id": "work_economy",
+      "disposition": "DECLINED",
+      "sourceIds": [
+        "census-ai-graduates-20260915",
+        "honeybook-plugin-20260912"
+      ],
+      "reason": "The Census landing shows a September 10 revision but only September 2026 for the paper, which does not prove the original event fell within this week. HoneyBook is a narrower installed-user integration and does not outrank the selected developments."
+    },
+    {
+      "id": "security",
+      "disposition": "SELECTED",
+      "sourceIds": [
+        "anthropic",
+        "amodei"
+      ],
+      "reason": "Anthropic’s threat report supplies observed misuse with retained limits; Amodei’s proposal supplies a distinct governance response, not proof of resolution."
+    },
+    {
+      "id": "contrary_evidence",
+      "disposition": "SELECTED",
+      "sourceIds": [
+        "anthropic",
+        "school-contract",
+        "google",
+        "openai"
+      ],
+      "reason": "The synthesis keeps contrary limits beside each claim: no completed weapon or stated harmful intent, opt-in product exclusions, rollout uncertainty, and a seller-sponsored conversation separate from independent answers."
+    }
+  ],
+  "selections": [
+    {
+      "id": "amodei-ai-pacing-20260912",
+      "decision": "SELECT",
+      "sourceIds": [
+        "amodei"
+      ],
+      "reason": "High-consequence proposal with a concrete outside-review mechanism; date bound through the dated-post evidence because the primary page shows only the month."
+    },
+    {
+      "id": "anthropic-threat-report-20260910",
+      "decision": "SELECT",
+      "sourceIds": [
+        "anthropic"
+      ],
+      "reason": "Material provider report with surveillance and dual-use biology examples; no intent or completed-weapon escalation."
+    },
+    {
+      "id": "microsoft-aft-school-privacy-20260915",
+      "decision": "SELECT",
+      "sourceIds": [
+        "school-announcement",
+        "school-contract"
+      ],
+      "reason": "A signed, reader-actionable school agreement whose opt-in and product exclusions are central."
+    },
+    {
+      "id": "gemini-live-38-20260915",
+      "decision": "SELECT",
+      "sourceIds": [
+        "google"
+      ],
+      "reason": "Broad consumer conversation change with exact rollout and subscription limits."
+    },
+    {
+      "id": "chatgpt-sponsored-agents-20260916",
+      "decision": "SELECT",
+      "sourceIds": [
+        "openai"
+      ],
+      "reason": "A new seller-sponsored conversation surface that readers can recognize; test and separation limits retained."
+    },
+    {
+      "id": "crisp-pathology-20260912",
+      "decision": "DECLINE",
+      "sourceIds": [
+        "crisp-pathology-20260912"
+      ],
+      "reason": "Fresh primary completion blocked; do not reopen the nonretryable landing or undo the admitted Daily."
+    },
+    {
+      "id": "census-ai-graduates-20260915",
+      "decision": "DECLINE",
+      "sourceIds": [
+        "census-ai-graduates-20260915"
+      ],
+      "reason": "The observed September 10 date is a landing revision, not proof of the paper’s original release date inside this period."
+    },
+    {
+      "id": "honeybook-plugin-20260912",
+      "decision": "DECLINE",
+      "sourceIds": [
+        "honeybook-plugin-20260912"
+      ],
+      "reason": "Narrow installed-user relevance relative to selected consumer and school changes."
+    }
+  ],
+  "sources": [
+    {
+      "id": "amodei",
+      "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+      "checkedAt": "2026-09-19T14:26:33.845379Z",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/amodei.json",
+        "sha256": "a7fddf341c031be67061f2e3bbc7eb2a2f0ac78adcca260f650e331e76d3986a"
+      }
+    },
+    {
+      "id": "school-announcement",
+      "url": "https://news.microsoft.com/source/2026/09/09/aft-uft-and-microsoft-announce-national-ai-safety-privacy-standard-for-schools-to-protect-students-families-and-educators/",
+      "checkedAt": "2026-09-19T14:26:33.845379Z",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/school-announcement.json",
+        "sha256": "75c304f381f001b7f086806a9dd2ca4f018f45e7a5543a7f1f72e406ac213bc3"
+      }
+    },
+    {
+      "id": "school-contract",
+      "url": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf",
+      "checkedAt": "2026-09-19T14:26:33.845379Z",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/school-contract.json",
+        "sha256": "b1333ef937df3be04c10cb328e4ed50a61b9e383dc4f6ab915b9dec32e940bc0"
+      }
+    },
+    {
+      "id": "crisp-pathology-20260912",
+      "url": "https://www.nature.com/articles/s41591-026-04703-0",
+      "checkedAt": "2026-09-19T14:26:33.845379Z",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/crisp-pathology-20260912.json",
+        "sha256": "fea59c5c8a621b1ecbbe918b81403dccf519aaf855ec286e7d09b433a198cbef"
+      }
+    },
+    {
+      "id": "google",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+      "checkedAt": "2026-09-19T14:26:33.845379Z",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/google.json",
+        "sha256": "f04800663b242252e0c975893fd99b8fe632311e1756ac7b880fd6229bed1554"
+      }
+    },
+    {
+      "id": "openai",
+      "url": "https://openai.com/index/reimagining-advertising-with-ai/",
+      "checkedAt": "2026-09-19T14:26:33.845379Z",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/openai.json",
+        "sha256": "3493eab0fa0a132d9726be29600b60462fc88eeb9945b8c858e681b23c70107b"
+      }
+    },
+    {
+      "id": "census-ai-graduates-20260915",
+      "url": "https://www.census.gov/library/working-papers/2026/adrm/CES-WP-26-56.html",
+      "checkedAt": "2026-09-19T14:26:33.845379Z",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/census-ai-graduates-20260915.json",
+        "sha256": "2017c4af2230a60aafcb95c25446c7f851b9f67f7a1c9ce1c009237c95482c53"
+      }
+    },
+    {
+      "id": "honeybook-plugin-20260912",
+      "url": "https://www.honeybook.com/blog/honeybook-chatgpt-plugin",
+      "checkedAt": "2026-09-19T14:26:33.845379Z",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/honeybook-plugin-20260912.json",
+        "sha256": "ff791ce1aa5310363c7f8addcc602d5a541b0950fca37fb0d2ff0ffb5dd8c91b"
+      }
+    },
+    {
+      "id": "anthropic",
+      "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+      "checkedAt": "2026-09-19T14:26:33.845379Z",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/anthropic.json",
+        "sha256": "9d0bd627cb31f3ced3e0199359fbaa021e7f2128dfc7e5e1865f4e020f16a47a"
+      }
+    }
+  ],
+  "coverageConclusion": "Five developments support a selective synthesis about proposals, signed scope and changes readers can encounter. A missing desk story is not filled to satisfy a quota; the blocked medical primary and uncertain Census original date remain explicit exclusions.",
+  "additionalEditorialExclusions": [
+    {
+      "id": "rubygems-agent-attribution-20260915",
+      "reason": "Useful contrary evidence, but omitted to keep the Weekly concentrated; retained in Daily coverage.",
+      "evidenceBasis": "Current local admitted-story record; no fresh source fetch asserted."
+    },
+    {
+      "id": "mathematicians-ai-research-values-20260916",
+      "reason": "Distinct and admitted separately, but omitted to keep this Weekly centered on promises, scope and implementation.",
+      "evidenceBasis": "Current local admitted-story record; no fresh source fetch asserted."
+    }
+  ],
+  "postPeriodUpdate": {
+    "id": "anthropic-evaluator-update",
+    "decision": "CONTEXT_UPDATE_NOT_PERIOD_SELECTION",
+    "reason": "The September 18 partnership changes the practical watch-for guidance after the covered week and before late publication. It does not enter the five-development in-period selection."
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "schema": "newsstand-source-recovery-proposal.v1",
+  "proposalOnly": true,
+  "asOfVancouver": "2026-09-22",
+  "captureReceiptAt": "2026-09-22T16:55:55-07:00",
+  "scope": "Bounded fresh normal-web checks. No coverage-progress, cursor, canonical, candidate, or public mutation.",
+  "routeGuard": {
+    "command": "node scripts/check-practitioner-signal-pilot.mjs --newsstand-only --as-of 2026-09-22",
+    "status": "PASS",
+    "result": "NEWSSTAND SOURCE ROUTES PASS desks=6 sources=8 research_completion_certified=false"
+  },
+  "rawEvidence": [
+    {
+      "path": "roster-raw.json",
+      "sha256": "1fd0a6acbd509967e48fc746e3eebaf3a3c3394e757cab38825a155c53babec3"
+    },
+    {
+      "path": "finds-raw.json",
+      "sha256": "32b67905d64a719f8fe8d2d7c25c8e335d10662fe410f31023c37ecb342b77e9"
+    },
+    {
+      "path": "additional-finds-raw.json",
+      "sha256": "36523aa9025afd972f9cabcd7ccd8e7ea313ffeb09ed562b1775fb5eabd086b1"
+    }
+  ],
+  "sourceChecks": [
+    {
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "CHECKED_INDEX",
+      "finding": "AI hub current; top AI links already map to known slowdown/misalignment coverage in inspected view.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "CHECKED_INDEX",
+      "finding": "Current subject page opened; no new dated item was established in this bounded read.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "CHECKED_INDEX",
+      "finding": "Latest AI-specific visible item remains Aug27 active-listening final orders.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://www.eff.org/updates",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "CHECKED_INDEX",
+      "finding": "Sep18 Siri-access and secure-messaging/AI posts, and Sep17 policy commentary, are current visible items.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/tag/artificial-intelligence/",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "CHECKED_NEW_MATERIAL",
+      "finding": "New Sep22 ClosedQuorum Windows malware report is visible; source-bound security lead below.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://openai.com/news/",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "CHECKED_INDEX",
+      "finding": "No separately assessed new material identified in bounded index read.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://www.anthropic.com/news",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "CHECKED_INDEX",
+      "finding": "Top dated event remains Sep18 Accenture evaluation; LSVP is known published coverage.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://gemini.google/release-notes/",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "CHECKED_INDEX",
+      "finding": "Opened; no newly assessed material in bounded pass.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "CHECKED_NEW_MATERIAL",
+      "finding": "Sep18 limits 2.5 API-model access to prior active users; source-bound scope lead below.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://deepmind.google/blog/",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "PARTIAL_DATELESS_INDEX",
+      "finding": "September cards have only month precision in the inspected view.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://www.oneusefulthing.org/archive",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "CHECKED_INDEX",
+      "finding": "Latest The Overhang is Sep18; index metadata only, no full essay review.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://www.aiwithallie.com/",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "BLOCKED_ONE_ATTEMPT",
+      "finding": "Normal web tool Internal Error; no retry or bypass.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://aidailybrief.ai/agent.json",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "CHECKED_METADATA_ONLY",
+      "finding": "Generated 2026-09-22T23:54:36.910Z; latest listed Sep21, not a complete edition.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "PARTIAL",
+      "finding": "Apple listing supplies Sep21 description, not full audio/transcript or rolling enumeration.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-22",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "BLOCKED_ONE_ATTEMPT",
+      "finding": "Normal web tool accessibility error.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-22/transcript.md",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "BLOCKED_ONE_ATTEMPT",
+      "finding": "Normal web tool accessibility error.",
+      "evidence": "roster-raw.json"
+    },
+    {
+      "url": "https://aidailybrief.beehiiv.com/",
+      "checkedAt": "2026-09-22T16:55:55-07:00",
+      "status": "UNAVAILABLE_NONRETRYABLE_NOT_OPENED",
+      "finding": "Preserved safety hold honored.",
+      "evidence": "roster-raw.json"
+    }
+  ],
+  "leadProposals": [
+    {
+      "id": "gemini-2-5-api-access-update-20260918",
+      "status": "SOURCE_BOUND_SCOPE_REVIEW",
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/changelog"
+      ],
+      "finding": "Google states access to Gemini 2.5 models is limited to users who actively used them in the past; models are not deprecated and new projects are directed to 3.5 Flash-Lite or 3.8 Flash.",
+      "nextAction": "Assess actual access state and reader relevance before candidate selection; no claim that an individual account has changed."
+    },
+    {
+      "id": "closedquorum-windows-malware-20260922",
+      "status": "SOURCE_BOUND_SECURITY_LEAD",
+      "sources": [
+        "https://www.bleepingcomputer.com/tag/artificial-intelligence/"
+      ],
+      "finding": "BleepingComputer reports a new Windows malware called ClosedQuorum that uses several models for post-compromise attack decisions.",
+      "nextAction": "Recover the report and underlying security-research primary before a consumer-security candidate; current index/excerpt is not enough for infection-route or protection claims."
+    },
+    {
+      "id": "aidb-20260921-state-of-ai-debate",
+      "status": "EVIDENCE_BLOCKED",
+      "sources": [
+        "https://aidailybrief.ai/agent.json",
+        "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614"
+      ],
+      "finding": "Website metadata and Apple description identify the release, but no full content was reviewed.",
+      "nextAction": "Retain unprocessed; do not infer transcript hash, item count, or content dispositions."
+    }
+  ],
+  "aidbInventoryProposal": {
+    "path": "aidb-inventory-update-proposal.json",
+    "status": "HOLD_AIDB_RELEASE_REVIEW",
+    "fullTranscriptReview": false,
+    "expectedSep22": "No index release; exact edition and transcript URLs inaccessible.",
+    "nextAction": "Use a distinct legitimate complete publisher source when available, then run selector against the shared cursor."
+  },
+  "remainingHolds": [
+    "Nature and DeepMind inspection are partial/datestamped insufficiently for fresh claims.",
+    "Allie failed once in this pass.",
+    "AIDB newsletter archive remains nonretryable; no bypass.",
+    "No quiet-cycle claim: route guard explicitly does not certify research completion."
+  ]
+}

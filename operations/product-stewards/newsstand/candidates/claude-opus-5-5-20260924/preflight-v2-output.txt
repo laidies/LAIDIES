@@ -1,0 +1,41 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Repair pre-review package before calling the independent editor:
+- ordinary reader utility: model release does not explain what work it is best suited to
+- ordinary reader utility: model release does not give recognizable human tasks
+- ordinary reader utility: model release does not explain when the new model is unnecessary
+- ordinary reader utility: model release does not compare the nearest useful alternative and its task trade-off
+- ordinary reader utility: model release does not distinguish vendor claims from interpretation
+- prepared draft: claude-opus-5-5-20260924 published story image is missing or incomplete
++ actual - expected
+
++ [
++   'ordinary reader utility: model release does not explain what work it is best suited to',
++   'ordinary reader utility: model release does not give recognizable human tasks',
++   'ordinary reader utility: model release does not explain when the new model is unnecessary',
++   'ordinary reader utility: model release does not compare the nearest useful alternative and its task trade-off',
++   'ordinary reader utility: model release does not distinguish vendor claims from interpretation',
++   'prepared draft: claude-opus-5-5-20260924 published story image is missing or incomplete'
++ ]
+- []
+
+    at assertArticlePreReviewPackage (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:43:9)
+    at async file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:156:2 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [
+    'ordinary reader utility: model release does not explain what work it is best suited to',
+    'ordinary reader utility: model release does not give recognizable human tasks',
+    'ordinary reader utility: model release does not explain when the new model is unnecessary',
+    'ordinary reader utility: model release does not compare the nearest useful alternative and its task trade-off',
+    'ordinary reader utility: model release does not distinguish vendor claims from interpretation',
+    'prepared draft: claude-opus-5-5-20260924 published story image is missing or incomplete'
+  ],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.18.0

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "newsstand-source-recovery-proposal-v1",
+  "observedAt": "2026-09-25T03:33:54Z",
+  "editorialDate": "2026-09-24",
+  "mode": "PROPOSAL_ONLY_NO_CANONICAL_WRITE",
+  "reviewer": "/root/california_order_producer",
+  "inputBindings": [
+    {
+      "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+      "sha256": "af9059ccbbb2b92420b1ea60b0372d380f57e3fd4d99b43d14c21c0d9c983954"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/evening-20260924/final-cycle-check.json",
+      "sha256": "9b18f54eecbcc25021dc78c5d3345bd3217cdc7d5a9256bf0b40edee6ba9cf70"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/evening-20260924/due-source-recovery/search-evidence.json",
+      "sha256": "5f05e8016b6c4fe9cd6a21483cf1b962ad134ccd0f1490c6cf222fad68bc560e"
+    }
+  ],
+  "eventProposals": [
+    {
+      "eventIdentity": "proteintalks-nature-breast-cancer-20260909",
+      "leadIds": [
+        "proteintalks-20260909",
+        "nature-breast-cancer-drug-prediction-20260909"
+      ],
+      "identityDecision": "ONE_SHARED_STUDY_FAMILY",
+      "proposedStatus": "EVIDENCE_BLOCKED",
+      "proposedSourceCheck": {
+        "checkedAt": "2026-09-25T03:33:54Z",
+        "status": "PARTIAL_DISTINCT_ROUTE_DISCOVERY_HOLD",
+        "assessment": "A focused title/repository search surfaced distinct primary identifiers for the paper's analysis code (guomics-lab/PTV-1) and raw proteomics deposit (iProX IPX0007409000), plus search-result fragments describing selected extended-data tests. The previously restricted Nature original was not directly opened. This does not supply a complete admissible methods/supplement record, full split definitions, benchmark definitions, independent replication or prospective clinical benefit."
+      },
+      "proposedMissingInput": "Complete admissible primary methods/results and supplementary reporting that establishes every training/evaluation split and benchmark definition, plus independent replication and prospective clinical-limit evidence. The newly identified code repository and iProX deposit are primary routes, but their contents remain uninspected.",
+      "proposedNextCheck": "Inspect the distinct official code repository https://github.com/guomics-lab/PTV-1 once through a normal permitted route; use it only for methods/code details it actually contains. Separately queue iProX accession IPX0007409000 if the code repository does not resolve the split definitions. Do not retry Nature, bioRxiv or the prior zero-line Westlake route.",
+      "nonretryablePreserved": [
+        {
+          "route": "https://www.nature.com/articles/s41586-026-11001-9",
+          "reason": "Previously restricted exact original; appeared incidentally in search results but was not directly reopened."
+        },
+        {
+          "route": "https://www.biorxiv.org/content/10.1101/2025.02.07.637070v2",
+          "reason": "Prior normal open returned 403 and was not retried."
+        },
+        {
+          "route": "Westlake institutional article",
+          "reason": "Prior normal open returned zero lines and was not retried."
+        }
+      ]
+    },
+    {
+      "eventIdentity": "devin-voice-20260911",
+      "leadIds": [
+        "devin-voice-20260911"
+      ],
+      "proposedStatus": "EVIDENCE_BLOCKED",
+      "proposedSourceCheck": {
+        "checkedAt": "2026-09-25T03:33:54Z",
+        "status": "NO_OFFICIAL_DATED_LAUNCH_RESULT",
+        "assessment": "One focused Cognition/Devin-domain query returned no dated Devin Voice launch announcement. Existing complete product documentation remains enough for feature operation only, not launch date, price or model."
+      },
+      "proposedMissingInput": "Accessible exact dated Cognition launch record identifying launch scope; price and model remain unknown unless an official source states them.",
+      "proposedNextCheck": "Recheck only a newly indexed official Cognition changelog or release-note route. Do not retry the original X post or redundantly reopen the already complete feature documentation.",
+      "nonretryablePreserved": [
+        {
+          "route": "Original Devin Voice X post",
+          "reason": "Prior exact X route was unreadable/tool-blocked."
+        }
+      ]
+    },
+    {
+      "eventIdentity": "grokbot-sales-integrations",
+      "leadIds": [
+        "grokbot-sales-integrations"
+      ],
+      "proposedStatus": "EVIDENCE_BLOCKED",
+      "proposedSourceCheck": {
+        "checkedAt": "2026-09-25T03:33:54Z",
+        "status": "NO_OFFICIAL_DATED_ANNOUNCEMENT_RESULT",
+        "assessment": "One focused xAI-domain query for the named integrations and September 10 event returned no official result. Existing August 16 guide and September 14 Salesforce documentation remain capability evidence, not proof of what was newly announced September 10."
+      },
+      "proposedMissingInput": "Exact dated xAI primary announcement establishing which integrations were newly announced September 10 and separating them from older or later-documented capabilities.",
+      "proposedNextCheck": "Recheck only a newly indexed xAI company update or changelog with September 10 identity. Do not retry the original X post or treat the existing connector documentation's update date as the event date.",
+      "nonretryablePreserved": [
+        {
+          "route": "Original September 10 Grok Bot X post",
+          "reason": "Prior exact X route was unreadable/tool-blocked."
+        }
+      ]
+    },
+    {
+      "eventIdentity": "embedded-evaluator-independence-20260915",
+      "leadIds": [
+        "embedded-evaluator-independence-20260915"
+      ],
+      "proposedStatus": "EVIDENCE_BLOCKED",
+      "proposedSourceCheck": {
+        "checkedAt": "2026-09-25T03:33:54Z",
+        "status": "BACKGROUND_ONLY_PRIMARY_GAP_REMAINS",
+        "assessment": "A focused official-domain query surfaced OpenAI's May 29 third-party-evaluation playbook, which is relevant background but predates and does not document the September embedded-evaluator arrangement. The only Hugging Face-domain result was a third-party Space timeline commit, not company terms or an agreement."
+      },
+      "proposedMissingInput": "Exact accessible OpenAI or Hugging Face company announcement/terms for the September arrangement, or a completed evaluator-access agreement. Independent reporting remains secondary evidence.",
+      "proposedNextCheck": "Check only a newly published official company page, policy document or agreement text. Do not retry the original Altman or Delangue X posts and do not promote the third-party timeline to primary evidence.",
+      "nonretryablePreserved": [
+        {
+          "route": "Original Altman X post",
+          "reason": "Prior normal open returned 403."
+        },
+        {
+          "route": "Original Delangue X post",
+          "reason": "Prior normal open returned 403."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "eventFamiliesInspected": 4,
+    "canonicalLeadRowsCovered": 5,
+    "resolved": 0,
+    "partialDistinctRouteDiscovery": 1,
+    "holdsRetained": 4,
+    "canonicalWrites": 0,
+    "publicProduction": 0,
+    "claim": "Bounded recovery only; no exhaustive-source or quiet-news conclusion."
+  }
+}

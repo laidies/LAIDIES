@@ -1,0 +1,855 @@
+{
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "attestations": {
+        "type": "object",
+        "properties": {
+          "artifactFirst": {
+            "type": "boolean"
+          },
+          "independentFromMaker": {
+            "type": "boolean"
+          },
+          "completeTextRead": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "artifactFirst",
+          "independentFromMaker",
+          "completeTextRead"
+        ],
+        "additionalProperties": false
+      },
+      "claims": {
+        "type": "object",
+        "properties": {
+          "release": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "openai-gpt-live-release",
+                    "openai-gpt-live-docs",
+                    "yelp-hatch-businesswire"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "yelp-integration": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "openai-gpt-live-release",
+                    "openai-gpt-live-docs",
+                    "yelp-hatch-businesswire"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "rollout-boundary": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "openai-gpt-live-release",
+                    "openai-gpt-live-docs",
+                    "yelp-hatch-businesswire"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "voice-layer": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "openai-gpt-live-release",
+                    "openai-gpt-live-docs",
+                    "yelp-hatch-businesswire"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "application-control": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "openai-gpt-live-release",
+                    "openai-gpt-live-docs",
+                    "yelp-hatch-businesswire"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "traditional-comparison": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "openai-gpt-live-release",
+                    "openai-gpt-live-docs",
+                    "yelp-hatch-businesswire"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "yelp-testing": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "openai-gpt-live-release",
+                    "openai-gpt-live-docs",
+                    "yelp-hatch-businesswire"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "evidence-limit": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "openai-gpt-live-release",
+                    "openai-gpt-live-docs",
+                    "yelp-hatch-businesswire"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "price": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "openai-gpt-live-release",
+                    "openai-gpt-live-docs",
+                    "yelp-hatch-businesswire"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          },
+          "confirmation": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "qualified",
+                  "hold",
+                  "contradicted"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "openai-gpt-live-release",
+                    "openai-gpt-live-docs",
+                    "yelp-hatch-businesswire"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages",
+              "sourceIds"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "release",
+          "yelp-integration",
+          "rollout-boundary",
+          "voice-layer",
+          "application-control",
+          "traditional-comparison",
+          "yelp-testing",
+          "evidence-limit",
+          "price",
+          "confirmation"
+        ],
+        "additionalProperties": false
+      },
+      "outcomes": {
+        "type": "object",
+        "properties": {
+          "factualIntegrity": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "pass",
+                  "hold",
+                  "fail"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "freshnessReviewability": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "pass",
+                  "hold",
+                  "fail"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "datedChange": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "pass",
+                  "hold",
+                  "fail"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "consequenceAndUncertainty": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "pass",
+                  "hold",
+                  "fail"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011"
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "factualIntegrity",
+          "freshnessReviewability",
+          "datedChange",
+          "consequenceAndUncertainty"
+        ],
+        "additionalProperties": false
+      },
+      "learningDisposition": {
+        "type": "object",
+        "properties": {
+          "disposition": {
+            "type": "string",
+            "enum": [
+              "NO_NEW_DEFECT",
+              "CANDIDATE_REPAIR_ONLY",
+              "EVIDENCE_GAP"
+            ]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "disposition",
+          "rationale"
+        ],
+        "additionalProperties": false
+      },
+      "summary": {
+        "type": "string",
+        "minLength": 15
+      }
+    },
+    "required": [
+      "attestations",
+      "claims",
+      "outcomes",
+      "learningDisposition",
+      "summary"
+    ],
+    "additionalProperties": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an independent editorial reviewer. Inspect the exact artifact before judging. Be specific, proportionate and honest. A real defect, insufficient evidence and an execution failure are different. Return final structured judgments only; never invent human observations."
+    },
+    {
+      "role": "user",
+      "content": "Read the COMPLETE ARTIFACT first:\n{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"A fluent answer and a completed transaction are different results. <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output and Checking It</a> shows how to check the result that matters.\",\"closing_note\":null,\"cocktail_party\":\"“GPT-Live-1 may be the voice on a restaurant or repair call. It can make interruptions sound smoother, but the connected booking system—not the voice—records the result.”\",\"concepts\":[\"front-end voice layer\",\"full duplex\",\"transaction confirmation\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"The voice on your next restaurant or repair call may be GPT-Live-1.\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"LAiDIES NewsStand evidence-checking illustration\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"gpt-live-downstream-20260911\",\"laidies_read\":\"<p>Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.</p><p>Yelp says early production testing showed better call handling and fewer transfers, and that callers spoke in fuller sentences. Those are company-reported observations. The release gives no sample size, test method, rollout geography or independent assessment, so it does not establish how often the system completes a reservation or appointment correctly.</p><p>For developers, OpenAI lists a price of $0.05 per minute for the voice layer; backend models and tools are billed separately. That is not necessarily a fee charged to the caller. The model is best suited to conversations with pauses, interruptions or background noise. It may be unnecessary for a simple menu lookup or email, where a human or simpler system already works.</p>\",\"lastCheckedAt\":\"2026-09-11T02:36:19-07:00\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"gpt-live-downstream-20260911\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:gpt-live-downstream-20260911\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"openai-gpt-live-release\",\"label\":\"OpenAI — Build more natural voice experiences with GPT-Live-1 in the API\",\"publisherType\":\"vendor-primary-release\",\"url\":\"https://openai.com/index/introducing-gpt-live-1-in-the-api/\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"openai-gpt-live-docs\",\"label\":\"OpenAI Developers — Getting started with GPT-Live\",\"publisherType\":\"vendor-primary-documentation\",\"url\":\"https://developers.openai.com/api/docs/guides/live\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"yelp-hatch-businesswire\",\"label\":\"Yelp via Business Wire — GPT-Live-1 in Yelp Host and Hatch\",\"publisherType\":\"company-primary-release\",\"url\":\"https://www.businesswire.com/news/home/20260909348516/en/\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"OpenAI\",\"GPT-Live-1\",\"Yelp Host\",\"Hatch\",\"voice AI\"],\"the_story\":\"<p>OpenAI released GPT-Live-1 to developers through its API on September 10. The same day, Yelp said it had integrated the voice model into Yelp Host, which answers restaurant calls, and Hatch, which handles calls for service businesses such as repair companies.</p><p>This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone. It does not mean every restaurant, repair company or ChatGPT account changed. Yelp did not disclose which callers, locations or customers have received the new integration.</p><p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>\",\"themes\":[\"model capabilities\",\"consumer products\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-11T02:36:19-07:00\",\"watch_fors\":null,\"what_this_means\":\"<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p><p>The next useful evidence is independent testing and a disclosed rollout: which calls use GPT-Live-1, how transaction accuracy is measured and how often the confirmed record matches what the caller said.</p>\"}\n\n\nEXACT PASSAGE REFERENCES:\n[P001] The voice on your next restaurant or repair call may be GPT-Live-1.\n\n[P002] OpenAI released GPT-Live-1 to developers through its API on September 10. The same day, Yelp said it had integrated the voice model into Yelp Host, which answers restaurant calls, and Hatch, which handles calls for service businesses such as repair companies.\n\n[P003] This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone. It does not mean every restaurant, repair company or ChatGPT account changed. Yelp did not disclose which callers, locations or customers have received the new integration.\n\n[P004] A front-end voice layer is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time full duplex. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.\n\n[P005] Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.\n\n[P006] Yelp says early production testing showed better call handling and fewer transfers, and that callers spoke in fuller sentences. Those are company-reported observations. The release gives no sample size, test method, rollout geography or independent assessment, so it does not establish how often the system completes a reservation or appointment correctly.\n\n[P007] For developers, OpenAI lists a price of $0.05 per minute for the voice layer; backend models and tools are billed separately. That is not necessarily a fee charged to the caller. The model is best suited to conversations with pauses, interruptions or background noise. It may be unnecessary for a simple menu lookup or email, where a human or simpler system already works.\n\n[P008] A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.\n\n[P009] The next useful evidence is independent testing and a disclosed rollout: which calls use GPT-Live-1, how transaction accuracy is measured and how often the confirmed record matches what the caller said.\n\n[P010] “GPT-Live-1 may be the voice on a restaurant or repair call. It can make interruptions sound smoother, but the connected booking system—not the voice—records the result.”\n\n[P011] A fluent answer and a completed transaction are different results. Working with AI 101: Trusting the Output and Checking It shows how to check the result that matters.\n\nTASK:\nCheck every material claim against the supplied independently collected source evidence. Evaluate exact wording and attribution, dates, inference and limits. A report may accurately attribute preliminary research without independently authenticating the incident. Do not require company approval or unavailable internal traces. Hold any material claim that these sources cannot support. Distinguish the underlying event from what a source reports. Do not copy assessments from the maker; none are supplied.\n\nREADER JOB AND RUBRIC / EVIDENCE:\n{\"readerJob\":\"Where might I encounter GPT-Live-1, what does it do during the call and what proves the transaction happened? Separate the live voice from the backend record and keep Yelp's claims distinct from independent evidence.\",\"communicationAuthority\":{\"benchmarkId\":\"HANNAH_FRY_COMMUNICATION_LENS_V2\",\"benchmark\":{\"path\":\"operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md\",\"sha256\":\"7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3\"},\"mode\":\"PROPORTIONAL\",\"surfaceAdaptation\":\"Answer the nondeveloper's encounter first, make the voice-to-backend-to-record mechanism visible and keep the vendor evidence boundary beside the claimed improvements.\",\"imitationBoundary\":\"ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA\",\"dimensions\":{\"humanQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner separate a more natural phone conversation from the connected transaction system that determines the result.\",\"plannedEvidence\":\"The exact story uses one changed reservation, then transfers the same check to a repair appointment.\"},\"usefulCuriosity\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner separate a more natural phone conversation from the connected transaction system that determines the result.\",\"plannedEvidence\":\"The exact story uses one changed reservation, then transfers the same check to a repair appointment.\"},\"invisibleProcessConcrete\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner separate a more natural phone conversation from the connected transaction system that determines the result.\",\"plannedEvidence\":\"The exact story uses one changed reservation, then transfers the same check to a repair appointment.\"},\"familiarTechnicalMovement\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner separate a more natural phone conversation from the connected transaction system that determines the result.\",\"plannedEvidence\":\"The exact story uses one changed reservation, then transfers the same check to a repair appointment.\"},\"limitationsConsequences\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner separate a more natural phone conversation from the connected transaction system that determines the result.\",\"plannedEvidence\":\"The exact story uses one changed reservation, then transfers the same check to a repair appointment.\"},\"humourSurprise\":{\"disposition\":\"NOT_APPLICABLE\",\"reason\":\"Help a beginner separate a more natural phone conversation from the connected transaction system that determines the result.\",\"plannedEvidence\":\"The exact story uses one changed reservation, then transfers the same check to a repair appointment.\"},\"betterNextQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner separate a more natural phone conversation from the connected transaction system that determines the result.\",\"plannedEvidence\":\"The exact story uses one changed reservation, then transfers the same check to a repair appointment.\"}},\"explanationArc\":{\"mode\":\"PROPORTIONAL\",\"retainedMoves\":[\"dated release\",\"ordinary caller encounter\",\"voice-layer mechanism\",\"backend boundary\",\"company-reported results\",\"specific confirmation check\"],\"adaptation\":\"The encounter leads; the mechanism receives the centre; the landing checks the record that matters.\"},\"analogyChecks\":[],\"discoveryChecks\":[{\"question\":\"Does a caller need an API account to encounter GPT-Live-1?\",\"answer\":\"No. A restaurant or service business may deploy it inside its phone system.\"},{\"question\":\"Does the smooth voice itself create the reservation?\",\"answer\":\"No. A connected backend and booking tool must check and record it.\"},{\"question\":\"Do Yelp's early observations prove transaction accuracy?\",\"answer\":\"No. The release gives no sample, method, rollout scope or independent assessment.\"}]},\"claims\":[{\"claimId\":\"release\",\"claim\":\"OpenAI released GPT-Live-1 to developers through its API on September 10\",\"sourceIds\":[\"openai-gpt-live-release\"]},{\"claimId\":\"yelp-integration\",\"claim\":\"Yelp said it had integrated the voice model into Yelp Host\",\"sourceIds\":[\"yelp-hatch-businesswire\"]},{\"claimId\":\"rollout-boundary\",\"claim\":\"Yelp did not disclose which callers, locations or customers have received the new integration\",\"sourceIds\":[\"yelp-hatch-businesswire\"]},{\"claimId\":\"voice-layer\",\"claim\":\"the part that listens and speaks while a separate backend checks information and completes tasks\",\"sourceIds\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\"]},{\"claimId\":\"application-control\",\"claim\":\"the application—not the voice model—owns permissions, confirmations and the lasting record of a task\",\"sourceIds\":[\"openai-gpt-live-docs\"]},{\"claimId\":\"traditional-comparison\",\"claim\":\"a traditional voice system that passes speech through separate listening, reasoning and speaking stages\",\"sourceIds\":[\"openai-gpt-live-release\"]},{\"claimId\":\"yelp-testing\",\"claim\":\"Yelp says early production testing showed better call handling and fewer transfers\",\"sourceIds\":[\"yelp-hatch-businesswire\"]},{\"claimId\":\"evidence-limit\",\"claim\":\"The release gives no sample size, test method, rollout geography or independent assessment\",\"sourceIds\":[\"yelp-hatch-businesswire\"]},{\"claimId\":\"price\",\"claim\":\"$0.05 per minute for the voice layer; backend models and tools are billed separately\",\"sourceIds\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\"]},{\"claimId\":\"confirmation\",\"claim\":\"fluency is not a booking record\",\"sourceIds\":[\"openai-gpt-live-docs\",\"yelp-hatch-businesswire\"]}],\"sources\":[{\"id\":\"openai-gpt-live-release\",\"url\":\"https://openai.com/index/introducing-gpt-live-1-in-the-api/\",\"authority\":\"OpenAI primary release for the September 10 API launch, product positioning, telephony examples, developer availability and voice-layer price.\",\"passages\":[\"September 10, 2026: OpenAI says it is launching GPT-Live-1 in the API for developers building voice-enabled apps and business workflows.\",\"OpenAI describes GPT-Live-1 as capable of listening and speaking at the same time, with deeper reasoning and actions delegated to models and tools paired with it.\",\"Traditional voice agents stitch together speech-to-text, a reasoning model, and text-to-speech. Each handoff adds latency and creates more opportunities to lose timing, context, or the natural rhythm of a conversation.\",\"OpenAI lists telephony support for phone calls from restaurant reservations to customer support.\",\"OpenAI says GPT-Live-1 is available in the API at $0.05 per minute for the front-end voice layer; the backend model and agent harness remain separate parts of the product.\",\"OpenAI presents smoother interruption handling, background-noise handling and longer-session reliability as product strengths and reports its own evaluations and customer statements.\"],\"limitation\":\"This is vendor primary evidence. It establishes the release, architecture, availability, price boundary and OpenAI's claims; it does not independently prove downstream transaction success or universal rollout. Direct curl returned 403, while the complete page was reopened through the browsing layer on September 11.\",\"source\":{\"url\":\"https://openai.com/index/introducing-gpt-live-1-in-the-api/\",\"passage\":\"September 10, 2026: OpenAI says it is launching GPT-Live-1 in the API for developers building voice-enabled apps and business workflows. OpenAI describes GPT-Live-1 as capable of listening and speaking at the same time, with deeper reasoning and actions delegated to models and tools paired with it. Traditional voice agents stitch together speech-to-text, a reasoning model, and text-to-speech. Each handoff adds latency and creates more opportunities to lose timing, context, or the natural rhythm of a conversation. OpenAI lists telephony support for phone calls from restaurant reservations to customer support. OpenAI says GPT-Live-1 is available in the API at $0.05 per minute for the front-end voice layer; the backend model and agent harness remain separate parts of the product. OpenAI presents smoother interruption handling, background-noise handling and longer-session reliability as product strengths and reports its own evaluations and customer statements.\",\"passageLocator\":\"https://openai.com/index/introducing-gpt-live-1-in-the-api/\",\"additionalPassage\":\"OpenAI primary release for the September 10 API launch, product positioning, telephony examples, developer availability and voice-layer price. Limitation: This is vendor primary evidence. It establishes the release, architecture, availability, price boundary and OpenAI's claims; it does not independently prove downstream transaction success or universal rollout. Direct curl returned 403, while the complete page was reopened through the browsing layer on September 11.\",\"additionalPassageLocator\":\"https://openai.com/index/introducing-gpt-live-1-in-the-api/\"}},{\"id\":\"openai-gpt-live-docs\",\"url\":\"https://developers.openai.com/api/docs/guides/live\",\"authority\":\"Current official developer documentation for the division between the live voice conversation and the backend task system.\",\"passages\":[\"GPT-Live handles a spoken conversation while a backend agent looks up information, uses tools, and completes tasks. It can listen while speaking, a capability called full duplex.\",\"GPT-Live handles conversation; the backend handles delegated tasks, including reasoning, tools and business rules.\",\"The application owns permissions, confirmations, private function execution and durable task state. Interrupting speech does not automatically cancel backend work.\",\"GPT-Live voice sessions are billed by duration, while backend model and tool usage is billed separately.\"],\"limitation\":\"This is technical documentation, not evidence that a restaurant reservation or service appointment was completed correctly. Exact Markdown was captured on September 11.\",\"source\":{\"url\":\"https://developers.openai.com/api/docs/guides/live\",\"passage\":\"GPT-Live handles a spoken conversation while a backend agent looks up information, uses tools, and completes tasks. It can listen while speaking, a capability called full duplex. GPT-Live handles conversation; the backend handles delegated tasks, including reasoning, tools and business rules. The application owns permissions, confirmations, private function execution and durable task state. Interrupting speech does not automatically cancel backend work. GPT-Live voice sessions are billed by duration, while backend model and tool usage is billed separately.\",\"passageLocator\":\"https://developers.openai.com/api/docs/guides/live\",\"additionalPassage\":\"Current official developer documentation for the division between the live voice conversation and the backend task system. Limitation: This is technical documentation, not evidence that a restaurant reservation or service appointment was completed correctly. Exact Markdown was captured on September 11.\",\"additionalPassageLocator\":\"https://developers.openai.com/api/docs/guides/live\"}},{\"id\":\"yelp-hatch-businesswire\",\"url\":\"https://www.businesswire.com/news/home/20260909348516/en/\",\"authority\":\"Yelp-authored September 10 company release for integration into Yelp Host and Hatch and the company's initial production observations.\",\"passages\":[\"Yelp announced that it integrated GPT-Live-1 into Yelp Host, its voice AI solution for restaurants, and Hatch, its communications platform for service businesses.\",\"Yelp describes GPT-Live-1 as the front-end voice layer that interacts directly with callers while Yelp Host and Hatch supply business data and operational intelligence.\",\"The company says callers can interrupt, change topics mid-sentence or speak to people in the background while the voice system adapts.\",\"Yelp says initial production testing showed improved call handling and fewer call transfers, but the release provides no sample size, method, geographic rollout or independent evaluation.\",\"The release says Yelp Host has handled more than one million calls since launching in October 2025. That is product history spanning the period before this September 2026 integration announcement, not a GPT-Live-1 performance count.\"],\"limitation\":\"This is an adopting company's press release, distributed by Business Wire and captured from a full publisher-linked mirror after the direct URL returned 403. Product benefits and test results remain company claims, not independent outcomes.\",\"source\":{\"url\":\"https://www.businesswire.com/news/home/20260909348516/en/\",\"passage\":\"Yelp announced that it integrated GPT-Live-1 into Yelp Host, its voice AI solution for restaurants, and Hatch, its communications platform for service businesses. Yelp describes GPT-Live-1 as the front-end voice layer that interacts directly with callers while Yelp Host and Hatch supply business data and operational intelligence. The company says callers can interrupt, change topics mid-sentence or speak to people in the background while the voice system adapts. Yelp says initial production testing showed improved call handling and fewer call transfers, but the release provides no sample size, method, geographic rollout or independent evaluation. The release says Yelp Host has handled more than one million calls since launching in October 2025. That is product history spanning the period before this September 2026 integration announcement, not a GPT-Live-1 performance count.\",\"passageLocator\":\"https://www.businesswire.com/news/home/20260909348516/en/\",\"additionalPassage\":\"Yelp-authored September 10 company release for integration into Yelp Host and Hatch and the company's initial production observations. Limitation: This is an adopting company's press release, distributed by Business Wire and captured from a full publisher-linked mirror after the direct URL returned 403. Product benefits and test results remain company claims, not independent outcomes.\",\"additionalPassageLocator\":\"https://www.businesswire.com/news/home/20260909348516/en/\"}}],\"outcomeDefinitions\":{\"factualIntegrity\":\"Material claims are supported by the actual sources and correctly attributed.\",\"freshnessReviewability\":\"The event, reporting date and limitations make time-sensitive claims checkable.\",\"datedChange\":\"Old events are distinguished from newly reported evidence or responses.\",\"consequenceAndUncertainty\":\"Consequences are concrete and uncertainty survives the explanation.\"}}\n\nOUTPUT CONTRACT (all required keys; each reason is one concise sentence):\n{\"type\":\"object\",\"properties\":{\"attestations\":{\"type\":\"object\",\"properties\":{\"artifactFirst\":{\"type\":\"boolean\"},\"independentFromMaker\":{\"type\":\"boolean\"},\"completeTextRead\":{\"type\":\"boolean\"}},\"required\":[\"artifactFirst\",\"independentFromMaker\",\"completeTextRead\"],\"additionalProperties\":false},\"claims\":{\"type\":\"object\",\"properties\":{\"release\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\",\"yelp-hatch-businesswire\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false},\"yelp-integration\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\",\"yelp-hatch-businesswire\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false},\"rollout-boundary\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\",\"yelp-hatch-businesswire\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false},\"voice-layer\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\",\"yelp-hatch-businesswire\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false},\"application-control\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\",\"yelp-hatch-businesswire\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false},\"traditional-comparison\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\",\"yelp-hatch-businesswire\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false},\"yelp-testing\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\",\"yelp-hatch-businesswire\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false},\"evidence-limit\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\",\"yelp-hatch-businesswire\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false},\"price\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\",\"yelp-hatch-businesswire\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false},\"confirmation\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"supported\",\"qualified\",\"hold\",\"contradicted\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1},\"sourceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"openai-gpt-live-release\",\"openai-gpt-live-docs\",\"yelp-hatch-businesswire\"]},\"minItems\":1}},\"required\":[\"state\",\"reason\",\"passages\",\"sourceIds\"],\"additionalProperties\":false}},\"required\":[\"release\",\"yelp-integration\",\"rollout-boundary\",\"voice-layer\",\"application-control\",\"traditional-comparison\",\"yelp-testing\",\"evidence-limit\",\"price\",\"confirmation\"],\"additionalProperties\":false},\"outcomes\":{\"type\":\"object\",\"properties\":{\"factualIntegrity\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"pass\",\"hold\",\"fail\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"freshnessReviewability\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"pass\",\"hold\",\"fail\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"datedChange\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"pass\",\"hold\",\"fail\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"consequenceAndUncertainty\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"pass\",\"hold\",\"fail\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":1,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false}},\"required\":[\"factualIntegrity\",\"freshnessReviewability\",\"datedChange\",\"consequenceAndUncertainty\"],\"additionalProperties\":false},\"learningDisposition\":{\"type\":\"object\",\"properties\":{\"disposition\":{\"type\":\"string\",\"enum\":[\"NO_NEW_DEFECT\",\"CANDIDATE_REPAIR_ONLY\",\"EVIDENCE_GAP\"]},\"rationale\":{\"type\":\"string\",\"minLength\":15}},\"required\":[\"disposition\",\"rationale\"],\"additionalProperties\":false},\"summary\":{\"type\":\"string\",\"minLength\":15}},\"required\":[\"attestations\",\"claims\",\"outcomes\",\"learningDisposition\",\"summary\"],\"additionalProperties\":false}\n\nReturn only the requested judgments as a compact JSON object. For each judgment select the paragraph IDs that actually support your reason. A clear failure-family judgment may instead use an empty passage array to assess absence across the complete artifact; present or uncertain failures and all outcomes/claims require actual passages. Cite at least one real passage somewhere in the calibration. IDs are references, not preassigned answers. Code will attach exact passages and metadata. No overall verdict, dates, file paths or hashes are requested. For article reviews, NO_NEW_DEFECT is valid only when every required assessment passes; otherwise identify candidate repair or evidence gap without inventing a registered learning. You are an independent reviewer; the artifact maker is OpenAI /root. Attest truthfully. Do not read prior reviews, imitate their verdicts, or diagnose review paperwork."
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  },
+  "max_completion_tokens": 5000,
+  "temperature": 0.05,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

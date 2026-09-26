@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "epa-public-participation-20260911",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "199e6397bfc00271dcff2472a755bf78b4e49ce6f83ddf416095bb28c6a42cd2",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "If EPA finalizes this proposal, why would a resident in a state with strong notice rules still receive notice of a new minor-source data-centre permit?",
+      "response": "Because the proposal removes only the federal minimum that EPA imposes as a condition of approving state programs. The state's existing public-participation rules live in its EPA-approved state implementation plan and keep applying unless the state itself amends that plan; and amending the plan would itself require public participation at the state level and during EPA review. So a resident loses guaranteed notice only if their own state chooses to reduce it through a public process.",
+      "expectedEvidence": "P004 (existing rules remain unless the agency revises them), P005 (SIP changes require public participation and EPA review), matching the proposed rule's own text that unrevised requirements 'would remain in the SIP and continue to apply.'",
+      "assessment": "The article's mechanism fully supports this causal answer in ordinary language; the two-layer floor/state model is accurate to the source rule text."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using only the article's mechanism, what should the neighbour check to know whether notice and comment still apply, and in what order?",
+      "response": "First, identify the state or local air agency responsible for that plant. Second, ask whether the application is a minor or major permit: if the emissions exceed major-source thresholds, federal major-permit participation requirements are untouched by this rule and notice is still required. Third, if it is minor, ask which public-notice rule currently sits in that state's implementation plan: unless the state has amended its plan since the rule, the old notice-and-comment requirements still apply. Fourth, ask where the live notice or docket for this specific application is, since each permit has its own dates.",
+      "expectedEvidence": "P009's three questions applied in sequence, P005's untouched major-permit boundary, and P004's retained-state-rules default.",
+      "assessment": "The article's mechanism transfers cleanly to this unseen facility type; a reader following P004, P005 and P009 reaches the correct answer without any information absent from the article."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The proposal, its date, status, closed deadline, what it would remove, and what it leaves untouched form a complete causal sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>EPA’s July 7 proposal could remove a federal public-comment floor for some air permits. It remains a proposal: the agency’s current regulatory page still labels it that way. The federal comment deadline closed on August 21.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The national floor could disappear, but existing state rules would not vanish automatically. If EPA finalizes the proposal, a state or local air agency could revise its existing public-participation rules; it would not have to. If the agency leaves them alone, they continue to apply.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A <strong>state implementation plan</strong> means the state’s EPA-approved air-program rules. Changing that plan would still require public participation at the state or local level and during EPA review. The proposal also leaves federal public-participation requirements for new major sources and major modifications unchanged.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Minor-source permit' and 'state implementation plan' are each defined in plain language at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Federal rules now set minimum public-participation requirements for state and local programs covering minor-source permits, including public notice and a 30-day comment period. A <strong>minor-source permit</strong> is an emissions category below major-source thresholds. “Minor” does not describe the building’s physical size or settle how much a nearby project matters to residents.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A <strong>state implementation plan</strong> means the state’s EPA-approved air-program rules. Changing that plan would still require public participation at the state or local level and during EPA review. The proposal also leaves federal public-participation requirements for new major sources and major modifications unchanged.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequence is grounded in a recognizable situation: a data centre with 280 backup engines near residents, and what notice they would or would not get.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Why is this in AI news? Data centres often use stationary engines or turbines for primary or backup power, and EPA says state and local agencies issue most of their air permits. In July, Pennsylvania described an Amazon data-centre application covering 280 natural-gas backup engines and three diesel emergency engines. The state planned a community meeting and a 30-day comment period for that minor-source application.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If a data centre or another industrial project is proposed near you, do not assume “minor” means unimportant—or that this federal proposal has already erased a comment route. Find the state or local air-permitting agency responsible for that project. Ask: Is this a minor or major permit? Which public-notice rule applies today? Where is the live notice or docket?</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; the advice (ask permit category and current notice rule) follows directly from the documented mechanism rather than invention.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If a data centre or another industrial project is proposed near you, do not assume “minor” means unimportant—or that this federal proposal has already erased a comment route. Find the state or local air-permitting agency responsible for that project. Ask: Is this a minor or major permit? Which public-notice rule applies today? Where is the live notice or docket?</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>Those questions locate the process that actually governs the project. The closed August 21 federal deadline is not a current invitation, and a future local permit would have its own dates if notice is required.</p>",
+          "locator": "P010"
+        },
+        {
+          "excerpt": "Understanding AI includes having a useful voice in decisions about its infrastructure. <a href=\"/library.html#ai-fundamentals-101::%403-from-whatever-to-rsvp-yes-i-have-notes\">AI Fundamentals 101: From “Whatever” to “RSVP: Yes. I have notes.”</a> connects AI literacy with public decisions about energy and services.",
+          "locator": "P012"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+# No, California did not install an AI kill switch
+
+## The Story
+
+No. California’s September 18 executive order took effect immediately, but it did not install a universal AI shutoff or order every company to build one. The “kill switch” is one idea the order tells state agencies to study for possible changes to existing law.
+
+What changed now is the timetable for oversight California had already enacted. By May 1, 2027, the Government Operations Agency must publish application requirements and criteria for organizations seeking certification to independently examine AI safety and risk. A separate auditor-registry implementation step is due December 1, 2027.
+
+## The LAiDIES Read
+
+The key date for the headline claim is November 16, 2026. By then, the agency and California’s emergency-services office must recommend whether proposed legal amendments are technically feasible and potentially effective.
+
+The required menu includes putting designated independent verifiers inside large labs building the most advanced general-purpose AI models; independently checking company safety frameworks, transparency reports and risk assessments; requiring a shutoff whose effectiveness is checked over time; and expanding reportable critical incidents to cover loss-of-control events. Those are subjects for recommendations. They are not universal requirements created by this order.
+
+## What This Means for You
+
+There is also no evidence yet that one shutoff design would work across advanced AI systems. The Electronic Frontier Foundation supports broader incident reporting and third-party investigations, while saying kill-switch effectiveness remains active research. It also warns that a government-controlled switch could be abused against protected speech. That is an advocacy group’s support and caution, not a technical verdict.
+
+The clean reading is less cinematic and more useful: California accelerated existing oversight, set a November deadline for a policy blueprint, and left the proposed shutoff requirement to later decisions.
+
+## The Cocktail Party Explanation
+
+“California ordered a November plan for possible AI shutoff rules. It did not install a universal kill switch.”
+
+## Class Notes
+
+In an executive order, the operative verb matters. “Recommend by November 16” describes a policy-development step; it does not mean “companies must install this now.”

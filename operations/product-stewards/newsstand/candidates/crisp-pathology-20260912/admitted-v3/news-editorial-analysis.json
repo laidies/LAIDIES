@@ -1,0 +1,80 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "crisp-pathology-20260912",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "47d102259170ff4d40caaf74715d2b3358103244db14fe24f0347b7459a6b20f",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why would an AI trained on ordinary preserved (FFPE) slides do worse on frozen sections than CRISP, even if it is excellent on preserved tissue?",
+      "response": "Freezing, rapid slicing, and staining under time pressure change how the tissue physically looks compared with chemical-and-wax preservation. An FFPE-trained model learned visual patterns from a different-looking distribution of images, so frozen-section morphology falls partly outside what it has seen and its predictions degrade. CRISP was pretrained on frozen-section images specifically, so the appearance it encounters mid-surgery matches its training distribution.",
+      "expectedEvidence": "The article's statements that frozen preparation gives tissue a different appearance (P002) and that most existing AI learned from preserved slides while CRISP was trained for frozen images (P003), matching the paper's claim that FFPE specimens differ fundamentally in preparation and morphology.",
+      "assessment": "The article supplies exactly the causal chain needed for this answer in ordinary language; a reader could reproduce it from P002–P003 without outside knowledge."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mechanism, what two problems should the director flag before treating the result as evidence the tool will improve care at her clinic?",
+      "response": "First, a training-distribution mismatch: like FFPE-trained models on frozen tissue, an AI trained on dermatoscope images may degrade on smartphone photos, which look different (lighting, focus, scale), so the matched-performance claim may not carry over. Second, evidence-type limits: matching specialists in a reader study is an observed-performance result under the tested conditions; it does not show patients end up better off. That requires an interventional study that changes care decisions and follows patient outcomes, just as the CRISP authors say they still need.",
+      "expectedEvidence": "P003's account of appearance mismatch between training and deployment images, and P005/P007's distinction between observed performance under tested conditions and proof of improved care.",
+      "assessment": "The transfer holds cleanly: both the data-distribution logic and the observational-versus-interventional boundary apply directly to a scenario absent from the article."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The causal sequence is clear: frozen-specific training data → better performance than FFPE-trained models → parity with a senior specialist in a reader study.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Pathologist, frozen section, observational study and reader study are each glossed inline at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequence is grounded in the specific situation of a surgeon needing a tissue answer before the next step, with the pathologist retaining interpretation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or unsupported advice appear in the prose; every caution traces to the paper's own stated limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+          "locator": "P005"
+        }
+      ]
+    }
+  }
+}

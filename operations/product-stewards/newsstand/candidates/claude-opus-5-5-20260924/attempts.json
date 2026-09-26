@@ -1,0 +1,65 @@
+{
+  "candidateId": "claude-opus-5-5-20260924",
+  "researchDate": "2026-09-24",
+  "attempts": [
+    {
+      "observedAt": "2026-09-24T13:05:16-07:00",
+      "url": "https://www.anthropic.com/claude-opus-5-5",
+      "method": "normal web open of the official Anthropic original",
+      "result": "SUCCESS_FULL_PAGE",
+      "evidence": "sources/anthropic-original-current-check.json",
+      "limits": "No account-specific Claude UI was inspected. The official page does not enumerate model-selector access plan by plan."
+    },
+    {
+      "observedAt": "2026-09-25T03:21:00Z",
+      "method": "producer repair after exact root read and component preflight",
+      "result": "PASS_PROSE_AND_SOURCE_BUDGET_HOLD_MISSING_IMAGE",
+      "evidence": [
+        "article.md",
+        "producer-publication-review.json",
+        "source-budget-final.json",
+        "producer-self-review-check.json"
+      ],
+      "repairs": [
+        "Removed inaccurate two-bills and two-cost-changes framing.",
+        "Scoped API consequence to customers paying Anthropic directly.",
+        "Removed work-only provider-claim phrasing.",
+        "Replaced unsupported 198-word assertion with exact all-field 197/200 ledger.",
+        "Replaced generic generated self-review findings and preserved six actual repair issues."
+      ],
+      "limits": "No story image or independent editorial review; publication remains blocked."
+    },
+    {
+      "observedAt": "2026-09-25T03:35:00Z",
+      "method": "full unmodified article reviewer runtime preflight after final visual binding",
+      "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/preflight-v9/ --preflight-only",
+      "result": "PRE_REVIEW_PASS",
+      "evidence": "preflight-v9-output.txt",
+      "limits": "Validation only; no provider request, independent editorial judgment, admission or publication."
+    },
+    {
+      "observedAt": "2026-09-25T03:24:08.527Z",
+      "method": "beginner-language repair after final reader-text inspection",
+      "result": "PASS_REPAIRED_JARGON_SOURCE_BUDGET_199_OF_200",
+      "evidence": [
+        "article.md",
+        "source-budget-final.json",
+        "producer-publication-review.json"
+      ],
+      "repairs": [
+        "Replaced \u201ccodebase migrations and audits\u201d with \u201cmoving a software project to a new system or reviewing its code\u201d.",
+        "Tightened the API price and cocktail-summary wording to keep the exact source-derived allocation within 200 words.",
+        "Recorded the seventh producer issue and third repair cycle."
+      ],
+      "limits": "No new factual claim, image generation or independent editorial review."
+    },
+    {
+      "observedAt": "2026-09-25T03:25:30Z",
+      "method": "full unmodified article reviewer runtime preflight after beginner-language and final maker-receipt rebinding",
+      "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/preflight-v11/ --preflight-only",
+      "result": "PRE_REVIEW_PASS",
+      "evidence": "preflight-v11-output.txt",
+      "limits": "Validation only; no provider request, independent editorial judgment, admission or publication."
+    }
+  ]
+}

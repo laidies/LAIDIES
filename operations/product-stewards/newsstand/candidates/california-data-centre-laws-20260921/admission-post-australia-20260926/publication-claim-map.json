@@ -1,0 +1,188 @@
+[
+  {
+    "claimId": "two-of-seven",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.</p>",
+        "locator": "P002"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+      "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Approved by Governor September 21, 2026. Filed with Secretary of State September 21, 2026.",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+      },
+      {
+        "excerpt": "Approved by Governor September 21, 2026. Filed with Secretary of State September 21, 2026.",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+      },
+      {
+        "excerpt": "Governor Newsom today signed seven bills to strengthen California’s approach to data centers — requiring data centers to report about water and electricity use.",
+        "locator": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/"
+      }
+    ],
+    "scopeAndFreshness": "Both chaptering records show approval and filing on September 21, 2026, and the governor's announcement states seven data-centre bills were signed that day; the article's two-of-seven framing and scope boundary match exactly."
+  },
+  {
+    "claimId": "sb-assess-opportunities",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>SB 1168 tells the California Public Utilities Commission to assess opportunities for rate structures — the rules used to divide charges among customer groups. The assessment must consider data centres’ reasonable share of transmission and distribution costs, their proportionate share of load and procurement costs, and pressure on residential customers.</p>",
+        "locator": "P003"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+      "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+      },
+      {
+        "excerpt": "As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+      },
+      {
+        "excerpt": "Ensure data centers pay their reasonable share of costs associated with transmission and distribution needs, regardless of whether the data centers interconnect at the transmission or distribution level.",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+      },
+      {
+        "excerpt": "Ensure data centers pay for their proportionate share of load increases and procurements needed to reliably serve their loads while maintaining consistency with the applicable integrated resource planning requirements.",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+      },
+      {
+        "excerpt": "Alleviate cost pressures on residential ratepayers, including, but not limited to, customers enrolled in the California Alternate Rates for Energy program described in Section 739.1 and the Family Electric Rate Assistance program described in Section 739.12.",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+      }
+    ],
+    "scopeAndFreshness": "The chaptered text's 'the commission shall assess opportunities for rate structures' plus the three enumerated duties (reasonable transmission/distribution share, proportionate load and procurement share, alleviating residential cost pressure) map one-to-one onto P003's summary."
+  },
+  {
+    "claimId": "no-immediate-bill-result",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.</p>",
+        "locator": "P002"
+      },
+      {
+        "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+        "locator": "P004"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+      "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+      },
+      {
+        "excerpt": "As part of a new or existing proceeding, the commission shall assess opportunities for rate structures to do all of the following:",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168"
+      }
+    ],
+    "scopeAndFreshness": "The operative statutory language is an assessment duty inside a proceeding; nothing in the supplied text adopts a tariff or calculates a saving, so the article's negative claim is a sound bounded inference that it states as a limit rather than a finding."
+  },
+  {
+    "claimId": "ab-local-and-state-reporting",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>AB 1577 creates a different kind of visibility. Covered data centres — facilities with at least 10 megawatts of electrical capacity — must supply estimates when seeking a discretionary local approval. Once a facility is connected to power, owners report specified information to the state, with further reporting at least annually.</p>",
+        "locator": "P005"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+      "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Upon applying for a discretionary permit, entitlement, or land use authorization required for the construction or operation of a data center, the owner or operator of the data center shall submit to the applicable local agency an estimate of all of the following information, to the extent applicable to the proposed facility:",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+      },
+      {
+        "excerpt": "The commission shall establish a process for the owner or operator of a data center to submit all of the following information to the commission upon energization of the data center and following any substantive change to information previously submitted pursuant to this paragraph:",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+      },
+      {
+        "excerpt": "The commission shall establish a process for the owner or operator of a data center to submit all of the following information to the commission at least annually following energization, disaggregated by month over the reporting period unless otherwise specified by the commission.",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+      }
+    ],
+    "scopeAndFreshness": "The chaptered text requires estimates upon applying for a discretionary permit, submission to the commission upon energization and after substantive changes, and at-least-annual reporting thereafter — each element matching P005's description."
+  },
+  {
+    "claimId": "ab-publication-timing",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.</p>",
+        "locator": "P006"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+      "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "The commission shall annually publish the information submitted pursuant to subdivision (b) in an anonymized and aggregated format on its internet website.",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+      },
+      {
+        "excerpt": "Beginning with the 2029 integrated energy policy report required pursuant to subdivision (a) of Section 25302, and in subsequent biennial reports required pursuant to subdivision (a) of Section 25302 thereafter as determined by the commission, the commission shall include an assessment of electrical load trends for data centers.",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+      }
+    ],
+    "scopeAndFreshness": "The statute requires annual publication in anonymized and aggregated format and a data-centre load-trend assessment beginning with the 2029 integrated energy policy report, exactly as P006 states, with the aggregate-not-dossier limit retained."
+  },
+  {
+    "claimId": "ab-threshold-exclusions-privacy",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>",
+        "locator": "P007"
+      },
+      {
+        "excerpt": "<p>AB 1577 creates a different kind of visibility. Covered data centres — facilities with at least 10 megawatts of electrical capacity — must supply estimates when seeking a discretionary local approval. Once a facility is connected to power, owners report specified information to the state, with further reporting at least annually.</p>",
+        "locator": "P005"
+      },
+      {
+        "excerpt": "<p>The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.</p>",
+        "locator": "P006"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/california-data-centre-laws-20260921/editorial-input.json",
+      "sha256": "2f0e647b9524cd2b095edabf37bfdb7039af93e9245e39f0a0c94e1f63ccec8e"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "“Data center” does not include a facility with an electrical capacity of less than 10 megawatts.",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+      },
+      {
+        "excerpt": "This section does not apply to a publicly funded research facility, public safety facility, publicly funded national security facility, publicly owned facility, or other utility facility, including, but not limited to, a facility operated for the purpose of providing telecommunications services to the public by a terrestrial facilities-based telecommunications, cable, or internet service provider.",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+      },
+      {
+        "excerpt": "The State Energy Resources Conservation and Development Commission or a local agency shall not disclose information submitted pursuant to Section 65909.3 of this code or to subdivision (b) of Section 25302.10 of the Public Resources Code in a manner that would result in the disclosure of personally identifiable information or energy consumption data for a specific data center customer.",
+        "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577"
+      }
+    ],
+    "scopeAndFreshness": "The definition excludes facilities under 10 MW, the exclusion clause names public research, public safety, national-security, publicly owned and utility facilities, and the privacy provision bars customer-specific disclosure — all reflected in P005–P007, with the caution that these limits attach to AB 1577 only."
+  }
+]

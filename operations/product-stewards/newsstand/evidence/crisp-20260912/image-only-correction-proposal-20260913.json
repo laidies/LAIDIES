@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "newsstand-image-only-correction-proposal-v1",
+  "status": "HOLD_FOR_ROOT_REVIEW",
+  "recordedAt": "2026-09-13T15:47:49Z",
+  "storyId": "crisp-pathology-20260912",
+  "storyHashAlgorithm": "SHA-256 of stable recursive JSON serialization: primitives JSON.stringify; arrays in order; object keys lexically sorted, with no whitespace",
+  "editionDate": "2026-09-12",
+  "predecessor": {
+    "issueEnvelopeSha256": "f4a064841d780a46530f4d0f39911e03c86927a87967b6129e1b0e568cb164ea",
+    "snapshotStorySha256": "ce2e0677ff4859a2a9fc353662700cb0beb2d6952d5154259c66d5197584f4d5",
+    "candidate": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/ordinary-candidate.json",
+      "sha256": "b1c35c555fff0d0fec419c696e4da20898140ba712338703214252fe20ed6e19"
+    }
+  },
+  "successor": {
+    "canonicalStorySha256": "bb92ace90c4bf0e1c7b12a61a2e1b27e83a3c3baa006181c53438a63f69d93d3",
+    "heroVisual": {
+      "src": "/assets/newsstand/crisp-pathology-20260912.png",
+      "alt": "Illustration of a microscope examining a tissue slide beside a screen showing enlarged pink and purple tissue structures.",
+      "credit": "Illustration: LAiDIES",
+      "sha256": "ef96623b6d6448bcd829453a2dce55539f0c166a5edec6a6cf9da1ae3f6a190c"
+    }
+  },
+  "permittedDiff": ["heroVisual"],
+  "independentArtAdmission": {
+    "path": "operations/product-stewards/newsstand/candidates/crisp-art-20260912/independent-review.json",
+    "sha256": "d1aff4eaca6125c584b0eab98809911514962eec5bfe52da0befcc5cb56e59f4",
+    "decision": "PASS_PRIVATE_ART_ADMISSION",
+    "artifactSha256": "ef96623b6d6448bcd829453a2dce55539f0c166a5edec6a6cf9da1ae3f6a190c"
+  },
+  "releaseEvidence": {
+    "replacement": { "path": "operations/product-stewards/newsstand/evidence/crisp-art-20260912/release.json", "sha256": "bde9b1466dbca9c38701957177f5d3351fb958bd4c1d314d9989d69d1558611c" },
+    "replacementProvider": "a0d367ad-8267-40b0-944e-9b6944b60b91",
+    "original": { "path": "operations/product-stewards/newsstand/evidence/crisp-20260912/release.json", "sha256": "c03b86daa59081eb6b7ec5c434a7e9078a17168e713a3716e767f8127c122ff4" },
+    "originalProvider": "97f6b0a3-a398-4f35-a630-33d4e605f1d9"
+  },
+  "review": {
+    "decision": "PENDING_INDEPENDENT_CORRECTION_REVIEW",
+    "reason": "Existing visual admission is independent and asset-bound, but this proposal has no independent image-only correction admission under the Daily correction contract."
+  },
+  "limits": [
+    "This record is dated when recovered and does not backdate approval.",
+    "It authorizes no canonical or public mutation.",
+    "The validator must not accept this HOLD record as a correction override."
+  ]
+}

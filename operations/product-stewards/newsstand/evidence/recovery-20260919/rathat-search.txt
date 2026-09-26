@@ -1,0 +1,172 @@
+Zimperium Tag Listing (https://zimperium.com/blog-tag?tag=threat-intelligence)
+citeturn865search0 [wordlim: 200] Crawled: today; September 16, 2026 RatHat: AI-Powered Mobile Threat is Here for Your Credentials & Bank Accounts zLabs uncovers RatHat, an AI-powered Android RAT that abuses Wireless Debugging for shell access, steals banking PINs and OTPs, and reinstalls itself. ... August 4, 2026 Rapid Response: Zimperium Secures Mobile Endpoints Against Octagon Android Malware Zimperium protects mobile devices from the Octagon Android malware, a sophisticated RAT that exploits fake apps to gain unauthorized access and steal data. ... September 10, 2025 Rapid Response: Zimperium’s Full Detection for RatOn — NFC Heists, Remote Control, and Automated Transfers Alert: RatOn Android malware combines NFC relay attacks, phishing, and remote access trojans to target banking and crypto apps, demanding robust mobile defense solutions.
+
+# Threat Intelligence
+
+September 16, 2026 RatHat: AI-Powered Mobile Threat is Here for Your Credentials & Bank Accounts zLabs uncovers RatHat, an AI-powered Android RAT that abuses Wireless Debugging for shell access, steals banking PINs and OTPs, and reinstalls itself. Read More
+
+Tags: Threat Research, zLabs, Threat Intelligence
+
+September 9, 2026 Mantax Otax: Indonesian Mobile Ransomware with Spyware Integration Discover the Mantax Otax mobile malware, a sophisticated Indonesian ransomware with advanced spyware features that targets user privacy and data security. Read More
+
+Tags: Threat Research, zLabs, Threat Intelligence
+
+August 4, 2026 Rapid Response: Zimperium Secures Mobile Endpoints Against Octagon Android Malware Zimperium protects mobile devices from the Octagon Android malware, a sophisticated RAT that exploits fake apps to gain unauthorized access and steal data. Read More
+
+Tags: Threat Research, zLabs, Threat Intelligence
+--------------------------------------------------------------------------------
+RatHat Android Malware Can Reinstall Itself After Removal (https://blog.gridinsoft.com/rathat-android-adb-reinstall/)
+citeturn865search1 [wordlim: 200] Published: yesterday; Crawled: today; In research published on September 16, Zimperium’s zLabs described an Android trojan that leaves a separate process running on the phone. ... RatHat serializes the accessibility tree—the structured description of what is on screen—and asks a generative AI assistant to identify text or the position of a named element. ... Source: Zimperium zLabs.
+
+# RatHat Android Malware Can Reinstall Itself After Removal
+
+Last updated: September 18, 2026 9:11 pm
+
+Brendan Smith - Cybersecurity Analyst
+
+8 Min Read
+
+Image: RatHat Android Malware Can Reinstall Itself After Removal 1
+
+RatHat can restore its visible app through a separate running process.
+
+Deleting the visible app may not end a RatHat infection. In research published on September 16, Zimperium’s zLabs described an Android trojan that leaves a separate process running on the phone. That process can reinstall the malicious app and restore its permissions after the user removes it.
+
+The revealing part is how RatHat gets there: it turns an accessibility permission into control over Android’s debugging interface, then runs components outside the app’s normal lifecycle. Its AI-assisted screen navigation is one part of that chain—not a magical ability to infect any phone remotely.
+
+## A permission request opens the next door
+
+The researchers traced distribution through misleading download pages promoted in text-message phishing, malicious advertising and third-party forums. --------------------------------------------------------------------------------
+中国で活動とみられる攻撃者に関連するAndroidマルウェア「RatHat」— 生成AIで端末操作を自動化し、Wireless Debuggingの自己ペアリングでシェル権限を奪う | NEXSIGHT CYBER WIRE (https://cyber.nexsight.co/articles/2026/09/18/rathat-android-malware-ai-ui-automation-adb-self-pairing-2026-09-18/)
+citeturn865search2 [wordlim: 200] Published: yesterday; Crawled: yesterday;   * Zimperium zLabs「RatHat: AI-Powered Mobile Threat is Here for Your Credentials & Bank Accounts」（2026年9月16日）: https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts
+## 指令サーバーとの通信
+
+RatHatは、アプリ本体とGoエージェントの二重の指令チャネルを持つ。アプリはHTTPで登録した後、WebSocketを常時接続して心拍を送る。リクエストは端末ごとの鍵を使ったHMAC-SHA256で認証される。
+
+Goエージェントは127.0.0.1:7910でHTTPサーバーを立て、これをリバースプロキシクライアント（frpc）でインターネット側に公開する。zLabsは、このトンネルがNATやファイアウォールを越えて、端末のADBデーモンへの汎用的な入口になると説明している。通信端点には、認証情報の送信や画面の録画アップロードに加え、端末のADB証明書と秘密鍵のアップロード、Wireless Debuggingのポート番号の通知などが含まれる。
+
+## zLabsが示した注意点
+
+zLabsは、Android利用者に対して次を挙げている。
+
+  * Google Play以外からAPKファイルをダウンロードしない（発行元を明確に信頼できる場合を除く）
+  * アプリにアクセシビリティ権限を安易に与えない
+  * Play Protectで端末を定期的にスキャンする
+
+zLabsはあわせて、署名ベースの従来のモバイルセキュリティ対策ではRatHatのような多層構成に対応できないとし、端末上での動的な解析と振る舞いの監視が必要だと指摘している。RatHatのIOC（侵害指標）は、zLabsが公開しているリポジトリにまとめられている。
+
+## 出典
+
+  * Zimperium zLabs「RatHat: AI-Powered Mobile Threat is Here for Your Credentials & Bank Accounts」（2026年9月16日）: https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts
+
+※本記事は、2026年9月時点で公表されている情報に基づく解説です。--------------------------------------------------------------------------------
+RatHat Uses AI-Assisted Controls to Target Android Credentials | Let's Data Science (https://letsdatascience.com/news/rathat-uses-ai-assisted-controls-to-target-android-credentia-ebc8a27f)
+citeturn865search3 [wordlim: 200] Published: 2 days ago; Crawled: 2 days ago; Zimperium reported that RatHat presents counterfeit interfaces resembling banking and payment applications, attempting to collect financial credentials while intercepting one-time passwords and other two-factor authentication codes.
+
+NewsRatHat Uses AI-Assisted Controls to Target Android Credentials
+
+Security & Risk android malware mobile security credential theft accessibility abuse
+
+# RatHat Uses AI-Assisted Controls to Target Android Credentials
+
+2 sources|September 17, 2026|By LDS Team
+
+7.2
+
+Relevance Score
+
+Quick Summary Hide
+
+Zimperium's zLabs disclosed RatHat on September 16, describing an Android malware strain linked to threat actors apparently operating in China. According to Zimperium, the malware combines accessibility-service abuse, local ADB self-pairing, native daemons, and AI-assisted interface control to target banking credentials, OTP codes, and device input. The report describes delivery through targeted smishing and malvertising campaigns.
+
+Zimperium's zLabs disclosed RatHat, an Android malware strain it links to threat actors that appear to be operating in China. In a September 16 report, Zimperium described RatHat as a spyware and backdoor threat distributed primarily through targeted smishing and malvertising campaigns that direct victims to deceptive third-party download portals.
+--------------------------------------------------------------------------------
+New ‘RatHat’ Android Malware Leverages AI to Steal Financial Data - Infosecurity Magazine (https://www.infosecurity-magazine.com/news/rathat-android-malware-ai-steal/)
+citeturn865search4 [wordlim: 200] Published: 2 days ago; Crawled: 2 days ago; In practice, RatHat serializes the target device's live Accessibility tree to XML and communicates in Mandarin with “one of the world’s most popular generative AI assistants,” the researchers noted. ... Source: Zimperium RatHat's architecture and operational flow.
+
+# New Chinese-Made ‘RatHat’ Android Malware Leverages AI to Steal Financial Data
+
+News 17 September 2026
+
+## Written by
+
+Image: Photo of Kevin Poireault
+
+### Kevin Poireault
+
+Reporter, Infosecurity Magazine
+
+Security researchers at Zimperium have discovered a new Android malware strain targeting credential and bank detail harvesting.
+
+The malware, named RatHat by the researchers, is linked to threat actors that appear to be operating in China.
+
+It incorporates novel techniques for persistence and leverages generative AI for operational control.
+
+## RatHat’s Delivery: Smishing, Malvertising and Malicious App
+
+RatHat is primarily distributed through deceptive phishing sites promoted via malvertising, SMS phishing (smishing) campaigns and third-party forums.
+
+The threat actors behind the malicious campaign use these channels to lure victims into manually downloading malicious Android package kits (APKs) that appear to be legitimate apps.
+
+Once deployed, the malicious app deploys RatHat via a dropper that carries the payload in two encrypted assets.
+--------------------------------------------------------------------------------
+RatHat Android Malware Uses AI and ADB to Control Devices | Red Secure Tech Cybersecurity Blog (https://www.redsecuretech.co.uk/blog/post/rathat-android-malware-uses-ai-and-adb-to-control-devices/1526)
+citeturn865search5 [wordlim: 200] Published: yesterday; Crawled: yesterday; Zimperium found it. ... This is what makes RatHat different. ... Zimperium calls it "a general-purpose road into the device."
+
+# RatHat Android Malware Uses AI and ADB to Control Devices
+
+A new Android malware called RatHat is making the rounds. It's linked to China-based threat actors. And it uses AI to navigate and control infected devices...
+
+Eng. Donya Bino Published September 18, 2026  ·  6 min read
+
+A new Android malware called RatHat is making the rounds. It's linked to China-based threat actors. And it uses AI to navigate and control infected devices.
+
+Zimperium found it. The researchers Gianluca Braga, Vishnu Pratapagiri, and Fernando Ortega published their analysis recently. The malware spreads through smishing (SMS phishing) and malvertising. It leads victims to fake download portals. Then it drops a malicious APK.
+
+But the real story is what happens after installation. RatHat doesn't just steal data. It breaks out of the Android sandbox and stays on the device even if you uninstall it.
+
+Let me break down how it works.
+
+### Quick Summary
+
+What  | Details
+Malware  | RatHat
+Attribution  | China-based threat actors
+Distribution  | Smishing, malvertising, third-party forums
+--------------------------------------------------------------------------------
+New Android malware uses AI to steal bank logins and PINs | Malwarebytes (https://www.malwarebytes.com/blog/news/2026/09/new-android-malware-uses-ai-to-steal-bank-logins-and-pins)
+citeturn865search6 [wordlim: 200] Published: yesterday; Crawled: yesterday; Researchers at Zimperium’s zLabs have analyzed an Android Trojan that uses an automated, multi-stage infection process.What’s new is that RatHat gives a live AI assistant the keys to the accessibility tree of the infected device and uses it to determine where to tap or scroll, rather than following a hardcoded script.
+--------------------------------------------------------------------------------
+NCSA Webboard (https://webboard-nsoc.ncsa.or.th/topic/3307/cyber-threat-intelligence-18-september-2026)
+citeturn865search7 [wordlim: 200] Published: yesterday; Crawled: yesterday; https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts
+--------------------------------------------------------------------------------
+RatHat : malware Android piloté par IA ciblant les identifiants bancaires | CyberVeille (https://cyberveille.ch/posts/2026-09-16-rathat-malware-android-pilote-par-ia-ciblant-les-identifiants-bancaires/)
+citeturn865search8 [wordlim: 200] Published: 3 days ago; Crawled: 2 days ago; 🔗 Source originale : https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts
+--------------------------------------------------------------------------------
+RatHat: AI-Driven Android Malware Abuses Wireless Debugging to Steal Banking Credentials | ThreatPaper (https://threatpaper.com/cases/rathat-ai-driven-android-malware-abuses-wireless-debugging-to-steal-banking-credentials)
+citeturn865search9 [wordlim: 200] Published: yesterday; Crawled: today; ^{1}^{2} RatHat serializes the phone's live Android Accessibility tree into XML and sends it to what Zimperium's report describes only as "one of the world's most popular generative AI assistants," communicating with it in Mandarin to resolve on-screen element coordinates, read on-screen text, and issue navigation commands such as `SCROLL_DOWN`. ... Name: Unattributed; tracked only through the malware family name RatHat Assessed origin: Operators likely based in China Attribution confidence: Low-to-moderate — Zimperium's own basis is the AI assistant being queried in Mandarin-language prompts found during analysis, which is suggestive of the operators' working language but is not accompanied by infrastructure, registration, or identity evidence in the reporting reviewed.
+--------------------------------------------------------------------------------
+RatHat Android credential-theft malware • CyberHappenings (https://cyberhappenings.com/happenings/2026/09/17/rathat-android-credential-theft-malware/)
+citeturn865search10 [wordlim: 200] Published: 2 days ago; Crawled: today; About this happening: RatHat is a new Android malware campaign analyzed by Zimperium zLabs and linked to China-based threat actors. ... Zimperium's zLabs team identified RatHat, a new Android malware strain linked to China-based threat actors, and found it targets banking credentials, notifications, 2FA/OTP data, and screen and input capture.
+--------------------------------------------------------------------------------
+RatHat Android Malware Uses AI To Hijack Phones, Steal Banking Credentials (https://hothardware.com/news/rathat-malware-ai-hijack-android-phones)
+citeturn865search11 [wordlim: 200] Published: yesterday; Crawled: today; Security researchers at Zimperium’s zLabs are sounding the alarm over a new breed of malware dubbed RatHat, which malicious actors are using to compromise Android devices. ... To lessen the risk of running into something like RatHat, users should stick to the Google Play Store when downloading and installing apps.
+--------------------------------------------------------------------------------
+RatHat Android Malware Uses AI and ADB to Survive Uninstall (https://www.reddit.com/r/pwnhub/comments/1wjr8lv/rathat_android_malware_uses_ai_and_adb_to_survive/)
+citeturn865reddit12 [wordlim: 200] Published: yesterday; Zimperium researchers have identified RatHat, a sophisticated Android malware assessed to be operated by China-based threat actors.
+--------------------------------------------------------------------------------
+Minimally Invasive Breast Surgery (https://www.mib-meeting.com/app/uploads/2025/05/Programme_19May25.pdf)
+citeturn865search13 [wordlim: 200] Published: 1.3 years ago; Rathat ... Rathat
+--------------------------------------------------------------------------------
+Minimally Invasive Breast Surgery (https://www.dgpraec.de/wp-content/uploads/2025/04/Preliminary-Programme_MIB_7.4_pm.pdf)
+citeturn865search14 [wordlim: 200] Published: 1.4 years ago; Rathat ... Rathat
+--------------------------------------------------------------------------------
+RatHat: A Self-Targeting Printable Brain Implant System (https://digitalcommons.fiu.edu/nanna/record/20534/files/ENEURO.0538_19.2020.full.pdf?registerDownload=1&version=1&withMetadata=0&withWatermark=0)
+citeturn865search15 [wordlim: 200] Published: 6.5 years ago; RatHat has been adapted to multiple experimental paradigms in our lab and should be a useful new way to
+--------------------------------------------------------------------------------
+Signature Not (https://ia37rg02wpsa01.blob.core.windows.net/fek/11/2009/20091113264.pdf)
+citeturn865search16 [wordlim: 200] Published: 1.3 years ago; Rathat του Hervé Rathat και της Sylviane de Boer, που
+--------------------------------------------------------------------------------
+Rathat was the best description of what i was feeling-She- slapped him for bumping intoler. I’m gonna punch her, I don’t care about the consequences (https://forum.3ptechies.com/files/never-again-7-pdf.34021/)
+citeturn865search17 [wordlim: 200] Published: 4.6 years ago; Rathat was the best description of what i was feeling-She- slapped him for bumping intoler. ... “He’s already sted, so you are mát needed,” she added ... “Well, that’s great but I’m here just to excort Blake.” i anwered, unaffected at her hurtful words.
+

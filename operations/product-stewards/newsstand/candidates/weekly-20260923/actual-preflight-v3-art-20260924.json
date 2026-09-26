@@ -1,0 +1,32 @@
+{
+  "schema": "newsstand-actual-preflight-receipt-v1",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "checkedAt": "2026-09-24T10:00:00-07:00",
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/weekly-20260923/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-preflight-v7-art-reuse-20260924/ --preflight-only",
+  "exitCode": 0,
+  "providerCalled": false,
+  "result": "PRE_REVIEW_PASS",
+  "stdout": "{\"status\":\"PRE_REVIEW_PASS\",\"candidateDir\":\"operations/product-stewards/newsstand/candidates/weekly-20260923/\",\"scope\":\"Validation-only pre-review gate; no provider request, editorial judgment, admission or publication.\"}\n",
+  "bindings": {
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/article.md",
+      "sha256": "df08253093b93f2403b6e5b3571cbb06e93a4c5cc80805310d46810b2c278b60"
+    },
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/story.json",
+      "sha256": "bd708f544766772641b2640dc368a2c988c8ba1a3c9d936f7ce46960b36ccbcf"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/review-text.json",
+      "sha256": "2cc693ed058b9a27af2507231ef0bdf5156c75b42ee1123f5cb0df39452ddc27"
+    },
+    "producerReview": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/producer-publication-review.json",
+      "sha256": "4e980cc04138e8ace8d8b335f0b2767de58fb905b63e91f1efb053c0fa021761"
+    },
+    "visualAdmission": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/art-reuse-assessment-20260924.json",
+      "sha256": "b8f19d5605f912ae74f97cafc6fb164593ee2121de22b204d2328bc2ac763f7c"
+    }
+  }
+}

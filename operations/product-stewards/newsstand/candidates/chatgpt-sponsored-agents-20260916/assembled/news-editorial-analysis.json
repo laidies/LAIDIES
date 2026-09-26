@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "chatgpt-sponsored-agents-20260916",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "41055484692191d540f2fe8380635b9f5f739f479771f0242a38d47fb0a2707d",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why should you weigh a sponsored agent's answer about a product differently from ChatGPT's own answer in your original chat?",
+      "response": "Because the sponsored conversation exists only after you click an ad the business paid for; the business sponsors the agent, so its purpose is a sales conversation about that seller's offerings. It is deliberately kept separate from your original chat and from ChatGPT's independent answers, which are not paid for by a specific seller. A fluent, helpful-sounding reply from the sponsored agent is therefore still a claim from an interested party, which is why you verify specifics like dimensions and return terms against the product page.",
+      "expectedEvidence": "The answer should trace payment → sponsorship → separate labelled conversation, cite the stated separation from independent answers, and end with the verification consequence rather than a generic 'ads are biased' claim.",
+      "assessment": "The article supports this answer fully: P004 supplies the payment/incentive step, P002-P003 the labelled hand-off and separation, and P005-P006 the verification consequence. Explain-back succeeds in ordinary language."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, how should you treat the SeaView thread's claim that 'all rooms are quiet and cancellation is free until check-in'?",
+      "response": "Tapping the sponsored button is the same hand-off the article describes: you have moved from the assistant's independent answer into a conversation the hotel pays for. The label tells you who is speaking. So treat the quiet-rooms and free-cancellation claims as seller statements: ask for specifics (which floors face the street, the exact cancellation cutoff in writing), then verify against the hotel's booking-terms page and independent reviews before booking. Keep the assistant's original list, the sponsored thread and the hotel's own pages as three distinct sources.",
+      "expectedEvidence": "A correct transfer identifies the hand-off moment and label, reclassifies the speaker as the paying seller, asks measurable specifics, and applies the three-source separation habit to a non-shopping, non-ChatGPT surface.",
+      "assessment": "The article's model transfers cleanly with no extra facts needed: the P006 hand-off-and-label habit and the P004 incentive reading resolve the new scenario, confirming the mechanism is portable rather than example-bound."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "P002-P003 give the dated event, the click-to-conversation causal sequence and the stated separation design, with the availability limit noted.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI announced September 16 that it is testing Sponsored Agents with select US advertisers. After clicking an ad in ChatGPT, a person can choose to open a clearly labelled conversation with an agent sponsored by that business.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI says the sponsored conversation is separate from the person’s original chat and from ChatGPT’s independent answers. The announcement does not give broader availability details.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Sponsored' is explained at first meaningful use in P004 ('who is paying for the conversation'); 'agent' is grounded as talking to a seller through an AI inside ChatGPT.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>“Sponsored” tells you who is paying for the conversation. You are talking to a seller about what it offers, through an AI agent inside ChatGPT. That is useful context: a fluent answer can still be part of a sales conversation.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>OpenAI announced September 16 that it is testing Sponsored Agents with select US advertisers. After clicking an ad in ChatGPT, a person can choose to open a clearly labelled conversation with an agent sponsored by that business.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a specific shopper situation: a desk lamp ad, dimension and return-term questions, a bedside-table fit decision.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine an ad for a desk lamp catches your eye. In the separate conversation, ask for its base width, shade height and return terms. Then compare those claims with the product page before deciding whether it fits your bedside table.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The important hand-off happens when you click the ad and choose the new conversation. Pause there long enough to notice the label and who is speaking. Keep the original answer, the sponsored conversation and the seller’s product page as three different sources.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; the background link in P008 is a public library reference, and all advice follows from the sourced mechanism rather than invented facts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Background: <a href=\\\"/library.html#ai-fundamentals-101::%40ch-20-20-8-try-this-final\\\">AI Fundamentals 101 §20.8 — Try This (Final)</a> helps you ask what incentive sits behind a claim.",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Imagine an ad for a desk lamp catches your eye. In the separate conversation, ask for its base width, shade height and return terms. Then compare those claims with the product page before deciding whether it fits your bedside table.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The important hand-off happens when you click the ad and choose the new conversation. Pause there long enough to notice the label and who is speaking. Keep the original answer, the sponsored conversation and the seller’s product page as three different sources.</p>",
+          "locator": "P006"
+        }
+      ]
+    }
+  }
+}

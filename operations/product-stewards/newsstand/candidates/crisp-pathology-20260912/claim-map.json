@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "laidies.newsstand-claim-map.v1",
+  "candidateId": "crisp-pathology-20260912",
+  "claims": [
+    {
+      "claimId": "frozen-specific",
+      "status": "VERIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/source-evidence.json",
+        "sha256": "3b2df14ec13b0a2021e3f4cde6d89e5c1ff095b5afceb6bc128688d21e50838b"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "Most existing foundation models are built upon FFPE specimens, which differ fundamentally from frozen sections in both preparation and tissue morphology. Direct application of FFPE-trained models to intraoperative frozen section risks compromising diagnostic accuracy as such models may lack exposure to frozen section morphology.",
+          "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+        }
+      ],
+      "scopeAndFreshness": "Accepted paper research only."
+    },
+    {
+      "claimId": "result",
+      "status": "VERIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/source-evidence.json",
+        "sha256": "3b2df14ec13b0a2021e3f4cde6d89e5c1ff095b5afceb6bc128688d21e50838b"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "Crucially, CRISP demonstrated consistent superiority over competing foundation models across independent prospective external cohorts. In a reader study conducted on the prospective SYCC cohort, the operating point of the senior pathologist fell on the ROC curve of CRISP, indicating comparable overall performance under the evaluated conditions.",
+          "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+        }
+      ],
+      "scopeAndFreshness": "Accepted paper research only."
+    },
+    {
+      "claimId": "simulation-limit",
+      "status": "VERIFIED",
+      "candidateEvidence": [
+        {
+          "excerpt": "A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "sourceBinding": {
+        "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/source-evidence.json",
+        "sha256": "3b2df14ec13b0a2021e3f4cde6d89e5c1ff095b5afceb6bc128688d21e50838b"
+      },
+      "sourceEvidence": [
+        {
+          "excerpt": "In a simulated deployment experiment conducted on 100 cases from SYCC, the average end-to-end processing time for CRISP was 196.4 seconds per case, compared to 292.6 seconds for pathologists.",
+          "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+        },
+        {
+          "excerpt": "a fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical outcomes.",
+          "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+        }
+      ],
+      "scopeAndFreshness": "Accepted paper research only."
+    }
+  ]
+}

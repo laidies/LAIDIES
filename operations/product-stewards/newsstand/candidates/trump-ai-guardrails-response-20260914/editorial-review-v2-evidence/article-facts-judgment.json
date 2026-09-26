@@ -1,0 +1,78 @@
+{
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "claims": {
+    "posts-and-claims": {
+      "state": "qualified",
+      "reason": "The supplied AP passages support the 'strong president is the only control' quote and the China/data-centres claim, but no supplied passage shows Trump dismissing warnings that AI could take over the world or harm humanity, so that framing element is not directly evidenced.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ]
+    },
+    "administration-qualification": {
+      "state": "supported",
+      "reason": "The AP passage records Vance saying the administration is concerned about AI but wants to regulate it smartly, matching the article's attribution.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ]
+    },
+    "no-reported-action": {
+      "state": "supported",
+      "reason": "The source's Johnson passage says a possible White House sit-down has yet to be scheduled and the stated limitation confirms no enacted rule, product change, or completed/scheduled meeting, matching the article's absence claim.",
+      "passages": [
+        "P003"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ]
+    }
+  },
+  "outcomes": {
+    "factualIntegrity": {
+      "state": "hold",
+      "reason": "Most attributions match the supplied AP passages exactly, but the 'dismiss warnings that AI could take over the world or harm humanity' element lacks a supporting passage in the supplied evidence and needs sourcing or trimming.",
+      "passages": [
+        "P002",
+        "P003"
+      ]
+    },
+    "freshnessReviewability": {
+      "state": "pass",
+      "reason": "The article dates the reporting to September 14, names AP as the source, and states what the report does and does not establish, making time-sensitive claims checkable.",
+      "passages": [
+        "P002",
+        "P003"
+      ]
+    },
+    "datedChange": {
+      "state": "pass",
+      "reason": "The article explicitly separates the September 14 posts from the September 13 remarks covered the previous day and links the surrounding debate.",
+      "passages": [
+        "P003",
+        "P007"
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "state": "pass",
+      "reason": "The article concretely states nothing changes readers' AI tools today and preserves uncertainty by distinguishing a public position from an enacted rule or action.",
+      "passages": [
+        "P004",
+        "P005"
+      ]
+    }
+  },
+  "learningDisposition": {
+    "disposition": "CANDIDATE_REPAIR_ONLY",
+    "rationale": "One material framing element (Trump dismissing AI takeover/harm warnings) is not evidenced in the supplied source passages; the repair is to add a supporting AP passage or soften the sentence to the directly quoted claims."
+  },
+  "summary": "The follow-up accurately attributes the Trump 'strong president' guardrails quote, the China claim, the Vance qualification, and the absence of any scheduled meeting or enacted rule, all consistent with the supplied AP passages; however, the sentence stating Trump dismissed warnings that AI could take over the world or harm humanity has no supporting passage in the supplied evidence, so factual integrity holds pending an added source passage or a narrowed phrasing. Freshness, dated-change separation from the September 13 story, and consequence/uncertainty handling all pass."
+}

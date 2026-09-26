@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "laidies.newsstand-private-claim-list.v1",
+  "candidateId": "gpt-6-sol-luna-20260922",
+  "claims": [
+    {
+      "id": "availability",
+      "classification": "OPENAI_PRODUCT_AVAILABILITY_CLAIM",
+      "claim": "OpenAI says GPT-6 Sol and Luna are available in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise, and Edu users, with gradual rollout.",
+      "safeFraming": "State the named surfaces and plans; tell readers that access may not yet appear."
+    },
+    {
+      "id": "chat-boundary",
+      "classification": "OPENAI_PRODUCT_AVAILABILITY_CLAIM",
+      "claim": "The release says the models are not yet available in Chat.",
+      "safeFraming": "Do not imply ordinary Chat access."
+    },
+    {
+      "id": "api-pricing",
+      "classification": "PUBLISHED_PROVIDER_PRICE",
+      "claim": "The release lists input/output API prices per million tokens for Sol and Luna.",
+      "safeFraming": "Identify prices as API pricing and date-check before publication."
+    },
+    {
+      "id": "performance",
+      "classification": "PROVIDER_BENCHMARK_CLAIM",
+      "claim": "OpenAI reports benchmark, factuality, coding, and computer-use comparisons.",
+      "safeFraming": "Attribute each comparison and preserve stated evaluation limitations; do not translate it into a general promise for every reader task."
+    }
+  ],
+  "excludedClaims": [
+    "That all subscribers have access now.",
+    "That Chat includes these models.",
+    "That provider benchmark results predict an individual reader outcome.",
+    "That API price equals ChatGPT subscription cost."
+  ]
+}

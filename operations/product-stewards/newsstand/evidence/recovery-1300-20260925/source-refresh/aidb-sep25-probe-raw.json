@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "newsstand-web-tool-result-v1",
+  "observedAt": "2026-09-25T20:11:45Z",
+  "operator": "/root/california_order_producer",
+  "purpose": "One normal probe of the expected September 25 AIDB edition and transcript routes after a new Apple episode appeared while agent.json still ended at September 24.",
+  "results": [
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-25",
+      "webRef": "turn1223view0",
+      "toolOutcome": "Internal Error",
+      "returnedLines": [
+        "L0: URL https://aidailybrief.ai/e/2026-09-25 is not accessible via this tool."
+      ],
+      "contentRecovered": false
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-25.md",
+      "webRef": "turn1223view1",
+      "toolOutcome": "Internal Error",
+      "returnedLines": [
+        "L0: URL https://aidailybrief.ai/e/2026-09-25.md is not accessible via this tool."
+      ],
+      "contentRecovered": false
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-25/transcript.md",
+      "webRef": "turn1223view2",
+      "toolOutcome": "Internal Error",
+      "returnedLines": [
+        "L0: URL https://aidailybrief.ai/e/2026-09-25/transcript.md is not accessible via this tool."
+      ],
+      "contentRecovered": false
+    }
+  ],
+  "limitation": "This receipt records the exact tool return. It does not prove the routes do not exist outside this tool and supplies no edition or transcript content.",
+  "historicalAttemptCorrection": {
+    "sep23AndSep24AttemptsOccurred": true,
+    "treatment": "The attempts already recorded in raw-source-observations.json are preserved as actual actions. They must not replace the predecessor original failedAt/checkedAt, capture, or retry policy and must not be described as originalNotRetried.",
+    "proposalImpact": "None. The already-adopted predecessor-bound successor and its hashes are unchanged; this supplemental receipt only records the later required September 25 expected-route probe and clarifies the treatment of the historical attempts."
+  }
+}

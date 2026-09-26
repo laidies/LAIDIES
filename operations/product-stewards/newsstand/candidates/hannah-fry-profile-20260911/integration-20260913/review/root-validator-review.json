@@ -1,0 +1,14 @@
+{
+  "reviewedAt": "2026-09-13T15:53:56.758457+00:00",
+  "reviewer": "/root",
+  "decision": "REPAIR_REQUIRED_INTERNAL_VALIDATOR",
+  "scope": "Internal standalone validator only; live runtime integration admission remains valid.",
+  "reviewedScriptSha256": "55557117fb8e40c09df87ae7458ce8febffcaffcc5f7acca6ea9e4b34999a774",
+  "findings": [
+    "Restore unconditional source-packet checksum validation.",
+    "Preserve original historic resource status and lander exclusion checks.",
+    "Preserve LUMINAIRY_PROFILES_PATH interface.",
+    "Claims-only mode can disclose assets/CSS omissions; cannot silently drop source authority."
+  ],
+  "agentReviewRetained": "integration-admission-review-v2.json"
+}

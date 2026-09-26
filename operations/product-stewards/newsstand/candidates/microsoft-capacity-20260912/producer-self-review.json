@@ -1,0 +1,742 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "microsoft-capacity-20260912",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-12T19:08:24.000Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/publication-manifest.json",
+      "sha256": "7ba4e65de5218ef22b07939e30a0ba1fb38b41022aba5705e8575fd3c379c5cc"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/review-text.json",
+      "sha256": "3f1b6a0b7959305f4c9cd9737e753f4be8e18bbf647d4561ce0aad25f1e65ae4"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/rendered-article.html",
+      "sha256": "c94f2abf2d7a0595c4b1f557871c5a380e899f7205f7a1cd87085f790011c512"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-05T22:51:01.267Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Plain terms gain meaning in the event explanation.",
+        "A familiar comparison reconnects to the mechanism and a concrete reader check."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "The LAiDIES Read in private NEWS002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What does Microsoft’s reported 38-gigawatt 2032 plan measure, and is it electricity used now?",
+    "promisedPayoff": "Separate planned power capacity from energy consumed over time while showing that the roadmap covers AI-specific and other cloud computing.",
+    "centralMentalModel": "Data centres are physical server facilities. Gigawatts describe power at a moment; energy consumption requires a period of time.",
+    "dailyLifeConnection": "A reader sees a huge infrastructure number and wants to know what it says about AI growth without mistaking it for a present electricity bill.",
+    "surfaceJob": "A concise September 12 explanation of Reuters’ September 10 report and the visible Bloomberg roadmap excerpt.",
+    "desiredReaderFeeling": "I can explain the reported plan, the unit and what the number does not establish.",
+    "evidenceBoundary": "Reported capacity is not company confirmation or measured energy consumption."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002",
+      "simulatedReaderProbe": {
+        "prompt": "What does the reported 38-gigawatt figure mean?",
+        "probeResponse": "It is the power capacity Microsoft reportedly plans to have online in 2032, not electricity it uses today or energy consumed over time.",
+        "expectedEvidence": "Keep capacity, time and energy consumption separate."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002",
+      "simulatedReaderProbe": {
+        "prompt": "Another company reports a 5-gigawatt facility plan. What should you ask?",
+        "probeResponse": "Ask when that capacity is planned, whether it is online now and how much energy the facility would actually use over time.",
+        "expectedEvidence": "Transfer the capacity-versus-energy distinction without a household comparison."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Root read the complete final article and accepted its news-led roadmap, physical data-centre explanation, power-versus-energy distinction, AI share and source limits for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual figures, unit mechanism and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+          "locator": "The LAiDIES Read"
+        }
+      ]
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/source-evidence.json",
+        "sha256": "fa70fa29f1e03b2f23ee44f3d31bcb4e6d4f69fd4d47a388578d0d8060a4dcf7"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "reported-roadmap",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/source-evidence.json",
+          "sha256": "fa70fa29f1e03b2f23ee44f3d31bcb4e6d4f69fd4d47a388578d0d8060a4dcf7"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Published Sep 10, 2026, 06:21 PM. Updated Sep 10, 2026, 06:24 PM.\nSept 10 (Reuters) - Microsoft plans to build out its data-center capacity to about 38 gigawatts by 2032, more than triple its current footprint, Bloomberg News reported on Thursday, citing people familiar with the matter.\nAccording to the report only about 2 gigawatts of the company’s current 12-gigawatt capacity is centered on AI-specific chips, a share expected to grow to about a third of the 38 gigawatts it plans to have online.\nMicrosoft did not immediately respond to a Reuters request for comment.\nTechnology companies have been pouring billions of dollars into data centers to power generative AI services such as ChatGPT and Copilot, which require huge amounts of computing power.",
+            "locator": "https://www.investing.com/news/stock-market-news/microsoft-plans-38-gigawatts-of-data-center-capacity-by-2032-bloomberg-news-reports-4897030"
+          },
+          {
+            "excerpt": "Microsoft Plans Data Center Push to Triple Its Computing Power (1). Sept. 11, 2026, 3:03 AM UTC.\nMicrosoft Corp. plans to more than triple its data center capacity.\nThe company’s globe-spanning network of data centers will have more than 38 gigawatts of capacity in 2032, up from about 12 gigawatts now, according to people familiar with the plans.\nThe road map includes company-owned and leased facilities and excludes computing power rented from so-called neoclouds like Coreweave Inc.",
+            "locator": "https://news.bloomberglaw.com/ip-law/microsoft-plans-data-center-push-to-triple-its-computing-power"
+          }
+        ],
+        "scopeAndFreshness": "Reuters supports the report date and about-38 figure; both public sources support the 12-to-38 roadmap. The plan is reported, not company-confirmed."
+      },
+      {
+        "claimId": "attribution-response",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Reuters was summarizing Bloomberg reporting based on people familiar with the plans. Microsoft did not immediately respond to Reuters.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/source-evidence.json",
+          "sha256": "fa70fa29f1e03b2f23ee44f3d31bcb4e6d4f69fd4d47a388578d0d8060a4dcf7"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Published Sep 10, 2026, 06:21 PM. Updated Sep 10, 2026, 06:24 PM.\nSept 10 (Reuters) - Microsoft plans to build out its data-center capacity to about 38 gigawatts by 2032, more than triple its current footprint, Bloomberg News reported on Thursday, citing people familiar with the matter.\nAccording to the report only about 2 gigawatts of the company’s current 12-gigawatt capacity is centered on AI-specific chips, a share expected to grow to about a third of the 38 gigawatts it plans to have online.\nMicrosoft did not immediately respond to a Reuters request for comment.\nTechnology companies have been pouring billions of dollars into data centers to power generative AI services such as ChatGPT and Copilot, which require huge amounts of computing power.",
+            "locator": "https://www.investing.com/news/stock-market-news/microsoft-plans-38-gigawatts-of-data-center-capacity-by-2032-bloomberg-news-reports-4897030"
+          }
+        ],
+        "scopeAndFreshness": "Reuters supports the attribution and its request-for-comment status at publication time."
+      },
+      {
+        "claimId": "ai-share",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "About 2 gigawatts of the current capacity is centred on AI-specific chips. The report says about one-third of the planned 38 gigawatts would be AI-specific.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/source-evidence.json",
+          "sha256": "fa70fa29f1e03b2f23ee44f3d31bcb4e6d4f69fd4d47a388578d0d8060a4dcf7"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Published Sep 10, 2026, 06:21 PM. Updated Sep 10, 2026, 06:24 PM.\nSept 10 (Reuters) - Microsoft plans to build out its data-center capacity to about 38 gigawatts by 2032, more than triple its current footprint, Bloomberg News reported on Thursday, citing people familiar with the matter.\nAccording to the report only about 2 gigawatts of the company’s current 12-gigawatt capacity is centered on AI-specific chips, a share expected to grow to about a third of the 38 gigawatts it plans to have online.\nMicrosoft did not immediately respond to a Reuters request for comment.\nTechnology companies have been pouring billions of dollars into data centers to power generative AI services such as ChatGPT and Copilot, which require huge amounts of computing power.",
+            "locator": "https://www.investing.com/news/stock-market-news/microsoft-plans-38-gigawatts-of-data-center-capacity-by-2032-bloomberg-news-reports-4897030"
+          }
+        ],
+        "scopeAndFreshness": "Reuters supports these reported current and planned shares; they are capacity, not actual energy use."
+      },
+      {
+        "claimId": "facility-scope",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Bloomberg’s public excerpt says the roadmap counts facilities Microsoft owns or leases. It leaves out computing rented from outside providers such as CoreWeave.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/source-evidence.json",
+          "sha256": "fa70fa29f1e03b2f23ee44f3d31bcb4e6d4f69fd4d47a388578d0d8060a4dcf7"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Microsoft Plans Data Center Push to Triple Its Computing Power (1). Sept. 11, 2026, 3:03 AM UTC.\nMicrosoft Corp. plans to more than triple its data center capacity.\nThe company’s globe-spanning network of data centers will have more than 38 gigawatts of capacity in 2032, up from about 12 gigawatts now, according to people familiar with the plans.\nThe road map includes company-owned and leased facilities and excludes computing power rented from so-called neoclouds like Coreweave Inc.",
+            "locator": "https://news.bloomberglaw.com/ip-law/microsoft-plans-data-center-push-to-triple-its-computing-power"
+          }
+        ],
+        "scopeAndFreshness": "The public Bloomberg excerpt supports this facility boundary; the paywalled body was not used."
+      }
+    ],
+    "reviewedThrough": "2026-09-12T19:08:24.000Z",
+    "nextTrigger": "Any Microsoft confirmation, Bloomberg/Reuters correction or change to the capacity roadmap.",
+    "correctionOwner": "/root",
+    "scope": "Reuters supports the dated roadmap and AI-specific shares. Bloomberg’s public excerpt supports the overall figures and facility scope. Capacity is not treated as measured energy consumption."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound candidate covers this reported Microsoft capacity roadmap."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Root found no unresolved or newly reusable defect in the complete bounded prose."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "No observed human-comprehension evidence is claimed.",
+    "Microsoft did not immediately confirm the reported plan in the cited Reuters item."
+  ],
+  "limits": [
+    "Producer self-review only; independent semantic review has not been requested.",
+    "No human-comprehension observation is claimed.",
+    "Bloomberg access was limited to the public excerpt; the paywalled body was not used."
+  ],
+  "completeArtifact": "{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"<a href=\\\"/library.html#ai-fundamentals-101::%40ch-17-17-1-whats-actually-inside\\\">AI Fundamentals 101: Data Centres and Energy — What’s Actually Inside</a> explains that data centres are physical buildings filled with servers. It is the useful starting point for understanding what this reported capacity plan would build.\",\"closing_note\":null,\"cocktail_party\":\"“Microsoft is reportedly planning data centres with about 38 gigawatts of capacity by 2032, up from about 12 now. Capacity is how much power the infrastructure can support at a moment—not how much energy Microsoft is already using.”\",\"concepts\":[\"power capacity\",\"energy use\",\"cloud computing\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"Microsoft reportedly plans to more than triple its data-centre capacity by 2032.\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"Illustration: LAiDIES\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"microsoft-capacity-20260912\",\"laidies_read\":\"<p>Data centres are physical buildings filled with servers. They host the machinery that runs AI services and other cloud work.</p><p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p><p>Bloomberg’s public excerpt says the roadmap counts facilities Microsoft owns or leases. It leaves out computing rented from outside providers such as CoreWeave.</p>\",\"lastCheckedAt\":\"2026-09-12T19:08:24.000Z\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"microsoft-capacity-20260912\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:microsoft-capacity-20260912\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"reuters-microsoft-capacity-20260910\",\"label\":\"Reuters — Microsoft plans 38 gigawatts of data center capacity by 2032, Bloomberg News reports\",\"publisherType\":\"licensed-independent-reporting\",\"url\":\"https://www.investing.com/news/stock-market-news/microsoft-plans-38-gigawatts-of-data-center-capacity-by-2032-bloomberg-news-reports-4897030\"},{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"bloomberg-law-microsoft-capacity-20260911\",\"label\":\"Bloomberg Law — Microsoft Plans Data Center Push to Triple Its Computing Power\",\"publisherType\":\"public-excerpt-independent-reporting\",\"url\":\"https://news.bloomberglaw.com/ip-law/microsoft-plans-data-center-push-to-triple-its-computing-power\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"Microsoft\",\"data centres\",\"electricity\"],\"the_story\":\"<p>Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032. Reuters was summarizing Bloomberg reporting based on people familiar with the plans. Microsoft did not immediately respond to Reuters.</p><p>About 2 gigawatts of the current capacity is centred on AI-specific chips. The report says about one-third of the planned 38 gigawatts would be AI-specific. The roadmap therefore covers AI and other cloud computing.</p>\",\"themes\":[\"data centres\",\"cloud infrastructure\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-12T19:08:24.000Z\",\"watch_fors\":null,\"what_this_means\":\"<p>The reported expansion would build more of the physical infrastructure behind AI and other online services. It says Microsoft is planning room for much more computing. It does not show how fully those facilities will run or how much electricity they will consume over time.</p>\"}",
+  "storyParagraphs": [
+    {
+      "id": "P001",
+      "text": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+      "exact": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+      "field": "headline"
+    },
+    {
+      "id": "P002",
+      "text": "Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032. Reuters was summarizing Bloomberg reporting based on people familiar with the plans. Microsoft did not immediately respond to Reuters.",
+      "exact": "<p>Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032. Reuters was summarizing Bloomberg reporting based on people familiar with the plans. Microsoft did not immediately respond to Reuters.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P003",
+      "text": "About 2 gigawatts of the current capacity is centred on AI-specific chips. The report says about one-third of the planned 38 gigawatts would be AI-specific. The roadmap therefore covers AI and other cloud computing.",
+      "exact": "<p>About 2 gigawatts of the current capacity is centred on AI-specific chips. The report says about one-third of the planned 38 gigawatts would be AI-specific. The roadmap therefore covers AI and other cloud computing.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P004",
+      "text": "Data centres are physical buildings filled with servers. They host the machinery that runs AI services and other cloud work.",
+      "exact": "<p>Data centres are physical buildings filled with servers. They host the machinery that runs AI services and other cloud work.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P005",
+      "text": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.",
+      "exact": "<p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P006",
+      "text": "Bloomberg’s public excerpt says the roadmap counts facilities Microsoft owns or leases. It leaves out computing rented from outside providers such as CoreWeave.",
+      "exact": "<p>Bloomberg’s public excerpt says the roadmap counts facilities Microsoft owns or leases. It leaves out computing rented from outside providers such as CoreWeave.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P007",
+      "text": "The reported expansion would build more of the physical infrastructure behind AI and other online services. It says Microsoft is planning room for much more computing. It does not show how fully those facilities will run or how much electricity they will consume over time.",
+      "exact": "<p>The reported expansion would build more of the physical infrastructure behind AI and other online services. It says Microsoft is planning room for much more computing. It does not show how fully those facilities will run or how much electricity they will consume over time.</p>",
+      "field": "what_this_means"
+    },
+    {
+      "id": "P008",
+      "text": "“Microsoft is reportedly planning data centres with about 38 gigawatts of capacity by 2032, up from about 12 now. Capacity is how much power the infrastructure can support at a moment—not how much energy Microsoft is already using.”",
+      "exact": "“Microsoft is reportedly planning data centres with about 38 gigawatts of capacity by 2032, up from about 12 now. Capacity is how much power the infrastructure can support at a moment—not how much energy Microsoft is already using.”",
+      "field": "cocktail_party"
+    },
+    {
+      "id": "P009",
+      "text": "AI Fundamentals 101: Data Centres and Energy — What’s Actually Inside explains that data centres are physical buildings filled with servers. It is the useful starting point for understanding what this reported capacity plan would build.",
+      "exact": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-17-17-1-whats-actually-inside\\\">AI Fundamentals 101: Data Centres and Energy — What’s Actually Inside</a> explains that data centres are physical buildings filled with servers. It is the useful starting point for understanding what this reported capacity plan would build.",
+      "field": "class_notes"
+    }
+  ],
+  "status": "PRODUCER_READY_FOR_INDEPENDENT_REVIEW",
+  "rootReviewHandoff": {
+    "status": "COMPLETED",
+    "reviewedAt": "2026-09-12T19:08:24.000Z",
+    "reviewer": "/root",
+    "draftAndBindingLane": "/root/producer_repair_sol",
+    "scope": "Root read the complete corrected prose and accepted it for producer self-review only; independent admission remains pending."
+  },
+  "calibrationSource": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/../chatgpt-images-2-5-2026-09-08/producer-publication-review.json",
+    "sha256": "3550bb7bc2aae5be29332c02adc544f65d8332bd32f3fde4575e80009fe472fb"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "laidies.newsstand-source-packet-preflight.v1",
+  "candidateId": "gemini-windows-20260913",
+  "checkedAt": "2026-09-13T20:46:32.693Z",
+  "method": "Captured Google primary materials establish stated availability, requirements and scope; native Windows runtime was not tested.",
+  "claims": [
+    {
+      "claimId": "windows-release",
+      "supports": [
+        {
+          "sourceId": "google-windows-blog",
+          "passage": "The app is available today globally for Windows 10 and 11."
+        }
+      ]
+    },
+    {
+      "claimId": "shortcut-and-scope",
+      "supports": [
+        {
+          "sourceId": "gemini-release-notes",
+          "passage": "You can get quick answers, draft messages and brainstorm ideas right alongside your active applications."
+        }
+      ]
+    },
+    {
+      "claimId": "requirements",
+      "supports": [
+        {
+          "sourceId": "gemini-windows-help",
+          "passage": "A personal Google Account or a work or school Google Account with access to Gemini turned on by your administrator."
+        }
+      ]
+    },
+    {
+      "claimId": "account-admin",
+      "supports": [
+        {
+          "sourceId": "gemini-windows-help",
+          "passage": "A personal Google Account or a work or school Google Account with access to Gemini turned on by your administrator."
+        },
+        {
+          "sourceId": "workspace-windows-update",
+          "passage": "The Alt + Space keyboard shortcut brings Gemini over active work for quick tasks, like fact-checking a document or brainstorming presentation titles."
+        }
+      ]
+    },
+    {
+      "claimId": "admin-limit",
+      "supports": [
+        {
+          "sourceId": "gemini-windows-help",
+          "passage": "A personal Google Account or a work or school Google Account with access to Gemini turned on by your administrator."
+        },
+        {
+          "sourceId": "workspace-windows-update",
+          "passage": "The Alt + Space keyboard shortcut brings Gemini over active work for quick tasks, like fact-checking a document or brainstorming presentation titles."
+        }
+      ]
+    },
+    {
+      "claimId": "connected-apps",
+      "supports": [
+        {
+          "sourceId": "gemini-windows-help",
+          "passage": "A personal Google Account or a work or school Google Account with access to Gemini turned on by your administrator."
+        },
+        {
+          "sourceId": "gemini-release-notes",
+          "passage": "You can get quick answers, draft messages and brainstorm ideas right alongside your active applications."
+        },
+        {
+          "sourceId": "workspace-windows-update",
+          "passage": "The Alt + Space keyboard shortcut brings Gemini over active work for quick tasks, like fact-checking a document or brainstorming presentation titles."
+        }
+      ]
+    }
+  ],
+  "runtimeVerification": {
+    "status": "NOT_TESTED",
+    "reason": "No Windows runtime or account-specific access was available in this production lane.",
+    "effect": "The candidate reports source-supported features and limits, not a tested reader journey or universal availability."
+  }
+}

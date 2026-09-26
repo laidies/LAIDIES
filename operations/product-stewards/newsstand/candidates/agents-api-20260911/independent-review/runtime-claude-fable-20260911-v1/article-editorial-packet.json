@@ -1,0 +1,313 @@
+{
+  "readerJob": "What changes for me when an app can keep working after one reply, and what should I still check? Recognize the developer service, understand the model-versus-harness split, and verify access, retention and the actual result in any app built with it.",
+  "completeArtifact": "{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"A fluent answer and a completed outside action are different results. <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output and Checking It</a> explains how to inspect the result that matters before relying on it.\",\"closing_note\":null,\"cocktail_party\":\"“OpenAI’s Agents API gives app developers a managed system for longer AI tasks. It can keep work history, tools and recovery organized, but a completed label still does not prove every tool or outside action succeeded.”\",\"concepts\":[\"API\",\"harness\",\"task completion\",\"session retention\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"OpenAI launched a developer service for AI tasks that can resume\",\"heroVisual\":{\"alt\":\"Illustration: three adult women examine computer connections crossing a marked boundary.\",\"credit\":\"LAiDIES NewsStand illustration\",\"src\":\"/assets/newsstand/design-20260830/latest-anthropic-agentic-incidents-20260902.png\"},\"id\":\"agents-api-20260911\",\"laidies_read\":\"<p>A model produces each response. A harness is the surrounding software that keeps the task history, tools, coordination and recovery organized. OpenAI manages that harness; an app maker supplies the tools and decides where the work runs.</p><p>Imagine a future app asked to compare three repair quotes, check your calendar and prepare an appointment shortlist. The model might analyse the quotes. The harness would keep the steps and tool results together. The app maker would decide which tools to provide, so reading a calendar and sending a booking would be different capabilities. This is an illustration, not a product available to you today.</p><p>A longer task can still finish badly. OpenAI’s documentation says a completed turn does not guarantee every tool succeeded. A “completed” label means the turn ended; it is not evidence that each file, search, message or booking inside the task succeeded.</p><p>OpenAI says there is no additional Agents API fee. That does not make a task free: model use, tools and an OpenAI-hosted computing workspace are billed separately.</p><p>The service keeps session state so work can continue later. Its current documentation lists United States data residency only and says running the work environment elsewhere does not make it a no-retention service. Where the app’s tools run and how the service retains session data are separate questions.</p>\",\"lastCheckedAt\":\"2026-09-11T17:55:34.232761Z\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relatedStoryIds\":[\"openai-wiki-message-board-2026-09-05\"],\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"agents-api-20260911\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:agents-api-20260911\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"openai-agents-launch\",\"label\":\"OpenAI — Introducing the Agents API\",\"publisherType\":\"company-primary-announcement\",\"url\":\"https://openai.com/index/introducing-the-agents-api/\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"openai-agents-overview\",\"label\":\"OpenAI Developers — Agents API overview\",\"publisherType\":\"company-primary-current-documentation\",\"url\":\"https://developers.openai.com/api/docs/guides/agents-api/overview.md\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"openai-hosted-sandbox\",\"label\":\"OpenAI Developers — OpenAI-hosted environment\",\"publisherType\":\"company-primary-current-documentation\",\"url\":\"https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted.md\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"OpenAI\",\"Agents API\",\"app permissions\"],\"the_story\":\"<p>OpenAI released its Agents API in public beta on September 10. It gives developers a managed way to build software that keeps a task’s history, uses connected tools and resumes later. An API is a connection one piece of software uses to call another. This is not a new button in ChatGPT.</p><p>OpenAI says the beta is available to all developers. The reviewed sources are OpenAI’s announcement and current documentation. They establish the release and its stated boundaries, but do not show independent reliability, adoption or a current consumer app using it.</p>\",\"themes\":[\"AI agents\",\"developer tools\",\"data controls\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-11T17:55:34.232761Z\",\"watch_fors\":null,\"what_this_means\":\"<p>If an app says it completed a multi-step task, open the promised output and separately confirm any action that matters, such as a sent message or recorded appointment. Check which connected services the app may reach and what its terms say about retained session data.</p><p>The useful question is: “What could the app access, what did it actually complete, and what record confirms the result?”</p>\"}\n",
+  "paragraphs": [
+    {
+      "id": "P001",
+      "text": "OpenAI launched a developer service for AI tasks that can resume",
+      "exact": "OpenAI launched a developer service for AI tasks that can resume",
+      "field": "headline"
+    },
+    {
+      "id": "P002",
+      "text": "OpenAI released its Agents API in public beta on September 10. It gives developers a managed way to build software that keeps a task’s history, uses connected tools and resumes later. An API is a connection one piece of software uses to call another. This is not a new button in ChatGPT.",
+      "exact": "<p>OpenAI released its Agents API in public beta on September 10. It gives developers a managed way to build software that keeps a task’s history, uses connected tools and resumes later. An API is a connection one piece of software uses to call another. This is not a new button in ChatGPT.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P003",
+      "text": "OpenAI says the beta is available to all developers. The reviewed sources are OpenAI’s announcement and current documentation. They establish the release and its stated boundaries, but do not show independent reliability, adoption or a current consumer app using it.",
+      "exact": "<p>OpenAI says the beta is available to all developers. The reviewed sources are OpenAI’s announcement and current documentation. They establish the release and its stated boundaries, but do not show independent reliability, adoption or a current consumer app using it.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P004",
+      "text": "A model produces each response. A harness is the surrounding software that keeps the task history, tools, coordination and recovery organized. OpenAI manages that harness; an app maker supplies the tools and decides where the work runs.",
+      "exact": "<p>A model produces each response. A harness is the surrounding software that keeps the task history, tools, coordination and recovery organized. OpenAI manages that harness; an app maker supplies the tools and decides where the work runs.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P005",
+      "text": "Imagine a future app asked to compare three repair quotes, check your calendar and prepare an appointment shortlist. The model might analyse the quotes. The harness would keep the steps and tool results together. The app maker would decide which tools to provide, so reading a calendar and sending a booking would be different capabilities. This is an illustration, not a product available to you today.",
+      "exact": "<p>Imagine a future app asked to compare three repair quotes, check your calendar and prepare an appointment shortlist. The model might analyse the quotes. The harness would keep the steps and tool results together. The app maker would decide which tools to provide, so reading a calendar and sending a booking would be different capabilities. This is an illustration, not a product available to you today.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P006",
+      "text": "A longer task can still finish badly. OpenAI’s documentation says a completed turn does not guarantee every tool succeeded. A “completed” label means the turn ended; it is not evidence that each file, search, message or booking inside the task succeeded.",
+      "exact": "<p>A longer task can still finish badly. OpenAI’s documentation says a completed turn does not guarantee every tool succeeded. A “completed” label means the turn ended; it is not evidence that each file, search, message or booking inside the task succeeded.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P007",
+      "text": "OpenAI says there is no additional Agents API fee. That does not make a task free: model use, tools and an OpenAI-hosted computing workspace are billed separately.",
+      "exact": "<p>OpenAI says there is no additional Agents API fee. That does not make a task free: model use, tools and an OpenAI-hosted computing workspace are billed separately.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P008",
+      "text": "The service keeps session state so work can continue later. Its current documentation lists United States data residency only and says running the work environment elsewhere does not make it a no-retention service. Where the app’s tools run and how the service retains session data are separate questions.",
+      "exact": "<p>The service keeps session state so work can continue later. Its current documentation lists United States data residency only and says running the work environment elsewhere does not make it a no-retention service. Where the app’s tools run and how the service retains session data are separate questions.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P009",
+      "text": "If an app says it completed a multi-step task, open the promised output and separately confirm any action that matters, such as a sent message or recorded appointment. Check which connected services the app may reach and what its terms say about retained session data.",
+      "exact": "<p>If an app says it completed a multi-step task, open the promised output and separately confirm any action that matters, such as a sent message or recorded appointment. Check which connected services the app may reach and what its terms say about retained session data.</p>",
+      "field": "what_this_means"
+    },
+    {
+      "id": "P010",
+      "text": "The useful question is: “What could the app access, what did it actually complete, and what record confirms the result?”",
+      "exact": "<p>The useful question is: “What could the app access, what did it actually complete, and what record confirms the result?”</p>",
+      "field": "what_this_means"
+    },
+    {
+      "id": "P011",
+      "text": "“OpenAI’s Agents API gives app developers a managed system for longer AI tasks. It can keep work history, tools and recovery organized, but a completed label still does not prove every tool or outside action succeeded.”",
+      "exact": "“OpenAI’s Agents API gives app developers a managed system for longer AI tasks. It can keep work history, tools and recovery organized, but a completed label still does not prove every tool or outside action succeeded.”",
+      "field": "cocktail_party"
+    },
+    {
+      "id": "P012",
+      "text": "A fluent answer and a completed outside action are different results. Working with AI 101: Trusting the Output and Checking It explains how to inspect the result that matters before relying on it.",
+      "exact": "A fluent answer and a completed outside action are different results. <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output and Checking It</a> explains how to inspect the result that matters before relying on it.",
+      "field": "class_notes"
+    }
+  ],
+  "communicationAuthority": {
+    "benchmarkId": "HANNAH_FRY_COMMUNICATION_LENS_V2",
+    "benchmark": {
+      "path": "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md",
+      "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"
+    },
+    "mode": "PROPORTIONAL",
+    "surfaceAdaptation": "Name the developer release first, make the model-versus-harness split visible through one clearly hypothetical personal-life task, then preserve completion, cost and data limits.",
+    "imitationBoundary": "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+    "dimensions": {
+      "humanQuestion": {
+        "disposition": "APPLY",
+        "reason": "Begin from the reader's likely encounter with a longer-running task inside an app, rather than from developer terminology.",
+        "plannedEvidence": "Lead with the September 10 developer release and immediately distinguish it from a new ChatGPT button."
+      },
+      "usefulCuriosity": {
+        "disposition": "APPLY",
+        "reason": "Use the gap between a task marked completed and its individual tool results to sharpen the reader's question.",
+        "plannedEvidence": "Show why a completed label still leaves a message, file or booking to be confirmed."
+      },
+      "invisibleProcessConcrete": {
+        "disposition": "APPLY",
+        "reason": "Separate the model from the surrounding software that keeps history, tools, coordination and recovery organized.",
+        "plannedEvidence": "Define API and harness in ordinary words, then map each system layer to the hypothetical repair-quote task."
+      },
+      "familiarTechnicalMovement": {
+        "disposition": "APPLY",
+        "reason": "Move from a familiar appointment task to the exact developer product boundary and back to what the reader should verify.",
+        "plannedEvidence": "Connect quotes, calendar access and an appointment shortlist to session history, allowed tools and result confirmation."
+      },
+      "limitationsConsequences": {
+        "disposition": "APPLY",
+        "reason": "Retain beta status, vendor-source limits, completion caveat, separate usage charges and current data-control boundaries.",
+        "plannedEvidence": "State what OpenAI's materials establish and what they do not prove about apps, reliability or consumer use."
+      },
+      "humourSurprise": {
+        "disposition": "NOT_APPLICABLE",
+        "reason": "A compact product announcement does not need decorative humour.",
+        "plannedEvidence": "Use the familiar task example for clarity without adding a joke."
+      },
+      "betterNextQuestion": {
+        "disposition": "APPLY",
+        "reason": "Leave the reader with one question that separates access, completion and evidence.",
+        "plannedEvidence": "Ask what the app could access, what actually completed and what record confirms the result."
+      }
+    },
+    "explanationArc": {
+      "mode": "PROPORTIONAL",
+      "retainedMoves": [
+        "dated developer release",
+        "API and harness in ordinary language",
+        "hypothetical personal-life task",
+        "completion, cost and data limits",
+        "reader verification question"
+      ],
+      "adaptation": "The release leads; the model-versus-harness mechanism carries the explanation; the clearly hypothetical task and precise verification question provide the payoff."
+    },
+    "analogyChecks": [],
+    "discoveryChecks": [
+      {
+        "question": "Did OpenAI add a new consumer button in ChatGPT?",
+        "answer": "No reviewed source establishes that. The announcement is a public beta API for developers."
+      },
+      {
+        "question": "Does a completed turn prove every tool and external action succeeded?",
+        "answer": "No. OpenAI's hosted-environment documentation explicitly says it does not."
+      },
+      {
+        "question": "Does no additional Agents API fee mean the task is free?",
+        "answer": "No. Model, tool and OpenAI-hosted computing usage are billed separately."
+      }
+    ]
+  },
+  "claims": [
+    {
+      "claimId": "release-and-access",
+      "claim": "OpenAI released its Agents API in public beta on September 10",
+      "sourceIds": [
+        "openai-agents-launch"
+      ]
+    },
+    {
+      "claimId": "managed-product-scope",
+      "claim": "managed way to build software that keeps a task’s history, uses connected tools and resumes later",
+      "sourceIds": [
+        "openai-agents-launch",
+        "openai-agents-overview"
+      ]
+    },
+    {
+      "claimId": "api-not-consumer-button",
+      "claim": "An API is a connection one piece of software uses to call another. This is not a new button in ChatGPT",
+      "sourceIds": [
+        "openai-agents-launch",
+        "openai-agents-overview"
+      ]
+    },
+    {
+      "claimId": "developer-availability",
+      "claim": "OpenAI says the beta is available to all developers",
+      "sourceIds": [
+        "openai-agents-launch"
+      ]
+    },
+    {
+      "claimId": "vendor-evidence-limit",
+      "claim": "reviewed sources are OpenAI’s announcement and current documentation. They establish the release and its stated boundaries, but do not show independent reliability, adoption or a current consumer app using it",
+      "sourceIds": [
+        "openai-agents-launch",
+        "openai-agents-overview",
+        "openai-hosted-sandbox"
+      ]
+    },
+    {
+      "claimId": "harness-split",
+      "claim": "A model produces each response. A harness is the surrounding software that keeps the task history, tools, coordination and recovery organized. OpenAI manages that harness; an app maker supplies the tools and decides where the work runs",
+      "sourceIds": [
+        "openai-agents-launch",
+        "openai-agents-overview"
+      ]
+    },
+    {
+      "claimId": "hypothetical-example",
+      "claim": "Imagine a future app asked to compare three repair quotes, check your calendar and prepare an appointment shortlist",
+      "sourceIds": [
+        "openai-agents-overview"
+      ]
+    },
+    {
+      "claimId": "capability-separation",
+      "claim": "reading a calendar and sending a booking would be different capabilities. This is an illustration, not a product available to you today",
+      "sourceIds": [
+        "openai-agents-overview"
+      ]
+    },
+    {
+      "claimId": "completion-limit",
+      "claim": "completed turn does not guarantee every tool succeeded",
+      "sourceIds": [
+        "openai-hosted-sandbox"
+      ]
+    },
+    {
+      "claimId": "cost-boundary",
+      "claim": "there is no additional Agents API fee. That does not make a task free: model use, tools and an OpenAI-hosted computing workspace are billed separately",
+      "sourceIds": [
+        "openai-agents-launch",
+        "openai-agents-overview",
+        "openai-hosted-sandbox"
+      ]
+    },
+    {
+      "claimId": "retention-boundary",
+      "claim": "service keeps session state so work can continue later. Its current documentation lists United States data residency only and says running the work environment elsewhere does not make it a no-retention service",
+      "sourceIds": [
+        "openai-agents-overview"
+      ]
+    },
+    {
+      "claimId": "reader-check",
+      "claim": "open the promised output and separately confirm any action that matters",
+      "sourceIds": [
+        "openai-hosted-sandbox",
+        "openai-agents-overview"
+      ]
+    },
+    {
+      "claimId": "better-question",
+      "claim": "What could the app access, what did it actually complete, and what record confirms the result?",
+      "sourceIds": [
+        "openai-hosted-sandbox",
+        "openai-agents-overview"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "openai-agents-launch",
+      "url": "https://openai.com/index/introducing-the-agents-api/",
+      "authority": "company-primary-announcement",
+      "passages": [
+        "September 10, 2026",
+        "Today, we’re introducing the Agents API in public beta, bringing that same harness and infrastructure that powers Codex to developers through a simple, flexible API.",
+        "OpenAI hosts and maintains the harness. You choose the agent’s compute environment: in an OpenAI-managed sandbox, on your own infrastructure, or with one of our sandbox partners.",
+        "Agents API is available in public beta today to all developers. There are no additional fees for using the Agents API – you simply pay for the tokens and tools your agents use, as outlined on our pricing page.",
+        "During the public beta, we’ll iterate quickly based on your feedback as we work toward general availability."
+      ],
+      "limitation": "Company announcement establishes release date, beta access, product role and pricing wording; it does not prove reliability, adoption or consumer availability.",
+      "source": {
+        "url": "https://openai.com/index/introducing-the-agents-api/",
+        "passage": "{\n  \"schemaVersion\": \"laidies.web-source-observation.v1\",\n  \"url\": \"https://openai.com/index/introducing-the-agents-api/\",\n  \"title\": \"Introducing the Agents API\",\n  \"publisher\": \"OpenAI\",\n  \"publishedDate\": \"2026-09-10\",\n  \"checkedAt\": \"2026-09-11T17:55:34.232761Z\",\n  \"accessMethod\": \"web.run search/open after direct curl returned HTTP 403\",\n  \"passages\": [\n    \"September 10, 2026\",\n    \"Today, we’re introducing the Agents API in public beta, bringing that same harness and infrastructure that powers Codex to developers through a simple, flexible API.\",\n    \"OpenAI hosts and maintains the harness. You choose the agent’s compute environment: in an OpenAI-managed sandbox, on your own infrastructure, or with one of our sandbox partners.\",\n    \"Agents API is available in public beta today to all developers. There are no additional fees for using the Agents API – you simply pay for the tokens and tools your agents use, as outlined on our pricing page.\",\n    \"During the public beta, we’ll iterate quickly based on your feedback as we work toward general availability.\"\n  ],\n  \"limits\": [\n    \"Company announcement, not an independent reliability or adoption assessment.\",\n    \"The page contains customer testimonials; no testimonial performance figure is used as evidence in this candidate.\"\n  ]\n}\n",
+        "passageLocator": "https://openai.com/index/introducing-the-agents-api/",
+        "additionalPassage": "September 10, 2026\nToday, we’re introducing the Agents API in public beta, bringing that same harness and infrastructure that powers Codex to developers through a simple, flexible API.\nOpenAI hosts and maintains the harness. You choose the agent’s compute environment: in an OpenAI-managed sandbox, on your own infrastructure, or with one of our sandbox partners.\nAgents API is available in public beta today to all developers. There are no additional fees for using the Agents API – you simply pay for the tokens and tools your agents use, as outlined on our pricing page.\nDuring the public beta, we’ll iterate quickly based on your feedback as we work toward general availability.\nAuthority: company-primary-announcement\nLimitation: Company announcement establishes release date, beta access, product role and pricing wording; it does not prove reliability, adoption or consumer availability.",
+        "additionalPassageLocator": "https://openai.com/index/introducing-the-agents-api/"
+      }
+    },
+    {
+      "id": "openai-agents-overview",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/overview.md",
+      "authority": "company-primary-current-documentation",
+      "passages": [
+        "The Agents API gives your application access to the Codex harness through an OpenAI-managed API.",
+        "OpenAI manages sessions, orchestration, context compaction, and recovery while your application provides tools and chooses its execution environment.",
+        "Running commands and code in a sandbox.\n- Applying relevant skills and instructions.\n- Connecting to external data through tools or MCP.\n- Steering the agent while it works.\n- Summarizing previous work to manage its context window.\n- Breaking work into subtasks and delegating to subagents.\n- Resuming a session where it left off.",
+        "Model usage is billed at the selected model's API rates. OpenAI tools use their standard rates, and OpenAI-hosted sandboxes use standard container rates.",
+        "The Agents API retains session state so you can continue work across turns without\n  rebuilding the conversation context.",
+        "The Agents API currently supports data residency only in the United States and\n  does not support Zero Data Retention (ZDR). Choosing a self-hosted sandbox does\n  not make the Agents API ZDR-eligible."
+      ],
+      "limitation": "Current developer documentation describes the product contract and data controls; it is not evidence that a particular app has adopted the API or completed tasks reliably.",
+      "source": {
+        "url": "https://developers.openai.com/api/docs/guides/agents-api/overview.md",
+        "passage": "# Agents API\n\n> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.\n\nThe Agents API gives your application access to the Codex harness through an OpenAI-managed API.\n\nOpenAI manages sessions, orchestration, context compaction, and recovery while your application provides tools and chooses its execution environment.\n\nAgents can operate in a sandbox where they can execute code, edit files, connect to MCP servers, and produce artifacts.\n\n## Pricing\n\nModel usage is billed at the selected model's [API rates](https://developers.openai.com/api/docs/pricing). OpenAI tools use their [standard rates](https://developers.openai.com/api/docs/pricing#built-in-tools), and OpenAI-hosted sandboxes use standard [container rates](https://developers.openai.com/api/docs/pricing#built-in-tools).\n\n## Try an example\n\nTry these complete examples:\n\n- [Create and run a directory-tree script](https://developers.openai.com/api/docs/guides/agents-api/quickstart#1-run-a-task) in an OpenAI-hosted sandbox.\n- [Compare release notes with subagents](https://developers.openai.com/api/docs/guides/agents-api/multi-agent#example-compare-release-notes) and combine their findings into one answer.\n\nExplore complete applications:\n\n- [Incident response agent](https://developers.openai.com/showcase/agents-api-sev-bot): investigate alerts and request approval for recovery actions.\n- [Slack bot](https://developers.openai.com/showcase/agents-api-slack-bot): investigate requests using connected workplace tools.\n- [Data analyst](https://developers.openai.com/showcase/agents-api-data-analyst): answer warehouse questions with read-only SQL.\n- [GitHub issue investigator](https://developers.openai.com/showcase/agents-api-github-issues): reproduce reported bugs and share findings on GitHub.\n- [Document reviewer](https://developers.openai.com/showcase/agents-api-document-review): review documents with policy skills and specialist agents.\n\n## Core concepts\n\nThe Agents API is built around four main concepts:\n\n- **Agent:** The model, instructions, tools, and MCP servers available to the agent.\n- **Environment:** An optional sandbox or computer where the agent accesses files, loads skills, and runs commands.\n- **Session:** A durable instance of an agent that works on tasks and responds to input.\n- **Events and items:** The inputs sent to an agent and the output produced during a session.\n\n### A session from start to finish\n\nStart with an OpenAI-hosted sandbox in the [quickstart](https://developers.openai.com/api/docs/guides/agents-api/quickstart):\n\n1. **Create a session.** Configure the agent; OpenAI provisions its environment.\n2. **Give it a task.** User input starts a turn of work once the environment is ready.\n3. **Follow progress.** Stream output or use webhooks to learn when the agent finishes or needs input.\n4. **Continue or steer.** Send another task to the same session, or guide the agent during its current turn.\n\nWith an OpenAI-hosted session, your application sends input and receives events, while OpenAI runs the agent and provisions and manages its sandbox. See [environment options](https://developers.openai.com/api/docs/guides/agents-api/configuration#environment-settings) for setup and limitations.\n\n<picture>\n  <source\n    media=\"(max-width: 640px)\"\n    srcSet=\"/images/api/agents-api/overview-1-mobile.webp\"\n    width=\"680\"\n    height=\"1288\"\n  />\n  <img src=\"https://developers.openai.com/images/api/agents-api/overview-1.webp\"\n    width=\"1400\"\n    height=\"552\"\n    alt=\"Your application starts sessions and receives events and output from the Agents API. OpenAI runs the managed Codex harness and provisions and manages its sandbox.\"\n    loading=\"lazy\"\n  />\n</picture>\n\n## What the managed harness provides\n\nThe managed Codex harness supports:\n\n- Running commands and code in a sandbox.\n- Applying relevant skills and instructions.\n- Connecting to external data through tools or MCP.\n- Steering the agent while it works.\n- Summarizing previous work to manage its context window.\n- Breaking work into subtasks and delegating to subagents.\n- Resuming a session where it left off.\n\nCheck the [quickstart prerequisites](https://developers.openai.com/api/docs/guides/agents-api/quickstart#prerequisites) for API-key permissions and SDK setup. Configure these capabilities when you create a session:\n\nConfigure managed-harness capabilities\n\n```javascript\nimport OpenAI from \"openai\";\n\nconst client = new OpenAI();\n\nconst session = await client.beta.agents.sessions.create({\n  agent: {\n    model: \"gpt-6-astra\",\n    instructions:\n      \"Use the OpenAI documentation MCP and web search to answer technical questions accurately. Delegate independent research tasks to subagents when useful.\",\n    tools: [\n      { type: \"programmatic_tool_calling\" },\n      {\n        type: \"mcp\",\n        server_label: \"openai_docs\",\n        transport: {\n          type: \"http\",\n          server_url: \"https://developers.openai.com/mcp\",\n        },\n      },\n      { type: \"web_search\" },\n    ],\n    multi_agent: { enabled: true, max_concurrent_subagents: 4 },\n  },\n  environment: {\n    type: \"self_hosted\",\n    workspace_directory: \"/workspace\",\n    capability_directories: [\"/workspace/capabilities/skills\"],\n  },\n  input: [\n    {\n      role: \"user\",\n      content: [\n        {\n          type: \"input_text\",\n          text: \"Research how to connect an MCP server to an OpenAI agent, check for recent updates, and summarize the recommended setup.\",\n        },\n      ],\n    },\n  ],\n});\nconsole.log(session.id);\n```\n\n```python\nfrom openai import OpenAI\n\nclient = OpenAI()\n\nsession = client.beta.agents.sessions.create(\n    agent={\n        \"model\": \"gpt-6-astra\",\n        \"instructions\": \"Use the OpenAI documentation MCP and web search to answer technical questions accurately. Delegate independent research tasks to subagents when useful.\",\n        \"tools\": [\n            {\"type\": \"programmatic_tool_calling\"},\n            {\n                \"type\": \"mcp\",\n                \"server_label\": \"openai_docs\",\n                \"transport\": {\n                    \"type\": \"http\",\n                    \"server_url\": \"https://developers.openai.com/mcp\",\n                },\n            },\n            {\"type\": \"web_search\"},\n        ],\n        \"multi_agent\": {\"enabled\": True, \"max_concurrent_subagents\": 4},\n    },\n    environment={\n        \"type\": \"self_hosted\",\n        \"workspace_directory\": \"/workspace\",\n        \"capability_directories\": [\"/workspace/capabilities/skills\"],\n    },\n    input=[\n        {\n            \"role\": \"user\",\n            \"content\": [\n                {\n                    \"type\": \"input_text\",\n                    \"text\": \"Research how to connect an MCP server to an OpenAI agent, check for recent updates, and summarize the recommended setup.\",\n                }\n            ],\n        }\n    ],\n)\nprint(session.id)\n```\n\n```go\nimport (\n\t\"context\"\n\t\"fmt\"\n\t\"github.com/openai/openai-go/v3\"\n)\n\nctx := context.Background()\nclient := openai.NewClient()\nsession, err := client.Beta.Agents.Sessions.New(ctx, openai.BetaAgentSessionNewParams{Agent: openai.BetaAgentSessionNewParamsAgent{Model: openai.String(\"gpt-6-astra\"),\n\tInstructions: openai.String(\"Use the OpenAI documentation MCP and web search to answer technical questions accurately. Delegate independent research tasks to subagents when useful.\"),\n\tTools: []openai.AgentToolParamUnion{openai.AgentToolParamUnion{OfParamProgrammaticToolCalling: &openai.AgentToolParamProgrammaticToolCalling{}},\n\t\topenai.AgentToolParamUnion{OfParamMcp: &openai.AgentToolParamMcp{ServerLabel: \"openai_docs\",\n\t\t\tTransport: openai.McpTransportParamUnion{OfParamHTTP: &openai.McpTransportParamHTTP{ServerURL: \"https://developers.openai.com/mcp\"}}}},\n\t\topenai.AgentToolParamUnion{OfParamWebSearch: &openai.AgentToolParamWebSearch{}}},\n\tMultiAgent: openai.MultiAgentConfigParam{Enabled: true,\n\t\tMaxConcurrentSubagents: openai.Int(4)}},\n\tEnvironment: openai.EnvironmentParamUnion{OfParamSelfHosted: &openai.EnvironmentParamSelfHosted{WorkspaceDirectory: \"/workspace\",\n\t\tCapabilityDirectories: []string{\"/workspace/capabilities/skills\"}}},\n\tInput: openai.BetaAgentSessionNewParamsInputUnion{OfArrayOfInputMessages: []openai.AgentSessionInputMessageParam{openai.AgentSessionInputMessageParam{Content: []openai.InputContentParamUnion{openai.InputContentParamUnion{OfParamInputText: &openai.InputContentParamInputText{Text: \"Research how to connect an MCP server to an OpenAI agent, check for recent updates, and summarize the recommended setup.\"}}}}}}})\nif err != nil {\n\tpanic(err)\n}\nfmt.Println(session.ID)\n```\n\n```java\nimport com.openai.client.OpenAIClient;\nimport com.openai.client.okhttp.OpenAIOkHttpClient;\nimport com.openai.models.beta.agents.AgentToolParam;\nimport com.openai.models.beta.agents.EnvironmentParam;\nimport com.openai.models.beta.agents.McpTransportParam;\nimport com.openai.models.beta.agents.MultiAgentConfigParam;\nimport com.openai.models.beta.agents.sessions.SessionCreateParams;\nimport java.util.List;\n\nOpenAIClient client = OpenAIOkHttpClient.fromEnv();\nvar session =\n    client\n        .beta()\n        .agents()\n        .sessions()\n        .create(\n            SessionCreateParams.builder()\n                .agent(\n                    SessionCreateParams.Agent.builder()\n                        .model(\"gpt-6-astra\")\n                        .instructions(\n                            \"Use the OpenAI documentation MCP and web search to answer\"\n                                + \" technical questions accurately. Delegate independent\"\n                                + \" research tasks to subagents when useful.\")\n                        .addTool(AgentToolParam.ProgrammaticToolCalling.builder().build())\n                        .addTool(\n                            AgentToolParam.Mcp.builder()\n                                .serverLabel(\"openai_docs\")\n                                .transport(\n                                    McpTransportParam.Http.builder()\n                                        .serverUrl(\"https://developers.openai.com/mcp\")\n                                        .build())\n                                .build())\n                        .addTool(AgentToolParam.WebSearch.builder().build())\n                        .multiAgent(\n                            MultiAgentConfigParam.builder()\n                                .enabled(true)\n                                .maxConcurrentSubagents(4L)\n                                .build())\n                        .build())\n                .environment(\n                    EnvironmentParam.SelfHosted.builder()\n                        .workspaceDirectory(\"/workspace\")\n                        .capabilityDirectories(List.of(\"/workspace/capabilities/skills\"))\n                        .build())\n                .input(\n                    \"Research how to connect an MCP server to an OpenAI agent, check for recent\"\n                        + \" updates, and summarize the recommended setup.\")\n                .build());\nSystem.out.println(session.id());\n```\n\n```ruby\nrequire \"openai\"\n\nclient = OpenAI::Client.new\n\nsession = client.beta.agents.sessions.create(\n  agent: {\n    model: \"gpt-6-astra\",\n    instructions: \"Use the OpenAI documentation MCP and web search to answer technical questions accurately. Delegate independent research tasks to subagents when useful.\",\n    tools: [\n      { type: \"programmatic_tool_calling\" },\n      {\n        type: \"mcp\",\n        server_label: \"openai_docs\",\n        transport: {\n          type: \"http\",\n          server_url: \"https://developers.openai.com/mcp\"\n        }\n      },\n      { type: \"web_search\" }\n    ],\n    multi_agent: {\n      enabled: true,\n      max_concurrent_subagents: 4\n    }\n  },\n  environment: {\n    type: \"self_hosted\",\n    workspace_directory: \"/workspace\",\n    capability_directories: [\"/workspace/capabilities/skills\"]\n  },\n  input: [\n    {\n      role: \"user\",\n      content: [\n        {\n          type: \"input_text\",\n          text: \"Research how to connect an MCP server to an OpenAI agent, check for recent updates, and summarize the recommended setup.\"\n        }\n      ]\n    }\n  ]\n)\nputs session.id\n```\n\n```bash\ncurl -sS -X POST \"https://api.openai.com/v1/agents/sessions\" \\\n  -H \"OpenAI-Beta: agents=v1\" \\\n  -H \"Authorization: Bearer $OPENAI_API_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"agent\": {\n      \"model\": \"gpt-6-astra\",\n      \"instructions\": \"Use the OpenAI documentation MCP and web search to answer technical questions accurately. Delegate independent research tasks to subagents when useful.\",\n      \"tools\": [\n        {\n          \"type\": \"programmatic_tool_calling\"\n        },\n        {\n          \"type\": \"mcp\",\n          \"server_label\": \"openai_docs\",\n          \"transport\": {\n            \"type\": \"http\",\n            \"server_url\": \"https://developers.openai.com/mcp\"\n          }\n        },\n        {\n          \"type\": \"web_search\"\n        }\n      ],\n      \"multi_agent\": {\n        \"enabled\": true,\n        \"max_concurrent_subagents\": 4\n      }\n    },\n    \"environment\": {\n      \"type\": \"self_hosted\",\n      \"workspace_directory\": \"/workspace\",\n      \"capability_directories\": [\"/workspace/capabilities/skills\"]\n    },\n    \"input\": [\n      {\n        \"role\": \"user\",\n        \"content\": [\n          {\n            \"type\": \"input_text\",\n            \"text\": \"Research how to connect an MCP server to an OpenAI agent, check for recent updates, and summarize the recommended setup.\"\n          }\n        ]\n      }\n    ]\n  }'\n```\n\n\n\n\n\nFor a runtime comparison, see the [Agents overview](https://developers.openai.com/api/docs/guides/agents#compare-agent-runtimes).\n\nThe Agents API retains session state so you can continue work across turns without\n  rebuilding the conversation context. You can delete sessions and published\n  artifacts when you no longer need them.\n  The Agents API currently supports data residency only in the United States and\n  does not support Zero Data Retention (ZDR). Choosing a self-hosted sandbox does\n  not make the Agents API ZDR-eligible. See [Data controls\n  in the OpenAI platform](https://developers.openai.com/api/docs/guides/your-data#storage-requirements-and-retention-controls-per-endpoint)\n  for details on data residency and retention.",
+        "passageLocator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md",
+        "additionalPassage": "The Agents API gives your application access to the Codex harness through an OpenAI-managed API.\nOpenAI manages sessions, orchestration, context compaction, and recovery while your application provides tools and chooses its execution environment.\nRunning commands and code in a sandbox.\n- Applying relevant skills and instructions.\n- Connecting to external data through tools or MCP.\n- Steering the agent while it works.\n- Summarizing previous work to manage its context window.\n- Breaking work into subtasks and delegating to subagents.\n- Resuming a session where it left off.\nModel usage is billed at the selected model's API rates. OpenAI tools use their standard rates, and OpenAI-hosted sandboxes use standard container rates.\nThe Agents API retains session state so you can continue work across turns without\n  rebuilding the conversation context.\nThe Agents API currently supports data residency only in the United States and\n  does not support Zero Data Retention (ZDR). Choosing a self-hosted sandbox does\n  not make the Agents API ZDR-eligible.\nAuthority: company-primary-current-documentation\nLimitation: Current developer documentation describes the product contract and data controls; it is not evidence that a particular app has adopted the API or completed tasks reliably.",
+        "additionalPassageLocator": "https://developers.openai.com/api/docs/guides/agents-api/overview.md"
+      }
+    },
+    {
+      "id": "openai-hosted-sandbox",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted.md",
+      "authority": "company-primary-current-documentation",
+      "passages": [
+        "OpenAI-hosted sandboxes use standard container rates.\nModel usage is billed separately at the selected model's API rates.",
+        "A completed turn does not guarantee every tool succeeded. If the task fails or the\nstream ends before completion, inspect the saved session items."
+      ],
+      "limitation": "Hosted-sandbox documentation establishes billing and completion-status limits; it does not assess application-level safeguards or outcomes.",
+      "source": {
+        "url": "https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted.md",
+        "passage": "# OpenAI-hosted sandboxes\n\n> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.\n\nAn OpenAI-hosted sandbox gives your agent a Linux workspace with Python, Node.js,\nand command-line tools. OpenAI provisions and connects it; your application supplies\nthe task and retrieves the results. Choose a [self-hosted sandbox](https://developers.openai.com/api/docs/guides/agents-api/environments/self-hosted)\nwhen you need your own image, compute, or private network.\n\n## Configure the sandbox\n\nSet `environment.type` to `openai_hosted` and add only the settings your workload\nneeds. The working directory is `/workspace`.\n\n- `packages`: Install Python, system, or global `npm` packages with `python`, `system`, or `npm` lists. Pin versions when needed, such as `pandas==2.2.3`.\n- `setup_commands`: Run ordered shell commands before the agent starts, such as `[{ \"command\": \"mkdir -p reports\" }]`. Each command has its own optional `cwd`, defaulting to `/workspace`.\n- `files`: [Supply input files](https://developers.openai.com/api/docs/guides/agents-api/environments/files#upload-files) by Files API ID or inline base64 content.\n- `env`: Set string-valued environment variables. Runtime-reserved names, including `PATH`, `CODEX_*`, and `OPENAI_API_KEY`, are rejected.\n- `skills`, `plugins`, `capability_directories`: Add [skills](https://developers.openai.com/api/docs/guides/tools-skills#agents-api) and [plugins](https://developers.openai.com/api/docs/guides/agents-api/tools/plugins).\n- `environment_template_id`: [Reuse saved configuration](https://developers.openai.com/api/docs/guides/agents-api/tools/plugins#reuse-a-hosted-plugin-setup) across sessions. Omitted settings inherit the template; network overrides cannot broaden its policy.\n\nPackages and input files are prepared before setup commands run. A nonzero setup\nexit status prevents the agent from starting. Use a setup command to check required\ndependencies or files. Templates save configuration, not a running workspace.\n\n### Control network access\n\n| `network.access` | Behavior                                                                         |\n| ---------------- | -------------------------------------------------------------------------------- |\n| `enabled`        | Allow outbound access. This is the default unless you inherit a template policy. |\n| `disabled`       | Block outbound access.                                                           |\n| `restricted`     | Allow only the hosts listed in `allowed_domains`.                                |\n\nRestricted mode accepts 1–100 exact host names, such as `api.example.com`.\nDo not include wildcards, protocols, paths, or ports. Subdomains and redirect\ndestinations need their own entries. Hosted stdio MCP servers currently require\n`enabled` access; see [stdio MCP requirements](https://developers.openai.com/api/docs/guides/agents-api/tools/mcp#start-a-server-over-stdio).\n\n### Check that setup succeeded\n\nThe create-session response means setup has started. Retrieve\n`GET /v1/agents/environments/{environment_id}` using the session's `environment.id`:\n`provisioning` means setup is running; `connected` means setup succeeded.\nFor `failed`, read `environment.error` in the `agent.session.environment.failed`\nevent. Wait for `connected` before adding or listing live files.\n\n## Files and lifetime\n\nEach session has a separate workspace. Files persist across turns while its\nsandbox exists. Files under `/workspace/outputs` are published as immutable\nartifacts when a turn completes; those copies remain downloadable after the\nsandbox expires.\n\nUse [Files and artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files) for uploads,\npath rules, live file operations, downloads, and limits. Save outputs you need\nbefore deleting the session.\n\n### Sandbox expiry\n\nConnected sandboxes receive keep-alives, including between turns. If activity and\nkeep-alives stop for an hour, the sandbox can be deleted. This timeout isn’t\nconfigurable.\n\nDelete the session when you're done to request sandbox cleanup. If deletion\nreturns `409` while setup or execution finishes, wait and retry with a limit on\nthe number of attempts. Closing an event stream does not cancel the task.\n\n## Pricing\n\nOpenAI-hosted sandboxes use standard [container rates](https://developers.openai.com/api/docs/pricing#built-in-tools).\nModel usage is billed separately at the selected model's [API rates](https://developers.openai.com/api/docs/pricing).\n\n## Example: Create a report\n\nGive the agent a CSV containing `10`, `20`, and `30`. It runs Python to calculate\nthe sum and writes `/workspace/outputs/summary.json`.\n\nSet `OPENAI_API_KEY` in your application terminal using the\n[quickstart prerequisites](https://developers.openai.com/api/docs/guides/agents-api/quickstart#prerequisites).\nKeep this key outside the sandbox. Use a version of your\n[OpenAI SDK](https://developers.openai.com/api/docs/libraries) that includes the beta Agents API.\n\nCreate summary.json\n\n```javascript\nimport OpenAI from \"openai\";\n\nconst client = new OpenAI();\nconst stream = await client.beta.agents.sessions.create({\n  agent: { model: \"gpt-6-astra\" },\n  environment: {\n    type: \"openai_hosted\",\n    network: { access: \"disabled\" },\n    files: [\n      {\n        type: \"inline\",\n        path: \"/workspace/amounts.csv\",\n        data: \"YW1vdW50CjEwCjIwCjMwCg==\",\n      },\n    ],\n  },\n  input:\n    \"Use Python to sum the amount column in /workspace/amounts.csv. Write a JSON object with the total to /workspace/outputs/summary.json, then read it back to verify it.\",\n  stream: true,\n});\n\nfor await (const event of stream) {\n  console.log(event);\n}\n```\n\n```python\nfrom openai import OpenAI\n\nclient = OpenAI()\nstream = client.beta.agents.sessions.create(\n    agent={\"model\": \"gpt-6-astra\"},\n    environment={\n        \"type\": \"openai_hosted\",\n        \"network\": {\"access\": \"disabled\"},\n        \"files\": [\n            {\n                \"type\": \"inline\",\n                \"path\": \"/workspace/amounts.csv\",\n                \"data\": \"YW1vdW50CjEwCjIwCjMwCg==\",\n            }\n        ],\n    },\n    input=\"Use Python to sum the amount column in /workspace/amounts.csv. Write a JSON object with the total to /workspace/outputs/summary.json, then read it back to verify it.\",\n    stream=True,\n)\n\nwith stream:\n    for event in stream:\n        print(event.model_dump_json())\n```\n\n```go\npackage main\n\nimport (\n\t\"context\"\n\t\"fmt\"\n\n\t\"github.com/openai/openai-go/v3\"\n)\n\nfunc main() {\n\tctx := context.Background()\n\tclient := openai.NewClient()\n\tstream := client.Beta.Agents.Sessions.NewStreaming(ctx, openai.BetaAgentSessionNewParams{\n\t\tAgent: openai.BetaAgentSessionNewParamsAgent{Model: openai.String(\"gpt-6-astra\")},\n\t\tEnvironment: openai.EnvironmentParamUnion{OfParamOpenAIHosted: &openai.EnvironmentParamOpenAIHosted{\n\t\t\tNetwork: openai.EnvironmentParamOpenAIHostedNetwork{Access: \"disabled\"},\n\t\t\tFiles: []openai.HostedEnvironmentFileParamUnion{{OfParamInline: &openai.HostedEnvironmentFileParamInline{\n\t\t\t\tPath: \"/workspace/amounts.csv\",\n\t\t\t\tData: \"YW1vdW50CjEwCjIwCjMwCg==\",\n\t\t\t}}},\n\t\t}},\n\t\tInput: openai.BetaAgentSessionNewParamsInputUnion{OfString: openai.String(\"Use Python to sum the amount column in /workspace/amounts.csv. Write a JSON object with the total to /workspace/outputs/summary.json, then read it back to verify it.\")},\n\t})\n\tdefer stream.Close()\n\n\tfor stream.Next() {\n\t\tfmt.Println(stream.Current().RawJSON())\n\t}\n\tif err := stream.Err(); err != nil {\n\t\tpanic(err)\n\t}\n}\n```\n\n```java\nimport com.openai.client.okhttp.OpenAIOkHttpClient;\nimport com.openai.models.beta.agents.EnvironmentParam;\nimport com.openai.models.beta.agents.HostedEnvironmentFileParam;\nimport com.openai.models.beta.agents.sessions.SessionCreateParams;\n\npublic class HostedReport {\n  public static void main(String[] args) throws Exception {\n    var client = OpenAIOkHttpClient.fromEnv();\n    var params =\n        SessionCreateParams.builder()\n            .agent(SessionCreateParams.Agent.builder().model(\"gpt-6-astra\").build())\n            .environment(\n                EnvironmentParam.OpenAIHosted.builder()\n                    .network(\n                        EnvironmentParam.OpenAIHosted.Network.builder()\n                            .access(EnvironmentParam.OpenAIHosted.Network.Access.DISABLED)\n                            .build())\n                    .addFile(\n                        HostedEnvironmentFileParam.Inline.builder()\n                            .path(\"/workspace/amounts.csv\")\n                            .data(\"YW1vdW50CjEwCjIwCjMwCg==\")\n                            .build())\n                    .build())\n            .input(\n                \"Use Python to sum the amount column in /workspace/amounts.csv. Write a JSON object\"\n                    + \" with the total to /workspace/outputs/summary.json, then read it back to\"\n                    + \" verify it.\")\n            .build();\n\n    try (var stream = client.beta().agents().sessions().createStreaming(params)) {\n      stream.stream().forEach(System.out::println);\n    }\n  }\n}\n```\n\n```ruby\nrequire \"openai\"\nrequire \"json\"\n\nclient = OpenAI::Client.new\nstream = client.beta.agents.sessions.create_streaming(\n  agent: { model: \"gpt-6-astra\" },\n  environment: {\n    type: :openai_hosted,\n    network: { access: :disabled },\n    files: [\n      {\n        type: :inline,\n        path: \"/workspace/amounts.csv\",\n        data: \"YW1vdW50CjEwCjIwCjMwCg==\"\n      }\n    ]\n  },\n  input: \"Use Python to sum the amount column in /workspace/amounts.csv. Write a JSON object with the total to /workspace/outputs/summary.json, then read it back to verify it.\"\n)\n\nbegin\n  stream.each { |event| puts event.to_json }\nensure\n  stream.close\nend\n```\n\n```bash\ncurl --no-buffer --fail-with-body https://api.openai.com/v1/agents/sessions \\\\\\n  -H \"OpenAI-Beta: agents=v1\" \\\\\\n  -H \"Authorization: Bearer $OPENAI_API_KEY\" \\\\\\n  -H \"Content-Type: application/json\" \\\\\\n  -d \\'{\\n  \"agent\": {\\n    \"model\": \"gpt-6-astra\"\\n  },\\n  \"environment\": {\\n    \"type\": \"openai_hosted\",\\n    \"network\": {\\n      \"access\": \"disabled\"\\n    },\\n    \"files\": [\\n      {\\n        \"type\": \"inline\",\\n        \"path\": \"/workspace/amounts.csv\",\\n        \"data\": \"YW1vdW50CjEwCjIwCjMwCg==\"\\n      }\\n    ]\\n  },\\n  \"input\": \"Use Python to sum the amount column in /workspace/amounts.csv. Write a JSON object with the total to /workspace/outputs/summary.json, then read it back to verify it.\",\\n  \"stream\": true\\n}\\'\n```\n\n\nThe base64 value in `files` contains the CSV input. The code prints session events.\nSave `session.id` from `agent.session.created`. After `agent.session.turn.completed`,\n[list the artifacts](https://developers.openai.com/api/docs/guides/agents-api/environments/files#list-artifacts), find `summary.json`,\nand [download it](https://developers.openai.com/api/docs/guides/agents-api/environments/files#download-an-artifact). Its contents should be:\n\n```json\n{ \"total\": 60 }\n```\n\nA completed turn does not guarantee every tool succeeded. If the task fails or the\nstream ends before completion, [inspect the saved session items](https://developers.openai.com/api/docs/guides/agents-api/sessions#retrieve-session-items).\n[Delete the session](https://developers.openai.com/api/docs/guides/agents-api/quickstart#4-clean-up) when you're done.\n\n## Troubleshooting\n\n| Problem                                     | What to check                                                                                                                  |\n| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |\n| Setup fails                                 | Inspect the environment-failure event and fix the package, input-file, or setup-command error before creating another session. |\n| A sandbox request is blocked                | Check `network` and any hosts reached through redirects.                                                                       |\n| A live file operation fails                 | Confirm the sandbox is `connected`. If it expired, create a new session and supply the inputs again.                           |\n| A status or file-list request returns `5xx` | Retry with increasing delays and a deadline. Keep the request ID if the error persists.                                        |",
+        "passageLocator": "https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted.md",
+        "additionalPassage": "OpenAI-hosted sandboxes use standard container rates.\nModel usage is billed separately at the selected model's API rates.\nA completed turn does not guarantee every tool succeeded. If the task fails or the\nstream ends before completion, inspect the saved session items.\nAuthority: company-primary-current-documentation\nLimitation: Hosted-sandbox documentation establishes billing and completion-status limits; it does not assess application-level safeguards or outcomes.",
+        "additionalPassageLocator": "https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted.md"
+      }
+    }
+  ]
+}

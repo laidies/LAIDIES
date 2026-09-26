@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "epa-public-participation-20260911",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "bfcfae20f3077bf578a1ca7853eed596784998588e6e38d809998873e04c3c5d",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "If EPA finalizes this proposal next year, why would a neighbour in a state with strong notice rules not automatically lose their comment window on a new minor-source data-centre permit?",
+      "response": "Because the proposal only removes the federal minimum EPA uses when approving state programs; it does not delete anything from a state's own rules. The state's existing public-participation requirements sit inside its EPA-approved state implementation plan and keep applying unless the state affirmatively revises that plan. Revision is optional, and if the state pursues it, the change itself must go through public participation at the state level and again during EPA review. So the neighbour loses the guarantee only after two further public steps that have not happened.",
+      "expectedEvidence": "P004 (state rules continue to apply unless revised, revision optional), P005 (SIP changes require public participation at state level and during EPA review), P002 (the change is to the federal minimum, still proposed).",
+      "assessment": "The article fully supports this answer: the two-step persistence mechanism is stated explicitly in P004 and P005 in ordinary language, so a careful reader can reconstruct it without outside knowledge."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using only this article's mechanism, what should she check to learn whether she is guaranteed notice and a comment route, and is her neighbour right?",
+      "response": "Her neighbour is overstating. First she should find the state or local air agency that would issue the permit, since states and localities issue most data-centre air permits. Then she should ask whether the application is major or minor: if the generators' potential emissions reach major-source thresholds, federal major-permit participation requirements still apply unchanged. If it is minor, the governing question is what Georgia's current SIP-approved rules require today, because a finalized federal rule removes only the minimum; Georgia's existing notice rules persist unless Georgia has revised its plan through its own public process. She should then ask where the live notice or docket for this specific application would appear.",
+      "expectedEvidence": "P006 (states issue most data-centre permits; generator counts frame the category question), P005 (major permits unchanged; SIP revision has its own public process), P004 (existing state rules persist), P009-P010 (the three questions and live-docket step).",
+      "assessment": "The article's mechanism resolves this novel state-and-project scenario completely, including correcting the neighbour's overstatement, confirming genuine transfer beyond the Pennsylvania example."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The causal sequence is complete: EPA proposed on July 7 to remove the minor-source participation minimum, comment closed August 21, states would then choose, and existing rules persist until revised.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>EPA’s July 7 proposal could let state and local air agencies drop public notice and comment for some data-centre air permits. Today, federal rules set a minimum: state and local programs must provide notice and 30 days for public comment on minor-source permits. If finalized, the proposal would let those agencies decide whether to keep or reduce those protections. EPA still lists it as proposed, and the federal comment deadline closed August 21.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The national floor could disappear, but existing state rules would not vanish automatically. If EPA finalizes the proposal, a state or local air agency could revise its existing public-participation rules; it would not have to. If the agency leaves them alone, they continue to apply.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A <strong>state implementation plan</strong> means the state’s EPA-approved air-program rules. Changing that plan would still require public participation at the state or local level and during EPA review. The proposal also leaves federal public-participation requirements for new major sources and major modifications unchanged.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Minor-source permit, state implementation plan, and the participation floor are each given plain meaning at first meaningful use, with the important caution that 'minor' is an emissions category not a size judgment.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>minor-source permit</strong> is an emissions category below major-source thresholds. “Minor” does not describe the building’s physical size or settle how much a nearby project matters to residents.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A <strong>state implementation plan</strong> means the state’s EPA-approved air-program rules. Changing that plan would still require public participation at the state or local level and during EPA review. The proposal also leaves federal public-participation requirements for new major sources and major modifications unchanged.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a recognizable situation: a resident near a proposed data centre with 280 backup engines and the specific question of whether notice and a comment window will exist.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Why is this in AI news? Data centres often use stationary engines or turbines for primary or backup power, and EPA says state and local agencies issue most of their air permits. In July, Pennsylvania described an Amazon data-centre application covering 280 natural-gas backup engines and three diesel emergency engines. The state planned a community meeting and a 30-day comment period for that minor-source application.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If a data centre or another industrial project is proposed near you, do not assume “minor” means unimportant—or that this federal proposal has already erased a comment route. Find the state or local air-permitting agency responsible for that project. Ask: Is this a minor or major permit? Which public-notice rule applies today? Where is the live notice or docket?</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process details appear in the public prose; all advice follows directly from sourced facts about permit categories and current state rules.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If a data centre or another industrial project is proposed near you, do not assume “minor” means unimportant—or that this federal proposal has already erased a comment route. Find the state or local air-permitting agency responsible for that project. Ask: Is this a minor or major permit? Which public-notice rule applies today? Where is the live notice or docket?</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "“EPA has proposed removing a national notice-and-comment minimum for some smaller-emissions air permits. States could keep their rules, and major permits are not part of this proposal. For a data centre near you, ask which permit and current notice rule actually apply.”",
+          "locator": "P011"
+        },
+        {
+          "excerpt": "Understanding AI includes having a useful voice in decisions about its infrastructure. <a href=\"/library.html#ai-fundamentals-101::%403-from-whatever-to-rsvp-yes-i-have-notes\">AI Fundamentals 101: From “Whatever” to “RSVP: Yes. I have notes.”</a> connects AI literacy with public decisions about energy and services.",
+          "locator": "P012"
+        }
+      ]
+    }
+  }
+}

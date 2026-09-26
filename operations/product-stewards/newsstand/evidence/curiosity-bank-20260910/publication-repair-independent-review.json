@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "newsstand-publication-repair-independent-review-v1",
+  "decision": "PASS",
+  "reviewedAt": "2026-09-11T08:59:07Z",
+  "reviewedBy": "/root/weekly_recovery-independent",
+  "maker": "/root",
+  "scope": "Same-day Daily service revision after an already-published news issue, preserving the frozen news projection and existing carried-service proof while filling one previously empty curiosity desk.",
+  "reviewedFiles": [
+    {
+      "path": "scripts/compose-daily-edition.mjs",
+      "sha256": "65178e480ea62f131de27a9305b1df790eed5d65dc5dfbe875b52bd87ba7e5f2"
+    },
+    {
+      "path": "scripts/newsstand-service-revision-base.mjs",
+      "sha256": "924631ea92d4db36371a917b875a5731725d6011354c8a83bb3c093f93e594f6"
+    },
+    {
+      "path": "scripts/promote-daily-edition.mjs",
+      "sha256": "b1a7fdfc3c7b48719c36c3196281864c06354236670b207f44e4dea23a3ac405"
+    },
+    {
+      "path": "scripts/publish-daily-edition.mjs",
+      "sha256": "3b49a0a111aaf89963b70cd6c96335efebab8c7c6653f800ac443253529050f2"
+    },
+    {
+      "path": "scripts/test-newsstand-carried-service-revision.mjs",
+      "sha256": "a08f2fbd1eeda485b9d9b3a28f26f824732cdfa133cbe25fec2a1817c5c82bc5"
+    }
+  ],
+  "issueBindings": {
+    "request": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/issue-review-request.json",
+      "sha256": "434a506d2539d8647e16bd2aa818e55d98bc6dc27e34ef7114ad9d97cc9b17d3"
+    },
+    "envelope": {
+      "path": "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-09-11-curiosity-v1.json",
+      "sha256": "0fea07858ae92c54141200f3f608c7b490601112e8862ef5e0170bbe41e86dcb"
+    },
+    "predecessorStore": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/predecessor-daily-issues.json",
+      "sha256": "1873a875babeb6cef11420ba95f31ed44563da3699069d6d08a4ed1e9d3432a0"
+    },
+    "frozenStories": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/service-revision-published-base.js",
+      "sha256": "79994c82a25a1e6ac3cf118c300293ede6c62ec80235ae51c6bfcd903764937a"
+    },
+    "columns": {
+      "path": "content/daily-edition-columns.json",
+      "sha256": "aec7564eabfb95d1e79f8c6d4f21ccd9b58b8bfcd88785863b5ec6e0ba5b5cb8"
+    }
+  },
+  "activityBindings": {
+    "recordId": "DAILY-2026-09-11-CURIOSITY-CURIOSITY-01-ASK-EXAMPLE",
+    "reviewedContentSha256": "b334e1f322b1c24e07a19ac4dee4347c9ea1b8c00efb5fa9f21b541ebe85f728",
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-01-ask-example.md",
+      "sha256": "9963df7439ce278a59295ff9ff5af79f1a6eff06cbd3970002a5eafa0c44ae25"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-01-ask-example.manifest.json",
+      "sha256": "f514a6caff47494bfe9b43a92c2a0dad14825f766de879a3cae17523b3f92eac"
+    },
+    "producerReview": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/producer-receipts/curiosity-01-ask-example.json",
+      "sha256": "7d5f3dd296ea4ff326e82f6842764d8507025a0112a0b4ac29a508d5fe5daca9",
+      "verdict": "PASS"
+    },
+    "independentReview": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/independent-receipts/curiosity-01-ask-example.json",
+      "sha256": "85fb221edc1a0da57e21dce093fb0be3ed55a95a10d1e9cf4eeb0cb15e96d9a6",
+      "reviewerPrincipalId": "claude-fable-curiosity-20260910",
+      "verdict": "PASS"
+    }
+  },
+  "observations": {
+    "newsStoryIdsPreserved": true,
+    "newsStorySnapshotsPreserved": true,
+    "frontPaigePreserved": true,
+    "weeklyPreserved": true,
+    "fourExistingReadyDesksPreservedByteForByte": true,
+    "addedReadyDesks": [
+      "curiosity"
+    ],
+    "composerReproducedExactEnvelopeObject": true,
+    "projectionIdempotent": true
+  },
+  "verification": [
+    "scripts/test-newsstand-carried-service-revision.mjs passed with news, carried-service, one-addition and replay checks; wrong predecessor, changed desk, changed base, missing base and noncanonical service-revision envelope bytes were rejected.",
+    "scripts/test-promote-daily-edition.mjs passed its original and service-revision admission cases, including self-approval, checksum, source, manifest, origin, story and desk rejection controls.",
+    "scripts/test-publish-daily-edition.mjs passed publication projection and tamper rejection checks.",
+    "An independent in-memory run against the exact request promoted one new curiosity record, preserved the predecessor story IDs, story snapshots, Front PAiGE, Weekly and four ready desks, and reproduced the projected source idempotently.",
+    "Independent mutations of the exact request changed one story snapshot, one carried desk, the predecessor envelope and the frozen base hash; all four were rejected."
+  ],
+  "limitations": [
+    "The published-base records are integrity evidence for the frozen Coxon source, not a prose review; the activity's separate producer and Claude reviews supply the meaning-bearing review.",
+    "The reviewed envelope is the composer's canonical serialization and is checksum-bound by the independent admission.",
+    "This review authorizes the local checksum-bound service successor only. It does not deploy or publicly verify the result."
+  ]
+}

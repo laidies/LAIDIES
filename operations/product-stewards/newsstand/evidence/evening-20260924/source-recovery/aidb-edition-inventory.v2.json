@@ -1,0 +1,116 @@
+{
+  "schema": "aidb-edition-inventory.v2",
+  "asOf": "2026-09-24",
+  "recordedAt": "2026-09-24T20:03:20-07:00",
+  "evidence": [
+    {
+      "path": "operations/product-stewards/newsstand/evidence/evening-20260924/source-recovery/aidb-channel-raw.json",
+      "sha256": "6a16975beb3a5d4acacf60751272d88a02913208f26d3416b9764f3e710b7ce1"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/evening-20260924/source-recovery/aidb-podcast-find-raw.json",
+      "sha256": "e5c6ecfee51ac5e11ee9cbe563fcf404319d78104de2e96a3be6609c6b8cdf01"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260924/source-recovery/aidb-sep19-sep24-probes-raw.json",
+      "sha256": "eee7b2ce6aa09eab65c07a0ac9bfd14e9c289bbb2f289161d17f6387b56bad4c"
+    }
+  ],
+  "editions": [
+    {
+      "editionDate": "2026-09-23",
+      "title": "Opus 5.5 vs GPT-6 Sol and Luna",
+      "url": "https://aidailybrief.ai/e/2026-09-23",
+      "discoveryChannels": [
+        "website",
+        "podcast"
+      ],
+      "complete": false,
+      "pendingReason": "Website index and Apple show notes establish release identity only; complete body, transcript, item count and transcript hash were not inspected.",
+      "nextAction": "Recover legitimate complete publisher content without inferring a transcript hash or item count."
+    },
+    {
+      "editionDate": "2026-09-22",
+      "title": "Agent Wars!",
+      "url": "https://aidailybrief.ai/e/2026-09-22",
+      "discoveryChannels": [
+        "website"
+      ],
+      "complete": false,
+      "pendingReason": "Official index metadata only; full content remains unrecovered.",
+      "nextAction": "Recover legitimate complete publisher content."
+    },
+    {
+      "editionDate": "2026-09-21",
+      "title": "The State of the AI Debate",
+      "url": "https://aidailybrief.ai/e/2026-09-21",
+      "discoveryChannels": [
+        "website"
+      ],
+      "complete": false,
+      "pendingReason": "Official index metadata only; full content remains unrecovered.",
+      "nextAction": "Recover legitimate complete publisher content."
+    },
+    {
+      "editionDate": "2026-09-20",
+      "title": "7 Ways How We Use AI Is Changing",
+      "url": "https://aidailybrief.ai/e/2026-09-20",
+      "discoveryChannels": [
+        "website"
+      ],
+      "complete": false,
+      "pendingReason": "Official index metadata only; full content remains unrecovered.",
+      "nextAction": "Recover legitimate complete publisher content."
+    },
+    {
+      "editionDate": "2026-09-18",
+      "title": "The AI Challenges Businesses Are Actually Focused On Right Now",
+      "url": "https://aidailybrief.ai/e/2026-09-18",
+      "discoveryChannels": [
+        "website"
+      ],
+      "complete": false,
+      "pendingReason": "Official index metadata only; exact edition/transcript normal attempts recorded at 16:01 returned inaccessible.",
+      "nextAction": "Retry once normally when due unless the exact route becomes NONRETRYABLE."
+    }
+  ],
+  "channelChecks": [
+    {
+      "channel": "website",
+      "url": "https://aidailybrief.ai/agent.json",
+      "checkedAt": "2026-09-24T20:03:20-07:00",
+      "status": "CHECKED",
+      "releaseUrls": [
+        "https://aidailybrief.ai/e/2026-09-23",
+        "https://aidailybrief.ai/e/2026-09-22",
+        "https://aidailybrief.ai/e/2026-09-21",
+        "https://aidailybrief.ai/e/2026-09-20",
+        "https://aidailybrief.ai/e/2026-09-18"
+      ],
+      "note": "Actual current index enumerated releases through Sep23, with no Sep24 entry. Enumeration is not full-content review."
+    },
+    {
+      "channel": "podcast",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "checkedAt": "2026-09-24T20:03:20-07:00",
+      "status": "PARTIAL",
+      "releaseUrls": [
+        "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614"
+      ],
+      "note": "Current show page visibly names Sep23 episode but did not expose a new Sep24 release or full audio/transcript."
+    },
+    {
+      "channel": "newsletter",
+      "url": "https://aidailybrief.beehiiv.com/",
+      "checkedAt": "2026-09-24T11:38:06-07:00",
+      "status": "UNAVAILABLE",
+      "releaseUrls": [],
+      "note": "Exact landing URL is NONRETRYABLE and was not reopened; no distinct publisher archive was recovered."
+    }
+  ],
+  "expectedMissingDates": [
+    "2026-09-19",
+    "2026-09-24"
+  ],
+  "expectedMissingMeaning": "Sep19 was not listed in the current rolling index and its normal dated probes were inaccessible at 16:01. Sep24 was not listed by the publisher index generated at 17:04Z; the 16:01 exact edition/transcript probes were inaccessible. Neither observation proves no later release."
+}

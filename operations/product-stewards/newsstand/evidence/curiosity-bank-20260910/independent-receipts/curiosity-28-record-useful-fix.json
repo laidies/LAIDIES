@@ -1,0 +1,450 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "curiosity-28-record-useful-fix",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-curiosity-20260910",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/independent-batch-06.json",
+      "sha256": "c5faf92d943c8e75d94cfee23be285df9adf63fddc0972589db07ef676d500f0"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T06:06:14.831Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-28-record-useful-fix.md",
+      "sha256": "1e76205526c3346ff806a08127674de193d675c21d8425d4e155f8f0589255c7"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-28-record-useful-fix.manifest.json",
+      "sha256": "fd74c9873115a024917ec99ee06ec820167e7750fd63af6e2ecb16ccdc96644f"
+    }
+  },
+  "calibration": {
+    "mode": "RECURRING_SERVICE_ARTIFACT_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "claude-fable-curiosity-20260910",
+    "reviewedAt": "2026-09-11T06:06:14.831Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "glossaryAccumulation",
+          "technicalExplainerVoice",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "CQX-BAD-001, AI system block"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "CQX-BAD-001, AI system block"
+          },
+          {
+            "excerpt": "A toolbox contains different tools for different jobs.",
+            "locator": "CQX-BAD-001, Model types block"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "technicalExplainerVoice",
+          "joylessInstruction",
+          "workedExampleOvertakesBookPurpose"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002, Introduction"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "CQX-BAD-002, The output is not the decision"
+          },
+          {
+            "excerpt": "It is a practical map, not a claim that every AI system is built identically.",
+            "locator": "CQX-BAD-002, The output is not the decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Concrete low-stakes first action with a built-in check on whether it helped",
+        "Warmth expressed through specificity of situation rather than empowerment language",
+        "Reader treated as smart and busy; no beginner/expert condescension",
+        "Short declarative sentences that land the point without filler"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001, narrative beat 9"
+        },
+        {
+          "excerpt": "Small sips. Big moves.",
+          "locator": "CQX-GOOD-EPISODE-001, quotables"
+        },
+        {
+          "excerpt": "private embarrassment becomes permission to start",
+          "locator": "CQX-GOOD-EPISODE-001, meta emotional beat"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why do I re-solve the same small problem every time it comes back?",
+    "promisedPayoff": "Next occurrence costs one note-lookup instead of a fresh investigation, and the note is safely shareable.",
+    "centralMentalModel": "A fix is only reusable when captured with the condition under which it applies.",
+    "dailyLifeConnection": "Small recurring tech and household problems — device quirks, version-dependent fixes.",
+    "surfaceJob": "Optional daily 'Try this today' practice item, standalone.",
+    "desiredReaderFeeling": "Quiet competence — her past effort compounds instead of evaporating."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Capture, retest and share-with-condition are three unambiguous plain steps.",
+      "artifactEvidence": [
+        {
+          "excerpt": "write down the step that finally worked and the situation it applies to",
+          "locator": "curiosity-28 body"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Converts sunk troubleshooting effort into a reusable asset; immediately applicable to any recurring nuisance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When you solve a small recurring problem",
+          "locator": "curiosity-28 body"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The 'fix, not the whole saga' heading is dry, specific and anti-filler in exactly Ali's register.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Save the fix, not the whole saga.",
+          "locator": "curiosity-28 heading"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "'The whole saga' lightly acknowledges the familiar pain of troubleshooting narratives without a bolted-on joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "not the whole saga",
+          "locator": "curiosity-28 heading"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "No factual assertions; 'try following' avoids any effectiveness guarantee.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Try following that note the next time.",
+          "locator": "curiosity-28 body"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Evergreen; version-dependence is itself the item's teaching, handled correctly by conditioning the note.",
+      "artifactEvidence": [
+        {
+          "excerpt": "such as the device or version you used",
+          "locator": "curiosity-28 body"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "One optional private act; no spend, signup or public posting.",
+      "artifactEvidence": [
+        {
+          "excerpt": "write down the step that finally worked",
+          "locator": "curiosity-28 body"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "The reader produces a real artifact (the note) and is directed to retrieve and apply it on recurrence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Try following that note the next time.",
+          "locator": "curiosity-28 body"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "Retesting the note on the next occurrence is a direct, observable check on whether the capture helped.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Try following that note the next time.",
+          "locator": "curiosity-28 body"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Proportional: recurring-problem starting point, small landing on the shareable condition; further lens dimensions rightly unused.",
+      "artifactEvidence": [
+        {
+          "excerpt": "include the condition that matters",
+          "locator": "curiosity-28 body"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Device/version are examples of a general 'condition that matters', so the pattern transfers beyond tech fixes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "include the condition that matters, such as the device or version you used",
+          "locator": "curiosity-28 body"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "If the note fails on retest, the missing-condition framing tells the reader what to add; low-stakes by scope ('small recurring problem').",
+      "artifactEvidence": [
+        {
+          "excerpt": "the situation it applies to",
+          "locator": "curiosity-28 body"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No names invoked.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler; 'knowledge management' jargon notably avoided.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Heading promise fulfilled by the body.",
+      "artifactLocator": "curiosity-28 heading"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy; 'saga' is a single word of colour, not a load-bearing metaphor.",
+      "artifactLocator": "curiosity-28 heading"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Self-contained.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No entertainment layer.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No unsupported assertions.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Device/version examples return directly to the practice's condition rule.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Specific capture format: working step plus applicable situation.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terminology.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on a practical sharing constraint.",
+      "artifactLocator": "curiosity-28 closing sentence"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Plain words throughout.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The saga framing gives it a human wink.",
+      "artifactLocator": "curiosity-28 heading"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The recurring-problem frustration motivates before the method.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No hook.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Why the condition matters is carried by the concrete device/version example.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No reveal structure.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Applies to any small recurring problem.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No references.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "No dated or empirical claims.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational register.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "No internal scaffold; cross-bank check pending.",
+      "artifactLocator": "curiosity-28 body"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No worked example.",
+      "artifactLocator": "curiosity-28 body"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "Original activity suggestion; no product capability, statistic, effectiveness or reported-event claims in the prose.",
+    "claimScan": {
+      "observation": "Full prose scanned; imperatives and hypothetical framing only.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Try following that note the next time.",
+          "locator": "curiosity-28 body"
+        }
+      ]
+    },
+    "sourceBindings": [],
+    "claimMap": [],
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Any edit adding factual or effectiveness language, or reader feedback via newsstand-daily",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this original activity; pilot repair and full-bank maker inspection are preserved."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect found in this exact activity; conditional-result pilot repair applied before full bank."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Explain-back and transfer assessed from prose only; reader testing pending.",
+    "Whole-bank repetition review pending the full thirty entries.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/curiosity-sampling-policy-20260910.json",
+      "sha256": "2d114ecc0a064628ed33f4157a87781672fb031581672f110645e50ad1b7abc5"
+    },
+    "policyId": "newsstand-curiosity-sampled-comprehension-20260910",
+    "serviceType": "curiosity",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-c5faf92d943c",
+    "sampleQueue": [
+      "curiosity-01-ask-example",
+      "curiosity-02-name-contribution",
+      "curiosity-03-compare-rewrite",
+      "curiosity-04-find-original",
+      "curiosity-05-invite-question",
+      "curiosity-06-ask-before-help",
+      "curiosity-07-small-feedback",
+      "curiosity-08-unseen-step",
+      "curiosity-09-change-one-detail",
+      "curiosity-10-share-opportunity",
+      "curiosity-11-check-assumption",
+      "curiosity-12-credit-introduction",
+      "curiosity-13-show-start",
+      "curiosity-14-separate-preference",
+      "curiosity-15-quiet-invite",
+      "curiosity-16-find-date",
+      "curiosity-17-ask-why-rule",
+      "curiosity-18-share-template",
+      "curiosity-19-let-finish",
+      "curiosity-20-name-unknown",
+      "curiosity-21-read-own-words",
+      "curiosity-22-ask-good-part",
+      "curiosity-23-test-directions",
+      "curiosity-24-check-added-detail",
+      "curiosity-25-share-question",
+      "curiosity-26-smaller-offer",
+      "curiosity-27-ask-evidence-change",
+      "curiosity-28-record-useful-fix",
+      "curiosity-29-check-invitation",
+      "curiosity-30-ask-follow-up"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

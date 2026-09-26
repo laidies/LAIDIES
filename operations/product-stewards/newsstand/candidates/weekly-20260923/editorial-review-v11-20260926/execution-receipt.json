@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "laidies.newsstand-editorial-review-execution-receipt.v1",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "attempt": "editorial-review-v11-20260926",
+  "attemptedAt": "2026-09-26T15:06:13Z",
+  "providerRoute": "claude-fable-5",
+  "effort": "medium",
+  "preflight": "PASS",
+  "preflightEvidence": {
+    "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/weekly-20260923 --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905 --output operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v11-20260926 --preflight-only",
+    "result": "PRE_REVIEW_PASS"
+  },
+  "preservedInputs": {
+    "request": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v11-20260926/article-editorial-request.json",
+      "sha256": "f5fd96be25de62a81d3a4675e226083bbb2c2c67df8025286a3b25b6bd8b6844"
+    },
+    "packet": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v11-20260926/article-editorial-packet.json",
+      "sha256": "d97c29e9de849a72d22f1565f7a5a60dd69fdfb9037c72435b1f1cd2f3f75c91"
+    }
+  },
+  "providerObservation": "The configured Claude process completed. Raw provider JSON and a judgment were subsequently written at 08:06; normalization rejected the judgment because facts.learningDisposition was EVIDENCE_GAP while every individual factual state was supported or qualified.",
+  "status": "COMPLETED_PROTOCOL_FAILURE_PRESERVED",
+  "admissionAuthority": false,
+  "publicationAuthority": false,
+  "nextAction": "Repair the three omitted primary passages and use a separately versioned request; do not replay v11.",
+  "limits": [
+    "No editorial verdict, source admission, independent admission, or publication is claimed.",
+    "The source-and-prose repair remains producer-validated; it is not independently admitted."
+  ],
+  "completedArtifacts": {
+    "raw": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v11-20260926/article-editorial-provider.raw.json",
+      "sha256": "969185155c02c6a00ad9790392040a21ac7729e4410891c55188afd30033bf48"
+    },
+    "judgment": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v11-20260926/article-editorial-judgment.json",
+      "sha256": "796c5928429bc5e73ff209fd0327420f927de56f46b90eb22431c5eabe0350f9"
+    },
+    "runtimeFailure": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v11-20260926/article-editorial-failure.json",
+      "sha256": "4c480de124850a3e706bf3879599784ae45b3c6a072f564c103aed9619d47384"
+    }
+  }
+}

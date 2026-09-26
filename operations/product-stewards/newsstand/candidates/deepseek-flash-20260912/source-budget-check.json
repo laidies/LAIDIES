@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "laidies.newsstand-source-budget-check.v1",
+  "candidateId": "deepseek-flash-20260912",
+  "scope": "All visitor-visible story text, including headline, summaries, takeaway, and cocktail line; every factual paraphrase or repetition counts.",
+  "countingMethod": "Word tokens are counted for every complete visitor field or exact field fragment; metadata-derived and repeated factual language is not exempted.",
+  "artifactBindings": {
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/story.json",
+      "sha256": "9ec0801c910b065c9f89d07e3fea0cce85dbdb09399c86dc4f531a031fe87eb7"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/article.md",
+      "sha256": "faeb26ca128205d7596a6958d7276f2d7f6648ffc2d709d45f0deb241b044b4b"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/rendered-article.html",
+      "sha256": "c5a87548c5b07c7cc5ba95690a33b2cdeaedabcb623070e24fc9d08767adc8bd"
+    }
+  },
+  "fields": [
+    {
+      "field": "headline",
+      "fragments": [
+        {
+          "text": "DeepSeek’s new model can understand pictures. Whether you see that depends on the app.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "deepseek-v41-flash-news",
+          "wordCount": 14
+        }
+      ]
+    },
+    {
+      "field": "the_story",
+      "fragments": [
+        {
+          "text": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "deepseek-v41-flash-news",
+          "wordCount": 32
+        },
+        {
+          "text": "Vercel had made the model available through its AI Gateway a day earlier.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "vercel-deepseek-v41-flash-20260909",
+          "wordCount": 13
+        }
+      ]
+    },
+    {
+      "field": "laidies_read",
+      "fragments": [
+        {
+          "text": "A model does the generating behind an app’s interface, and the app maker chooses which model to connect. Picture a photo app: if its maker connects it to V4.1-Flash and passes along the image, the model can consider the picture when it answers. The new ability is underneath; the app’s own update tells you what is available in the tool you use.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "deepseek-v41-flash-news",
+          "rationale": "Conservatively counts the complete model-to-app mechanism and conditional photo-app example against the product capability source.",
+          "wordCount": 62
+        }
+      ]
+    },
+    {
+      "field": "what_this_means",
+      "fragments": [
+        {
+          "text": "One technical change arrives September 14: requests sent under the older deepseek-v4-pro label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "deepseek-v41-flash-news",
+          "wordCount": 47
+        }
+      ]
+    },
+    {
+      "field": "cocktail_party",
+      "fragments": [
+        {
+          "text": "“DeepSeek’s new model can take pictures into account. Whether that reaches the tool in front of you depends on the model its maker connected behind the interface.”",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "deepseek-v41-flash-news",
+          "wordCount": 27
+        }
+      ]
+    },
+    {
+      "field": "class_notes",
+      "fragments": [
+        {
+          "text": "AI Fundamentals 101: Wrappers, Harnesses, and the Stack explains how the interface you see sits above the model doing the generating. That is the useful lens for an app whose maker changes a model underneath.",
+          "kind": "EDITORIAL_AUTHORITY",
+          "rationale": "Governed AI Fundamentals chapter 10.2 destination and interface/model explanation.",
+          "wordCount": 35
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "deepseek-v41-flash-news",
+      "url": "https://deepseek.com/en/news/deepseek-v4-1-flash/",
+      "wordLimit": 200,
+      "limitOrigin": "Conservative per-source ceiling.",
+      "allocations": [
+        {
+          "field": "headline",
+          "text": "DeepSeek’s new model can understand pictures. Whether you see that depends on the app.",
+          "wordCount": 14,
+          "directQuoteWords": 0
+        },
+        {
+          "field": "the_story",
+          "text": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words.",
+          "wordCount": 32,
+          "directQuoteWords": 0
+        },
+        {
+          "field": "laidies_read",
+          "text": "A model does the generating behind an app’s interface, and the app maker chooses which model to connect. Picture a photo app: if its maker connects it to V4.1-Flash and passes along the image, the model can consider the picture when it answers. The new ability is underneath; the app’s own update tells you what is available in the tool you use.",
+          "wordCount": 62,
+          "directQuoteWords": 0
+        },
+        {
+          "field": "what_this_means",
+          "text": "One technical change arrives September 14: requests sent under the older deepseek-v4-pro label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?",
+          "wordCount": 47,
+          "directQuoteWords": 0
+        },
+        {
+          "field": "cocktail_party",
+          "text": "“DeepSeek’s new model can take pictures into account. Whether that reaches the tool in front of you depends on the model its maker connected behind the interface.”",
+          "wordCount": 27,
+          "directQuoteWords": 0
+        }
+      ]
+    },
+    {
+      "id": "vercel-deepseek-v41-flash-20260909",
+      "url": "https://vercel.com/changelog/deepseek-v4-1-flash-now-available-on-ai-gateway",
+      "wordLimit": 200,
+      "limitOrigin": "Conservative per-source ceiling.",
+      "allocations": [
+        {
+          "field": "the_story",
+          "text": "Vercel had made the model available through its AI Gateway a day earlier.",
+          "wordCount": 13,
+          "directQuoteWords": 0
+        }
+      ]
+    }
+  ],
+  "result": "PASS",
+  "totals": {
+    "deepseek-v41-flash-news": 182,
+    "vercel-deepseek-v41-flash-20260909": 13
+  },
+  "allVisitorFieldsAccountedFor": true
+}

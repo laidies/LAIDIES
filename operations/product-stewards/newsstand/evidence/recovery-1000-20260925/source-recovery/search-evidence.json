@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "newsstand-source-recovery-evidence-v1",
+  "observedAt": "2026-09-25T17:03:10Z",
+  "editorialDate": "2026-09-25",
+  "operator": "/root/california_order_producer",
+  "mode": "BOUNDED_DISTINCT_OFFICIAL_ROUTES_ONLY",
+  "attempts": [
+    {
+      "family": "proteintalks-nature-breast-cancer-20260909",
+      "request": {
+        "operation": "open",
+        "url": "https://github.com/guomics-lab/PTV-1"
+      },
+      "result": {
+        "outcome": "OPENED",
+        "webRef": "turn1196view0",
+        "followupRef": "turn1197view0",
+        "contentType": "text/html",
+        "totalLines": 206,
+        "observations": [
+          "The public guomics-lab/PTV-1 repository exposes 57 commits and a ProteinTalks directory.",
+          "The repository README says the files are the main analysis scripts described in the paper's Methods section.",
+          "The visible README identifies scripts for molecular fingerprints and physicochemical properties, differential-expression analysis, PertScore classification and Mfuzz clustering.",
+          "The visible repository page does not state the complete model training/evaluation splits, benchmark definitions, independent replication or prospective clinical validation."
+        ],
+        "lineEvidence": [
+          "115-156",
+          "164-170"
+        ]
+      },
+      "limits": "One normal inspection of the newly authorized official repository. No Nature, bioRxiv or Westlake retry; no raw-content alternate transport."
+    },
+    {
+      "family": "devin-voice-20260911",
+      "request": {
+        "operation": "search_query",
+        "query": "site:cognition.ai OR site:docs.devin.ai \"Devin Voice\" changelog release"
+      },
+      "result": {
+        "outcome": "NO_RESULT_RETURNED",
+        "observations": [
+          "The bounded official-domain query returned no Cognition or Devin release/changelog result."
+        ]
+      },
+      "limits": "The blocked original X post was not retried. Existing feature documentation was not reopened because it cannot establish launch identity."
+    },
+    {
+      "family": "grokbot-sales-integrations",
+      "request": {
+        "operation": "search_query_and_open",
+        "query": "site:x.ai OR site:docs.x.ai \"Grok Bot\" Salesforce HubSpot Gong Clay Granola"
+      },
+      "result": {
+        "outcome": "OFFICIAL_PRIOR_CAPABILITY_EVIDENCE_FOUND_EVENT_GAP_REMAINS",
+        "searchRefs": [
+          "turn1196search0",
+          "turn1196search4"
+        ],
+        "openRefs": [
+          "turn1197view1",
+          "turn1197view2"
+        ],
+        "observations": [
+          "The August 11 official launch says Grok Bot worked across apps and gives a sales-CRM example, but does not identify a September 10 integration release.",
+          "The August 16 official GTM guide already names Salesforce, Granola and Gong in connected workflows.",
+          "No official September 10 company update or changelog was returned for the claimed integration event.",
+          "The retrieved official pages do not establish when HubSpot or Clay support became available."
+        ],
+        "lineEvidence": [
+          "turn1197view2:18-38",
+          "turn1197view1:20-35",
+          "turn1197view1:49-50",
+          "turn1197view1:79-92"
+        ]
+      },
+      "limits": "The blocked September 10 X post was not retried. Earlier official pages are capability and prior-date evidence, not proof of a later announcement."
+    },
+    {
+      "family": "embedded-evaluator-independence",
+      "request": {
+        "operation": "search_query_and_open",
+        "query": "site:openai.com OR site:huggingface.co \"embedded evaluator\" independent agreement"
+      },
+      "result": {
+        "outcome": "SEPARATE_OFFICIAL_ANTHROPIC_AGREEMENT_FOUND_ORIGINAL_OPENAI_HF_EVENT_GAP_REMAINS",
+        "searchRefs": [
+          "turn1196search1",
+          "turn1196search2",
+          "turn1196search3"
+        ],
+        "officialOpenRef": "turn1197view3",
+        "officialUrl": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+        "observations": [
+          "The bounded OpenAI/Hugging Face query returned no OpenAI or Hugging Face company announcement or agreement for the September commitment.",
+          "A search result exposed a separate official Anthropic source, opened normally, dated September 18.",
+          "Anthropic identifies Accenture, led by Faculty, as its embedded-evaluation partner and describes evaluation, red-teaming, alignment assessment and safeguard testing.",
+          "Anthropic says each company expects to invest at least $1 billion over five years and describes access comparable to an employee's.",
+          "Anthropic explicitly says many operating details are still being worked out."
+        ],
+        "lineEvidence": [
+          "turn1197view3:10-18"
+        ]
+      },
+      "limits": "This is primary evidence for a distinct September 18 Anthropic/Accenture development. It does not verify the September OpenAI/Hugging Face commitment or prove evaluator independence in practice. The blocked Altman and Delangue X posts were not retried."
+    }
+  ],
+  "excludedResults": [
+    {
+      "url": "https://huggingface.co/spaces/tfrere/agentic-ai-safety-timeline/commit/eb76d4dac1ece4cc3a076fdbe928f6871e836585",
+      "reason": "Third-party Hugging Face Space timeline; not a Hugging Face company announcement or agreement."
+    },
+    {
+      "url": "https://community.openai.com/t/when-familiar-form-feels-true-a-testable-hypothesis-about-llm-judges-and-feedback-loops/1394573",
+      "reason": "Community post unrelated to the claimed embedded-evaluator agreement."
+    }
+  ],
+  "nonretryableRoutesPreserved": [
+    "https://www.nature.com/articles/s41586-026-11001-9",
+    "https://www.biorxiv.org/content/10.1101/2025.02.07.637070v2",
+    "Westlake institutional article previously returning zero lines",
+    "Original Devin Voice X post",
+    "Original September 10 Grok Bot X post",
+    "Original Altman X post",
+    "Original Delangue X post"
+  ]
+}

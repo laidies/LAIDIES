@@ -1,0 +1,531 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "pro-signup-pause-20260912",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/remaining_build_review",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/remaining_build_review",
+    "principalId": "/root/remaining_build_review",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-12T16:24:50.507Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/publication-manifest.json",
+      "sha256": "0730685508299339ea633dd9e8b3873b3916b9b1ac2db235b7e2c576e5974d4f"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/review-text.json",
+      "sha256": "baf3c6dcf2de3a96b3b9d31a70f9301eef8da59cb68750c973145c4a609732d4"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/rendered-article.html",
+      "sha256": "854495721dddad35b87d1207cbbfedb49038d8ee82333d9394d4e21b61a654ed"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/remaining_build_review",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    },
+    "reuseDisclosure": "This repair reused the candidate’s preserved calibration evidence; no calibration provider call was made during this repair. The current producer review is an exact reread of the repaired candidate only.",
+    "reusedAt": "2026-09-12T16:24:50.507Z"
+  },
+  "reverseBrief": {
+    "humanQuestion": "I have ChatGPT Pro $200, or was considering it. What can I do during the sign-up pause without accidentally losing the tier I already have?",
+    "promisedPayoff": "Know which new sign-ups and upgrades are paused, what remains available, and the limited actions the Help Center says keep or end an active Pro $200 subscription.",
+    "centralMentalModel": "A plan pause changes who can newly enter or move into a tier; it does not automatically remove an active subscription. A cancellation or completed downgrade is a separate account change with its own consequence.",
+    "dailyLifeConnection": "A reader is deciding whether to change, cancel, or continue an existing subscription.",
+    "surfaceJob": "A short September 12 consumer notice about OpenAI’s September 10 Pro $200 sign-up and upgrade pause, not a product review or capacity analysis.",
+    "desiredReaderFeeling": "I can tell whether an official rule concerns a planned account change or an already-ended plan."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is the whole consumer consequence: an active plan and a new purchase follow different rules right now.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before you change or cancel Pro $200, read OpenAI’s pause FAQ.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is the whole consumer consequence: an active plan and a new purchase follow different rules right now.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is the whole consumer consequence: an active plan and a new purchase follow different rules right now.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "But if you cancel, finish a downgrade, or a renewal failure ends the plan, OpenAI says you cannot buy Pro $200 again until the pause lifts.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is the whole consumer consequence: an active plan and a new purchase follow different rules right now.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is the whole consumer consequence: an active plan and a new purchase follow different rules right now.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is the whole consumer consequence: an active plan and a new purchase follow different rules right now.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "But if you cancel, finish a downgrade, or a renewal failure ends the plan, OpenAI says you cannot buy Pro $200 again until the pause lifts.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If you were planning to upgrade, the Help Center says new moves into Pro $200 are paused.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is the whole consumer consequence: an active plan and a new purchase follow different rules right now.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is the whole consumer consequence: an active plan and a new purchase follow different rules right now.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What is the difference between a scheduled cancellation and one that has taken effect?",
+        "probeResponse": "The FAQ says a scheduled cancellation leaves Pro $200 active through the billing cycle. Once it takes effect and the subscription ends, the account cannot buy Pro $200 again during the pause.",
+        "expectedEvidence": "Keep a pending account change separate from the outcome after the subscription ends."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If you were planning to upgrade, the Help Center says new moves into Pro $200 are paused.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What transfers to a person considering a new upgrade?",
+        "probeResponse": "The pause blocks a new move into Pro $200, while the official FAQ says Pro $100 remains available.",
+        "expectedEvidence": "Separate a new purchase path from an active subscription path."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before you change or cancel Pro $200, read OpenAI’s pause FAQ.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate and checked this outcome against the stated pause, active-subscription, and effective-change boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is the whole consumer consequence: an active plan and a new purchase follow different rules right now.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "I reread the complete current candidate after removing unsupported navigation and retention advice; it keeps one subscription-state mechanism and an evidence-bounded action.",
+      "artifactLocator": "complete exact candidate prose"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/source-evidence.json",
+        "sha256": "c034aeadefc86475bdb2a909f126bc52c3846474f25034b9e965529f6a310e08"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "pause-scope",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says it temporarily paused new sign-ups and upgrades to ChatGPT Pro $200, also called Pro 20X, on September 10.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/source-evidence.json",
+          "sha256": "c034aeadefc86475bdb2a909f126bc52c3846474f25034b9e965529f6a310e08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "As of September 10, 2026, we’re temporarily pausing new sign-ups and upgrades to the ChatGPT Pro $200 plan (Pro 20X).",
+            "locator": "https://help.openai.com/en/articles/9793128-what-is-chatgpt-pro/"
+          },
+          {
+            "excerpt": "OpenAI has paused new sign-ups and upgrades to its $200 ChatGPT Pro tier.",
+            "locator": "https://www.computerworld.com/article/4221098/openai-pauses-200-pro-tier-as-astra-demand-strains-capacity-2.html"
+          }
+        ],
+        "scopeAndFreshness": "Sources reread September 12, 2026; scope is limited to the named subscription states and contains no restart-date or capacity inference."
+      },
+      {
+        "claimId": "existing",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "It is not an automatic cancellation: OpenAI says existing Pro $200 subscriptions continue to renew as usual.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/source-evidence.json",
+          "sha256": "c034aeadefc86475bdb2a909f126bc52c3846474f25034b9e965529f6a310e08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "No. Existing Pro $200 subscriptions continue to renew as usual.",
+            "locator": "https://help.openai.com/en/articles/9793128-what-is-chatgpt-pro/"
+          }
+        ],
+        "scopeAndFreshness": "Sources reread September 12, 2026; scope is limited to the named subscription states and contains no restart-date or capacity inference."
+      },
+      {
+        "claimId": "pro100",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Pro $100 remains available for a new upgrade.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/source-evidence.json",
+          "sha256": "c034aeadefc86475bdb2a909f126bc52c3846474f25034b9e965529f6a310e08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "You can upgrade to Pro $100 from the Pricing page, but you cannot upgrade to the Pro $200 plan.",
+            "locator": "https://help.openai.com/en/articles/9793128-what-is-chatgpt-pro/"
+          }
+        ],
+        "scopeAndFreshness": "Sources reread September 12, 2026; scope is limited to the named subscription states and contains no restart-date or capacity inference."
+      },
+      {
+        "claimId": "lapse",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "But if you cancel, finish a downgrade, or a renewal failure ends the plan, OpenAI says you cannot buy Pro $200 again until the pause lifts.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/source-evidence.json",
+          "sha256": "c034aeadefc86475bdb2a909f126bc52c3846474f25034b9e965529f6a310e08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "if you take no action and your subscription is canceled, you cannot purchase Pro $200 again until the pause is lifted.",
+            "locator": "https://help.openai.com/en/articles/9793128-what-is-chatgpt-pro/"
+          }
+        ],
+        "scopeAndFreshness": "Sources reread September 12, 2026; scope is limited to the named subscription states and contains no restart-date or capacity inference."
+      },
+      {
+        "claimId": "action-boundary",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Before you change or cancel Pro $200, read OpenAI’s pause FAQ. It says a scheduled cancellation or downgrade keeps Pro $200 active until the billing cycle ends; a change that takes effect ends it.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/source-evidence.json",
+          "sha256": "c034aeadefc86475bdb2a909f126bc52c3846474f25034b9e965529f6a310e08"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "If you schedule a downgrade from Pro $200 to Pro $100, the change takes effect at the end of your current billing cycle. You keep Pro $200 until then.",
+            "locator": "https://help.openai.com/en/articles/9793128-what-is-chatgpt-pro/"
+          }
+        ],
+        "scopeAndFreshness": "Sources reread September 12, 2026; scope is limited to the named subscription states and contains no restart-date or capacity inference."
+      }
+    ],
+    "reviewedThrough": "2026-09-12T16:24:50.507Z",
+    "nextTrigger": "Any OpenAI change to the Pro $200 pause FAQ, including availability, renewal, cancellation, or downgrade rules.",
+    "correctionOwner": "/root/remaining_build_review"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate covers this exact subscription pause."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Producer repaired three maker-found clarity issues before independent review; independent review remains required."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "No observed human-comprehension evidence is claimed.",
+    "The supplied source records no pause end date, capacity reason, or effect on other products."
+  ],
+  "limits": []
+}

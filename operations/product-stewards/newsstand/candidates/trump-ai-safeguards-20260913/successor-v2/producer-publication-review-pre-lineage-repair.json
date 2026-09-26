@@ -1,0 +1,464 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "trump-ai-safeguards-20260913",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/crossword_row_review",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/crossword_row_review",
+    "principalId": "/root/crossword_row_review",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-13T23:31:36.147Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/publication-manifest.json",
+      "sha256": "1ec4e5e6e9b0d4b205df044ce5d287a447b05ee86c91a668d61c4c687ea69cd2"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/review-text.json",
+      "sha256": "b0bb79f117dfb0f6aa426b9e3774f3a65576763147c5bfd7e5422f71b1429dd6"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/rendered-article.html",
+      "sha256": "2dab80c019daba6680d1d8abbdf2edd962e86f1d6b86657923dc36447294bdcb"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/crossword_row_review",
+    "reviewedAt": "2026-09-13T23:31:36.147Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    },
+    "reuseDisclosure": "Current registry exemplars were reread as calibration references. This producer receipt is an exact reread of this candidate; independent semantic admission remains required.",
+    "reusedAt": "2026-09-13T23:31:36.147Z"
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why are people arguing over the pace of AI, and does the September 13 debate change what is checked now?",
+    "promisedPayoff": "Understand the disagreement over pace and independent checking without mistaking a statement or company proposal for a new rule.",
+    "centralMentalModel": "The disagreement is about whether speed should yield time for safety work and who can independently check it; remarks and proposals do not themselves change a reader’s tools.",
+    "dailyLifeConnection": "A reader who sees AI guardrails in the news can tell a company commitment from a government action before assuming her AI tool changed.",
+    "surfaceJob": "A short dated September 13 NewsStand explanation of reported remarks and their limit.",
+    "desiredReaderFeeling": "I know what this story says happened, what did not happen in the report, and what evidence to seek next."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 13, the Associated Press reported that President Trump played down checking AI development while stressing competition with China.",
+          "locator": "story.the_story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is Anthropic’s proposal and stated commitment, not a federal requirement.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When a headline says “guardrails,” ask whether it names a company commitment, a proposal or a government action—and what would actually be checked.",
+          "locator": "story.what_this_means"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Do the September 13 remarks create a new safety requirement for an AI tool?",
+        "probeResponse": "No. They are reported remarks. The related evaluator proposal is Anthropic’s own commitment, not a federal requirement.",
+        "expectedEvidence": "Reported remarks, company commitment and government action remain distinct."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A company says it will hire outside reviewers for a new AI system. Is that already a government rule?",
+        "probeResponse": "No. It may be a company commitment. I would look for a named law, rule or agency action before treating it as a government requirement.",
+        "expectedEvidence": "The distinction transfers to a different company claim."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the AP report and Amodei’s primary proposal, keeping reported remarks, a company commitment and any government action distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a disagreement about pace, not a switch in the rules of the AI products you use.",
+          "locator": "story.laidies_read"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The exact prose answers the pace-and-checking question directly, explains the proposed evaluator mechanism, and keeps its legal limit beside it.",
+      "artifactLocator": "complete exact candidate prose"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/source-evidence.json",
+        "sha256": "99a85561558db8ef53db9878d78d0165c4f8faa79d357900c06ebd664dd0d23a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "ap-sep13-remarks",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "On September 13, the Associated Press reported that President Trump played down checking AI development while stressing competition with China.",
+            "locator": "story.the_story"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/source-evidence.json",
+          "sha256": "99a85561558db8ef53db9878d78d0165c4f8faa79d357900c06ebd664dd0d23a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Trump played down checking AI development while citing competition with China.",
+            "locator": "AP reporting source packet"
+          }
+        ],
+        "scopeAndFreshness": "AP report captured 2026-09-13; establishes reported remarks and possible meetings, not a federal action."
+      },
+      {
+        "claimId": "amodei-evaluators",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Its concrete idea is embedded third-party evaluators: independent reviewers working inside an AI company, with access to check safety work and report findings.",
+            "locator": "story.laidies_read"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/source-evidence.json",
+          "sha256": "99a85561558db8ef53db9878d78d0165c4f8faa79d357900c06ebd664dd0d23a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "His first step is embedded third-party evaluators with ongoing employee-like access to verify safety practices and report incidents.",
+            "locator": "Dario primary source packet"
+          }
+        ],
+        "scopeAndFreshness": "Amodei primary essay captured 2026-09-13; establishes Anthropic’s stated proposal and commitment, not a federal requirement or completed evaluator access."
+      }
+    ],
+    "reviewedThrough": "2026-09-13",
+    "nextTrigger": "Reopen on a named federal action, binding instrument, agency rule, or changed Amodei commitment.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "The preserved historical HOLD lacked the recovered full AP report and never reached an admissible successor review."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Producer exact-prose review found no reusable defect; independent review remains required."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "The AP report establishes reported remarks and possible meetings, not a federal action.",
+    "Amodei’s essay establishes a company proposal and commitment, not completed evaluator access."
+  ],
+  "limits": []
+}

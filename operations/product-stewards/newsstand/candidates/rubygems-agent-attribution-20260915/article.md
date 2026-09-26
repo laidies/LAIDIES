@@ -1,0 +1,7 @@
+# RubyGems confirms a package-spam incident. It cannot confirm who made the code.
+
+<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p><p>Its September 11 update also draws a boundary around a louder claim. Researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>
+
+<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys succeeded. It may still lack the evidence to identify the author or operator.</p>
+
+<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>

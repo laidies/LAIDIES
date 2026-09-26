@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { loadServiceRevisionBase } from "./newsstand-service-revision-base.mjs";
 
 // Project an independently admitted Daily snapshot into the existing schema-2
 // publication record. This changes local publication data only; never deploys.
@@ -28,6 +29,7 @@ export function verifyProjectionAdmission({ issue, envelopeRaw, decision, root =
     if (decision[field] !== issue.admission[field]) reject(`admission ${field} changed`);
   }
   const envelope = JSON.parse(envelopeRaw);
+  if (envelope.sourceIdentity.serviceRevisionBase && decision.schemaVersion !== "daily-issue-service-revision-admission-v1") reject("service revision base requires explicit service revision admission");
   const ordinary = envelope.sourceIdentity.ordinaryCandidate ? loadOrdinaryStoryCandidate(envelope.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
   if (ordinary?.overnightFreshness && !(Date.parse(issue.admission.reviewedAt) >= Date.parse(ordinary.overnightFreshness.checkedAt))) reject("issue admission cannot precede the overnight freshness check");
   if (ordinary && !["daily-issue-admission-v1", "daily-issue-news-revision-admission-v1"].includes(decision.schemaVersion)) reject("ordinary projection requires initial or news-revision admission");
@@ -99,7 +101,9 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
   const predecessor = issue.sourceIdentity?.servicePredecessor && !issue.sourceIdentity?.storyCorrection ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, {
     root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt
   }) : null;
-  if (predecessor && !issue.sourceIdentity?.storyCorrection && createHash('sha256').update(predecessor.storiesRaw).digest('hex') !== issue.sourceIdentity.storiesSha256) reject('carry-forward source differs from published predecessor');
+  const revisionBase = issue.sourceIdentity?.serviceRevisionBase ? loadServiceRevisionBase(issue.sourceIdentity.serviceRevisionBase, { root, date: issue.editionDate, sourceSha256: issue.sourceIdentity.storiesSha256 }) : null;
+  if (revisionBase && issue.admission.predecessorEnvelopeSha256 !== issue.sourceIdentity.serviceRevisionBase.predecessorEnvelopeSha256) reject("service revision predecessor differs from admission");
+  if (predecessor && !revisionBase && !issue.sourceIdentity?.storyCorrection && createHash('sha256').update(predecessor.storiesRaw).digest('hex') !== issue.sourceIdentity.storiesSha256) reject('carry-forward source differs from published predecessor');
   if (predecessor && stable(issue.serviceRecordIds) !== stable(issue.desks.filter(d => d.state === 'ready').map(d => d.recordId))) reject('service IDs differ from admitted desks');
   const currentIssue = dataset.publications?.daily?.issue;
   const exactCurrentIssue = Boolean(dataset.publications?.daily?.editionDate === issue.editionDate &&
@@ -154,7 +158,8 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
 export function projectDailySourceRaw({ raw, issue, columns, root = ROOT, now = new Date().toISOString() }) {
   const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
   const predecessor = issue.sourceIdentity?.servicePredecessor && !issue.sourceIdentity?.storyCorrection ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, { root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt }) : null;
-  const baseRaw = ordinary ? ordinary.publicationBaseRaw : issue.sourceIdentity?.storyCorrection ? raw : predecessor ? predecessor.storiesRaw : raw;
+  const revisionBase = issue.sourceIdentity?.serviceRevisionBase ? loadServiceRevisionBase(issue.sourceIdentity.serviceRevisionBase, { root, date: issue.editionDate, sourceSha256: issue.sourceIdentity.storiesSha256 }) : null;
+  const baseRaw = revisionBase ? revisionBase.raw : ordinary ? ordinary.publicationBaseRaw : issue.sourceIdentity?.storyCorrection ? raw : predecessor ? predecessor.storiesRaw : raw;
   if (ordinary && createHash("sha256").update(baseRaw).digest("hex") !== issue.sourceIdentity.storiesSha256) reject("ordinary frozen publication base differs from admitted source");
   const context = { window: {} };
   vm.runInNewContext(baseRaw, context, { timeout: 1000 });
@@ -166,7 +171,7 @@ export function projectDailySourceRaw({ raw, issue, columns, root = ROOT, now = 
   // A preserved approval can reproduce exact already-published bytes later;
   // it cannot first publish stale overnight prose under the old issue date.
   if (ordinary?.overnightFreshness && raw !== nextRaw && vancouverDay(now) !== issue.editionDate) reject("first overnight publication must occur on its admitted Vancouver issue date");
-  if ((ordinary || (predecessor && !issue.sourceIdentity?.storyCorrection)) && raw !== baseRaw && raw !== nextRaw) reject("publication base changed after review; retry is not exact projected output");
+  if ((revisionBase || ordinary || (predecessor && !issue.sourceIdentity?.storyCorrection)) && raw !== baseRaw && raw !== nextRaw) reject("publication base changed after review; retry is not exact projected output");
   return nextRaw;
 }
 

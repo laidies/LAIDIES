@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "newsstand-source-evidence-v1",
+  "candidateId": "claude-opus-5-5-20260924",
+  "eventDate": "2026-09-22",
+  "researchDate": "2026-09-24",
+  "status": "SOURCE_BOUND_RESEARCH_READY_NO_PUBLIC_PROSE",
+  "records": [
+    {
+      "sourceId": "anthropic-opus-5-5-official",
+      "url": "https://www.anthropic.com/claude-opus-5-5",
+      "capture": "sources/anthropic-original-current-check.json",
+      "captureSha256": "b9d868685e5569a1ece04510fb9caf55ec809c106a3d1001997ca0cc869a2e0d",
+      "role": "primary official original for release date, platform availability, API pricing, subscription-limit changes, and provider claims"
+    },
+    {
+      "sourceId": "recovery-proposal",
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1000-20260924/source-recovery/proposed-coverage-update.json",
+      "sha256": "070aadbcd871ced5d120a0eaea1f48dc5e8b8e86efd3700b5c8cbde504f89c0f",
+      "role": "intake disposition and reader-question boundary only"
+    }
+  ],
+  "sourceCompleteness": {
+    "officialReleaseOriginal": "COMPLETE",
+    "currentOfficialAvailabilityStatement": "COMPLETE_BUT_NOT_PLAN_BY_PLAN",
+    "individualClaudePlanSelectorEligibility": "UNRESOLVED",
+    "apiPricing": "COMPLETE_AS_PUBLISHED",
+    "independentPerformanceValidation": "NOT_REQUIRED_FOR_RESEARCH_PACKET_AND_NOT_ESTABLISHED"
+  }
+}

@@ -1,0 +1,874 @@
+{
+  "kind": "editorial",
+  "startedAt": "2026-09-11T14:33:54.705Z",
+  "replayedAt": null,
+  "completedAt": "2026-09-11T14:35:36.086Z",
+  "requestedModel": "claude-fable-5",
+  "providerModel": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "providerId": "b04ed0fa-6fd5-4fe9-8ac7-079bdc9e6d94",
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 26886,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 8377,
+    "output_tokens_details": {
+      "thinking_tokens": 1535
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 26886,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 8377,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 26886,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 26886
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "attestations": {
+    "reader": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "facts": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    }
+  },
+  "requestSha256": "3aceb82b5ccdf723333cb5f7b4d158254cbffa7793280283676590f657867289",
+  "rawSha256": "a84deb81f5eb81f3a341d0d10f2c0a97d4f740e28df3adbfde20b42c49342eed",
+  "protocolSha256": "7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "reader": {
+    "families": {
+      "glossaryAccumulation": {
+        "state": "clear",
+        "reason": "Only two terms defined and each is immediately used inside the causal chain, not stacked as a glossary.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "templateRepetition": {
+        "state": "clear",
+        "reason": "Paragraphs vary in structure: dated report, current fixes, preview boundary, layered explainer, action.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "decorativeAnalogy": {
+        "state": "clear",
+        "reason": "The layers framing is load-bearing structure, not flavour; no ornamental comparisons present.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "referenceConfetti": {
+        "state": "clear",
+        "reason": "No pop-culture or gratuitous references anywhere in the artifact.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "missingMechanism": {
+        "state": "clear",
+        "reason": "The account → age signal → developer decision chain is stated explicitly, including why a screen-time request takes a different path.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "genericAction": {
+        "state": "clear",
+        "reason": "Actions are concrete: update the specific app, use the web page, check which Copilot app/account type applies.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "jargonBeforeMeaning": {
+        "state": "clear",
+        "reason": "'Age signal' and 'Windows Insider' are defined at first meaningful use; 'Windows Age APIs' is contextualised in P004 before elaboration.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "disconnectedSystem": {
+        "state": "clear",
+        "reason": "P005–P006 explicitly show how information moves between account, app and Family Safety rather than naming parts separately.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "factlessConfidence": {
+        "state": "clear",
+        "reason": "Company claims are consistently attributed ('Microsoft says') and the independent confirmation's limits are stated.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "staleUnreviewableClaims": {
+        "state": "clear",
+        "reason": "Every time-sensitive claim carries a date (September 8/10) and traceable sources; lastCheckedAt is present.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "corporateSludge": {
+        "state": "clear",
+        "reason": "No motivational vagueness; even Microsoft's framing is translated into concrete product behaviour.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "joylessInstruction": {
+        "state": "clear",
+        "reason": "The prose is a conversational untangling with a human question, not a checklist or terminology manual.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "benchmarkNameDrop": {
+        "state": "clear",
+        "reason": "No communication benchmark or famous explainer is mentioned anywhere.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "curiosityWithoutPayoff": {
+        "state": "clear",
+        "reason": "The headline's contrast (current fixes vs preview signals) is fully explained by the body.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "familiarExampleWithoutTechnicalReturn": {
+        "state": "clear",
+        "reason": "The screen-time example returns explicitly to the technical distinction between Family Safety routing and the preview API path.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "communicationPastiche": {
+        "state": "clear",
+        "reason": "Voice is original LAiDIES conversational register; no imitation of another communicator's mannerisms.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "entertainmentBeforeUnderstanding": {
+        "state": "clear",
+        "reason": "No humour or spectacle competes with the explanation; understanding leads throughout.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "mechanismCompressedBehindHook": {
+        "state": "clear",
+        "reason": "The mechanism occupies the centre of the piece (P005–P007); the hook is one headline line.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "prematureClickBeforeMechanism": {
+        "state": "clear",
+        "reason": "The headline's claim is earned by the dated reporting and the layered mechanism before any conclusion is pressed.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "inflatedTakeawayEnding": {
+        "state": "clear",
+        "reason": "The ending stays bounded: watch for general availability and independent testing, explicitly flagging what remains unproven.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "purposeTooNarrow": {
+        "state": "clear",
+        "reason": "The piece covers Copilot rules, Family Safety fixes, the preview API and outcome uncertainty — the full supplied reader job.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "mechanismBeforeMotivation": {
+        "state": "clear",
+        "reason": "The dated change and reader stakes (P002–P003) precede the technical layering in P005–P006.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "workedExampleOvertakesBookPurpose": {
+        "state": "clear",
+        "reason": "The screen-time example is one sentence serving the broader layer distinction, not a crowding worked example.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "technicalExplainerVoice": {
+        "state": "clear",
+        "reason": "For this bounded news report, explaining the specific signal mechanism is the right perspective, and it stays oriented to the parent-reader's decisions.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      }
+    },
+    "outcomes": {
+      "plainClarity": {
+        "state": "pass",
+        "reason": "Sentences are short and concrete; 'age signal' and 'Windows Insider' are defined in plain words at first meaningful use.",
+        "passages": [
+          "P006",
+          "P007"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "<p>A <strong>Windows Insider</strong> is a person using a preview version of Windows before a feature reaches the general public. Independent reporting from Windows Central confirms that the Family Safety changes update existing controls and that the age tools remain limited to Insiders. It does not test whether approvals are faster, reports are more accurate or young people are safer. Those remain Microsoft’s claims.</p>",
+            "locator": "P007"
+          }
+        ],
+        "artifactLocator": "P006, P007"
+      },
+      "readerValue": {
+        "state": "pass",
+        "reason": "Beyond the headline, the reader gains a reusable three-layer model plus a concrete current action and a scoping caveat about work/school accounts.",
+        "passages": [
+          "P005",
+          "P008",
+          "P009"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The useful way to read this is as three separate layers. A Microsoft account can carry age information. Copilot can use that information to set its own access rules. Family Safety provides separate controls for screen time, apps, spending and activity reports.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<p>If you help manage a family account, the current step is concrete: update the Family Safety app or use its web page for the controls that exist now. For Copilot, check whether the person is using the updated personal-account app; Microsoft’s cited support page does not govern work or school accounts.</p>",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "<p>When another age-safety headline arrives, ask which layer it describes: a rule inside one product, a family control you can use, or a Windows signal an app may choose to use. The next evidence worth watching is general Windows availability and independent testing of whether the changes actually reduce errors or harm.</p>",
+            "locator": "P009"
+          }
+        ],
+        "artifactLocator": "P005, P008, P009"
+      },
+      "laidiesVoice": {
+        "state": "pass",
+        "reason": "Warm, candid, adult tone ('The useful way to read this...'); no condescension, no borrowed persona.",
+        "passages": [
+          "P005",
+          "P009",
+          "P011"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The useful way to read this is as three separate layers. A Microsoft account can carry age information. Copilot can use that information to set its own access rules. Family Safety provides separate controls for screen time, apps, spending and activity reports.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<p>When another age-safety headline arrives, ask which layer it describes: a rule inside one product, a family control you can use, or a Windows signal an app may choose to use. The next evidence worth watching is general Windows availability and independent testing of whether the changes actually reduce errors or harm.</p>",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "An account’s age information, a product’s access rule and a family control do different jobs. Ask which layer changed before expecting a new safeguard.",
+            "locator": "P011"
+          }
+        ],
+        "artifactLocator": "P005, P009, P011"
+      },
+      "engagingEnjoyable": {
+        "state": "pass",
+        "reason": "The parental question sustains interest; the layered untangling gives a satisfying payoff without forced humour.",
+        "passages": [
+          "P005",
+          "P009"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The useful way to read this is as three separate layers. A Microsoft account can carry age information. Copilot can use that information to set its own access rules. Family Safety provides separate controls for screen time, apps, spending and activity reports.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<p>When another age-safety headline arrives, ask which layer it describes: a rule inside one product, a family control you can use, or a Windows signal an app may choose to use. The next evidence worth watching is general Windows availability and independent testing of whether the changes actually reduce errors or harm.</p>",
+            "locator": "P009"
+          }
+        ],
+        "artifactLocator": "P005, P009"
+      },
+      "surfaceFit": {
+        "state": "pass",
+        "reason": "A properly dated news report: what happened September 8–10, what works now, what remains preview.",
+        "passages": [
+          "P002",
+          "P003",
+          "P004"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P002, P003, P004"
+      },
+      "dailyLifeConnection": {
+        "state": "pass",
+        "reason": "The screen-time request routed through Family Safety and the family-account management step anchor the mechanism in recognisable parental life.",
+        "passages": [
+          "P006",
+          "P008"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "<p>If you help manage a family account, the current step is concrete: update the Family Safety app or use its web page for the controls that exist now. For Copilot, check whether the person is using the updated personal-account app; Microsoft’s cited support page does not govern work or school accounts.</p>",
+            "locator": "P008"
+          }
+        ],
+        "artifactLocator": "P006, P008"
+      },
+      "communicationBenchmark": {
+        "state": "pass",
+        "reason": "Human purpose leads, causality (account → signal → app decision) is concrete, and the ending supplies a better next question; no imitation of any explainer's voice.",
+        "passages": [
+          "P006",
+          "P009"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "<p>When another age-safety headline arrives, ask which layer it describes: a rule inside one product, a family control you can use, or a Windows signal an app may choose to use. The next evidence worth watching is general Windows availability and independent testing of whether the changes actually reduce errors or harm.</p>",
+            "locator": "P009"
+          }
+        ],
+        "artifactLocator": "P006, P009"
+      },
+      "explainBack": {
+        "state": "pass",
+        "reason": "P004 and P006 give the causal steps needed to explain why the preview API does not itself protect anyone: signal exists, developer must use it, rollout is Insider-only.",
+        "passages": [
+          "P004",
+          "P006"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p>",
+            "locator": "P006"
+          }
+        ],
+        "artifactLocator": "P004, P006"
+      },
+      "unseenTransfer": {
+        "state": "pass",
+        "reason": "The layer-check mechanism in P009 and P006 transfers cleanly to novel situations, e.g. a game claiming 'age signal support' — my transfer scenario resolved correctly using only the article's mechanism.",
+        "passages": [
+          "P006",
+          "P009",
+          "P004"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "<p>When another age-safety headline arrives, ask which layer it describes: a rule inside one product, a family control you can use, or a Windows signal an app may choose to use. The next evidence worth watching is general Windows availability and independent testing of whether the changes actually reduce errors or harm.</p>",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "<p>A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P006, P009, P004"
+      },
+      "usefulAction": {
+        "state": "pass",
+        "reason": "Specific proportionate actions: update the Family Safety app or use the web version now, and verify which Copilot app and account type applies.",
+        "passages": [
+          "P008"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>If you help manage a family account, the current step is concrete: update the Family Safety app or use its web page for the controls that exist now. For Copilot, check whether the person is using the updated personal-account app; Microsoft’s cited support page does not govern work or school accounts.</p>",
+            "locator": "P008"
+          }
+        ],
+        "artifactLocator": "P008"
+      },
+      "analogyIntegrity": {
+        "state": "pass",
+        "reason": "The 'layers' framing is structural, not decorative; it maps exactly onto the account/product/control distinction and carries its limits (developer choice, preview status).",
+        "passages": [
+          "P005",
+          "P006",
+          "P011"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The useful way to read this is as three separate layers. A Microsoft account can carry age information. Copilot can use that information to set its own access rules. Family Safety provides separate controls for screen time, apps, spending and activity reports.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "An account’s age information, a product’s access rule and a family control do different jobs. Ask which layer changed before expecting a new safeguard.",
+            "locator": "P011"
+          }
+        ],
+        "artifactLocator": "P005, P006, P011"
+      }
+    },
+    "newsChecks": {
+      "incidentExplained": {
+        "state": "pass",
+        "reason": "The September 10 framework, September 8 Family Safety fixes, and the Insider-only Age API are presented as distinct dated events with their causal relationships explained.",
+        "passages": [
+          "P002",
+          "P003",
+          "P004"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P002, P003, P004"
+      },
+      "termsExplainedInContext": {
+        "state": "pass",
+        "reason": "'Age signal' and 'Windows Insider' each receive a plain definition in the sentence where they first matter; API brackets are spelled out.",
+        "passages": [
+          "P006",
+          "P007"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "<p>A <strong>Windows Insider</strong> is a person using a preview version of Windows before a feature reaches the general public. Independent reporting from Windows Central confirms that the Family Safety changes update existing controls and that the age tools remain limited to Insiders. It does not test whether approvals are faster, reports are more accurate or young people are safer. Those remain Microsoft’s claims.</p>",
+            "locator": "P007"
+          }
+        ],
+        "artifactLocator": "P006, P007"
+      },
+      "readerConsequenceSpecific": {
+        "state": "pass",
+        "reason": "Consequences land in a specific situation: managing a family account, checking the Copilot app version, and noting the work/school exclusion.",
+        "passages": [
+          "P008",
+          "P002"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>If you help manage a family account, the current step is concrete: update the Family Safety app or use its web page for the controls that exist now. For Copilot, check whether the person is using the updated personal-account app; Microsoft’s cited support page does not govern work or school accounts.</p>",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p>",
+            "locator": "P002"
+          }
+        ],
+        "artifactLocator": "P008, P002"
+      },
+      "noInternalNotesOrInventedAdvice": {
+        "state": "pass",
+        "reason": "No internal operating notes appear; all advice follows from cited Microsoft availability claims and page scope.",
+        "passages": [
+          "P008",
+          "P003"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>If you help manage a family account, the current step is concrete: update the Family Safety app or use its web page for the controls that exist now. For Copilot, check whether the person is using the updated personal-account app; Microsoft’s cited support page does not govern work or school accounts.</p>",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "<p>Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.</p>",
+            "locator": "P003"
+          }
+        ],
+        "artifactLocator": "P008, P003"
+      }
+    },
+    "explainBack": {
+      "question": "Why doesn't the new Windows Age API automatically make every app on a child's PC safer today?",
+      "answer": "Because three separate steps must each happen: the API is only running on Windows Insider preview builds, not general Windows; even where it runs, it only passes an age category or verification status from the account to an app; and the app's developer must then choose to request that signal and decide what experience follows. Until a developer acts on the signal, nothing in the app changes — and existing protections like screen-time requests still travel through Family Safety, a different path entirely.",
+      "expectedEvidence": "P004 states the APIs are Insider-only and not a universal age check; P006 states the developer decides what follows from the signal and that Family Safety remains the separate control path.",
+      "assessment": "The article supports this causal answer completely in ordinary language; every step of the chain is explicit in P004 and P006, so a reader can reconstruct it without outside knowledge."
+    },
+    "unseenTransfer": {
+      "scenario": "A parent sees a game studio announce that its popular PC game 'now supports Windows age signals,' and assumes this means the game will now enforce their child's two-hour daily screen-time limit.",
+      "question": "Using only the article's mechanism, what will and won't change for this family?",
+      "answer": "The announcement means the game's developer chose to read the age category the Microsoft account can supply — say '10–12' — and may adjust its own content or features accordingly. It will not enforce screen-time limits: those live in the Family Safety layer, and a request for more time still goes through the Family Safety app. Also, unless the family's PC runs an Insider build or the API has since reached general Windows, the signal may not even be available yet; the parent should check general availability rather than assume it.",
+      "expectedEvidence": "P006 (developer decides what follows from the signal; screen time still goes through Family Safety), P004 (Insider-only, not universal), P009 (ask which layer a claim describes).",
+      "assessment": "The article's three-layer model resolves this novel scenario cleanly and prevents the exact misreading it warns against, confirming genuine transfer rather than headline recall."
+    },
+    "reverseBrief": {
+      "humanQuestion": "Did Microsoft just make Windows safe for my kids, and which of these announced protections can I actually use today?",
+      "promisedPayoff": "The reader can separate current Copilot rules and usable Family Safety fixes from an Insider-only age signal and from unproved safety outcomes.",
+      "centralMentalModel": "Three distinct layers: an account can carry age information, a product sets its own access rule, and Family Safety supplies separate parental controls; a new age signal informs an app but does not create its safeguards.",
+      "dailyLifeConnection": "A parent approving a child's screen-time request or checking whether the child's Copilot app falls under the personal-account rules.",
+      "surfaceJob": "A dated news article reporting what changed on September 8–10, what works now, and what remains preview or company claim.",
+      "desiredReaderFeeling": "Oriented and unhurried: able to act on the real controls now and calmly bucket the next age-safety headline into the right layer."
+    },
+    "verdict": "PASS",
+    "summary": "A well-scoped dated news article that answers what works now first, builds a genuinely useful account/product/control layer model, defines its two technical terms in context, keeps company claims attributed and the Insider-preview and unproved-outcome limits attached to the right sentences, and ends with a specific action plus a transferable next question. No failure families present; comprehension and transfer both verified.",
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "All outcomes and news checks pass and all failure families are clear; the explain-back and transfer scenario both resolved using only the artifact's stated mechanism."
+    }
+  },
+  "facts": {
+    "outcomes": {
+      "factualIntegrity": {
+        "state": "pass",
+        "reason": "Ten of eleven claims match source passages closely with attribution retained; the one qualified claim (developer choice) is a reasonable inference consistent with the source's own stated limitation, not an overreach.",
+        "passages": [
+          "P002",
+          "P004",
+          "P006"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p>",
+            "locator": "P006"
+          }
+        ],
+        "artifactLocator": "P002, P004, P006"
+      },
+      "freshnessReviewability": {
+        "state": "pass",
+        "reason": "Events carry explicit dates (September 8 and 10), sources are named and dated, lastCheckedAt is present, and preview status is bounded in time.",
+        "passages": [
+          "P002",
+          "P004"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P002, P004"
+      },
+      "datedChange": {
+        "state": "pass",
+        "reason": "The article cleanly separates the September 10 framework, September 8 fixes available now, and the still-preview Age APIs with a future-update function.",
+        "passages": [
+          "P002",
+          "P003",
+          "P004"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P002, P003, P004"
+      },
+      "consequenceAndUncertainty": {
+        "state": "pass",
+        "reason": "Consequences are concrete (update the app, check account type) while uncertainty survives: usage-time accuracy caveat, Insider-only rollout, and explicitly untested safety outcomes.",
+        "passages": [
+          "P003",
+          "P007",
+          "P009"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>A <strong>Windows Insider</strong> is a person using a preview version of Windows before a feature reaches the general public. Independent reporting from Windows Central confirms that the Family Safety changes update existing controls and that the age tools remain limited to Insiders. It does not test whether approvals are faster, reports are more accurate or young people are safer. Those remain Microsoft’s claims.</p>",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "<p>When another age-safety headline arrives, ask which layer it describes: a rule inside one product, a family control you can use, or a Windows signal an app may choose to use. The next evidence worth watching is general Windows availability and independent testing of whether the changes actually reduce errors or harm.</p>",
+            "locator": "P009"
+          }
+        ],
+        "artifactLocator": "P003, P007, P009"
+      }
+    },
+    "claims": {
+      "framework-date": {
+        "state": "supported",
+        "reason": "The framework source is Microsoft's September 10 announcement (URL and supplied authority date), matching P002's dated claim.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "microsoft-safe-participation-framework"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p>",
+            "locator": "P002"
+          }
+        ],
+        "artifactLocator": "P002"
+      },
+      "copilot-signin": {
+        "state": "supported",
+        "reason": "Source passage states 'All users must now sign in to use Copilot, and access is restricted for children under 13 (or older where required by local law)', matching P002 exactly.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "microsoft-safe-participation-framework"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p>",
+            "locator": "P002"
+          }
+        ],
+        "artifactLocator": "P002"
+      },
+      "copilot-age": {
+        "state": "supported",
+        "reason": "Support page states 'at least 13 years old' with possibly higher regional minimums, applies only to personal Microsoft accounts and excludes work/school/organizational accounts — all reflected in P002.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "microsoft-copilot-young-people-support",
+          "microsoft-safe-participation-framework"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p>",
+            "locator": "P002"
+          }
+        ],
+        "artifactLocator": "P002"
+      },
+      "family-fixes": {
+        "state": "supported",
+        "reason": "Microsoft's fixes page lists faster approvals for app access, screen time and purchases, broader activity-report coverage, the wallet balance fix and easier family-group management; Windows Central independently confirms the product framing. P003 attributes these as 'Microsoft says'.",
+        "passages": [
+          "P003"
+        ],
+        "sourceIds": [
+          "microsoft-family-safety-fixes",
+          "windows-central-family-scope-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.</p>",
+            "locator": "P003"
+          }
+        ],
+        "artifactLocator": "P003"
+      },
+      "remaining-family-limits": {
+        "state": "supported",
+        "reason": "Source states 'Additional improvements to usage time accuracy are also on the way' and 'some families may still run into issues', matching P003's caveat sentence.",
+        "passages": [
+          "P003"
+        ],
+        "sourceIds": [
+          "microsoft-family-safety-fixes"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.</p>",
+            "locator": "P003"
+          }
+        ],
+        "artifactLocator": "P003"
+      },
+      "age-api-preview": {
+        "state": "supported",
+        "reason": "Both Microsoft ('broadly available to Windows Insiders now') and Windows Central ('available now to Windows Insiders') confirm the Insider-only availability stated in P004.",
+        "passages": [
+          "P004",
+          "P007"
+        ],
+        "sourceIds": [
+          "microsoft-windows-age-api",
+          "windows-central-family-scope-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>A <strong>Windows Insider</strong> is a person using a preview version of Windows before a feature reaches the general public. Independent reporting from Windows Central confirms that the Family Safety changes update existing controls and that the age tools remain limited to Insiders. It does not test whether approvals are faster, reports are more accurate or young people are safer. Those remain Microsoft’s claims.</p>",
+            "locator": "P007"
+          }
+        ],
+        "artifactLocator": "P004, P007"
+      },
+      "future-function": {
+        "state": "supported",
+        "reason": "Source states 'The CheckAgeStatusAsync API will be available with a future update', matching P004's 'one announced function is promised for a future update'.",
+        "passages": [
+          "P004"
+        ],
+        "sourceIds": [
+          "microsoft-windows-age-api"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P004"
+      },
+      "age-signal": {
+        "state": "supported",
+        "reason": "Source confirms apps receive only the age-related signal, not full date of birth, and lists brackets under 10, 10-12, 13-15, 16-17, 18+, matching P006's 'under 10 through 18 and over'.",
+        "passages": [
+          "P006"
+        ],
+        "sourceIds": [
+          "microsoft-windows-age-api"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p>",
+            "locator": "P006"
+          }
+        ],
+        "artifactLocator": "P006"
+      },
+      "developer-choice": {
+        "state": "qualified",
+        "reason": "The source describes categories 'for apps to utilize' and its limitation notes it does not prove how third-party apps will use the signal; P006's 'the app developer still decides' is a fair inference from this design, but is not stated verbatim by Microsoft.",
+        "passages": [
+          "P006"
+        ],
+        "sourceIds": [
+          "microsoft-windows-age-api"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p>",
+            "locator": "P006"
+          }
+        ],
+        "artifactLocator": "P006"
+      },
+      "independent-limit": {
+        "state": "supported",
+        "reason": "Windows Central's supplied limitation confirms it does not independently test approval speed, report accuracy or safety outcomes; P007 correctly keeps those as Microsoft's claims, consistent with the fixes page being self-reported.",
+        "passages": [
+          "P007"
+        ],
+        "sourceIds": [
+          "windows-central-family-scope-report",
+          "microsoft-family-safety-fixes"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>A <strong>Windows Insider</strong> is a person using a preview version of Windows before a feature reaches the general public. Independent reporting from Windows Central confirms that the Family Safety changes update existing controls and that the age tools remain limited to Insiders. It does not test whether approvals are faster, reports are more accurate or young people are safer. Those remain Microsoft’s claims.</p>",
+            "locator": "P007"
+          }
+        ],
+        "artifactLocator": "P007"
+      },
+      "current-action": {
+        "state": "supported",
+        "reason": "Source states the fixes 'are available in the latest versions of the Family Safety mobile app both iOS and Android' and 'on the web', supporting P008's update-app-or-use-web action.",
+        "passages": [
+          "P008"
+        ],
+        "sourceIds": [
+          "microsoft-family-safety-fixes"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>If you help manage a family account, the current step is concrete: update the Family Safety app or use its web page for the controls that exist now. For Copilot, check whether the person is using the updated personal-account app; Microsoft’s cited support page does not govern work or school accounts.</p>",
+            "locator": "P008"
+          }
+        ],
+        "artifactLocator": "P008"
+      }
+    },
+    "verdict": "PASS",
+    "summary": "Factual integrity is strong: dates, the Copilot sign-in and age rules, Family Safety fixes and their caveats, Insider-only API availability, the future CheckAgeStatusAsync function and the no-date-of-birth signal design all match the supplied source passages, with company claims attributed as such. One claim — that the app developer decides what follows from the signal — is a fair but non-verbatim inference from Microsoft's 'for apps to utilize' design and is marked qualified. All time-sensitive claims are dated and checkable.",
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "No claim is contradicted or on hold and all four fact outcomes pass; the single qualified claim is an accurately bounded inference, not a defect requiring repair."
+    }
+  },
+  "verdict": "PASS"
+}

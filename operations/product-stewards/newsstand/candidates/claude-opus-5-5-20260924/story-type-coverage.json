@@ -1,0 +1,61 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "model-tool-release",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "Anthropic released Opus 5.5 and announced API prices plus separate subscription-limit changes.",
+    "plainLanguageIdentity": "A model release with different billing and use-limit implications for developers and subscribers.",
+    "evidenceBasis": "Anthropic’s official September 22 announcement.",
+    "evidenceLimits": "No account UI, quantified subscription limit or independent benchmark validation is supplied.",
+    "readerRelevance": "A reader can avoid confusing API prices with her monthly subscription and know what access still needs checking.",
+    "affectedPeople": "Claude subscribers, Claude Code users and developers using the API; exact effects depend on surface and plan.",
+    "changesNow": "Published API prices and named subscription-limit changes took effect in the announcement; account-specific access is not established.",
+    "uncertainty": "Plan-by-plan selector eligibility and individual limits remain unresolved.",
+    "readerAction": "Identify the product surface, then check its current model selector or plan details.",
+    "betterQuestion": "Is this number a monthly plan price, a usage limit or a per-token developer charge?"
+  },
+  "typeAnswers": {
+    "model-tool-release": {
+      "productRange": "Anthropic calls Opus 5.5 the first model in its Claude 5.5 family and its leading Opus model.",
+      "newCapabilities": "Anthropic reports capability and efficiency improvements, but this brief does not independently validate or recommend them.",
+      "bestFitTasks": "The source describes complex coding and knowledge work; this article makes no reader-specific task recommendation.",
+      "notFor": "The announcement does not make Opus 5.5 a universal choice or establish that every account can select it.",
+      "nearestAlternatives": "Anthropic compares it with Opus 5 and other models, but provider benchmarks do not establish the best choice for one reader.",
+      "availability": "Anthropic says all platforms and named cloud partners; plan-by-plan chat selector access is not supplied.",
+      "freePaidBoundary": "Named paid plans receive higher five-hour limits; the announcement does not establish Free access or identical paid-plan selector access.",
+      "costBoundary": "API $4 input and $20 output per million tokens are developer usage charges, not a monthly subscription price.",
+      "limitations": "Plan-specific selector access and limit quantities are unresolved; safety and performance statements remain provider claims.",
+      "technicalExampleProportionality": "Benchmark and spectacular coding examples are omitted because they do not answer the reader’s billing question.",
+      "vendorEvidenceBoundary": "Release, availability, pricing, performance, speed and safety statements come from Anthropic; no independent performance validation is claimed."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "Anthropic announced Claude Opus 5.5 on September 22.",
+    "actualMeaningExact": "Those are usage charges based on text processed, not monthly Claude subscription prices.",
+    "mechanismExact": "If you pay Anthropic directly for API usage, the token table is your meter.",
+    "familiarExampleExact": "If you pay for Claude chat, the API figures do not describe your monthly plan price.",
+    "jargon": [
+      {
+        "term": "API",
+        "plainMeaning": "a software connection to a model"
+      },
+      {
+        "term": "token price",
+        "plainMeaning": "usage charges based on text processed, not monthly Claude subscription prices"
+      },
+      {
+        "term": "usage limit",
+        "plainMeaning": "the amount a plan lets you use within a stated time window"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "Plan and model choice",
+        "learningPayoff": "Explains why plan access, model choice and current product details are separate checks.",
+        "disposition": "link",
+        "destination": "/library.html#working-with-ai-101::%407-4-free-vs-paid-the-honest-answer"
+      }
+    ]
+  }
+}

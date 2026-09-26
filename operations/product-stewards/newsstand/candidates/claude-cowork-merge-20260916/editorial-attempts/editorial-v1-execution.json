@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-09-19T17:36:42.638Z",
+  "completedAt": "2026-09-19T17:38:06.659Z",
+  "exitCode": 1,
+  "command": [
+    "node",
+    "operations/product-stewards/newsstand/review-runtime/run-pilot.mjs",
+    "article",
+    "claude",
+    "--candidate-dir",
+    "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/",
+    "--calibration",
+    "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/",
+    "--output",
+    "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-review-v1/"
+  ],
+  "stdout": "",
+  "stderr": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Learning disposition contradicts assessments\n\nfalse !== true\n\n    at normalize (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/protocol.mjs:133:225)\n    at normalize (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/protocol.mjs:102:63)\n    at run (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:101:17)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:179:16 {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: false,\n  expected: true,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.18.0\n"
+}

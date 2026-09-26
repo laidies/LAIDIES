@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "newsstand-bounded-source-search-evidence-v1",
+  "observedAt": "2026-09-25T03:33:54Z",
+  "editorialDate": "2026-09-24",
+  "tool": "normal web search",
+  "attemptPolicy": "One four-query discovery call, one query per independent event family. No returned URL was opened. Exact routes previously classified blocked or nonretryable were not directly retried.",
+  "queries": [
+    {
+      "eventFamily": "proteintalks-nature-breast-cancer-20260909",
+      "leadIds": [
+        "proteintalks-20260909",
+        "nature-breast-cancer-drug-prediction-20260909"
+      ],
+      "query": "\"An operational perturbation proteomics-based virtual cell model\" supplementary methods repository ProteinTalks dataset code",
+      "returned": [
+        {
+          "url": "https://www.nature.com/articles/s41586-026-11001-9",
+          "identity": "Nature version of record — An operational perturbation proteomics-based virtual cell model",
+          "searchEvidence": [
+            "Published 09 September 2026.",
+            "The result exposed data availability: raw proteomics data in ProteomeXchange via iProX accession IPX0007409000.",
+            "The result exposed code availability: https://github.com/guomics-lab/PTV-1.",
+            "The result exposed selected extended-data descriptions, including PDX train/evaluation subdivision and retrospective TNBC cohort survival stratification."
+          ],
+          "limitation": "This was search-result exposure of a previously restricted exact original, not a new permitted direct open or a complete methods/supplement capture. It does not establish full train/test separation, all benchmark definitions, independent replication or prospective clinical benefit."
+        },
+        {
+          "url": "https://lifesciences.westlake.edu.cn/media/news/20260910/new-AI-model-predicts-how-cancer-cells-respond-to-drugs.html",
+          "identity": "Westlake University author-side institutional report",
+          "searchEvidence": [
+            "Search result again identifies the same Nature paper and describes potential clinical applications."
+          ],
+          "limitation": "Author-side institutional reporting; prior normal open returned zero lines and was not retried."
+        },
+        {
+          "url": "https://github.com/guomics-lab/PTV-1",
+          "identity": "Guomics Lab PTV-1 analysis-code repository",
+          "searchEvidence": [
+            "Distinct primary repository named by the version-of-record search result."
+          ],
+          "limitation": "Repository identity only; contents were not opened in this bounded attempt."
+        }
+      ],
+      "disposition": "PARTIAL_DISTINCT_ROUTE_DISCOVERY_HOLD",
+      "newMaterial": "The code repository and iProX accession are distinct primary routes not named in the canonical missing-input line.",
+      "remainingGap": "Complete admissible primary methods/results, exact train/test separation, benchmark definitions and prospective clinical-limit evidence."
+    },
+    {
+      "eventFamily": "devin-voice-20260911",
+      "leadIds": [
+        "devin-voice-20260911"
+      ],
+      "query": "site:cognition.ai OR site:docs.devin.ai \"Devin Voice\" September 2026 announcement",
+      "returned": [],
+      "disposition": "NO_OFFICIAL_DATED_LAUNCH_RESULT",
+      "remainingGap": "Accessible exact dated Cognition launch record identifying scope; existing documentation supports operation but not launch date, price or model."
+    },
+    {
+      "eventFamily": "grokbot-sales-integrations",
+      "leadIds": [
+        "grokbot-sales-integrations"
+      ],
+      "query": "site:x.ai \"Grok Bot\" Salesforce HubSpot Gong Clay Granola September 10 2026",
+      "returned": [],
+      "disposition": "NO_OFFICIAL_DATED_ANNOUNCEMENT_RESULT",
+      "remainingGap": "Exact dated primary announcement establishing which integrations were newly announced September 10 versus capabilities documented August 16 or updated later."
+    },
+    {
+      "eventFamily": "embedded-evaluator-independence-20260915",
+      "leadIds": [
+        "embedded-evaluator-independence-20260915"
+      ],
+      "query": "site:openai.com OR site:huggingface.co embedded evaluators independent evaluation agreement September 2026",
+      "returned": [
+        {
+          "url": "https://openai.com/index/trustworthy-third-party-evaluations-foundations/",
+          "identity": "OpenAI — A shared playbook for trustworthy third party evaluations",
+          "published": "2026-05-29",
+          "searchEvidence": [
+            "Official background discusses effective independent evaluations of safeguards and capabilities."
+          ],
+          "limitation": "Predates the September event and does not provide the claimed embedded-evaluator agreement, access terms or completed evaluator arrangement."
+        },
+        {
+          "url": "https://huggingface.co/spaces/tfrere/agentic-ai-safety-timeline/commit/eb76d4dac1ece4cc3a076fdbe928f6871e836585",
+          "identity": "Third-party Hugging Face Space timeline commit",
+          "searchEvidence": [
+            "Timeline text says Altman committed to embedded independent evaluators and Hugging Face asked to be one."
+          ],
+          "limitation": "Third-party timeline content, not an official Hugging Face company announcement, agreement or evaluator-access terms."
+        }
+      ],
+      "disposition": "BACKGROUND_ONLY_PRIMARY_GAP_REMAINS",
+      "remainingGap": "Exact accessible original company announcement or terms, or a completed evaluator-access agreement."
+    }
+  ],
+  "notDone": [
+    "No exact blocked original was opened.",
+    "No alternate transport, mirror or proxy was used.",
+    "No source freshness was inferred from a search crawl date.",
+    "No canonical lead, coverage record or candidate was changed."
+  ]
+}

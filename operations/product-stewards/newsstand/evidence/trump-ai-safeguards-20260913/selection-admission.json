@@ -1,0 +1,95 @@
+{
+  "schema": "laidies.newsstand-selection-admission.v1",
+  "decision": "ACCEPT_SELECTION_SUCCESSOR",
+  "reviewedAt": "2026-09-13T23:49:00Z",
+  "reviewedBy": "/root/evening_sources",
+  "reviewerRole": "independent NewsStand selection reviewer",
+  "scope": "Trump AI safeguards same-day news append selection projection",
+  "frozenBase": {
+    "path": "operations/product-stewards/newsstand/evidence/trump-ai-safeguards-20260913/base",
+    "deploymentId": "942dd77c-bbac-42ff-a957-c961b337c445",
+    "selection": {
+      "path": "content/newsstand-selection.js",
+      "sha256": "0f489491e159fe053140c9c63b27e48c5f432cbf178c64088fe97fda5c8ca714"
+    },
+    "htmlFingerprints": {
+      "selection": "0f489491e159fe05",
+      "stories": "0800063ad653aa8a"
+    }
+  },
+  "currentBindings": {
+    "selection": {
+      "path": "content/newsstand-selection.js",
+      "sha256": "31f4e09bbf64242c94dd8cce1dcc74e8a5084f7045ad34c473e525355f300dfb",
+      "htmlFingerprint": "31f4e09bbf64242c"
+    },
+    "stories": {
+      "path": "content/newsstand-stories.js",
+      "sha256": "c06c2275ea2199b2b0863dbc2024431e341aac1fe8716a5780122e2c9bcdae97",
+      "htmlFingerprint": "c06c2275ea2199b2"
+    },
+    "html": {
+      "path": "newsstand.html",
+      "sha256": "e337ee44af70a3abcd000023fdd8a179346bd8f3e3cd74c0039c57678689e104"
+    },
+    "trumpArt": {
+      "path": "assets/newsstand/trump-ai-pace-and-checking-20260913.png",
+      "sha256": "0bb742001e5bd031c10204e17731af8d9ec1651087a5d598268150e9a744cac1",
+      "pixelDimensions": "1774x887"
+    }
+  },
+  "deltaReview": {
+    "frozenSelectionDiff": "one added priority-array entry only",
+    "addedStoryId": "trump-ai-safeguards-20260913",
+    "placement": "first priority entry",
+    "comparatorUnchanged": true,
+    "priorRelativeOrderPreserved": true,
+    "sameDayOrderObserved": [
+      "trump-ai-safeguards-20260913",
+      "gemini-windows-20260913",
+      "chatgpt-pets-20260913"
+    ]
+  },
+  "publishedStoryInspection": {
+    "id": "trump-ai-safeguards-20260913",
+    "edition": "daily",
+    "status": "published",
+    "sourceApproval": "approved",
+    "publishedAt": "2026-09-13T23:46:44Z",
+    "predecessorStoryIds": [
+      "national-safety-proposals-20260911",
+      "amodei-ai-pacing-20260912"
+    ],
+    "heroVisual": {
+      "src": "/assets/newsstand/trump-ai-pace-and-checking-20260913.png",
+      "alt": "Editorial illustration of an abstract AI computing module beside a magnifying inspection lens examining geometric marks.",
+      "credit": "Illustration: LAiDIES"
+    }
+  },
+  "checks": [
+    {
+      "command": "node scripts/test-newsstand-selection.mjs",
+      "result": "PASS: current ordering, archive/stale ordering, known-bad archive reorder calibration, local-date, and rejected-image calibration."
+    },
+    {
+      "command": "node scripts/build-newsstand-derivatives.mjs --check",
+      "result": "PASS: current=6 archive=78 source_sha256=c06c2275ea2199b2b0863dbc2024431e341aac1fe8716a5780122e2c9bcdae97"
+    },
+    {
+      "command": "direct projected-record/hash inspection",
+      "result": "PASS: HTML query fingerprints exactly equal first 16 hexadecimal characters of current selection and stories hashes; Trump hero path resolves to the bound 1774x887 asset."
+    },
+    {
+      "command": "root-owned local browser suite",
+      "result": "PASS reported by owner: checks=69 desktop=1440 mobile=390,320 archive/Daily/Big Picture/crossword/keyboard."
+    },
+    {
+      "command": "root-owned scope checker and public whitespace diff",
+      "result": "PASS reported by owner: exactly seven allowed public changes and whitespace diff pass."
+    }
+  ],
+  "verdict": "PASS",
+  "limitations": [
+    "This is a read-only independent selection admission. No public, canonical, shared, candidate, or projection file was edited by this reviewer."
+  ]
+}

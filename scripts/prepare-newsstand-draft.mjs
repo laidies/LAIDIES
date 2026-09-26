@@ -64,6 +64,8 @@ export function inspectPreparedDraft(story,input,observations){
  const errors=[];
  const prose=['headline','the_story','laidies_read','what_this_means','cocktail_party','class_notes'].map(k=>story[k]||'').join('\n').replace(/<[^>]*>/g,'').replace(/\s+/g,' ');
  const require=(ok,msg)=>{if(!ok)errors.push(msg)};
+ require(input.bindings===undefined||Array.isArray(input.bindings),'Writer research bindings must be an array before editorial review');
+ if(Array.isArray(input.bindings))for(const binding of input.bindings)require(typeof binding?.path==='string'&&binding.path.length>0&&/^[a-f0-9]{64}$/.test(binding?.sha256||''),'Writer research binding needs an exact path and SHA-256');
  require(story.id===packet.candidateId,'Writer input belongs to a different story');
  for(const error of readerContract.validatePublishedStoryImage({...story,status:'published'},story.slug||story.id||'story'))errors.push(error);
  require(observations?.completeTextRead===true,'Producer must read the complete current draft');

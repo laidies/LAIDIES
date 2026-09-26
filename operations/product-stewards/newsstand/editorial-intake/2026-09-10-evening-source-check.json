@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "laidies-newsstand-evening-source-check.v1",
+  "editorialDate": "2026-09-10",
+  "phase": "20:00 America/Vancouver official-index and held-source recovery",
+  "checkedAt": "2026-09-10T20:07:25-07:00",
+  "morningBaseline": "operations/agents/aidb-intelligence-desk/daily/2026-09-10-morning-inventory.json",
+  "result": "MATERIAL_NEW_SOURCES_AND_RECOVERIES",
+  "officialIndexes": [
+    {
+      "provider": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "changeSinceMorning": "Five September 10 items appeared after the morning check: Data agent, antimicrobials research, ChatGPT for Financial Services, GPT-Live-1 and Agents API.",
+      "disposition": "KEEP_DATA_AGENT_FOR_REVIEW; KEEP_ANTIMICROBIALS_FOR_SEPARATE_SOURCE_CHECK; RETAIN_OTHER_RELEASES_IN_INVENTORY"
+    },
+    {
+      "provider": "OpenAI Developers",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "changeSinceMorning": "September 10 entries now document expiring project API keys, Agents API public beta and GPT-Live-1 general availability. The voice entry lists $0.05 per minute plus separate backend-model and tool charges.",
+      "disposition": "KEEP_AS_PRIMARY_DEVELOPER_RELEASE_EVIDENCE"
+    },
+    {
+      "provider": "Anthropic News and threat intelligence",
+      "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+      "changeSinceMorning": "A September 10 misuse report was absent from the morning high-water result and is now available in full.",
+      "disposition": "KEEP_FOR_MAJOR_PUBLIC_INTEREST_REVIEW"
+    },
+    {
+      "provider": "Anthropic Research and Engineering",
+      "urls": [
+        "https://www.anthropic.com/research",
+        "https://www.anthropic.com/engineering"
+      ],
+      "changeSinceMorning": "No separate evening research item superseded the September 9 incident assessment; the September 10 threat-intelligence report is a distinct event. Engineering displayed an undated containment feature but no newer dated list entry was established.",
+      "disposition": "RETAIN_DISTINCT; DO_NOT_MERGE_WITH_SEPTEMBER_9_INCIDENT"
+    },
+    {
+      "provider": "Google Gemini API",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "changeSinceMorning": "No September 9 or September 10 entry; page still says last updated September 4 UTC.",
+      "disposition": "UNCHANGED"
+    }
+  ],
+  "coverageLedger": [
+    {
+      "desk": "accountability, courts, regulation and public safety",
+      "status": "CHECKED_MATERIAL",
+      "sources": [
+        "https://www.anthropic.com/threat-intelligence-report-september-2026",
+        "https://apnews.com/article/anthropic-ai-threat-bioweapon-russia-00266dca90e4f8853f669648998d3bda",
+        "https://www.axios.com/2026/09/10/anthropic-claude-government-surveillance-threats"
+      ],
+      "disposition": "KEEP_ANTHROPIC_MISUSE_REPORT",
+      "reason": "The report documents alleged/observed platform misuse and Anthropic's response. Claims about actor identity and intent must retain the company's attribution; no weapon outcome is established. AP supplies independent context and a named oversight criticism."
+    },
+    {
+      "desk": "medicine, science and measurable public benefit",
+      "status": "PRIMARY_ABSTRACT_RECOVERED_INDEPENDENT_EXPERT_GAP",
+      "sources": [
+        "https://www.nature.com/articles/s41586-026-11001-9",
+        "https://www.nature.com/articles/d41586-026-02845-2",
+        "https://api.crossref.org/works/10.1038/s41586-026-11001-9"
+      ],
+      "disposition": "SOURCE_HOLD",
+      "attemptedRecovery": "The exact paper URL returned HTTP 200 HTML with title, September 9 date and full abstract metadata. The PDF route redirected to cookie-error HTML. Crossref confirmed DOI metadata but supplied no abstract.",
+      "reason": "The abstract supports a ProteinTalks virtual-cell model built from more than 38 million temporal protein measurements and evaluated transfer beyond cell lines. It does not by itself establish clinical benefit, and no independent expert assessment was recovered.",
+      "nextTrigger": "Obtain readable methods/results and an independent cancer/proteomics expert assessment that distinguishes evaluated prediction from patient outcome."
+    },
+    {
+      "desk": "product and model releases",
+      "status": "CHECKED_MATERIAL",
+      "sources": [
+        "https://openai.com/index/put-data-to-work/",
+        "https://venturebeat.com/data/openais-new-data-agent-skips-the-one-thing-rivals-like-databricks-are-racing-to-publish-a-benchmark",
+        "https://openai.com/business-data/",
+        "https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-for-plugins-and-apps"
+      ],
+      "disposition": "KEEP_OPENAI_DATA_AGENT",
+      "reason": "The release has a practical reader decision around sources, metric definitions and permissions. VentureBeat reports that OpenAI published no external retrieval/correctness benchmark, so the candidate attributes features and does not claim proven accuracy.",
+      "candidate": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/"
+    },
+    {
+      "desk": "work and economy",
+      "status": "CHECKED_MATERIAL",
+      "sources": [
+        "https://openai.com/index/put-data-to-work/",
+        "https://venturebeat.com/data/openais-new-data-agent-skips-the-one-thing-rivals-like-databricks-are-racing-to-publish-a-benchmark"
+      ],
+      "disposition": "KEEP_AS_WORKPLACE_PRODUCT_STORY",
+      "reason": "The change affects how nontechnical staff may reach business data, while retaining work for data definitions, access controls, audit trails and human decisions. Customer anecdotes remain vendor examples, not established outcomes."
+    },
+    {
+      "desk": "security",
+      "status": "PRIMARY_RECOVERED_AND_NEW_MATERIAL",
+      "sources": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a",
+        "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4592113/nsa-and-others-warn-china-based-ai-companies-are-distilling-us-frontier-ai-mode/",
+        "https://www.anthropic.com/threat-intelligence-report-september-2026",
+        "https://apnews.com/article/anthropic-ai-threat-bioweapon-russia-00266dca90e4f8853f669648998d3bda"
+      ],
+      "disposition": "KEEP_CISA_ADVISORY_WITH_ATTRIBUTION; KEEP_ANTHROPIC_REPORT_FOR_REVIEW",
+      "attemptedRecovery": "The exact CISA advisory now returned HTTP 200 and full article text. The exact NSA release still returned HTTP 403 in direct retrieval.",
+      "reason": "CISA provides primary agency allegations, dates, named companies and recommendations. Phrases such as 'likely with Chinese government awareness' remain agency assessments, not independently proven facts; legitimate distillation must remain distinct from alleged unauthorized campaigns."
+    },
+    {
+      "desk": "material criticism or evidence contradicting industry claims",
+      "status": "CHECKED_MATERIAL",
+      "sources": [
+        "https://venturebeat.com/data/openais-new-data-agent-skips-the-one-thing-rivals-like-databricks-are-racing-to-publish-a-benchmark",
+        "https://apnews.com/article/anthropic-ai-threat-bioweapon-russia-00266dca90e4f8853f669648998d3bda",
+        "https://www.axios.com/2026/09/10/anthropic-claude-government-surveillance-threats"
+      ],
+      "disposition": "KEEP",
+      "reason": "VentureBeat identifies the absent public accuracy benchmark. AP quotes Cornell researcher John Thickstun questioning societal value judgments without democratic oversight. Axios reports that account bans do not necessarily end operations because actors may move to open models."
+    }
+  ],
+  "selection": {
+    "candidateId": "openai-data-agent-20260910",
+    "reason": "Strongest immediately practical primary-backed release: clear dated change, exact availability/control sources, independent reporting on the central evidence gap and a concrete workplace verification action.",
+    "anthropicFollowUp": "MAJOR_PUBLIC_INTEREST_PRIORITY_ASSIGNED_SEPARATELY"
+  },
+  "publicationBoundary": {
+    "publicMutation": false,
+    "canonicalMutation": false,
+    "queueMutation": false,
+    "futureDatedPublicIssue": false,
+    "morningDependency": "Any September 11 use requires an actual source-by-source and development freshness record created on September 11 America/Vancouver, then issue admission and release review."
+  }
+}

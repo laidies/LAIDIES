@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "laidies.newsstand-source-evidence.v1",
+  "candidateId": "malicious-ai-agents-card-skimmers-20260923",
+  "status": "SOURCE_BOUND_RESEARCH_ONLY",
+  "reviewedAt": "2026-09-23T20:34:15.482Z",
+  "records": [
+    {
+      "id": "bleepingcomputer-report",
+      "url": "https://www.bleepingcomputer.com/news/security/malicious-ai-agents-steal-600k-credit-cards-infect-100-plus-sites-with-skimmers/",
+      "authority": "Independent security reporting for its account of Gambit Security’s findings and the report date; Gambit remains the authority for its own investigation and all incident quantities it supplies.",
+      "rawReceipt": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260923/source-recovery/material-followthrough-raw.json",
+        "sha256": "43168aec05830a963da778e9453f98b1dbc78f3bc2d6ff405d3c5c4509fdc6bc",
+        "locator": "turn1083view1 lines 4-60"
+      },
+      "passages": [
+        "The report is dated September 23, 2026.",
+        "It attributes the campaign findings to cybersecurity startup Gambit.",
+        "It says the campaign has been active since at least July and was ongoing as of September 22.",
+        "It describes three named AI tools as handling scanning, exploitation, and campaign orchestration, while reporting brief human instructions."
+      ],
+      "limitation": "BleepingComputer reports Gambit’s investigation; it does not independently establish Gambit’s quantities, attribution, affected organizations, or model/provider use."
+    },
+    {
+      "id": "gambit-threat-intelligence-report",
+      "url": "https://gambit.security/blog-posts/autonomous-ai-agents-online-retailers-25-a-company",
+      "authority": "Primary source for Gambit Security’s investigation, evidence categories, stated direct observations, estimates, and uncertainties.",
+      "rawReceipt": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260923/source-recovery/primary-followthrough-raw.json",
+        "sha256": "11bd602756ba2bba0d78426189ad6ea6e407b871958a54e5239dfc9fb00513ee",
+        "locator": "turn1084view0 lines 0-23, 24-31, 79-108, 109-135"
+      },
+      "passages": [
+        "The report is dated September 22, 2026 and labels itself an interim report.",
+        "Gambit says it recovered the operator’s staging server and states that it bases compromise and impact claims on direct server evidence, live compromises it verified, and logs or AI claims from the server.",
+        "It expressly says that AI claims and reporting may be inaccurate, that the analysis is early-stage and incomplete, and that some errors or inaccuracies are possible.",
+        "It reports more than 600,000 credit-card records from two companies and says it directly verified some skimmers while attributing additional infections to campaign-associated indicators.",
+        "It reports a captured four-week model-access spend of $7,005.71, then estimates total cost at $12,000–$18,000 and reports the operator’s own mean of $25.46 over 101 completed scans.",
+        "It describes a human operator giving short goal instructions while three AI harnesses handled distinct stages of the campaign."
+      ],
+      "limitation": "This is a vendor threat-intelligence account, not an independent public incident census. Affected retailers and card issuers are not identified for consumers in this report; quantities and attribution must remain explicitly attributed to Gambit and its stated evidence categories."
+    }
+  ]
+}

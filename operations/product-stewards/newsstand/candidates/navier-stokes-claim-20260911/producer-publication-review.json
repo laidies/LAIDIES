@@ -1,0 +1,1383 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "navier-stokes-claim-20260911",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "principalId": "/root/weekly_recovery",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-11T16:15:20.300Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/publication-manifest.json",
+      "sha256": "6527457fb16a91a9b476704a814417724e23e92cf7a0caec5b283077e37b41d7"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/review-text.json",
+      "sha256": "9ff1e8fce88bcfed193807a038b55989f7059b5f828dbb51f75fe1009a9b2916"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/rendered-article.html",
+      "sha256": "e9d17d302a6d492837514ea9822ca7538c7d35165b0f87688b076568d0c88beb"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Did AI actually solve the Navier–Stokes problem, and what still has to be checked?",
+    "promisedPayoff": "Separate the public claim and materials from independent verification, community acceptance and formal recognition.",
+    "centralMentalModel": "A scientific breakthrough moves through stages; public evidence makes checking possible but does not complete later stages.",
+    "dailyLifeConnection": "A dramatic AI headline can arrive long before independent checking or a formal decision.",
+    "surfaceJob": "September 11 explanation of OpenAI's September 8 announcement and September 10 attribution update.",
+    "desiredReaderFeeling": "I understand the claimed fluid result, what formalization checks, what remains open and how to read the next breakthrough headline."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies plainClarity evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The Navier–Stokes equations are mathematical rules",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies readerValue evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask which stage has happened",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies laidiesVoice evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Then match the headline’s certainty",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies engagingEnjoyable evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Think of a referee checking every recorded move",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies factualIntegrity evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "does not know whether the data was used and is not accusing anyone",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies freshnessReviewability evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI’s September 10 update",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies surfaceFit evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Independent checking comes next",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies datedChange evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 8, OpenAI published",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies consequenceAndUncertainty evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The supplied record does not independently resolve",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies dailyLifeConnection evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a future headline saying AI discovered a treatment",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies communicationBenchmark evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those are separate stages",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies explainBack evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "public materials behind a dramatic",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Has the Navier–Stokes result now been independently established?",
+        "probeResponse": "No. OpenAI published a manuscript and Lean formalization that it says solve the problem. Independent checking, broad acceptance and Clay's consideration process remain later stages.",
+        "expectedEvidence": "Publication and formalization remain distinct from independent acceptance.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies unseenTransfer evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "AI discovered a treatment",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A future headline says AI discovered a treatment. What stages should I separate?",
+        "probeResponse": "Separate the announcement, released study, independent replication, clinical trial and regulator decision, then match the headline's certainty to the stage reached.",
+        "expectedEvidence": "The verification-stage method transfers without claiming medical equivalence.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies usefulAction evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "announcement, released evidence, independent checking",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies analogyIntegrity evidence while keeping the mathematical claim, released materials, verification status, attribution accounts and prize process connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "referee checking every recorded move against a rulebook",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete story avoids glossaryAccumulation; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete story avoids templateRepetition; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete story avoids decorativeAnalogy; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete story avoids referenceConfetti; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete story avoids missingMechanism; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete story avoids genericAction; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete story avoids jargonBeforeMeaning; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete story avoids disconnectedSystem; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete story avoids factlessConfidence; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete story avoids staleUnreviewableClaims; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete story avoids corporateSludge; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete story avoids joylessInstruction; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete story avoids benchmarkNameDrop; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete story avoids curiosityWithoutPayoff; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete story avoids familiarExampleWithoutTechnicalReturn; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete story avoids communicationPastiche; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete story avoids entertainmentBeforeUnderstanding; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete story avoids mechanismCompressedBehindHook; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete story avoids prematureClickBeforeMechanism; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete story avoids inflatedTakeawayEnding; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete story avoids purposeTooNarrow; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete story avoids mechanismBeforeMotivation; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete story avoids workedExampleOvertakesBookPurpose; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete story avoids technicalExplainerVoice; the claimed result, proof-checking mechanism, source limits and stage question remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+        "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "publication",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "On September 8, OpenAI published a 166-page manuscript and a public repository it describes as Lean formalizations",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "openai-announcement",
+          "openai-paper",
+          "openai-lean-repository",
+          "nature-report"
+        ],
+        "scopeAndFreshness": "Dated public materials; the 166-page count was verified from the downloaded PDF.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re sharing a solution to the Navier–Stokes existence and smoothness problem, one of the Millennium Prize Problems. This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time. We’re sharing both a writeup of the proof and a formalization in Lean.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The Navier–Stokes equations use Newton’s second law of motion (“F=ma”) to describe how fluids move. Importantly, they treat a fluid as a continuous medium rather than tracking individual molecules. These equations are used for aircraft design, weather forecasting, and the study of blood flow.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our system produced an analytical proof and a Lean formalization that an initially smooth fluid at rest can develop a singularity in a finite time. The fluid has a smooth force applied to it, and its energy remains finite through the entire dynamics, from rest to the formation of the singularity. This resolves the Navier–Stokes Millennium Prize problem by establishing statement “C” (and also “D”) in the official Millennium Prize formulation.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The solution is a vortex, a spinning swirl of fluid, that spirals inward and gets increasingly elongated, like spaghetti. This central region shrinks while it speeds up in such a way that its energy still stays finite, as required by the laws of physics.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The group that produced the Navier–Stokes resolution involved on the order of 10,000 concurrent agents.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The agents arrived at their resolution on Saturday, September 5, about 88 hours after the first agents were launched. Lean formalization and verification took an additional 17 hours via GPT‑6 Astra.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "We (the researchers and the agents) did not see any of their work through any means until they released it publicly — in particular, no specific user data was accessed in order to solve this problem.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Following an investigation, we have confirmed that Buckmaster’s Codex prompts over the two months preceding this announcement and paper on September 8, 2026, could not have influenced the system in any way, including through training. The OpenAI internal model used for this result was developed through large-scale reinforcement learning on top of a previously pretrained model. Our proofs also differ significantly.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our goal in releasing this result is to report on the substantial progress of our AI models. We do not intend to claim the Millennium Prize for this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Update — September 10, 2026: We have updated “Concurrent work” with findings from our investigation into whether user inputs could have influenced this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "For every positive viscosity, we construct a solution of the three-dimensional incompressible Navier–Stokes equations that starts from rest and develops unbounded velocity in finite time while maintaining uniformly bounded kinetic energy.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "We construct such a flow with zero initial velocity and a smooth force compactly supported in space and time.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "This establishes alternative (C) in the Millennium problem statement for Navier–Stokes as stated by Fefferman in [ 13]. Compact support also yields the corresponding construction on T3 =R 3/Z3, establishing alternative (D) in [13]; see Corollary 10.6.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "Whether this smoothing is always sufficient to prevent a finite-time singularity in three dimensions lies at the heart of the regularity problem.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "This repository contains Lean 4 formalizations of the results presented in “Finite time blowup for Navier–Stokes” and “Finite time blowup for the Euler equation” by OpenAI.",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "For every positive viscosity, we prove two results:",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "For instructions on checking the formalizations with Comparator, see the ComparatorChallenges README.",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "For the first time, a truly major open problem in mathematics has been solved by a computer, according to OpenAI, which says it has cracked one of the Millennium Problems, related to the motion of fluids.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "The artificial-intelligence company in San Francisco, California, announced on 8 September that it has generated a solution to the most commonly used physical model of fluids — the Navier–Stokes equations — showing that they can break down.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "OpenAI posted a preprint describing the result on its website.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "“It is certainly an exciting day, as we contemplate the announcement of major advances in the human understanding of mathematics,” says mathematician Martin Bridson, president of the Clay Mathematics Institute.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "On 7 September, Alpöge and Buckmaster released a paper in which they say they had found a solution for the fluid equations that also achieved infinite speed, but in the simplified case in which the fluid has no viscosity.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          }
+        ]
+      },
+      {
+        "claimId": "solution-claim",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The company says an internal AI system solved the Navier–Stokes existence and smoothness problem",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "openai-announcement",
+          "nature-report"
+        ],
+        "scopeAndFreshness": "OpenAI's claim, reported as such rather than adjudicated.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re sharing a solution to the Navier–Stokes existence and smoothness problem, one of the Millennium Prize Problems. This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time. We’re sharing both a writeup of the proof and a formalization in Lean.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The Navier–Stokes equations use Newton’s second law of motion (“F=ma”) to describe how fluids move. Importantly, they treat a fluid as a continuous medium rather than tracking individual molecules. These equations are used for aircraft design, weather forecasting, and the study of blood flow.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our system produced an analytical proof and a Lean formalization that an initially smooth fluid at rest can develop a singularity in a finite time. The fluid has a smooth force applied to it, and its energy remains finite through the entire dynamics, from rest to the formation of the singularity. This resolves the Navier–Stokes Millennium Prize problem by establishing statement “C” (and also “D”) in the official Millennium Prize formulation.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The solution is a vortex, a spinning swirl of fluid, that spirals inward and gets increasingly elongated, like spaghetti. This central region shrinks while it speeds up in such a way that its energy still stays finite, as required by the laws of physics.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The group that produced the Navier–Stokes resolution involved on the order of 10,000 concurrent agents.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The agents arrived at their resolution on Saturday, September 5, about 88 hours after the first agents were launched. Lean formalization and verification took an additional 17 hours via GPT‑6 Astra.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "We (the researchers and the agents) did not see any of their work through any means until they released it publicly — in particular, no specific user data was accessed in order to solve this problem.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Following an investigation, we have confirmed that Buckmaster’s Codex prompts over the two months preceding this announcement and paper on September 8, 2026, could not have influenced the system in any way, including through training. The OpenAI internal model used for this result was developed through large-scale reinforcement learning on top of a previously pretrained model. Our proofs also differ significantly.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our goal in releasing this result is to report on the substantial progress of our AI models. We do not intend to claim the Millennium Prize for this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Update — September 10, 2026: We have updated “Concurrent work” with findings from our investigation into whether user inputs could have influenced this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "For the first time, a truly major open problem in mathematics has been solved by a computer, according to OpenAI, which says it has cracked one of the Millennium Problems, related to the motion of fluids.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "The artificial-intelligence company in San Francisco, California, announced on 8 September that it has generated a solution to the most commonly used physical model of fluids — the Navier–Stokes equations — showing that they can break down.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "OpenAI posted a preprint describing the result on its website.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "“It is certainly an exciting day, as we contemplate the announcement of major advances in the human understanding of mathematics,” says mathematician Martin Bridson, president of the Clay Mathematics Institute.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "On 7 September, Alpöge and Buckmaster released a paper in which they say they had found a solution for the fluid equations that also achieved infinite speed, but in the simplified case in which the fluid has no viscosity.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          }
+        ]
+      },
+      {
+        "claimId": "equation-identity",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "mathematical rules used to describe how fluids move",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "openai-announcement"
+        ],
+        "scopeAndFreshness": "Plain-language translation of OpenAI's equation description.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re sharing a solution to the Navier–Stokes existence and smoothness problem, one of the Millennium Prize Problems. This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time. We’re sharing both a writeup of the proof and a formalization in Lean.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The Navier–Stokes equations use Newton’s second law of motion (“F=ma”) to describe how fluids move. Importantly, they treat a fluid as a continuous medium rather than tracking individual molecules. These equations are used for aircraft design, weather forecasting, and the study of blood flow.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our system produced an analytical proof and a Lean formalization that an initially smooth fluid at rest can develop a singularity in a finite time. The fluid has a smooth force applied to it, and its energy remains finite through the entire dynamics, from rest to the formation of the singularity. This resolves the Navier–Stokes Millennium Prize problem by establishing statement “C” (and also “D”) in the official Millennium Prize formulation.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The solution is a vortex, a spinning swirl of fluid, that spirals inward and gets increasingly elongated, like spaghetti. This central region shrinks while it speeds up in such a way that its energy still stays finite, as required by the laws of physics.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The group that produced the Navier–Stokes resolution involved on the order of 10,000 concurrent agents.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The agents arrived at their resolution on Saturday, September 5, about 88 hours after the first agents were launched. Lean formalization and verification took an additional 17 hours via GPT‑6 Astra.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "We (the researchers and the agents) did not see any of their work through any means until they released it publicly — in particular, no specific user data was accessed in order to solve this problem.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Following an investigation, we have confirmed that Buckmaster’s Codex prompts over the two months preceding this announcement and paper on September 8, 2026, could not have influenced the system in any way, including through training. The OpenAI internal model used for this result was developed through large-scale reinforcement learning on top of a previously pretrained model. Our proofs also differ significantly.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our goal in releasing this result is to report on the substantial progress of our AI models. We do not intend to claim the Millennium Prize for this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Update — September 10, 2026: We have updated “Concurrent work” with findings from our investigation into whether user inputs could have influenced this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          }
+        ]
+      },
+      {
+        "claimId": "open-question",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "whether a smooth three-dimensional flow must stay smooth, or whether it can reach a point where its speed grows without bound in a finite time",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "openai-paper"
+        ],
+        "scopeAndFreshness": "Plain-language translation of the regularity question and claimed result.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "For every positive viscosity, we construct a solution of the three-dimensional incompressible Navier–Stokes equations that starts from rest and develops unbounded velocity in finite time while maintaining uniformly bounded kinetic energy.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "We construct such a flow with zero initial velocity and a smooth force compactly supported in space and time.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "This establishes alternative (C) in the Millennium problem statement for Navier–Stokes as stated by Fefferman in [ 13]. Compact support also yields the corresponding construction on T3 =R 3/Z3, establishing alternative (D) in [13]; see Corollary 10.6.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "Whether this smoothing is always sufficient to prevent a finite-time singularity in three dimensions lies at the heart of the regularity problem.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "claimed-construction",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "constructs a smooth, forced fluid that starts at rest, develops unbounded speed in finite time and keeps finite energy",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "openai-announcement",
+          "openai-paper"
+        ],
+        "scopeAndFreshness": "Exact theorem claim, attributed to manuscript and company.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re sharing a solution to the Navier–Stokes existence and smoothness problem, one of the Millennium Prize Problems. This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time. We’re sharing both a writeup of the proof and a formalization in Lean.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The Navier–Stokes equations use Newton’s second law of motion (“F=ma”) to describe how fluids move. Importantly, they treat a fluid as a continuous medium rather than tracking individual molecules. These equations are used for aircraft design, weather forecasting, and the study of blood flow.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our system produced an analytical proof and a Lean formalization that an initially smooth fluid at rest can develop a singularity in a finite time. The fluid has a smooth force applied to it, and its energy remains finite through the entire dynamics, from rest to the formation of the singularity. This resolves the Navier–Stokes Millennium Prize problem by establishing statement “C” (and also “D”) in the official Millennium Prize formulation.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The solution is a vortex, a spinning swirl of fluid, that spirals inward and gets increasingly elongated, like spaghetti. This central region shrinks while it speeds up in such a way that its energy still stays finite, as required by the laws of physics.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The group that produced the Navier–Stokes resolution involved on the order of 10,000 concurrent agents.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The agents arrived at their resolution on Saturday, September 5, about 88 hours after the first agents were launched. Lean formalization and verification took an additional 17 hours via GPT‑6 Astra.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "We (the researchers and the agents) did not see any of their work through any means until they released it publicly — in particular, no specific user data was accessed in order to solve this problem.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Following an investigation, we have confirmed that Buckmaster’s Codex prompts over the two months preceding this announcement and paper on September 8, 2026, could not have influenced the system in any way, including through training. The OpenAI internal model used for this result was developed through large-scale reinforcement learning on top of a previously pretrained model. Our proofs also differ significantly.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our goal in releasing this result is to report on the substantial progress of our AI models. We do not intend to claim the Millennium Prize for this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Update — September 10, 2026: We have updated “Concurrent work” with findings from our investigation into whether user inputs could have influenced this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "For every positive viscosity, we construct a solution of the three-dimensional incompressible Navier–Stokes equations that starts from rest and develops unbounded velocity in finite time while maintaining uniformly bounded kinetic energy.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "We construct such a flow with zero initial velocity and a smooth force compactly supported in space and time.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "This establishes alternative (C) in the Millennium problem statement for Navier–Stokes as stated by Fefferman in [ 13]. Compact support also yields the corresponding construction on T3 =R 3/Z3, establishing alternative (D) in [13]; see Corollary 10.6.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "Whether this smoothing is always sufficient to prevent a finite-time singularity in three dimensions lies at the heart of the regularity problem.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "verification-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Nature reported the announcement as OpenAI’s claim. LAiDIES inspected the manuscript’s abstract and first twelve pages and the public repository; we did not check the 166-page proof theorem by theorem or run the formalization",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "nature-report",
+          "openai-paper",
+          "openai-lean-repository"
+        ],
+        "scopeAndFreshness": "Independent-reporting status plus an explicit LAiDIES review-method limitation.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "For the first time, a truly major open problem in mathematics has been solved by a computer, according to OpenAI, which says it has cracked one of the Millennium Problems, related to the motion of fluids.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "The artificial-intelligence company in San Francisco, California, announced on 8 September that it has generated a solution to the most commonly used physical model of fluids — the Navier–Stokes equations — showing that they can break down.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "OpenAI posted a preprint describing the result on its website.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "“It is certainly an exciting day, as we contemplate the announcement of major advances in the human understanding of mathematics,” says mathematician Martin Bridson, president of the Clay Mathematics Institute.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "On 7 September, Alpöge and Buckmaster released a paper in which they say they had found a solution for the fluid equations that also achieved infinite speed, but in the simplified case in which the fluid has no viscosity.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "For every positive viscosity, we construct a solution of the three-dimensional incompressible Navier–Stokes equations that starts from rest and develops unbounded velocity in finite time while maintaining uniformly bounded kinetic energy.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "We construct such a flow with zero initial velocity and a smooth force compactly supported in space and time.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "This establishes alternative (C) in the Millennium problem statement for Navier–Stokes as stated by Fefferman in [ 13]. Compact support also yields the corresponding construction on T3 =R 3/Z3, establishing alternative (D) in [13]; see Corollary 10.6.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "Whether this smoothing is always sufficient to prevent a finite-time singularity in three dimensions lies at the heart of the regularity problem.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "This repository contains Lean 4 formalizations of the results presented in “Finite time blowup for Navier–Stokes” and “Finite time blowup for the Euler equation” by OpenAI.",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "For every positive viscosity, we prove two results:",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "For instructions on checking the formalizations with Comparator, see the ComparatorChallenges README.",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          }
+        ]
+      },
+      {
+        "claimId": "agent-scale",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says about 10,000 concurrent AI agents worked on the result",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "openai-announcement"
+        ],
+        "scopeAndFreshness": "Company-reported scale, not independently measured.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re sharing a solution to the Navier–Stokes existence and smoothness problem, one of the Millennium Prize Problems. This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time. We’re sharing both a writeup of the proof and a formalization in Lean.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The Navier–Stokes equations use Newton’s second law of motion (“F=ma”) to describe how fluids move. Importantly, they treat a fluid as a continuous medium rather than tracking individual molecules. These equations are used for aircraft design, weather forecasting, and the study of blood flow.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our system produced an analytical proof and a Lean formalization that an initially smooth fluid at rest can develop a singularity in a finite time. The fluid has a smooth force applied to it, and its energy remains finite through the entire dynamics, from rest to the formation of the singularity. This resolves the Navier–Stokes Millennium Prize problem by establishing statement “C” (and also “D”) in the official Millennium Prize formulation.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The solution is a vortex, a spinning swirl of fluid, that spirals inward and gets increasingly elongated, like spaghetti. This central region shrinks while it speeds up in such a way that its energy still stays finite, as required by the laws of physics.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The group that produced the Navier–Stokes resolution involved on the order of 10,000 concurrent agents.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The agents arrived at their resolution on Saturday, September 5, about 88 hours after the first agents were launched. Lean formalization and verification took an additional 17 hours via GPT‑6 Astra.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "We (the researchers and the agents) did not see any of their work through any means until they released it publicly — in particular, no specific user data was accessed in order to solve this problem.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Following an investigation, we have confirmed that Buckmaster’s Codex prompts over the two months preceding this announcement and paper on September 8, 2026, could not have influenced the system in any way, including through training. The OpenAI internal model used for this result was developed through large-scale reinforcement learning on top of a previously pretrained model. Our proofs also differ significantly.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our goal in releasing this result is to report on the substantial progress of our AI models. We do not intend to claim the Millennium Prize for this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Update — September 10, 2026: We have updated “Concurrent work” with findings from our investigation into whether user inputs could have influenced this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          }
+        ]
+      },
+      {
+        "claimId": "formalization-meaning",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "a proof rewritten so software can check each encoded step against formal rules",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "openai-announcement",
+          "openai-lean-repository"
+        ],
+        "scopeAndFreshness": "Qualified plain-language explanation of the function described by the primary materials.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re sharing a solution to the Navier–Stokes existence and smoothness problem, one of the Millennium Prize Problems. This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time. We’re sharing both a writeup of the proof and a formalization in Lean.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The Navier–Stokes equations use Newton’s second law of motion (“F=ma”) to describe how fluids move. Importantly, they treat a fluid as a continuous medium rather than tracking individual molecules. These equations are used for aircraft design, weather forecasting, and the study of blood flow.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our system produced an analytical proof and a Lean formalization that an initially smooth fluid at rest can develop a singularity in a finite time. The fluid has a smooth force applied to it, and its energy remains finite through the entire dynamics, from rest to the formation of the singularity. This resolves the Navier–Stokes Millennium Prize problem by establishing statement “C” (and also “D”) in the official Millennium Prize formulation.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The solution is a vortex, a spinning swirl of fluid, that spirals inward and gets increasingly elongated, like spaghetti. This central region shrinks while it speeds up in such a way that its energy still stays finite, as required by the laws of physics.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The group that produced the Navier–Stokes resolution involved on the order of 10,000 concurrent agents.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The agents arrived at their resolution on Saturday, September 5, about 88 hours after the first agents were launched. Lean formalization and verification took an additional 17 hours via GPT‑6 Astra.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "We (the researchers and the agents) did not see any of their work through any means until they released it publicly — in particular, no specific user data was accessed in order to solve this problem.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Following an investigation, we have confirmed that Buckmaster’s Codex prompts over the two months preceding this announcement and paper on September 8, 2026, could not have influenced the system in any way, including through training. The OpenAI internal model used for this result was developed through large-scale reinforcement learning on top of a previously pretrained model. Our proofs also differ significantly.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our goal in releasing this result is to report on the substantial progress of our AI models. We do not intend to claim the Millennium Prize for this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Update — September 10, 2026: We have updated “Concurrent work” with findings from our investigation into whether user inputs could have influenced this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "This repository contains Lean 4 formalizations of the results presented in “Finite time blowup for Navier–Stokes” and “Finite time blowup for the Euler equation” by OpenAI.",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "For every positive viscosity, we prove two results:",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "For instructions on checking the formalizations with Comparator, see the ComparatorChallenges README.",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          }
+        ]
+      },
+      {
+        "claimId": "formalization-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Mathematicians must still judge whether the encoded statement and assumptions match the original problem, whether the whole argument is sound and whether the result earns broad acceptance",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "clay-prize-rules",
+          "openai-lean-repository"
+        ],
+        "scopeAndFreshness": "Editorial explanation separating formal checking from community acceptance.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "CMI does not accept direct submission of proposed solutions.",
+            "locator": "https://www.claymath.org/millennium-problems/rules/"
+          },
+          {
+            "excerpt": "Before CMI will consider a proposed solution, all three of the following conditions must be satisfied: (i) the proposed solution must be published in a Qualifying Outlet (see §6), and (ii) at least two years must have passed since publication, and (iii) the proposed solution must have received general acceptance in the global mathematics community",
+            "locator": "https://www.claymath.org/millennium-problems/rules/"
+          },
+          {
+            "excerpt": "This repository contains Lean 4 formalizations of the results presented in “Finite time blowup for Navier–Stokes” and “Finite time blowup for the Euler equation” by OpenAI.",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "For every positive viscosity, we prove two results:",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "For instructions on checking the formalizations with Comparator, see the ComparatorChallenges README.",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          }
+        ]
+      },
+      {
+        "claimId": "clay-process",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "a proposed solution must appear in a qualifying outlet, wait at least two years and receive general acceptance before Clay will consider it",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "clay-prize-rules"
+        ],
+        "scopeAndFreshness": "Primary prize-procedure rule; no prize decision claim.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "CMI does not accept direct submission of proposed solutions.",
+            "locator": "https://www.claymath.org/millennium-problems/rules/"
+          },
+          {
+            "excerpt": "Before CMI will consider a proposed solution, all three of the following conditions must be satisfied: (i) the proposed solution must be published in a Qualifying Outlet (see §6), and (ii) at least two years must have passed since publication, and (iii) the proposed solution must have received general acceptance in the global mathematics community",
+            "locator": "https://www.claymath.org/millennium-problems/rules/"
+          }
+        ]
+      },
+      {
+        "claimId": "no-prize-intent",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says it does not intend to claim the prize",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "openai-announcement"
+        ],
+        "scopeAndFreshness": "Company's current stated intention.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re sharing a solution to the Navier–Stokes existence and smoothness problem, one of the Millennium Prize Problems. This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time. We’re sharing both a writeup of the proof and a formalization in Lean.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The Navier–Stokes equations use Newton’s second law of motion (“F=ma”) to describe how fluids move. Importantly, they treat a fluid as a continuous medium rather than tracking individual molecules. These equations are used for aircraft design, weather forecasting, and the study of blood flow.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our system produced an analytical proof and a Lean formalization that an initially smooth fluid at rest can develop a singularity in a finite time. The fluid has a smooth force applied to it, and its energy remains finite through the entire dynamics, from rest to the formation of the singularity. This resolves the Navier–Stokes Millennium Prize problem by establishing statement “C” (and also “D”) in the official Millennium Prize formulation.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The solution is a vortex, a spinning swirl of fluid, that spirals inward and gets increasingly elongated, like spaghetti. This central region shrinks while it speeds up in such a way that its energy still stays finite, as required by the laws of physics.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The group that produced the Navier–Stokes resolution involved on the order of 10,000 concurrent agents.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The agents arrived at their resolution on Saturday, September 5, about 88 hours after the first agents were launched. Lean formalization and verification took an additional 17 hours via GPT‑6 Astra.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "We (the researchers and the agents) did not see any of their work through any means until they released it publicly — in particular, no specific user data was accessed in order to solve this problem.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Following an investigation, we have confirmed that Buckmaster’s Codex prompts over the two months preceding this announcement and paper on September 8, 2026, could not have influenced the system in any way, including through training. The OpenAI internal model used for this result was developed through large-scale reinforcement learning on top of a previously pretrained model. Our proofs also differ significantly.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our goal in releasing this result is to report on the substantial progress of our AI models. We do not intend to claim the Millennium Prize for this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Update — September 10, 2026: We have updated “Concurrent work” with findings from our investigation into whether user inputs could have influenced this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          }
+        ]
+      },
+      {
+        "claimId": "buckmaster-boundary",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Tristan Buckmaster says he asked whether private Codex sessions containing his group’s drafts had been used. His statement explicitly says he does not know whether the data was used and is not accusing anyone",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "buckmaster-statement"
+        ],
+        "scopeAndFreshness": "Participant account retains his explicit non-accusation and uncertainty.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Today, Levent Alpöge and I have made public three results: finite-time blowup with smooth forcing for incompressible porous media, for Boussinesq, and for 3d incompressible Euler.",
+            "locator": "https://cims.nyu.edu/~tristanb/statement.pdf"
+          },
+          {
+            "excerpt": "The credit for the basic idea of this program goes to Diego Córdoba and Luis Martínez-Zoroa, who for several years have been exploring the construction of forced blow ups.",
+            "locator": "https://cims.nyu.edu/~tristanb/statement.pdf"
+          },
+          {
+            "excerpt": "I asked whether the model had been trained on, or had access to, our sessions in Codex, into which we had been putting all our drafts for the whole of this project. I was told the model did not look up user data. I asked again, about training, and I did not get an answer.",
+            "locator": "https://cims.nyu.edu/~tristanb/statement.pdf"
+          },
+          {
+            "excerpt": "I would like to be clear about what I am not claiming. I have not seen OpenAI’s proof. I do not know what their model did, or how. I do not know whether our data was used. I am not accusing anyone of anything. I am stating what I was told, when, and what was proposed to me.",
+            "locator": "https://cims.nyu.edu/~tristanb/statement.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "openai-investigation",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI’s September 10 update says its own investigation found those prompts could not have influenced its result, including through training",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "openai-announcement"
+        ],
+        "scopeAndFreshness": "Company investigation conclusion, attributed and not treated as an independent finding.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re sharing a solution to the Navier–Stokes existence and smoothness problem, one of the Millennium Prize Problems. This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time. We’re sharing both a writeup of the proof and a formalization in Lean.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The Navier–Stokes equations use Newton’s second law of motion (“F=ma”) to describe how fluids move. Importantly, they treat a fluid as a continuous medium rather than tracking individual molecules. These equations are used for aircraft design, weather forecasting, and the study of blood flow.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our system produced an analytical proof and a Lean formalization that an initially smooth fluid at rest can develop a singularity in a finite time. The fluid has a smooth force applied to it, and its energy remains finite through the entire dynamics, from rest to the formation of the singularity. This resolves the Navier–Stokes Millennium Prize problem by establishing statement “C” (and also “D”) in the official Millennium Prize formulation.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The solution is a vortex, a spinning swirl of fluid, that spirals inward and gets increasingly elongated, like spaghetti. This central region shrinks while it speeds up in such a way that its energy still stays finite, as required by the laws of physics.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The group that produced the Navier–Stokes resolution involved on the order of 10,000 concurrent agents.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The agents arrived at their resolution on Saturday, September 5, about 88 hours after the first agents were launched. Lean formalization and verification took an additional 17 hours via GPT‑6 Astra.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "We (the researchers and the agents) did not see any of their work through any means until they released it publicly — in particular, no specific user data was accessed in order to solve this problem.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Following an investigation, we have confirmed that Buckmaster’s Codex prompts over the two months preceding this announcement and paper on September 8, 2026, could not have influenced the system in any way, including through training. The OpenAI internal model used for this result was developed through large-scale reinforcement learning on top of a previously pretrained model. Our proofs also differ significantly.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our goal in releasing this result is to report on the substantial progress of our AI models. We do not intend to claim the Millennium Prize for this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Update — September 10, 2026: We have updated “Concurrent work” with findings from our investigation into whether user inputs could have influenced this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          }
+        ]
+      },
+      {
+        "claimId": "current-stage",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "specialists can inspect public materials behind a dramatic “AI solved it” headline. Independent verification, community acceptance and any prize decision have not happened in the evidence reviewed here",
+            "locator": "P009"
+          }
+        ],
+        "sourceIds": [
+          "openai-paper",
+          "openai-lean-repository",
+          "clay-prize-rules",
+          "nature-report"
+        ],
+        "scopeAndFreshness": "Current evidence stage; does not deny private review outside the supplied record.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "For every positive viscosity, we construct a solution of the three-dimensional incompressible Navier–Stokes equations that starts from rest and develops unbounded velocity in finite time while maintaining uniformly bounded kinetic energy.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "We construct such a flow with zero initial velocity and a smooth force compactly supported in space and time.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "This establishes alternative (C) in the Millennium problem statement for Navier–Stokes as stated by Fefferman in [ 13]. Compact support also yields the corresponding construction on T3 =R 3/Z3, establishing alternative (D) in [13]; see Corollary 10.6.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "Whether this smoothing is always sufficient to prevent a finite-time singularity in three dimensions lies at the heart of the regularity problem.",
+            "locator": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf"
+          },
+          {
+            "excerpt": "This repository contains Lean 4 formalizations of the results presented in “Finite time blowup for Navier–Stokes” and “Finite time blowup for the Euler equation” by OpenAI.",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "For every positive viscosity, we prove two results:",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "For instructions on checking the formalizations with Comparator, see the ComparatorChallenges README.",
+            "locator": "https://github.com/openai/NavierStokesAndEuler"
+          },
+          {
+            "excerpt": "CMI does not accept direct submission of proposed solutions.",
+            "locator": "https://www.claymath.org/millennium-problems/rules/"
+          },
+          {
+            "excerpt": "Before CMI will consider a proposed solution, all three of the following conditions must be satisfied: (i) the proposed solution must be published in a Qualifying Outlet (see §6), and (ii) at least two years must have passed since publication, and (iii) the proposed solution must have received general acceptance in the global mathematics community",
+            "locator": "https://www.claymath.org/millennium-problems/rules/"
+          },
+          {
+            "excerpt": "For the first time, a truly major open problem in mathematics has been solved by a computer, according to OpenAI, which says it has cracked one of the Millennium Problems, related to the motion of fluids.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "The artificial-intelligence company in San Francisco, California, announced on 8 September that it has generated a solution to the most commonly used physical model of fluids — the Navier–Stokes equations — showing that they can break down.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "OpenAI posted a preprint describing the result on its website.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "“It is certainly an exciting day, as we contemplate the announcement of major advances in the human understanding of mathematics,” says mathematician Martin Bridson, president of the Clay Mathematics Institute.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "On 7 September, Alpöge and Buckmaster released a paper in which they say they had found a solution for the fluid equations that also achieved infinite speed, but in the simplified case in which the fluid has no viscosity.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          }
+        ]
+      },
+      {
+        "claimId": "reader-stage-test",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "ask which stage has happened: announcement, released evidence, independent checking, broad acceptance or formal recognition",
+            "locator": "P010"
+          }
+        ],
+        "sourceIds": [
+          "openai-announcement",
+          "clay-prize-rules",
+          "nature-report"
+        ],
+        "scopeAndFreshness": "Editorial reading tool grounded in the distinct documented stages.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source-evidence.json",
+          "sha256": "d53cf2a15bafb0e87b0efdff880e8aa896dd28d858936217fec7661357bd5282"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re sharing a solution to the Navier–Stokes existence and smoothness problem, one of the Millennium Prize Problems. This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time. We’re sharing both a writeup of the proof and a formalization in Lean.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The Navier–Stokes equations use Newton’s second law of motion (“F=ma”) to describe how fluids move. Importantly, they treat a fluid as a continuous medium rather than tracking individual molecules. These equations are used for aircraft design, weather forecasting, and the study of blood flow.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our system produced an analytical proof and a Lean formalization that an initially smooth fluid at rest can develop a singularity in a finite time. The fluid has a smooth force applied to it, and its energy remains finite through the entire dynamics, from rest to the formation of the singularity. This resolves the Navier–Stokes Millennium Prize problem by establishing statement “C” (and also “D”) in the official Millennium Prize formulation.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The solution is a vortex, a spinning swirl of fluid, that spirals inward and gets increasingly elongated, like spaghetti. This central region shrinks while it speeds up in such a way that its energy still stays finite, as required by the laws of physics.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The group that produced the Navier–Stokes resolution involved on the order of 10,000 concurrent agents.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "The agents arrived at their resolution on Saturday, September 5, about 88 hours after the first agents were launched. Lean formalization and verification took an additional 17 hours via GPT‑6 Astra.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "We (the researchers and the agents) did not see any of their work through any means until they released it publicly — in particular, no specific user data was accessed in order to solve this problem.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Following an investigation, we have confirmed that Buckmaster’s Codex prompts over the two months preceding this announcement and paper on September 8, 2026, could not have influenced the system in any way, including through training. The OpenAI internal model used for this result was developed through large-scale reinforcement learning on top of a previously pretrained model. Our proofs also differ significantly.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Our goal in releasing this result is to report on the substantial progress of our AI models. We do not intend to claim the Millennium Prize for this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "Update — September 10, 2026: We have updated “Concurrent work” with findings from our investigation into whether user inputs could have influenced this result.",
+            "locator": "https://openai.com/index/navier-stokes-solution/"
+          },
+          {
+            "excerpt": "CMI does not accept direct submission of proposed solutions.",
+            "locator": "https://www.claymath.org/millennium-problems/rules/"
+          },
+          {
+            "excerpt": "Before CMI will consider a proposed solution, all three of the following conditions must be satisfied: (i) the proposed solution must be published in a Qualifying Outlet (see §6), and (ii) at least two years must have passed since publication, and (iii) the proposed solution must have received general acceptance in the global mathematics community",
+            "locator": "https://www.claymath.org/millennium-problems/rules/"
+          },
+          {
+            "excerpt": "For the first time, a truly major open problem in mathematics has been solved by a computer, according to OpenAI, which says it has cracked one of the Millennium Problems, related to the motion of fluids.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "The artificial-intelligence company in San Francisco, California, announced on 8 September that it has generated a solution to the most commonly used physical model of fluids — the Navier–Stokes equations — showing that they can break down.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "OpenAI posted a preprint describing the result on its website.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "“It is certainly an exciting day, as we contemplate the announcement of major advances in the human understanding of mathematics,” says mathematician Martin Bridson, president of the Clay Mathematics Institute.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          },
+          {
+            "excerpt": "On 7 September, Alpöge and Buckmaster released a paper in which they say they had found a solution for the fluid equations that also achieved infinite speed, but in the simplified case in which the fluid has no viscosity.",
+            "locator": "https://www.nature.com/articles/d41586-026-02842-5"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen all sources on publication day; redraft for a mathematical error or independent proof verification, a formal journal publication, broad community acceptance, a Clay decision, new underlying evidence on data influence or a correction by any named party.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate reports this September 8 Navier–Stokes claim and its September 10 attribution update."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The source-complete preflight found no unresolved defect after separating the claimed theorem, public materials, formal checking, mathematical acceptance, prize process and attribution accounts."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Public release remains separate."
+  ]
+}

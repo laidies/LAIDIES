@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "openai-data-agent-20260910",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "4638734e2f82548ddb0d25fec7c68589915dbc913f28f29e65f4cd64ea76c963",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can two teams asking the Data agent the same question get different polished dashboards, and why does neither dashboard prove itself right?",
+      "response": "Each answer is produced downstream of three constraints the interface hides: which sources administrators connected, which tables, rows and columns that account's permissions expose, and which metric definition converts records into a number. If one team defines active customers as weekly logins and another as monthly buyers, or one account lacks a region's rows, the totals diverge before rendering. The dashboard's polish reflects presentation, not the correctness of any upstream link, and no external accuracy benchmark exists to certify the agent's reliability.",
+      "expectedEvidence": "An accurate answer must cite the source-definition-permission chain (P007), the diverging active-customer definitions and missing-region permission effect (P008), and ideally the absent external benchmark (P005).",
+      "assessment": "The artifact fully supports this causal answer in ordinary language; all necessary steps are present and correctly ordered, so the explain-back succeeds."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, what should the HR partner check before putting the agent's attrition figure in front of the board, and why?",
+      "response": "Apply the chain: first the source — the staffing tool is unconnected, so contractor departures are invisible to the agent regardless of prompt quality; second the permissions — the missing third region silently lowers headcount and departure totals; third the definition — voluntary-only versus all-departures produces different rates that both render as polished dashboards. The partner should name the connected source and date, state which attrition definition was applied, compare the figure against the trusted HR report, and stop at any discrepancy rather than choosing the convenient number, since no external benchmark certifies the agent's accuracy.",
+      "expectedEvidence": "Correct transfer requires mapping all three constraints from P007 and P008 to the new HR facts, plus the P009 comparison routine and P005 benchmark caveat.",
+      "assessment": "The article's mechanism transfers cleanly to this unseen scenario without needing any concept the article omits; the transfer succeeds."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The release, its capabilities, its setup dependency and its missing benchmark form a clear causal account of what happened and what is unproven.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released a Data agent in ChatGPT Work on September 10. It is a workplace data tool that can connect an approved ChatGPT Work account to company data, investigate a question and build a dashboard. A colleague can ask why sales slowed or where spending rose without first writing a database query.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Availability depends on the workplace setup. The Data plugin appears in ChatGPT Work, where administrators install it, configure its data sources and decide who may use them. OpenAI announced no standalone price for the plugin. That does not settle the cost of ChatGPT Work, the connected data services or any other tools a company needs.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The largest evidence gap is accuracy. VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published. OpenAI described an internal comparison with its own data tools but supplied no public number. There is no independent hands-on benchmark yet showing how reliably the product answers questions across customers' systems.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Permission and metric definition are each given plain meaning at their first meaningful use inside the explanation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The agent can only work with the sources its administrators connect and the records its account is already allowed to see. A <strong>permission</strong> means which tables, rows and columns the connected account is allowed to see. It interprets those records using a <strong>metric definition</strong>: the rule a company uses to decide what a number includes.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a specific recognizable situation: two teams sharing polished dashboards that answer different questions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. A missing region in the account's permissions can change the total again. Permissions help limit access; they do not prove the source is complete, the definition is right for this decision or the agent's explanation of a change is correct.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Before sharing a Data agent result, open the evidence behind its findings. Name the source and date, state the metric definition, and compare one important figure with the trusted report your team already uses. If the totals differ, stop at the difference instead of choosing the more convenient number.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "The linked practice lesson is reader-facing, and all advice follows from documented controls and sourced limits; no internal notes appear.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Before sharing a Data agent result, open the evidence behind its findings. Name the source and date, state the metric definition, and compare one important figure with the trusted report your team already uses. If the totals differ, stop at the difference instead of choosing the more convenient number.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>Keep the action boundary separate from the analysis. OpenAI's current controls distinguish who can use a plugin, which read or write actions it may take and when ChatGPT asks for approval. For an early test, let the agent prepare the dashboard while sending email, posting to Slack or changing a record still requires a person's approval.</p>",
+          "locator": "P010"
+        },
+        {
+          "excerpt": "Practise checking a confident result in <a href='/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it'>Working with AI 101: Trusting the Output (And Checking It)</a>. The lesson shows how to compare an AI output with its source and your acceptance criteria before using it.",
+          "locator": "P014"
+        }
+      ]
+    }
+  }
+}

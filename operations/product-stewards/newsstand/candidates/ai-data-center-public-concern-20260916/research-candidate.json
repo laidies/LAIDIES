@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "newsstand-named-research-candidate-v1",
+  "candidateId": "ai-data-center-public-concern-20260916",
+  "status": "PRIVATE_SOURCE_BOUND_RESEARCH_CANDIDATE",
+  "producer": "/root/aft_school_story",
+  "eventDate": "2026-09-16",
+  "proposedEditionDate": "2026-09-16",
+  "noPublicationDateAssigned": true,
+  "publicationStatus": "NOT_PUBLISHED",
+  "eventIdentity": {
+    "freshEvent": "AP-NORC published a new US poll measuring concern about AI's environmental effects and views about local data-centre limits, electricity, water and clean-energy requirements.",
+    "distinctFromPublished": "The published EPA story explains a proposed change to public participation in data-centre planning. This candidate measures current US public opinion about AI and data-centre impacts. It does not report another permit rule or a measured environmental effect.",
+    "notClaimed": [
+      "No claim that the poll proves data centres caused a specific environmental harm.",
+      "No claim that support for a policy means it has been enacted.",
+      "No claim that all data centres are primarily for AI.",
+      "No women-specific finding."
+    ]
+  },
+  "readerContract": {
+    "reader": "Adult beginners hearing arguments about AI infrastructure, including residents near proposed data centres.",
+    "humanQuestion": "What does this poll actually say people are worried about, and what does it not tell me about a project near me?",
+    "promisedPayoff": "Separate public concern and policy preferences from measured local water, electricity or environmental effects.",
+    "centralMentalModel": "A poll measures what people think; a project record measures what a particular facility is expected to use or change."
+  },
+  "evidence": [
+    {
+      "sourceId": "ap-norc-ai-environment-poll-20260916",
+      "publisher": "Associated Press / AP-NORC",
+      "url": "https://apnews.com/article/ai-environmental-impact-data-centers-trump-228d625ab7c62cd583bc67d65074f7d4",
+      "sourceRole": "Complete AP report and methodology note",
+      "readScope": "Complete rendered article body lines 1750-1876.",
+      "capturePath": "operations/product-stewards/newsstand/evidence/morning-20260916/independent-ap-capture.json",
+      "captureSha256": "d80afe934808a0a5acccd8a9141b4f0a64c5ce5544a12e4a9ceee07f91256741",
+      "sourceBudgetWords": 100,
+      "limits": "Polling reports views and stated policy preferences; it is not direct environmental measurement."
+    },
+    {
+      "sourceId": "ap-norc-poll-interactive-20260916",
+      "publisher": "Associated Press / AP-NORC",
+      "url": "https://interactives.ap.org/embeds/z2kFq/2/",
+      "sourceRole": "Same-family interactive confirming poll method",
+      "readScope": "Complete short rendered embed.",
+      "capturePath": "operations/product-stewards/newsstand/evidence/morning-20260916/independent-ap-capture.json",
+      "captureSha256": "d80afe934808a0a5acccd8a9141b4f0a64c5ce5544a12e4a9ceee07f91256741",
+      "sourceBudgetWords": 0,
+      "limits": "Same publisher/study family; not independent corroboration and shares the AP aggregate budget."
+    }
+  ],
+  "boundedFacts": [
+    "53% of US adults said they were extremely or very concerned about AI's environmental impact, up from 41% in the prior-year poll.",
+    "About six in ten supported limiting new data centres; about two thirds supported clean-energy requirements.",
+    "The poll used 3,424 adult respondents from July 6-24, 2026 and reports a plus or minus 2.2 percentage-point sampling error.",
+    "The sample combined a probability-based panel with opt-in online panels and used NORC calibration intended to address potential nonprobability-sample bias."
+  ],
+  "sourceBudgetContract": {
+    "APFamilyAggregateMaxWords": 100,
+    "allVisibleFieldsCount": true,
+    "samePollInteractiveDoesNotCreateSecondBudget": true,
+    "draftingRequirement": "Allocate every AP-derived visible phrase before producer qualification. Say percentage points, not percent, for the 53 versus 41 comparison."
+  },
+  "limits": [
+    "Keep AI-environment and local-data-centre questions separate.",
+    "State the hybrid sampling method and margin of sampling error in beginner language.",
+    "Do not imply that polling error captures every possible source of survey bias.",
+    "Use a distinct primary project record before making claims about any named local facility.",
+    "Treat policy support as opinion, not law or implementation."
+  ],
+  "nextProducerSteps": [
+    "Editorially decide whether the poll offers enough practical reader payoff beyond the published EPA participation story.",
+    "If proceeding, recover the specific AP-NORC questionnaire/topline or methodology report through a normal legitimate route and bind it as the same poll family.",
+    "Complete the teaching producer contract, exact source-word allocation, live Library binding, visual admission and qualified independent review before any public candidate."
+  ],
+  "notDone": [
+    "No public prose, art, queue, issue, source cursor or coverage mutation.",
+    "No claim of independent corroboration beyond the AP-NORC study family.",
+    "No publication or review admission."
+  ]
+}

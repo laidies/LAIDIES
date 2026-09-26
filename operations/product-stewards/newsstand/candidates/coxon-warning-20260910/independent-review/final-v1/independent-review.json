@@ -1,0 +1,1237 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "coxon-warning-20260910",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/weekly_recovery",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T06:03:59.415Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/review-text.json",
+      "sha256": "75cb4b0b18cc928d7ed7bbf55359b4ee45e6db89393dc64a4ed4b61bb0dc45fc"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/publication-manifest.json",
+      "sha256": "1b3f72b0d07e0c69754c2d13ab1c91b7565af1982605ff6054ec5e69fc27045a"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/rendered-article.html",
+      "sha256": "6e0402ea65e8af7819c1b1d6552cd32ed470dfaf3b2464baf0bf6ef65c4cd425"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "A researcher quit a major AI lab warning of catastrophe — what actually happened, and how seriously should I take the scary predictions?",
+    "promisedPayoff": "The reader can separate the verified resignation from testimony, personal forecasts, a proposal and a company policy, and gains a reusable method for judging frightening percentages.",
+    "centralMentalModel": "Different statements carry different evidence types: an observed event, first-hand testimony, a personal forecast, a proposal and a self-authored company framework must each be weighed on its own terms.",
+    "dailyLifeConnection": "Whenever a striking percentage appears in coverage, ask who estimated it, what method produced it and what evidence would change it before treating precision as proof.",
+    "surfaceJob": "A dated daily news article explaining the September 9 Coxon resignation, the Hubinger estimate and Anthropic's response within proper evidential bounds.",
+    "desiredReaderFeeling": "Informed and calm: able to take the warning seriously without mistaking a forecast for a finding."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every sentence is followable without AI training; recursive self-improvement is defined in plain words at first use and the loop mechanism is stated in ordinary language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Coxon proposed that OpenAI and Anthropic agree to limit <strong>recursive self-improvement</strong>, meaning using AI to help build the next AI systems. He named biological and cyber harm as possible risks, at a high level. The reviewed sources do not establish that either has happened.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The mechanism behind his concern is a loop. If companies use current AI to accelerate work on the next systems, competition could compress the time available for safety research and public rules. Coxon predicts that pressure; the sources do not establish when such a loop will begin, how quickly it would move or the probability of catastrophe.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>A second Anthropic researcher, Evan Hubinger, wrote separately that he personally thinks there is a greater than 10 percent chance AI could kill everyone within the next decade. “Personally” matters. The post supplies no calculation, model or survey, so this is a <strong>personal forecast</strong>—one person’s estimate about an uncertain future, not a measured past rate. It is not a company probability or a measured fatality rate.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader gains a working taxonomy of evidence types and a three-question method for probability claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a frightening percentage appears in AI coverage, ask three connected questions: Who estimated it? What method produced it? What evidence would change it? A count of past events, a forecast from a disclosed model, a survey of experts and one person’s estimate can all use percentages, but they are different kinds of evidence.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>The public question is who can verify safety claims and set the pace when companies compete. Coxon’s slowdown is a proposal, Anthropic’s policy is its own framework, and no reviewed source establishes a binding agreement or present catastrophe. The warning deserves scrutiny without being promoted into a finding.</p>",
+          "locator": "P010"
+        },
+        {
+          "excerpt": "A percentage can describe observed events or express a forecast. Ask who produced it, what method supports it and what evidence would change it before treating precision as proof.",
+          "locator": "P012"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid adult register — 'Personally matters' and 'a fact an alarming headline can flatten' are conversational without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A second Anthropic researcher, Evan Hubinger, wrote separately that he personally thinks there is a greater than 10 percent chance AI could kill everyone within the next decade. “Personally” matters. The post supplies no calculation, model or survey, so this is a <strong>personal forecast</strong>—one person’s estimate about an uncertain future, not a measured past rate. It is not a company probability or a measured fatality rate.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Coxon’s employment gives him first-hand perspective, and resigning puts his judgment on the public record. It does not independently verify his predictions. WIRED’s interview preserves a fact an alarming headline can flatten: Coxon says the corner-cutting he fears is ahead, not happening now at Anthropic.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "“Jacob Coxon resigned from Anthropic and warned that competition could make AI development outrun safety work. He says Anthropic is not cutting corners now, and Evan Hubinger’s greater-than-10-percent figure is Hubinger’s personal forecast—not a measured rate or company estimate.”",
+          "locator": "P011"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The human stakes (a researcher risking his career to warn) and the tension between alarm and evidence sustain interest without spectacle.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 9, Jacob Coxon said he had resigned from Anthropic after three years working on AI pretraining at Anthropic and OpenAI. He accused both companies of racing toward increasingly self-improving AI and “gambling with our lives.” The resignation and statement are verified events. The outcome he fears is a forecast.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Coxon’s employment gives him first-hand perspective, and resigning puts his judgment on the public record. It does not independently verify his predictions. WIRED’s interview preserves a fact an alarming headline can flatten: Coxon says the corner-cutting he fears is ahead, not happening now at Anthropic.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>The public question is who can verify safety claims and set the pace when companies compete. Coxon’s slowdown is a proposal, Anthropic’s policy is its own framework, and no reviewed source establishes a binding agreement or present catastrophe. The warning deserves scrutiny without being promoted into a finding.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated news article: it answers what happened on September 9, why, and what it means, within a bounded scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 9, Jacob Coxon said he had resigned from Anthropic after three years working on AI pretraining at Anthropic and OpenAI. He accused both companies of racing toward increasingly self-improving AI and “gambling with our lives.” The resignation and statement are verified events. The outcome he fears is a forecast.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Anthropic told WIRED it supports a lawful, verifiable way for the industry to pace powerful-model releases. Its current policy describes company risk reports and allows Anthropic to pause development. That framework is not independent proof that its safeguards work or an industry agreement.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The public question is who can verify safety claims and set the pace when companies compete. Coxon’s slowdown is a proposal, Anthropic’s policy is its own framework, and no reviewed source establishes a binding agreement or present catastrophe. The warning deserves scrutiny without being promoted into a finding.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The percentage-reading move connects directly to how any professional encounters risk figures in coverage or workplace claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a frightening percentage appears in AI coverage, ask three connected questions: Who estimated it? What method produced it? What evidence would change it? A count of past events, a forecast from a disclosed model, a survey of experts and one person’s estimate can all use percentages, but they are different kinds of evidence.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "A percentage can describe observed events or express a forecast. Ask who produced it, what method supports it and what evidence would change it before treating precision as proof.",
+          "locator": "P012"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose leads (why the resignation matters), causality is concrete (the competition-compression loop), and a better next question is supplied; no imitation of any communicator's voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The mechanism behind his concern is a loop. If companies use current AI to accelerate work on the next systems, competition could compress the time available for safety research and public rules. Coxon predicts that pressure; the sources do not establish when such a loop will begin, how quickly it would move or the probability of catastrophe.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>When a frightening percentage appears in AI coverage, ask three connected questions: Who estimated it? What method produced it? What evidence would change it? A count of past events, a forecast from a disclosed model, a survey of experts and one person’s estimate can all use percentages, but they are different kinds of evidence.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>The public question is who can verify safety claims and set the pace when companies compete. Coxon’s slowdown is a proposal, Anthropic’s policy is its own framework, and no reviewed source establishes a binding agreement or present catastrophe. The warning deserves scrutiny without being promoted into a finding.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The loop mechanism in P008 lets a reader accurately answer why Coxon fears future rather than present corner-cutting; my explain-back below succeeded from article content alone.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>In a direct interview, Coxon told WIRED that Anthropic takes safety more seriously than OpenAI in his experience. Asked whether Anthropic was already cutting corners, he answered, “No, not yet.” His warning is that competition could force future trade-offs between safety and speed.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Coxon’s employment gives him first-hand perspective, and resigning puts his judgment on the public record. It does not independently verify his predictions. WIRED’s interview preserves a fact an alarming headline can flatten: Coxon says the corner-cutting he fears is ahead, not happening now at Anthropic.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>The mechanism behind his concern is a loop. If companies use current AI to accelerate work on the next systems, competition could compress the time available for safety research and public rules. Coxon predicts that pressure; the sources do not establish when such a loop will begin, how quickly it would move or the probability of catastrophe.</p>",
+          "locator": "P008"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why does Coxon say Anthropic is not cutting corners now yet still warn of catastrophe — what causal mechanism connects a currently careful company to future danger?",
+        "response": "Coxon's fear is a feedback loop: if companies use today's AI to accelerate building the next AI systems, each generation arrives faster, and competitive pressure to keep pace compresses the time available for safety research and public rulemaking. So a company that is careful today can be forced into safety-versus-speed trade-offs tomorrow — the danger comes from the race dynamics, not from present misconduct. That is why he proposes an inter-company agreement to limit recursive self-improvement rather than accusing Anthropic of current corner-cutting.",
+        "expectedEvidence": "An accurate answer must cite the acceleration loop, the competition-compresses-safety-time step, the present/future boundary from the WIRED interview, and the proposal as the remedy aimed at the loop.",
+        "assessment": "The article supports this fully: P003 gives the 'No, not yet' boundary, P008 supplies the loop mechanism and its unknowns, and P004 links the proposal to the mechanism. Explain-back passes."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The evidence-type taxonomy and three-question test transfer cleanly to new percentage claims; my invented scenario below resolves using only the article's method.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A second Anthropic researcher, Evan Hubinger, wrote separately that he personally thinks there is a greater than 10 percent chance AI could kill everyone within the next decade. “Personally” matters. The post supplies no calculation, model or survey, so this is a <strong>personal forecast</strong>—one person’s estimate about an uncertain future, not a measured past rate. It is not a company probability or a measured fatality rate.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>When a frightening percentage appears in AI coverage, ask three connected questions: Who estimated it? What method produced it? What evidence would change it? A count of past events, a forecast from a disclosed model, a survey of experts and one person’s estimate can all use percentages, but they are different kinds of evidence.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "A percentage can describe observed events or express a forecast. Ask who produced it, what method supports it and what evidence would change it before treating precision as proof.",
+          "locator": "P012"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's method, how should a reader weigh the 25 percent figure and the engineer's departure?",
+        "response": "Separate the evidence types: the resignation and statements are verified events; her account of passing tests and investor pressure is first-hand testimony that gains credibility from insider access but is not an audit; the 25 percent is a personal forecast unless she discloses a calculation, model or survey — so ask who estimated it, what method produced it and what evidence would change it. Her 'passes every test now' concession is the boundary an alarming headline could flatten: the feared harm is future pressure, not present failure. Any company response citing its own safety framework is a self-authored policy, not independent proof.",
+        "expectedEvidence": "Correct application distinguishes event, testimony, forecast and framework; applies the three-question test to the percentage; and preserves the present-versus-future boundary.",
+        "assessment": "The article's taxonomy (P006), three-question method (P009, P012) and boundary-preservation move (P007) resolve this new scenario completely; transfer passes."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The action is specific and proportionate: ask who estimated a figure, what method produced it and what evidence would change it — not generic 'be careful'.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a frightening percentage appears in AI coverage, ask three connected questions: Who estimated it? What method produced it? What evidence would change it? A count of past events, a forecast from a disclosed model, a survey of experts and one person’s estimate can all use percentages, but they are different kinds of evidence.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "A percentage can describe observed events or express a forecast. Ask who produced it, what method supports it and what evidence would change it before treating precision as proof.",
+          "locator": "P012"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The only figurative device is the 'loop' description, which maps the actual causal mechanism (AI accelerating next-generation development compressing safety time) and keeps its limits explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The mechanism behind his concern is a loop. If companies use current AI to accelerate work on the next systems, competition could compress the time available for safety research and public rules. Coxon predicts that pressure; the sources do not establish when such a loop will begin, how quickly it would move or the probability of catastrophe.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "All twelve material claims trace to their assigned sources with correct attribution; direct quotes ('gambling with our lives', 'No, not yet', '>10%') match the source excerpts, and every source limitation is carried into the prose.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 9, Jacob Coxon said he had resigned from Anthropic after three years working on AI pretraining at Anthropic and OpenAI. He accused both companies of racing toward increasingly self-improving AI and “gambling with our lives.” The resignation and statement are verified events. The outcome he fears is a forecast.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>In a direct interview, Coxon told WIRED that Anthropic takes safety more seriously than OpenAI in his experience. Asked whether Anthropic was already cutting corners, he answered, “No, not yet.” His warning is that competition could force future trade-offs between safety and speed.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A second Anthropic researcher, Evan Hubinger, wrote separately that he personally thinks there is a greater than 10 percent chance AI could kill everyone within the next decade. “Personally” matters. The post supplies no calculation, model or survey, so this is a <strong>personal forecast</strong>—one person’s estimate about an uncertain future, not a measured past rate. It is not a company probability or a measured fatality rate.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Events are dated September 9, sources are listed with September 10 access dates and URLs, and the article names lastCheckedAt; every time-sensitive claim is checkable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 9, Jacob Coxon said he had resigned from Anthropic after three years working on AI pretraining at Anthropic and OpenAI. He accused both companies of racing toward increasingly self-improving AI and “gambling with our lives.” The resignation and statement are verified events. The outcome he fears is a forecast.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Anthropic told WIRED it supports a lawful, verifiable way for the industry to pace powerful-model releases. Its current policy describes company risk reports and allows Anthropic to pause development. That framework is not independent proof that its safeguards work or an industry agreement.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The public question is who can verify safety claims and set the pace when companies compete. Coxon’s slowdown is a proposal, Anthropic’s policy is its own framework, and no reviewed source establishes a binding agreement or present catastrophe. The warning deserves scrutiny without being promoted into a finding.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article cleanly distinguishes the new September 9 statements from Anthropic's pre-existing standing policy framework and from feared future events.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 9, Jacob Coxon said he had resigned from Anthropic after three years working on AI pretraining at Anthropic and OpenAI. He accused both companies of racing toward increasingly self-improving AI and “gambling with our lives.” The resignation and statement are verified events. The outcome he fears is a forecast.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Anthropic told WIRED it supports a lawful, verifiable way for the industry to pace powerful-model releases. Its current policy describes company risk reports and allows Anthropic to pause development. That framework is not independent proof that its safeguards work or an industry agreement.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The mechanism behind his concern is a loop. If companies use current AI to accelerate work on the next systems, competition could compress the time available for safety research and public rules. Coxon predicts that pressure; the sources do not establish when such a loop will begin, how quickly it would move or the probability of catastrophe.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (compressed safety time, proposed limits) while uncertainty explicitly survives: timing, speed and probability are stated as unestablished, and the warning is not promoted into a finding.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The mechanism behind his concern is a loop. If companies use current AI to accelerate work on the next systems, competition could compress the time available for safety research and public rules. Coxon predicts that pressure; the sources do not establish when such a loop will begin, how quickly it would move or the probability of catastrophe.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>When a frightening percentage appears in AI coverage, ask three connected questions: Who estimated it? What method produced it? What evidence would change it? A count of past events, a forecast from a disclosed model, a survey of experts and one person’s estimate can all use percentages, but they are different kinds of evidence.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>The public question is who can verify safety claims and set the pace when companies compete. Coxon’s slowdown is a proposal, Anthropic’s policy is its own framework, and no reviewed source establishes a binding agreement or present catastrophe. The warning deserves scrutiny without being promoted into a finding.</p>",
+          "locator": "P010"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Terms are defined in service of the running explanation, not as a detached glossary.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop the story progressively; no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The loop description is a working causal model, not decoration; no other analogies appear.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The competition-compresses-safety-time mechanism is spelled out step by step in P008.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The action is a concrete three-question test for percentage claims, not vague vigilance.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Recursive self-improvement and personal forecast are both explained at first meaningful use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Resignation, testimony, forecast, proposal and policy are explicitly connected in the closing synthesis.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is repeatedly bounded: forecasts are labelled forecasts and unknowns are named.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Every time-sensitive claim is dated September 9-10 and traced to a listed reviewed source.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete throughout; Anthropic's corporate response is quoted then immediately qualified.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Human stakes and candid asides keep the piece from becoming a checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is named or leaned on.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's promise is fully delivered: what he warned and how much weight it deserves.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The percentage-reading example returns directly to the technical distinction between evidence types.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The voice is original and consistent; no imitation of a known communicator.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle displaces the explanation; tone is measured.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The mechanism paragraph receives full development rather than being rushed after the headline.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Conclusions about evidence weight arrive after the supporting distinctions are established.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending explicitly refuses inflation: the warning 'deserves scrutiny without being promoted into a finding'.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers event, testimony, forecast, proposal and framework — the full reader job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human reason (a researcher's public warning) precedes the loop mechanism.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not applicable in force; the single news event is the proper scope and no example crowds it out.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The organising perspective is the reader's evidential judgment, exactly right for a bounded news report.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+        "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "resignation",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>On September 9, Jacob Coxon said he had resigned from Anthropic after three years working on AI pretraining at Anthropic and OpenAI. He accused both companies of racing toward increasingly self-improving AI and “gambling with our lives.” The resignation and statement are verified events. The outcome he fears is a forecast.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Published 2026-09-09T00:04:29.000Z. I resigned from Anthropic today. I spent the last three years doing pretraining research at both OpenAI and Anthropic. Neither company is acting responsibly. They are racing straight to self-improving superintelligence and gambling with our lives. More thoughts below.",
+            "locator": "https://x.com/hilbertspaess/status/2097476196791709843"
+          },
+          {
+            "excerpt": "Primary September 9 resignation statement and Coxon's own allegation. Limitation: This establishes Coxon's resignation statement and stated experience. His claims about company responsibility, future systems and danger are his judgments, not independently measured findings.",
+            "locator": "https://x.com/hilbertspaess/status/2097476196791709843"
+          },
+          {
+            "excerpt": "WIRED reports that Coxon worked on pretraining at Anthropic and previously worked at OpenAI. Coxon told WIRED that possible threats could include AI-enabled biological threats or cyberweapons; WIRED did not establish either feared outcome as having occurred. Coxon recommends that OpenAI and Anthropic coordinate on limiting recursive self-improvement—the use of AI to build new AI systems—and ultimately seeks international coordination. Coxon said Anthropic operates more responsibly than OpenAI in his experience, but predicted that competition could force future trade-offs between rigor and safety. Asked whether Anthropic was already cutting corners, Coxon answered: No, not yet. It's not cutting any corners. Anthropic told WIRED that the industry would benefit from a lawful, verifiable way to work together to pace releases of powerful models. OpenAI did not return WIRED's request for comment.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          },
+          {
+            "excerpt": "Independent September 9 reporting based on a direct, published interview with Coxon and a response from Anthropic. Limitation: The interview is direct testimony and reporting, not an independent audit of either company, proof of future self-improving systems or validation of a catastrophe probability.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          },
+          {
+            "excerpt": "ABC reported Coxon's September 9 resignation statement and his work at Anthropic and OpenAI. ABC separately reported Hubinger's personal greater-than-ten-percent estimate and his statement that Anthropic was trying its best.",
+            "locator": "https://www.abc.net.au/news/2026-09-09/anthropic-researcher-coxon-quits-over-human-threat/107134164"
+          },
+          {
+            "excerpt": "Independent September 9 confirmation and contextual reporting on the resignation and separate Hubinger statement. Limitation: ABC confirms the public statements and context; it does not independently validate their future-risk estimates.",
+            "locator": "https://www.abc.net.au/news/2026-09-09/anthropic-researcher-coxon-quits-over-human-threat/107134164"
+          }
+        ],
+        "scopeAndFreshness": "Coxon's September 9 post states he resigned that day after three years of pretraining research at OpenAI and Anthropic; WIRED and ABC independently report the resignation and background. Article attributes it as his statement."
+      },
+      {
+        "claimId": "coxon-allegation",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>On September 9, Jacob Coxon said he had resigned from Anthropic after three years working on AI pretraining at Anthropic and OpenAI. He accused both companies of racing toward increasingly self-improving AI and “gambling with our lives.” The resignation and statement are verified events. The outcome he fears is a forecast.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Published 2026-09-09T00:04:29.000Z. I resigned from Anthropic today. I spent the last three years doing pretraining research at both OpenAI and Anthropic. Neither company is acting responsibly. They are racing straight to self-improving superintelligence and gambling with our lives. More thoughts below.",
+            "locator": "https://x.com/hilbertspaess/status/2097476196791709843"
+          },
+          {
+            "excerpt": "Primary September 9 resignation statement and Coxon's own allegation. Limitation: This establishes Coxon's resignation statement and stated experience. His claims about company responsibility, future systems and danger are his judgments, not independently measured findings.",
+            "locator": "https://x.com/hilbertspaess/status/2097476196791709843"
+          }
+        ],
+        "scopeAndFreshness": "The primary post says both companies 'are racing straight to self-improving superintelligence and gambling with our lives'; the article's paraphrase and quote match and are attributed as his accusation."
+      },
+      {
+        "claimId": "no-current-corners",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>In a direct interview, Coxon told WIRED that Anthropic takes safety more seriously than OpenAI in his experience. Asked whether Anthropic was already cutting corners, he answered, “No, not yet.” His warning is that competition could force future trade-offs between safety and speed.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>Coxon’s employment gives him first-hand perspective, and resigning puts his judgment on the public record. It does not independently verify his predictions. WIRED’s interview preserves a fact an alarming headline can flatten: Coxon says the corner-cutting he fears is ahead, not happening now at Anthropic.</p>",
+            "locator": "P007"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WIRED reports that Coxon worked on pretraining at Anthropic and previously worked at OpenAI. Coxon told WIRED that possible threats could include AI-enabled biological threats or cyberweapons; WIRED did not establish either feared outcome as having occurred. Coxon recommends that OpenAI and Anthropic coordinate on limiting recursive self-improvement—the use of AI to build new AI systems—and ultimately seeks international coordination. Coxon said Anthropic operates more responsibly than OpenAI in his experience, but predicted that competition could force future trade-offs between rigor and safety. Asked whether Anthropic was already cutting corners, Coxon answered: No, not yet. It's not cutting any corners. Anthropic told WIRED that the industry would benefit from a lawful, verifiable way to work together to pace releases of powerful models. OpenAI did not return WIRED's request for comment.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          },
+          {
+            "excerpt": "Independent September 9 reporting based on a direct, published interview with Coxon and a response from Anthropic. Limitation: The interview is direct testimony and reporting, not an independent audit of either company, proof of future self-improving systems or validation of a catastrophe probability.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          }
+        ],
+        "scopeAndFreshness": "WIRED's excerpt records the exact exchange: asked whether Anthropic was already cutting corners, Coxon answered 'No, not yet.' The article quotes it accurately and preserves the boundary."
+      },
+      {
+        "claimId": "future-pressure",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>In a direct interview, Coxon told WIRED that Anthropic takes safety more seriously than OpenAI in his experience. Asked whether Anthropic was already cutting corners, he answered, “No, not yet.” His warning is that competition could force future trade-offs between safety and speed.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>The mechanism behind his concern is a loop. If companies use current AI to accelerate work on the next systems, competition could compress the time available for safety research and public rules. Coxon predicts that pressure; the sources do not establish when such a loop will begin, how quickly it would move or the probability of catastrophe.</p>",
+            "locator": "P008"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WIRED reports that Coxon worked on pretraining at Anthropic and previously worked at OpenAI. Coxon told WIRED that possible threats could include AI-enabled biological threats or cyberweapons; WIRED did not establish either feared outcome as having occurred. Coxon recommends that OpenAI and Anthropic coordinate on limiting recursive self-improvement—the use of AI to build new AI systems—and ultimately seeks international coordination. Coxon said Anthropic operates more responsibly than OpenAI in his experience, but predicted that competition could force future trade-offs between rigor and safety. Asked whether Anthropic was already cutting corners, Coxon answered: No, not yet. It's not cutting any corners. Anthropic told WIRED that the industry would benefit from a lawful, verifiable way to work together to pace releases of powerful models. OpenAI did not return WIRED's request for comment.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          },
+          {
+            "excerpt": "Independent September 9 reporting based on a direct, published interview with Coxon and a response from Anthropic. Limitation: The interview is direct testimony and reporting, not an independent audit of either company, proof of future self-improving systems or validation of a catastrophe probability.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          }
+        ],
+        "scopeAndFreshness": "WIRED reports Coxon predicted competition could force future trade-offs between rigor and safety; the article frames this correctly as his prediction, not a finding."
+      },
+      {
+        "claimId": "proposal-definition",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Coxon proposed that OpenAI and Anthropic agree to limit <strong>recursive self-improvement</strong>, meaning using AI to help build the next AI systems. He named biological and cyber harm as possible risks, at a high level. The reviewed sources do not establish that either has happened.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WIRED reports that Coxon worked on pretraining at Anthropic and previously worked at OpenAI. Coxon told WIRED that possible threats could include AI-enabled biological threats or cyberweapons; WIRED did not establish either feared outcome as having occurred. Coxon recommends that OpenAI and Anthropic coordinate on limiting recursive self-improvement—the use of AI to build new AI systems—and ultimately seeks international coordination. Coxon said Anthropic operates more responsibly than OpenAI in his experience, but predicted that competition could force future trade-offs between rigor and safety. Asked whether Anthropic was already cutting corners, Coxon answered: No, not yet. It's not cutting any corners. Anthropic told WIRED that the industry would benefit from a lawful, verifiable way to work together to pace releases of powerful models. OpenAI did not return WIRED's request for comment.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          },
+          {
+            "excerpt": "Independent September 9 reporting based on a direct, published interview with Coxon and a response from Anthropic. Limitation: The interview is direct testimony and reporting, not an independent audit of either company, proof of future self-improving systems or validation of a catastrophe probability.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          }
+        ],
+        "scopeAndFreshness": "WIRED reports Coxon recommends OpenAI and Anthropic coordinate on limiting recursive self-improvement, defined as using AI to build new AI systems; the article's definition matches the source's."
+      },
+      {
+        "claimId": "risk-boundary",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Coxon proposed that OpenAI and Anthropic agree to limit <strong>recursive self-improvement</strong>, meaning using AI to help build the next AI systems. He named biological and cyber harm as possible risks, at a high level. The reviewed sources do not establish that either has happened.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WIRED reports that Coxon worked on pretraining at Anthropic and previously worked at OpenAI. Coxon told WIRED that possible threats could include AI-enabled biological threats or cyberweapons; WIRED did not establish either feared outcome as having occurred. Coxon recommends that OpenAI and Anthropic coordinate on limiting recursive self-improvement—the use of AI to build new AI systems—and ultimately seeks international coordination. Coxon said Anthropic operates more responsibly than OpenAI in his experience, but predicted that competition could force future trade-offs between rigor and safety. Asked whether Anthropic was already cutting corners, Coxon answered: No, not yet. It's not cutting any corners. Anthropic told WIRED that the industry would benefit from a lawful, verifiable way to work together to pace releases of powerful models. OpenAI did not return WIRED's request for comment.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          },
+          {
+            "excerpt": "Independent September 9 reporting based on a direct, published interview with Coxon and a response from Anthropic. Limitation: The interview is direct testimony and reporting, not an independent audit of either company, proof of future self-improving systems or validation of a catastrophe probability.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          }
+        ],
+        "scopeAndFreshness": "WIRED reports Coxon named AI-enabled biological threats or cyberweapons as possible threats and did not establish either as having occurred; the article states both the risks and the non-occurrence limit."
+      },
+      {
+        "claimId": "anthropic-response",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Anthropic told WIRED it supports a lawful, verifiable way for the industry to pace powerful-model releases. Its current policy describes company risk reports and allows Anthropic to pause development. That framework is not independent proof that its safeguards work or an industry agreement.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WIRED reports that Coxon worked on pretraining at Anthropic and previously worked at OpenAI. Coxon told WIRED that possible threats could include AI-enabled biological threats or cyberweapons; WIRED did not establish either feared outcome as having occurred. Coxon recommends that OpenAI and Anthropic coordinate on limiting recursive self-improvement—the use of AI to build new AI systems—and ultimately seeks international coordination. Coxon said Anthropic operates more responsibly than OpenAI in his experience, but predicted that competition could force future trade-offs between rigor and safety. Asked whether Anthropic was already cutting corners, Coxon answered: No, not yet. It's not cutting any corners. Anthropic told WIRED that the industry would benefit from a lawful, verifiable way to work together to pace releases of powerful models. OpenAI did not return WIRED's request for comment.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          },
+          {
+            "excerpt": "Independent September 9 reporting based on a direct, published interview with Coxon and a response from Anthropic. Limitation: The interview is direct testimony and reporting, not an independent audit of either company, proof of future self-improving systems or validation of a catastrophe probability.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          }
+        ],
+        "scopeAndFreshness": "WIRED's excerpt records Anthropic saying the industry would benefit from a lawful, verifiable way to pace releases of powerful models; the article paraphrases faithfully with attribution to WIRED."
+      },
+      {
+        "claimId": "rsp-framework",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Anthropic told WIRED it supports a lawful, verifiable way for the industry to pace powerful-model releases. Its current policy describes company risk reports and allows Anthropic to pause development. That framework is not independent proof that its safeguards work or an industry agreement.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The page says Risk Reports describe how Anthropic sees its systems' risks and its preparedness, particularly catastrophic risks addressed by the policy. The July 8 version 3.4 update revises its automated-R&D threshold and external-review provisions. The page says Anthropic remains free to pause development when it deems a pause appropriate.",
+            "locator": "https://www.anthropic.com/responsible-scaling-policy"
+          },
+          {
+            "excerpt": "Current primary company policy describing Anthropic's own risk-reporting and pause framework. Limitation: This is Anthropic's own governance framework. It does not independently prove that safeguards work, settle Coxon's forecast or establish an industry-wide pacing agreement.",
+            "locator": "https://www.anthropic.com/responsible-scaling-policy"
+          }
+        ],
+        "scopeAndFreshness": "The RSP page describes Risk Reports and states Anthropic remains free to pause development; the article adds the correct limitation that this is a self-authored framework, not independent proof."
+      },
+      {
+        "claimId": "hubinger-estimate",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>A second Anthropic researcher, Evan Hubinger, wrote separately that he personally thinks there is a greater than 10 percent chance AI could kill everyone within the next decade. “Personally” matters. The post supplies no calculation, model or survey, so this is a <strong>personal forecast</strong>—one person’s estimate about an uncertain future, not a measured past rate. It is not a company probability or a measured fatality rate.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Published 2026-09-09T01:27:18.000Z. Jacob is correct here—we really do earnestly believe AI could kill all humans! I personally think it is >10% within the next decade. I believe Anthropic is trying its best, but we do not yet have a plan to solve alignment for superintelligence and are not clearly on track to.",
+            "locator": "https://x.com/EvanHub/status/2097497037956891126"
+          },
+          {
+            "excerpt": "Primary September 9 statement of Hubinger's personal probability estimate and alignment concern. Limitation: The greater-than-ten-percent figure is explicitly Hubinger's personal forecast. The post supplies no calculation, model, survey or consensus measurement.",
+            "locator": "https://x.com/EvanHub/status/2097497037956891126"
+          },
+          {
+            "excerpt": "ABC reported Coxon's September 9 resignation statement and his work at Anthropic and OpenAI. ABC separately reported Hubinger's personal greater-than-ten-percent estimate and his statement that Anthropic was trying its best.",
+            "locator": "https://www.abc.net.au/news/2026-09-09/anthropic-researcher-coxon-quits-over-human-threat/107134164"
+          },
+          {
+            "excerpt": "Independent September 9 confirmation and contextual reporting on the resignation and separate Hubinger statement. Limitation: ABC confirms the public statements and context; it does not independently validate their future-risk estimates.",
+            "locator": "https://www.abc.net.au/news/2026-09-09/anthropic-researcher-coxon-quits-over-human-threat/107134164"
+          }
+        ],
+        "scopeAndFreshness": "Hubinger's post says 'I personally think it is >10% within the next decade' that AI could kill all humans; ABC reported the same estimate. The article reproduces the figure, timeframe and the 'personally' qualifier exactly."
+      },
+      {
+        "claimId": "estimate-limit",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>A second Anthropic researcher, Evan Hubinger, wrote separately that he personally thinks there is a greater than 10 percent chance AI could kill everyone within the next decade. “Personally” matters. The post supplies no calculation, model or survey, so this is a <strong>personal forecast</strong>—one person’s estimate about an uncertain future, not a measured past rate. It is not a company probability or a measured fatality rate.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Published 2026-09-09T01:27:18.000Z. Jacob is correct here—we really do earnestly believe AI could kill all humans! I personally think it is >10% within the next decade. I believe Anthropic is trying its best, but we do not yet have a plan to solve alignment for superintelligence and are not clearly on track to.",
+            "locator": "https://x.com/EvanHub/status/2097497037956891126"
+          },
+          {
+            "excerpt": "Primary September 9 statement of Hubinger's personal probability estimate and alignment concern. Limitation: The greater-than-ten-percent figure is explicitly Hubinger's personal forecast. The post supplies no calculation, model, survey or consensus measurement.",
+            "locator": "https://x.com/EvanHub/status/2097497037956891126"
+          }
+        ],
+        "scopeAndFreshness": "The Hubinger post excerpt contains only the bare estimate and belief statements; the stated source limitation confirms no calculation, model or survey accompanies it, matching the article's characterization as a personal forecast."
+      },
+      {
+        "claimId": "unknowns",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The mechanism behind his concern is a loop. If companies use current AI to accelerate work on the next systems, competition could compress the time available for safety research and public rules. Coxon predicts that pressure; the sources do not establish when such a loop will begin, how quickly it would move or the probability of catastrophe.</p>",
+            "locator": "P008"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WIRED reports that Coxon worked on pretraining at Anthropic and previously worked at OpenAI. Coxon told WIRED that possible threats could include AI-enabled biological threats or cyberweapons; WIRED did not establish either feared outcome as having occurred. Coxon recommends that OpenAI and Anthropic coordinate on limiting recursive self-improvement—the use of AI to build new AI systems—and ultimately seeks international coordination. Coxon said Anthropic operates more responsibly than OpenAI in his experience, but predicted that competition could force future trade-offs between rigor and safety. Asked whether Anthropic was already cutting corners, Coxon answered: No, not yet. It's not cutting any corners. Anthropic told WIRED that the industry would benefit from a lawful, verifiable way to work together to pace releases of powerful models. OpenAI did not return WIRED's request for comment.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          },
+          {
+            "excerpt": "Independent September 9 reporting based on a direct, published interview with Coxon and a response from Anthropic. Limitation: The interview is direct testimony and reporting, not an independent audit of either company, proof of future self-improving systems or validation of a catastrophe probability.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          },
+          {
+            "excerpt": "Published 2026-09-09T01:27:18.000Z. Jacob is correct here—we really do earnestly believe AI could kill all humans! I personally think it is >10% within the next decade. I believe Anthropic is trying its best, but we do not yet have a plan to solve alignment for superintelligence and are not clearly on track to.",
+            "locator": "https://x.com/EvanHub/status/2097497037956891126"
+          },
+          {
+            "excerpt": "Primary September 9 statement of Hubinger's personal probability estimate and alignment concern. Limitation: The greater-than-ten-percent figure is explicitly Hubinger's personal forecast. The post supplies no calculation, model, survey or consensus measurement.",
+            "locator": "https://x.com/EvanHub/status/2097497037956891126"
+          }
+        ],
+        "scopeAndFreshness": "Neither the WIRED interview nor the Hubinger post supplies timing, speed or a validated catastrophe probability for the acceleration loop; both source limitations explicitly say the estimates are not validated, so the article's stated unknowns are accurate."
+      },
+      {
+        "claimId": "no-agreement",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Anthropic told WIRED it supports a lawful, verifiable way for the industry to pace powerful-model releases. Its current policy describes company risk reports and allows Anthropic to pause development. That framework is not independent proof that its safeguards work or an industry agreement.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<p>The public question is who can verify safety claims and set the pace when companies compete. Coxon’s slowdown is a proposal, Anthropic’s policy is its own framework, and no reviewed source establishes a binding agreement or present catastrophe. The warning deserves scrutiny without being promoted into a finding.</p>",
+            "locator": "P010"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/editorial-input.json",
+          "sha256": "5cc2705f80087f31f881126a5fc230b6069a3f528000bd4d683bae10d8ac70b8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WIRED reports that Coxon worked on pretraining at Anthropic and previously worked at OpenAI. Coxon told WIRED that possible threats could include AI-enabled biological threats or cyberweapons; WIRED did not establish either feared outcome as having occurred. Coxon recommends that OpenAI and Anthropic coordinate on limiting recursive self-improvement—the use of AI to build new AI systems—and ultimately seeks international coordination. Coxon said Anthropic operates more responsibly than OpenAI in his experience, but predicted that competition could force future trade-offs between rigor and safety. Asked whether Anthropic was already cutting corners, Coxon answered: No, not yet. It's not cutting any corners. Anthropic told WIRED that the industry would benefit from a lawful, verifiable way to work together to pace releases of powerful models. OpenAI did not return WIRED's request for comment.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          },
+          {
+            "excerpt": "Independent September 9 reporting based on a direct, published interview with Coxon and a response from Anthropic. Limitation: The interview is direct testimony and reporting, not an independent audit of either company, proof of future self-improving systems or validation of a catastrophe probability.",
+            "locator": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/"
+          },
+          {
+            "excerpt": "The page says Risk Reports describe how Anthropic sees its systems' risks and its preparedness, particularly catastrophic risks addressed by the policy. The July 8 version 3.4 update revises its automated-R&D threshold and external-review provisions. The page says Anthropic remains free to pause development when it deems a pause appropriate.",
+            "locator": "https://www.anthropic.com/responsible-scaling-policy"
+          },
+          {
+            "excerpt": "Current primary company policy describing Anthropic's own risk-reporting and pause framework. Limitation: This is Anthropic's own governance framework. It does not independently prove that safeguards work, settle Coxon's forecast or establish an industry-wide pacing agreement.",
+            "locator": "https://www.anthropic.com/responsible-scaling-policy"
+          }
+        ],
+        "scopeAndFreshness": "WIRED records only Anthropic's aspiration for industry coordination and the RSP limitation states it does not establish an industry-wide pacing agreement; the article correctly says no reviewed source establishes a binding agreement or present catastrophe."
+      }
+    ],
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Reopen all sources on publication day; redraft for corrected statements, disclosed forecasting methods, policy changes, independent audits or an actual pacing agreement.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate covers Coxon's September 9 resignation and separate Hubinger forecast."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All outcomes and news checks pass and all twenty-four failure families are clear; no repair candidate or evidence gap exists on the reader side."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=1; evidence gaps repaired=0; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/independent-review/final-v1/news-editorial-analysis.json",
+      "sha256": "f4dafb43d62c74a6e8ae974bafd6d3d5c3a9409e89c683164be123992a371ef4"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/coxon-warning-20260910/independent-review/final-v1/independent-raw-report.json",
+    "sha256": "5c09516aa908d91d3491150ed96ff442a2a8c64d03e42ff76a5b7c1d19cf0a97"
+  }
+}

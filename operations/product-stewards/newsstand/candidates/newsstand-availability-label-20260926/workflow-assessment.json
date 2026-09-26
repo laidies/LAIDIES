@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "newsstand-interface-copy-workflow-assessment-v1",
+  "candidateId": "newsstand-availability-label-20260926",
+  "status": "HOLD_POLICY_INPUT",
+  "applicablePolicy": "Website-homepage/operations/codex-contract/rules/teaching-production.md — PROSE AND TEACHING PRODUCTION",
+  "requiredContract": "laidies-content-producer-contract.v1 with contentClass MICROCOPY",
+  "validator": "scripts/check-content-producer-contract.mjs",
+  "finding": "No dedicated small-interface-copy workflow was found. The generic producer validator requires at least one registered positive exemplar approved for the selected content class, but the current registry has no positive exemplar whose useFor includes MICROCOPY or PROMOTIONAL.",
+  "blockedAction": "A truthful producer-contract PASS and subsequent independent prose admission cannot be issued under current authority.",
+  "forbiddenWorkarounds": [
+    "Do not classify interface status copy as NEWS.",
+    "Do not invent a MICROCOPY exemplar approval.",
+    "Do not treat a manual semantic review as the required producer-contract PASS."
+  ],
+  "nextRequiredInput": "Register a governed MICROCOPY exemplar/workflow, or obtain an explicit owner decision that this exact bounded copy repair may use a named alternate gate.",
+  "proposalArtifact": {
+    "path": "operations/product-stewards/newsstand/candidates/newsstand-availability-label-20260926/proposed-copy.json",
+    "sha256": "8aa6e04283a28b459eae7e36ecec9c30962e2584897326dffb4950ca138750d6"
+  },
+  "stateEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/newsstand-availability-label-20260926/state-evidence.json",
+    "sha256": "eae63b7447a06ba1df9e067e67d7fc2919821c92710c618d2852efd7df864125"
+  }
+}

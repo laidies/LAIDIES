@@ -1,0 +1,579 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "un-climate-ai-energy-20260921",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/california_order_producer",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/california_order_producer",
+    "principalId": "/root/california_order_producer",
+    "role": "Producer completion and exact complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-21T22:07:18.492Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/un-climate-ai-energy-20260921/publication-manifest.json",
+      "sha256": "6321bb8a25c1a476407c37e7ed3b6aedd48770ba04b31b29bf3ba9fbf0ecd471"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/un-climate-ai-energy-20260921/review-text.json",
+      "sha256": "7f6d644d20148e340e51501570c297496b1e4c6201511e2ae42edbddbdbb098a"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/un-climate-ai-energy-20260921/rendered-article.html",
+      "sha256": "86b740e012b0e6a8ee0cf0306ef5bc7fd3d3186c4c3de2ebab92df98f26eac0f"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/california_order_producer",
+    "reviewedAt": "2026-09-21T22:07:17.492Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why is AI in the climate headlines, and what is the UN actually asking companies to do?",
+    "promisedPayoff": "Understand the concrete requests and distinguish political pressure, company promises and measured effects.",
+    "centralMentalModel": "A demand for disclosure can make claims more checkable; a speech is not a new regulation or proof that a particular household bill rose because of AI.",
+    "dailyLifeConnection": "The reader sees AI blamed for power costs and wants to understand what evidence would connect a project to a local consequence.",
+    "surfaceJob": "Daily public-interest brief on September21 UN climate speech, paired with independently reported debate.",
+    "desiredReaderFeeling": "I can explain the demand and ask a more precise question than whether AI is good or bad for the planet."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies plainClarity while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The speech does not introduce a new rule",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies readerValue while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "look for the site, the reporting period and what is actually measured",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies laidiesVoice while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "UN climate chief asks AI companies to show their energy and water use",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies engagingEnjoyable while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A target describes a destination; reporting helps show whether anything is moving towards it.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies factualIntegrity while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those are arguments about potential benefits",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies freshnessReviewability while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "In a September 21 speech in New York",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies surfaceFit while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "UN climate chief asks AI companies to show their energy and water use",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies datedChange while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "In a September 21 speech in New York",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies consequenceAndUncertainty while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Neither, by itself, explains the cause of your latest bill.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies dailyLifeConnection while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "live near the infrastructure that supports it",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies communicationBenchmark while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A company promising to become greener has stated an intention.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies explainBack while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "He has made a public demand, not announced a new law.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Why is AI in the climate headlines, and what is the UN actually asking companies to do?",
+        "probeResponse": "Stiell is asking companies to reveal resource use and demonstrate benefits; the speech does not create a rule or determine a household bill cause.",
+        "expectedEvidence": "Concrete company requests, speech status and no local bill causality.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies unseenTransfer while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "look for the site, the reporting period and what is actually measured",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A company announces a sustainability target. What evidence would show progress?",
+        "probeResponse": "A firm publishing a future target has not yet shown a measured result. Ask for dated measurements and the relevant facility before claiming an outcome.",
+        "expectedEvidence": "Named facility, reporting period, measurements and resulting action.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies usefulAction while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "look for the site, the reporting period and what is actually measured",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies analogyIntegrity while separating public demands, attributed arguments and measured evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A target describes a destination",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The exact prose contains no glossaryAccumulation defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The exact prose contains no templateRepetition defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The exact prose contains no decorativeAnalogy defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The exact prose contains no referenceConfetti defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The exact prose contains no missingMechanism defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The exact prose contains no genericAction defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The exact prose contains no jargonBeforeMeaning defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The exact prose contains no disconnectedSystem defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The exact prose contains no factlessConfidence defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The exact prose contains no staleUnreviewableClaims defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The exact prose contains no corporateSludge defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The exact prose contains no joylessInstruction defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The exact prose contains no benchmarkNameDrop defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The exact prose contains no curiosityWithoutPayoff defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The exact prose contains no familiarExampleWithoutTechnicalReturn defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The exact prose contains no communicationPastiche defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The exact prose contains no entertainmentBeforeUnderstanding defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The exact prose contains no mechanismCompressedBehindHook defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The exact prose contains no prematureClickBeforeMechanism defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The exact prose contains no inflatedTakeawayEnding defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The exact prose contains no purposeTooNarrow defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The exact prose contains no mechanismBeforeMotivation defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The exact prose contains no workedExampleOvertakesBookPurpose defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The exact prose contains no technicalExplainerVoice defect.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/un-climate-ai-energy-20260921/editorial-input.json",
+        "sha256": "915abec4e88878730d5b5ba028c8b3d0473486aeebe6e3ddaa75a5598fc84d7e"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/un-climate-ai-energy-20260921/source-packet.json",
+        "sha256": "2162f90bd233e5540395ec8d644a4b5d115748c74d05e35e2ea674d4dd91ea19"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/un-climate-ai-energy-20260921/source-evidence.json",
+        "sha256": "ed4421ef620f9c73d30b1a2511fd2a02a151a448f3611b00cf31711a8afb6088"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "speech-identity",
+        "claim": "Simon Stiell delivered the speech in New York on September 21.",
+        "candidateEvidence": [
+          {
+            "excerpt": "In a September 21 speech in New York",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "un-event"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "The following is a transcript of a speech delivered by UN Climate Change Executive Secretary Simon Stiell at the Build Clean Now Industry Acceleration Summit on Monday 21 September 2026 in New York City.",
+            "locator": "https://unfccc.int/news/un-climate-chief-major-keynote-thanks-to-global-renewables-humanity-avoided-almost-half-a-trillion"
+          }
+        ],
+        "scopeAndFreshness": "Original UNFCCC transcript checked September 21.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/un-climate-ai-energy-20260921/editorial-input.json",
+          "sha256": "915abec4e88878730d5b5ba028c8b3d0473486aeebe6e3ddaa75a5598fc84d7e"
+        }
+      },
+      {
+        "claimId": "company-requests",
+        "claim": "Stiell asked AI companies for credible climate targets, efficiency, public energy and water information, renewable data-centre power and evidence of broadly shared benefits.",
+        "candidateEvidence": [
+          {
+            "excerpt": "make their energy and water use public, improve efficiency and power data centres with renewable energy",
+            "locator": "The Story"
+          },
+          {
+            "excerpt": "credible climate targets and evidence that AI’s benefits reach more than a small group",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "un-benefits",
+          "un-targets",
+          "un-efficiency",
+          "un-disclosure"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Tech titans need to start showing why the benefits of AI outweigh its skyrocketing costs – for the many, not just the tiny few.",
+            "locator": "https://unfccc.int/news/un-climate-chief-major-keynote-thanks-to-global-renewables-humanity-avoided-almost-half-a-trillion"
+          },
+          {
+            "excerpt": "By setting and delivering credible climate targets if they haven’t already.",
+            "locator": "https://unfccc.int/news/un-climate-chief-major-keynote-thanks-to-global-renewables-humanity-avoided-almost-half-a-trillion"
+          },
+          {
+            "excerpt": "Investing in efficiency, building on existing gains.",
+            "locator": "https://unfccc.int/news/un-climate-chief-major-keynote-thanks-to-global-renewables-humanity-avoided-almost-half-a-trillion"
+          },
+          {
+            "excerpt": "Coming clean about their energy and water use, and powering data-centres with renewable energy – as the UN Secretary-General has said.",
+            "locator": "https://unfccc.int/news/un-climate-chief-major-keynote-thanks-to-global-renewables-humanity-avoided-almost-half-a-trillion"
+          }
+        ],
+        "scopeAndFreshness": "Attributed requests in the original speech; no company compliance or measured outcome is inferred.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/un-climate-ai-energy-20260921/editorial-input.json",
+          "sha256": "915abec4e88878730d5b5ba028c8b3d0473486aeebe6e3ddaa75a5598fc84d7e"
+        }
+      },
+      {
+        "claimId": "speech-status-limit",
+        "claim": "The speech is a public demand rather than a new binding rule and does not establish the cause of a particular household bill.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The speech does not introduce a new rule or establish why a particular household’s electricity bill changed.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "un-transcript-form",
+          "ap-bill-anecdote"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "The following is a transcript of a speech delivered by UN Climate Change Executive Secretary Simon Stiell",
+            "locator": "https://unfccc.int/news/un-climate-chief-major-keynote-thanks-to-global-renewables-humanity-avoided-almost-half-a-trillion"
+          },
+          {
+            "excerpt": "This is about what’s happening to my electricity bill",
+            "locator": "https://apnews.com/article/climate-change-un-fuel-ai-renewables-f3208930e39c7d233bdc24315065dcd2"
+          }
+        ],
+        "scopeAndFreshness": "Status follows from the source being a speech; AP reports an individual statement, not a causal household-bill study.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/un-climate-ai-energy-20260921/editorial-input.json",
+          "sha256": "915abec4e88878730d5b5ba028c8b3d0473486aeebe6e3ddaa75a5598fc84d7e"
+        }
+      },
+      {
+        "claimId": "ap-ai-debate",
+        "claim": "AP reports that AI and data-centre resource demand is a focus of the Climate Week debate.",
+        "candidateEvidence": [
+          {
+            "excerpt": "AP reports that AI and data centres are a focus of this week’s climate debate.",
+            "locator": "The LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "ap-footprint"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "The environmental footprint of artificial intelligence and data centers looms large this week.",
+            "locator": "https://apnews.com/article/climate-change-un-fuel-ai-renewables-f3208930e39c7d233bdc24315065dcd2"
+          }
+        ],
+        "scopeAndFreshness": "Independent reporting checked September 21.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/un-climate-ai-energy-20260921/editorial-input.json",
+          "sha256": "915abec4e88878730d5b5ba028c8b3d0473486aeebe6e3ddaa75a5598fc84d7e"
+        }
+      },
+      {
+        "claimId": "industry-potential-claim",
+        "claim": "An industry representative argued that efficiency and future advances could help address climate problems.",
+        "candidateEvidence": [
+          {
+            "excerpt": "An industry representative argued that improving efficiency and future scientific advances could help address climate problems.",
+            "locator": "The LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "ap-industry"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "it’s becoming much more efficient. And, he said, it could help solve the climate problem by unlocking “numerous currently unknown advances in science, technology and research.”",
+            "locator": "https://apnews.com/article/climate-change-un-fuel-ai-renewables-f3208930e39c7d233bdc24315065dcd2"
+          }
+        ],
+        "scopeAndFreshness": "Attributed industry argument; the article explicitly does not treat possible benefits as measured outcomes.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/un-climate-ai-energy-20260921/editorial-input.json",
+          "sha256": "915abec4e88878730d5b5ba028c8b3d0473486aeebe6e3ddaa75a5598fc84d7e"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-21",
+    "nextTrigger": "Transcript correction, company response, resulting policy action, new measurement, or publication after September 21.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First NewsStand candidate on the September 21 Stiell AI climate speech."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No reusable defect was found; Class Notes links /library.html#ai-fundamentals-101::%40chapter-17, the exact live Data Centres and Energy chapter."
+  },
+  "limitations": [
+    "The speech supplies requests and assertions, not an enacted rule or measured company outcome.",
+    "AP reports an individual bill statement and an industry argument; neither establishes general causality or net benefit.",
+    "No hero visual has been produced or admitted.",
+    "Producer explain-back and transfer are AI simulations; no human-reader comprehension observation was made."
+  ]
+}

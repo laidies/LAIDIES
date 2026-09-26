@@ -1,0 +1,43 @@
+{
+  "proseReview": {
+    "reviewIssues": 4,
+    "reviewCycles": 3
+  },
+  "evidencePacket": {
+    "rounds": 3,
+    "gaps": 0,
+    "repaired": 0,
+    "scope": "Three actual independent evidence packets this continuation; prior producer capture/repair history is retained separately."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 3,
+    "objectiveDefectsFirstFoundAtReview": 4,
+    "reviewIssues": 4,
+    "reviewCycles": 3,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "stage": "root-producer-repair",
+      "note": "Preserved earlier root rejections for missing actual results, source-derived word accounting, and stale exact-prose bindings; these are producer repairs, not independent cycles."
+    },
+    {
+      "stage": "independent-v1",
+      "verdict": "REJECT",
+      "issues": 3,
+      "note": "Missing frozen-specific causal step; two unexplained study terms treated as one jargon issue; thin reader-life connection raised but surgical patient relevance retained under user instruction against irrelevant work advice."
+    },
+    {
+      "stage": "independent-v2",
+      "verdict": "NORMALIZER_HOLD_WITH_FACT_REPAIR",
+      "issues": 1,
+      "note": "All reader outcomes passed. Fact reviewer requested selected to consecutive cases. Actual raw retained; contradictory learning disposition caused normalization failure, not a completed admission."
+    },
+    {
+      "stage": "independent-v3",
+      "verdict": "PASS",
+      "issues": 0,
+      "note": "Fresh complete reader/facts review after consecutive-case wording repair; actual provider and checked outputs retained."
+    }
+  ]
+}

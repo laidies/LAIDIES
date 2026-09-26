@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "newsstand-bounded-recovery-observations-v1",
+  "observedAt": "2026-09-25T14:05:50Z",
+  "method": "one normal EFF route open and one four-query normal web-search discovery call; no exact NONRETRYABLE route was directly opened",
+  "results": [
+    {"source": "https://www.eff.org/issues/ai", "toolRef": "turn1193view0", "status": "CHECKED", "assessment": "The normal route opened and returned 259 lines. This confirms route availability only; it was not used to infer a new story from unreviewed page content."},
+    {"source": "https://apnews.com/article/1526da03842cfeef12d0fb69b6b7ad28", "toolRef": "turn1193news12", "status": "CHECKED", "assessment": "A current AP search result is distinct independent reporting. It concerns recursive self-improvement and no matched inaccessible Reuters event was established."},
+    {"source": "https://x.ai/bot/guides", "toolRef": "turn1193search0", "status": "CHECKED", "assessment": "Current publisher-controlled guide index surfaced dated material; it does not establish the original Sep10 X-post announcement identity."},
+    {"source": "https://x.ai/news/introducing-grok-bot", "toolRef": "turn1193search1", "status": "CHECKED", "assessment": "Official Aug11 launch record is distinct from the blocked X post and establishes launch/access context, not a Sep10 announcement."},
+    {"source": "https://www.oneusefulthing.org/", "toolRef": "turn1193search", "status": "BLOCKED", "assessment": "The one normal domain-focused discovery query returned no result item to inspect. No exact nonretryable page was opened and no content freshness was inferred."}
+  ],
+  "limits": ["Search-result exposure is not a substitute for direct content inspection.", "No recovery observation establishes a complete AIDB edition/transcript or the missing origins of prior blocked events."]
+}

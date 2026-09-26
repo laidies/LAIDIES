@@ -1,0 +1,493 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "chatgpt-pets-20260913",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/evening_sources",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/evening_sources",
+    "principalId": "/root/evening_sources",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-13T14:32:00Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/publication-manifest.json",
+      "sha256": "017832e65607c290cec1125f201c0d0cd4a07aebed5fa368ab3112c987ac0178"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/review-text.json",
+      "sha256": "8c083a139e73f7aaa9d8b326c26f934b823dae2b51dfd4a9b5687dc9eb7d4c21"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/rendered-article.html",
+      "sha256": "bc859dbe4b877861576f234bb18114c48e7ab4928298e905349c5ec2520d3d1b"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/evening_sources",
+    "reviewedAt": "2026-09-13T14:20:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    },
+    "reuseDisclosure": "Current registry exemplars were reread as calibration references. This producer receipt is an exact reread of this candidate; independent semantic admission remains required.",
+    "reusedAt": "2026-09-13T14:32:00Z"
+  },
+  "reverseBrief": {
+    "humanQuestion": "What does a ChatGPT pet actually do, and can it help me personally or is it only a decorative avatar?",
+    "promisedPayoff": "Tell a desktop reader which useful controls sit with a pet, what Mini does without an animal, and what a pet does not change.",
+    "centralMentalModel": "A pet is optional appearance around desktop quick-chat and activity controls; it does not improve a response.",
+    "dailyLifeConnection": "A reader can start a small personal desktop chat while another app remains open.",
+    "surfaceJob": "A short September 13 reader explainer of OpenAI’s September 11 desktop quick-chat update, not a performance review or an automation promise.",
+    "desiredReaderFeeling": "I can choose pet, Mini, or a project chat for the job I actually have."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "One important limit: a chat started from those floating controls is outside a project.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI’s September 11 desktop update added a quick chat to the floating Pets controls on macOS and Windows.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "One important limit: a chat started from those floating controls is outside a project.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Paste the meal details into a quick chat from the floating controls while you use another app.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Does choosing a pet make ChatGPT answer better?",
+        "probeResponse": "No. The pet changes appearance; the floating controls are the part that starts and follows chats.",
+        "expectedEvidence": "Separate the optional visual from the documented controls."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What should I do if I need files and instructions saved in a project?",
+        "probeResponse": "Start the chat from that project in the main app; a floating quick chat is outside a project.",
+        "expectedEvidence": "Transfer the context limit to a different task."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "One important limit: a chat started from those floating controls is outside a project.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "I reread the complete exact candidate against the documented desktop controls, product limits, and the reader’s personal-use question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete candidate names a dated feature, gives its smallest mechanism, uses one bounded personal example, and repeats the documented limits without a decorative analogy or performance promise.",
+      "artifactLocator": "complete exact candidate prose"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/source-evidence.json",
+        "sha256": "9a0d5147532d817b91bb24ce53a524f2290920a744f6d7b8d5d4fe2bb5310aab"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "dated-desktop-update",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI’s September 11 desktop update added a quick chat to the floating Pets controls on macOS and Windows.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/source-evidence.json",
+          "sha256": "9a0d5147532d817b91bb24ce53a524f2290920a744f6d7b8d5d4fe2bb5310aab"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI dated the quick-chat Pets and Appshots desktop update September 11, 2026.",
+            "locator": "openai-changelog-2026-09-11"
+          }
+        ],
+        "scopeAndFreshness": "Official changelog reread September 13, 2026; it dates the update but does not establish universal availability."
+      },
+      {
+        "claimId": "appearance-not-answer-quality",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/source-evidence.json",
+          "sha256": "9a0d5147532d817b91bb24ce53a524f2290920a744f6d7b8d5d4fe2bb5310aab"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Pets are optional animated companions and selecting one changes appearance, not how ChatGPT completes tasks.",
+            "locator": "openai-pets-docs"
+          }
+        ],
+        "scopeAndFreshness": "Official Pets documentation reread September 13, 2026; no answer-quality inference is made."
+      },
+      {
+        "claimId": "desktop-controls-and-project-limit",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The useful part is the small control panel: you can type or speak a new request while another app is open, then use its bell to see whether a chat is running, needs your input, is ready, or is blocked.",
+            "locator": "exact candidate prose"
+          },
+          {
+            "excerpt": "One important limit: a chat started from those floating controls is outside a project.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/source-evidence.json",
+          "sha256": "9a0d5147532d817b91bb24ce53a524f2290920a744f6d7b8d5d4fe2bb5310aab"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "In the macOS and Windows desktop app, the floating controls start typed or voice chats and expose thread activity states.",
+            "locator": "openai-pets-docs"
+          },
+          {
+            "excerpt": "A quick chat started from the controls is outside a project.",
+            "locator": "openai-pets-docs"
+          }
+        ],
+        "scopeAndFreshness": "Official Pets documentation reread September 13, 2026; this applies only where desktop controls are available."
+      }
+    ],
+    "reviewedThrough": "2026-09-13T14:32:00Z",
+    "nextTrigger": "Any OpenAI change to the Pets documentation or the September 11 changelog entry, including platforms, controls, project-context, or availability language.",
+    "correctionOwner": "/root/evening_sources"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate answers the pets-versus-controls reader question."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The producer found no new reusable defect in the complete exact reread; independent review remains required."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "No observed human-comprehension evidence is claimed.",
+    "OpenAI documentation establishes current product behaviour, not universal account availability or improved answer quality."
+  ],
+  "limits": []
+}

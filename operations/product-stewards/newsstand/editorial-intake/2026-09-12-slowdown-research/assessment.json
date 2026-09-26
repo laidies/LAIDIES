@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "newsstand-research-assessment-v1",
+  "leadId": "openai-altman-slowdown-report-20260911",
+  "assessedAt": "2026-09-12T17:02:55Z",
+  "disposition": "RESEARCH_READY_FOR_ATTRIBUTED_REPORT_PRODUCTION",
+  "eventIdentity": {
+    "reportedEvent": "At a company-wide OpenAI meeting held sometime during the reporting week, Bloomberg reported that Sam Altman said OpenAI could potentially pace cutting-edge AI development with several other labs.",
+    "reportPublication": {
+      "bloombergLawReprint": "2026-09-11T00:43:00Z",
+      "reutersDateLabel": "2026-09-10",
+      "reutersDisplayPublication": "2026-09-10 22:32"
+    },
+    "unknown": [
+      "The exact date and transcript of the staff meeting.",
+      "Whether any specific laboratory agreed to coordinate.",
+      "Whether OpenAI has actually slowed any development work."
+    ]
+  },
+  "supportedScope": [
+    "The lead supports an attributed account of a possible, coordinated pacing discussion.",
+    "Reuters carries a named Anthropic spokesperson response expressing interest in industry work on release pace.",
+    "Pachocki's September 6 OpenAI post supports separate, explicitly attributed company context about withholding further scaling when needed."
+  ],
+  "prohibitedInferences": [
+    "Do not say an OpenAI slowdown, safety pause, cross-lab agreement, schedule, or ChatGPT product change has begun.",
+    "Do not present anonymous-source reporting as official confirmation.",
+    "Do not use the Quartz access-context item to derive visitor-facing claims.",
+    "Do not convert Anthropic's stated interest into a commitment."
+  ],
+  "namedResponses": [
+    {
+      "party": "Anthropic spokesperson",
+      "supportedResponse": "Expressed interest in working with the industry on the pace of releasing new tools, according to the licensed Reuters report.",
+      "doesNotShow": "An agreement, a named joint process, or an active slowdown."
+    },
+    {
+      "party": "Jakub Pachocki, OpenAI Chief Scientist",
+      "supportedResponse": "In a September 6 official post, said OpenAI would unilaterally withhold further scaling as needed.",
+      "doesNotShow": "Confirmation of Altman's reported remarks or a present decision."
+    }
+  ],
+  "relationshipToPublishedCoxonStory": {
+    "publishedStoryId": "coxon-warning-20260910",
+    "newMaterial": "Coxon's September 10 story was a departing researcher's warning, forecast, and proposed coordination mechanism. This is later reporting about OpenAI's CEO being open to a possible coordinated pace discussion at an internal meeting.",
+    "requiredSeparation": "A successor may say the reported discussion is an executive signal relevant to the earlier debate, but it must not treat it as proof of Coxon's forecast, a response to Coxon personally, or an implemented safety measure. Preserve the published Coxon story as a separate dated account."
+  },
+  "readerQuestion": "A report says OpenAI may be open to slowing frontier AI. Does that mean ChatGPT will change, or that a safety pause has started?",
+  "readerPayoffBoundary": "The report describes a possible internal and cross-company discussion, not an announced pause or a change to the ChatGPT product a reader uses. It gives readers a way to distinguish a proposal to coordinate from an actual policy or product change.",
+  "sourceBudgetPlan": [
+    {
+      "sourceId": "bloomberg-law-reprint-2026-09-11",
+      "maximumDerivedVisitorWords": 200,
+      "use": "Core event, uncertainty, and lack of agreement."
+    },
+    {
+      "sourceId": "reuters-licensed-republication-2026-09-10",
+      "maximumDerivedVisitorWords": 200,
+      "use": "Report attribution and the named Anthropic response."
+    },
+    {
+      "sourceId": "openai-pachocki-alien-mind-2026-09-06",
+      "maximumDerivedVisitorWords": 200,
+      "use": "Separate official context, only if needed and clearly attributed."
+    },
+    {
+      "sourceId": "quartz-report-context-2026-09-11",
+      "maximumDerivedVisitorWords": 0,
+      "availableSourceAllowanceWords": 25,
+      "use": "No planned article derivation."
+    }
+  ],
+  "missingInputs": {
+    "blockingForAttributedReport": [],
+    "requiredBeforeAnyClaimOfImplementation": [
+      "A direct OpenAI or Altman statement, or a verified decision/action record.",
+      "A named, verifiable cross-lab agreement if claiming coordinated action."
+    ]
+  },
+  "nextProducerAction": "Draft only as an attributed-report explainer with the stated uncertainty and Coxon separation, then bind every factual claim to the source-capture passages and count all derived wording against the source-budget plan.",
+  "notProduced": [
+    "No public prose.",
+    "No candidate, review, admission, publication, or deployment."
+  ]
+}

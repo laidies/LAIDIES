@@ -1,0 +1,52 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "safety-incident",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "Anthropic published a September 10 threat report saying it disrupted Claude misuse across cyber, state surveillance and biological-research cases.",
+    "plainLanguageIdentity": "This is a company threat-intelligence report about activity Anthropic says it could see on its own service.",
+    "evidenceBasis": "Anthropic’s full report, with same-day independent reporting from AP and Axios.",
+    "evidenceLimits": "The public cannot inspect Anthropic’s private logs, and the report does not prove every attribution, actor intent, AI uplift or completed harmful outcome.",
+    "readerRelevance": "The report describes a China-linked office using AI across thousands of investigations a month to combine records, identify targets and score political sensitivity, while also showing the limits of provider-only evidence and account bans.",
+    "affectedPeople": "Targets of cyber theft, dissidents and diaspora communities subject to surveillance, people exposed to scams, and the wider public facing biological risk.",
+    "changesNow": "Anthropic says it banned linked accounts, strengthened safeguards and shared intelligence; the public report adds evidence for outside scrutiny.",
+    "uncertainty": "It remains unclear how much Claude changed outcomes, whether every attributed actor intended harm, and whether blocked users continued elsewhere.",
+    "readerAction": "When a headline claims AI enabled a weapon or state operation, separate what the provider observed from the actor’s inferred intent and any real-world outcome.",
+    "betterQuestion": "Did the report observe an AI request, an operating workflow, a completed harmful system or real-world harm?"
+  },
+  "typeAnswers": {
+    "safety-incident": {
+      "incident": "Anthropic says it identified and disrupted notable Claude misuse between December 2025 and August 2026, then disclosed the cases on September 10.",
+      "harm": "Anthropic describes alleged cyber theft, surveillance of dissidents and risky dual-use biological research. It says one China-linked office combined records across thousands of investigations a month to identify targets and score political sensitivity; no biological weapon outcome is established.",
+      "affectedPeople": "Government and civil-society targets, dissidents and diaspora communities, organizations whose data was stolen, and the public exposed to biosecurity risk.",
+      "failedControl": "Actors allegedly evaded safeguards, used relays or other models, and in one surveillance case continued locally after Claude access was removed.",
+      "responsibility": "Anthropic controls its service and disclosures; users and state actors control their conduct; governments and independent institutions determine law, oversight and public accountability.",
+      "confirmedUnknown": "Anthropic reports what it says it observed internally. It explicitly does not assert that the implicated scientists intended harm, and the public evidence does not prove every attribution, uplift claim or completed biological weapon.",
+      "remediation": "Anthropic says it banned or disrupted linked accounts, strengthened safeguards and shared intelligence where appropriate.",
+      "recurrenceRisk": "Yes. Account bans can displace activity to other services or local models; stronger safeguards, cross-provider intelligence and public oversight can reduce but not erase the risk."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude",
+    "actualMeaningExact": "The public report establishes no completed biological weapon or attack",
+    "mechanismExact": "a provider can see patterns across accounts that the public cannot",
+    "familiarExampleExact": "Think of a venue removing someone for dangerous conduct it sees and preserving its records",
+    "jargon": [
+      {
+        "term": "dual-use",
+        "plainMeaning": "able to serve ordinary science and also be misused"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "Separating observation, inference and outcome in an AI claim",
+        "learningPayoff": "Use the article’s four-level question because no current LAiDIES lesson directly teaches provider threat-report interpretation.",
+        "disposition": "gap",
+        "owner": "NewsStand and Learning ecosystem steward",
+        "trigger": "Add a direct learning link only when an admitted lesson teaches evidence levels in AI incident reporting.",
+        "recordPath": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/learning-gap.json"
+      }
+    ]
+  }
+}

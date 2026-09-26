@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "newsstand-research-packet-v1",
+  "id": "codex-sandbox-research-20260920",
+  "status": "SOURCE_BOUND_RESEARCH_PROVIDER_ACKNOWLEDGEMENT_LOCATED_PRODUCER_NEXT",
+  "recordedAt": "2026-09-24T04:45:14.480445+00:00",
+  "readerQuestion": "What did the researchers show, who needed the patch, and how can a Codex user verify an installed version?",
+  "sources": [
+    {
+      "url": "https://www.accomplish.ai/blog/escaping-the-openai-codex-sandbox-twice/",
+      "role": "PRIMARY_RESEARCHER",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/evening-20260923/source-recovery/codex-sandbox-primary-raw.json",
+        "sha256": "119c78c79e9dad1f33b27b6d8be94f3df200fbd5eea4761578c6e44ec627e19d"
+      }
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/researchers-escape-openai-codex-sandbox-to-run-commands-on-host/",
+      "role": "INDEPENDENT_REPORTING",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/evening-20260923/source-recovery/consequential-leads-raw.json",
+        "sha256": "760d56df80f2041a29191f2e64b6ba1fb30a1f8cad33b0dacd78e25d1aca6b8a"
+      }
+    },
+    {
+      "url": "https://developers.openai.com/codex/cli/",
+      "role": "OFFICIAL_DOCUMENTATION",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/candidates/codex-sandbox-research-20260920/official-route-recovery.json",
+        "sha256": "1bcc6585af639a71f6fc57e3f3da6f579ac40f8bb39c08e6460d3863cc4f3c8c"
+      }
+    }
+  ],
+  "sourceAssessment": "Researcher reports two distinct sandbox flaws and fixed desktop/CLI versions. BleepingComputer September21 update reports OpenAI spokesperson acknowledgement both issues were addressed in August. Patch thresholds remain attributed to researcher; no independent patch reproduction performed.",
+  "attemptedRecovery": "Read local codex --version and --help: installedCLI0.153.4; --version/-V exists. Official-domain search then normal exact CLI/app/changelog opens redirected to learn.chatgpt.com. Exact upgrade/update/version-string finds did not locate current consumer update instructions or the specified historical patchedbuilds.",
+  "missingInput": "Exact original article claim passages still need producer binding. Universal consumer desktop application build-check route not verified; app-bundled CLI version is not the desktop build number. Do not conflate them.",
+  "nextCheckAt": "2026-09-25T14:00:00Z",
+  "nextAction": "Create and pass source-bound producer contract using evening reconciliation, then draft a tightly scoped Codex coding-tool report. Do not require universal desktop UI instructions to report the finding; do not imply CLI version proves desktop app patch.",
+  "limits": [
+    "Local installedCLIversion is not evidence every reader ispatched.",
+    "No generalclaim allCodexversions or ordinaryChatGPT affected.",
+    "No completed publicarticle, providerreview or deployment."
+  ],
+  "officialGuidanceRecovery": {
+    "path": "operations/product-stewards/newsstand/candidates/codex-sandbox-research-20260920/official-update-guidance-20260924.json",
+    "sha256": "673ab0f4dff8a43d16f8820a47ee14955ac7f07cc9e4e2e940800233502e0767"
+  },
+  "primaryRefresh": {
+    "path": "operations/product-stewards/newsstand/candidates/codex-sandbox-research-20260920/primary-refresh-20260924.json",
+    "sha256": "d12603ec0343aa5f462b255e823248173c7f502d066c090ca0fe34552f8d61e2"
+  },
+  "eveningSourceReconciliation": {
+    "path": "operations/product-stewards/newsstand/candidates/codex-sandbox-research-20260920/evening-source-reconciliation-20260924.json",
+    "sha256": "bd988241f109dc645e6b68a7ab0414c241dc67852f43ddbff5c6c96b57564597"
+  }
+}

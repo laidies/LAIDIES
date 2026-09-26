@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "laidies.newsstand-private-claim-list.v1",
+  "candidateId": "malicious-ai-agents-card-skimmers-20260923",
+  "claims": [
+    {
+      "id": "incident-status",
+      "classification": "REPORTED_BY_GAMBIT_VIA_BLEEPINGCOMPUTER",
+      "claim": "A campaign was reported active as of September 22, 2026.",
+      "sourceIds": [
+        "bleepingcomputer-report",
+        "gambit-threat-intelligence-report"
+      ],
+      "safeFraming": "attribute to the reports; do not assert independent verification by LAiDIES."
+    },
+    {
+      "id": "card-records",
+      "classification": "GAMBIT_REPORTED_DIRECT_EVIDENCE",
+      "claim": "Gambit reports more than 600,000 credit-card records from two companies.",
+      "sourceIds": [
+        "gambit-threat-intelligence-report"
+      ],
+      "safeFraming": "“Gambit reports” rather than an unqualified incident total."
+    },
+    {
+      "id": "skimmer-scope",
+      "classification": "GAMBIT_MIXED_OBSERVED_AND_INFERRED_SCOPE",
+      "claim": "Gambit says it confirmed some skimmers and linked more sites through associated indicators.",
+      "sourceIds": [
+        "gambit-threat-intelligence-report"
+      ],
+      "safeFraming": "do not collapse confirmed, linked, and estimated site counts into one independently verified total."
+    },
+    {
+      "id": "ai-role",
+      "classification": "GAMBIT_REPORTED_INVESTIGATIVE_FINDING",
+      "claim": "Gambit describes three AI harnesses for scanning, exploitation, and orchestration, with a human operator setting brief goals.",
+      "sourceIds": [
+        "gambit-threat-intelligence-report",
+        "bleepingcomputer-report"
+      ],
+      "safeFraming": "describe assisted/autonomous task execution, not an AI acting without a human or an identified model/provider causing the incident."
+    },
+    {
+      "id": "cost",
+      "classification": "DIRECT_CAPTURE_PLUS_ESTIMATE",
+      "claim": "The $7,005.71 four-week model-access figure is described as captured; the $12,000–$18,000 total and per-target economics are estimates.",
+      "sourceIds": [
+        "gambit-threat-intelligence-report"
+      ],
+      "safeFraming": "keep observations and estimates separate."
+    }
+  ],
+  "excludedClaims": [
+    "That any named retailer, reader, or card issuer was affected.",
+    "That the campaign’s full scope, actor identity, motive, or model-provider attribution has been independently verified.",
+    "That every reported card record was current, usable, or connected to a particular reader.",
+    "Any exploit method, vulnerability, indicator, credential, evasion, or response instruction."
+  ]
+}

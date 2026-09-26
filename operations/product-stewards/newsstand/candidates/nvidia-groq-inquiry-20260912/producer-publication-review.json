@@ -1,0 +1,732 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "nvidia-groq-inquiry-20260912",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-12T19:00:09.000Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/publication-manifest.json",
+      "sha256": "8ca9758f28df34820661a60db2d19069a972cb35be5078e67d3f2f5b72dc8285"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/review-text.json",
+      "sha256": "189aa43c2f4bf09dabc1ac2333995e1cf769eb8af4190f851500e76cbdb2e5fb"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/rendered-article.html",
+      "sha256": "f9a304af55195d1ae2abf70d3e9aaa42873dc3aa1a4b594855bf59547e87cd38"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-05T22:51:01.267Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Plain terms gain meaning in the event explanation.",
+        "A familiar comparison reconnects to the mechanism and a concrete reader check."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "The LAiDIES Read in private NEWS002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why could a deal draw competition attention if Nvidia did not buy Groq?",
+    "promisedPayoff": "Explain permission to use technology and the senior hires while keeping the reported inquiry separate from any finding.",
+    "centralMentalModel": "A non-exclusive licence lets Nvidia use the technology; it does not by itself mean Groq lost its own use or ability to license others.",
+    "dailyLifeConnection": "A reader sees headlines about a technology deal and wants to know what the licence permits and what the inquiry does and does not mean.",
+    "surfaceJob": "A concise September 12 explanation of the reported inquiry into Nvidia’s December Groq agreement.",
+    "desiredReaderFeeling": "I can explain the licence and hires without turning an inquiry into a verdict or a licence into a transfer of ownership.",
+    "evidenceBoundary": "Reported inquiry is not a finding; Groq’s announcement establishes its deal description only."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002",
+      "simulatedReaderProbe": {
+        "prompt": "What did the non-exclusive licence change, and what does it not establish?",
+        "probeResponse": "It lets Nvidia use the licensed technology. It does not by itself show that Groq lost its own use, ownership or ability to license others.",
+        "expectedEvidence": "Keep permission to use separate from ownership, exclusivity and competition outcomes."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002",
+      "simulatedReaderProbe": {
+        "prompt": "Another company grants a non-exclusive technology licence and some staff join the licensee. What can you safely say?",
+        "probeResponse": "The licensee may use the licensed technology and the named staff moved. Without more evidence, do not call the companies rivals or say the original company lost its technology or that competition changed.",
+        "expectedEvidence": "Transfer only licence permission and observed staff movement; do not invent market relationships or effects."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Root read the complete successor article and accepted its attributed inquiry, permission-to-use explanation, continuing-Groq boundary, no-finding limit and verified inference link for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Root found no such defect in the complete final prose; the actual deal mechanism and legal-status limit stay explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "An inquiry asks for answers; it is not a finding of wrongdoing.",
+          "locator": "The Story"
+        }
+      ]
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/source-evidence.json",
+        "sha256": "bc5879ab549760f74583a38748799fb0fc0bd30a0ce33bc2b13fda95c0d1cc76"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "reported-inquiry",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Reuters reported on September 10 that the U.S. Justice Department is investigating whether Nvidia structured its December agreement with AI chip startup Groq to avoid antitrust scrutiny.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/source-evidence.json",
+          "sha256": "bc5879ab549760f74583a38748799fb0fc0bd30a0ce33bc2b13fda95c0d1cc76"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Reuters Last Updated: Sep 10, 2026, 07:03:39 PM IST\nThe U.S. Justice Department is investigating whether Nvidia structured its licensing deal with AI chip startup Groq to avoid antitrust scrutiny, the New York Times reported on Wednesday, citing two people familiar with the matter.\nThe Justice Department opened its investigation into the arrangement shortly after it was announced in December and has sent Nvidia a formal request for information, according to the NYT report.\n\"The Groq story is a prime example of the American system working as designed to promote innovation, reward entrepreneurs, and benefit consumers,\" an Nvidia spokesperson said in a statement.\nGroq and the U.S. Justice Department did not immediately respond to Reuters' requests for comment outside regular business hours.",
+            "locator": "https://economictimes.indiatimes.com/tech/artificial-intelligence/doj-probes-nvidias-licensing-deal-with-ai-startup-groq/articleshow/133994951.cms"
+          }
+        ],
+        "scopeAndFreshness": "Attributed reporting supports the reported inquiry, not a finding."
+      },
+      {
+        "claimId": "inquiry-process",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The report, citing the New York Times and two people familiar with the matter, says the department opened the inquiry shortly after the deal and sent Nvidia a formal request for information.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/source-evidence.json",
+          "sha256": "bc5879ab549760f74583a38748799fb0fc0bd30a0ce33bc2b13fda95c0d1cc76"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Reuters Last Updated: Sep 10, 2026, 07:03:39 PM IST\nThe U.S. Justice Department is investigating whether Nvidia structured its licensing deal with AI chip startup Groq to avoid antitrust scrutiny, the New York Times reported on Wednesday, citing two people familiar with the matter.\nThe Justice Department opened its investigation into the arrangement shortly after it was announced in December and has sent Nvidia a formal request for information, according to the NYT report.\n\"The Groq story is a prime example of the American system working as designed to promote innovation, reward entrepreneurs, and benefit consumers,\" an Nvidia spokesperson said in a statement.\nGroq and the U.S. Justice Department did not immediately respond to Reuters' requests for comment outside regular business hours.",
+            "locator": "https://economictimes.indiatimes.com/tech/artificial-intelligence/doj-probes-nvidias-licensing-deal-with-ai-startup-groq/articleshow/133994951.cms"
+          }
+        ],
+        "scopeAndFreshness": "The timing and information request are attributed through Reuters to the New York Times report."
+      },
+      {
+        "claimId": "responses",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/source-evidence.json",
+          "sha256": "bc5879ab549760f74583a38748799fb0fc0bd30a0ce33bc2b13fda95c0d1cc76"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Reuters Last Updated: Sep 10, 2026, 07:03:39 PM IST\nThe U.S. Justice Department is investigating whether Nvidia structured its licensing deal with AI chip startup Groq to avoid antitrust scrutiny, the New York Times reported on Wednesday, citing two people familiar with the matter.\nThe Justice Department opened its investigation into the arrangement shortly after it was announced in December and has sent Nvidia a formal request for information, according to the NYT report.\n\"The Groq story is a prime example of the American system working as designed to promote innovation, reward entrepreneurs, and benefit consumers,\" an Nvidia spokesperson said in a statement.\nGroq and the U.S. Justice Department did not immediately respond to Reuters' requests for comment outside regular business hours.",
+            "locator": "https://economictimes.indiatimes.com/tech/artificial-intelligence/doj-probes-nvidias-licensing-deal-with-ai-startup-groq/articleshow/133994951.cms"
+          }
+        ],
+        "scopeAndFreshness": "This records responses at Reuters publication time only."
+      },
+      {
+        "claimId": "deal-structure",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/source-evidence.json",
+          "sha256": "bc5879ab549760f74583a38748799fb0fc0bd30a0ce33bc2b13fda95c0d1cc76"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Today, Groq announced that it has entered into a non-exclusive licensing agreement with Nvidia for Groq’s inference technology. The agreement reflects a shared focus on expanding access to high-performance, low cost inference.\nAs part of this agreement, Jonathan Ross, Groq’s Founder, Sunny Madra, Groq’s President, and other members of the Groq team will join Nvidia to help advance and scale the licensed technology.\nGroq will continue to operate as an independent company with Simon Edwards stepping into the role of Chief Executive Officer.\nGroqCloud will continue to operate without interruption.",
+            "locator": "https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale"
+          }
+        ],
+        "scopeAndFreshness": "Groq is the primary source for its announced non-exclusive licence, hires, independence and service continuity. Non-exclusive is explained as permission without exclusivity; this does not establish ownership transfer or competition effects."
+      }
+    ],
+    "reviewedThrough": "2026-09-12T19:00:09.000Z",
+    "nextTrigger": "Any Justice Department, Nvidia, Groq, New York Times or Reuters update to the inquiry or agreement.",
+    "correctionOwner": "/root",
+    "scope": "Reuters supports the attributed inquiry account and responses. Groq supports its announced licence, hires, independence and service continuity. No finding or outcome is claimed."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "This is the same candidate after a held independent-review transfer failure, not a successor to a separately admitted comparable candidate. V1 review history remains bound in review-metrics and repair-history."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Root found no new defect in the complete successor prose. The earlier v1 review-transfer defect remains preserved separately in repair history and metrics."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "No observed human-comprehension evidence is claimed.",
+    "Reuters attributes the inquiry account to the New York Times and two people familiar with the matter."
+  ],
+  "limits": [
+    "Producer self-review only; independent semantic review has not been requested.",
+    "No human-comprehension observation is claimed.",
+    "The inquiry account remains attributed reporting, not a liability finding."
+  ],
+  "completeArtifact": "{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"<a href=\\\"/library.html#ai-fundamentals-101::%40ch-7-7-1-training-was-school-this-is-the-job\\\">AI Fundamentals 101: Inference — When You Actually Ask It Something</a> explains inference as using a trained model to produce an answer. It shows why technology for that everyday running stage matters, without answering the separate competition question.\",\"closing_note\":null,\"cocktail_party\":\"“Nvidia got permission to use Groq’s technology and hired senior people, while Groq stayed independent. That can prompt a competition question without a takeover—but the reported inquiry is not a finding.”\",\"concepts\":[\"inference\",\"licensing agreement\",\"competition inquiry\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"LAiDIES NewsStand evidence-checking illustration\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"nvidia-groq-inquiry-20260912\",\"laidies_read\":\"<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p><p>Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.</p>\",\"lastCheckedAt\":\"2026-09-12T19:00:09.000Z\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"nvidia-groq-inquiry-20260912\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:nvidia-groq-inquiry-20260912\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"reuters-nvidia-groq-doj-20260910\",\"label\":\"Reuters via The Economic Times — DOJ probes Nvidia’s licensing deal with AI startup Groq\",\"publisherType\":\"licensed-independent-reporting\",\"url\":\"https://economictimes.indiatimes.com/tech/artificial-intelligence/doj-probes-nvidias-licensing-deal-with-ai-startup-groq/articleshow/133994951.cms\"},{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"groq-nvidia-licence-20251224\",\"label\":\"Groq — Groq and Nvidia enter non-exclusive inference technology licensing agreement\",\"publisherType\":\"primary-company-announcement\",\"url\":\"https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"Nvidia\",\"Groq\",\"U.S. Justice Department\"],\"the_story\":\"<p>Reuters reported on September 10 that the U.S. Justice Department is investigating whether Nvidia structured its December agreement with AI chip startup Groq to avoid antitrust scrutiny. The report, citing the New York Times and two people familiar with the matter, says the department opened the inquiry shortly after the deal and sent Nvidia a formal request for information.</p><p>Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters. An inquiry asks for answers; it is not a finding of wrongdoing.</p>\",\"themes\":[\"competition inquiry\",\"AI infrastructure\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-12T19:00:09.000Z\",\"watch_fors\":null,\"what_this_means\":\"<p>“Not a takeover” describes the deal’s form. It does not answer what the licence and hires changed in practice. For now, officials are reportedly asking that question, and no finding has been reported.</p>\"}",
+  "storyParagraphs": [
+    {
+      "id": "P001",
+      "text": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+      "exact": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+      "field": "headline"
+    },
+    {
+      "id": "P002",
+      "text": "Reuters reported on September 10 that the U.S. Justice Department is investigating whether Nvidia structured its December agreement with AI chip startup Groq to avoid antitrust scrutiny. The report, citing the New York Times and two people familiar with the matter, says the department opened the inquiry shortly after the deal and sent Nvidia a formal request for information.",
+      "exact": "<p>Reuters reported on September 10 that the U.S. Justice Department is investigating whether Nvidia structured its December agreement with AI chip startup Groq to avoid antitrust scrutiny. The report, citing the New York Times and two people familiar with the matter, says the department opened the inquiry shortly after the deal and sent Nvidia a formal request for information.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P003",
+      "text": "Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters. An inquiry asks for answers; it is not a finding of wrongdoing.",
+      "exact": "<p>Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters. An inquiry asks for answers; it is not a finding of wrongdoing.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P004",
+      "text": "Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.",
+      "exact": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P005",
+      "text": "Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.",
+      "exact": "<p>Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P006",
+      "text": "“Not a takeover” describes the deal’s form. It does not answer what the licence and hires changed in practice. For now, officials are reportedly asking that question, and no finding has been reported.",
+      "exact": "<p>“Not a takeover” describes the deal’s form. It does not answer what the licence and hires changed in practice. For now, officials are reportedly asking that question, and no finding has been reported.</p>",
+      "field": "what_this_means"
+    },
+    {
+      "id": "P007",
+      "text": "“Nvidia got permission to use Groq’s technology and hired senior people, while Groq stayed independent. That can prompt a competition question without a takeover—but the reported inquiry is not a finding.”",
+      "exact": "“Nvidia got permission to use Groq’s technology and hired senior people, while Groq stayed independent. That can prompt a competition question without a takeover—but the reported inquiry is not a finding.”",
+      "field": "cocktail_party"
+    },
+    {
+      "id": "P008",
+      "text": "AI Fundamentals 101: Inference — When You Actually Ask It Something explains inference as using a trained model to produce an answer. It shows why technology for that everyday running stage matters, without answering the separate competition question.",
+      "exact": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-7-7-1-training-was-school-this-is-the-job\\\">AI Fundamentals 101: Inference — When You Actually Ask It Something</a> explains inference as using a trained model to produce an answer. It shows why technology for that everyday running stage matters, without answering the separate competition question.",
+      "field": "class_notes"
+    }
+  ],
+  "status": "PRODUCER_READY_FOR_INDEPENDENT_REVIEW",
+  "rootReviewHandoff": {
+    "status": "COMPLETED",
+    "reviewedAt": "2026-09-12T19:00:09.000Z",
+    "reviewer": "/root",
+    "draftAndBindingLane": "/root/producer_repair_sol",
+    "scope": "Root read the complete supplied prose and accepted it for producer self-review only; independent admission remains pending."
+  },
+  "calibrationSource": {
+    "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/../chatgpt-images-2-5-2026-09-08/producer-publication-review.json",
+    "sha256": "3550bb7bc2aae5be29332c02adc544f65d8332bd32f3fde4575e80009fe472fb"
+  }
+}

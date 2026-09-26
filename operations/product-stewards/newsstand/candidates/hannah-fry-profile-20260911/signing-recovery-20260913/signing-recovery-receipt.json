@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "laidies-luminairy-signing-recovery.v1",
+  "candidateId": "hannah-fry-profile-20260911",
+  "status": "HOLD_KEYCHAIN_CAPABILITY_BLOCKED",
+  "checkedAt": "2026-09-13T15:26:20.075Z",
+  "roleSeparation": {
+    "profileMaker": "/root/weekly_recovery",
+    "independentProseReviewer": "anthropic:claude-fable-5:luminairy-profile:medium",
+    "proposedSigner": "/root/evening_sources",
+    "qualified": true,
+    "reason": "The proposed signer is neither the v10 profile maker nor the independent prose reviewer."
+  },
+  "candidate": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/final-v10/profile-candidate.json",
+    "sha256": "e0f413fea85c6ca00152e122812f46f84acd1db4b951d023bea12a244eb8273e",
+    "profileId": "hannah-fry",
+    "wing": "mavens",
+    "profileSha256": "bf98fd6a85fc452c57780c0d8d6cd505e45781185a062b766e155021f336f708"
+  },
+  "frozenPublicBase": {
+    "deployment": "ffb5fbde-dc68-413c-bf7b-895d42260f8b",
+    "files": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/live-base-20260913/luminairy.html",
+        "sha256": "b4e5b9d40134926ba85ebdab6f7f7152e19af6fd3f50d3fd7befdc0f772a4b55"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/live-base-20260913/content/luminairy-profiles.json",
+        "sha256": "3eb61a4367d1884ff0155d30f410b986c979dee292534d373bc23b3ac8f21ed9"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/live-base-20260913/content/luminairy-claims.json",
+        "sha256": "62f03d8f01f35b6586de485b066ad8edb126d2983f56a2da970f812c6927c264"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/live-base-20260913/content/luminairy-editorial-receipts.json",
+        "sha256": "6966da1ee436d8c6bcc527b2b4de52cb56d42ba1ba77e7a3591c0f8a0057af53"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/live-base-20260913/content/site/luminairy-claim-gate.js",
+        "sha256": "9c6852b4d1d4be055bdb389d6395e359cdc2216a7b5f802ac39507d0f8291cde"
+      }
+    ],
+    "dualOriginMatches": 10
+  },
+  "requestedAuthority": {
+    "keyId": "luminairy-editorial-offline-r7-20260913",
+    "algorithm": "P-256",
+    "scope": "Hannah Fry successor receipt only",
+    "privateMaterial": "none generated or retained"
+  },
+  "capabilityChecks": [
+    {
+      "method": "SecKeyCreateRandomKey Secure Enclave P-256 permanent Keychain key",
+      "result": "FAIL",
+      "osStatus": -34018,
+      "observation": "failed to add key to keychain",
+      "privateMaterialPrinted": false
+    },
+    {
+      "method": "SecKeyCreateRandomKey software P-256 permanent Keychain key with privateKeyUsage access control",
+      "result": "FAIL",
+      "osStatus": -34018,
+      "observation": "failed to add key to keychain",
+      "testKeyDeletedOrAbsent": true,
+      "privateMaterialPrinted": false
+    }
+  ],
+  "mechanismSource": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/signing-recovery-20260913/keychain-signer.swift",
+    "sha256": "afeb7bac3eb735302f159dc62221f1c2582ca4e0dfd8733c6ff270326a4d5842",
+    "status": "UNEXECUTED_NO_KEY_CREATED"
+  },
+  "result": {
+    "publicJwk": null,
+    "signature": null,
+    "receiptPayloadSha256": null,
+    "storageRecoveryMetadata": null
+  },
+  "tamperTests": {
+    "status": "NOT_RUN",
+    "reason": "A signature and corresponding public key do not exist; representing a negative test as a signature test would be false."
+  },
+  "nextRequiredAction": "Restore an environment permitted to create an access-controlled permanent P-256 Keychain key, then rerun capability generation before any receipt, public key, projection, or integration is created.",
+  "scope": {
+    "canonicalWrites": false,
+    "publicWrites": false,
+    "deployment": false,
+    "existingTrustOrSignaturesChanged": false
+  }
+}

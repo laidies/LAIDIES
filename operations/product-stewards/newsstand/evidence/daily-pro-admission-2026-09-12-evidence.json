@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "daily-pro-admission-evidence-v1",
+  "decisionPath": "operations/product-stewards/newsstand/evidence/daily-pro-admission-2026-09-12.json",
+  "decision": {
+    "schemaVersion": "daily-issue-news-revision-admission-v1",
+    "decision": "ACCEPT_LOCAL_CANONICAL_SUCCESSOR",
+    "editionDate": "2026-09-12",
+    "envelopeSha256": "0bff7bb4cb633ef1425f1af64ed75702bcfc2af7b1b5360b5219d92934751083",
+    "predecessorEnvelopeSha256": "ed34a06d12c48388fa262ba1593bfecddbec6fd004dbd11bb8c35aa2c9e017ad",
+    "addedStoryIds": [
+      "pro-signup-pause-20260912"
+    ],
+    "reviewedAt": "2026-09-12T16:48:16.056Z",
+    "reviewedBy": "independent-reviewer/root/remaining_build_review",
+    "reviewerRole": "Independent exact Daily issue append admission reviewer",
+    "evidence": {
+      "envelope": {
+        "path": "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-09-12-pro.json",
+        "sha256": "0bff7bb4cb633ef1425f1af64ed75702bcfc2af7b1b5360b5219d92934751083"
+      },
+      "predecessor": {
+        "editionDate": "2026-09-12",
+        "envelopeSha256": "ed34a06d12c48388fa262ba1593bfecddbec6fd004dbd11bb8c35aa2c9e017ad",
+        "storyIds": [],
+        "serviceRecordIds": [
+          "DAILY-2026-09-12-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+          "DAILY-2026-09-12-CAREER-LIFE-CORNER-02-PRIORITIES",
+          "DAILY-2026-09-09-CONCEPT-WEEK-CONCEPT-02-TOKEN",
+          "DAILY-2026-09-12-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
+          "DAILY-2026-09-12-CURIOSITY-CURIOSITY-02-NAME-CONTRIBUTION"
+        ]
+      },
+      "candidate": {
+        "article": {
+          "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/article.md",
+          "sha256": "1a98d6a402226cf349247fc65bc011ed22fbfb3ed9338ef8f7c2480b205cb16f"
+        },
+        "sourceBudget": {
+          "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/source-budget-check.json",
+          "sha256": "a3e05c7160520419c41756f49e411a261f02e134a17c77e9c144c701b84a7b20",
+          "result": "PASS",
+          "totals": {
+            "openai-pro-help": 194,
+            "computerworld-report": 54
+          },
+          "allVisitorFieldsAccountedFor": true
+        },
+        "independentReview": {
+          "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/independent-review/final-v2/independent-review.json",
+          "sha256": "f3a22a3955309090ed66a2bf44aa014bff2d750230e59f24619eeef1c8908de1",
+          "verdict": "PASS"
+        },
+        "reviewMetrics": {
+          "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/review-metrics.json",
+          "sha256": "1bd717de124b6260cd275147468beb2d3e8ddb6303d95dfbe6529a81885766d7",
+          "reviewIssues": 1,
+          "reviewCycles": 2
+        }
+      },
+      "admissionCheck": {
+        "mode": "IN_MEMORY_ONLY",
+        "changed": true,
+        "issueStoryIds": [
+          "pro-signup-pause-20260912"
+        ],
+        "issueServiceRecordIds": [
+          "DAILY-2026-09-12-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+          "DAILY-2026-09-12-CAREER-LIFE-CORNER-02-PRIORITIES",
+          "DAILY-2026-09-09-CONCEPT-WEEK-CONCEPT-02-TOKEN",
+          "DAILY-2026-09-12-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
+          "DAILY-2026-09-12-CURIOSITY-CURIOSITY-02-NAME-CONTRIBUTION"
+        ],
+        "serviceRecordsPreserved": true,
+        "noCanonicalWrite": true,
+        "noDeploy": true
+      },
+      "negativeCalibration": {
+        "mutation": "Changed the existing paige_tip summary in memory.",
+        "verdict": "REJECT",
+        "error": "DAILY_EDITION_PROMOTION_REJECT: ready desk paige_tip is not bound to admitted source content"
+      }
+    },
+    "limitations": [
+      "Local canonical successor admission only. This record does not write canonical issue data, deploy, or establish public verification."
+    ]
+  },
+  "evidence": {
+    "envelope": {
+      "path": "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-09-12-pro.json",
+      "sha256": "0bff7bb4cb633ef1425f1af64ed75702bcfc2af7b1b5360b5219d92934751083"
+    },
+    "predecessor": {
+      "editionDate": "2026-09-12",
+      "envelopeSha256": "ed34a06d12c48388fa262ba1593bfecddbec6fd004dbd11bb8c35aa2c9e017ad",
+      "storyIds": [],
+      "serviceRecordIds": [
+        "DAILY-2026-09-12-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+        "DAILY-2026-09-12-CAREER-LIFE-CORNER-02-PRIORITIES",
+        "DAILY-2026-09-09-CONCEPT-WEEK-CONCEPT-02-TOKEN",
+        "DAILY-2026-09-12-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
+        "DAILY-2026-09-12-CURIOSITY-CURIOSITY-02-NAME-CONTRIBUTION"
+      ]
+    },
+    "candidate": {
+      "article": {
+        "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/article.md",
+        "sha256": "1a98d6a402226cf349247fc65bc011ed22fbfb3ed9338ef8f7c2480b205cb16f"
+      },
+      "sourceBudget": {
+        "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/source-budget-check.json",
+        "sha256": "a3e05c7160520419c41756f49e411a261f02e134a17c77e9c144c701b84a7b20",
+        "result": "PASS",
+        "totals": {
+          "openai-pro-help": 194,
+          "computerworld-report": 54
+        },
+        "allVisitorFieldsAccountedFor": true
+      },
+      "independentReview": {
+        "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/independent-review/final-v2/independent-review.json",
+        "sha256": "f3a22a3955309090ed66a2bf44aa014bff2d750230e59f24619eeef1c8908de1",
+        "verdict": "PASS"
+      },
+      "reviewMetrics": {
+        "path": "operations/product-stewards/newsstand/candidates/pro-signup-pause-20260912/review-metrics.json",
+        "sha256": "1bd717de124b6260cd275147468beb2d3e8ddb6303d95dfbe6529a81885766d7",
+        "reviewIssues": 1,
+        "reviewCycles": 2
+      }
+    },
+    "admissionCheck": {
+      "mode": "IN_MEMORY_ONLY",
+      "changed": true,
+      "issueStoryIds": [
+        "pro-signup-pause-20260912"
+      ],
+      "issueServiceRecordIds": [
+        "DAILY-2026-09-12-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+        "DAILY-2026-09-12-CAREER-LIFE-CORNER-02-PRIORITIES",
+        "DAILY-2026-09-09-CONCEPT-WEEK-CONCEPT-02-TOKEN",
+        "DAILY-2026-09-12-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
+        "DAILY-2026-09-12-CURIOSITY-CURIOSITY-02-NAME-CONTRIBUTION"
+      ],
+      "serviceRecordsPreserved": true,
+      "noCanonicalWrite": true,
+      "noDeploy": true
+    },
+    "negativeCalibration": {
+      "mutation": "Changed the existing paige_tip summary in memory.",
+      "verdict": "REJECT",
+      "error": "DAILY_EDITION_PROMOTION_REJECT: ready desk paige_tip is not bound to admitted source content"
+    }
+  },
+  "limitations": [
+    "Local canonical successor admission only. This record does not write canonical issue data, deploy, or establish public verification."
+  ],
+  "history": {
+    "preservedOriginalDecisionPath": "operations/product-stewards/newsstand/evidence/daily-pro-admission-2026-09-12.json",
+    "preservedOriginalDecisionSha256": null,
+    "reason": "The initial admission record placed non-contract evidence fields in the strict decision object; this adjacent record preserves those original fields while the decision is reduced to the required news-revision contract."
+  }
+}

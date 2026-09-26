@@ -8,13 +8,13 @@ import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { webcrypto } from 'node:crypto';
 import { buildDerivatives } from './build-newsstand-derivatives.mjs';
 import { composeDailyEnvelope } from './compose-daily-edition.mjs';
 import { promoteDailyIssue } from './promote-daily-edition.mjs';
 import { projectDailySourceRaw, verifyProjectionAdmission } from './publish-daily-edition.mjs';
-import { validateOrdinaryStoryCandidate, candidateReviewText, stable, sha256 } from './validate-newsstand-ordinary-story-candidate.mjs';
+import { validateOrdinaryStoryCandidate, inspectOrdinaryCandidateCommand, candidateReviewText, stable, sha256 } from './validate-newsstand-ordinary-story-candidate.mjs';
 import { enforcedFailureFamilies } from './check-prose-quality-admission.mjs';
 import { prepareOvernightCandidate } from './prepare-newsstand-overnight-candidate.mjs';
 
@@ -27,6 +27,14 @@ const parse = raw => { const c = { window: {} }; vm.runInNewContext(raw, c); ret
 const sourceBase = fs.readFileSync(path.join(SOURCE, 'content/newsstand-stories.js'), 'utf8');
 let base = sourceBase;
 const dataset = parse(base);
+// Derivative building enforces the real editorial-placement list. Remove one
+// listed daily ID from this disposable base, then admit a synthetic candidate
+// with that same ID. This exercises the real placement guard without changing
+// production selection data or asking a made-up ID to bypass it.
+const fixtureStoryId = 'openai-data-agent-20260910';
+const fixtureStoryTemplate = structuredClone(dataset.stories.find(story => story.id === fixtureStoryId));
+assert.ok(fixtureStoryTemplate, 'fixture needs a real placed Daily story template');
+dataset.stories = dataset.stories.filter(story => story.id !== fixtureStoryId);
 const fixtureWeekly = dataset.stories.find(story => story.edition === 'weekly' && ['published', 'corrected'].includes(story.status) && story.sourceApproval?.status === 'approved' && story.publishedAt.slice(0, 10) <= date);
 assert.ok(fixtureWeekly, 'fixture needs an admitted non-future Weekly');
 dataset.publications.weekly = { ...dataset.publications.weekly, storyId: fixtureWeekly.id, editionDate: '2026-08-26', publishedAt: fixtureWeekly.publishedAt, updatedAt: fixtureWeekly.updatedAt, lastCheckedAt: fixtureWeekly.lastCheckedAt, status: 'current' };
@@ -42,7 +50,7 @@ put('content/newsstand-stories.js', base);
 put('content/daily-edition-columns.json', columnsRaw);
 put('content/luminairy-profiles.json', fs.readFileSync(path.join(SOURCE, 'content/luminairy-profiles.json'), 'utf8'));
 const radarPath = `operations/product-stewards/newsstand/editorial-intake/${date}.md`;
-const radarRaw = `${date}\n- **NewsStand:** REVIEW CANDIDATE fixture-current-news.\n`;
+const radarRaw = `${date}\n- **NewsStand:** REVIEW CANDIDATE ${fixtureStoryId}.\n`;
 put(radarPath, radarRaw);
 const sourceBinding = put(`${prefix}/source.txt`, 'Synthetic authority: This fixture changes one setting, not every product.\n');
 const bad = put(`${prefix}/bad.txt`, 'Synthetic bad prose gives labels without explaining the change.\n');
@@ -50,7 +58,7 @@ const good = put(`${prefix}/good.txt`, 'Synthetic good prose explains a dated ch
 const registry = { schemaVersion: 'laidies-content-quality-exemplars.v1', negativeExemplars: [{ id: 'BAD', ...bad, incidentId: 'fixture', appliesTo: ['NEWS'], failureFamilies: ['missingMechanism'] }], positiveExemplars: [{ id: 'GOOD', ...good, useFor: ['NEWS'] }] };
 const registryBinding = put('operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json', registry);
 const benchmark = put('operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md', 'Synthetic benchmark fixture, not editorial evidence.\n');
-const story = { ...structuredClone(dataset.stories.find(story => story.edition === 'daily' && !story.id.startsWith('front-paige-'))), id: 'fixture-current-news', slug: 'fixture-current-news', status: 'hold', publishedAt: null, updatedAt: `${date}T20:00:00Z`, lastCheckedAt: `${date}T20:00:00Z`, sourceApproval: { status: 'independent-review-required', record: 'newsstand:source-approval:fixture-current-news' }, headline: 'Synthetic current news fixture', the_story: 'This fixture changes one setting, not every product.', heroVisual: { src: '/assets/newsstand/design-20260830/latest-checking.png', alt: 'Synthetic fixture image for publication-gate coverage.', credit: 'Synthetic test fixture' }, correction: null, retraction: null, bigPicture: null, correctionHistory: [], predecessorStoryIds: [], successorStoryIds: [], sources: [{ id: 'fixture-source', url: 'https://example.test/fixture', label: 'Synthetic primary evidence', accessedAt: date, approvalStatus: 'reviewed', publisherType: 'primary-document' }] };
+const story = { ...fixtureStoryTemplate, id: fixtureStoryId, slug: fixtureStoryId, status: 'hold', publishedAt: null, updatedAt: `${date}T20:00:00Z`, lastCheckedAt: `${date}T20:00:00Z`, sourceApproval: { status: 'independent-review-required', record: `newsstand:source-approval:${fixtureStoryId}` }, headline: 'Synthetic current news fixture', the_story: 'This fixture changes one setting, not every product.', heroVisual: { src: '/assets/newsstand/design-20260830/latest-checking.png', alt: 'Synthetic fixture image for publication-gate coverage.', credit: 'Synthetic test fixture' }, correction: null, retraction: null, bigPicture: null, correctionHistory: [], predecessorStoryIds: [], successorStoryIds: [], sources: [{ id: 'fixture-source', url: 'https://example.test/fixture', label: 'Synthetic primary evidence', accessedAt: date, approvalStatus: 'reviewed', publisherType: 'primary-document' }] };
 const reviewText = put(`${prefix}/review.txt`, candidateReviewText(story));
 const rendered = put(`${prefix}/render.html`, '<p>UNAPPROVED SYNTHETIC TEST ONLY</p>');
 const manifest = put(`${prefix}/manifest.json`, { schemaVersion: 'laidies-content-artifact-manifest.v1', candidateId: story.id, contentClass: 'NEWS', surface: 'NEWSSTAND_DAILY', reviewText, rendered });
@@ -66,6 +74,17 @@ const report = put(`${prefix}/raw-review.json`, { candidateId: story.id, storySh
 const contract = { schemaVersion: 'laidies-content-producer-contract.v1', candidateId: story.id, surface: 'NEWSSTAND_DAILY', contentClass: 'NEWS', producer: 'fixture-maker', readerContract: Object.fromEntries(['humanQuestion', 'promisedPayoff', 'priorKnowledge', 'centralMentalModel', 'dailyLifeConnection', 'surfaceJob', 'desiredFeeling'].map(name => [name, `Synthetic ${name}`])), canonicalTruth: [{ claimId: 'fixture-change', owner: 'fixture', freshnessTrigger: 'source changes', source: sourceBinding }], positiveExemplars: [{ id: 'GOOD', strengthsToUse: ['clarity'], patternsNotToCopy: ['scaffold'] }], knownFailurePreflight: { registryVersion: registry.schemaVersion, registrySha256: registryBinding.sha256, negativeExemplarIds: ['BAD'], dispositions: { missingMechanism: { status: 'CLEAR', producerGuard: 'Synthetic guard', preventionEvidence: 'Synthetic mechanism plan' } }, knownDefectsRemaining: [] }, draftArchitecture: { plainAnswer: 'Synthetic change', causalSequence: ['input', 'change', 'effect'], workedCase: 'Work case', transferCase: 'Home case', usefulAction: 'Check change', formatSpecificStructure: 'Dated story', antiTemplateDecision: 'No repeated structure', analogyPlan: [], humourPlan: { noneReason: 'Test only' } }, communicationDesign: { benchmarkId: 'HANNAH_FRY_COMMUNICATION_LENS_V2', benchmark, mode: 'PROPORTIONAL', surfaceAdaptation: 'Synthetic news test', imitationBoundary: 'ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA', dimensions: Object.fromEntries(['humanQuestion', 'usefulCuriosity', 'invisibleProcessConcrete', 'familiarTechnicalMovement', 'limitationsConsequences', 'humourSurprise', 'betterNextQuestion'].map(name => [name, { disposition: 'APPLY', reason: `Synthetic ${name}`, plannedEvidence: 'Specific synthetic mechanism evidence' }])), explanationArc: { mode: 'PROPORTIONAL', retainedMoves: ['change', 'effect'], adaptation: 'Short synthetic report' } }, representativeProofPlan: { highestRisk: 'Changed bytes', plannedProof: 'Mutation tests', acceptanceOutcome: 'Fail closed' }, ratchet: { targets: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0 }, rule: 'REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW' }, status: 'READY_TO_DRAFT' };
 const candidate = { schemaVersion: 'newsstand-ordinary-story-candidate-v1', candidateStatus: 'READY_FOR_ISSUE_ADMISSION', candidateId: story.id, editionDate: date, story, storySha256: sha256(stable(story)), publicationBase: put(`${prefix}/base.js`, base), sourceText: reviewText, claimMap: put(`${prefix}/claims.json`, claimMap), producerContract: put(`${prefix}/contract.json`, contract), sources: [{ id: 'fixture-source', url: story.sources[0].url, evidence: sourceBinding }], reviewEvidence: { producer: put(`${prefix}/producer.json`, producer), independent: put(`${prefix}/independent.json`, independent), independentRawReport: report } };
 const candidateBinding = put(`${prefix}/candidate.json`, candidate);
+const commandOptions = { root, now: `${date}T23:00:00Z` };
+assert.equal(inspectOrdinaryCandidateCommand(['--candidate', candidateBinding.path, '--date', date], commandOptions).candidateId, story.id);
+assert.throws(() => inspectOrdinaryCandidateCommand(['--candidate', candidateBinding.path, '--date', '2026-08-29'], commandOptions), /date mismatch/);
+const invalidCommandCandidate = put(`${prefix}/invalid-command.json`, { ...candidate, storySha256: '0'.repeat(64) });
+assert.throws(() => inspectOrdinaryCandidateCommand(['--candidate', invalidCommandCandidate.path], commandOptions), /story hash mismatch/);
+for (const args of [[], ['--candidate'], ['--candidate', 'missing.json'], ['--unknown', 'value']]) {
+  const invocation = spawnSync(process.execPath, [path.join(SOURCE, 'scripts/validate-newsstand-ordinary-story-candidate.mjs'), ...args], { encoding: 'utf8' });
+  assert.equal(invocation.status, 1, `Direct validator must reject instead of silently exiting: ${args}`);
+  assert.equal(JSON.parse(invocation.stderr).status, 'REJECT');
+  assert.equal(invocation.stdout, '');
+}
 const compose = binding => composeDailyEnvelope({ root, date, radarPath: path.join(root, radarPath), radarRaw, storiesRaw: base, columnsRaw, candidateBinding: binding });
 const composed = compose(candidateBinding);
 for (const field of ['frontPaigeStoryId', 'weeklyStoryId', 'desks']) original[field] = structuredClone(composed.envelope[field]);
@@ -124,7 +143,7 @@ const advancedWeekly = structuredClone(dataset);
 const oldWeeklyId = advancedWeekly.publications.weekly.storyId;
 const oldWeekly = advancedWeekly.stories.find(item => item.id === oldWeeklyId);
 const newWeeklyId = 'fixture-current-weekly';
-advancedWeekly.stories.push({ ...structuredClone(oldWeekly), id: newWeeklyId, slug: newWeeklyId, headline: 'Synthetic current Weekly', publishedAt: `${date}T21:30:00Z`, updatedAt: `${date}T21:30:00Z`, lastCheckedAt: `${date}T21:30:00Z` });
+advancedWeekly.stories.push({ ...structuredClone(oldWeekly), id: newWeeklyId, slug: newWeeklyId, predecessorStoryIds: [], successorStoryIds: [], correction: null, retraction: null, headline: 'Synthetic current Weekly', publishedAt: `${date}T21:30:00Z`, updatedAt: `${date}T21:30:00Z`, lastCheckedAt: `${date}T21:30:00Z` });
 advancedWeekly.publications.weekly = { ...advancedWeekly.publications.weekly, storyId: newWeeklyId, editionDate: date, publishedAt: `${date}T21:30:00Z`, updatedAt: `${date}T21:30:00Z`, lastCheckedAt: `${date}T21:30:00Z`, status: 'current', correctivePublication: { mode: 'MISSED_WEDNESDAY_CURRENT_WEEK', publicationDate: date, period: { startDate: '2026-08-24', endDate: date } } };
 const advancedBase = `window.NEWSSTAND_DATA = ${JSON.stringify(advancedWeekly, null, 2)};\n`;
 put('content/newsstand-stories.js', advancedBase);
@@ -168,7 +187,7 @@ const overnightCandidate=prepareOvernightCandidate(morningRecordBinding,{root,no
 assert.deepEqual(overnightCandidate.story,candidate.story,'overnight preparation must not change prose or original dates');
 const overnightBinding=put(`${prefix}/overnight-candidate.json`,overnightCandidate);
 const morningRadarPath=`operations/product-stewards/newsstand/editorial-intake/${morningDate}.md`;
-const morningRadar=`${morningDate}\n- **NewsStand:** REVIEW CANDIDATE fixture-current-news.\n`;
+const morningRadar=`${morningDate}\n- **NewsStand:** REVIEW CANDIDATE ${fixtureStoryId}.\n`;
 put(morningRadarPath,morningRadar);
 const morningEnvelope=composeDailyEnvelope({root,date:morningDate,now:morningNow,radarPath:path.join(root,morningRadarPath),radarRaw:morningRadar,storiesRaw:base,columnsRaw,candidateBinding:overnightBinding});
 const morningDecision={schemaVersion:'daily-issue-admission-v1',decision:'ACCEPT_LOCAL_CANONICAL_WRITE',editionDate:morningDate,envelopeSha256:morningEnvelope.sha256,reviewedBy:'independent-fixture-judge',reviewerRole:'independent NewsStand issue judge',reviewedAt:`${morningDate}T14:05:00Z`};
@@ -242,14 +261,16 @@ assert.throws(() => projectDailySourceRaw({ root, raw: output, issue: admitted.i
 put(sourceBinding.path, 'Synthetic authority: This fixture changes one setting, not every product.\n');
 // Invoke the actual CLI boundary, including the resume/check commands. The
 // fixture root is derived from copied script locations, not a release bypass.
-for (const name of ['newsstand-service-continuity', 'newsstand-career-lane', 'select-aidb-edition', 'check-practitioner-signal-pilot', 'advance-newsstand-story-recovery', 'compose-daily-edition', 'promote-daily-edition', 'publish-daily-edition', 'validate-newsstand-ordinary-story-candidate', 'newsstand-story-lineage', 'prepare-newsstand-draft', 'validate-newsstand-story-type-coverage', 'check-prose-quality-admission', 'check-content-producer-contract', 'build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(SOURCE, `scripts/${name}.mjs`), 'utf8'));
+for (const name of ['newsstand-service-revision-base','newsstand-service-continuity', 'newsstand-career-lane', 'select-aidb-edition', 'check-practitioner-signal-pilot', 'advance-newsstand-story-recovery', 'compose-daily-edition', 'promote-daily-edition', 'publish-daily-edition', 'validate-newsstand-ordinary-story-candidate', 'newsstand-story-lineage', 'prepare-newsstand-draft', 'validate-newsstand-story-type-coverage', 'check-prose-quality-admission', 'check-content-producer-contract', 'build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(SOURCE, `scripts/${name}.mjs`), 'utf8'));
 put('operations/product-stewards/newsstand/story-type-modules.json', fs.readFileSync(path.join(SOURCE, 'operations/product-stewards/newsstand/story-type-modules.json'), 'utf8'));
 put('operations/product-stewards/newsstand/story-recovery-policy.json', fs.readFileSync(path.join(SOURCE, 'operations/product-stewards/newsstand/story-recovery-policy.json'), 'utf8'));
 put('operations/product-stewards/newsstand/story-recovery-queue.json', JSON.stringify({ schema: 'laidies.newsstand-story-recovery-queue.v1', items: [] }));
 put('scripts/lib/newsstand-luminairy-links.mjs', fs.readFileSync(path.join(SOURCE, 'scripts/lib/newsstand-luminairy-links.mjs'), 'utf8'));
 put('scripts/lib/newsstand-overnight-freshness.mjs', fs.readFileSync(path.join(SOURCE, 'scripts/lib/newsstand-overnight-freshness.mjs'), 'utf8'));
+put('scripts/lib/newsstand-evidence-time.mjs', fs.readFileSync(path.join(SOURCE, 'scripts/lib/newsstand-evidence-time.mjs'), 'utf8'));
 put('content/newsstand-big-picture-versions.js', fs.readFileSync(path.join(SOURCE, 'content/newsstand-big-picture-versions.js'), 'utf8'));
 put('content/newsstand-reader-contract.js', fs.readFileSync(path.join(SOURCE, 'content/newsstand-reader-contract.js'), 'utf8'));
+put('content/newsstand-selection.js', fs.readFileSync(path.join(SOURCE, 'content/newsstand-selection.js'), 'utf8'));
 const envelopePath = `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/${date}-fixture-revision.json`;
 const decisionPath = `operations/product-stewards/newsstand/evidence/${date}-fixture-admission.json`;
 put('content/newsstand-daily-issues.json', originalStore);
@@ -265,6 +286,11 @@ assert.match(cli('publish-daily-edition', projectArgs), /WRITE PASS/);
 assert.match(cli('publish-daily-edition', [...projectArgs, '--check']), /CHECK PASS/);
 assert.match(cli('publish-daily-edition', projectArgs), /WRITE PASS/);
 assert.equal(fs.readFileSync(path.join(root, 'content/newsstand-stories.js'), 'utf8'), output);
+assert.match(cli('promote-daily-edition', ['--envelope', envelopePath, '--decision', decisionPath, '--maker', 'fixture-maker']), /IDEMPOTENT/, 'admission retry after projection must remain exact and idempotent');
+put('content/newsstand-stories.js', output + '\n// unreviewed byte mutation\n');
+assert.throws(() => cli('promote-daily-edition', ['--envelope', envelopePath, '--decision', decisionPath, '--maker', 'fixture-maker']), /publication base changed|source bytes changed/, 'near-identical projection must not bypass the source guard');
+put('content/newsstand-stories.js', output);
+
 assert.match(cli('build-newsstand-derivatives', []), /PASS/);
 assert.match(cli('build-newsstand-derivatives', ['--check']), /PASS/);
 assert.equal(fs.readFileSync(path.join(SOURCE, 'content/newsstand-stories.js'), 'utf8'), sourceBase, 'real canonical data must never change during tests');

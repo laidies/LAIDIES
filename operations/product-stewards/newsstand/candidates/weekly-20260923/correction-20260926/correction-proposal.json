@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "newsstand-weekly-field-correction-proposal.v1",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "field": "closing_note",
+  "maker": "/root",
+  "currentCanonical": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/correction-20260926/publication-base.js",
+    "sha256": "d06568d2a39615252ad4b12b4bf3c5f9639af95ef48da11a875a55e694d608b3"
+  },
+  "predecessorStory": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/correction-20260926/predecessor-story.json",
+    "sha256": "c8cfaececcb829b504ccbe21b78fd0dcd409cf44caec7120c24f8b49e40ebcd0"
+  },
+  "correctedStory": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/correction-20260926/corrected-story.json",
+    "sha256": "7b21608edb543775121a3a96a2f8bbe2e2120ca27da2f410519dbd162a44645b"
+  },
+  "predecessorStorySha256": "5cc050180d14f428fffaab722d039b8b37f2c8a765e8721dd0aa92f505f831cb",
+  "correctedStorySha256": "4fa3a8facb5b526dd2cc91bb50795cee0c218a75aad110cd2610cd46109d812d",
+  "before": "Covered period: September 16–23, 2026. Prepared September 23 and source-refreshed September 26; independent review and publication remain pending.",
+  "after": "Covered period: September 16–23, 2026.",
+  "operation": {
+    "kind": "EXACT_SUFFIX_DELETION",
+    "deletedText": " Prepared September 23 and source-refreshed September 26; independent review and publication remain pending.",
+    "changedFields": [
+      "closing_note"
+    ],
+    "newReaderClaimIntroduced": false
+  },
+  "reason": "The deleted suffix falsely described independent review and publication as pending after the Weekly was published. The retained first sentence is the already reviewed covered-period statement.",
+  "transactionBoundary": "Private same-ID field-correction proposal only. Root must use an explicitly admitted correction transaction, preserve retrievable predecessor bytes, and verify the corrected live reader. No canonical or public write is performed here."
+}

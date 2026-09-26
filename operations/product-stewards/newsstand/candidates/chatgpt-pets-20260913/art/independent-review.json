@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "newsstand-independent-visual-review-v1",
+  "candidateId": "chatgpt-pets-20260913-art-v2",
+  "decision": "REJECT_PRIVATE_ART_ADMISSION",
+  "reviewedAt": "2026-09-13T14:40:41Z",
+  "reviewer": {
+    "id": "/root/evening_aidb",
+    "role": "Independent NewsStand visual reviewer",
+    "independentFromMaker": true,
+    "pixelFirst": true
+  },
+  "bindings": {
+    "producerContract": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/art/producer-contract.json",
+      "sha256": "1b04aeac5b7ed3d2662de33dfe5d0cb3761a6504ad7f8b2677f048ad92dce1a3"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/article.md",
+      "sha256": "87e009f29c07b1ece25fd60e25f2f3531f19a34e7c64b1348e2a778431afde9a"
+    },
+    "visualProtocol": {
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/VISUAL-ADMISSION-PROTOCOL.md",
+      "status": "ACTIVE"
+    },
+    "qualityRegistry": {
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/learning-content-ecosystem/visual-media-quality-exemplars.json",
+      "sha256": "5aeb36e8a5a442870e322f07b1a6d730069c16d5892564da303233bbc33a294d"
+    },
+    "approvedStyleReference": {
+      "path": "/Users/alisoneakin/Projects/laidies-current-visual-references-20260906/assets/homepage/approved-references/women-ai-pop-art-approved-20260830.png",
+      "sha256": "0742816929be694e0e9fcfa11c3ae047173814e6112419176a71a994273828a5"
+    }
+  },
+  "artifact": {
+    "path": "/Users/alisoneakin/.codex/generated_images/01a071e7-db55-7a22-8c99-04eba5060355/exec-e019cb2a-30be-4504-9cd6-ea0c4a5601e4.png",
+    "sha256": "efd62d995654c0e1bf653f4e129ead9da821b5f94632e3bce2746c5354400389",
+    "kind": "STILL",
+    "width": 1536,
+    "height": 1024
+  },
+  "renderedEvidence": {
+    "fullResolutionInspection": "Inspected the supplied 1536 by 1024 PNG pixels.",
+    "compactPreviewInspection": "Inspected a proportional 360 by 240 preview. The laptop remains legible, but the pixel cat becomes a small secondary detail while the unsupported speech bubbles remain conspicuous.",
+    "visibleAudit": {
+      "laptop": "PASS: one open laptop rests plausibly on the table; hinge, keyboard, screen plane, support and shadow are coherent.",
+      "cat": "PASS: one small passive pixel-art cat is inside the lower-right screen area. It is neither a real cat nor an anthropomorphic actor.",
+      "peopleAnimalsLogos": "PASS: no people, hands, real animals, branded marks or readable words are visible.",
+      "requiredBlankChatBar": "PASS: one compact blank bar appears inside the display.",
+      "style": "PARTIAL: cyan, coral, deep ink, paper ground, linework and print grain recall the bound editorial reference, though the dominant laptop reads closer to a rendered product shot than the reference's layered editorial illustration. This is not the rejection basis."
+    }
+  },
+  "visibleDefects": [
+    {
+      "id": "VQX-BAD-005",
+      "severity": "BLOCKING",
+      "observation": "The screen contains two large speech-bubble controls plus two sticky-note cards marked with fabricated line and glyph-like detail. The contract allows only abstract nonlegible note shapes behind one compact blank chat bar and prohibits fake interface controls, labels and generated text-like content."
+    },
+    {
+      "id": "VQX-BAD-008",
+      "severity": "BLOCKING",
+      "observation": "The two speech bubbles are dominant, unbound interface-like decoration. They compete with the single control bar and the passive optional-pet distinction instead of explaining it. Their presence recreates the extra-clutter problem that v2 was meant to remove."
+    },
+    {
+      "id": "VQX-BAD-007",
+      "severity": "MATERIAL",
+      "observation": "The article and contract require the pet to be optional scenery beside one compact control. At preview size the most legible screen signal is a generic multi-message conversation, so the image no longer makes the pet-versus-control distinction cleanly enough."
+    }
+  ],
+  "disposition": {
+    "admitted": false,
+    "ownerReviewReady": false,
+    "publicationReady": false,
+    "requiredRepair": "Re-render with only the laptop, one passive pixel cat inside a screen corner, one blank compact chat bar and background-only abstract nonlegible marks. Remove both speech bubbles and the sticky-note cards or reduce any abstract marks until they cannot read as notes, labels or interface controls. Preserve the plausible laptop geometry and passive in-screen pixel cat."
+  },
+  "limitations": [
+    "This is private rendered-art review only. It does not approve the article, canonical binding, responsive implementation, deployment or the account-specific product behaviour described in the article.",
+    "The review distinguishes pixel inspection and compact-preview inspection from a later browser placement review."
+  ]
+}

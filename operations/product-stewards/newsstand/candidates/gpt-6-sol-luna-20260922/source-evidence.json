@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "laidies.newsstand-source-evidence.v1",
+  "candidateId": "gpt-6-sol-luna-20260922",
+  "status": "SOURCE_BOUND_RESEARCH_ONLY",
+  "reviewedAt": "2026-09-26T14:14:52.394Z",
+  "records": [
+    {
+      "id": "openai-gpt-6-sol-luna-release",
+      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "authority": "OpenAI is authoritative for its model release, plan and product availability statements, API price schedule, and its own benchmark and evaluation claims.",
+      "rawReceipt": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260923/source-recovery/new-release-followthrough-raw.json",
+        "sha256": "3d51113911dffb5b27d6b7a6d927fde6de206a3954df350ba9894d32aa12100b",
+        "locator": "turn1095view1 lines 42-52, 57-91, 117-139"
+      },
+      "passages": [
+        "OpenAI presents Sol and Luna as GPT-6 family models positioned for lower cost and faster work than Astra.",
+        "Its posted API prices are $2 input and $10 output per million tokens for GPT-6 Sol, and $0.10 input and $0.50 output per million tokens for GPT-6 Luna.",
+        "It says both models are available in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise, and Edu users, rolling out gradually.",
+        "It says they are not yet available in Chat.",
+        "It reports benchmark results and factuality improvements using OpenAI-described evaluation conditions."
+      ],
+      "limitation": "All performance, factuality, comparison, cost-efficiency, and rollout claims are OpenAI claims. The stated availability is gradual and differs by product surface; no ordinary-Chat access can be inferred. Evaluation results do not establish typical-use performance."
+    },
+    {
+      "id": "openai-sol-luna-current-20260926",
+      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "authority": "OpenAI controls its release, availability, plan, rollout and API-price statements.",
+      "rawReceipt": {
+        "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/source-refresh-20260926.json",
+        "sha256": "e4519a2294f41337513f6a6c848a2d602c1be4387928da7d9878a9af833d6693",
+        "locator": "turn1252view0 lines 42-52 and 133-139; turn1252view1 lines 26-36"
+      },
+      "passages": [
+        "OpenAI lists GPT-6 Sol and Luna API pricing per million tokens.",
+        "OpenAI says the models are in ChatGPT Work and Codex, separate from Chat; plan and workspace settings affect available choices.",
+        "OpenAI says rollout is gradual and not a proof of one account’s available model picker."
+      ],
+      "limitation": "Fresh official pages were inspected September 26. Provider claims remain attributed; account-specific access, cost, and real-world performance are not established."
+    }
+  ]
+}

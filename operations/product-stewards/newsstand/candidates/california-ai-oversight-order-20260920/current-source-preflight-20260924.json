@@ -1,0 +1,29 @@
+{
+  "schema": "newsstand-current-source-preflight-receipt-v1",
+  "candidateId": "california-ai-oversight-order-20260920",
+  "sourceReviewedAt": "2026-09-24T10:00:00-07:00",
+  "eventDatesPreserved": true,
+  "publicProseChanged": false,
+  "providerCalled": false,
+  "result": "PRE_REVIEW_PASS",
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/editorial-preflight-v11-current-sources-20260924/ --preflight-only",
+  "stdout": "{\"status\": \"PRE_REVIEW_PASS\", \"candidateDir\": \"operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/\", \"scope\": \"Validation-only pre-review gate; no provider request, editorial judgment, admission or publication.\"}",
+  "bindings": {
+    "sourceEvidence": {
+      "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/source-evidence.json",
+      "sha256": "fc61e68bdf074a6088a12e81518ae3cf9c37a6d3b2a190729f59aaf1e4ba4a8d"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/article.md",
+      "sha256": "fe8727dab6cc0f720d8be1ec1dbdf39ed7e71af543652cdd07a143f17352e6df"
+    },
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/story.json",
+      "sha256": "524b515c547fc91f8bcb5bba5934a8601221caaa0c861e8cf83e680a392a03c5"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920/review-text.json",
+      "sha256": "6910df1bf1a89a227eb6a396c6d952e64202803d9be63d1240526078cf6f2cf4"
+    }
+  }
+}

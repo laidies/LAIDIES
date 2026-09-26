@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "newsstand-source-recovery-review-v1",
+  "url": "https://aidailybrief.ai/e/2026-09-12/transcript.md",
+  "originalCheckedAt": "2026-09-14T23:02:12Z",
+  "originalNotRetried": true,
+  "reviewedAt": "2026-09-16T14:33:01.166017+00:00",
+  "reviewedBy": "/root",
+  "assessment": "Actual index read lists September14 as newest; normal September16 machine requests failed. Publisher-linked Apple index provides September15 metadata only; no complete-content recovery or cursor advance.",
+  "missingInput": "Exact machine source remains inaccessible. Separately inspected Beehiiv written post does not establish full podcast review or transcript identity.",
+  "nextCheckAt": "2026-09-16T17:00:00Z",
+  "nextRecoveryStep": "Recheck distinct accessible publisher evidence at next source phase; do not retry prohibited original.",
+  "originalCapture": {
+    "path": "operations/product-stewards/newsstand/evidence/news-20260914/late-scout-source-checks.json",
+    "sha256": "1c6dfe5e88fd65aeec71eb9051fbc63c45301e210039537f189cec9425876073"
+  },
+  "recoverySources": [
+    {
+      "url": "https://aidailybrief.ai/agent.json",
+      "status": "CHECKED",
+      "checkedAt": "2026-09-16T14:32:02.743130+00:00",
+      "assessment": "Actual index read lists September14 as newest; normal September16 machine requests failed. Publisher-linked Apple index provides September15 metadata only; no complete-content recovery or cursor advance.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/morning-20260916/provider-index-capture.json",
+        "sha256": "89d4a7e0b2f162f02bbc6f034da6fa4693cbb37ab2108201251015d652627a17"
+      }
+    }
+  ]
+}

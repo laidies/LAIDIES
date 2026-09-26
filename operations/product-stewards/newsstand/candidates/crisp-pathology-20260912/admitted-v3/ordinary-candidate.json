@@ -1,0 +1,197 @@
+{
+  "schemaVersion": "newsstand-ordinary-story-candidate-v2",
+  "candidateStatus": "READY_FOR_ISSUE_ADMISSION",
+  "candidateId": "crisp-pathology-20260912",
+  "editionDate": "2026-09-12",
+  "story": {
+    "id": "crisp-pathology-20260912",
+    "slug": "crisp-pathology-20260912",
+    "edition": "daily",
+    "status": "hold",
+    "publishedAt": null,
+    "updatedAt": "2026-09-12T22:35:30.726Z",
+    "lastCheckedAt": "2026-09-12T22:35:30.726Z",
+    "sourceApproval": {
+      "record": "newsstand:source-approval:crisp-pathology-20260912",
+      "status": "independent-review-required"
+    },
+    "correction": null,
+    "correctionHistory": [],
+    "retraction": null,
+    "predecessorStoryIds": [],
+    "successorStoryIds": [],
+    "relationshipType": null,
+    "bigPicture": null,
+    "thread": null,
+    "thread_subtitle": null,
+    "thread_entry": null,
+    "headline": "CRISP matched a senior specialist during fast surgery checks.",
+    "heroVisual": {
+      "src": "/assets/newsstand/design-20260830/latest-checking.png",
+      "alt": "Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.",
+      "credit": "Illustration: LAiDIES"
+    },
+    "the_story": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p><p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+    "laidies_read": "<p>Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.</p>",
+    "what_this_means": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+    "cocktail_party": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+    "watch_fors": null,
+    "closing_note": null,
+    "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.",
+    "sources": [
+      {
+        "id": "nature-crisp-paper-20260910",
+        "label": "Nature Medicine — A clinically-oriented foundation model for intraoperative pathology",
+        "url": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf",
+        "publisherType": "primary-peer-reviewed-accepted-paper",
+        "accessedAt": "2026-09-12",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "nature-crisp-landing-20260910",
+        "label": "Nature Medicine — article landing page",
+        "url": "https://www.nature.com/articles/s41591-026-04703-0?error=cookies_not_supported",
+        "publisherType": "primary-journal-record",
+        "accessedAt": "2026-09-12",
+        "approvalStatus": "reviewed"
+      }
+    ],
+    "aidb_credit": null,
+    "themes": [
+      "health and medicine",
+      "research"
+    ],
+    "concepts": [
+      "intraoperative pathology",
+      "computer vision",
+      "observational evidence"
+    ],
+    "tags": [
+      "CRISP",
+      "pathology",
+      "medical AI"
+    ],
+    "saint_lane": null,
+    "badge": "THE LATEST"
+  },
+  "storyTypeCoverage": {
+    "schema": "laidies.newsstand-story-type-coverage.v1",
+    "primaryType": "health-science",
+    "overlays": [
+      "research-benchmark"
+    ],
+    "universalAnswers": {
+      "whatHappened": "Nature Medicine posted an accepted-article preview reporting CRISP’s comparison results on frozen-section pathology images during surgery.",
+      "plainLanguageIdentity": "Frozen sections give a pathologist a rapid tissue image while surgery continues; CRISP supplies a prediction for the pathologist to interpret.",
+      "evidenceBasis": "The accepted paper reports prospective observational comparisons with other models and a reader study including pathologists.",
+      "evidenceLimits": "The paper says a prospective interventional study is still needed to assess deployment and clinical outcomes.",
+      "readerRelevance": "The story shows why an AI comparison result in a difficult clinical task can be meaningful without being proof of better care.",
+      "affectedPeople": "The study involved adult surgical patients and pathology teams at three prospective-study centres; no personal care recommendation follows.",
+      "changesNow": "The accepted-article preview reports research; it does not establish routine clinical availability.",
+      "uncertainty": "The authors require prospective interventional study, more diverse validation and work on regulation, workflow integration and training.",
+      "readerAction": "Read the study as evidence about model and workflow performance under its stated conditions, not as medical advice or proof of better outcomes.",
+      "betterQuestion": "Did the study measure prediction performance, workflow support or an actual improvement in patient outcomes?"
+    },
+    "typeAnswers": {
+      "health-science": {
+        "aiRole": "CRISP divides slide images into patches, extracts numerical features, weights salient regions and produces slide-level predictions.",
+        "professionalRole": "A pathologist remains responsible for interpreting the tissue and informing the surgical team; the article describes CRISP as support.",
+        "evidenceLevel": "Accepted peer-reviewed research with retrospective tasks, a prospective observational study and a separate simulated deployment analysis; not an interventional trial or approval.",
+        "benefitClaim": "The article reports prediction and workflow measures. This candidate makes no treatment or patient-outcome benefit claim.",
+        "risksAndFalseResults": "The paper reports false positives associated mainly with rare benign tumours and false negatives mainly with rare malignant tumours with ambiguous morphology.",
+        "availability": "The paper does not establish routine clinical availability, local access or regulatory authorization.",
+        "readerBoundary": "This research explanation is not medical advice and is not a reason to change personal care."
+      },
+      "research-benchmark": {
+        "researchQuestion": "Can a frozen-section-specific imaging model support diagnostic and predictive tasks in intraoperative pathology?",
+        "method": "Development used 103,797 slides obtained primarily from ten centres; prospective observational evaluation enrolled 3,064 patients at three centres, including 2,071 at SYCC, with a separate 100-case simulation.",
+        "result": "The study measured model predictions and workflow-related analyses; the candidate does not turn those into a clinical-impact claim.",
+        "sponsorAndInterests": "The paper authors performed and reported the work; the candidate relies on the peer-reviewed accepted paper and journal record.",
+        "independentReplication": "No independent replication was verified for this candidate.",
+        "realWorldTransfer": "Prospective observation tests performance under real workflows, while the separate deployment/timing analysis was simulated. Neither proves better patient outcomes.",
+        "limitations": "Retrospective registration, no prospective intervention, population diversity, regulatory compliance, workflow integration and user training remain limits."
+      }
+    },
+    "translation": {
+      "schema": "laidies.newsstand-reader-translation.v1",
+      "newsVersionExact": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models.",
+      "actualMeaningExact": "Frozen images must be read quickly.",
+      "mechanismExact": "CRISP gives a prediction; the pathologist still interprets the tissue.",
+      "familiarExampleExact": "During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step.",
+      "jargon": [
+        {
+          "term": "frozen section",
+          "plainMeaning": "A frozen section is tissue quickly frozen, sliced and examined during surgery."
+        }
+      ],
+      "learningConnections": [
+        {
+          "concept": "A measured result is bounded by its task and conditions.",
+          "learningPayoff": "AI Fundamentals 101 chapter 12.3 explains why a test does not establish readiness for a different real-world job.",
+          "disposition": "link",
+          "destination": "/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed"
+        }
+      ]
+    }
+  },
+  "storySha256": "358171141d9ea95716f0f8080f388dbccf0105ceb5eb0b2ff58f32b8290bb879",
+  "publicationBase": {
+    "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/publication-base-current.js",
+    "sha256": "8583b65668626f7e3418f80b85321abf908342c5d107ce79c865bb6c464a32c6"
+  },
+  "sourceText": {
+    "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/review-text.json",
+    "sha256": "47d102259170ff4d40caaf74715d2b3358103244db14fe24f0347b7459a6b20f"
+  },
+  "claimMap": {
+    "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/publication-claim-map.json",
+    "sha256": "2f174df3bef161323dedc75b69a88b0c27b2387bb0f53cf941064a9fdddb5fc3"
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/producer-contract.json",
+    "sha256": "99620650a6200959caf76fe8043245c07d7a37b737e726275fbd360f16e289ec"
+  },
+  "draftPreparation": {
+    "writerInput": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/writer-input-current.json",
+      "sha256": "a8a44324790abee39d572f182abd2f35644541a80b70f7c990f68595bd7ac103"
+    },
+    "observations": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/producer-observations.json",
+      "sha256": "58f402c2688e5163874b2ba61e32c5dd4897255b6b81f8d9f073af1f5d511de4"
+    }
+  },
+  "sources": [
+    {
+      "id": "nature-crisp-paper-20260910",
+      "url": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/editorial-input.json",
+        "sha256": "19b83b44f2ad70bdfa5889a57adfe6fccd770a6d577ed30b0336f6ed31faef2b"
+      }
+    },
+    {
+      "id": "nature-crisp-landing-20260910",
+      "url": "https://www.nature.com/articles/s41591-026-04703-0?error=cookies_not_supported",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/editorial-input.json",
+        "sha256": "19b83b44f2ad70bdfa5889a57adfe6fccd770a6d577ed30b0336f6ed31faef2b"
+      }
+    }
+  ],
+  "reviewEvidence": {
+    "producer": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/producer-publication-review.json",
+      "sha256": "8f93b136db6ae8a97a016ff16d26a3f1dddb4154813cb5f7556782c18775e81d"
+    },
+    "independent": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/independent-review.json",
+      "sha256": "fea1e33ddb5f20fd7695dfdc91d635e60c6da7c21bcf42189156c895104bdbcd"
+    },
+    "independentRawReport": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/independent-raw-report.json",
+      "sha256": "acb2eae49f3d3c9731ef7048ce0d331aab0e30aeda4dbc67ecc0d893798d59c6"
+    }
+  },
+  "lineage": null
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "openai-misalignment-reporting-20260916",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "maker": "/root/evening_sources",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-19T14:37:00Z",
+  "artifact": {
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/story.json",
+      "sha256": "5ee959c460a7e08fc7daff787b8f5ef8e5c788b1a4934c0b3b96b767effafe44"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/article.md",
+      "sha256": "7b46546590ac40f9a9135fcc580bec970736548b7dea39281121fa039cf39fd0"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/review-text.json",
+      "sha256": "0903db2d2c94eecb613e72e700a1558cc0a2ccd6323a50a6365d2fd61bc83a35"
+    }
+  },
+  "findings": {
+    "clarity": "PASS: article answers that the disclosed examples are not a measure of every AI product and explains the answer/action handoff.",
+    "mechanism": "PASS: generated content, product tools/permissions, and an external action are separated.",
+    "factualBoundary": "PASS: article retains individual-instance, unreleased-model, work-in-progress, and voluntary-process limits.",
+    "readerAction": "PASS: specific destination/content/review check precedes a send or upload.",
+    "visualAdmission": "HOLD: heroVisual is null. No existing admitted image was found that honestly depicts this permission handoff; unrelated art was not reused."
+  },
+  "verdict": "HOLD",
+  "nextRepair": "Secure a candidate-specific or demonstrably appropriate admitted non-character visual, bind it to the exact unchanged article, then rerun ordinary-story preflight before requesting the subscription editorial reviewer.",
+  "independentReviewRequested": false,
+  "reason": "The ordinary story validator rejects a missing hero image, so an editorial provider request would not be a review of an admission-ready candidate."
+}

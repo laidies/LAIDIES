@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "mathematicians-ai-research-values-20260916",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "61d3a39213a802d8608b6c97a8eb5ba8dfddb99f0c9e5789aec901631267bcac",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can an AI benchmark built on solving famous math problems make mathematics worse off even when the AI's answers are correct?",
+      "response": "Because a benchmark only rewards producing a verified answer, while mathematics gains its value downstream: people must isolate the genuinely new idea in a proof, connect it to earlier work with proper attribution, and explain it until students can use it. If companies optimize for the measurable answer, results arrive faster than the community can do that slower integration work, so correct statements pile up without becoming shared, teachable understanding — the tool starts working against the goal it was a proxy for.",
+      "expectedEvidence": "The article should supply the benchmark definition, the integration work a correct proof still requires, and the fast-output-versus-slow-judgment tension.",
+      "assessment": "The article supports this answer: P004 defines benchmark scope and the remaining human work, P002 names the pulled-away activities, and P005 gives Figalli's fast-output/slow-judgment mechanism."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, what is lost if the review meetings are cut, and how could the department check whether coders still understand the codes?",
+      "response": "The audit accuracy is a benchmark: it measures correct code production on chosen cases, not whether coders can judge ambiguous or novel records. The meetings are the slow work of explanation and shared judgment; cutting them means correct outputs outrun the staff's ability to spot bad assumptions or handle changed cases. The article's two-pass check transfers directly: have a coder hide the AI's code, justify a code in their own words, then re-code a record with one changed condition and compare reasoning.",
+      "expectedEvidence": "A correct transfer applies P004's benchmark-scope distinction, P005's fast-output/slow-judgment concern, and P007's hide-explain-vary check to the new domain.",
+      "assessment": "The article's mechanism resolved this unseen scenario without extra material, confirming genuine transferability of the model it teaches."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The incident (25 Fields Medalists' September 11 declaration) and its causal argument (benchmarks pull attention from explanation, attribution, discussion, teaching) are clear.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A benchmark is a defined test used to compare performance on a chosen task. A correct proof may still require people to identify its useful idea, connect earlier work and explain it.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Benchmark' is defined in plain terms at first meaningful use, and the Fields Medal is glossed as a leading mathematics award.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A benchmark is a defined test used to compare performance on a chosen task. A correct proof may still require people to identify its useful idea, connect earlier work and explain it.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence lands in a specific reader situation: an AI-solved percentage problem and whether the learner can explain and re-solve a varied version.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process leakage in the reader-facing prose; the advice follows directly from the sourced mechanism rather than invention.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "Use the Library test below to ask which capability a benchmark measured and whether it matches the result you need. Background: <a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-5-evals-custom-tests-for-your-specific-needs\\\">AI Fundamentals 101 §12.5 — Evals: Custom Tests for Your Specific Needs</a>.",
+          "locator": "P009"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "newsstand-coverage-successor-proposal-v1",
+  "proposalOnly": true,
+  "observedAt": "2026-09-26T03:02:53Z",
+  "editor": "/root/california_order_producer",
+  "predecessor": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "sha256": "8b1c3c8c2a4c2538c7211895f6e67af04839b73320488ffaf5ac0eef9a5b8567"
+  },
+  "evidence": {
+    "path": "operations/product-stewards/newsstand/evidence/evening-20260925/source-refresh/raw-web-observations.json",
+    "sha256": "4266c962ed99533e877afb524f28dfb12200c08346af5fafead7ade2d1f6612b"
+  },
+  "aidbInventory": {
+    "path": "operations/product-stewards/newsstand/evidence/evening-20260925/source-refresh/aidb-edition-inventory-v2.json",
+    "sha256": "f421dc48ff3768e4b619224c0f9b9f0c86c83403a7b37f3798a13970d5e7f868"
+  },
+  "aidbSelection": {
+    "path": "operations/product-stewards/newsstand/evidence/evening-20260925/source-refresh/aidb-selection.json",
+    "sha256": "4e1c9c69415269c63cc3bca60f1ca39242258ae07dc2ffff531962125cc18242"
+  },
+  "successor": {
+    "path": "operations/product-stewards/newsstand/evidence/evening-20260925/source-refresh/proposed-coverage-progress.json",
+    "sha256": "90924fba3d10db146faa6ec530a31bed8a655dca759b64806c4c4e8bbeddd3a2"
+  },
+  "sourceChecksUpdated": [
+    "https://apnews.com/hub/artificial-intelligence",
+    "https://www.nature.com/subjects/machine-learning",
+    "https://www.ftc.gov/industry/technology/artificial-intelligence",
+    "https://www.eff.org/issues/ai",
+    "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+    "https://openai.com/news/",
+    "https://www.anthropic.com/news",
+    "https://ai.google.dev/gemini-api/docs/changelog",
+    "https://aidailybrief.ai/agent.json",
+    "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614"
+  ],
+  "sourceChecksAddedFromPriorSameDayProbe": [
+    "https://aidailybrief.ai/e/2026-09-25",
+    "https://aidailybrief.ai/e/2026-09-25.md",
+    "https://aidailybrief.ai/e/2026-09-25/transcript.md"
+  ],
+  "canonicalNonretryableRowsChanged": false,
+  "newsletterOriginalFailureReplaced": false,
+  "leadResults": [
+    {
+      "leadId": "anthropic-claude-enzyme-system-20260923",
+      "disposition": "EXISTING_EVIDENCE_HOLD_UPDATED",
+      "newSourceUrl": "https://www.nature.com/articles/d41586-026-03039-6",
+      "reason": "Nature independently reports the agent count and search duration, but its body redirected to an inaccessible login route. Anthropic still says ART function is unknown and further experiments are underway; technical-report inspection and ordinary-reader payoff remain missing."
+    },
+    {
+      "leadId": "typesafe-jev-system-one-20260915",
+      "disposition": "EXISTING_HOLD_UNCHANGED",
+      "reason": "Apple supplies a current episode description, not a transcript or independent evaluation."
+    }
+  ],
+  "aidbResult": "HOLD_AIDB_RELEASE_REVIEW",
+  "fullTranscriptReviewed": false,
+  "canonicalWrites": 0,
+  "publicWrites": 0,
+  "completeness": "PARTIAL: all eight six-desk routes were inspected. AIDB website and podcast identities were enumerated; newsletter content remains unavailable and the Sep25 edition/transcript remains inaccessible from its recent exact probe. No full AIDB audio or transcript was reviewed.",
+  "validation": {
+    "routeGuard": "PASS desks=6 sources=8 research_completion_certified=false",
+    "hashBindings": "PASS",
+    "nonretryableRowsCompared": 19,
+    "nonretryableRowsByteUnchanged": true,
+    "selector": "MATCHED_STORED_RECEIPT",
+    "checkerExitCode": 2,
+    "checkerStatus": "UNVERIFIED",
+    "checkerReason": "Pre-existing source observation outside this bounded six-desk/AIDB lane is stale; first reported route is https://deepmind.google/blog/. No timestamp-only renewal was made.",
+    "integrationRequired": true
+  }
+}

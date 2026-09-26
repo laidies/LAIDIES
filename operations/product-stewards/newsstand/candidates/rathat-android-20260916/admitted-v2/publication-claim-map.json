@@ -1,0 +1,109 @@
+[
+  {
+    "claimId": "reported-route",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+        "locator": "P002"
+      },
+      {
+        "excerpt": "<p>This report describes a malware family and a deceptive installation chain. It does not prove a message has infected your phone, or mean a legitimate accessibility tool is suspicious simply because it uses Accessibility.</p>",
+        "locator": "P007"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+      "sha256": "ad4fcd2cb32e457415c9ee2e5a5db5784e701dba0d3c2e0640761e0e87005c91"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Zimperium says RatHat is primarily distributed through targeted smishing and malvertising that leads victims to deceptive third-party download portals, then lures them into manually downloading malicious APKs.",
+        "locator": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts"
+      },
+      {
+        "excerpt": "Zimperium says a critical dependency is Accessibility Service activation, acquired through a localized lure.",
+        "locator": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts"
+      }
+    ],
+    "scopeAndFreshness": "P002 matches the Zimperium excerpt: RatHat spread via text phishing/malicious ads leading to deceptive download pages, beginning with manual APK download outside Play. Attribution ('Zimperium reported/says') and the no-remote-infection limit are retained."
+  },
+  {
+    "claimId": "accessibility",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.</p>",
+        "locator": "P003"
+      },
+      {
+        "excerpt": "<p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+        "locator": "P005"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+      "sha256": "ad4fcd2cb32e457415c9ee2e5a5db5784e701dba0d3c2e0640761e0e87005c91"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Zimperium says RatHat is primarily distributed through targeted smishing and malvertising that leads victims to deceptive third-party download portals, then lures them into manually downloading malicious APKs.",
+        "locator": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts"
+      },
+      {
+        "excerpt": "Zimperium says a critical dependency is Accessibility Service activation, acquired through a localized lure.",
+        "locator": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts"
+      },
+      {
+        "excerpt": "Google says not to allow restricted settings unless you trust the app developer.",
+        "locator": "https://support.google.com/android/answer/12623953?hl=en"
+      },
+      {
+        "excerpt": "Google says some legitimate disability-support apps might ask to turn on accessibility settings; with that access, an app can read screen content and interact with apps on a person's behalf.\nGoogle advises an unsure reader to use the organization’s official website or search an app store they trust, such as Google Play.",
+        "locator": "https://support.google.com/android/answer/12623953?hl=en"
+      }
+    ],
+    "scopeAndFreshness": "P003 attributes the Accessibility-persuasion step to Zimperium and correctly describes what the setting permits (read screen, interact on the person's behalf), matching Google's restricted-settings excerpt; P005 preserves the legitimate-disability-tool caveat so the claim's scope is intact."
+  },
+  {
+    "claimId": "google-guidance",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>An app file downloaded from a link is not the same as an app installed from Google Play. <strong>Play Protect</strong> is Google’s built-in app safety check: Google says it scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.</p>",
+        "locator": "P004"
+      },
+      {
+        "excerpt": "<p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+        "locator": "P005"
+      },
+      {
+        "excerpt": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p>",
+        "locator": "P006"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/editorial-input.json",
+      "sha256": "ad4fcd2cb32e457415c9ee2e5a5db5784e701dba0d3c2e0640761e0e87005c91"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Google Play Protect checks apps and devices for harmful behavior, including potentially harmful apps from other sources; it can warn, deactivate or remove harmful apps.",
+        "locator": "https://support.google.com/googleplay/answer/2812853?hl=en"
+      },
+      {
+        "excerpt": "Google recommends always keeping Google Play Protect on.",
+        "locator": "https://support.google.com/googleplay/answer/2812853?hl=en"
+      },
+      {
+        "excerpt": "Google says not to allow restricted settings unless you trust the app developer.",
+        "locator": "https://support.google.com/android/answer/12623953?hl=en"
+      },
+      {
+        "excerpt": "Google says some legitimate disability-support apps might ask to turn on accessibility settings; with that access, an app can read screen content and interact with apps on a person's behalf.\nGoogle advises an unsure reader to use the organization’s official website or search an app store they trust, such as Google Play.",
+        "locator": "https://support.google.com/android/answer/12623953?hl=en"
+      }
+    ],
+    "scopeAndFreshness": "P004 accurately states Google's Play Protect description (scans apps from Play and other sources; can warn, disable or remove) and the keep-it-on recommendation; P005/P006 restate the restricted-settings rule of not allowing unless the developer is trusted, without turning guidance into a guarantee."
+  }
+]

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "claude-cowork-merge-20260916-art",
+  "stage": "INDEPENDENT_VISUAL_ADMISSION",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root",
+    "role": "Independent visual reviewer",
+    "reviewedAt": "2026-09-19T17:28:53.357348+00:00",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true,
+    "independentFromMaker": true
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/art/producer-contract.json",
+    "sha256": "5cab57e36d9102d94aed805d1dba4616f9267cb472a66ec69ce95836985f1aa0"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/art/maker-inspection-v2.json",
+    "sha256": "a1f32d6bee33d344738bcbff497020c17c598ab096e2d9d68d2bcb93d93f4e77"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/art/generated-v1.png",
+    "sha256": "96e62b12ccbaa316c0738c843ace6531072e3dc80a7b3699f34e2d86712a29f4",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/story.json",
+    "sha256": "662722b1262afe67693804e8e20690bde6e7facdb92cfd8a96b2993c030e674f",
+    "kind": "TEXT",
+    "locator": "what_this_means",
+    "exactTextOrSilentPurpose": "One conversation develops a household maintenance checklist from three appliance manuals."
+  },
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/art/mobile-preview.png",
+    "sha256": "1e680f097d1b8964c6dc1a7c2b1c5cc97fc48080a0692393d6600f67ecf87164"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "Two blank chat bubbles lead to an unfinished checklist beside three appliance manuals, matching the household use example.",
+      "artifactLocator": "Full pixels and390x260 preview."
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Strong navy outlines, printed texture, coral/cyan/yellow accents and adult editorial object scene; readable composition.",
+      "artifactLocator": "Full pixels and390x260 preview."
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No people, character identities or town architecture.",
+      "artifactLocator": "Full pixels and390x260 preview."
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "Supported tablet, books, lamp and stationery; no anatomical content or broken central object.",
+      "artifactLocator": "Full pixels and390x260 preview."
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "No generated readable text or product logos; appliance diagrams remain recognizable.",
+      "artifactLocator": "Full pixels and390x260 preview."
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "Contemporary household desk without historical claim.",
+      "artifactLocator": "Full pixels and390x260 preview."
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "Conversation/checklist and manuals carry the story; plant and cup remain secondary.",
+      "artifactLocator": "Full pixels and390x260 preview."
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "Viewed original1536x1024 and390x260 preview; checklist, conversation and manuals remain distinct, with no central clipping.",
+      "artifactLocator": "Full pixels and390x260 preview."
+    }
+  ],
+  "visibleDefects": [],
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT"
+  },
+  "limitations": [
+    "Illustrative diagram, not actual Claude interface. Public placement still requires live verification."
+  ]
+}

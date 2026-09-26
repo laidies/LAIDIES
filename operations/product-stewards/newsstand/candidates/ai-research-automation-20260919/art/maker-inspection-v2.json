@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "laidies-newsstand-visual-maker-inspection-v1",
+  "candidateId": "ai-research-automation-20260919",
+  "maker": "/root/research_automation_producer",
+  "inspectedAt": "2026-09-19T23:10:42Z",
+  "timestampNote": "Recorded from the actual UTC clock after the completed full and mobile inspection; replaces an uncommitted future placeholder.",
+  "inspectionMode": "ACTUAL_FULL_AND_390X260_PIXEL_READ_WITH_REJECTED_PREDECESSOR_COMPARISON",
+  "story": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/story.json",
+    "sha256": "717e36dad7905ff5d9c0bea1a86d514d0e1710a87be62fd81f929accb18183f6"
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/producer-contract-v2.json",
+    "sha256": "0827694c0f65abb041a424c731b7e8e040c535ba93cb2ebd53c2533b568f40d8"
+  },
+  "image": {
+    "path": "proposed/assets/newsstand/ai-research-automation-20260919.png",
+    "sha256": "cc8734e07360eab216bdfea79f1e1b1666596baa28aac59cd7de756f935a3b04"
+  },
+  "mobilePreview": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/mobile-preview-v2.png",
+    "sha256": "92aacc1feb16dac5414f4cefcfc91e2e206b33daf58de1481b6f945e9428d4c6"
+  },
+  "rejectedPredecessor": {
+    "artifact": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/rejected-v1-three-arms.png",
+      "sha256": "0ee89e448053f251da628e32a65f42cc747a1c10b5bb237fc5d76e3af56783e8"
+    },
+    "review": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/independent-review-v1-rejected.json",
+      "sha256": "c6e873649da1c36482db98d0a3cabb226e67875049970bff773372980abf102b"
+    }
+  },
+  "dimensions": {
+    "full": {
+      "width": 1536,
+      "height": 1024
+    },
+    "mobile": {
+      "width": 390,
+      "height": 260
+    }
+  },
+  "checks": {
+    "anatomyAndPhysics": {
+      "verdict": "PASS",
+      "observation": "One woman is visible. Exactly two arms emerge once from the two shoulders. The left arm ends in one pencil hand marking a report; the right arm ends in one hand holding a report above the tray. No third arm, hidden hand, duplicate elbow or merged limb is visible at full or mobile size."
+    },
+    "actionCount": {
+      "verdict": "PASS",
+      "observation": "Exactly two simultaneous human actions appear: marking one report and placing one selected report into the tray. The goal card is already pinned and untouched."
+    },
+    "storyCompanion": {
+      "verdict": "PASS",
+      "observation": "Pinned goal, bounded computer workspaces, active human review, crossed-out results and final selection carry the human-goal to agent-work to human-decision mechanism."
+    },
+    "humanControl": {
+      "verdict": "PASS",
+      "observation": "The woman is central and controls both evaluation and final selection. The computers remain background tools and do not choose the goal or final result."
+    },
+    "textAndSymbols": {
+      "verdict": "PASS",
+      "observation": "No readable words, letters, numbers, logos or watermark appear. Small coloured code-like marks and graph forms are nonverbal research props."
+    },
+    "styleFit": {
+      "verdict": "PASS",
+      "observation": "Adult professional subject, dark navy field, cyan and magenta accents, inked detail and print texture fit the approved adult editorial direction."
+    },
+    "mobileReadability": {
+      "verdict": "PASS",
+      "observation": "At 390 by 260, the pinned goal, two arms, review action, selected sheet, final tray, crossed-out reports and bounded workspaces remain distinct."
+    }
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "repair": "The first independent visual review found the three-arm anatomy defect. The successor preflight limits the figure to two visible arms, two hands and two actions."
+  },
+  "learningDisposition": {
+    "disposition": "CANDIDATE_REPAIR_ONLY",
+    "rationale": "The anatomy defect was repaired in this candidate and encoded in its successor preflight; shared-registry admission is outside this owned lane."
+  },
+  "limitations": [
+    "The screens and paper charts are conceptual research props, not an Anthropic or OpenAI interface.",
+    "The image is an editorial composition, not a literal photograph of either lab.",
+    "The independent visual PASS must bind this final story and these final maker and producer-contract hashes before semantic provider dispatch."
+  ],
+  "verdict": "READY_FOR_INDEPENDENT_VISUAL_REVIEW"
+}

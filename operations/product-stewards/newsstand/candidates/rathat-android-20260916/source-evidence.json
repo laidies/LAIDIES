@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "newsstand-source-evidence-v1",
+  "candidateId": "rathat-android-20260916",
+  "reviewedThrough": "2026-09-19T17:34:26Z",
+  "records": [
+    {
+      "id": "zimperium-rathat-20260916",
+      "url": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts",
+      "authority": "Zimperium primary malware-research disclosure, published September 16, 2026.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/zimperium-primary-start.raw.txt",
+        "sha256": "edae5bdb1d0d1fe028c80d8692f1fa711ed3988fe7eb8e8754872fcfa04a3fad"
+      },
+      "additionalCapture": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/zimperium-primary-end.raw.txt",
+        "sha256": "fc08f03ffe03259bccf873f483bb276d108b05a0b37b163ce3ee522ff7c6f862"
+      },
+      "passages": [
+        "Zimperium says RatHat is primarily distributed through targeted smishing and malvertising that leads victims to deceptive third-party download portals, then lures them into manually downloading malicious APKs.",
+        "Zimperium says a critical dependency is Accessibility Service activation, acquired through a localized lure."
+      ],
+      "limitation": "Vendor research describes an observed malware family and claimed delivery chain. It does not establish population prevalence, remote infection from a message alone, or risk for every Android phone."
+    },
+    {
+      "id": "google-play-protect-20260919",
+      "url": "https://support.google.com/googleplay/answer/2812853?hl=en",
+      "authority": "Google official Play Protect guidance.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/google-android-guidance-web.raw.txt",
+        "sha256": "f85607e273781358bb5c44f6ac97b6b017bf47198d228344bc644da18d487373"
+      },
+      "passages": [
+        "Google Play Protect checks apps and devices for harmful behavior, including potentially harmful apps from other sources; it can warn, deactivate or remove harmful apps.",
+        "Google recommends always keeping Google Play Protect on."
+      ],
+      "limitation": "Google describes a protective feature, not a guarantee that a particular device is clean."
+    },
+    {
+      "id": "google-restricted-settings-20260919",
+      "url": "https://support.google.com/android/answer/12623953?hl=en",
+      "authority": "Google official Android restricted-settings guidance.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/candidates/rathat-android-20260916/google-android-guidance-web.raw.txt",
+        "sha256": "f85607e273781358bb5c44f6ac97b6b017bf47198d228344bc644da18d487373"
+      },
+      "passages": [
+        "Google says not to allow restricted settings unless you trust the app developer.",
+        "Google says some legitimate disability-support apps might ask to turn on accessibility settings; with that access, an app can read screen content and interact with apps on a person's behalf.",
+        "Google advises an unsure reader to use the organization’s official website or search an app store they trust, such as Google Play."
+      ],
+      "limitation": "This guidance does not support blanket disabling of Accessibility; legitimate assistive tools may need it."
+    }
+  ]
+}

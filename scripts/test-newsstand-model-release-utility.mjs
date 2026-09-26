@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import assert from "node:assert/strict";
-import { validateModelReleaseUtility, validateOrdinaryDailyLength } from "./validate-newsstand-ordinary-story-candidate.mjs";
+import { validateModelReleaseUtility, validateOrdinaryDailyLength, validateOrdinaryHeldRecord } from "./validate-newsstand-ordinary-story-candidate.mjs";
 
 const priorFailure = {
   headline: "Anthropic released Fable 5.1",
@@ -45,3 +45,13 @@ const weeklyLongform = { ...oversizedDaily, edition: "weekly" };
 assert.deepEqual(validateOrdinaryDailyLength(weeklyLongform), [], "Weekly long-form remains outside the ordinary Daily budget");
 
 console.log("NEWSSTAND MODEL RELEASE UTILITY PASS known_bad_rejected=1 access_fit_tasks_limits_attribution=1 daily_length_budget=1");
+
+const faithful={...useful,laidies_read:"Fable is a Claude model. Anthropic says it can take on difficult document comparison and research tasks.",what_this_means:useful.what_this_means.replace("Use it when a task is complex and long-running. ","")};
+assert.deepEqual(validateModelReleaseUtility(faithful),[],"Source-faithful capability wording must not require an unsupported best-suited superlative");
+const noTask={...faithful,laidies_read:"Fable is a Claude model. Anthropic says it is new."};
+assert.ok(validateModelReleaseUtility(noTask).some(x=>x.includes("intended tasks")));
+
+const held={edition:'daily',status:'hold',publishedAt:null,bigPicture:null,correction:null,retraction:null,correctionHistory:[],predecessorStoryIds:[],successorStoryIds:[]};
+assert.deepEqual(validateOrdinaryHeldRecord(held),[]);
+for(const key of ['bigPicture','correction','retraction','correctionHistory','predecessorStoryIds','successorStoryIds']){const bad={...held};delete bad[key];assert.ok(validateOrdinaryHeldRecord(bad).length,key+' must fail before review');}
+assert.ok(validateOrdinaryHeldRecord({...held,status:'published'}).length);

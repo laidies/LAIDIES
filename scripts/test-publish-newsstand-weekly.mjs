@@ -9,7 +9,7 @@ import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {enforcedFailureFamilies} from './check-prose-quality-admission.mjs';
 import {candidateReviewText,stable} from './validate-newsstand-ordinary-story-candidate.mjs';
-import {publishNewsstandWeekly,validateWeeklySelection,validateWeeklyPublicationTiming} from './publish-newsstand-weekly.mjs';
+import {publishNewsstandWeekly,validateWeeklySelection,validateWeeklyPublicationTiming,validateWeeklyHeldRecord} from './publish-newsstand-weekly.mjs';
 
 const REPO=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const PUBLISHER=path.join(REPO,'scripts/publish-newsstand-weekly.mjs');
@@ -127,7 +127,7 @@ try{
   reject(f=>{const a=JSON.parse(fs.readFileSync(path.join(f.root,f.paths.assessmentPath)));delete a.sources;f.writeJson(f.paths.assessmentPath,a);f.candidate.preparation.sourceAssessment=f.bind(f.paths.assessmentPath)},/exact evidence bindings/);
   reject(f=>{const assessment=JSON.parse(fs.readFileSync(path.join(f.root,f.paths.assessmentPath)));assessment.desks=assessment.desks.filter(desk=>desk.id==='product_releases');f.writeJson(f.paths.assessmentPath,assessment);f.candidate.preparation.sourceAssessment=f.bind(f.paths.assessmentPath)},/dated desk assessment is invalid/);
   reject(f=>{const reuse=JSON.parse(fs.readFileSync(path.join(f.root,f.paths.reusePath)));reuse.developments[0].trigger='';f.writeJson(f.paths.reusePath,reuse);f.candidate.researchReuse=f.bind(f.paths.reusePath)},/research-reuse manifest needs one owned disposition/);
-  reject(f=>{f.candidate.candidateId='conflicting-weekly-id'},/Weekly story is not/);
+  reject(f=>{f.candidate.candidateId='conflicting-weekly-id'},/candidate identity differs/);
   reject(f=>{f.candidate.selection.developments[0].announcementDate='2026-07-30'},/in-period original announcement/);
   assert.throws(()=>validateWeeklySelection({period:{startDate:'2026-02-20',endDate:'2026-03-02'},story:{sources:[{id:'weekly-source'}]},selection:{scoutingScope:'WIDER_NEWS_AND_PRIMARY_ANNOUNCEMENTS',developments:[{headline:'Impossible date fixture',announcementDate:'2026-02-29',sourceIds:['weekly-source'],dateEvidence:'Fixture'}]}}),/in-period original announcement/,'selection rejects impossible calendar literals rather than JavaScript date rollover');
   reject(f=>{delete f.candidate.selection},/wider-news scouting/);
@@ -165,3 +165,14 @@ try{
   assert.throws(()=>validateWeeklyPublicationTiming({candidate:rc,date:'2026-09-10',now:'2026-09-11T20:00:00Z',current:{editionDate:'2026-09-06'}}),/today/);
   console.log('NEWSSTAND WEEKLY PUBLICATION TEST PASS late_recovery_real_chain_and_cli=1 stale_review_and_invalid_recovery_rejected=1  real_chain=1 real_contract=1 real_reader=1 atomic_preservation=1 cli_temp_only=1 rejected=28 replay_safe=1');
 }finally{for(const root of roots)fs.rmSync(root,{recursive:true,force:true})}
+
+const heldFixture={id:'weekly',edition:'weekly',status:'hold',publishedAt:null,sourceApproval:{status:'independent-review-required'},heroVisual:{src:'/art.png',alt:'Art'},bigPicture:null,predecessorStoryIds:[],successorStoryIds:[],weeklyHighlights:['One'],front_read:'Summary',the_story:'Story',laidies_read:'Read',what_this_means:'Meaning'};
+assert.deepEqual(validateWeeklyHeldRecord(heldFixture),[]);
+assert.match(validateWeeklyHeldRecord({...heldFixture,predecessorStoryIds:['ordinary-story']}).join(';'),/ordinary lineage/);
+assert.match(validateWeeklyHeldRecord({...heldFixture,weeklyHighlights:[]}).join(';'),/reader fields/);
+assert.match(validateWeeklyHeldRecord({...heldFixture,publishedAt:'2026-09-26'}).join(';'),/held/);
+console.log('Weekly pre-review schema rejects lineage, missing highlights and premature publication.');
+
+assert.match(validateWeeklyHeldRecord({...heldFixture,closing_note:'Covered period: September 16–23, 2026. Prepared September 23 and source-refreshed September 26; independent review and publication remain pending.'}).join(';'),/private pending publication status/);
+assert.deepEqual(validateWeeklyHeldRecord({...heldFixture,closing_note:'Covered period: September 16–23, 2026. A Senate decision remains pending.'}),[]);
+console.log('Weekly pre-review rejects leaked private publication status while retaining genuine pending news events.');

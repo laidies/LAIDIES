@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "newsstand-exact-source-packet-v1",
+  "candidateId": "ai-research-automation-20260919",
+  "capturedAt": "2026-09-19T16:05:22-07:00",
+  "records": [
+    {
+      "sourceId": "anthropic-measuring-pace-20260919",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+      "publisherType": "provider-measurement-report",
+      "budgetWords": 200,
+      "quoteBudgetWords": 25,
+      "readScope": "Complete accessible primary article lines 0-146 read from the untouched primary capture. The bounded exact claim passages are individually substring-verified and remain below 200 words.",
+      "exactCapturedText": "It runs from AL0 (no AI involvement) to AL5 (AI operates fully autonomously, with no human in the loop). In AL3, AI “collaborates”: it can do large chunks of work under close human direction.\nIn AL4, AI “leads”: it can complete most of the task end-to-end from a high-level prompt, while the human supervises.^{cite13†1 }\n  * Claude is not operating fully autonomously for any measured subset of AI R&D work.\n  * Claude “leads” 26% of Anthropic’s AI R&D work.\n  * The share of work at or above “AI collaborates” is above 90%.\n(a model fully autonomously building its successor).\nFirst is the lack of a common methodology.\nSecond, we’re using our own models to evaluate our systems, which could mean that the “judge” model could make the same kinds of errors as the model it is checking.\nAn independent Claude judge then read the resulting evidence and assigned one of six automation levels\nThere remains real room for disagreement on borderline cases, such as where exactly “AI collaborates” ends and “AI leads” begins.",
+      "exactPassages": [
+        "It runs from AL0 (no AI involvement) to AL5 (AI operates fully autonomously, with no human in the loop). In AL3, AI “collaborates”: it can do large chunks of work under close human direction.",
+        "In AL4, AI “leads”: it can complete most of the task end-to-end from a high-level prompt, while the human supervises.^{cite13†1 }",
+        "  * Claude is not operating fully autonomously for any measured subset of AI R&D work.",
+        "  * Claude “leads” 26% of Anthropic’s AI R&D work.",
+        "  * The share of work at or above “AI collaborates” is above 90%.",
+        "(a model fully autonomously building its successor).",
+        "First is the lack of a common methodology.",
+        "Second, we’re using our own models to evaluate our systems, which could mean that the “judge” model could make the same kinds of errors as the model it is checking.",
+        "An independent Claude judge then read the resulting evidence and assigned one of six automation levels",
+        "There remains real room for disagreement on borderline cases, such as where exactly “AI collaborates” ends and “AI leads” begins."
+      ],
+      "sourceCapture": {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-capture-primary.json",
+        "sha256": "1701e5ec6d4233cc736733cdb4c0b54696b652a0f3c6586dc8777de64b81766c",
+        "capturedAt": "2026-09-19T16:04:57-07:00",
+        "serialization": "JSON.stringify untouched web-tool result"
+      },
+      "passageEvidence": {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-passages.json",
+        "sha256": "59f658bde0b78bbfe1bc28032cdbe19bb75f4e163efbf8151a5f35b5ec537770"
+      },
+      "limitations": [
+        "Provider measures its own internal work.",
+        "Claude helped construct and judge the index.",
+        "The frozen task basket and person-time weights are approximations.",
+        "No common cross-lab methodology or independent verification is supplied in this article."
+      ]
+    },
+    {
+      "sourceId": "openai-research-acceleration-20260906",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/research-acceleration-view-inside-openai/",
+      "publisherType": "provider-measurement-report",
+      "budgetWords": 200,
+      "quoteBudgetWords": 25,
+      "readScope": "Complete accessible primary article lines 0-134 and appendix read across the untouched primary and continuation captures. The bounded exact claim passages are individually substring-verified and remain below 200 words.",
+      "exactCapturedText": "AI research is a complex process with many potential bottlenecks, so the overall pace of progress likely won’t keep pace with these specific metrics.\nPeople still set our research priorities, judge which ideas and results to pursue, and decide whether to scale, pause, or deploy systems.\nAgentic systems are new and rapidly changing, and our measurement efforts are still preliminary.\nIn terms of a standard 8 hour workday, as of mid-August, in total, the research organization uses 3.1 agent-workdays of effort for every workday of human labor.\nHowever, agents still require significant human steering to be successful, especially as task complexity rises.\nIn the last 6 months, over half of successful 4-8 hour tasks involved 1 or more interventions.\nSome indicators, such as the amount of code our research teams generate, are relatively easy to gather, but hard to interpret because their relationship to research progress is uncertain.\n  * Metrics of coding agent use cover most, but not all, usage given rapid evolution in the tools and systems researchers rely on.",
+      "exactPassages": [
+        "AI research is a complex process with many potential bottlenecks, so the overall pace of progress likely won’t keep pace with these specific metrics.",
+        "People still set our research priorities, judge which ideas and results to pursue, and decide whether to scale, pause, or deploy systems.",
+        "Agentic systems are new and rapidly changing, and our measurement efforts are still preliminary.",
+        "In terms of a standard 8 hour workday, as of mid-August, in total, the research organization uses 3.1 agent-workdays of effort for every workday of human labor.",
+        "However, agents still require significant human steering to be successful, especially as task complexity rises.",
+        "In the last 6 months, over half of successful 4-8 hour tasks involved 1 or more interventions.",
+        "Some indicators, such as the amount of code our research teams generate, are relatively easy to gather, but hard to interpret because their relationship to research progress is uncertain.",
+        "  * Metrics of coding agent use cover most, but not all, usage given rapid evolution in the tools and systems researchers rely on."
+      ],
+      "sourceCapture": {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-capture-continuation.json",
+        "sha256": "0c5dae1cefe32e8beb58ae45dc97e5d1c05217fbbc1e1acc15d4acc76b06f8c1",
+        "capturedAt": "2026-09-19T16:05:22-07:00",
+        "serialization": "JSON.stringify untouched web-tool result"
+      },
+      "passageEvidence": {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-passages.json",
+        "sha256": "59f658bde0b78bbfe1bc28032cdbe19bb75f4e163efbf8151a5f35b5ec537770"
+      },
+      "limitations": [
+        "Provider measures its own internal research organization.",
+        "Agent-use coverage is incomplete.",
+        "Agent runtime, code and experiment counts do not directly establish overall research progress.",
+        "Available compute also changed during the measured period."
+      ]
+    }
+  ],
+  "exactSourceWords": {
+    "Anthropic": 174,
+    "OpenAI": 171
+  },
+  "sourceFamilyAggregate": {
+    "Anthropic": 200,
+    "OpenAI": 200
+  },
+  "quoteBudgetAggregate": {
+    "Anthropic": 25,
+    "OpenAI": 25
+  }
+}

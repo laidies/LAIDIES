@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "laidies-newsstand-visual-repair-preflight-v1",
+  "candidateId": "ai-research-automation-20260919",
+  "trigger": {
+    "artifact": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/rejected-v1-three-arms.png",
+    "sha256": "0ee89e448053f251da628e32a65f42cc747a1c10b5bb237fc5d76e3af56783e8",
+    "defect": "The single woman visibly has three arms: one reaching to the goal board, one central pencil hand, and one holding the selected result."
+  },
+  "invalidatedMakerReceipt": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/maker-inspection-v1-rejected.json",
+    "sha256": "2dca7b82c15a45c36ec407b0a6df81f0427526be097ae899cef8a0a155cdabd8",
+    "missedClaim": "anatomyAndPhysics PASS"
+  },
+  "successorGuard": {
+    "people": 1,
+    "visibleArms": 2,
+    "visibleHands": 2,
+    "simultaneousHumanActions": [
+      "mark one report with a pencil",
+      "place one selected report into a final tray"
+    ],
+    "goalTreatment": "One already-pinned, untouched nonverbal research-goal card in the background.",
+    "computerTreatment": "A small bank of bounded workspaces behind the woman, visually subordinate to her review.",
+    "failIf": [
+      "Any third arm, hand or duplicated limb is visible",
+      "The woman reaches toward the pinned goal card",
+      "More than two simultaneous human actions are depicted",
+      "The machine appears to choose the goal or final result",
+      "The image collapses back into a generic blank card-laptop-folder pipeline"
+    ]
+  },
+  "status": "READY_FOR_SUCCESSOR_RENDER"
+}

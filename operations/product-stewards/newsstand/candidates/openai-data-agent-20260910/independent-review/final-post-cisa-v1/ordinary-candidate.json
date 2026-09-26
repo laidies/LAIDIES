@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "newsstand-ordinary-story-candidate-v2",
+  "candidateStatus": "READY_FOR_ISSUE_ADMISSION",
+  "candidateId": "openai-data-agent-20260910",
+  "editionDate": "2026-09-10",
+  "story": {
+    "id": "openai-data-agent-20260910",
+    "slug": "openai-data-agent-20260910",
+    "edition": "daily",
+    "status": "hold",
+    "publishedAt": null,
+    "updatedAt": "2026-09-10T20:14:23.000-07:00",
+    "lastCheckedAt": "2026-09-10T20:14:23.000-07:00",
+    "sourceApproval": {
+      "record": "newsstand:source-approval:openai-data-agent-20260910",
+      "status": "independent-review-required"
+    },
+    "correction": null,
+    "correctionHistory": [],
+    "retraction": null,
+    "predecessorStoryIds": [],
+    "successorStoryIds": [],
+    "relationshipType": null,
+    "bigPicture": null,
+    "thread": null,
+    "thread_subtitle": null,
+    "thread_entry": null,
+    "headline": "ChatGPT can now build dashboards from company data. Check the definition before you trust the number.",
+    "heroVisual": {
+      "src": "/assets/newsstand/design-20260830/latest-provider-switch-20260901-v2.png",
+      "alt": "Colourful translucent computers, drives and cables arranged as connected workplace data systems.",
+      "credit": "LAiDIES NewsStand illustration"
+    },
+    "the_story": "<p>OpenAI released a Data agent in ChatGPT Work on September 10. It is a workplace data tool that can connect an approved account to company data, investigate a question and build a dashboard. A colleague can ask why sales slowed without first writing a database query.</p><p>OpenAI says the agent can use approved data warehouses, business-intelligence dashboards and files in Google Drive or SharePoint. It can recommend next steps, share findings and carry out actions through connected tools when the user approves them.</p><p>The plugin is available through ChatGPT Work. Administrators install it, connect its data sources and decide who may use them. OpenAI announced no standalone plugin price.</p><p>The largest evidence gap is accuracy. VentureBeat asked OpenAI for a retrieval or correctness benchmark for the external product and reported that none has been published. OpenAI described an internal comparison with its own data tools but supplied no public number. There is no independent hands-on benchmark yet showing how reliably it answers questions across customers' systems.</p>",
+    "laidies_read": "<p>The useful change is that a colleague can ask a business question in ordinary language and receive a dashboard without first writing a database query. The plain question does not remove the machinery underneath it.</p><p>The agent can only work with the sources its administrators connect and the records its account is already allowed to see. A <strong>permission</strong> means which tables, rows and columns the connected account is allowed to see. A <strong>metric definition</strong> is the rule a company uses to decide what a number includes.</p><p>Imagine asking for active customers. One team may count anyone who logged in this week; another may count people who bought something this month. Both dashboards can look polished and still answer different questions. Permissions limit access; they do not prove the source is complete, the definition fits this decision or the explanation is correct.</p>",
+    "what_this_means": "<p>Before sharing a Data agent result, open the evidence behind its findings. Name the source and date, state the metric definition, and compare one important figure with the trusted report your team already uses. If the totals differ, stop there and investigate.</p><p>OpenAI's controls separate who can use a plugin, which read or write actions it may take and when ChatGPT asks for approval. For an early test, let the agent prepare the dashboard while sending messages or changing records still requires a person.</p><p>OpenAI says business-product data is not used to train its models by default. Check your organization's account, retention rules, permissions and workplace policy before adding sensitive data.</p><p>Ask: “Which data and definition produced this answer, and what happens if it is wrong?”</p>",
+    "cocktail_party": "“OpenAI's new Data agent can turn a workplace question into a dashboard. The smooth interface does not make the number self-proving: the connected source, your company's definition and the account's permissions still shape the answer.”",
+    "watch_fors": null,
+    "closing_note": null,
+    "class_notes": "Practise checking a confident result in <a href='/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it'>Working with AI 101: Trusting the Output (And Checking It)</a>. The lesson shows how to compare an AI output with its source and your acceptance criteria before using it.",
+    "sources": [
+      {
+        "id": "openai-data-agent",
+        "label": "OpenAI — Now everyone can put data to work",
+        "url": "https://openai.com/index/put-data-to-work/",
+        "publisherType": "vendor",
+        "accessedAt": "2026-09-10",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "openai-business-data",
+        "label": "OpenAI — Business data privacy, security, and compliance",
+        "url": "https://openai.com/business-data/",
+        "publisherType": "vendor",
+        "accessedAt": "2026-09-10",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "openai-plugin-controls",
+        "label": "OpenAI Help Center — Admin controls for plugins and apps",
+        "url": "https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-for-plugins-and-apps",
+        "publisherType": "vendor",
+        "accessedAt": "2026-09-10",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "venturebeat-data-agent",
+        "label": "VentureBeat — OpenAI's Data agent launches without a published external benchmark",
+        "url": "https://venturebeat.com/data/openais-new-data-agent-skips-the-one-thing-rivals-like-databricks-are-racing-to-publish-a-benchmark",
+        "publisherType": "reporting",
+        "accessedAt": "2026-09-10",
+        "approvalStatus": "reviewed"
+      }
+    ],
+    "aidb_credit": null,
+    "themes": [
+      "model and product releases",
+      "workplace data"
+    ],
+    "concepts": [
+      "metric definition",
+      "permissions",
+      "verification"
+    ],
+    "tags": [
+      "OpenAI",
+      "ChatGPT Work",
+      "Data agent",
+      "dashboards"
+    ],
+    "saint_lane": null,
+    "badge": "THE LATEST"
+  },
+  "storyTypeCoverage": {
+    "schema": "laidies.newsstand-story-type-coverage.v1",
+    "primaryType": "model-tool-release",
+    "overlays": [],
+    "universalAnswers": {
+      "whatHappened": "OpenAI released a Data agent in ChatGPT Work on September 10.",
+      "plainLanguageIdentity": "It is a workplace data tool that can connect an approved ChatGPT Work account to company data, investigate a question and build a dashboard.",
+      "evidenceBasis": "OpenAI's release and current business/plugin control pages, plus VentureBeat's same-day interview reporting.",
+      "evidenceLimits": "OpenAI has not published an external accuracy benchmark, and the independent report did not test the product's answers.",
+      "readerRelevance": "A plain-language dashboard can still inherit the company's permissions, metric definitions, source quality and errors.",
+      "affectedPeople": "Professionals and teams using ChatGPT Work with administrator-approved business data connections.",
+      "changesNow": "The Data plugin can be installed in ChatGPT Work and connected by administrators to supported data and BI tools.",
+      "uncertainty": "No public benchmark establishes how accurately the external product retrieves, joins or interprets data across customer systems.",
+      "readerAction": "Before sharing a result, check which sources and metric definition it used, compare one important figure with the trusted report, and keep sending or changing records behind approval.",
+      "betterQuestion": "Which data and definition produced this answer, and what happens if it is wrong?"
+    },
+    "typeAnswers": {
+      "model-tool-release": {
+        "productRange": "Data agent is a plugin inside ChatGPT Work, not a new general model or a replacement data warehouse.",
+        "newCapabilities": "It can combine approved company sources, investigate a question, build a dashboard, share findings and carry out approved connected actions.",
+        "bestFitTasks": "Exploring why a business metric changed, creating an initial dashboard and preparing a source-linked analysis for review.",
+        "notFor": "It is not independent proof that a number or causal explanation is correct, and OpenAI has not published an external correctness benchmark.",
+        "nearestAlternatives": "Existing BI tools and analysts can query the same governed data directly; Data agent adds a conversational route across several connected sources.",
+        "availability": "OpenAI lists Data in the Plugins directory in ChatGPT Work; administrators manage installation, data-source configuration and access.",
+        "freePaidBoundary": "The release is limited to ChatGPT Work and depends on workplace administrator and connector access; no consumer Free or Plus availability is announced.",
+        "costBoundary": "OpenAI announced no standalone Data agent price on the release page; connector, platform and ChatGPT Work costs are not resolved by that absence.",
+        "limitations": "Source quality, business definitions, existing permissions, action settings and the missing public benchmark remain important boundaries.",
+        "technicalExampleProportionality": "The article uses one sales metric example to show how a definition and source affect an answer, without teaching database administration.",
+        "vendorEvidenceBoundary": "Product capabilities and data commitments are attributed to OpenAI; VentureBeat establishes the missing external benchmark, not product accuracy."
+      }
+    },
+    "translation": {
+      "schema": "laidies.newsstand-reader-translation.v1",
+      "newsVersionExact": "OpenAI released a Data agent in ChatGPT Work on September 10.",
+      "actualMeaningExact": "The useful change is that a colleague can ask a business question in ordinary language and receive a dashboard without first writing a database query.",
+      "mechanismExact": "The agent can only work with the sources its administrators connect and the records its account is already allowed to see.",
+      "familiarExampleExact": "Both dashboards can look polished and still answer different questions.",
+      "jargon": [
+        {
+          "term": "metric definition",
+          "plainMeaning": "the rule a company uses to decide what a number includes"
+        },
+        {
+          "term": "permission",
+          "plainMeaning": "which tables, rows and columns the connected account is allowed to see"
+        }
+      ],
+      "learningConnections": [
+        {
+          "concept": "Checking an AI output against source and criteria",
+          "learningPayoff": "Practise checking a confident result against the source and definition that produced it.",
+          "disposition": "link",
+          "destination": "/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it"
+        }
+      ]
+    }
+  },
+  "storySha256": "fa99d0c95954b4c7bb0d9deb3966c338daee745b178550657c7a4deadc5eaae6",
+  "publicationBase": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/publication-base-post-cisa.js",
+    "sha256": "616c2d9328088059cf6fba3575b6b0c4fbc09482092215e06e451aa1f9284256"
+  },
+  "sourceText": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/review-text.json",
+    "sha256": "f46ea7288ca36a38d488f618c7d0266eab0035406dd1468156cba76c7fb207fa"
+  },
+  "claimMap": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/independent-review/final-post-cisa-v1/publication-claim-map.json",
+    "sha256": "823eb61f2025ec66277a3d0406747a93849b26aaf8101475996ab8be8f6bd5c0"
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/producer-contract.json",
+    "sha256": "581df18bb20ee289f71bec66f1cd78d0eaa8978d470c04ed7ba774a986995103"
+  },
+  "draftPreparation": {
+    "writerInput": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/writer-input-current.json",
+      "sha256": "db8d7bcfca6f1127acefcffa3f8a7f420050521f1e49c600f0614d70a177b236"
+    },
+    "observations": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/producer-observations.json",
+      "sha256": "e068e68b34061831d7af5c5e324737fe76646fa2fdc4009b1f1a6b961aa395e2"
+    }
+  },
+  "sources": [
+    {
+      "id": "openai-data-agent",
+      "url": "https://openai.com/index/put-data-to-work/",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+        "sha256": "fcf4dae2fcf74123c982998c5ca36c4031e1581e997684a18b9aa32f29da857b"
+      }
+    },
+    {
+      "id": "openai-business-data",
+      "url": "https://openai.com/business-data/",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+        "sha256": "fcf4dae2fcf74123c982998c5ca36c4031e1581e997684a18b9aa32f29da857b"
+      }
+    },
+    {
+      "id": "openai-plugin-controls",
+      "url": "https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-for-plugins-and-apps",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+        "sha256": "fcf4dae2fcf74123c982998c5ca36c4031e1581e997684a18b9aa32f29da857b"
+      }
+    },
+    {
+      "id": "venturebeat-data-agent",
+      "url": "https://venturebeat.com/data/openais-new-data-agent-skips-the-one-thing-rivals-like-databricks-are-racing-to-publish-a-benchmark",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/editorial-input.json",
+        "sha256": "fcf4dae2fcf74123c982998c5ca36c4031e1581e997684a18b9aa32f29da857b"
+      }
+    }
+  ],
+  "reviewEvidence": {
+    "producer": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/producer-publication-review.json",
+      "sha256": "5160f6af41cf3764ae7918584bed64755ce9d24118f65c23504843474a39ba08"
+    },
+    "independent": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/independent-review/final-post-cisa-v1/independent-review.json",
+      "sha256": "a282febeb0ce2d60a20244cf999984a61d2b051804f3b7db11df50d238600ee6"
+    },
+    "independentRawReport": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-data-agent-20260910/independent-review/final-post-cisa-v1/independent-raw-report.json",
+      "sha256": "ad34ef3287b70f0ee4c63cb53436eddf92a63f24311a603410aee90dad122dc2"
+    }
+  },
+  "lineage": null
+}

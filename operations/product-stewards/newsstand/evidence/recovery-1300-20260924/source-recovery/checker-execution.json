@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "newsstand-coverage-check-execution.v1",
+  "executedAt": "2026-09-24T20:06:00Z",
+  "command": "node scripts/check-newsstand-cycle-completion.mjs --from 2026-09-24 --now 2026-09-24T20:06:00Z --coverage operations/product-stewards/newsstand/evidence/recovery-1300-20260924/source-recovery/proposed-coverage-progress.json",
+  "exitCode": 2,
+  "resultPath": "operations/product-stewards/newsstand/evidence/recovery-1300-20260924/source-recovery/checker-output.json",
+  "result": "UNVERIFIED",
+  "reason": "Coverage: source observation missing, stale or future: https://www.alliekmiller.com/resources",
+  "interpretation": "No dated Allie observation appears in the committed 10:00 packet. The proposed full coverage file retains that stale row instead of advancing its timestamp."
+}

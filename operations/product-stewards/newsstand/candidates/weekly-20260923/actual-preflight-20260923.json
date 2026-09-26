@@ -1,0 +1,12 @@
+{
+  "schema": "newsstand-actual-preflight-receipt-v1",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "checkedAt": "2026-09-23T16:00:00-07:00",
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/weekly-20260923/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-preflight-v5-20260923/ --preflight-only",
+  "exitCode": 1,
+  "providerCalled": false,
+  "result": "HOLD_MISSING_PUBLISHED_STORY_IMAGE",
+  "stdout": "",
+  "stderr": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Repair pre-review package before calling the independent editor:\n- prepared draft: weekly-changes-need-different-verbs-20260923 published story image is missing or incomplete\n+ actual - expected\n\n+ [\n+   'prepared draft: weekly-changes-need-different-verbs-20260923 published story image is missing or incomplete'\n+ ]\n- []\n\n    at assertArticlePreReviewPackage (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:43:9)\n    at async file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:156:2 {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: [\n    'prepared draft: weekly-changes-need-different-verbs-20260923 published story image is missing or incomplete'\n  ],\n  expected: [],\n  operator: 'deepStrictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.18.0\n",
+  "interpretation": "The full unmodified preflight passes producer contract, Weekly reporting modules, model-release utility, prose review and prepared-draft checks, then stops only because the published story image is missing or incomplete."
+}

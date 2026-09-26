@@ -16,11 +16,11 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-page.css?v=20260715-hero">
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
-    <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260908-puzzle-frame">
+    <link rel="stylesheet" href="./content/newsstand.css?v=4c8693f643024518">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=b5bc74e01df3697c">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
-    <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
+    <script defer src="./content/site/sv-welcome-tour.js?v=20260911-header-controls-2"></script>
     <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
     <script>
       window.plausible = window.plausible || function () {
@@ -31,6 +31,7 @@
       };
       plausible.init();
     </script>
+    <script>window.NewsStandMeasurementQueue = window.NewsStandMeasurementQueue || [];</script>
     <link rel="canonical" href="https://laidies.ai/newsstand" />
   <meta property="og:url" content="https://laidies.ai/newsstand" />
 </head>
@@ -214,33 +215,44 @@
             </section>
           </div>
 <section class="ns-overheard" aria-labelledby="ns-overheard-title">
-  <h2 id="ns-overheard-title">Overheard in SUNNYVAiLE</h2>
-  <blockquote>“Let us briefly consult reality. It has had very little airtime.”</blockquote>
+  <h2 id="ns-overheard-title">Overheard in SUNNYVAiLE · From the Episodes</h2>
+  <p>An AI tool has just supplied meeting talking points full of corporate clichés. The narrator’s verdict:</p>
+  <blockquote>“It reads like a motivational poster that went to business school and came back worse.”</blockquote>
+  <p class="ns-overheard__source">— Episode 2 narration, <em>Tell Me What You Want</em></p>
+  <a href="/issues/issue-02.html">Read the episode →</a>
 </section>
 
           <section class="ns-play-desk" aria-labelledby="ns-play-title">
             <div class="ns-play-desk__puzzle">
               <p class="ns-kicker">Pencils out · Puzzle 01</p>
               <h2 id="ns-play-title">The crossword</h2>
-              <a class="ns-crossword-preview" href="/newsstand-crossword.html" aria-label="Open Puzzle 01 to solve the crossword"><img src="/content/newsstand-crossword-preview.svg?v=20260908-paper" width="420" height="450" alt="Puzzle 01: the actual blank crossword grid, with numbered starting squares."></a>
+              <a class="ns-crossword-preview" href="/newsstand-crossword.html?puzzle=puzzle-01" aria-label="Open Puzzle 01 to solve the crossword"><img src="/content/newsstand-crossword-preview.svg?v=20260908-paper" width="420" height="450" alt="Puzzle 01: the actual blank crossword grid, with numbered starting squares."></a>
               <p>Ten clues. Some Rewind Era company. No timer.</p>
-              <a class="ns-play-action" href="/newsstand-crossword.html">Try the crossword →</a>
+              <a class="ns-play-action" href="/newsstand-crossword.html?puzzle=puzzle-01">Try the crossword →</a>
               <p class="ns-play-small">Hints welcome. Looking things up counts.</p>
             </div>
             <div class="ns-house-ads" aria-label="LAiDIES house advertisements">
               <aside class="ns-house-ad ns-house-ad--library">
-                <p class="ns-kicker">Advertisement · The LIBRAiRY</p>
-                <img class="ns-ad-art" src="/assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-jeeves-blue-walls-v3.png" alt="Miss Jeeves at the Library reference desk, with bookcases behind her." loading="lazy">
-                <h3>Be kind. Rewind.<br>Look it up.</h3>
-                <p>Forgot what “context” means? There’s a chapter for that.</p>
-                <a href="/library.html#working-with-ai-101::%40chapter-5">Find your next explanation →</a>
+                <p class="ns-kicker">The LIBRAiRY</p>
+                <h3>Yes, there’s a<br>book for that.</h3>
+                <p>Understand what AI is doing.<br>Then work out what to do with it.</p>
+                <div class="ns-ad-products ns-ad-products--books">
+                  <img src="/assets/library-101/bright-family-v2/textbook-ai-fundamentals-101.png" alt="AI Fundamentals 101" loading="lazy">
+                  <img src="/assets/library-101/bright-family-v2/textbook-working-with-ai-101.png" alt="Working with AI 101" loading="lazy">
+                </div>
+                <a href="/library.html">Find your next explanation →</a>
+                <p class="ns-ad-credit">A word from your local LIBRAiRY</p>
               </aside>
               <aside class="ns-house-ad ns-house-ad--claio">
-                <p class="ns-kicker">Advertisement · Mme CLAi-O</p>
-                <img class="ns-ad-art" src="/assets/newsstand/design-20260906/jeeves-vibrant.png" alt="A bright pink lips telephone." width="1448" height="1086" loading="lazy">
-                <h3>Your future called.<br>We let it go to voicemail.</h3>
-                <p>A reflection and a move to consider. You decide what fits.</p>
-                <a href="/games/madame-claio.html">Visit Mme CLAi-O →</a>
+                <p class="ns-kicker">Mme CLAi-O · Card readings</p>
+                <h3>The cards have thoughts.<br>You have the final say.</h3>
+                <div class="ns-ad-products ns-ad-products--cards">
+                  <img src="/assets/mme-claio/reading-cards/jelly-sandal.webp" alt="The Jelly Sandal reading card" loading="lazy">
+                  <img src="/assets/mme-claio/reading-cards/mini-backpack.webp" alt="The Mini Backpack reading card" loading="lazy">
+                </div>
+                <p>Draw a Rewind Era card.<br>Get a reflection and a move to consider.</p>
+                <a href="/games/madame-claio.html">Draw your card →</a>
+                <p class="ns-ad-credit">A word from Mme CLAi-O</p>
               </aside>
             </div>
           </section>
@@ -329,7 +341,8 @@
 
     <script src="./content/newsstand-big-picture-versions.js?v=20260905-1"></script>
     <script src="./content/newsstand-reader-contract.js?v=20260906-weekly-1"></script>
-    <script src="./content/newsstand-stories.js?v=20260909-astra-compact"></script>
+    <script src="./content/newsstand-selection.js?v=affd9e154e941d3a"></script>
+    <script src="./content/newsstand-stories.js?v=d9ee7fd920d3075b"></script>
     <script src="./content/newsstand-big-picture-tracking.js?v=20260824-1"></script>
     <script>
       (function () {
@@ -431,6 +444,9 @@
           if (!samePublishedBytes) return snapshot;
           return Object.assign({}, snapshot, {
             status: canonical.status,
+            // Keep the admitted edition immutable; apply current art only when
+            // its story text, dates and sources still match this snapshot.
+            heroVisual: canonical.heroVisual || null,
             sourceApproval: canonical.sourceApproval,
             correction: canonical.correction || null,
             correctionHistory: canonical.correctionHistory || [],
@@ -463,12 +479,29 @@
         var pendingStoryView = null;
         var restorationSequence = 0;
         var activeHistoryRestoration = null;
+        var measurementSequence = 0;
         if ("scrollRestoration" in history) history.scrollRestoration = "manual";
         var reader = document.getElementById("paper-counter");
         var paperView = document.getElementById("ns-paper-view");
         var rack = document.getElementById("ns-rack");
         var empty = document.getElementById("ns-empty");
         var searchInput = document.getElementById("ns-search-input");
+
+        function measure(kind, transition) {
+          var event = { kind: kind };
+          if (transition) event.transition = transition;
+          if (window.NewsStandMeasurement && typeof window.NewsStandMeasurement.record === "function") {
+            window.NewsStandMeasurement.record(event);
+          } else {
+            window.NewsStandMeasurementQueue = window.NewsStandMeasurementQueue || [];
+            window.NewsStandMeasurementQueue.push(event);
+          }
+        }
+
+        function renderedMeasurementTransition() {
+          measurementSequence += 1;
+          return "ns-render-" + measurementSequence;
+        }
 
         function visiblePublicationControl(edition) {
           var selector = edition
@@ -742,10 +775,15 @@
         }
 
         function archiveItemSearchText(item) {
+          var story = item.kind === "story" && item.status !== "retracted"
+            ? stories.find(function (candidate) { return "story:" + candidate.id === item.id; })
+            : null;
+          var searchableStory = story && contract.accessDecision(data, story, { scope: "search" }, now).canExpose
+            ? storySearchText(story) : "";
           return [
             item.headline, item.summary, item.edition, item.desk,
             item.editionDate, (item.themes || []).join(" "),
-            (item.concepts || []).join(" "), item.status
+            (item.concepts || []).join(" "), item.status, searchableStory
           ].join(" ").toLowerCase();
         }
 
@@ -808,12 +846,27 @@
           var concepts = archiveTerms(items.flatMap(function (item) { return item.concepts || []; }));
           var theme = document.getElementById("ns-archive-theme");
           var concept = document.getElementById("ns-archive-concept");
+          var selectedTheme = theme.value;
+          var selectedConcept = concept.value;
           theme.innerHTML = '<option value="">All themes</option>' + themes.map(function (value) {
             return '<option value="' + escapeAttribute(value) + '">' + escapeHTML(value) + "</option>";
           }).join("");
           concept.innerHTML = '<option value="">All concepts</option>' + concepts.map(function (value) {
             return '<option value="' + escapeAttribute(value) + '">' + escapeHTML(value) + "</option>";
           }).join("");
+          if (Array.prototype.some.call(theme.options, function (option) { return option.value === selectedTheme; })) theme.value = selectedTheme;
+          if (Array.prototype.some.call(concept.options, function (option) { return option.value === selectedConcept; })) concept.value = selectedConcept;
+        }
+
+        function refreshActiveArchiveReader() {
+          if (location.hash || reader.hidden) return;
+          var preservedScrollY = window.scrollY;
+          if (selectedEdition === "search") {
+            renderSearch(null, { scroll: false, focus: false, skipHistory: true, skipMeasurement: true });
+          } else if (selectedEdition === "archive") {
+            renderArchive(null, { scroll: false, focus: false, skipHistory: true });
+          }
+          if (window.scrollY !== preservedScrollY) window.scrollTo(0, preservedScrollY);
         }
 
         function renderFrontStory(story) {
@@ -865,6 +918,11 @@
             ["front-paige-accountable-systems-2026-08-24", "weekly-accountable-systems-2026-08-24"]
           ];
           var ids = [];
+          ["relatedStoryIds", "predecessorStoryIds", "successorStoryIds"].forEach(function (field) {
+            (Array.isArray(story[field]) ? story[field] : []).forEach(function (id) {
+              if (typeof id === "string" && id !== story.id && ids.indexOf(id) === -1) ids.push(id);
+            });
+          });
           groups.forEach(function (group) {
             if (group.indexOf(story.id) !== -1) group.forEach(function (id) {
               if (id !== story.id && ids.indexOf(id) === -1) ids.push(id);
@@ -909,7 +967,6 @@
             '<aside class="ns-story-lineage">',
               later ? "<p><strong>There is newer reporting.</strong> " + later + "</p>" : "",
               earlier ? "<p><strong>This follows earlier coverage.</strong> " + earlier + "</p>" : "",
-              story.relationshipType ? "<p><strong>What changed:</strong> " + escapeHTML(story.relationshipType.replace(/-/g, " ")) + ".</p>" : "",
             "</aside>"
           ].join("");
         }
@@ -982,7 +1039,10 @@
             "gastric-cancer-prediction-2026-09-05": {src: "/assets/newsstand/design-20260906/cancer-vibrant.png", alt: "Editorial illustration: pathology slides, a microscope and a branching prediction on a computer screen.", credit: "LAiDIES editorial illustration; not a clinical image or a depiction of the study's system."},
             "us-doj-openai-copyright-2026-09-05": {src: "/assets/newsstand/design-20260906/copyright-vibrant.png", alt: "Editorial illustration: books and a computer chip balanced on scales beside a gavel and laptop.", credit: "LAiDIES editorial illustration; not a depiction of the lawsuit or its outcome."}
           };
-          return illustrations[story.id] || story.heroVisual;
+          var visual = illustrations[story.id] || story.heroVisual;
+          // Ali rejected this artwork. Suppress every reuse, including historical snapshots.
+          if (visual && /(?:^|\/)latest-anthropic-agentic-incidents-20260902\.png(?:[?#]|$)/.test(visual.src || "")) return null;
+          return visual;
         }
 
         function renderArticleHero(story) {
@@ -991,7 +1051,7 @@
           return [
             '<figure class="ns-article__hero">',
               '<img src="' + escapeAttribute(visual.src.replace(/^\//, "./")) + '" alt="' + escapeAttribute(visual.alt || "") + '">',
-              visual.credit ? '<figcaption>' + escapeHTML(/^LAiDIES.*illustration/i.test(visual.credit) ? "Illustration: LAiDIES" : visual.credit) + '</figcaption>' : "",
+              visual.credit ? '<figcaption>' + escapeHTML(/^(?:Existing\s+)?LAiDIES.*illustration/i.test(visual.credit) ? "Illustration: LAiDIES" : visual.credit) + '</figcaption>' : "",
             '</figure>'
           ].join("");
         }
@@ -1212,6 +1272,7 @@
               invoker: invoker
             });
             if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+            if (!viewOptions.skipHistory && !viewOptions.skipMeasurement) measure("paper_unavailable", renderedMeasurementTransition());
             return;
           }
           var publication = data.publications[edition];
@@ -1229,6 +1290,7 @@
             invoker: invoker
           });
           if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+          if (!viewOptions.skipHistory && !viewOptions.skipMeasurement) measure("paper_available", renderedMeasurementTransition());
         }
 
         function renderSearch(invoker, viewOptions) {
@@ -1256,6 +1318,7 @@
               invoker: invoker || searchInput
             });
             if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+            if (viewOptions.explicitSearch) measure("search_unavailable");
             return;
           }
           var matches = filteredArchiveItems(query);
@@ -1270,6 +1333,7 @@
             invoker: invoker || searchInput
           });
           if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+          if (viewOptions.explicitSearch) measure(matches.length ? "search_results" : "search_empty");
         }
 
         function renderArchive(invoker, viewOptions) {
@@ -1354,6 +1418,7 @@
               archiveIndex = value;
               populateArchiveFilters();
               renderTopicButtons();
+              refreshActiveArchiveReader();
               window.dispatchEvent(new CustomEvent("newsstand:archive-ready", { detail: { count: value.items.length } }));
             })
             .catch(function () {
@@ -1363,7 +1428,8 @@
             });
         }
 
-        function renderHash(scroll, invoker) {
+        function renderHash(scroll, invoker, viewOptions) {
+          viewOptions = viewOptions || {};
           var route = (location.hash || "").replace(/^#/, "").trim().split("?");
           var slug = route[0];
           var versionId = new URLSearchParams(route.slice(1).join("?")).get("version");
@@ -1423,6 +1489,9 @@
             invoker: invoker,
             story: decision.canExpose
           });
+          if (!viewOptions.skipMeasurement && decision.canExpose) measure("story_opened", renderedMeasurementTransition());
+          if (!viewOptions.skipMeasurement && rack.querySelector(".ns-story-notice--corrected")) measure("correction_viewed", renderedMeasurementTransition());
+          if (!viewOptions.skipMeasurement && rack.querySelector(".ns-story-notice--retracted")) measure("retraction_viewed", renderedMeasurementTransition());
           if (decision.canExpose && versionId === null) {
             var publicationView = {
               key: "story:" + story.slug,
@@ -1568,7 +1637,7 @@
             var admittedFront = frontStory && contract.accessDecision(data, frontStory, { edition: "daily", scope: "feature" }, now).canExpose
               ? frontStory
               : null;
-            return (admittedFront ? [admittedFront] : []).concat(datedStories);
+            return (admittedFront ? [admittedFront] : []).concat(state === "current" ? datedStories.sort(window.NewsstandSelection.compare) : datedStories);
           }
 
           Array.prototype.forEach.call(document.querySelectorAll("[data-contents-for]"), function (node) {
@@ -1724,26 +1793,28 @@
                 5,
                 publication && publication.editorialTimeZone || "America/Vancouver"
               );
-            }).sort(function (a, b) { return (b.publishedAt || "").localeCompare(a.publishedAt || ""); });
+            }).sort(window.NewsstandSelection.compare);
             if (!eligible.length) {
               node.innerHTML = '<p class="ns-latest-empty">No other story from the past five days has cleared the publishing bar. Start with the Front PAiGE, or explore our features below.</p><a class="ns-latest-features" href="#ns-feature-desk-title">Explore the features →</a>';
               return;
             }
 
             var seenIllustrations = new Set();
-            node.innerHTML = eligible.slice(0, 3).map(function (story) {
+            var latestCards = eligible.map(function (story) {
               var localIllustration = { "eu-ai-act-transparency-starts": "latest-labels.png", "label-is-not-a-truth-detector": "latest-checking.png" }[story.id];
               var thumbnail = storyIllustration(story) || (localIllustration ? { src: "/assets/newsstand/design-20260830/" + localIllustration, alt: "Illustration about AI labelling and verification" } : null);
               if (thumbnail && seenIllustrations.has(thumbnail.src)) thumbnail = null;
               if (thumbnail) seenIllustrations.add(thumbnail.src);
               return [
-                '<article><a class="ns-front-story" href="#', escapeAttribute(story.slug), '">',
+                '<article><a class="ns-front-story"', thumbnail && thumbnail.src ? '' : ' style="display:block"', ' href="#', escapeAttribute(story.slug), '">',
                 thumbnail && thumbnail.src ? '<img class="ns-latest-image" src="' + escapeAttribute(thumbnail.src.replace(/^\//, "./")) + '" alt="' + escapeAttribute(thumbnail.alt || "") + '" loading="lazy">' : '',
                 '<strong>', escapeHTML(story.headline), '</strong>',
                 '<span>', escapeHTML(formatDate(story.publishedAt)), '</span>',
                 '<em>Read the story →</em></a></article>'
               ].join("");
-            }).join("");
+            });
+            node.innerHTML = latestCards.slice(0, 3).join("") + (latestCards.length > 3 ?
+              '<details class="ns-latest-more"><summary>' + (latestCards.length - 3) + ' more recent stories</summary>' + latestCards.slice(3).join("") + '</details>' : '');
           });
         }
 
@@ -1935,11 +2006,11 @@
         searchInput.addEventListener("keydown", function (event) {
           if (event.key === "Enter") {
             event.preventDefault();
-            renderSearch(searchInput);
+            renderSearch(searchInput, { explicitSearch: true });
           }
         });
         document.getElementById("ns-search-button").addEventListener("click", function () {
-          renderSearch(this);
+          renderSearch(this, { explicitSearch: true });
         });
         document.getElementById("ns-browse-all").addEventListener("click", function () {
           renderArchive(this);
@@ -1973,6 +2044,10 @@
           persistHashlessView(pendingStoryView);
         });
         rack.addEventListener("click", function (event) {
+          var source = event.target.closest(".ns-article__sources a");
+          if (source) measure("source_opened");
+          var learning = event.target.closest(".ns-article__book-links a, .ns-article__notes a");
+          if (learning && /^\/?library\.html(?:#|$)/.test(learning.getAttribute("href") || "")) measure("learning_opened");
           var link = event.target.closest(".ns-front-story");
           if (link) {
             var slug = (link.getAttribute("href") || "").replace(/^#/, "");
@@ -1986,7 +2061,11 @@
           }
         });
         window.addEventListener("hashchange", function () {
-          if (location.hash) renderHash(true, lastInvoker);
+          if (location.hash) {
+            var restoredSlug = location.hash.replace(/^#/, "").trim().split("?")[0];
+            var restored = !pendingStoryView && history.state && history.state.nsStory === restoredSlug;
+            renderHash(true, lastInvoker, { skipMeasurement: Boolean(restored) });
+          }
           else restoreHashlessView();
         });
 
@@ -1996,13 +2075,17 @@
         else persistHashlessView({ type: "closed", scrollY: window.scrollY });
       })();
     </script>
-    <script src="./content/site/brand-polish.js?v=20260830-native-controls-1" defer></script>
+    <script type="module" src="./content/site/newsstand-measurement-v1.mjs?v=20260912-1"></script>
+    <script src="./content/site/brand-polish.js?v=20260911-header-controls-2" defer></script>
     <script defer src="./content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
-    <script defer src="./content/site/ksvl-player.js?v=20260830-continuity-1"></script>
+    <script defer src="./content/site/ksvl-player.js?v=20260911-header-controls-2"></script>
     <script defer src="./content/site/ksvl-theme-buttons.js?v=20260905-dynamic-1"></script>
-    <script defer src="./content/site/luminairy-claim-gate.js?v=20260902-1"></script>
+    <script defer src="./content/site/luminairy-claim-gate.js?v=e9a9105b51d8e4df"></script>
     <script defer src="./content/site/newsstand-luminairy.js?v=20260906-masthead-language-1"></script>
-    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260909-story-correction"></script>
+    <script defer src="./content/site/newsstand-catchup-v1.js?v=ea8ed293a2e06668"></script>
+    <script defer src="./content/newsstand-crossword-contract.js?v=733ac0e9e4698d47"></script>
+    <script defer src="./content/newsstand-crosswords.js?v=51636d40c6cf992c"></script>
+    <script defer src="./content/site/newsstand-crossword-preview-v1.js?v=ee6bf419e669b9f4"></script>
     <script defer src="./content/site/resident-continuation-bootstrap-v1.js?v=20260830-ksvl-service-1"></script>
     <script defer src="./content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
     <script defer src="./content/site/sunnyvaile-directory.js?v=20260713-1"></script>

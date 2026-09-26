@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "wiser-records-20260910",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "0212de56fb765c73e4cfa825f1669131f89c0642087eed80ac3b27449174d732",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why doesn't the record of 5,944 non-affirmations mean 5,944 Medicare patients were denied care?",
+      "response": "A non-affirmation is an early-stage payment decision, not a final outcome: it means the submitted paperwork did not satisfy Medicare's rules at that checkpoint. CMS says a licensed clinician, not the AI alone, determines any non-payment recommendation, and the request can still be corrected, resubmitted or appealed — the payment records themselves only count savings when none of those reversals happen. Providers can also skip prior authorization and be reviewed after the service is delivered but before payment.",
+      "expectedEvidence": "An accurate answer must cite the stage-based decision path (P003), the clinician determination (P005), and the post-service alternative (P006), while conceding delay still burdens patients (P004, P010).",
+      "assessment": "The article's mechanism fully supports this answer in ordinary language; every element of the explain-back is traceable to P003, P005 and P006, so the outcome passes."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mechanism, what should a reader check before accepting that 48,000 claims were rejected?",
+      "response": "First check whether the cited table counts total processed decisions or only adverse ones — the WISeR table labeled 20,397 'decisions' included 14,453 approvals. Second, check whether a 'rejection' at that stage is final or an intermediate status that can be corrected, resubmitted or appealed, and whether a human reviewer signs off on adverse outcomes. Third, look for separate evidence of real operational harm — aging queues, systems launched before they were functional — which can be true even when the headline number is wrong.",
+      "expectedEvidence": "Correct transfer applies the decisions-versus-denials distinction (P003), the intermediate-stage/appeal path (P003, P012), and the lesson that genuine rollout problems can coexist with an inflated number (P004).",
+      "assessment": "The article's mental model transfers cleanly and completely to this new automated-review context without needing any article-specific facts, so unseen transfer passes."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The September 8 records release, the disputed number, and the causal sequence from request through decision stages are all made understandable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 8, the Electronic Frontier Foundation published internal Centers for Medicare &amp; Medicaid Services records about WISeR, Medicare’s AI-assisted prior-authorization pilot. The records show rollout problems, but they do not support EFF’s claim that two vendors denied more than 20,000 requests.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The cited March 30 table reports 20,397 total decisions for two vendors: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the submitted request meets Medicare's requirements. A <strong>non-affirmation</strong> means the request was not approved at that decision point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Affirmation, non-affirmation, prior authorization, auto-affirm and Original Medicare each receive plain definitions at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The cited March 30 table reports 20,397 total decisions for two vendors: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the submitted request meets Medicare's requirements. A <strong>non-affirmation</strong> means the request was not approved at that decision point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The pilot covers selected services in <strong>Original Medicare</strong>—the federal fee-for-service program, distinct from private Medicare Advantage plans—in Arizona, New Jersey, Ohio, Oklahoma, Texas and Washington. CMS says it excludes emergencies, inpatient-only services and services whose delay would pose substantial risk.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequence is grounded in the specific situation of an Original Medicare patient in one of six named states facing a delayed selected request.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The pilot covers selected services in <strong>Original Medicare</strong>—the federal fee-for-service program, distinct from private Medicare Advantage plans—in Arizona, New Jersey, Ohio, Oklahoma, Texas and Washington. CMS says it excludes emergencies, inpatient-only services and services whose delay would pose substantial risk.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If you or someone you help uses Original Medicare in one of the six states and a selected request is delayed, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear, and the advice is bounded to stage and route questions supported by the records' own categories.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you or someone you help uses Original Medicare in one of the six states and a selected request is delayed, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        },
+        {
+          "excerpt": "A payment-review status is not a final care outcome. Track the stage, human decision and what happened after correction, resubmission or appeal.",
+          "locator": "P012"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema": "aidb-edition-inventory.v2",
+  "asOf": "2026-09-24",
+  "recordedAt": "2026-09-24T11:38:06-07:00",
+  "evidence": [
+    {
+      "path": "roster-and-aidb-raw.json",
+      "sha256": "641c0820a5213928a05a1b25fc571d44a9bc785a1a90e85e5343abbebd794f60"
+    },
+    {
+      "path": "roster-index-finds-raw.json",
+      "sha256": "2db029e628c5ec10c2c3751bdba6ac5c0ca5064c2b7017503752f96e040591d8"
+    },
+    {
+      "path": "aidb-podcast-episode-raw.json",
+      "sha256": "1d6435095622a5dde438a8bf250d902c97cae2549ceaaf2cca687049565ff67e"
+    }
+  ],
+  "editions": [
+    {
+      "editionDate": "2026-09-23",
+      "publishedAt": "2026-09-23T20:50:00Z",
+      "title": "Opus 5.5 vs GPT-6 Sol and Luna",
+      "url": "https://aidailybrief.ai/e/2026-09-23",
+      "alsoPublishedAt": [
+        "https://podcasts.apple.com/us/podcast/opus-5-5-vs-gpt-6-sol-and-luna/id1680633614?i=1000791349868"
+      ],
+      "identityEvidenceUrl": "https://podcasts.apple.com/us/podcast/opus-5-5-vs-gpt-6-sol-and-luna/id1680633614?i=1000791349868",
+      "discoveryChannels": [
+        "website",
+        "podcast"
+      ],
+      "complete": false,
+      "pendingReason": "Official index plus Apple page establish identity, duration and show notes only. Website HTML and transcript normal attempts returned Internal Error; no full body, audio or transcript has been inspected.",
+      "nextAction": "Recover a legitimate complete publisher edition or transcript; do not infer item count or transcript hash from show notes."
+    },
+    {
+      "editionDate": "2026-09-22",
+      "title": "Agent Wars!",
+      "url": "https://aidailybrief.ai/e/2026-09-22",
+      "complete": false,
+      "pendingReason": "Official index metadata only; prior exact full-content attempts remain inaccessible.",
+      "nextAction": "Recover legitimate complete publisher content without merging on similar title/date."
+    },
+    {
+      "editionDate": "2026-09-21",
+      "title": "The State of the AI Debate",
+      "url": "https://aidailybrief.ai/e/2026-09-21",
+      "complete": false,
+      "pendingReason": "Official index metadata only; prior exact full-content attempts remain inaccessible.",
+      "nextAction": "Recover legitimate complete publisher content."
+    },
+    {
+      "editionDate": "2026-09-20",
+      "title": "7 Ways How We Use AI Is Changing",
+      "url": "https://aidailybrief.ai/e/2026-09-20",
+      "complete": false,
+      "pendingReason": "Official index metadata only; complete edition and transcript remain unreviewed.",
+      "nextAction": "Recover legitimate complete publisher content."
+    },
+    {
+      "editionDate": "2026-09-18",
+      "title": "The AI Challenges Businesses Are Actually Focused On Right Now",
+      "url": "https://aidailybrief.ai/e/2026-09-18",
+      "complete": false,
+      "pendingReason": "Official index metadata only; complete edition and transcript remain unreviewed.",
+      "nextAction": "Recover legitimate complete publisher content."
+    },
+    {
+      "editionDate": "2026-09-17",
+      "title": "Why Everyone Is Getting Excited About Personal AI Agents",
+      "url": "https://aidailybrief.ai/e/2026-09-17",
+      "complete": false,
+      "pendingReason": "Official index metadata only; complete edition and transcript remain unreviewed.",
+      "nextAction": "Recover legitimate complete publisher content."
+    },
+    {
+      "editionDate": "2026-09-16",
+      "title": "Why a New Class of AI “Judgment Models” Could Have Big Business Implications",
+      "url": "https://aidailybrief.ai/e/2026-09-16",
+      "complete": false,
+      "pendingReason": "Official index metadata only; complete edition and transcript remain unreviewed.",
+      "nextAction": "Recover legitimate complete publisher content."
+    }
+  ],
+  "channelChecks": [
+    {
+      "channel": "website",
+      "url": "https://aidailybrief.ai/agent.json",
+      "checkedAt": "2026-09-24T11:38:06-07:00",
+      "status": "CHECKED",
+      "releaseUrls": [
+        "https://aidailybrief.ai/e/2026-09-23",
+        "https://aidailybrief.ai/e/2026-09-22",
+        "https://aidailybrief.ai/e/2026-09-21",
+        "https://aidailybrief.ai/e/2026-09-20",
+        "https://aidailybrief.ai/e/2026-09-18",
+        "https://aidailybrief.ai/e/2026-09-17",
+        "https://aidailybrief.ai/e/2026-09-16"
+      ],
+      "note": "Rolling seven-day index inventory completed. Sep24 was not listed; its HTML and transcript normal attempts returned Internal Error."
+    },
+    {
+      "channel": "podcast",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "checkedAt": "2026-09-24T11:38:06-07:00",
+      "status": "PARTIAL",
+      "releaseUrls": [
+        "https://podcasts.apple.com/us/podcast/opus-5-5-vs-gpt-6-sol-and-luna/id1680633614?i=1000791349868"
+      ],
+      "note": "A complete current podcast listing was not enumerated. The latest Apple episode was opened and identity-bound; it exposes a description and published time, not full audio/transcript."
+    },
+    {
+      "channel": "newsletter",
+      "url": "https://aidailybrief.beehiiv.com/",
+      "checkedAt": "2026-09-24T11:38:06-07:00",
+      "status": "UNAVAILABLE",
+      "releaseUrls": [],
+      "note": "Exact landing URL is NONRETRYABLE and was not reopened. No distinct publisher-owned archive was recovered in this bounded invocation."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "california-data-centre-laws-20260921",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "1378defb09ac4e93ef73214b050d38640a1dd6b9e45e357ee2e8bcc85908a625",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "A neighbour says: 'California just signed a law to protect ratepayers from data centres, so why is my October bill identical?' What is the causal answer?",
+      "response": "Because SB 1168 only orders the Public Utilities Commission to assess opportunities for rate structures inside a new or existing proceeding. An assessment is a study step, not a tariff. Bills change only after the commission finishes a proceeding and approves an actual rate dividing costs among customer groups, and no such rate has been adopted. AB 1577 changes visibility, not prices: covered facilities file estimates at permitting and report to the state after energization, published only in anonymized aggregate.",
+      "expectedEvidence": "The answer should cite the operative verb 'assess opportunities', the proceeding-then-rate sequence, and the distinction between reporting duties and price changes, as in P003, P004 and P007.",
+      "assessment": "The article's mechanism fully supports this answer in ordinary language; the operative-verb framing in P004 does the decisive work. Pass."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using only this article's mechanism, what can the resident expect to find, where, and what will not be publicly available?",
+      "response": "Because the facility exceeds 10 MW and is private, AB 1577 covers it. At the discretionary permit stage the owner must submit usage estimates to the county, so local permit records will hold planning facts. After energization the owner reports specified information to the Energy Commission, then at least annually. The public will see that data only in anonymized, aggregated annual publications — no facility-level dossier — and statewide load-trend analysis first appears in the 2029 integrated energy policy report. Any bill effect would still require a separate CPUC proceeding and approved rate.",
+      "expectedEvidence": "Correct application of the 10 MW threshold and exclusions (P005, P007), permit-stage vs post-energization reporting (P005), and aggregate-only publication with 2029 timing (P006).",
+      "assessment": "The article supplies every element needed to solve this novel scenario, including the negative result (no facility-level public data). The mechanism transfers cleanly. Pass."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The signing event, its date, the seven-bill context, and the causal sequence from enactment to possible later rate decision are all laid out.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>California made SB 1168 and AB 1577 law on September 21. They are two of seven data-centre bills signed that day; this article covers only these two. Neither law gives households an immediate bill credit or proves that electricity rates will fall.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>SB 1168 tells the California Public Utilities Commission to assess opportunities for rate structures — the rules used to divide charges among customer groups. The assessment must consider data centres’ reasonable share of transmission and distribution costs, their proportionate share of load and procurement costs, and pressure on residential customers.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>“Assess opportunities” is the important phrase. The law starts work inside a new or existing commission proceeding. It does not select a tariff, calculate a household saving or show how a particular utility will divide costs.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Rate structures, covered data centres (10 MW threshold) and anonymized/aggregated publication each get plain meaning at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>SB 1168 tells the California Public Utilities Commission to assess opportunities for rate structures — the rules used to divide charges among customer groups. The assessment must consider data centres’ reasonable share of transmission and distribution costs, their proportionate share of load and procurement costs, and pressure on residential customers.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>AB 1577 creates a different kind of visibility. Covered data centres — facilities with at least 10 megawatts of electrical capacity — must supply estimates when seeking a discretionary local approval. Once a facility is connected to power, owners report specified information to the state, with further reporting at least annually.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The Energy Commission must publish submitted information annually in anonymized and aggregated form: combined so the public release does not expose one customer’s protected data. Its first specified statewide data-centre load-trend assessment belongs in the 2029 integrated energy policy report.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are anchored to two recognizable situations: a resident's electricity bill and a proposed project in the reader's locality.",
+      "artifactEvidence": [
+        {
+          "excerpt": "California started data-centre rate and reporting work. Your bill did not change today.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear, and the only advice — watch for the proceeding and approved rate, consult local records — follows directly from the cited statutes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The reporting provisions exclude facilities below 10 megawatts and named public research, public safety, national-security, publicly owned and utility facilities. For a proposed project, local records may offer planning facts. For an electricity-bill claim, look for the later commission proceeding and an approved rate — not the signing headline alone.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "“California started a process for possible data-centre rates and new reporting. The laws are real; an approved rate, household saving and facility-level public dossier are not here yet.”",
+          "locator": "P008"
+        }
+      ]
+    }
+  }
+}

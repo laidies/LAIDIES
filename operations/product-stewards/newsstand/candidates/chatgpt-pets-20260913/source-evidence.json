@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "laidies.newsstand-source-evidence.v1",
+  "candidateId": "chatgpt-pets-20260913",
+  "checkedAt": "2026-09-13T14:20:00Z",
+  "sources": [
+    {
+      "id": "openai-pets-docs",
+      "url": "https://learn.chatgpt.com/docs/pets",
+      "publisherType": "primary-product-documentation",
+      "accessedAt": "2026-09-13",
+      "snapshot": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/source-snapshots/openai-pets-20260913.md",
+      "claims": [
+        "Pets are optional animated companions and selecting one changes appearance, not how ChatGPT completes tasks.",
+        "In the macOS and Windows desktop app, the floating controls start typed or voice chats and expose thread activity states.",
+        "Mini supplies the controls without a pet.",
+        "A quick chat started from the controls is outside a project.",
+        "A web pet inside supported ChatGPT Work chats does not provide the desktop overlay, activity tray, or /pet command."
+      ],
+      "limitations": "This is OpenAI product documentation. It establishes product behaviour and limits, not independent evidence of usefulness."
+    },
+    {
+      "id": "openai-changelog-2026-09-11",
+      "url": "https://learn.chatgpt.com/docs/changelog",
+      "publisherType": "primary-product-changelog",
+      "accessedAt": "2026-09-13",
+      "snapshot": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/source-snapshots/openai-changelog-20260913.html",
+      "claims": [
+        "OpenAI dated the quick-chat Pets and Appshots desktop update September 11, 2026.",
+        "The changelog says the floating controls can send a quick chat, accept @ context and $ skills, and open a thread from the bell control.",
+        "The changelog says a reader can choose a companion or show only controls in Settings > Pets."
+      ],
+      "limitations": "This is a maker announcement and a dated release peg; it does not establish that the feature is available to every account or that a pet improves results."
+    }
+  ],
+  "nonClaims": [
+    "A pet makes ChatGPT answers better, more accurate, or more private.",
+    "A pet automates a personal task or works on the web as a floating overlay.",
+    "Every ChatGPT account or workspace can use Pets.",
+    "A quick chat inherits project context."
+  ],
+  "runtimeVerification": {
+    "status": "NOT_TESTED",
+    "reason": "Native ChatGPT desktop-app inspection was unavailable in this production lane. No alternate UI route was used to bypass that block.",
+    "effect": "The candidate reports only source-supported behaviour. Any reader journey or account-specific availability claim needs separate runtime evidence."
+  }
+}

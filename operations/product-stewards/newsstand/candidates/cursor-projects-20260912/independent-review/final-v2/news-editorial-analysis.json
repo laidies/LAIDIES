@@ -1,0 +1,80 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "cursor-projects-20260912",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "32da5c4bc180fe0fe522ca2aba9933f12f43f648100333bd2da3f29eab52347b",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can Cursor keep working on my app after I close my laptop, and why might it still sometimes need my computer?",
+      "response": "Because the Project runs on its own computer in the cloud, the coordinator and coding agents keep going regardless of your laptop's state; only when a test must run on your own machine does the coordinator start a local agent there, and the finished work always comes back to you to check.",
+      "expectedEvidence": "The article states the Project runs on a cloud computer so closing the laptop does not stop it, that the coordinator starts a local agent for machine-specific testing, and that results return for your review (P003).",
+      "assessment": "The article's mechanism fully supports this causal answer in ordinary language; the cloud/local distinction is explicit and correctly attributed."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Which parts of the migration continue while she travels, and where will the workflow stall without her laptop?",
+      "response": "The cloud-hosted planning, coding, and shared-context accumulation continue without her laptop, since the Project runs on its own cloud computer. But any step the coordinator routes to a local agent—such as tests that must run on her machine—stalls until that machine is available, and finished work still queues for her own review of what the pages say and whether links and unrelated features survived.",
+      "expectedEvidence": "P003 gives the cloud-continuation rule and local-agent exception; P002 gives shared context across agents; P006 gives the reader's residual review job.",
+      "assessment": "The article's mechanism transfers cleanly to this new situation and yields a correct, bounded prediction, confirming genuine transfer value."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The launch date, purpose, and the plan-delegate-return causal sequence are all understandable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Cursor launched Projects in beta on September 10 for longer software jobs, from adding a feature to building a whole app. A Project keeps the files and notes for that job, so agents working on different parts can use what the others have learned. A coordinator is the agent that plans the job and sends pieces to other agents; Cursor says the other agents write the code.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job. If testing is needed on your own computer, Cursor says the coordinator starts a local agent there. The result comes back to you to check.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Coordinator, cloud, local agent, and shared context each get plain meaning at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Cursor launched Projects in beta on September 10 for longer software jobs, from adding a feature to building a whole app. A Project keeps the files and notes for that job, so agents working on different parts can use what the others have learned. A coordinator is the agent that plans the job and sends pieces to other agents; Cursor says the other agents write the code.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job. If testing is needed on your own computer, Cursor says the coordinator starts a local agent there. The result comes back to you to check.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are grounded in a recognizable situation: your own website, whether closing the laptop interrupts the job, and what to inspect afterwards.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For your own website, ask before you start: can the remaining work stay online, or does a test need your laptop? That determines whether closing it will interrupt the job.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>When the page comes back, check the thing you asked for: does it say what you meant, do its links work, and did anything else change? That is the concrete job that still belongs to you.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; advice is limited to reviewing your own requested output, proportionate to the source's stated limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For your own website, ask before you start: can the remaining work stay online, or does a test need your laptop? That determines whether closing it will interrupt the job.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>When the page comes back, check the thing you asked for: does it say what you meant, do its links work, and did anything else change? That is the concrete job that still belongs to you.</p>",
+          "locator": "P006"
+        }
+      ]
+    }
+  }
+}

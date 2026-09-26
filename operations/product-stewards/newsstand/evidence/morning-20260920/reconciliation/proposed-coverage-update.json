@@ -1,0 +1,115 @@
+{
+  "schema": "newsstand-coverage-reconciliation-proposal.v1",
+  "proposalOnly": true,
+  "reviewedAt": "2026-09-20T14:04:27Z",
+  "baseCoverageRecord": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "asOf": "2026-09-19",
+    "checkedAt": "2026-09-19T17:36:56.200377+00:00"
+  },
+  "proposedSourceChecks": [
+    {
+      "url": "https://www.gov.ca.gov/wp-content/uploads/2026/09/FINAL-N-9-26-AI-EO-9.18.26-SIGNED.pdf",
+      "role": "PRIMARY_GOVERNMENT_ORDER",
+      "status": "CHECKED",
+      "capturedOn": "2026-09-20",
+      "timestampMeaning": "The preserved web capture reports Crawled: today; no source-response completion time was supplied, so this proposal does not fabricate one.",
+      "assessment": "Three-page Executive Order N-9-26 was read. It is effective immediately; it directs specified agency implementation deadlines (May 1 and December 1, 2027) and a November 16, 2026 recommendations deadline. The proposed kill-switch, onsite verifier, and expanded incident-reporting requirements are recommendations for potential amendments, not current mandates.",
+      "capture": {"path":"operations/product-stewards/newsstand/evidence/morning-20260920/order-raw.json","sha256":"47d46ea4079d5338b3716fc4ce701fed49b85e7fa0fd58cf2f8a6c6eff73d664"}
+    },
+    {
+      "url": "https://www.eff.org/deeplinks/2026/09/eff-statement-california-governors-executive-order-ai",
+      "role": "INDEPENDENT_CIVIL_SOCIETY_RESPONSE",
+      "status": "CHECKED",
+      "capturedOn": "2026-09-20",
+      "assessment": "The September 18 EFF response was read. It supports the order's existence and records EFF's view that loss-of-control reporting and third-party investigations merit attention, while identifying effectiveness of kill switches as active research. It is commentary, not proof that the proposed measures are enacted or effective.",
+      "capture": {"path":"operations/product-stewards/newsstand/evidence/morning-20260920/eff-raw.json","sha256":"f11460cc055bfe924becc28fe2c1cbdc1bacd52b76f19e937c0826e3b4b45d0d"}
+    },
+    {
+      "url": "https://energycommerce.house.gov/posts/ratepayer-protection-act-passes-house-with-strong-bipartisan-support",
+      "role": "PRIMARY_LEGISLATIVE_COMMITTEE",
+      "status": "CHECKED",
+      "capturedOn": "2026-09-20",
+      "assessment": "The committee's September 16 release records House passage of H.R. 9340, the Ratepayer Protection Act, 417-3. It describes a requirement that state regulators consider large-load standards for data centers above 100 MW. It does not establish Senate passage, presidential signature, or a current nationwide payment obligation.",
+      "capture": {"path":"operations/product-stewards/newsstand/evidence/morning-20260920/1000-primary-recovery.json","sha256":"8605b5ba0a3ba2c93d62c31fec132146c8b263852693b0dd495d395e6c249b5f"}
+    },
+    {
+      "url": "https://security.apple.com/blog/private-cloud-compute/",
+      "role": "PRIMARY_PROVIDER_TECHNICAL_DOCUMENTATION",
+      "status": "CHECKED_HISTORICAL_CONTEXT",
+      "capturedOn": "2026-09-20",
+      "assessment": "Apple's June 10, 2024 PCC technical account was read. It describes Apple's claimed architecture and its explicit distinction from ordinary cloud protections. It does not document a September 2026 feature change or settle EFF's normative critique of cloud TEEs.",
+      "capture": {"path":"operations/product-stewards/newsstand/evidence/morning-20260920/privacy-primary-raw.json","sha256":"78af6dcc34f5150ac92b67c12ffcd9e8a293067f9c59cc6d1e6359fb9c6c8672"}
+    },
+    {
+      "url": "https://www.nature.com/articles/d41586-026-02954-y",
+      "role": "RESEARCH_REPORTING",
+      "status": "CHECKED_INCOMPLETE_FOR_ADMISSION",
+      "capturedOn": "2026-09-20",
+      "assessment": "The captured Nature report names the underlying Science paper (10.1126/science.aeg6779) and describes a virtual biotech using up to 37,075 agents. It also says the drug-discovery predictions were not validated through experiments or clinical trials. The underlying study still requires complete examination before any reporting beyond a bounded lead.",
+      "capture": {"path":"operations/product-stewards/newsstand/evidence/morning-20260920/holds-2.json","sha256":"5bee32ba8619adbe68f07351a5ad488d700f16cce71ab82bb8b733bb836ad15c"}
+    },
+    {
+      "url": "https://www.nature.com/articles/d41586-026-02913-7",
+      "role": "RESEARCH_REPORTING",
+      "status": "CHECKED_INCOMPLETE_FOR_ADMISSION",
+      "capturedOn": "2026-09-20",
+      "assessment": "The captured Nature report names a Cell paper (189, 5980-5994.e8) and a separate Nature Biotechnology study. It describes specialist ageing models and benchmarks, but says interpretation of biological-age clocks remains unsettled. The complete underlying work and exact scope must be inspected before any health or longevity implication is reported.",
+      "capture": {"path":"operations/product-stewards/newsstand/evidence/morning-20260920/holds-2.json","sha256":"5bee32ba8619adbe68f07351a5ad488d700f16cce71ab82bb8b733bb836ad15c"}
+    }
+  ],
+  "proposedLeadDispositions": [
+    {
+      "id": "california-eo-n-9-26-20260918",
+      "event": "California Executive Order N-9-26",
+      "status": "IN_PRODUCTION",
+      "sourceUrls": ["https://www.gov.ca.gov/wp-content/uploads/2026/09/FINAL-N-9-26-AI-EO-9.18.26-SIGNED.pdf","https://www.eff.org/deeplinks/2026/09/eff-statement-california-governors-executive-order-ai"],
+      "reader-safe-frame": "What California ordered now; what it asked experts to recommend later; and why a kill-switch headline is not proof of a working mandated switch.",
+      "productionLimits": "Do not say a new kill-switch, onsite verifier, or amended critical-incident rule is in force. Retain EO deadlines and EFF's clearly attributed critique.",
+      "outstandingWork": "Bind exact current California statutory references and complete ordinary producer, independent review, admission, and reader-contract checks."
+    },
+    {
+      "id": "house-ratepayer-protection-act-20260916",
+      "event": "House passage of H.R. 9340, the Ratepayer Protection Act",
+      "status": "IN_PRODUCTION",
+      "sourceUrls": ["https://energycommerce.house.gov/posts/ratepayer-protection-act-passes-house-with-strong-bipartisan-support","https://apnews.com/article/ai-data-centers-congress-f073380caa61b720fa424590b5bc7c87"],
+      "reader-safe-frame": "The House vote would put a state-regulator consideration standard before large data-center costs; it is a legislative step, not a live national utility-bill rule.",
+      "productionLimits": "State the 417-3 House vote and 100 MW committee-described threshold with attribution. Do not claim enactment, guaranteed rate relief, or a uniform obligation until the bill's later legislative status is verified.",
+      "outstandingWork": "Read current bill text/version and current Congress status, then complete ordinary source, producer, independent-review, admission, and reader-contract work. This is separate from the unresolved AP public-concern-poll lead."
+    },
+    {
+      "id": "secure-messaging-cloud-tee-privacy-20260918",
+      "event": "EFF analysis of cloud TEEs and encrypted messaging",
+      "status": "EVIDENCE_BLOCKED",
+      "sourceUrls": ["https://www.eff.org/deeplinks/2026/09/secure-messaging-and-ai-remain-conflict-despite-promise-tees","https://security.apple.com/blog/private-cloud-compute/","https://ai.meta.com/static-resource/private-processing-technical-whitepaper"],
+      "reason": "The full EFF opinion and Apple historical documentation are accessible, while the Meta whitepaper capture is metadata only. There is no verified new provider feature, affected-service scope, current user setting, or independent technical assessment that would justify a general-reader product/privacy story.",
+      "nextAction": "Recover current service-specific documentation and an independent technical assessment; preserve the distinction between end-to-end encryption and cloud-TEE processing."
+    },
+    {
+      "id": "nature-lung-cancer-agents-20260917",
+      "event": "Virtual Biotech research and proposed lung-cancer therapeutic strategy",
+      "status": "EVIDENCE_BLOCKED",
+      "sourceUrls": ["https://www.nature.com/articles/d41586-026-02954-y","https://doi.org/10.1126/science.aeg6779","https://med.stanford.edu/news/all-news/2026/09/virtual-biotech-company.html","https://virtualbiotech.ai/"],
+      "reason": "Nature reporting, Stanford's institutional account, and the project site support a research lead only. Their language differs in emphasis: Nature says the predictions were not experimentally or clinically validated, while Stanford says a later independently built therapy was validated in trials. The underlying Science study and the exact evidence chain for the latter institutional wording were not inspected.",
+      "nextAction": "Read the Science paper in full, recover exact source for Stanford's later-validation statement, reconcile the claims, and preserve the boundary between hypothesis generation and clinical benefit."
+    },
+    {
+      "id": "nature-ageing-ai-20260917",
+      "event": "AI system and benchmarks for ageing research",
+      "status": "EVIDENCE_BLOCKED",
+      "sourceUrls": ["https://www.nature.com/articles/d41586-026-02913-7","https://doi.org/10.1038/s41587-026-03286-y"],
+      "reason": "The Nature report is readable but points to underlying Cell and Nature Biotechnology research not inspected in full. It expressly preserves uncertainty about what biological-age changes mean, so it cannot support a health, rejuvenation, or clinical-effect claim.",
+      "nextAction": "Recover/read the primary papers and an independent domain-expert account; specify model tasks, evaluation population, and what the work does not demonstrate."
+    }
+  ],
+  "proposedRecoveryReviews": [
+    {
+      "scope": "Older NONRETRYABLE original routes",
+      "result": "NO_HOLD_RESOLVED",
+      "assessment": "Distinct current captures were used only where legitimate: AIDB index/Apple metadata remain incomplete; Cognition's blog does not establish the previously blocked X-post claim; the new AP/House material is a separate energy-policy event, not a Reuters-route substitute; and the California official order/EFF response are separate new evidence. No prohibited original, mirror, proxy, or alternate transport was retried.",
+      "retain": ["AIDB complete-edition/transcript holds", "Cognition and X original-evidence holds", "Reuters independent-reporting route hold", "ProteinTalks complete-primary-methods hold", "E-MAF complete-primary-methods hold", "AP/NORC questionnaire conflict for ai-data-center-public-concern-20260916"],
+      "nextRecoveryTrigger": "A distinct legitimate original/publisher/primary source that supplies the named missing content, not a title, metadata page, search snippet, or a similar account."
+    }
+  ],
+  "nonMutation": "This is a private proposal. coverage-progress.json, source checks, lead states, cursors, canonical issues, and public content remain unchanged."
+}

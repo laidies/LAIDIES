@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "ai-research-automation-20260919",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "38afa96aa0a0eba1b1f441ed5bc75f650261d1531c7707f7c776babbe9e0c3e2",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "If Claude 'led' 26% of Anthropic's AI research work, why doesn't that mean the AI is doing research autonomously?",
+      "response": "Because 'led' is defined as completing most of a defined task from a high-level prompt while a human supervises. A human still chose the task, framed the prompt, watched the work and judged the output. Full autonomy would remove the human from that loop entirely, and Anthropic says no measured subset reached that level. So 26% measures how much bounded execution was handed over, not who holds authority over goals, evidence or deployment.",
+      "expectedEvidence": "The reader should cite the AL4 definition (high-level prompt plus human supervision), the AL5 absence claim, and the goal/judgment/deployment rights remaining human.",
+      "assessment": "The article supports this answer fully: P004 supplies the level definitions, P002 the 26%/none figures, and P005 the retained human decision rights, so the causal explain-back is accurate and grounded."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mechanism, how should a reader evaluate whether the AI is autonomously discovering drugs?",
+      "response": "Apply the task-vs-authority split and the three questions. Which work was counted — likely bounded screening runs humans defined, not choosing which disease targets or candidate classes to pursue. What did the human still decide — probably the screening protocol, which hits to advance, and whether anything enters trials; running 70% of experiments inside a human-set pipeline is supervised execution, like Anthropic's 'led' level, not autonomy. Was the measure independently checked — a company counting its own runs with its own classifier is a preliminary internal measurement, so the percentage may not survive an external method. Conclusion: dramatic execution share, but authority over goals, evidence and deployment has not been shown to transfer.",
+      "expectedEvidence": "Correct reuse of the execution/authority distinction (P004), the retained human decision rights pattern (P005), and the three-question test with the independent-check caveat (P006, P008).",
+      "assessment": "The article's mechanism transfers cleanly to this new domain; the reader can resolve the scenario without any drug-discovery knowledge, confirming genuine transfer value."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "Both reports, their metrics, dates and the causal control loop are laid out clearly with the distinction between them.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Two companies report different internal snapshots. Anthropic says that in its August 2026 internal index, Claude led 26% of AI research work, performed at least collaboratively in more than 90%, and was fully autonomous in none.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI reports a different measure: by mid-August, its agents’ total runtime across the research organization was equivalent to 3.1 standard eight-hour agent workdays for each human workday. These figures describe work inside the companies that made the systems. They are not a change to an everyday ChatGPT or Claude account.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>OpenAI says people still set priorities, judge results and decide whether to scale, pause or deploy. In the six months it studied, more than half of successful four-to-eight-hour tasks needed at least one intervention.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Led', 'fully autonomous', 'agent workdays' and 'recursive self-improvement' each get plain meaning at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI reports a different measure: by mid-August, its agents’ total runtime across the research organization was equivalent to 3.1 standard eight-hour agent workdays for each human workday. These figures describe work inside the companies that made the systems. They are not a change to an everyday ChatGPT or Claude account.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The crucial distinction is between doing a research task and deciding what research should happen. In Anthropic’s scale, “led” means completing most of a defined task from a high-level prompt while a human supervises. Fully autonomous work removes the human; Anthropic says no measured subset reached it.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>This does not establish recursive self-improvement—a model independently building its successor without a human in the loop. Bounded investigations can run for hours, which may speed up a lab without transferring authority over the next model, evidence or deployment.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Explicitly grounds consequence: no change to everyday ChatGPT or Claude accounts, and how to read the next dramatic percentage.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI reports a different measure: by mid-August, its agents’ total runtime across the research organization was equivalent to 3.1 standard eight-hour agent workdays for each human workday. These figures describe work inside the companies that made the systems. They are not a change to an everyday ChatGPT or Claude account.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>When you see the next dramatic percentage, ask three questions: Which work was counted? What did the human still decide? Was the measure independently checked? Those questions separate a real change in research practice from a claim that the machines are running the laboratory.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or unsupported advice; the closing questions follow directly from the sourced limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Both reports are preliminary internal measurements. Anthropic used a Claude judge, found borderline disagreement and says cross-company comparison lacks a common method. OpenAI says coverage is incomplete; agent runtime, code and experiment counts do not directly measure overall research progress.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>When you see the next dramatic percentage, ask three questions: Which work was counted? What did the human still decide? Was the measure independently checked? Those questions separate a real change in research practice from a claim that the machines are running the laboratory.</p>",
+          "locator": "P008"
+        }
+      ]
+    }
+  }
+}

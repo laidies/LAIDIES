@@ -1,0 +1,702 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "gemini-live-38-20260915",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/recovery_aidb",
+  "reviewer": {
+    "id": "/root/recovery_aidb",
+    "principalId": "/root/recovery_aidb",
+    "role": "Producer complete artifact read",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-15T20:12:02.164Z",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/publication-manifest.json",
+      "sha256": "37d41bf0981b35fd22ea3d68bd0ea9ff23b2f28abacc7c2e86744e9a4521b1ca"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/review-text.json",
+      "sha256": "2dcb20f77f8b9eac23aa3fba0dd2fe40b8021014080cba9da1e8e1b882e93e52"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/rendered-article.html",
+      "sha256": "d36774ea9aeca576c479530a06bce877356b50888055463c37e90c13b3d9dad6"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/recovery_aidb",
+    "reviewedAt": "2026-09-15T20:12:02.162Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.”",
+            "locator": "opening"
+          },
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "AI system"
+          }
+        ],
+        "actualObservation": "Actual complete read: the opening corrects the learner before giving her a reason to care. Nine term blocks repeat a definition, comparison and application rhythm; taxi, Walkman, wardrobe and toolbox comparisons compete rather than follow one consequential request. The what-to-fix promise is not developed into a traceable repair. Reject the accumulation and instruction rhythm, despite individually useful distinctions."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "introduction"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully",
+            "locator": "ending"
+          }
+        ],
+        "actualObservation": "Actual complete read: the Northstar/Juniper case explains missing evidence and context coherently, but a broad introduction becomes a long job-offer diagnosis. Public evidence judgment and participation are not established as reasons to learn before the machinery. The ending advertises more components instead of restoring the broad purpose. Reject for the registered foundational destination, retaining the local mechanism strength."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The label is shown to identify origin without verifying a train-closure claim.",
+        "The action specifies line, stations and day rather than merely saying verify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "The first helps you decide what you are looking at. It cannot do the second for you.",
+          "locator": "LAiDIES Read"
+        },
+        {
+          "excerpt": "that means confirming which line, which stations and which day.",
+          "locator": "What This Means"
+        }
+      ]
+    },
+    "limits": [
+      "Own producer calibration from current exact exemplar reads; not independent calibration or current legal accuracy."
+    ],
+    "reuseDisclosure": "Schema only reused; observations, principal and timestamp newly written from actual reads."
+  },
+  "reverseBrief": {
+    "humanQuestion": "What changes when Gemini keeps talking while it works, and will I actually receive it?",
+    "promisedPayoff": "Understand the live-conversation trade-off, staged access and how to distinguish fluent narration from a finished result.",
+    "centralMentalModel": "Speaking, background reasoning and completing an action are distinct; continuous conversation does not verify the result.",
+    "dailyLifeConnection": "Change a constraint while discussing an imaginary family day trip, then inspect the final plan.",
+    "surfaceJob": "A short dated ordinary news report about a consumer-relevant model rollout.",
+    "desiredReaderFeeling": "Curious to try a low-risk conversation with a clear idea of what to check."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "One essential technical phrase is explained directly where the processing distinction matters.",
+      "artifactEvidence": [
+        {
+          "excerpt": "processing a problem while the spoken conversation continues",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Access eligibility and actual receipt are distinguished so a reader does not mistake a launch for an account change.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those are paid-plan boundaries, not a claim that every account received every feature today.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The example is ordinary adult personal life, without a corporate performance pitch or patronising cheerleading.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Imagine discussing a family day trip",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "A recognisable changed constraint gives the reader something she can picture and test.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It might rain, and we need to be home by five.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Provider design and rollout are attributed, and no benchmark score or consumer test result is invented.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Google says 3.8 Live is rolling out in Search Live",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Dated primary body and documentation captured at20:04:35Z provide exact fresh evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Google announced Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking on September 15.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The headline names a bounded capability and short ordinary sections develop it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Gemini’s new voice models can keep talking while they work.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article is tied to the launch rather than a general opinion on conversational AI.",
+      "artifactEvidence": [
+        {
+          "excerpt": "on September 15",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The boundary sits adjacent to the subscription list; rollout does not become universal access.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the announcement does not establish availability on your particular account",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Personal planning is the case; a changed rain/home-time constraint is understandable without a technical job.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a family day trip",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The invisible background process is tied to a visible conversation then returned to checking the actual plan.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a spoken reply is not proof that the work is finished",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The reader can distinguish speech, background processing, and correctness from this causal description.",
+      "artifactEvidence": [
+        {
+          "excerpt": "processing a problem while the spoken conversation continues",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What can continue while Gemini speaks, and what does a finished speaking turn prove?",
+        "probeResponse": "Google starts a voice-model rollout. Extended Thinking can keep producing speech while processing a multi-step problem; the completed speech turn does not establish the work finished or the answer is correct.",
+        "expectedEvidence": "Background processing can continue; speech completion does not establish task completion or correctness."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The distinction applies to a separately imagined reminder record without claiming any specific reminder integration.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nor does finishing establish that the answer is right.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Another AI says it is saving your reminder. What should you inspect?",
+        "probeResponse": "If an AI says it is saving a reminder, I should inspect the saved reminder rather than treat its spoken narration as the completed record.",
+        "expectedEvidence": "Inspect the resulting saved record; narration does not prove an action finished."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "A harmless test names exactly what to change and compare, without asking a reader to buy access.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Change one constraint mid-conversation, then inspect whether the final plan actually reflects it.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "An explicitly hypothetical task makes the claim concrete; no metaphor is used as technical proof.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Imagine discussing a family day trip",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark personality or framework is named in public copy.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Original wording uses no named presenter identity or mannerisms.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Benchmark leadership, production-ready marketing and partner lists are excluded.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "What happens while speaking is answered by concurrent background processing and its completion boundary.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Family planning is a literal hypothetical task, not a decorative cultural comparison.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Model design is separated from app rollout and subscriber eligibility.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No cultural spectacle or joke precedes the actual dated change.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Design recommendations are attributed to Google; no consumer reliability observation is invented.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Changed trip constraints illustrate the processing task, then the final route is checked against reality.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Alter one planning constraint and compare the actual final plan with it.",
+      "artifactLocator": "complete exact story"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Background reasoning receives one inline meaning; model is explained briefly where first introduced.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The takeaway remains speech versus finished-correctly rather than a grand prediction.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The background-reasoning label is followed immediately by its ordinary meaning.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "A recognisable rainy-day outing makes the small test inviting rather than a compliance ritual.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Consumer rollout establishes reader stakes before the technical distinction.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The design/default distinction and completion boundary receive substantive paragraphs.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Speech can stream while processing continues; a completed speaking turn is not an idle processor or a correct result.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The news answer comes first as appropriate; the evidence distinction follows the explanation.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Personal planning is central, not only developer or employee productivity.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Three relevant Google primary pages and one exact learning section support the story.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Actual primary pages captured on the publication date; changed rollout is a future trigger.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Protocol flags, latency tables and token limits are translated away from public copy.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Sections progress from consumer event through design distinction and practical test, without repeated term scaffolds.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "One short day-trip paragraph serves the short news story.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+        "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "dated-launch",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Google announced Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking on September 15.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "google-blog"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "L214: Sep 15, 2026",
+            "locator": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"
+          }
+        ],
+        "scopeAndFreshness": "Announcement date, not universal account activation.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+          "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+        }
+      },
+      {
+        "claimId": "voice-model-identity",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "built for live voice conversations",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "google-live-doc"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "real-time dialogue without reasoning-induced delays",
+            "locator": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live"
+          }
+        ],
+        "scopeAndFreshness": "Plain model definition is explanatory background, not a claim about consumer interface controls.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+          "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+        }
+      },
+      {
+        "claimId": "search-rollout",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Google says 3.8 Live is rolling out in Search Live",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "google-blog"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "For everyone: In Search Live",
+            "locator": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"
+          }
+        ],
+        "scopeAndFreshness": "Heading states rolling out starting today; account receipt not verified.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+          "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+        }
+      },
+      {
+        "claimId": "gemini-rollout",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Extended Thinking is rolling out in Gemini Live",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "google-blog"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "For everyone: In Gemini Live",
+            "locator": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"
+          }
+        ],
+        "scopeAndFreshness": "Rollout from dated heading, no universal immediate availability.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+          "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+        }
+      },
+      {
+        "claimId": "live-default",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Google’s documentation describes 3.8 Live as the default for quick dialogue",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "google-live-doc"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "the default option for most low-latency voice agent experiences",
+            "locator": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live"
+          }
+        ],
+        "scopeAndFreshness": "Quick dialogue translates low latency, not independently measured responsiveness.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+          "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+        }
+      },
+      {
+        "claimId": "thinking-design",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Extended Thinking is designed for more demanding, multi-step problems.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "google-thinking-doc"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "recommended when higher background reasoning is required for complex, multi-step problem solving during real-time voice interactions",
+            "locator": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking"
+          }
+        ],
+        "scopeAndFreshness": "Design recommendation, not guaranteed superior real-world performance.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+          "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+        }
+      },
+      {
+        "claimId": "parallel-processing",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "processing a problem while the spoken conversation continues",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "google-thinking-doc"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "It processes background reasoning and asynchronous tool calls while streaming continuous audio responses.",
+            "locator": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking"
+          }
+        ],
+        "scopeAndFreshness": "Simultaneous processing/audio as documented; hypothetical day trip is a reader illustration, not a tested feature result.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+          "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+        }
+      },
+      {
+        "claimId": "turn-not-completion",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Extended Thinking’s developer documentation explicitly separates a completed speaking turn from finished background processing.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "google-thinking-doc"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "no longer indicates that the model is idle. The server may continue processing background reasoning or tool calls.",
+            "locator": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking"
+          }
+        ],
+        "scopeAndFreshness": "Developer protocol evidence interpreted conservatively; no exact consumer success indicators invented.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+          "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+        }
+      },
+      {
+        "claimId": "workspace-docs-access",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Docs for Google AI Pro and Ultra subscribers",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "google-blog"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "for Google AI Pro and Ultra subscribers in Workspace in Docs",
+            "locator": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"
+          }
+        ],
+        "scopeAndFreshness": "Exact announced subscription boundary; no pricing or specific account verification.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+          "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+        }
+      },
+      {
+        "claimId": "workspace-mail-keep-access",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Gmail and Keep for all Google AI subscribers",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "google-blog"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "and all Google AI subscribers in Gmail and Keep",
+            "locator": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"
+          }
+        ],
+        "scopeAndFreshness": "All Google AI subscribers, not all free Google accounts; paid-plan category only, no new-price claim.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+          "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+        }
+      },
+      {
+        "claimId": "rollout-boundary",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Consumer features are rolling out",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "google-blog"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "rolling out starting today",
+            "locator": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"
+          }
+        ],
+        "scopeAndFreshness": "Actual availability on a reader account unknown; staged wording retained.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/editorial-input.json",
+          "sha256": "ac488237e51936f47ea59a494beebabaf25f40e35fed19e3131a95a021f8ed45"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-15",
+    "nextTrigger": "Changed rollout or plan eligibility, independently tested consumer behavior, or revised model documentation.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First exact ordinary NEWS candidate for September15 Gemini3.8 Live consumer rollout; earlier source inventories were not prose candidates."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Actual producer prose read found no new reusable content defect. Provisional art is separately awaiting root destination-specific admission before independent dispatch."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer assessment only; independent editorial and visual admission pending.",
+    "AI simulations only; no observed human comprehension or consumer account feature test.",
+    "No queue, issue, publication or public release performed."
+  ]
+}

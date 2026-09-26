@@ -1,0 +1,212 @@
+{
+  "schemaVersion": "newsstand-ordinary-story-candidate-v2",
+  "candidateStatus": "READY_FOR_ISSUE_ADMISSION",
+  "candidateId": "gpt-live-downstream-20260911",
+  "editionDate": "2026-09-11",
+  "story": {
+    "id": "gpt-live-downstream-20260911",
+    "slug": "gpt-live-downstream-20260911",
+    "edition": "daily",
+    "status": "hold",
+    "publishedAt": null,
+    "updatedAt": "2026-09-11T02:36:19-07:00",
+    "lastCheckedAt": "2026-09-11T02:36:19-07:00",
+    "sourceApproval": {
+      "record": "newsstand:source-approval:gpt-live-downstream-20260911",
+      "status": "independent-review-required"
+    },
+    "correction": null,
+    "correctionHistory": [],
+    "retraction": null,
+    "predecessorStoryIds": [],
+    "successorStoryIds": [],
+    "relationshipType": null,
+    "bigPicture": null,
+    "thread": null,
+    "thread_subtitle": null,
+    "thread_entry": null,
+    "headline": "The voice on your next restaurant or repair call may be GPT-Live-1.",
+    "heroVisual": {
+      "src": "/assets/newsstand/design-20260830/latest-checking.png",
+      "alt": "Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.",
+      "credit": "LAiDIES NewsStand evidence-checking illustration"
+    },
+    "the_story": "<p>OpenAI released GPT-Live-1 to developers through its API on September 10. The same day, Yelp said it had integrated the voice model into Yelp Host, which answers restaurant calls, and Hatch, which handles calls for service businesses such as repair companies.</p><p>This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone. It does not mean every restaurant, repair company or ChatGPT account changed. Yelp did not disclose which callers, locations or customers have received the new integration.</p><p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+    "laidies_read": "<p>Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.</p><p>Yelp says early production testing showed better call handling and fewer transfers, and that callers spoke in fuller sentences. Those are company-reported observations. The release gives no sample size, test method, rollout geography or independent assessment, so it does not establish how often the system completes a reservation or appointment correctly.</p><p>For developers, OpenAI lists a price of $0.05 per minute for the voice layer; backend models and tools are billed separately. That is not necessarily a fee charged to the caller. The model is best suited to conversations with pauses, interruptions or background noise. It may be unnecessary for a simple menu lookup or email, where a human or simpler system already works.</p>",
+    "what_this_means": "<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p><p>The next useful evidence is independent testing and a disclosed rollout: which calls use GPT-Live-1, how transaction accuracy is measured and how often the confirmed record matches what the caller said.</p>",
+    "cocktail_party": "“GPT-Live-1 may be the voice on a restaurant or repair call. It can make interruptions sound smoother, but the connected booking system—not the voice—records the result.”",
+    "watch_fors": null,
+    "closing_note": null,
+    "class_notes": "A fluent answer and a completed transaction are different results. <a href=\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\">Working with AI 101: Trusting the Output and Checking It</a> shows how to check the result that matters.",
+    "sources": [
+      {
+        "id": "openai-gpt-live-release",
+        "label": "OpenAI — Build more natural voice experiences with GPT-Live-1 in the API",
+        "url": "https://openai.com/index/introducing-gpt-live-1-in-the-api/",
+        "publisherType": "vendor-primary-release",
+        "accessedAt": "2026-09-11",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "openai-gpt-live-docs",
+        "label": "OpenAI Developers — Getting started with GPT-Live",
+        "url": "https://developers.openai.com/api/docs/guides/live",
+        "publisherType": "vendor-primary-documentation",
+        "accessedAt": "2026-09-11",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "yelp-hatch-businesswire",
+        "label": "Yelp via Business Wire — GPT-Live-1 in Yelp Host and Hatch",
+        "url": "https://www.businesswire.com/news/home/20260909348516/en/",
+        "publisherType": "company-primary-release",
+        "accessedAt": "2026-09-11",
+        "approvalStatus": "reviewed"
+      }
+    ],
+    "aidb_credit": null,
+    "themes": [
+      "model capabilities",
+      "consumer products"
+    ],
+    "concepts": [
+      "front-end voice layer",
+      "full duplex",
+      "transaction confirmation"
+    ],
+    "tags": [
+      "OpenAI",
+      "GPT-Live-1",
+      "Yelp Host",
+      "Hatch",
+      "voice AI"
+    ],
+    "saint_lane": null,
+    "badge": "THE LATEST"
+  },
+  "storyTypeCoverage": {
+    "schema": "laidies.newsstand-story-type-coverage.v1",
+    "primaryType": "model-tool-release",
+    "overlays": [],
+    "universalAnswers": {
+      "whatHappened": "OpenAI released GPT-Live-1 to developers through its API on September 10, and Yelp said it integrated the voice model into Yelp Host and Hatch.",
+      "plainLanguageIdentity": "OpenAI calls GPT-Live-1 a front-end voice layer that listens and speaks while a separate backend checks business data and completes tasks.",
+      "evidenceBasis": "OpenAI's September 10 release and current developer documentation were reopened on September 11; Yelp's complete company release was captured through its Business Wire syndication mirror.",
+      "evidenceLimits": "No reviewed independent evaluation establishes transaction accuracy, and Yelp disclosed no sample size, test method, rollout geography or customer coverage for its early observations.",
+      "readerRelevance": "A person may encounter the model while making a restaurant reservation, changing a food order or arranging a service appointment without ever using an API herself.",
+      "affectedPeople": "Callers, restaurant staff, service-business staff and developers or operators responsible for the voice system and its connected booking tools.",
+      "changesNow": "Developers can use GPT-Live-1 in the API, and Yelp says Yelp Host and Hatch have integrated it as the voice layer for restaurant and service-business calls.",
+      "uncertainty": "Which callers and customers receive the integration, and how often a spoken request becomes a correct lasting transaction, remain undisclosed.",
+      "readerAction": "After a reservation or repair call, repeat the important details and ask for confirmation of the actual record; ask for a person if the system cannot confirm it.",
+      "betterQuestion": "Did the connected booking system record the request correctly, and what evidence measures that outcome rather than only how natural the voice sounded?"
+    },
+    "typeAnswers": {
+      "model-tool-release": {
+        "productRange": "GPT-Live-1 is the front-end voice layer for applications; a separate backend model, business data and tools perform deeper reasoning and actions.",
+        "newCapabilities": "OpenAI says it listens and speaks at the same time and is designed to handle pauses, interruptions, changing directions and background noise more naturally.",
+        "bestFitTasks": "Phone conversations that change midway, including reservations, food orders, customer support and service appointments.",
+        "notFor": "It does not itself prove that a reservation or appointment was recorded, and it may be unnecessary for a simple menu lookup or email.",
+        "nearestAlternatives": "A traditional chained voice system passes speech through separate listening, reasoning and speaking stages; a person can still handle the call directly.",
+        "availability": "OpenAI says the model is available to developers in the API; Yelp says it is integrated into Yelp Host and Hatch but gives no caller, location or customer rollout list.",
+        "freePaidBoundary": "The release is an API product for developers, not a new setting every caller or ChatGPT account receives, and the caller's price is not established by the API rate.",
+        "costBoundary": "OpenAI lists $0.05 per minute for the front-end voice layer, with backend models and tools billed separately.",
+        "limitations": "Yelp's improved call-handling observations lack a disclosed sample, method and independent assessment; rollout and transaction accuracy remain unknown.",
+        "technicalExampleProportionality": "One changed restaurant reservation shows why smoother interruption handling and a confirmed booking are separate system results.",
+        "vendorEvidenceBoundary": "OpenAI and Yelp establish their release, architecture and adoption claims; no reviewed source independently establishes the claimed downstream improvement."
+      }
+    },
+    "translation": {
+      "schema": "laidies.newsstand-reader-translation.v1",
+      "newsVersionExact": "OpenAI released GPT-Live-1 to developers through its API on September 10.",
+      "actualMeaningExact": "This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone.",
+      "mechanismExact": "A separate backend system still checks business information, applies rules and uses tools.",
+      "familiarExampleExact": "Imagine changing a reservation from four people to five while the voice is still replying.",
+      "jargon": [
+        {
+          "term": "front-end voice layer",
+          "plainMeaning": "the part that listens and speaks while a separate backend checks information and completes tasks"
+        },
+        {
+          "term": "full duplex",
+          "plainMeaning": "listening and speaking at the same time"
+        }
+      ],
+      "learningConnections": [
+        {
+          "concept": "checking a fluent AI output against the result that matters",
+          "learningPayoff": "Working with AI 101 teaches how to check a confident output against the source or record that determines whether it is correct.",
+          "disposition": "link",
+          "destination": "/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it"
+        }
+      ]
+    }
+  },
+  "storySha256": "25fb4f641789f38d1591b6057536c16e54b46fcfdca0c715870203e4c19db561",
+  "publicationBase": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/publication-base.js",
+    "sha256": "71bd056777df83f2d14b64df4f99fed2219cf8df99e4ddd7209e78db513aedeb"
+  },
+  "sourceText": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/review-text.json",
+    "sha256": "1f0ad92512d85fffebf244d59d3f12a8cf8b5d6702a3ec4ea155bb09e11eea10"
+  },
+  "claimMap": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/final-v1/publication-claim-map.json",
+    "sha256": "1edc4689fbede577dbe328ebc2d05a89437aa4562832d8f1aaf1973c00c7e556"
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/producer-contract.json",
+    "sha256": "6fb74aff31c2f6a03d795822dea36db72128dc094ee1f5fae004db15abb84c5f"
+  },
+  "draftPreparation": {
+    "writerInput": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/writer-input-current.json",
+      "sha256": "c6b992490a285b0d7114a26443a08536dd484ff5b99bfc720e189c51f9b68981"
+    },
+    "observations": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/producer-observations.json",
+      "sha256": "c81a7ee2a01b311d0d6b5a5d8b4079250b1a2704566c79cb4489c6be9864cce2"
+    }
+  },
+  "sources": [
+    {
+      "id": "openai-gpt-live-release",
+      "url": "https://openai.com/index/introducing-gpt-live-1-in-the-api/",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+        "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+      }
+    },
+    {
+      "id": "openai-gpt-live-docs",
+      "url": "https://developers.openai.com/api/docs/guides/live",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+        "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+      }
+    },
+    {
+      "id": "yelp-hatch-businesswire",
+      "url": "https://www.businesswire.com/news/home/20260909348516/en/",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+        "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+      }
+    }
+  ],
+  "reviewEvidence": {
+    "producer": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/producer-publication-review.json",
+      "sha256": "d27e62d9f3af150188c4c7f0d9a8f28a5b013b3f3bc9d1c60a29f81e804bd298"
+    },
+    "independent": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/final-v1/independent-review.json",
+      "sha256": "d6cb1b9459888885a98d3f0c9d38e0bacd2bb420988fad0d827358e268219514"
+    },
+    "independentRawReport": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/final-v1/independent-raw-report.json",
+      "sha256": "b91b632c056d9883aa5dac2b8fbb7394b88d44693da9b39ce56d4f879f27f845"
+    }
+  },
+  "lineage": null
+}

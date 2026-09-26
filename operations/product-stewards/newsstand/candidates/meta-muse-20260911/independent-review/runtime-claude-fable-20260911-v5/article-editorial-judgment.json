@@ -1,0 +1,589 @@
+{
+  "facts": {
+    "attestations": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "claims": {
+      "launch": {
+        "state": "supported",
+        "reason": "Meta post is dated September 8, 2026 and AP independently reports a Tuesday US-only launch, matching P002.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "meta-muse-launch",
+          "ap-meta-muse-report"
+        ]
+      },
+      "availability": {
+        "state": "supported",
+        "reason": "Meta launch post states Muse is rolling out in the US on iOS, Android, and muse.ai, matching P002 exactly.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "meta-muse-launch"
+        ]
+      },
+      "whatsapp": {
+        "state": "supported",
+        "reason": "Meta says talking to Muse works in the Muse app or directly in WhatsApp; the article correctly attributes this to Meta in P002.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "meta-muse-launch"
+        ]
+      },
+      "free-paid": {
+        "state": "supported",
+        "reason": "Meta says free for most needs with subscription plans for more; the article honestly notes no exact limit or price appears in the reviewed material.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "meta-muse-launch"
+        ]
+      },
+      "background-work": {
+        "state": "supported",
+        "reason": "Meta launch post says Muse keeps working after people close the app; P003 attributes this to Meta.",
+        "passages": [
+          "P003"
+        ],
+        "sourceIds": [
+          "meta-muse-launch"
+        ]
+      },
+      "future-items": {
+        "state": "supported",
+        "reason": "Launch post lists AI glasses coming soon, Shop Pay coming soon, 1Password support; safety post describes Confidential VM as the later stronger privacy option. P003 correctly labels all as later plans.",
+        "passages": [
+          "P003"
+        ],
+        "sourceIds": [
+          "meta-muse-launch",
+          "meta-muse-safety"
+        ]
+      },
+      "agent-identity": {
+        "state": "supported",
+        "reason": "Meta says Muse doesn't just answer questions but does the work; AP explains the chatbot-versus-agent distinction. P004's definition matches both.",
+        "passages": [
+          "P004"
+        ],
+        "sourceIds": [
+          "meta-muse-launch",
+          "ap-meta-muse-report"
+        ]
+      },
+      "recipe-email": {
+        "state": "qualified",
+        "reason": "Meta's example covers the recipe-reel grocery list and sending invites, and separately describes read-versus-send email permission. The precise split in P004 (grocery list needs no email access; invitation needs connected email plus send permission) is a reasonable composite inference, not a verbatim source statement.",
+        "passages": [
+          "P004"
+        ],
+        "sourceIds": [
+          "meta-muse-launch"
+        ]
+      },
+      "cloud-workspace": {
+        "state": "supported",
+        "reason": "Both Meta sources state Muse runs on its own dedicated computer in the cloud where data and credentials are stored; P005 matches.",
+        "passages": [
+          "P005"
+        ],
+        "sourceIds": [
+          "meta-muse-launch",
+          "meta-muse-safety"
+        ]
+      },
+      "outside-control": {
+        "state": "supported",
+        "reason": "Safety post: Sentinel is the sole permission authority for connector actions and network egress, kept apart from Muse at the system level; Muse proposes, only Sentinel grants. P005 renders this accurately without the brand name.",
+        "passages": [
+          "P005"
+        ],
+        "sourceIds": [
+          "meta-muse-safety"
+        ]
+      },
+      "email-scope": {
+        "state": "supported",
+        "reason": "Meta launch post: people choose whether Muse reads their mail or can also send on their behalf; P006 matches with attribution.",
+        "passages": [
+          "P006"
+        ],
+        "sourceIds": [
+          "meta-muse-launch"
+        ]
+      },
+      "permission-scope": {
+        "state": "supported",
+        "reason": "Safety post lists one-time, session-scoped, task-scoped, time-bounded, or perpetual permission, and says Sentinel decides which grant types to present; P006 matches.",
+        "passages": [
+          "P006"
+        ],
+        "sourceIds": [
+          "meta-muse-safety"
+        ]
+      },
+      "approval-limit": {
+        "state": "supported",
+        "reason": "Safety post: read-only, previously allowed, or demonstrably low-risk actions can proceed without interruption; P006 reproduces this limit correctly.",
+        "passages": [
+          "P006"
+        ],
+        "sourceIds": [
+          "meta-muse-safety"
+        ]
+      },
+      "approval-design": {
+        "state": "supported",
+        "reason": "Launch post describes approval before sending email or making a purchase; safety post concedes Muse can and will still make mistakes. P006's framing that prompts are design rather than a correctness guarantee follows both sources.",
+        "passages": [
+          "P006"
+        ],
+        "sourceIds": [
+          "meta-muse-launch",
+          "meta-muse-safety"
+        ]
+      },
+      "mistakes": {
+        "state": "supported",
+        "reason": "Safety post states plainly that any agent like this will still make mistakes and Muse will sometimes make mistakes; P007 attributes this to Meta's safety post.",
+        "passages": [
+          "P007"
+        ],
+        "sourceIds": [
+          "meta-muse-safety"
+        ]
+      },
+      "prompt-injection": {
+        "state": "supported",
+        "reason": "Safety post: prompt injection remains an open problem in the industry; P007 defines the term and attributes the admission correctly.",
+        "passages": [
+          "P007"
+        ],
+        "sourceIds": [
+          "meta-muse-safety"
+        ]
+      },
+      "independent-limit": {
+        "state": "supported",
+        "reason": "AP observation records that AP did not independently test Meta's security design or reliability; P007 states AP confirmed the launch and distinction but did not test safeguards.",
+        "passages": [
+          "P007"
+        ],
+        "sourceIds": [
+          "ap-meta-muse-report"
+        ]
+      },
+      "current-isolation": {
+        "state": "supported",
+        "reason": "Launch post: contained so no one else's agent can reach it; safety post describes per-user isolated VMs. P008 accurately scopes today's isolation as user-to-user.",
+        "passages": [
+          "P008"
+        ],
+        "sourceIds": [
+          "meta-muse-launch",
+          "meta-muse-safety"
+        ]
+      },
+      "current-access": {
+        "state": "supported",
+        "reason": "Safety post explicitly says current design does not prevent Meta from accessing data when necessary to support, secure or operate the service; P008 matches exactly.",
+        "passages": [
+          "P008"
+        ],
+        "sourceIds": [
+          "meta-muse-safety"
+        ]
+      },
+      "training-optout": {
+        "state": "supported",
+        "reason": "Both sources say interactions/trajectories may train models and users can opt out via settings; P008 attributes this default correctly.",
+        "passages": [
+          "P008"
+        ],
+        "sourceIds": [
+          "meta-muse-launch",
+          "meta-muse-safety"
+        ]
+      },
+      "later-privacy": {
+        "state": "supported",
+        "reason": "Launch post promises Confidential VM later this year encrypted with a key only the user holds so not even Meta can access it; safety post says it is intended to cryptographically prevent Meta access. P008 keeps the promissory framing.",
+        "passages": [
+          "P008"
+        ],
+        "sourceIds": [
+          "meta-muse-launch",
+          "meta-muse-safety"
+        ]
+      },
+      "trusted-testers": {
+        "state": "supported",
+        "reason": "Safety post: already using this system with a small group of trusted testers; P008 correctly notes it is not generally available.",
+        "passages": [
+          "P008"
+        ],
+        "sourceIds": [
+          "meta-muse-safety"
+        ]
+      },
+      "reader-action": {
+        "state": "supported",
+        "reason": "The read/action/no-access decision in P009 follows directly from Meta's documented read-versus-write separation, per-app connection choice, and scoped grant types; advice remains proportionate to sourced controls.",
+        "passages": [
+          "P009"
+        ],
+        "sourceIds": [
+          "meta-muse-launch",
+          "meta-muse-safety"
+        ]
+      },
+      "audit-controls": {
+        "state": "supported",
+        "reason": "Launch post: complete audit trail of everything done and planned, and people can change access or disconnect a service whenever they want; P009 matches with Meta attribution.",
+        "passages": [
+          "P009"
+        ],
+        "sourceIds": [
+          "meta-muse-launch"
+        ]
+      }
+    },
+    "outcomes": {
+      "factualIntegrity": {
+        "state": "pass",
+        "reason": "Every material claim traces to the supplied excerpts with attribution retained; the only composite inference (recipe/email split) is fair and flagged, and source limits (Meta self-description, AP untested) are preserved.",
+        "passages": [
+          "P002",
+          "P006",
+          "P008"
+        ]
+      },
+      "freshnessReviewability": {
+        "state": "pass",
+        "reason": "The September 8 launch date, September 11 review date, dated sources, and the explicit note that AP did not test safeguards make every time-sensitive claim checkable.",
+        "passages": [
+          "P002",
+          "P007",
+          "P008"
+        ]
+      },
+      "datedChange": {
+        "state": "pass",
+        "reason": "The article cleanly separates what shipped on September 8 from later plans (glasses, Shop Pay, 1Password) and the Confidential VM promise still with trusted testers.",
+        "passages": [
+          "P003",
+          "P008",
+          "P010"
+        ]
+      },
+      "consequenceAndUncertainty": {
+        "state": "pass",
+        "reason": "Concrete consequences (Meta's current access, training default, uninterrupted low-risk actions) coexist with preserved uncertainty: mistakes admitted, prompt injection open, no independent testing yet.",
+        "passages": [
+          "P006",
+          "P007",
+          "P010"
+        ]
+      }
+    },
+    "learningDisposition": {
+      "disposition": "CANDIDATE_REPAIR_ONLY",
+      "rationale": "One claim (recipe-email) is a composite inference beyond the verbatim source example; a small attribution tightening (e.g. 'building on Meta's example') would make it fully verbatim-traceable. No factual error found."
+    },
+    "summary": "Factually strong dated news article: 23 of 24 claims directly supported with correct attribution and preserved source limits; one claim (the recipe-to-invitation email split) is a fair but composite inference from Meta's example plus its permission model, marked qualified. Current Secure-VM-era protections are properly separated from the promised Confidential VM still in trusted testing."
+  },
+  "reader": {
+    "attestations": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "reverseBrief": {
+      "humanQuestion": "If I let Meta's new Muse agent into my apps, what can it actually do there today, who decides each action, and is the 'even Meta can't see it' privacy real yet?",
+      "promisedPayoff": "You will understand the chain from the agent's proposed action, through a separate permission check, to the connected service — and know that the strongest privacy promise is future, not present.",
+      "centralMentalModel": "The agent proposes; a control outside the agent checks the proposal against the permission you granted for that specific service before anything reaches the internet; today's workspace still permits Meta operational access, unlike the promised user-key-encrypted version.",
+      "dailyLifeConnection": "Turning a saved Instagram recipe into a grocery list versus sending a dinner invitation through your connected email — two everyday tasks needing very different access.",
+      "surfaceJob": "A dated news article reporting the September 8 US launch of Muse, what it can do, how permissions gate connected services, and the current-versus-future privacy boundary.",
+      "desiredReaderFeeling": "Equipped and calm: able to connect a service deliberately with the narrowest useful grant, without either panic or misplaced trust in an unshipped promise."
+    },
+    "outcomes": {
+      "plainClarity": {
+        "state": "pass",
+        "reason": "Every sentence is followable without technical training; 'a control outside the agent checks whether a proposed action fits the permission' explains Sentinel without brand jargon, and prompt injection is defined inline.",
+        "passages": [
+          "P005",
+          "P006",
+          "P007"
+        ]
+      },
+      "readerValue": {
+        "state": "pass",
+        "reason": "Beyond the headline, the reader learns the grant types, that not every action prompts approval, that Meta retains current operational access, and a concrete per-service access decision.",
+        "passages": [
+          "P006",
+          "P008",
+          "P009"
+        ]
+      },
+      "laidiesVoice": {
+        "state": "pass",
+        "reason": "Candid adult tone — 'not a guarantee that Muse always behaves correctly' and 'distinguish today's limits from the later promise' — with no condescension or borrowed persona.",
+        "passages": [
+          "P006",
+          "P010",
+          "P011"
+        ]
+      },
+      "engagingEnjoyable": {
+        "state": "pass",
+        "reason": "Interest is sustained through real stakes (your email, your purchases, Meta's own admission of mistakes) rather than mandatory humour; the recipe-to-invitation example gives a human anchor.",
+        "passages": [
+          "P004",
+          "P006",
+          "P007"
+        ]
+      },
+      "surfaceFit": {
+        "state": "pass",
+        "reason": "A properly bounded dated news article: what launched September 8, how it works, what to do, and what evidence comes next — nothing beyond scope.",
+        "passages": [
+          "P002",
+          "P009",
+          "P010"
+        ]
+      },
+      "dailyLifeConnection": {
+        "state": "pass",
+        "reason": "The Instagram-recipe-to-dinner-invitation task and the read-versus-send email choice ground the permission mechanism in a recognizable everyday situation.",
+        "passages": [
+          "P004",
+          "P006"
+        ]
+      },
+      "communicationBenchmark": {
+        "state": "pass",
+        "reason": "Human question first (what did you permit?), concrete causality (propose→check→act), and a stated better next question (independent testing, Confidential VM availability); no explainer imitation.",
+        "passages": [
+          "P001",
+          "P005",
+          "P010"
+        ]
+      },
+      "explainBack": {
+        "state": "pass",
+        "reason": "The mechanism in P005–P006 supports an accurate ordinary-language answer to why some actions prompt approval and others proceed silently.",
+        "passages": [
+          "P005",
+          "P006"
+        ]
+      },
+      "unseenTransfer": {
+        "state": "pass",
+        "reason": "The grant-scope and current-versus-future-privacy mechanisms transfer cleanly to new connected-service situations, as demonstrated in my bill-negotiation scenario below.",
+        "passages": [
+          "P005",
+          "P006",
+          "P008"
+        ]
+      },
+      "usefulAction": {
+        "state": "pass",
+        "reason": "Specific, proportionate action: decide read/action/no access per task, prefer one-time or task-limited grants, use the audit trail to inspect and revoke.",
+        "passages": [
+          "P009"
+        ]
+      },
+      "analogyIntegrity": {
+        "state": "pass",
+        "reason": "The article uses no figurative analogies; its one worked example (recipe versus invitation) maps the actual permission mechanism accurately and keeps its limits.",
+        "passages": [
+          "P004"
+        ]
+      }
+    },
+    "newsChecks": {
+      "incidentExplained": {
+        "state": "pass",
+        "reason": "The launch event, what Muse does differently from a chatbot, and the causal permission chain are all understandable in sequence.",
+        "passages": [
+          "P002",
+          "P003",
+          "P005"
+        ]
+      },
+      "termsExplainedInContext": {
+        "state": "pass",
+        "reason": "'Personal AI agent' is defined at first meaningful use in P004 and 'prompt injection' is defined inline in P007; no branded architecture names are required.",
+        "passages": [
+          "P004",
+          "P007"
+        ]
+      },
+      "readerConsequenceSpecific": {
+        "state": "pass",
+        "reason": "Consequences are grounded in specific reader situations: your email read-versus-send grant, purchases, Meta's current data access, and the training default with opt-out.",
+        "passages": [
+          "P006",
+          "P008",
+          "P009"
+        ]
+      },
+      "noInternalNotesOrInventedAdvice": {
+        "state": "pass",
+        "reason": "No internal operating notes appear, and every piece of advice (grant scoping, audit trail, opt-out awareness) rests on documented Meta controls.",
+        "passages": [
+          "P009",
+          "P010"
+        ]
+      }
+    },
+    "families": {
+      "glossaryAccumulation": {
+        "state": "clear",
+        "reason": "Terms are defined only where they do causal work and immediately connect to the permission chain; no definition list accumulates.",
+        "passages": []
+      },
+      "templateRepetition": {
+        "state": "clear",
+        "reason": "Paragraphs develop distinct jobs — launch, mechanism, admission, privacy boundary, action — with no repeated scaffold.",
+        "passages": []
+      },
+      "decorativeAnalogy": {
+        "state": "clear",
+        "reason": "No figurative analogies are used anywhere in the artifact; the worked example is literal.",
+        "passages": []
+      },
+      "referenceConfetti": {
+        "state": "clear",
+        "reason": "The only reference is one on-topic library link doing a real explanatory job; no pop-culture confetti.",
+        "passages": []
+      },
+      "missingMechanism": {
+        "state": "clear",
+        "reason": "The causal chain — agent proposes, outside control checks grant scope, action reaches the service — is stated, not just labelled.",
+        "passages": []
+      },
+      "genericAction": {
+        "state": "clear",
+        "reason": "Advice is case-specific: read versus action versus no access per task, one-time grants when lasting ones are unnecessary, audit-trail inspection.",
+        "passages": []
+      },
+      "jargonBeforeMeaning": {
+        "state": "clear",
+        "reason": "'Prompt injection' and 'personal AI agent' each receive plain meaning at first meaningful use; Sentinel and VM brand names are translated into plain roles.",
+        "passages": []
+      },
+      "disconnectedSystem": {
+        "state": "clear",
+        "reason": "Workspace, control, permission, connected service and Meta access are shown as one flow of effects, not separately named parts.",
+        "passages": []
+      },
+      "factlessConfidence": {
+        "state": "clear",
+        "reason": "Every strong claim carries 'Meta says' attribution, and independent-testing absence is stated explicitly; certainty never exceeds evidence.",
+        "passages": []
+      },
+      "staleUnreviewableClaims": {
+        "state": "clear",
+        "reason": "All time-sensitive claims carry dates and traceable sources; the future Confidential VM is labelled as a promise under testing.",
+        "passages": []
+      },
+      "corporateSludge": {
+        "state": "clear",
+        "reason": "Meta's marketing framing is stripped to concrete verifiable statements; nothing vague or motivational survives.",
+        "passages": []
+      },
+      "joylessInstruction": {
+        "state": "clear",
+        "reason": "Though compact, the piece keeps human interest via the dinner-party example and Meta's candid mistakes admission; it never becomes a terminology manual.",
+        "passages": []
+      },
+      "benchmarkNameDrop": {
+        "state": "clear",
+        "reason": "No communication benchmark or famous explainer is mentioned anywhere in the artifact.",
+        "passages": []
+      },
+      "curiosityWithoutPayoff": {
+        "state": "clear",
+        "reason": "The headline's implicit question — what did you permit? — is fully answered by the permission mechanism and the action paragraph.",
+        "passages": []
+      },
+      "familiarExampleWithoutTechnicalReturn": {
+        "state": "clear",
+        "reason": "The recipe/invitation example returns directly to the technical mechanism: which access the task needs and which permission governs it.",
+        "passages": []
+      },
+      "communicationPastiche": {
+        "state": "clear",
+        "reason": "The voice is plain house-style news prose; no communicator's mannerisms or persona are imitated.",
+        "passages": []
+      },
+      "entertainmentBeforeUnderstanding": {
+        "state": "clear",
+        "reason": "There is no spectacle or humour competing with the explanation; understanding leads throughout.",
+        "passages": []
+      },
+      "mechanismCompressedBehindHook": {
+        "state": "clear",
+        "reason": "The mechanism occupies the centre of the piece (P005–P006) rather than being rushed behind a hook.",
+        "passages": []
+      },
+      "prematureClickBeforeMechanism": {
+        "state": "clear",
+        "reason": "The headline claim is earned: acting in connected apps is explained through the propose-check-permit chain before conclusions are drawn.",
+        "passages": []
+      },
+      "inflatedTakeawayEnding": {
+        "state": "clear",
+        "reason": "The ending narrows rather than inflates: distinguish today's limits from the later promise and await independent testing.",
+        "passages": []
+      },
+      "purposeTooNarrow": {
+        "state": "clear",
+        "reason": "The article covers launch, capability, mechanism, privacy boundary and action; the one worked example does not become the whole purpose.",
+        "passages": []
+      },
+      "mechanismBeforeMotivation": {
+        "state": "clear",
+        "reason": "The human stakes — an agent acting in your apps — are established in the headline and story before the control mechanism begins.",
+        "passages": []
+      },
+      "workedExampleOvertakesBookPurpose": {
+        "state": "clear",
+        "reason": "The recipe example is one illustrative paragraph; the broader permission-and-privacy orientation dominates.",
+        "passages": []
+      },
+      "technicalExplainerVoice": {
+        "state": "clear",
+        "reason": "For this bounded news report, explaining the specific permission mechanism is exactly the right organising perspective, and it stays oriented to the reader's access decision.",
+        "passages": []
+      }
+    },
+    "explainBack": {
+      "question": "Why might Muse send a calendar-style reply on your behalf one day without asking, after prompting you for approval the first time?",
+      "answer": "Because approval is not a per-action ritual but a scoped grant. The first time, the outside control found no matching permission for that connected service, so it stopped the action and asked you; you may have chosen a permanent or task-scoped grant. Afterwards, any proposed action that fits exactly inside that granted scope — or that is read-only or judged low-risk — is allowed through to the internet without interruption. The agent never decides this itself; the separate control compares each proposal against your standing grant.",
+      "expectedEvidence": "P005 (control outside the agent checks whether a proposed action fits the permission before letting it reach the internet) and P006 (grant types include permanent; previously allowed, read-only or low-risk actions may proceed without interruption).",
+      "assessment": "The article fully supports this causal answer: both the scope-matching step and the uninterrupted-action condition are explicit, so a reader can predict silent actions rather than being surprised by them."
+    },
+    "unseenTransfer": {
+      "scenario": "A reader connects Muse to her broadband provider's account portal and asks it to negotiate a lower monthly bill, something the article never discusses. Muse reads her current plan, chats with the provider's retention bot overnight while her phone is off, and reaches a moment where accepting the new 12-month contract would commit her to a fee.",
+      "question": "Using only this article's mechanism, what should she expect at each step, and does today's setup keep this negotiation private from Meta?",
+      "answer": "Reading her plan details can proceed without interruption once she granted read access, because read-only and previously allowed actions skip fresh prompts (P006). The overnight work matches Meta's claim that Muse continues after the app closes (P003). But accepting the contract is a consequential action on a connected service: the control outside the agent should find no standing grant covering it and stop to ask her, and she can prefer a one-time grant so no permanent contract-signing power lingers (P005, P006, P009). Afterwards she can inspect every step in the audit trail. On privacy: no — today's workspace only separates her from other users; Meta may still access the data to operate, support or secure the service, and the negotiation transcript may feed model training unless she opted out. The version where even Meta cannot see it is a promise still with trusted testers (P008).",
+      "expectedEvidence": "P005–P006 for scope-checked approval and uninterrupted low-risk reads, P003 for background continuation, P008 for current Meta access versus the future encrypted workspace, P009 for one-time grants and the audit trail.",
+      "assessment": "The mechanism transfers cleanly to this new situation with no gaps: the article gives a reader everything needed to predict prompts, choose grant scope, and correctly judge today's privacy boundary."
+    },
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "All eleven outcomes and four news checks pass, and all twenty-four failure families are clear with specific passage grounding; no failed or uncertain assessment exists in the reader part."
+    },
+    "summary": "A tight, well-scoped news article that makes the agent-to-permission-to-service chain genuinely legible: the agent proposes, a control outside it checks the grant scope, and only matching actions reach the connected service. It cleanly separates today's protections (user isolation, Meta operational access, training default) from the promised user-key-encrypted workspace still in trusted testing, ends on a specific access decision, and passes every outcome and news check with no failure family present."
+  }
+}

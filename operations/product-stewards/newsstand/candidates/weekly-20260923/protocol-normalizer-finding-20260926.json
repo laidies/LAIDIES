@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "newsstand-review-runtime-finding.v1",
+  "observedAt": "2026-09-26T15:21:55.477Z",
+  "scope": "Evidence only; no runtime change.",
+  "rule": "protocol.mjs asserts learning disposition has a defect exactly when a normalized factual claim is HOLD or CONTRADICTED.",
+  "evidence": [
+    "v11: all claims supported or qualified, facts learningDisposition EVIDENCE_GAP, normalization rejected.",
+    "v13: one claim QUALIFIED, facts learningDisposition CANDIDATE_REPAIR_ONLY, normalization rejected."
+  ],
+  "smallestProposedRule": "Permit EVIDENCE_GAP or CANDIDATE_REPAIR_ONLY when one or more claims are QUALIFIED, while retaining contradiction for NO_NEW_DEFECT unless every claim is supported and every outcome passes.",
+  "status": "PROPOSED_NOT_APPLIED"
+}

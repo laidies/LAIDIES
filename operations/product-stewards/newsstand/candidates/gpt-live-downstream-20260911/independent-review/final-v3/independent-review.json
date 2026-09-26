@@ -1,0 +1,1356 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "gpt-live-downstream-20260911",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/weekly_recovery",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T11:38:38.531Z",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/publication-manifest.json",
+      "sha256": "ef6270ae92210267abf3849f8de1d8bc30d08aab001e195046c78079533a099c"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/review-text.json",
+      "sha256": "8b2b628d43d8f24fe68cfd4c0592ea978d014989ef316790dc8dbb594a95f965"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/rendered-article.html",
+      "sha256": "fc3c6e623900871c15c5214f35d1b167fbe7a544a469e6a4996a26063ce214ed"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "When I call a restaurant or repair company, could an AI voice answer, and how do I know my booking actually happened?",
+    "promisedPayoff": "You will know where you might meet GPT-Live-1, what the voice does versus the backend, and how to confirm the record that matters.",
+    "centralMentalModel": "A fluent front-end voice layer converses in full duplex, but a separate backend booking system checks data, applies rules and owns the lasting record.",
+    "dailyLifeConnection": "Changing a reservation from four people to five mid-sentence, or arranging a repair appointment, are the concrete encounters used throughout.",
+    "surfaceJob": "A dated news article reporting the September 10 release and same-day Yelp integration, bounded by what the vendor and adopter actually disclosed.",
+    "desiredReaderFeeling": "Informed and equipped: appreciative of the smoother conversation but calm about verifying the confirmation rather than trusting fluency."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Each technical term is defined in plain words at first use — front-end voice layer and full duplex in P004, the staged pipeline in P005 — and no sentence assumes API knowledge.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader learns the encounter surface, the voice/record split, the price boundary and a concrete verification routine.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone. It does not mean every restaurant, repair company or ChatGPT account changed. Yelp did not disclose which callers, locations or customers have received the new integration.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Developers can access GPT-Live-1 as a paid API. OpenAI says the voice layer costs $0.05 per minute; backend models and tools are billed separately. That is not necessarily a fee charged to the caller. The model is best suited to conversations with pauses, interruptions or background noise. It may be unnecessary for a simple menu lookup or email, where a human or simpler system already works.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, adult and candid — 'It does not mean every restaurant... changed' and 'It may be unnecessary for a simple menu lookup' treat the reader as capable without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone. It does not mean every restaurant, repair company or ChatGPT account changed. Yelp did not disclose which callers, locations or customers have received the new integration.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Developers can access GPT-Live-1 as a paid API. OpenAI says the voice layer costs $0.05 per minute; backend models and tools are billed separately. That is not necessarily a fee charged to the caller. The model is best suited to conversations with pauses, interruptions or background noise. It may be unnecessary for a simple menu lookup or email, where a human or simpler system already works.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The mid-sentence reservation change from four to five keeps the human situation vivid; interest is sustained by relevance rather than forced humour.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The voice on your next restaurant or repair call may be GPT-Live-1.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated release (September 10) plus same-day integration is reported with proper scope: what happened, who might notice, and what is not yet known.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released GPT-Live-1 to developers through its API on September 10. The same day, Yelp said it had integrated the voice model into Yelp Host, which answers restaurant calls, and Hatch, which handles calls for service businesses such as repair companies.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone. It does not mean every restaurant, repair company or ChatGPT account changed. Yelp did not disclose which callers, locations or customers have received the new integration.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The next useful evidence is independent testing and a disclosed rollout: which calls use GPT-Live-1, how transaction accuracy is measured and how often the confirmed record matches what the caller said.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Reservations, food orders and repair appointments ground the mechanism in recognizable phone calls a nondeveloper actually makes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone. It does not mean every restaurant, repair company or ChatGPT account changed. Yelp did not disclose which callers, locations or customers have received the new integration.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human question first (P001–P003), concrete causality in the centre (P004–P005), and a genuine better next question — independent testing and disclosed rollout (P009) — with no imitation of any explainer's voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The next useful evidence is independent testing and a disclosed rollout: which calls use GPT-Live-1, how transaction accuracy is measured and how often the confirmed record matches what the caller said.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The mechanism in P004–P005 supports an accurate ordinary-language answer to why a smooth call can still yield no booking: the backend, not the voice, records results.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“GPT-Live-1 may be the voice on a restaurant or repair call. It can make interruptions sound smoother, but the connected booking system—not the voice—records the result.”",
+          "locator": "P010"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why can a GPT-Live-1 call sound perfectly handled and yet leave you with no reservation?",
+        "response": "Because the voice layer only manages the conversation — listening and speaking at once, absorbing interruptions — while a separate backend application checks availability, applies the business's rules and writes the booking record. If the backend never receives, validates or stores the request, the smooth conversation produced nothing durable; the application, not the voice, owns confirmations and the lasting record.",
+        "expectedEvidence": "P004 states the application owns permissions, confirmations and the lasting record; P005 shows the booking tool and availability data determining whether a table is recorded.",
+        "assessment": "The article's mechanism fully supports this causal answer in ordinary language; a nontechnical reader could reproduce it after one reading."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The voice-versus-record split transfers cleanly to new situations (my transfer scenario below applies it to a pharmacy refill line) because P004 states which component owns confirmations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p>",
+          "locator": "P008"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using the article's mechanism, what most likely went wrong and what should the caller have done on the call?",
+        "response": "The voice layer smoothly absorbed the mid-sentence dosage change, but the backend pharmacy system — which owns the durable refill record and must apply prescription rules — either never received the amended request as a tool action or rejected it under a rule the voice glossed over. Fluency masked a missing record. The caller should have asked the system to read back both medications, dosages and pickup times and to provide the confirmation numbers, and asked for a pharmacist if it could not.",
+        "expectedEvidence": "P004's rule that the application owns confirmations and the lasting record, plus P008's read-back-and-confirm routine, transfer directly to this new domain.",
+        "assessment": "The article's voice-versus-record model resolves this unseen case without any additional concepts, confirming genuine transferability."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The action is specific and proportionate: repeat date, time and party size, ask for the confirmation, and escalate to a person if the record cannot be confirmed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The only comparison — traditional staged pipeline versus full-duplex layer — maps the actual architecture from the sources and keeps its limit: the booking tool still decides the result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "All ten material claims match the supplied source excerpts with attribution preserved; vendor and adopter claims are never upgraded to independent findings.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released GPT-Live-1 to developers through its API on September 10. The same day, Yelp said it had integrated the voice model into Yelp Host, which answers restaurant calls, and Hatch, which handles calls for service businesses such as repair companies.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Yelp says early production testing showed better call handling and fewer transfers, and that callers spoke in fuller sentences. Those are company-reported observations. The release gives no sample size, test method, rollout geography or independent assessment, so it does not establish how often the system completes a reservation or appointment correctly.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Developers can access GPT-Live-1 as a paid API. OpenAI says the voice layer costs $0.05 per minute; backend models and tools are billed separately. That is not necessarily a fee charged to the caller. The model is best suited to conversations with pauses, interruptions or background noise. It may be unnecessary for a simple menu lookup or email, where a human or simpler system already works.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The September 10 event date, September 11 lastCheckedAt, and named traceable sources make every time-sensitive claim checkable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released GPT-Live-1 to developers through its API on September 10. The same day, Yelp said it had integrated the voice model into Yelp Host, which answers restaurant calls, and Hatch, which handles calls for service businesses such as repair companies.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Yelp says early production testing showed better call handling and fewer transfers, and that callers spoke in fuller sentences. Those are company-reported observations. The release gives no sample size, test method, rollout geography or independent assessment, so it does not establish how often the system completes a reservation or appointment correctly.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The next useful evidence is independent testing and a disclosed rollout: which calls use GPT-Live-1, how transaction accuracy is measured and how often the confirmed record matches what the caller said.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The new September 10 release and same-day integration are cleanly distinguished from what has not changed and from undisclosed rollout scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released GPT-Live-1 to developers through its API on September 10. The same day, Yelp said it had integrated the voice model into Yelp Host, which answers restaurant calls, and Hatch, which handles calls for service businesses such as repair companies.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone. It does not mean every restaurant, repair company or ChatGPT account changed. Yelp did not disclose which callers, locations or customers have received the new integration.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (reservation and repair-appointment checks) while uncertainty survives: no sample size, method, rollout scope or independent assessment is claimed known.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Yelp says early production testing showed better call handling and fewer transfers, and that callers spoke in fuller sentences. Those are company-reported observations. The release gives no sample size, test method, rollout geography or independent assessment, so it does not establish how often the system completes a reservation or appointment correctly.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>The next useful evidence is independent testing and a disclosed rollout: which calls use GPT-Live-1, how transaction accuracy is measured and how often the confirmed record matches what the caller said.</p>",
+          "locator": "P009"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Terms are introduced only where they do causal work in the voice-to-backend explanation, not as a list.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop from encounter to mechanism to evidence to action without repeated scaffolds.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The pipeline comparison in P005 explains the specific latency/handoff mechanism rather than adding flavour.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references appear anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal steps from spoken interruption through backend booking to durable record are present in P004–P005.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "P008 gives case-specific checks (date, time, party size, address, arrival window), not 'be careful'.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Full duplex and front-end voice layer are defined in the same sentences that introduce them.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The voice layer, backend, booking tool and record are shown passing information and responsibility, not merely named.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is calibrated: 'may be the voice', company-reported observations flagged, missing evidence enumerated in P006.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Both the September 10 event and September 11 checking date are stated, and claims trace to dated sources.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Vendor phrasing is translated into concrete caller experience rather than repeated as marketing language.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The reservation vignette and conversational asides keep human interest through the practical guidance.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's hook is fully paid off with the encounter surface and the mechanism behind it.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The reservation example returns to the technical mechanism: availability data and the booking tool decide the record.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The prose is original plain explanation with no imitation of any communicator's persona or mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "There is no spectacle competing with understanding; the piece is restrained and explanatory.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The mechanism occupies the centre of the piece (P004–P005) rather than being rushed after a long hook.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The 'fluency is not a booking record' conclusion arrives after the voice/backend split has been fully explained.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending stays bounded, asking for independent testing and disclosed rollout rather than a grand moral.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers the encounter, mechanism, evidence limits, price and action — the full assigned reader job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human encounter (P001–P003) is established before any technical machinery begins in P004.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The reservation example serves the mechanism and transfers to repair appointments; it does not crowd out the purpose.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "This bounded news report explains its specific mechanism from the caller's perspective, which is exactly the right organising view here.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+        "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "release",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI released GPT-Live-1 to developers through its API on September 10. The same day, Yelp said it had integrated the voice model into Yelp Host, which answers restaurant calls, and Hatch, which handles calls for service businesses such as repair companies.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "openai-gpt-live-release"
+        ],
+        "scopeAndFreshness": "The OpenAI release excerpt states a September 10, 2026 launch of GPT-Live-1 in the API for developers, matching P002 exactly.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+          "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 10, 2026: OpenAI says it is launching GPT-Live-1 in the API for developers building voice-enabled apps and business workflows.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI describes GPT-Live-1 as capable of listening and speaking at the same time, with deeper reasoning and actions delegated to models and tools paired with it.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "Traditional voice agents stitch together speech-to-text, a reasoning model, and text-to-speech. Each handoff adds latency and creates more opportunities to lose timing, context, or the natural rhythm of a conversation.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI lists telephony support for phone calls from restaurant reservations to customer support.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI says GPT-Live-1 is available in the API at $0.05 per minute for the front-end voice layer; the backend model and agent harness remain separate parts of the product.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI presents smoother interruption handling, background-noise handling and longer-session reliability as product strengths and reports its own evaluations and customer statements.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          }
+        ]
+      },
+      {
+        "claimId": "yelp-integration",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI released GPT-Live-1 to developers through its API on September 10. The same day, Yelp said it had integrated the voice model into Yelp Host, which answers restaurant calls, and Hatch, which handles calls for service businesses such as repair companies.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "yelp-hatch-businesswire"
+        ],
+        "scopeAndFreshness": "The Yelp/Business Wire excerpt states Yelp integrated GPT-Live-1 into Yelp Host for restaurants and Hatch for service businesses, matching P002 with correct attribution to Yelp.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+          "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Yelp announced that it integrated GPT-Live-1 into Yelp Host, its voice AI solution for restaurants, and Hatch, its communications platform for service businesses.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp describes GPT-Live-1 as the front-end voice layer that interacts directly with callers while Yelp Host and Hatch supply business data and operational intelligence.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "The company says callers can interrupt, change topics mid-sentence or speak to people in the background while the voice system adapts.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp says initial production testing showed improved call handling and fewer call transfers, but the release provides no sample size, method, geographic rollout or independent evaluation.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp says this is reflected in more Yelp Host callers speaking in full, natural sentences during early testing, rather than short voice commands.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "The release says Yelp Host has handled more than one million calls since launching in October 2025. That is product history spanning the period before this September 2026 integration announcement, not a GPT-Live-1 performance count.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          }
+        ]
+      },
+      {
+        "claimId": "rollout-boundary",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone. It does not mean every restaurant, repair company or ChatGPT account changed. Yelp did not disclose which callers, locations or customers have received the new integration.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "yelp-hatch-businesswire"
+        ],
+        "scopeAndFreshness": "The Yelp release excerpt confirms no geographic rollout or scope disclosure; P003's statement that Yelp did not disclose which callers, locations or customers is a fair absence claim within that source.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+          "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Yelp announced that it integrated GPT-Live-1 into Yelp Host, its voice AI solution for restaurants, and Hatch, its communications platform for service businesses.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp describes GPT-Live-1 as the front-end voice layer that interacts directly with callers while Yelp Host and Hatch supply business data and operational intelligence.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "The company says callers can interrupt, change topics mid-sentence or speak to people in the background while the voice system adapts.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp says initial production testing showed improved call handling and fewer call transfers, but the release provides no sample size, method, geographic rollout or independent evaluation.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp says this is reflected in more Yelp Host callers speaking in full, natural sentences during early testing, rather than short voice commands.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "The release says Yelp Host has handled more than one million calls since launching in October 2025. That is product history spanning the period before this September 2026 integration announcement, not a GPT-Live-1 performance count.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          }
+        ]
+      },
+      {
+        "claimId": "voice-layer",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "openai-gpt-live-release",
+          "openai-gpt-live-docs"
+        ],
+        "scopeAndFreshness": "Both the release (voice layer with reasoning and actions delegated to paired models/tools) and docs (GPT-Live handles conversation while a backend agent looks up information and completes tasks) support P004's definition.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+          "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 10, 2026: OpenAI says it is launching GPT-Live-1 in the API for developers building voice-enabled apps and business workflows.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI describes GPT-Live-1 as capable of listening and speaking at the same time, with deeper reasoning and actions delegated to models and tools paired with it.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "Traditional voice agents stitch together speech-to-text, a reasoning model, and text-to-speech. Each handoff adds latency and creates more opportunities to lose timing, context, or the natural rhythm of a conversation.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI lists telephony support for phone calls from restaurant reservations to customer support.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI says GPT-Live-1 is available in the API at $0.05 per minute for the front-end voice layer; the backend model and agent harness remain separate parts of the product.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI presents smoother interruption handling, background-noise handling and longer-session reliability as product strengths and reports its own evaluations and customer statements.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "GPT-Live handles a spoken conversation while a backend agent looks up information, uses tools, and completes tasks. It can listen while speaking, a capability called full duplex.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "GPT-Live handles conversation; the backend handles delegated tasks, including reasoning, tools and business rules.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "The application owns permissions, confirmations, private function execution and durable task state. Interrupting speech does not automatically cancel backend work.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "GPT-Live voice sessions are billed by duration, while backend model and tool usage is billed separately.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          }
+        ]
+      },
+      {
+        "claimId": "application-control",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "openai-gpt-live-docs"
+        ],
+        "scopeAndFreshness": "The docs excerpt states the application owns permissions, confirmations, private function execution and durable task state, matching P004's attribution to OpenAI's documentation.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+          "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "GPT-Live handles a spoken conversation while a backend agent looks up information, uses tools, and completes tasks. It can listen while speaking, a capability called full duplex.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "GPT-Live handles conversation; the backend handles delegated tasks, including reasoning, tools and business rules.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "The application owns permissions, confirmations, private function execution and durable task state. Interrupting speech does not automatically cancel backend work.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "GPT-Live voice sessions are billed by duration, while backend model and tool usage is billed separately.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          }
+        ]
+      },
+      {
+        "claimId": "traditional-comparison",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "openai-gpt-live-release"
+        ],
+        "scopeAndFreshness": "The release excerpt describes traditional voice agents stitching speech-to-text, a reasoning model and text-to-speech, matching P005's separate listening, reasoning and speaking stages.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+          "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 10, 2026: OpenAI says it is launching GPT-Live-1 in the API for developers building voice-enabled apps and business workflows.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI describes GPT-Live-1 as capable of listening and speaking at the same time, with deeper reasoning and actions delegated to models and tools paired with it.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "Traditional voice agents stitch together speech-to-text, a reasoning model, and text-to-speech. Each handoff adds latency and creates more opportunities to lose timing, context, or the natural rhythm of a conversation.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI lists telephony support for phone calls from restaurant reservations to customer support.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI says GPT-Live-1 is available in the API at $0.05 per minute for the front-end voice layer; the backend model and agent harness remain separate parts of the product.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI presents smoother interruption handling, background-noise handling and longer-session reliability as product strengths and reports its own evaluations and customer statements.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          }
+        ]
+      },
+      {
+        "claimId": "yelp-testing",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Yelp says early production testing showed better call handling and fewer transfers, and that callers spoke in fuller sentences. Those are company-reported observations. The release gives no sample size, test method, rollout geography or independent assessment, so it does not establish how often the system completes a reservation or appointment correctly.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "yelp-hatch-businesswire"
+        ],
+        "scopeAndFreshness": "The Yelp excerpt reports initial production testing showed improved call handling, fewer transfers and callers speaking in full sentences; P006 relays all three with 'Yelp says' attribution intact.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+          "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Yelp announced that it integrated GPT-Live-1 into Yelp Host, its voice AI solution for restaurants, and Hatch, its communications platform for service businesses.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp describes GPT-Live-1 as the front-end voice layer that interacts directly with callers while Yelp Host and Hatch supply business data and operational intelligence.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "The company says callers can interrupt, change topics mid-sentence or speak to people in the background while the voice system adapts.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp says initial production testing showed improved call handling and fewer call transfers, but the release provides no sample size, method, geographic rollout or independent evaluation.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp says this is reflected in more Yelp Host callers speaking in full, natural sentences during early testing, rather than short voice commands.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "The release says Yelp Host has handled more than one million calls since launching in October 2025. That is product history spanning the period before this September 2026 integration announcement, not a GPT-Live-1 performance count.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          }
+        ]
+      },
+      {
+        "claimId": "evidence-limit",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Yelp says early production testing showed better call handling and fewer transfers, and that callers spoke in fuller sentences. Those are company-reported observations. The release gives no sample size, test method, rollout geography or independent assessment, so it does not establish how often the system completes a reservation or appointment correctly.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "yelp-hatch-businesswire"
+        ],
+        "scopeAndFreshness": "The Yelp source itself notes the release provides no sample size, method, geographic rollout or independent evaluation, directly supporting P006's evidence-limit sentence.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+          "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Yelp announced that it integrated GPT-Live-1 into Yelp Host, its voice AI solution for restaurants, and Hatch, its communications platform for service businesses.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp describes GPT-Live-1 as the front-end voice layer that interacts directly with callers while Yelp Host and Hatch supply business data and operational intelligence.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "The company says callers can interrupt, change topics mid-sentence or speak to people in the background while the voice system adapts.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp says initial production testing showed improved call handling and fewer call transfers, but the release provides no sample size, method, geographic rollout or independent evaluation.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp says this is reflected in more Yelp Host callers speaking in full, natural sentences during early testing, rather than short voice commands.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "The release says Yelp Host has handled more than one million calls since launching in October 2025. That is product history spanning the period before this September 2026 integration announcement, not a GPT-Live-1 performance count.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          }
+        ]
+      },
+      {
+        "claimId": "price",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Developers can access GPT-Live-1 as a paid API. OpenAI says the voice layer costs $0.05 per minute; backend models and tools are billed separately. That is not necessarily a fee charged to the caller. The model is best suited to conversations with pauses, interruptions or background noise. It may be unnecessary for a simple menu lookup or email, where a human or simpler system already works.</p>",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "openai-gpt-live-release",
+          "openai-gpt-live-docs"
+        ],
+        "scopeAndFreshness": "The release states GPT-Live-1 is available in the API at $0.05 per minute for the front-end voice layer with backend parts separate, and the docs confirm duration billing with backend billed separately, matching P007.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+          "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 10, 2026: OpenAI says it is launching GPT-Live-1 in the API for developers building voice-enabled apps and business workflows.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI describes GPT-Live-1 as capable of listening and speaking at the same time, with deeper reasoning and actions delegated to models and tools paired with it.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "Traditional voice agents stitch together speech-to-text, a reasoning model, and text-to-speech. Each handoff adds latency and creates more opportunities to lose timing, context, or the natural rhythm of a conversation.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI lists telephony support for phone calls from restaurant reservations to customer support.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI says GPT-Live-1 is available in the API at $0.05 per minute for the front-end voice layer; the backend model and agent harness remain separate parts of the product.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "OpenAI presents smoother interruption handling, background-noise handling and longer-session reliability as product strengths and reports its own evaluations and customer statements.",
+            "locator": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+          },
+          {
+            "excerpt": "GPT-Live handles a spoken conversation while a backend agent looks up information, uses tools, and completes tasks. It can listen while speaking, a capability called full duplex.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "GPT-Live handles conversation; the backend handles delegated tasks, including reasoning, tools and business rules.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "The application owns permissions, confirmations, private function execution and durable task state. Interrupting speech does not automatically cancel backend work.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "GPT-Live voice sessions are billed by duration, while backend model and tool usage is billed separately.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          }
+        ]
+      },
+      {
+        "claimId": "confirmation",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p>",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "openai-gpt-live-docs",
+          "yelp-hatch-businesswire"
+        ],
+        "scopeAndFreshness": "The docs place confirmations and durable task state with the application, and the Yelp release offers only company observations, so P008's 'fluency is not a booking record' is a supported inference within both sources' limits.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/source-evidence.json",
+          "sha256": "e5c6996bad811269a4888ebf2e6d61301aca41e83e25d68555579b8e238e94dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "GPT-Live handles a spoken conversation while a backend agent looks up information, uses tools, and completes tasks. It can listen while speaking, a capability called full duplex.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "GPT-Live handles conversation; the backend handles delegated tasks, including reasoning, tools and business rules.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "The application owns permissions, confirmations, private function execution and durable task state. Interrupting speech does not automatically cancel backend work.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "GPT-Live voice sessions are billed by duration, while backend model and tool usage is billed separately.",
+            "locator": "https://developers.openai.com/api/docs/guides/live"
+          },
+          {
+            "excerpt": "Yelp announced that it integrated GPT-Live-1 into Yelp Host, its voice AI solution for restaurants, and Hatch, its communications platform for service businesses.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp describes GPT-Live-1 as the front-end voice layer that interacts directly with callers while Yelp Host and Hatch supply business data and operational intelligence.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "The company says callers can interrupt, change topics mid-sentence or speak to people in the background while the voice system adapts.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp says initial production testing showed improved call handling and fewer call transfers, but the release provides no sample size, method, geographic rollout or independent evaluation.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "Yelp says this is reflected in more Yelp Host callers speaking in full, natural sentences during early testing, rather than short voice commands.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          },
+          {
+            "excerpt": "The release says Yelp Host has handled more than one million calls since launching in October 2025. That is product history spanning the period before this September 2026 integration announcement, not a GPT-Live-1 performance count.",
+            "locator": "https://www.businesswire.com/news/home/20260909348516/en/"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen OpenAI and Yelp sources on publication day; redraft for changed availability or pricing, disclosed rollout or methods, independent outcome evidence, corrections or product withdrawal.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No checksum-bound reviewed predecessor candidate covers the September 10 GPT-Live-1 API release and Yelp downstream integration."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Every outcome, news check and failure family is pass or clear with passage-grounded evidence; no defect or uncertainty warrants a repair candidate. All ten claims are supported by their assigned sources and all four factual outcomes pass; there is no failed or uncertain assessment to repair."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Two source-packet issues were repaired without changing prose. The ordinary candidate gate then required explicit paid-access and vendor-attribution wording; that small prose repair received a fresh full independent review, and all earlier attempts remain preserved."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/final-v3/news-editorial-analysis.json",
+      "sha256": "0d851268b26f2f23663a62424f49c1ed246a1bb7620e8cba0540817e610fdfab"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-live-downstream-20260911/independent-review/final-v3/independent-raw-report.json",
+    "sha256": "891609c8f04033e5cf6387a16e770340534b35b926c04eafdcdaed797e1e0c62"
+  }
+}

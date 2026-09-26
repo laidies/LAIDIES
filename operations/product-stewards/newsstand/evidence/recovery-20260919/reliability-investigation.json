@@ -1,0 +1,225 @@
+{
+  "schemaVersion": "newsstand-heartbeat-reliability-investigation-v1",
+  "observedAt": "2026-09-19T17:11:38Z",
+  "reviewedBy": "independent:/root/aft_school_story",
+  "mode": "READ_ONLY",
+  "automationId": "daily-allie-k-miller-and-ethan-mollick-source-check",
+  "targetThreadId": "01a071e7-db55-7a22-8c99-04eba5060355",
+  "verdict": {
+    "missedRunCause": "LIKELY_ACCOUNT_USAGE_CAP; EXACT_PER_RUN_CAUSE_NOT_PRESERVED",
+    "confidence": "likely",
+    "recoveryCapability": "CONFIGURED_AND_OBSERVED_TO_RESUME_AFTER_CAPACITY_RETURNED; FULLY_UNATTENDED_END_TO_END_RECOVERY_UNPROVED",
+    "summary": "The scheduler attempted the NewsStand heartbeat repeatedly on September 17 and 18 and logged generic 'Heartbeat automation did not complete' failures. The same desktop log records an account usage-limit response before the first failure, with a September 19 reset time. That is the strongest temporally matching cause, but the scheduled-run wrapper did not retain a nested per-run cause, and the database has no exact automation_runs rows for this automation. The existing heartbeat's prompt explicitly recovers overdue work at every later invocation. After capacity returned, the September 19 07:11 Vancouver invocation resumed the target thread and the current recovery produced a publicly verified service-plus-Weekly edition; foreground continuation means this is not proof of fully unattended recovery."
+  },
+  "configuration": {
+    "path": "/Users/alisoneakin/.codex/automations/daily-allie-k-miller-and-ethan-mollick-source-check/automation.toml",
+    "sha256": "352be02559777187c102ca606ebb4ee306ca601389b2cedcef03e02318677d7a",
+    "selectedFields": {
+      "status": "ACTIVE",
+      "kind": "heartbeat",
+      "rrule": "FREQ=DAILY;BYHOUR=7,10,13,16,20;BYMINUTE=0",
+      "timezone": "America/Vancouver as stated in the saved prompt",
+      "targetThreadId": "01a071e7-db55-7a22-8c99-04eba5060355"
+    },
+    "recoveryInstructionsVerified": [
+      "Recover overdue morning work first at any invocation; late arrival never cancels it.",
+      "07:00 is freshness/publication; 20:00 is private preparation; 10:00, 13:00 and 16:00 are recovery checks.",
+      "Do not create another scheduler or producer.",
+      "Exit 1 or 2 cannot support a completed-publication or quiet claim."
+    ],
+    "interpretation": "The automation already contains the correct catch-up policy. Changing its hours or creating a duplicate would not remove an account usage limit."
+  },
+  "databaseSnapshot": {
+    "path": "/Users/alisoneakin/.codex/sqlite/codex-dev.db",
+    "sha256": "e40f3d927905890ce255778d40b23087e8856fbb75d58a196f3210539c127bc3",
+    "readMode": "sqlite immutable read-only SELECT; prompt and account fields not selected",
+    "automation": {
+      "status": "ACTIVE",
+      "lastRunAt": "2026-09-19T14:11:57.047Z",
+      "nextRunAtAtInspection": "2026-09-19T17:12:29.152Z",
+      "updatedAt": "2026-09-11T03:24:22.100Z"
+    },
+    "exactAutomationRunRows": 0,
+    "limitation": "lastRunAt/nextRunAt are mutable latest-state fields, not an execution ledger. Zero exact automation_runs rows prevents a database-level per-window result or nested-cause audit."
+  },
+  "scheduledWindows": [
+    {
+      "vancouverPhase": "2026-09-17 07:00",
+      "expectedUTC": "2026-09-17T14:00:00Z",
+      "observedUTC": "2026-09-17T14:26:34.871Z",
+      "result": "FAILED",
+      "logLine": 887,
+      "error": "Heartbeat automation did not complete",
+      "timingNote": "Observed 26 minutes late; reason for delay is not recorded."
+    },
+    {
+      "vancouverPhase": "2026-09-17 10:00",
+      "expectedUTC": "2026-09-17T17:00:00Z",
+      "observedUTC": "2026-09-17T17:00:59.123Z",
+      "result": "FAILED",
+      "logLine": 1208,
+      "error": "Heartbeat automation did not complete"
+    },
+    {
+      "vancouverPhase": "2026-09-17 13:00",
+      "expectedUTC": "2026-09-17T20:00:00Z",
+      "observedUTC": "2026-09-17T20:00:30.015Z",
+      "result": "FAILED",
+      "logLine": 1555,
+      "error": "Heartbeat automation did not complete"
+    },
+    {
+      "vancouverPhase": "2026-09-17 16:00",
+      "expectedUTC": "2026-09-17T23:00:00Z",
+      "observedUTC": "2026-09-17T23:02:03.625Z",
+      "result": "FAILED",
+      "logLine": 1920,
+      "error": "Heartbeat automation did not complete"
+    },
+    {
+      "vancouverPhase": "2026-09-17 20:00",
+      "expectedUTC": "2026-09-18T03:00:00Z",
+      "observedUTC": "2026-09-18T03:01:41.994Z",
+      "result": "FAILED",
+      "logLine": 267,
+      "error": "Heartbeat automation did not complete"
+    },
+    {
+      "vancouverPhase": "2026-09-18 07:00",
+      "expectedUTC": "2026-09-18T14:00:00Z",
+      "observedUTC": "2026-09-18T14:00:19.210Z",
+      "result": "FAILED",
+      "logLine": 1332,
+      "error": "Heartbeat automation did not complete"
+    },
+    {
+      "vancouverPhase": "2026-09-18 10:00",
+      "expectedUTC": "2026-09-18T17:00:00Z",
+      "observedUTC": null,
+      "result": "UNKNOWN",
+      "evidence": "No matching Scheduled run failed line was recovered. A target-thread turn-complete notification appears at 18:39:27.509Z, but the log does not bind its origin to this automation or show useful work/publication.",
+      "unknowns": ["whether dispatch was delayed", "whether the 18:39 turn was scheduled or foreground", "whether an unrecorded attempt occurred"]
+    },
+    {
+      "vancouverPhase": "2026-09-18 13:00",
+      "expectedUTC": "2026-09-18T20:00:00Z",
+      "observedUTC": "2026-09-18T20:00:38.955Z",
+      "result": "FAILED",
+      "logLine": 1681,
+      "error": "Heartbeat automation did not complete"
+    },
+    {
+      "vancouverPhase": "2026-09-18 16:00",
+      "expectedUTC": "2026-09-18T23:00:00Z",
+      "observedUTC": "2026-09-18T23:01:50.182Z",
+      "result": "FAILED",
+      "logLine": 1988,
+      "error": "Heartbeat automation did not complete"
+    },
+    {
+      "vancouverPhase": "2026-09-18 20:00",
+      "expectedUTC": "2026-09-19T03:00:00Z",
+      "observedUTC": "2026-09-19T03:04:18.790Z",
+      "result": "FAILED",
+      "logLine": 150,
+      "error": "Heartbeat automation did not complete"
+    }
+  ],
+  "triggerEvidence": {
+    "verified": true,
+    "finding": "Nine of the ten September 17-18 Vancouver phases have explicit scheduled-run failure rows for the exact automation. The missing September 18 10:00 phase remains unknown rather than being called a missed dispatch.",
+    "logSources": [
+      {
+        "path": "/Users/alisoneakin/Library/Logs/com.openai.codex/2026/09/17/codex-desktop-5d5312ff-8701-44e9-b806-e82386dcf76a-784-t0-i1-000116-0.log",
+        "sha256": "a14907bdfe0265c99532db085063a719216b71cfd5c966f6f6278ef563566bb9"
+      },
+      {
+        "path": "/Users/alisoneakin/Library/Logs/com.openai.codex/2026/09/18/codex-desktop-5d5312ff-8701-44e9-b806-e82386dcf76a-784-t0-i1-000151-0.log",
+        "sha256": "32781ad2e16a44518cedf5ca7fc46dd7c1c7a28cb0c0b0a2d1fa24ec1a89715c"
+      },
+      {
+        "path": "/Users/alisoneakin/Library/Logs/com.openai.codex/2026/09/19/codex-desktop-5d5312ff-8701-44e9-b806-e82386dcf76a-784-t0-i1-000754-0.log",
+        "sha256": "991375edef3eb9c306669f19afc3a6b71c8490f8efc9cf83679ae139446f8858"
+      }
+    ]
+  },
+  "executionEvidence": {
+    "verified": true,
+    "finding": "Each explicit attempt terminated within seconds with the same generic heartbeat failure and a target-thread turn-complete notification. No source, review, admission, release, or public verification receipt from September 17-18 was found in the current checkpoint.",
+    "currentCycle": {
+      "path": "operations/product-stewards/newsstand/CURRENT-CYCLE.md",
+      "sha256AtInspection": "f9c5c8185f5bd549306148923be923baca1f924f9d61d1c8a6534e5de01800a1",
+      "exactFinding": "September 17-18 are historical delivery gaps; no backdated completion claim."
+    }
+  },
+  "usageAndAuthEvidence": {
+    "usage": {
+      "status": "VERIFIED_ACCOUNT_LEVEL_LIMIT_MESSAGE",
+      "firstObservedAt": "2026-09-17T01:39:59.949Z",
+      "repeatedAt": "2026-09-17T15:43:50.292Z",
+      "safeExcerpt": "You've hit your usage limit ... try again at Sep 19th, 2026 1:11 AM.",
+      "scope": "Ambient structured turns in the same desktop runtime; not a nested exception preserved on each automation attempt.",
+      "causalAssessment": "Strong temporal match and most likely shared cause of the rapid heartbeat failures, but not certain for every window because the automation wrapper stored only a generic error."
+    },
+    "connectorAuth": {
+      "status": "OBSERVED_BUT_NOT_BOUND_TO_NEWSSTAND_FAILURE",
+      "finding": "Cloudflare and AgentOpus OAuth reauthentication failures appear on other thread IDs. They could block later deployment or optional tools, but do not explain the scheduler's immediate inability to complete the target heartbeat.",
+      "causalAssessment": "Not established as the missed-run cause."
+    },
+    "network": {
+      "status": "ISOLATED_EVENT_NOT_CORRELATED",
+      "finding": "A network-changed error occurred September 18 at 15:46Z, outside the explicit failure timestamps.",
+      "causalAssessment": "Not established as the missed-run cause."
+    }
+  },
+  "publicationOutcomes": {
+    "september17": "NO_COMPLETED_RESEARCH_OR_PUBLICATION EVIDENCE",
+    "september18": "NO_COMPLETED_RESEARCH_OR_PUBLICATION EVIDENCE",
+    "backfillRule": "Do not backdate newly written news; recover overdue work using current evidence and the actual publication date.",
+    "september19Recovery": {
+      "triggerAt": "2026-09-19T14:11:58.870Z",
+      "targetThreadActivityVerified": true,
+      "publicVerificationAt": "2026-09-19T17:01:29.576Z",
+      "scope": "September 19 initial five service columns and recovered Weekly; zero new Daily news in this release",
+      "deploymentId": "0807b725-1c69-4f0c-972f-c7e40f998ce4",
+      "sourceCommit": "52d1540df1b9ef912e12f091d57005be93af3d2d",
+      "verificationPath": "operations/product-stewards/newsstand/evidence/recovery-20260919/initial-public-verification.json",
+      "verificationSha256": "2546638d24585ba91e8e15a32baa97ec5ef2a81a8599358908843e6bcbbae605",
+      "releasePath": "operations/product-stewards/newsstand/evidence/recovery-20260919/initial-release.json",
+      "releaseSha256": "f479c10f13908420ba9981ea7b9d431e25b86f32009d6df6ddb1b9bd02812122",
+      "limit": "This proves recovery work can resume in the existing target after usage returns. Foreground coordination and user interaction mean it does not prove a fully unattended research-to-publication cycle."
+    }
+  },
+  "priorTelemetry": {
+    "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/schedule-telemetry-review.json",
+    "sha256": "79798f5860058e7f7d713c8d7a041e50cce18d0699c514ff16927c85ac5c9a6e",
+    "relevance": "Earlier telemetry already established that configuration and startup lines do not prove dispatch completion. The September 17-18 logs add explicit failures and an account usage-limit signal."
+  },
+  "smallestConcreteFix": {
+    "owner": "Codex desktop automation runtime",
+    "change": "When a heartbeat receives an account usage-limit response, persist a typed FAILED_USAGE_LIMIT result for that due window and automatically requeue the same heartbeat once at or just after the supplied reset time. Preserve the original due phase in the retry metadata and continue using the existing target thread and overdue-work prompt.",
+    "whyThisIsSmallest": "The existing schedule, target, and prompt are already correct. A second automation would duplicate production and still share the same account limit. Repository changes cannot make a model turn execute while the account is capped.",
+    "acceptance": [
+      "One persisted run row binds automation ID, target thread, scheduled phase, trigger time, typed failure cause, retry time, and terminal result.",
+      "After a simulated or real usage-limit response, exactly one retry starts after reset without user input.",
+      "The retry begins with overdue recovery and does not backdate publication.",
+      "A future full scheduled source-to-publication cycle reaches public verification without foreground or user intervention."
+    ],
+    "currentAuthorizedAction": "No automation mutation. Keep the single active heartbeat and observe the next due phase with exact trigger/result evidence."
+  },
+  "irreducibleDependency": "Available account model usage is required for the heartbeat to execute. If the cap recurs before runtime retry-after-reset exists, recovery waits for a later invocation or an explicitly authorized usage reset/new credit; no repository-only fix can remove that dependency.",
+  "unknowns": [
+    "The automation wrapper did not preserve the nested failure reason for each scheduled attempt.",
+    "The September 18 10:00 Vancouver phase has no exact automation failure row; the 18:39Z target-thread turn-complete origin is unbound.",
+    "No durable exact-run database row exists for this automation in the inspected snapshot.",
+    "A fully unattended successful recovery cycle has not yet been observed."
+  ],
+  "safety": {
+    "automationMutation": false,
+    "sharedRecordMutation": false,
+    "publicMutation": false,
+    "secretsCopied": false,
+    "rawPromptsOrAccountIdentifiersCopied": false,
+    "repositoryMutation": "Only this investigation record."
+  }
+}

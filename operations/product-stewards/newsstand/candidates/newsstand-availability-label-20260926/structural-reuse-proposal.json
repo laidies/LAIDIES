@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "newsstand-interface-structural-copy-reuse-v1",
+  "candidateId": "newsstand-availability-label-20260926",
+  "maker": "/root",
+  "status": "READY_FOR_IMPLEMENTATION_AND_RENDERED_INSPECTION",
+  "scope": "Reuse/removal only; no new public wording and no layout or state-machine change.",
+  "operations": [
+    {
+      "target": "#ns-title",
+      "action": "REUSE_EXISTING_COPY",
+      "exactText": "Choose a paper",
+      "existingSource": "The current multi-publication primary-button label in content/site/newsstand-catchup-v1.js."
+    },
+    {
+      "target": "#ns-state-detail",
+      "action": "CLEAR_MISLEADING_AGGREGATE_TEXT",
+      "removedMeaning": "Do not present dataset lastCheckedAt as a shared publication date."
+    },
+    {
+      "target": "#ns-system-status",
+      "action": "CLEAR_MISLEADING_AGGREGATE_TEXT",
+      "removedMeaning": "Do not announce retained pointers as current publications."
+    }
+  ],
+  "preserved": [
+    "Edition controls and their state/date text.",
+    "Primary button accessible name and behavior.",
+    "Section aria-labelledby binding to the nonempty #ns-title.",
+    "Daily, Weekly, Big Picture, Breaking state computation and archive access."
+  ],
+  "requiredTests": [
+    "Actual two-current-pointer state: Daily and retained Weekly.",
+    "Fixture with exactly one current pointer.",
+    "Breaking/quiet and Big Picture/archive labels unchanged.",
+    "Accessible text contains no aggregate “current publication” or shared publication date claim."
+  ]
+}

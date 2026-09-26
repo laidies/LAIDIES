@@ -1,0 +1,3314 @@
+PAGE 1
+A clinically-oriented foundation model for 
+intraoperative pathology
+Zihan Zhao, Fengtao Zhou, Ronggang Li, Bing Chu, Xinke Zhang, Xueyi Zheng, Ke Zheng, 
+Xiaobo Wen, Jiabo Ma, Yihui Wang, Jiewei Chen, Chengyou Zheng, Jiangyu Zhang, 
+Yongqin Wen, Jiajia Meng, Ziqi Zeng, Xiaoqing Li, Jing Li, Dan Xie, Yaping Ye, Yu Wang, 
+Hao Chen & Muyan Cai
+This is a PDF file of a peer-reviewed paper that has been accepted for publication. 
+Although unedited, the content has been subjected to preliminary formatting.  
+Nature Medicine is providing this early version of the typeset paper as a service to our 
+authors and readers. The text and figures will undergo copyediting and a proof review 
+before the paper is published in its final form. Please note that during the production 
+process errors may be discovered which could affect the content, and all legal 
+disclaimers apply.
+Received: 8 October 2025
+Accepted: 8 September 2026
+Accelerated Article Preview  
+Published online xx xx xxxx
+Cite this article as: Zhao, Z. et al. A clinically- 
+oriented foundation model for intra­
+operative pathology. Nature Medicine  
+https://doi.org/10.1038/s41591-026-04703-0 
+(2026).
+Open access
+https://doi.org/10.1038/s41591-026-04703-0
+Nature Medicine | www.nature.com/naturemedicine
+Accelerated Article Preview
+nature medicine
+A
+C
+C
+E
+L
+E
+R
+A
+T
+E
+D
+ A
+R
+T
+I
+C
+L
+E
+ P
+R
+E
+V
+I
+E
+W
+
+PAGE 2
+Editor summary: 
+1 
+CRISP, a vision-based pathology foundation model developed exclusively from frozen section slides, supports treatment decision-making 
+2 
+throughout the surgical workflow with superior performance to current foundation models and extensive validation, including in a 
+3 
+prospective cohort. 
+4 
+ 
+5 
+Editor recognition statement: 
+6 
+Primary Handling Editors: Mattia Andreoletti and Saheli Sadanand, in collaboration with the Nature Medicine team. 
+7 
+ 
+8 
+Peer review information: 
+9 
+Nature Medicine thanks Xuelei Ma, Thomas Roetzer-Pejrimovsky and the other, anonymous, reviewer(s) for their contribution to the peer 
+10 
+review of this work. 
+11 
+ 
+12 
+1. Extended Data  
+13 
+Figure or Table # 
+Please group Extended Data 
+items by type, in sequential 
+order.  Total number of items 
+(Figs. + Tables) must not exceed 
+10. 
+Figure/Table title 
+One sentence only 
+Filename 
+Whole original file name 
+including extension. i.e.: 
+Smith_ED_Fig1.jpg 
+Figure/Table Legend 
+If you are citing a reference for the first time in these legends, please 
+include all new references in the main text Methods References section, and 
+carry on the numbering from the main References section of the paper. If 
+your paper does not have a Methods section, include all new references at 
+the end of the main Reference list. 
+Extended Data Fig. 1 
+Extended Performance 
+of CRISP in common 
+exfig1.pdf 
+(A) Predictive performance in SYCC cohort. (B) Confusion 
+matrices showing CRISP’s predictions for common benign–
+malignant differentiation tasks. Data are presented as mean ± 95% 
+
+PAGE 3
+benign–malignant 
+differentiation tasks. 
+CI in (A), with cohort sizes for each site indicated in Supplementary 
+Table S2.1. 
+Extended Data Fig. 2 
+Extended Evaluation of 
+CRISP for 
+intraoperative decision-
+making. 
+exfig2.pdf 
+(A) Data composition of the SYCC validation cohort for the 
+PCNSLD task (top) and CNSLC task (bottom). (B) Comparison 
+of AUROC between CRISP and other models on SYCC 
+validation cohorts for the PCNSLD task. (C) Top-k accuracy 
+comparison of CRISP and other models in SYCC validation 
+cohorts for the CNSLC task. (D) Data composition of SYCC 
+validation cohorts for the OCCGS, OCFGS, TNDD, and PGD 
+tasks. (E) Predicted probability distributions of CRISP across 
+classes in the OCCGS task in the SYCC validation cohort. (F) 
+Predicted probability distributions of CRISP across classes in the 
+TNDD task in the SYCC validation cohort. (G) Top-k accuracy 
+comparison of CRISP and other models in the SYCC validation 
+cohort for the OCFGS task. (H) Specificity comparison of CRISP 
+and other models at 95% sensitivity for the PGD task in the SYCC 
+validation cohort. Error bars denote 95% CI. For box plots in (E) 
+and (F), center line represents median; box bounds represent 25th 
+and 75th percentiles; whiskers extend to the non-outlier range; 
+outliers are plotted individually. Data are presented as mean ± 
+95% CI in (B), (C), (G), and (H). Statistical significance was 
+assessed using one-way ANOVA with Tukey's HSD test for 
+pairwise comparisons (two-sided) in (E) and (F); *P ≤ 0.05, **P ≤ 
+
+PAGE 4
+0.01, ***P ≤ 0.001. Exact cohort sizes for each task are provided 
+in Supplementary Table S3.1. 
+Extended Data Fig. 3 
+Confusion matrices 
+showing CRISP’s 
+predictions for 
+preoperative and 
+intraoperative decision-
+making tasks. 
+exfig3.pdf 
+Confusion matrices for CRISP predictions across six decision-
+making tasks: PCNSLD, CNSLC, OCCGS, OCFGS, TNDD, and 
+PGD. 
+Extended Data Fig. 4 
+Confusion matrices 
+showing CRISP’s 
+predictions in late 
+intraoperative 
+assessment. 
+exfig4.pdf 
+Confusion matrices for CRISP predictions across three late 
+intraoperative decision-making tasks: SLMD, CLMD and BSMA. 
+Extended Data Fig. 5 
+Detailed comparison of 
+ROC curves between 
+CRISP and pathologists 
+in the reader study. 
+exfig5.pdf 
+(A-F) ROC curves of CRISP compared with diagnostic 
+performance of three pathologists for the PNBM (A), TNBM (B), 
+BNBM (C), CLMD (D), SLMD (E), and BSMA (F) tasks. (G) 
+ROC curve on the sub-cohort of 214 cases with inter-observer 
+disagreement among three pathologists. Pathologist 1 (P1) 
+represents a senior pathologist with 10 years of clinical 
+experience; Pathologist 2 (P2) and Pathologist 3 (P3) represent 
+junior pathologists with 2 years of experience each. 
+
+PAGE 5
+Extended Data Fig. 6 
+Waterfall plots of 
+CRISP prediction scores 
+across subtasks in the 
+SYCC prospective 
+cohort. 
+exfig6.pdf 
+(A–F) Waterfall plots illustrating the distribution of CRISP-
+predicted scores for individual cases in the PNBM (A), TNBM 
+(B), BNBM (C), CLMD (D), SLMD (E), and BSMA (F) tasks.  
+Extended Data Fig. 7 
+Confusion matrices of 
+CRISP predictions in 
+the IHC-required 
+subgroup within the 
+SYCC prospective 
+cohort. 
+exfig7.pdf 
+(A–F) Confusion matrices illustrating the diagnostic performance 
+of CRISP for the PNBM (A), TNBM (B), BNBM (C), CLMD 
+(D), SLMD (E), and BSMA (F) tasks. 
+ 
+Extended Data Fig. 8 
+Waterfall plots of 
+CRISP screening scores 
+in external and 
+simulated deployment 
+cohorts. 
+exfig8.pdf 
+(A–C) Waterfall plots illustrating the distribution of CRISP-
+predicted scores in the FUSCC (A), TCIH (B), and clinical 
+simulated deployment (C) cohorts. Each bar represents a single 
+case. The screening thresholds for all cohorts were maintained 
+consistent with those established for the SYCC cohort. 
+Extended Data Fig. 9 
+Comparison of 
+diagnostic turnaround 
+times between CRISP 
+and pathologists in the 
+clinical simulated 
+deployment cohort. 
+exfig9.pdf 
+Box plot illustrating the diagnostic time for CRISP versus human 
+pathologists. The CRISP diagnostic time encompasses the entire 
+end-to-end workflow, from slide scanning to the generation of 
+final predictive results. For each box, center line represents 
+median; box bounds represent 25th and 75th percentiles; whiskers 
+extend to the non-outlier range; outliers are plotted as individual 
+
+PAGE 6
+points beyond the whiskers. The cohort size is n = 100 cases for 
+each group. 
+Extended Data Fig. 10 
+Comparison of 
+diagnostic certainty 
+scores before and after 
+CRISP assistance in the 
+clinical simulated 
+deployment cohort. 
+exfig10.pdf 
+(A) Changes in diagnostic certainty for the subgroup of typical 
+cases (highly confident predictions by CRISP). (B) Changes in 
+diagnostic certainty for the subgroup of uncertain cases (low-
+confidence predictions by CRISP). In both panels, diagnostic 
+certainty is scored on a scale of 0 to 3, representing a gradient 
+from "uncertain" to "completely certain." Each pair of connected 
+points represents an individual case, illustrating the shift in an 
+individual pathologist's confidence following CRISP integration. 
+Black diamonds and dashed lines denote the mean certainty scores 
+for each group. 
+ 
+14 
+1. Supplementary Information: 
+15 
+A. PDF Files  
+16 
+Item 
+Present? 
+Filename 
+Whole original file name 
+including extension. i.e.: 
+A brief, numerical description of file contents.  
+i.e.: Supplementary Figures 1-4, Supplementary Discussion, and 
+Supplementary Tables 1-4. 
+
+PAGE 7
+Smith_SI.pdf.  The extension 
+must be .pdf 
+Supplementary Information 
+Yes 
+supplementary_info.pdf 
+Supplementary Figures 1-7 and Supplementary Tables 1s-6s. 
+Reporting Summary 
+Yes 
+NMED-A146190C Chen 
+RS.pdf 
+Peer Review Information  
+Yes 
+NMED-A146190C Chen 
+Peer Review.pdf 
+ 
+17 
+
+PAGE 8
+A clinically-oriented foundation model for intraoperative pathology 
+18 
+ 
+19 
+Zihan Zhao1,2†, Fengtao Zhou3†, Ronggang Li4†, Bing Chu5, Xinke Zhang1, Xueyi 
+20 
+Zheng1, Ke Zheng1, Xiaobo Wen1, Jiabo Ma3, Yihui Wang3, Jiewei Chen1, Chengyou 
+21 
+Zheng1, Jiangyu Zhang6, Yongqin Wen7, Jiajia Meng8, Ziqi Zeng9, Xiaoqing Li4, Jing 
+22 
+Li10, Dan Xie1, Yaping Ye11, Yu Wang8, Hao Chen3,12,13,14,15,16*, Muyan Cai1* 
+23 
+ 
+24 
+1 Department of Pathology, State Key Laboratory of Oncology in South China, 
+25 
+Guangdong Provincial Clinical Research Center for Cancer, Sun Yat-sen University 
+26 
+Cancer Center, Guangzhou, China. 
+27 
+2 Department of Gastric Surgery, State Key Laboratory of Oncology in South China, 
+28 
+Guangdong Provincial Clinical Research Center for Cancer, Sun Yat-sen University 
+29 
+Cancer Center, Guangzhou, China. 
+30 
+3 Department of Computer Science and Engineering, Hong Kong University of Science 
+31 
+and Technology, Hong Kong, China. 
+32 
+4 Department of Pathology, Jiangmen Central Hospital, Jiangmen, China. 
+33 
+5 Department of Pathology, Zhongshan People's Hospital, Zhongshan, China. 
+34 
+6 Department of Pathology, Affiliated Cancer Hospital & Institute of Guangzhou 
+35 
+Medical University, Guangzhou, China. 
+36 
+7 Department of Pathology, The Tenth Affiliated Hospital, Southern Medical 
+37 
+University, Dongguan People’s Hospital, Dongguan, China. 
+38 
+8 Department of Pathology, Huizhou Central People’s Hospital, Huizhou, China. 
+39 
+9 Department of Pathology, Zhujiang Hospital, Southern Medical University, 
+40 
+Guangzhou, China. 
+41 
+10 Zhongshan School of Medicine, Sun Yat-sen University, Guangzhou, China. 
+42 
+11 Department of Pathology, Nanfang Hospital, Southern Medical University, 
+43 
+Guangzhou, China. 
+44 
+12 Department of Chemical and Biological Engineering, Hong Kong University of 
+45 
+Science and Technology, Hong Kong, China.  
+46 
+
+PAGE 9
+13 Division of Life Science, Hong Kong University of Science and Technology, Hong 
+47 
+Kong, China.  
+48 
+14 HKUST Shenzhen-Hong Kong Collaborative Innovation Research Institute, Futian, 
+49 
+Shenzhen, China.  
+50 
+15 State Key Laboratory of Nervous System Disorders, The Hong Kong University of 
+51 
+Science and Technology, Hong Kong, China. 
+52 
+16 SIAT-HKUST Joint Laboratory for Brain Science, The Hong Kong University of 
+53 
+Science and Technology, Hong Kong, China 
+54 
+ 
+55 
+†Contributed equally. 
+56 
+*Dr. Muyan Cai and Prof. Hao Chen are the co-corresponding authors. 
+57 
+Correspondence: Dr. Muyan Cai, Department of Pathology, Collaborative Innovation 
+58 
+Center for Cancer Medicine, State Key Laboratory of Oncology in South China, Sun 
+59 
+Yat-sen 
+University 
+Cancer 
+Center, 
+Guangzhou, 
+510060, 
+China. 
+Email: 
+60 
+caimy@sysucc.org.cn; 
+61 
+Prof. Hao Chen, Room 3524, Academic Building, Department of Computer Science 
+62 
+and Engineering, Hong Kong University of Science and Technology, Hong Kong, 
+63 
+China. Email: jhc@ust.hk. 
+64 
+ 
+65 
+ 
+66 
+ 
+67 
+ 
+68 
+ 
+ 
+69 
+
+PAGE 10
+Abstract 
+70 
+Intraoperative pathology is pivotal to precision surgery, yet its clinical impact is constrained by 
+71 
+diagnostic complexity and the limited availability of high-quality frozen-section data. While 
+72 
+computational pathology has made significant strides, the lack of large-scale, prospective 
+73 
+validation has impeded its routine adoption in surgical workflows. Here, we introduce CRISP, 
+74 
+a clinically oriented foundation model developed on over 100,000 frozen sections from ten 
+75 
+medical centers, specifically designed to provide Clinically-oriented Robust Intraoperative 
+76 
+Support for Pathology (CRISP). CRISP was comprehensively evaluated on more than 15,000 
+77 
+intraoperative slides across nearly 100 retrospective diagnostic tasks, including benign-
+78 
+malignant discrimination, key intraoperative decision-making, and pan-cancer detection, etc. 
+79 
+The model demonstrated robust generalization across 6 institutions, 14 tumor types, and 24 
+80 
+anatomical sites-including previously unseen sites and rare cancers. In a prospective cohort of 
+81 
+over 3,000 patients, CRISP sustained high diagnostic accuracy under real-world conditions, 
+82 
+directly informing surgical decisions in 92.6% of cases. Human-AI collaboration further 
+83 
+reduced diagnostic workload by 35%, avoided 105 ancillary tests and enhanced detection of 
+84 
+micrometastases with 87.5% accuracy. Together, these findings suggest that CRISP represents 
+85 
+a clinically oriented approach to AI-driven intraoperative pathology, with the potential to 
+86 
+support surgical decision-making and facilitate the translation of computational methods into 
+87 
+clinical practice. 
+88 
+ 
+89 
+ 
+90 
+ 
+91 
+ 
+92 
+ 
+93 
+ 
+94 
+ 
+95 
+ 
+ 
+96 
+
+PAGE 11
+Introduction 
+97 
+Rapid and accurate intraoperative diagnosis is a cornerstone of modern surgical practice, 
+98 
+directly influencing patient outcomes and guiding critical decisions in real time.1,2 For over a 
+99 
+century, frozen section examination has served as an indispensable modality for intraoperative 
+100 
+pathological assessment, enabling surgeons to make informed choices regarding tumor 
+101 
+resection, margin status, and differential diagnosis across a wide spectrum of surgical 
+102 
+specialties.3-6 The widespread adoption of frozen sections is driven by their expedited 
+103 
+preparation and diagnostic accuracy, which closely parallels that of formalin-fixed paraffin-
+104 
+embedded (FFPE) specimens in clinical practice.7,8 As a result, frozen section analysis has 
+105 
+become integral to precision surgical management, supporting timely interventions that can 
+106 
+profoundly improve patient outcomes. 
+107 
+Despite its clinical utility, frozen section diagnosis presents formidable challenges. The 
+108 
+inherent morphological complexity of frozen tissue, compounded by the urgency of 
+109 
+intraoperative decision-making, demands rapid and highly accurate interpretation. These 
+110 
+constraints introduce significant risks, including the potential for misdiagnosis and suboptimal 
+111 
+surgical outcomes.9,10 The need for robust, scalable support systems to assist pathologists and 
+112 
+surgeons in real-time intraoperative workflows is therefore both pressing and universal. 
+113 
+Recent advances in computational pathology and artificial intelligence (AI) have begun to 
+114 
+reshape the landscape of diagnostic medicine. Deep learning models have demonstrated 
+115 
+remarkable promise in automating and augmenting pathological assessment, offering the 
+116 
+potential to enhance diagnostic consistency and efficiency. However, the application of AI to 
+117 
+intraoperative frozen section analysis remains in its infancy.11 Prior studies have explored deep 
+118 
+learning approaches in specific disease contexts,12-14 Yet these efforts are frequently constrained 
+119 
+by small, homogeneous datasets that fail to capture the full spectrum of morphological and 
+120 
+technical variability encountered in clinical practice.15 As a result, the development of 
+121 
+generalizable and clinically practical AI models for intraoperative diagnosis has remained 
+122 
+elusive.  
+123 
+The emergence of large-scale AI models, or foundation models, has further fueled optimism for 
+124 
+the clinical translation of computational pathology.15-18 Pretrained on vast and diverse datasets, 
+125 
+these models have shown strong generalizability across a range of diagnostic tasks.19 However, 
+126 
+
+PAGE 12
+most existing foundation models are built upon FFPE specimens,20 which differ fundamentally 
+127 
+from frozen sections in both preparation and tissue morphology. Direct application of FFPE-
+128 
+trained models to intraoperative frozen section risks compromising diagnostic accuracy as such 
+129 
+models may lack exposure to frozen section morphology,10,21 while attempts to bridge this gap 
+130 
+using virtual staining techniques raise concerns regarding reliability and clinical trustworthiness 
+131 
+of synthetic images.22-24 Additionally, the lack of prospective validation in most studies limits 
+132 
+their readiness for real-world deployment.25  
+133 
+Addressing these challenges requires the development of a robust and generalizable foundation 
+134 
+model specifically tailored to frozen section pathology, with demonstrated clinical validity in 
+135 
+diverse and realistic settings. In this study, we introduce CRISP, an AI-enabled comprehensive 
+136 
+deep learning framework designed to support a wide spectrum of intraoperative diagnostic and 
+137 
+predictive tasks. Leveraging the largest frozen section dataset assembled to date-comprising 
+138 
+over 100,000 slides from ten medical centers across different regions-CRISP was pretrained on 
+139 
+50 million image patches from 25 anatomical sites. The model’s performance was rigorously 
+140 
+evaluated across multiple downstream tasks commonly encountered in intraoperative pathology, 
+141 
+with external validation cohorts drawn from independent institutions. To further assess its real-
+142 
+world clinical utility, we conducted a registered prospective observational study involving more 
+143 
+than 3,000 patients in real-world surgical workflows. Through both rigorous retrospective and 
+144 
+prospective analyses, our findings demonstrate the practical value and broad applicability of a 
+145 
+frozen-specific foundation model, making a significant advance toward the integration of AI-
+146 
+driven decision support in precision surgery. 
+147 
+ 
+148 
+Results 
+149 
+Patient cohorts and study design 
+150 
+The development of a clinically robust foundation model for intraoperative diagnosis 
+151 
+necessitates a comprehensive understanding of the biological and technical heterogeneity 
+152 
+inherent in real-world surgical pathology.26 To address this, we constructed the largest multi-
+153 
+center frozen section dataset to date, comprising 103,797 frozen section slides obtained 
+154 
+primarily from ten medical centers and spanning a broad spectrum of anatomical sites (Fig. 1a). 
+155 
+This dataset was specifically curated to reflect the diversity of clinical scenarios and laboratory 
+156 
+
+PAGE 13
+conditions encountered during intraoperative consultations, as detailed in the Methods.  
+157 
+For model pre-training, we utilized 81,667 frozen section slides from three major centers and 
+158 
+the TCGA frozen section dataset.27 To rigorously assess the model’s robustness and 
+159 
+generalizability, we established 98 downstream diagnostic tasks designed to emulate critical 
+160 
+intraoperative decision-making scenarios. Validation was conducted across multiple centers, 
+161 
+including pan-cancer analyses, rare disease subtypes, and challenging conditions (Fig. 1b-e).  
+162 
+To evaluate cross-modality generalizability, we further constructed a paired dataset comprising 
+163 
+frozen section and corresponding FFPE slides from the same 685 patients across GZH, HZH, 
+164 
+and DGH cohorts, with one-to-one matching to minimize sampling bias (Supplementary Fig. 
+165 
+S1). 
+166 
+To further bridge the gap between proof-of-concept and clinical translation, we conducted a 
+167 
+large-scale prospective study (Fig. 1f). This study enrolled 3,064 consecutive patients with 
+168 
+intraoperative consultation at Sun Yat-sen University Cancer Center, Fudan University 
+169 
+Shanghai Cancer Center (FUSCC) and Tianjin Medical University Cancer Institute and 
+170 
+Hospital (TCIH) between November 11, 2024, and July 1, 2025. Based on the tissue site, 
+171 
+patients from SYCC were assigned to three prospective cohorts: SYCC-THYR (n=1,330), 
+172 
+SYCC-BREA (n=391), and SYCC-LUNG (n=350) (Supplementary Table S1s). To assess the 
+173 
+practical feasibility of CRISP within clinical workflows, we conducted a simulated deployment 
+174 
+analysis using an independent set of 100 cases underwent intraoperative consultation, which 
+175 
+were not part of any training or evaluation cohorts (Supplementary Fig. S2). 
+176 
+ 
+177 
+Classification of common benign and malignant lesions 
+178 
+To evaluate CRISP’s performance in this critical context, we validated the model using datasets 
+179 
+from five independent centers (Fig. 2a,b), spanning six common anatomical sites (thyroid, lung, 
+180 
+breast, brain, ovary, and head and neck), as well as complex abdominal lesion differentiation 
+181 
+tasks (Supplementary Table S2.1).  
+182 
+CRISP was benchmarked against several state-of-the-art pathology foundation models15-17,28,29 
+183 
+across 21 downstream diagnostic tasks. In malignancy discrimination, CRISP consistently 
+184 
+achieved superior performance, with an average AUROC of 0.970, an average accuracy of 0.945, 
+185 
+and an average F1 score of 0.924-significantly surpassing the next-best model (Fig. 2c; P < 
+186 
+
+PAGE 14
+0.001, effect size r = 0.62). Notably, CRISP was the only model to achieve a median F1 score 
+187 
+above 0.9 (0.902; Fig. 2d).  
+188 
+CRISP achieved consistently higher performance across the 21 downstream tasks, with modest 
+189 
+but consistent improvements over other approaches (Fig. 2e, Extended Data Fig. 1a). In the 
+190 
+subset of 14 tasks derived from previously unseen institutions, CRISP was the only model to 
+191 
+achieve an average AUC above 0.95 (0.967±0.018), maintaining AUC values greater than 0.9 
+192 
+across all tasks. Even in particularly challenging datasets—such as NFH-Abdomen and ZSH-
+193 
+Abdomen—or in heterogeneous multi-institutional data (ZHDG-Breast, ZHG-H&N, ZSGZ-
+194 
+Brain), CRISP sustained an average AUC of 0.957, outperforming Virchow2 by 3.5% (P < 
+195 
+0.001) (Supplementary Tables S2.2-2.9). 
+196 
+To further evaluate diagnostic sensitivity, we analyzed CRISP’s performance in detecting 
+197 
+malignant lesions across 1,729 cancer cases spanning 21 downstream tasks. The model 
+198 
+correctly identified 1,634 cases, yielding an overall sensitivity of 94.5% (Extended Data Fig. 
+199 
+1b). At sensitivity thresholds of 90% and 95%, CRISP achieved median specificities of 0.917 
+200 
+and 0.790, respectively, again significantly outperforming the second-best model (+8.0% and 
+201 
++7.7% over Virchow2, P = 0.004 and P = 0.013; Fig. 2f). Comparative experiments showed 
+202 
+that slide-level and case-level aggregation achieved similar performance across cohorts, with 
+203 
+no consistent advantage observed for either strategy (Supplementary Table S2.10). 
+204 
+Visualization analyses further demonstrated CRISP’s ability to accurately localize malignant 
+205 
+regions within frozen tissue sections, supporting its capacity for sensitive and precise cancer 
+206 
+detection across a wide array of anatomical sites, institutions, and clinical contexts (Fig. 2g, 
+207 
+Supplementary Fig S3). 
+208 
+ 
+209 
+Model evaluation in key intraoperative decision-making tasks 
+210 
+To rigorously evaluate CRISP’s generalizability and clinical utility, we established 20 multi-
+211 
+center downstream tasks spanning the entire surgical continuum: early planning, mid-procedure 
+212 
+guidance, and late intraoperative assessment (Fig. 3a, Supplementary Table S3.1). These tasks 
+213 
+were designed to reflect the diversity and complexity of real-world clinical decisions, with 
+214 
+detailed clinical significance described in the Methods. Across both binary and multiclass tasks, 
+215 
+CRISP consistently achieved the highest performance among all evaluated models 
+216 
+
+PAGE 15
+(Supplementary Table S3.2-3.3).  
+217 
+Early intraoperative decision: In both the SYCC and NFH cohorts (Fig. 3b, Extended Data 
+218 
+Fig. 2a), CRISP achieved AUCs of 0.998 and 0.987, respectively-representing numerical 
+219 
+improvements over the second-performing comparator (both P < 0.001; Fig. 3b-3c, Extended 
+220 
+Data Fig. 2b, Supplementary Table S3.4). Notably, CRISP correctly identified 64 of 66 patients 
+221 
+with PCNSL, whereas alternative models missed up to 2.5 times as many cases, underscoring 
+222 
+the clinical impact of enhanced diagnostic precision (Fig. 3d). In fine-grained tumor 
+223 
+classification, CRISP demonstrated a pronounced 20.4% gain in top-1 accuracy in the external 
+224 
+cohort (Fig. 3e, Extended Data Fig. 2c, Supplementary Table S3.5), highlighting its potential to 
+225 
+support nuanced early intraoperative decision-making. 
+226 
+Mid-procedure decision: CRISP was evaluated across eight cohorts spanning ovarian 
+227 
+(Ovarian Cancer Coarse/Fine-Grained Subtyping, OCCGS/OCFGS), thyroid (Thyroid Nodule 
+228 
+Differential Diagnosis, TNDD), and parathyroid tissue (Parathyroid Gland Detection, PGD), 
+229 
+consistently achieving the highest performance in all tasks, with a mean macro-AUC of 0.954, 
+230 
+compared to 0.934 for the second-best baseline (P < 0.001; Fig. 3f-3g, Extended Data Fig. 2d, 
+231 
+Supplementary Table S3.6-3.9). Confusion matrix analyses underscored CRISP's robust 
+232 
+discrimination between distinct tissue types (Extended Data Fig. 3). For ovarian and thyroid 
+233 
+tumors, where accurate subtype classification directly informs surgical strategy, CRISP showed 
+234 
+the highest top-k (k = 1, 2, 3) accuracies in external cohorts, with top-1 accuracy improving by 
+235 
+13.6% over CONCH (Fig. 3h-j). In PGD, a particularly challenging task, CRISP was the only 
+236 
+model to maintain AUCs consistently above 0.9. In external validation, it reached a specificity 
+237 
+of 0.559 at 95% sensitivity, outperforming all other models and demonstrating potential to 
+238 
+mitigate inadvertent parathyroid resection (Fig. 3k). Similar results were observed in internal 
+239 
+cohorts (Extended Data Fig. 2e-h), further supporting CRISP’s robustness in fine-grained 
+240 
+intraoperative decision-making. 
+241 
+Late intraoperative assessment: CRISP’s performance was evaluated across eight cohorts 
+242 
+focused on sentinel and cervical lymph node metastasis detection (SLMD, CLMD) and breast 
+243 
+cancer surgical margin assessment (BSMA) (Fig. 4a).30-32 The model achieved mean AUCs of 
+244 
+0.984, 0.992, and 0.992 across these tasks, outperforming all other evaluated models (Fig. 4b, 
+245 
+Supplementary Table S3.10-12). Under high-sensitivity conditions, CRISP demonstrated 
+246 
+
+PAGE 16
+remarkable specificity. Among 263 positive patients, CRISP correctly identified 254 (96.6%), 
+247 
+representing a 40% reduction in missed diagnoses compared to the second-best model (Fig. 4c, 
+248 
+Extended Data Fig. 4). Visualization analyses further confirmed its ability to detect small 
+249 
+clusters of residual tumor cells (Fig. 4d, Supplementary Fig. S4), supporting its utility in 
+250 
+postoperative assessment. 
+251 
+Across the complete set of 20 downstream tasks, CRISP consistently outperformed all 
+252 
+comparative models, which exhibited variable and dispersed performance (Fig. 4e). These 
+253 
+findings collectively validate CRISP’s generalizability and robust predictive power throughout 
+254 
+the entire surgical decision-making process, establishing it as a highly effective tool for 
+255 
+supporting precision intraoperative pathology in diverse clinical settings. 
+256 
+ 
+257 
+Robustness under clinical heterogeneity 
+258 
+A defining measure of clinically-oriented foundation model is their capacity to generalize under 
+259 
+data-scarce conditions, particularly when confronted with unobserved samples and rare cancer 
+260 
+types-scenarios that frequently challenge conventional diagnostic approaches.15,33 To rigorously 
+261 
+evaluate this aspect, we conducted a large-scale pan-cancer detection study encompassing 
+262 
+13,851 intraoperative frozen slides from six independent centers (Supplementary Table S4.1). 
+263 
+The CRISP model was deployed to extract patch embeddings from these slides, with the 
+264 
+downstream aggregator trained exclusively on 1,573 slides from the SYCC cohort, representing 
+265 
+six common anatomical sites: lung, breast, thyroid, head and neck, brain, and ovary 
+266 
+(Supplementary Table S4.2).  
+267 
+Generalizability was systematically assessed across three external cohorts, which included both 
+268 
+six observed and more than eleven previously unseen cancer types (Fig. 5a, b; Supplementary 
+269 
+Table S4.3-4.5). Across these diverse datasets, CRISP consistently achieved high diagnostic 
+270 
+accuracy, with AUCs of 0.953, 0.973 and 0.960-each exceeding the 0.95 threshold and 
+271 
+outperforming all comparators (Fig. 5c, Supplementary Table S4.6). Notably, CRISP showed 
+272 
+pronounced advantages in the ZSH and HDGZ cohorts, with AUC improvements of 7.7% and 
+273 
+6.0% over the next-best model (P < 0.001), respectively, underscoring its robust cross-
+274 
+institutional generalizability. To assess the impact of adaptation strategies, we additionally 
+275 
+compared LoRA, full fine-tuning, IA³, and training from scratch under the same experimental 
+276 
+
+PAGE 17
+settings (Supplementary Table S4.7). The results indicated that full fine-tuning did not 
+277 
+outperform LoRA and in some cases showed inferior generalization across cohorts, while LoRA 
+278 
+consistently achieved the best overall performance. 
+279 
+To further dissect model performance, we analyzed results across 17 site-specific subgroups, 
+280 
+encompassing both observed and unseen anatomical subtypes. CRISP consistently delivered 
+281 
+the highest AUCs, ranging from 0.914 to 1.0 (Fig. 5d). While all models exhibited some decline 
+282 
+in performance on unseen subgroups, CRISP maintained a distinct relative advantage, 
+283 
+outperforming the next-best model by 10.4% in lymph nodes, 9.1% in cervix, 9.7% in bile duct, 
+284 
+and 9.2% in pancreas. This suggests enhanced recognition and adaptability to unfamiliar cancer 
+285 
+morphologies. Across 51 subgroup analyses from three unseen cohorts, CRISP achieved the top 
+286 
+AUC in 47 and ranked within the top two in all, whereas Virchow2 led in only 16 unseen 
+287 
+subgroups (Fig. 5e; Supplementary Table S4.8-4.24), highlighting CRISP’s superior 
+288 
+adaptability to novel clinical scenarios. 
+289 
+CRISP’s performance in rare tumors was equally compelling (Fig. 5f). According to the 
+290 
+National Cancer Institute, rare cancers are defined as those with an annual incidence below 
+291 
+40,000 cases in the United States.34,35 Across seven rare tumor types, CRISP achieved an overall 
+292 
+AUC of 0.983, with cohort AUCs ranging from 0.963 to 0.993, consistently outperforming 
+293 
+Virchow2. Furthermore, CRISP exhibited remarkable stability, maintaining AUCs above 0.9 in 
+294 
+nearly all categories. In the ZSH-Else cohort, where all models performed less optimally (< 
+295 
+0.9), the results likely reflect the complexity and heterogeneity of tissue sources.  
+296 
+We further investigated the impact of unseen and rare samples on model performance (Fig. 5g, 
+297 
+h). CRISP’s diagnostic accuracy was minimally affected by either factor. Specifically, AUROC 
+298 
+improved by 0.023, 0.017, and 0.003 for rare versus common tumor types, while decreasing by 
+299 
+0.025, 0.022, and 0.036 for unseen versus seen tumor types. Even when analysis was restricted 
+300 
+to rare tumor subgroups from previously unseen anatomical sites, CRISP maintained an AUC 
+301 
+exceeding 0.95. Under high-sensitivity conditions, CRISP also achieved markedly higher 
+302 
+median specificity than the second-best model across both rare and unseen subgroups (Fig. 5i, 
+303 
+j). Comprehensive performance metrics are detailed in Supplementary Tables S4.25-4.29. To 
+304 
+evaluate cross-modality generalizability, we tested CRISP on matched FFPE slides from the 
+305 
+HDGZ cohort. Without additional fine-tuning, CRISP achieved an AUC of 0.961 on frozen 
+306 
+
+PAGE 18
+sections and 0.972 on FFPE slides, indicating robust performance across different histological 
+307 
+preparation modalities (Supplementary Table S4.30). Across 98 retrospective evaluations, 
+308 
+CRISP achieved the highest AUROC in 92 tasks (93.9%), indicating a consistent performance 
+309 
+advantage across diverse settings (Supplementary Table S4.31). At fixed sensitivities of 90% 
+310 
+and 95%, CRISP consistently yielded higher specificities than competing foundation models, 
+311 
+with relative improvements reaching up to 63.4% in representative tasks (Supplementary Tables 
+312 
+S2.2, S3.2 and S4.6). Collectively, these findings demonstrate CRISP’s robust adaptability to 
+313 
+complex and heterogeneous clinical data sources, including data-scarce scenarios and rare 
+314 
+cancer types. This level of generalization is essential for real-world deployment, ensuring 
+315 
+reliable diagnostic support across the full spectrum of intraoperative pathology. 
+316 
+ 
+317 
+Prospective validation of clinical utility 
+318 
+Prospective validation in real-world clinical environments is the definitive benchmark for 
+319 
+assessing the practical utility of diagnostic AI models.36 Building on retrospective findings, we 
+320 
+conducted a large-scale prospective observational study at SYCC, FUSCC and TCIH to 
+321 
+rigorously evaluate CRISP’s ability to support intraoperative decision-making under authentic 
+322 
+surgical conditions. A total of 3,064 consecutive patients were enrolled across multiple 
+323 
+clinically relevant frozen-section scenarios and anatomical sites. The prospective evaluation 
+324 
+included benign-malignant discrimination of pulmonary, thyroid, and breast nodules (PNBM, 
+325 
+TNBM, BNBM), cervical and sentinel lymph node metastasis detection (CLMD, SLMD), and 
+326 
+breast surgical margin assessment (BSMA), together with additional multi-organ frozen-section 
+327 
+cases from head and neck, ovary, and brain tissues. Importantly, the model’s aggregators-
+328 
+trained exclusively on retrospective data-were deployed directly, without task-specific fine-
+329 
+tuning, providing an unbiased assessment of CRISP’s robustness and translational potential 
+330 
+(Fig. 6a). 
+331 
+Crucially, CRISP demonstrated consistent superiority over competing foundation models 
+332 
+across independent prospective external cohorts at both FUSCC (AUROC = 0.966) and TCIH 
+333 
+(AUROC = 0.984), confirming its robustness against site bias (Supplementary Tables S5.1-2). 
+334 
+Across all six real-world tasks combined with the SYCC cohort, CRISP achieved an overall 
+335 
+AUC of 0.975 and outperforming all comparator models in every task (Fig. 6b, Supplementary 
+336 
+
+PAGE 19
+Table S5.3). Compared to Virchow2, the second-best baseline, CRISP delivered AUC 
+337 
+improvements ranging from 3.2% to 5.9% and elevated the specificity at 95% sensitivity from 
+338 
+0.495 to 0.809 (+63.4%), underscoring its clinical relevance in high-sensitivity scenarios. 
+339 
+Similar performance trends were observed for sensitivity- and specificity-related metrics across 
+340 
+external cohorts. 
+341 
+In linear probing experiments, CRISP showed improved performance compared to competing 
+342 
+models, with a similar trend to aggregation-based evaluations (Supplementary Table S5.4). 
+343 
+CRISP maintained stable performance across varying perturbation settings, with only limited 
+344 
+degradation observed under increasing levels of image corruption (Supplementary Table S5.5). 
+345 
+In a reader study conducted on the prospective SYCC cohort, the operating point of the senior 
+346 
+pathologist fell on the ROC curve of CRISP, indicating comparable overall performance under 
+347 
+the evaluated conditions (Fig. 6c, Extended Data Fig. 5a-f). In contrast, the performance of two 
+348 
+junior pathologists fell below the ROC curve of CRISP, suggesting lower diagnostic accuracy 
+349 
+under the same evaluation setting. Similar diagnostic trends were observed in the sub-analysis 
+350 
+of 214 inter-pathologist discordant cases (Extended Data Fig. 5g). To further test resilience to 
+351 
+laboratory variability, the cohort was stratified into 27 subgroups based on histotechnologists 
+352 
+(Fig. 6d, Supplementary Table S5.6). CRISP maintained robust generalization, with 21 
+353 
+subgroups exceeding the overall AUC, 7 reaching perfect accuracy (AUC = 1.0), and all 
+354 
+others—except the multi-doctor “Else” subgroup—remaining above 0.95. Representative 
+355 
+histological examples and detailed subgroup compositions are provided in the Supplementary 
+356 
+Fig. S5 and Supplementary Table S5.7. These findings highlight CRISP’s ability to sustain high 
+357 
+diagnostic precision across diverse, prospective, and heterogeneous clinical conditions. 
+358 
+Extended evaluation incorporating additional recently proposed models (e.g., ProvGigaPath) 
+359 
+within the same benchmarking framework further confirmed the model's efficacy 
+360 
+(Supplementary Tables S2.2, 3.2–3.3, 4.6, 5.1, and 5.3).37 
+361 
+We further evaluated CRISP’s predictive accuracy in clinically challenging cases, defined by 
+362 
+high diagnostic uncertainty in intraoperative frozen reports (n = 371). CRISP achieved an 
+363 
+overall AUC of 0.936 in this subset (Fig. 6e, Supplementary Table S5.8), with performance 
+364 
+largely maintained in PNBM, BNBM, and CLMD tasks. Modest decreases were observed in 
+365 
+the TNBM (− 0.031), SLMD (− 0.041), and BSMA (− 0.047) tasks, yet score distributions 
+366 
+
+PAGE 20
+remained well separated between benign and malignant cases (Fig. 6f). In diagnostically elusive 
+367 
+cases, such as sentinel lymph node micrometastases, CRISP correctly identified 7 of 8 
+368 
+micrometastatic and 40 of 41 macrometastatic cases (Fig. 6g), with predicted values showing 
+369 
+clear separation from negative controls (Fig. 6h). Visualization analyses revealed that CRISP 
+370 
+focused attention on peripheral zones-regions prone to metastatic involvement-and precisely 
+371 
+highlighted minute malignant areas (Fig. 6i, Supplementary Fig. S6). Error analysis showed 
+372 
+that false-positive predictions were mainly associated with rare benign tumors and frozen 
+373 
+section artifacts, while false-negative cases were primarily observed in rare malignant tumors 
+374 
+with ambiguous morphology (Supplementary Fig. S7).  
+375 
+To explore CRISP’s potential to alleviate clinical workload, we examined its utility in triaging 
+376 
+cases requiring immunohistochemistry (IHC), a common but resource-intensive diagnostic 
+377 
+adjunct. Among 510 patients requiring additional IHC evaluation, CRISP achieved an overall 
+378 
+AUC of 0.963, with task-specific AUCs ranging from 0.943 to 1.000 (Fig. 6j, Supplementary 
+379 
+Table S5.9). At 95% sensitivity, CRISP correctly identified 74.5% of IHC-negative patients, 
+380 
+underscoring its value as a screening tool to reduce unnecessary testing (Fig. 6k). We further 
+381 
+assessed whether CRISP could safely triage typical cases without compromising pathologists’ 
+382 
+diagnostic accuracy.38 When patients with predicted scores > 0.9956 or < 0.0044 were managed 
+383 
+directly by CRISP, the combined CRISP-pathologist workflow reduced diagnostic workload by 
+384 
+34.9%, with 79.0% of positive cases included (Fig. 6l). Under this strategy, sensitivity and 
+385 
+specificity remained comparable to conventional frozen-section reports (sensitivity, P = 0.60; 
+386 
+specificity, P = 1.00; Fig. 6m), highlighting CRISP’s potential as a clinical prescreening tool 
+387 
+for streamlining the diagnosis of typical positive cases. The workload reduction and 
+388 
+corresponding decrease in immunohistochemistry usage were further analyzed separately 
+389 
+across all subtasks and multi-region prospective cohorts (Extended Data Fig. 6,7,8a-b). In a 
+390 
+simulated deployment experiment conducted on 100 cases from SYCC, the average end-to-end 
+391 
+processing time for CRISP was 196.4 seconds per case, compared to 292.6 seconds for 
+392 
+pathologists (Extended Data Fig. 9). The pre-screening strategy identified 65 typical cases, and 
+393 
+this approach did not result in any degradation in sensitivity or specificity (Extended Data Fig. 
+394 
+8c). Notably, CRISP assistance increased pathologists’ diagnostic confidence by 6.0% in typical 
+395 
+cases and 42.9% in diagnostically uncertain cases, suggesting its potential to support decision-
+396 
+
+PAGE 21
+making particularly in challenging scenarios (Extended Data Fig. 10). 
+397 
+ 
+398 
+Discussion 
+399 
+Foundation models have redefined the landscape of artificial intelligence, but their translation 
+400 
+into high-stakes clinical environments has remained elusive.39,40 Nowhere is this gap more 
+401 
+consequential than in surgery, where more than 310 million major surgical procedures are 
+402 
+performed worldwide each year, and intraoperative decisions must balance speed with 
+403 
+diagnostic precision.41,42 The consequences of diagnostic uncertainty are profound, leading to 
+404 
+unnecessary reoperations, overtreatment, or undertreatment, and imposing substantial 
+405 
+economic burdens that exceed one billion dollars annually in the United States alone.43 Against 
+406 
+this backdrop, the development of a clinically reliable AI platform capable of guiding 
+407 
+intraoperative decisions represents a paradigm shift-not only for surgical pathology, but also 
+408 
+for the broader clinical adoption of foundation models in medicine. 
+409 
+In this study, we present CRISP, the first clinically oriented foundation model specifically 
+410 
+dedicated to intraoperative pathology. Distinct from existing pathological foundation models 
+411 
+trained on FFPE specimens, CRISP leverages large-scale frozen section data for pre-training. 
+412 
+This strategic focus directly addresses a critical clinical gap: FFPE-trained models often falter 
+413 
+in intraoperative settings due to frozen section-specific artifacts such as ice crystal formation 
+414 
+and tissue compression. By constructing a large and diverse dataset sourced from ten 
+415 
+independent medical centers and reserving data from seven centers exclusively for external 
+416 
+validation, we ensured rigorous assessment of CRISP’s diagnostic performance under authentic, 
+417 
+heterogeneous clinical conditions. The inclusion of public frozen section data increases 
+418 
+morphological diversity during pretraining, with potential to improve robustness to 
+419 
+heterogeneous data. Furthermore, prospective real-time deployment provided a robust test of 
+420 
+the model’s reliability in actual surgical workflows. 
+421 
+CRISP’s robust performance across a spectrum of intraoperative diagnostic tasks highlights its 
+422 
+potential as a generalizable paradigm for frozen section-based decision support. Beyond 
+423 
+achieving superior accuracy in benchmark comparisons, CRISP demonstrated the ability to 
+424 
+address clinically critical scenarios-such as the detection of subtle malignant foci in surgical 
+425 
+margins or lymph nodes-where diagnostic sensitivity is paramount to avoid undertreatment.44,45 
+426 
+
+PAGE 22
+Importantly, CRISP maintained consistent advantages across the entire surgical workflow, from 
+427 
+early intraoperative differential diagnosis to mid-procedure tumor classification and late  
+428 
+assessment of resection completeness. CRISP demonstrates stable performance across FFPE 
+429 
+data and common perturbations, indicating robustness to variations in staining and image 
+430 
+quality encountered in clinical practice. Furthermore, CRISP’s transferability to routine FFPE 
+431 
+slides shows it captures cross-modality morphological invariants, offering potential to unify 
+432 
+intraoperative guidance and post-operative pathology under a single framework. Given that 
+433 
+misinterpretation of intraoperative frozen sections can lead to inappropriate surgical decisions 
+434 
+and increased patient risk,46,47 CRISP’s breadth of applicability suggests it could substantially 
+435 
+reduce variability and time constraints, offering a scalable and clinically meaningful 
+436 
+complement to routine pathology practice. While absolute improvements in AUROC are 
+437 
+modest in high-performance regimes, such differences are expected due to ceiling effects and 
+438 
+should be interpreted in the context of already strong baselines. Moreover, the consistent 
+439 
+performance advantage across diverse organs, institutions, and downstream tasks suggests that 
+440 
+the observed improvements are unlikely to arise from optimization for individual benchmarks 
+441 
+alone, but instead reflect enhanced generalization of the pretrained representation. Importantly, 
+442 
+these advantages were further amplified under clinically relevant high-sensitivity operating 
+443 
+conditions. CRISP operates on standard frozen section slides and supports multi-cancer 
+444 
+scenarios, enabling broader generalizability and easier integration into routine clinical 
+445 
+workflows compared with prior approaches.48 
+446 
+A key strength of CRISP lies in its capacity to learn generalized morphological features, 
+447 
+enabling robust generalization even under previously unseen laboratory conditions.49 The 
+448 
+model maintained high predictive accuracy for tissue types with scarce or absent training 
+449 
+samples-a crucial benchmark for foundation model generalizability. When applied to 
+450 
+previously unseen institutional data and novel samples, CRISP-based pan-cancer detection 
+451 
+models demonstrated stable and reliable performance, outperforming alternative models by up 
+452 
+to 11% on challenging datasets. This provides compelling evidence that CRISP has effectively 
+453 
+internalized universal tissue morphology from large-scale frozen sections, equipping it to 
+454 
+navigate the complexity of diverse clinical scenarios. Notably, CRISP also excelled in the 
+455 
+diagnosis of rare diseases, addressing a common challenge in clinical practice where labeled 
+456 
+
+PAGE 23
+data are limited and expertise may be lacking.50-52 Such capabilities position CRISP as a 
+457 
+valuable tool for resource-limited settings, potentially mitigating disparities in healthcare 
+458 
+access and supporting expert-level pathology where it is most needed.53 
+459 
+Prospective evaluation further reinforced CRISP’s feasibility as a clinically oriented tool. When 
+460 
+deployed in real-time intraoperative settings, CRISP demonstrated robust performance across 
+461 
+diverse patient cohorts and laboratory conditions, bridging the gap between experimental 
+462 
+development and practical implementation. The reader study further supports the clinical 
+463 
+relevance of CRISP, demonstrating performance comparable to an experienced pathologist 
+464 
+under time-constrained intraoperative conditions. Remarkably, CRISP alone enabled precise 
+465 
+surgical intervention in 92.6% of patients. The diagnostic errors are concentrated in 
+466 
+diagnostically challenging scenarios, which are also known to exhibit substantial inter-observer 
+467 
+variability, highlighting the importance of cautious interpretation in such cases. Future work 
+468 
+may address these limitations by incorporating more diverse training data and integrating 
+469 
+uncertainty-aware or human-in-the-loop strategies. In contexts where clinical resources are 
+470 
+limited, the ability to optimize resource allocation becomes essential.54,55 In routine cases, 
+471 
+CRISP-based triage reduced pathologists’ workload by 35% and prevented 75% of unnecessary 
+472 
+ancillary testing, while in complex cases, it provided a standardized reference to support 
+473 
+diagnostic reconsideration and reduce missed diagnoses. Additionally, CRISP demonstrates 
+474 
+comparable end-to-end processing time to pathologists in simulated intraoperative settings, 
+475 
+indicating its potential to provide timely support. These results highlight CRISP’s potential for 
+476 
+seamless integration into intraoperative diagnostic workflows, with tangible benefits for both 
+477 
+clinical efficiency and patient safety. Beyond pre-screening, CRISP could be integrated into 
+478 
+hybrid workflows through direct presentation of model predictions, fusion of algorithmic 
+479 
+outputs with expert assessments, or incorporation into agent-based diagnostic systems. Given 
+480 
+its robustness and generalizability, CRISP is well-positioned to be compatible with and readily 
+481 
+integrated into these collaborative paradigms. 
+482 
+Despite these promising findings, several limitations warrant consideration. First, while 
+483 
+extensive retrospective and prospective validation was performed on nearly 20,000 multi-center 
+484 
+intraoperative frozen sections and over 3,000 prospective multi-site cases, a fully prospective 
+485 
+interventional study is still necessary to assess its real-world deployment and impact on clinical 
+486 
+
+PAGE 24
+outcomes.56,57 Second, although CRISP demonstrated strong generalization across multiple 
+487 
+centers, further validation in more diverse ethnic and geographic populations is essential to 
+488 
+account for potential population-level bias and ensure global applicability.58,59 In addition, 
+489 
+broader long-term multi-institutional deployment may further support continuous monitoring 
+490 
+of real-world clinical performance. Finally, large-scale deployment and productization will 
+491 
+require addressing technical and operational challenges common to AI clinical translation, 
+492 
+including integration with existing workflows, regulatory compliance, and user training.60 
+493 
+In summary, CRISP establishes a versatile and clinically relevant AI paradigm for 
+494 
+intraoperative pathology, illustrating the transformative potential of large-scale, data-driven 
+495 
+approaches to advance precision surgery. By bridging the gap between technological innovation 
+496 
+and clinical practice, CRISP paves the way for the next generation of AI-enabled surgical 
+497 
+decision support, with broad implications for improving patient outcomes and healthcare 
+498 
+delivery worldwide. 
+499 
+ 
+500 
+Acknowledgements 
+501 
+We gratefully acknowledge the patients from Sun Yat-sen University Cancer Center (SYCC), 
+502 
+Zhujiang Hospital, Southern Medical University (ZJH), Jiangmen Central Hospital (JMH), 
+503 
+Zhongshan City People’s Hospital (ZSH), Nanfang Hospital, Southern Medical University 
+504 
+(NFH), Affiliated Cancer Hospital & Institute of Guangzhou Medical University (GZH), 
+505 
+Huizhou Central People’s Hospital (HZH), The Tenth Affiliated Hospital, Southern Medical 
+506 
+University, Dongguan People’s Hospital (DGH), Fudan University Shanghai Cancer Center 
+507 
+(FUSCC), and Tianjin Medical University Cancer Institute and Hospital (TCIH), as well as the 
+508 
+participants of the TCGA program, for providing tissue samples and clinical information for 
+509 
+this study. 
+510 
+ 
+511 
+Funding Statement 
+512 
+
+PAGE 25
+This work was supported by grants from the National Key R&D Program of China (No. 
+513 
+2021YFA1300200), the Natural Science Foundation of Guangdong Province (No. 
+514 
+2024A1515012448), Science and Technology Program of Guangzhou (No. 2025A04J3599), 
+515 
+Hong Kong Innovation and Technology Commission (Project No. MHP/002/22 and ITC-
+516 
+SKLNSD26SC01), Shenzhen Science and Technology Innovation Committee Fund (Project 
+517 
+No. KCXFZ20230731094059008), Research Grants Council of the Hong Kong Special 
+518 
+Administrative Region, China (Project No. R6003-22 and C4024-22GF) and Young Talents 
+519 
+Program of Sun Yat-sen University Cancer Center (No. YTP-SYSUCC-5260025). 
+520 
+ 
+521 
+Author contributions 
+522 
+Z.H.Z., F.T.Z., Y.P.Y., B.C., R.G.L., Y.W., H.C. and M.Y.C. conceived the study and designed the 
+523 
+experiments. Z.H.Z., Y.P.Y., B.C., X.K.Z., X.B.W., J.W.C, C.Y.Z., J.Y.Z., Y.Q.W., J.J.M., Z.Q.Z., 
+524 
+X.Q.L., J.L., R.G.L. and Y.W. collected the data for self-supervised learning. F.T.Z. and J.B.M. 
+525 
+performed model development for self-supervised learning. Z.H.Z., F.T.Z., X.K.Z. and M.Y.C. 
+526 
+organized the datasets and codebases for all downstream tasks. K.Z., X.Y.Z., D.X., and M.Y.C. 
+527 
+performed quality control of the codebase and the results. Z.H.Z., F.T.Z., H.C. and M.Y.C. prepared 
+528 
+the paper with input from all co-authors. H.C. and M.Y.C. supervised the research. 
+529 
+ 
+530 
+Conflict-of-interest disclosure  
+531 
+The authors declare no competing interests. 
+532 
+ 
+533 
+Figure Legends 
+534 
+Figure 1. Study Cohort Characteristics and Workflow. 
+535 
+(A) Dataset composition and study design. A clinical-grade frozen section dataset comprising 
+536 
+103,797 slides was constructed to train and validate CRISP, followed by real-world deployment for 
+537 
+prospective evaluation. (B) Data distribution across participating medical centers. (C) Distribution 
+538 
+of slides from 25 major anatomical sites. (D) Overview of the CRISP pretraining strategy. (E) 
+539 
+Performance comparison of CRISP with state-of-the-art pathology foundation models on 
+540 
+
+PAGE 26
+retrospective downstream tasks. For binary classification tasks, values represent the average 
+541 
+AUROC across datasets; for multi-class tasks, values represent the average macro-AUROC. (F) 
+542 
+Workflow of CRISP in real intraoperative settings. In a prospective cohort of over 3,000 patients, 
+543 
+CRISP delivered robust predictions on intraoperative frozen sections, reduced pathologists’ 
+544 
+workload, and provided standardized references for challenging cases. The picture in a is from 
+545 
+magnific.com. Icons are from flaticon.com and Biorender. 
+546 
+ 
+547 
+Figure 2. Performance of CRISP in common benign-malignant differentiation tasks. 
+548 
+(A) Task design and dataset utilization for common benign-malignant differentiation tasks. (B) 
+549 
+Clinical intraoperative application scenario, where CRISP’s diagnosis of lesion nature directly 
+550 
+determines the surgical approach. (C) Comparison of average AUROC across tasks between CRISP 
+551 
+and other foundation models. (D) Comparison of average F1 scores across tasks between CRISP 
+552 
+and other foundation models. (E) Composition of external validation cohorts across anatomical sites 
+553 
+(top) and AUROC comparison between CRISP and other models (bottom); error bars denote 95% 
+554 
+confidence intervals. (F) Specificity comparison of CRISP and other models at 90% sensitivity (top) 
+555 
+and 95% sensitivity (bottom) across tasks. (G) Attention visualization of CRISP predictions on 
+556 
+malignant lung (top) and breast (bottom) WSIs, showing from left to right the original WSI, CRISP 
+557 
+heatmap, and the most attended regions. For box plots in (D) and (F), center line represents median; 
+558 
+box bounds represent 25th and 75th percentiles; whiskers extend to the non-outlier range; outliers 
+559 
+are plotted individually. In (D) and (F), n = 21 tasks for each model comparison. Statistical 
+560 
+significance between models across tasks was assessed using paired Wilcoxon signed-rank tests 
+561 
+with Holm correction (two-sided); *P ≤ 0.05, **P ≤ 0.01, ***P ≤ 0.001. Data are presented as mean 
+562 
+± 95% CI in (E), with cohort sizes for each site indicated in the pie charts in (E). Representative 
+563 
+heatmaps in (G) are shown from one of the independent test cases; consistent predictive patterns 
+564 
+were observed across the test cohort. ZHDG, ZSH&HZH&DGH&GZH; ZHG, ZSH&HZH&GZH; 
+565 
+ZSGZ, ZSH&GZH. Icons are from flaticon.com and Biorender. 
+566 
+ 
+567 
+Figure 3. Evaluation of CRISP for intraoperative decision-making. 
+568 
+(A) Task design and dataset utilization for full-process intraoperative decision-making. (B) Data 
+569 
+composition of the external validation cohort for the PCNSLD task (top) and CNSLC task (bottom). 
+570 
+
+PAGE 27
+(C) Comparison of AUROC between CRISP and other models on external validation cohorts for the 
+571 
+PCNSLD task. (D) Number of lymphoma cases missed by each model in the PCNSLD task. (E) 
+572 
+Top-k accuracy comparison of CRISP and other models in external validation cohorts for the 
+573 
+CNSLC task. (F) Data composition of external validation cohorts for the OCCGS, OCFGS, TNDD, 
+574 
+and PGD tasks. (G) Performance comparison of CRISP and other models across eight PID-
+575 
+procedure decision tasks; Macro-AUC was used for multiclass tasks, and AUROC for binary tasks. 
+576 
+(H) Predicted probability distributions of CRISP across classes in the OCCGS task in the external 
+577 
+validation cohort. (I) Predicted probability distributions of CRISP across classes in the TNDD task 
+578 
+in the external validation cohort. (J) Top-k accuracy comparison of CRISP and other models in the 
+579 
+external validation cohort for the OCFGS task. (K) Specificity comparison of CRISP and other 
+580 
+models at 95% sensitivity for the PGD task in the external validation cohort. Error bars denote 95% 
+581 
+confidence intervals. Error bars denote 95% CI. For box plots in (H) and (I), center line represents 
+582 
+median; box bounds represent 25th and 75th percentiles; whiskers extend to the non-outlier range; 
+583 
+outliers are plotted individually. Data are presented as mean ± 95% CI in (C), (E), (J), and (K). 
+584 
+Statistical significance was assessed using one-way ANOVA with Tukey's HSD test for pairwise 
+585 
+comparisons (two-sided) in (H) and (I); *P ≤ 0.05, **P ≤ 0.01, ***P ≤ 0.001. Exact cohort sizes for 
+586 
+each task are provided in Supplementary Table S3.1. NFZS, NFH&ZSH; OB, Other Benign; FL, 
+587 
+Follicular Lesion; PTC, Papillary Thyroid Carcinoma. Icons are from flaticon.com and Biorender. 
+588 
+ 
+589 
+Figure. 4. Performance of CRISP in late intraoperative assessment. 
+590 
+(A) Data composition of downstream tasks in late intraoperative assessment. (B) Performance 
+591 
+comparison of CRISP and other models across cohorts for the SLMD (left), CLMD (middle), and 
+592 
+BSMA (right) tasks, evaluated by AUROC (top) and specificity at 95% sensitivity (bottom). (C) 
+593 
+Comparison of the total number of positive cases missed by each model in the SLMD (top), CLMD 
+594 
+(middle), and BSMA (bottom) tasks. (D) Representative positive frozen sections (top) and CRISP 
+595 
+attention visualizations (bottom) in the SLMD (left), CLMD (middle), and BSMA (right) tasks. (E) 
+596 
+Number of tasks among 20 full-process intraoperative decision-making tasks where each model 
+597 
+achieved top-1 (top) or top-2 (bottom) AUROC. Error bars denote 95% CI. Data are presented as 
+598 
+mean ± 95% CI in (B). Exact cohort sizes for each task are provided in Supplementary Table S3.1. 
+599 
+Representative images in (D) are shown from one of the independent test cases; consistent predictive 
+600 
+
+PAGE 28
+patterns were observed across the test cohort. 
+601 
+ 
+602 
+Figure. 5 . Pan-cancer detection performance of CRISP. 
+603 
+(A) Data utilization and experimental design of the pan-cancer detection task. (B) Data composition 
+604 
+of the external validation cohorts. (C) Overall AUROC comparison across external validation 
+605 
+cohorts. (D) Data composition (top) and AUROC comparison (bottom) across different tissue sites; 
+606 
+in the heatmap, deeper color indicates better-performing models. (E) Number of tasks (out of 51) 
+607 
+where each model achieved top-1 (top) or top-2 (bottom) AUROC in external validation. (F) 
+608 
+Proportion of rare cancers in the external validation cohorts. (G) AUROC comparison between 
+609 
+observed and unobserved tissue sites across models; crosses denote observed sites, circles denote 
+610 
+unobserved origins. (H) AUROC comparison in rare cancers across models; crosses denote all rare 
+611 
+cancers, circles denote the subgroup of rare cancers from unobserved sites. (I) Comparison of 
+612 
+specificity at 95% sensitivity in rare cancers. (J) Comparison of specificity at 95% sensitivity in 
+613 
+unobserved tissue sites. Error bars denote 95% confidence intervals. Data are presented as mean ± 
+614 
+95% CI in (C). For box plots in (I) and (J), center line represents median; box bounds represent 25th 
+615 
+and 75th percentiles; whiskers extend to the non-outlier range; outliers are plotted individually. In 
+616 
+(I) and (J), n = 23 and 33 tasks for each model comparison. Statistical significance between models 
+617 
+was assessed using paired Wilcoxon signed-rank tests with Holm correction (two-sided); *P ≤ 0.05, 
+618 
+**P ≤ 0.01, ***P ≤ 0.001. Exact cohort sizes for each task are provided in Supplementary Table 
+619 
+S1.9. HDGZ, HZH&DGH&GZH. Icons are from flaticon.com and Biorender. 
+620 
+ 
+621 
+Figure 6. Prospective validation of the clinical utility of CRISP. 
+622 
+(A) Data composition and experimental design of the real-world deployment study. (B) Data 
+623 
+composition of each downstream task and AUROC comparison across different models. (C) Overall 
+624 
+ROC curve of CRISP compared with diagnostic performance of three pathologists. Pathologist 1 
+625 
+represents a senior pathologist with 10 years of clinical experience; Pathologist 2 and Pathologist 3 
+626 
+represent junior pathologists with 2 years of experience each. (D) AUROC comparison of CRISP 
+627 
+predictions across histotechnologist subgroups. (E) AUROC of CRISP across all cases versus 
+628 
+difficult cases in each downstream task; crosses denote all cases, circles denote the difficult-case 
+629 
+subgroup. (F) Distribution of CRISP prediction scores for all difficult malignant and benign cases. 
+630 
+
+PAGE 29
+(G) Confusion matrix of CRISP predictions for negative lymph nodes, micrometastases, and 
+631 
+macrometastases in the SLMD task. (H) Distribution of CRISP prediction scores across negative, 
+632 
+micrometastatic, and macrometastatic cases. (I) Visualization heatmap of CRISP predictions in a 
+633 
+representative micrometastatic case. (J) AUROC of CRISP across all cases versus cases requiring 
+634 
+immunohistochemistry (IHC) in each downstream task; crosses denote all cases, circles denote the 
+635 
+IHC subgroup. (K) Confusion matrix of CRISP predictions in the IHC-required subgroup. (L) 
+636 
+Waterfall plot of CRISP predictions across all 2,071 patients from the SYCC cohort. Using a 
+637 
+predefined threshold, 152 typical negative and 571 typical positive patients were identified. (M) 
+638 
+Comparison of pathologists’ diagnostic sensitivity and specificity before and after applying the 
+639 
+CRISP-assisted prescreening strategy. Error bars denote 95% confidence intervals. Data are 
+640 
+presented as mean ± 95% CI in (B) and (M). Box plots in (F) and (H) show the distribution of CRISP 
+641 
+prediction scores; center line represents median; box bounds represent 25th and 75th percentiles; 
+642 
+whiskers extend to the non-outlier range; outliers are plotted individually. Statistical significance 
+643 
+between groups was assessed using two-sided Student's t-test in (F), and one-way ANOVA with 
+644 
+Tukey's HSD test for pairwise comparisons (two-sided) in (H); *P ≤ 0.05, **P ≤ 0.01, ***P ≤ 0.001. 
+645 
+Cohort sizes for each site were indicated in the pie charts in (B). Representative heatmap in (I) is 
+646 
+shown from one of the independent test cases; consistent predictive patterns were observed across 
+647 
+the test cases with micrometastases. Micro, Micrometastases; Macro, Macrometastases. Icons are 
+648 
+from flaticon.com and Biorender. 
+649 
+ 
+650 
+Reference 
+651 
+1. 
+Gal, A.A. & Cagle, P.T. The 100-Year Anniversary of the Description of the 
+652 
+Frozen Section Procedure. JAMA 294, 3135-3137 (2005). 
+653 
+2. 
+Sullivan, R., et al. Global cancer surgery: delivering safe, affordable, and 
+654 
+timely cancer surgery. Lancet Oncol. 16, 1193-1224 (2015). 
+655 
+3. 
+Taxy, J.B. Frozen Section and the Surgical Pathologist: A Point of View. Arch. 
+656 
+Pathol. Lab. Med. 133, 1135-1138 (2009). 
+657 
+4. 
+Lyman, G.H., et al. American Society of Clinical Oncology guideline 
+658 
+recommendations for sentinel lymph node biopsy in early-stage breast cancer. 
+659 
+J. Clin. Oncol. 23, 7703-7720 (2005). 
+660 
+5. 
+Han, Y. & Cai, G. Intraoperative frozen section diagnosis of lung specimens: 
+661 
+An updated review. Semin. Diagn. Pathol. 42, 150901 (2025). 
+662 
+6. 
+McIntosh, E.R., Harada, S., Drwiega, J., Brandwein-Gensler, M.S. & Gordetsky, 
+663 
+J. Frozen section: guiding the hands of surgeons? Ann. Diagn. Pathol. 19, 
+664 
+
+PAGE 30
+326-329 (2015). 
+665 
+7. 
+Jaafar, 
+H. 
+Intra-operative 
+frozen 
+section 
+consultation: 
+concepts, 
+666 
+applications and limitations. The Malaysian journal of medical sciences: MJMS 
+667 
+13, 4 (2006). 
+668 
+8. 
+Ferreiro, J.A., Myers, J.L. & Bostwick, D.G. Accuracy of Frozen Section 
+669 
+Diagnosis in Surgical Pathology: Review of a 1-Year Experience With 24,880 
+670 
+Cases at Mayo Clinic Rochester. Mayo Clin. Proc. 70, 1137-1141 (1995). 
+671 
+9. 
+Uematsu, Y., Owai, Y., Okita, R., Tanaka, Y. & Itakura, T. The usefulness and 
+672 
+problem of intraoperative rapid diagnosis in surgical neuropathology. Brain 
+673 
+Tumor Pathol. 24, 47-52 (2007). 
+674 
+10. 
+Yoshai, E., et al. Enhancing frozen histological section images using 
+675 
+permanent-section-guided deep learning with nuclei attention. Sci. Rep. 15, 
+676 
+30594 (2025). 
+677 
+11. 
+Varghese, C., Harrison, E.M., O’Grady, G. & Topol, E.J. Artificial 
+678 
+intelligence in surgery. Nature Medicine 30, 1257-1268 (2024). 
+679 
+12. 
+He, T., et al. Pathology diagnosis of intraoperative frozen thyroid lesions 
+680 
+assisted by deep learning. BMC Cancer 24, 1069 (2024). 
+681 
+13. 
+Liu, Y., et al. Deep learning to predict cervical lymph node metastasis from 
+682 
+intraoperative frozen section of tumour in papillary thyroid carcinoma: a 
+683 
+multicentre diagnostic study. EClinicalMedicine 60, 102007 (2023). 
+684 
+14. 
+Kim, Y.G., et al. Challenge for Diagnostic Assessment of Deep Learning 
+685 
+Algorithm for Metastases Classification in Sentinel Lymph Nodes on Frozen 
+686 
+Tissue Section Digital Slides in Women with Breast Cancer. Cancer Res. Treat. 
+687 
+52, 1103-1111 (2020). 
+688 
+15. 
+Vorontsov, E., et al. A foundation model for clinical-grade computational 
+689 
+pathology and rare cancers detection. Nature Medicine 30, 2924-2935 (2024). 
+690 
+16. 
+Chen, R.J., et al. Towards a general-purpose foundation model for 
+691 
+computational pathology. Nature Medicine 30, 850-862 (2024). 
+692 
+17. 
+Lu, M.Y., et al. A visual-language foundation model for computational 
+693 
+pathology. Nature Medicine 30, 863-874 (2024). 
+694 
+18. 
+Ma, J., et al. PathBench: A comprehensive comparison benchmark for pathology 
+695 
+foundation models towards precision oncology. arXiv preprint arXiv:2505.20202 
+696 
+(2025). 
+697 
+19. 
+Guo, F., et al. Foundation models in bioinformatics. Natl Sci Rev 12, nwaf028 
+698 
+(2025). 
+699 
+20. 
+Ochi, M., Komura, D. & Ishikawa, S. Pathology Foundation Models. Jma j 8, 
+700 
+121-130 (2025). 
+701 
+21. 
+Renne, 
+S.L., 
+Redaelli, 
+S. 
+& Paolini, B. 
+Cryoembedder, 
+automatic 
+702 
+processor/stainer, liquid nitrogen freezing, and manual staining for frozen 
+703 
+section examination: A comparative study. Acta Histochem. 121, 761-764 (2019). 
+704 
+22. 
+Ozyoruk, K.B., et al. A deep-learning model for transforming the style of 
+705 
+tissue images from cryosectioned to formalin-fixed and paraffin-embedded. Nat. 
+706 
+Biomed. Eng. 6, 1407-1419 (2022). 
+707 
+23. 
+Ho, M.M., Dubey, S., Chong, Y., Knudsen, B. & Tasdizen, T. F2FLDM: Latent 
+708 
+
+PAGE 31
+Diffusion Models with Histopathology Pre-Trained Embeddings for Unpaired 
+709 
+Frozen Section to FFPE Translation. in 2025 IEEE/CVF Winter Conference on 
+710 
+Applications of Computer Vision (WACV) 4382-4391 (2025). 
+711 
+24. 
+Falahkheirkhah, K., et al. A generative adversarial approach to facilitate 
+712 
+archival-quality histopathologic diagnoses from frozen tissue sections. Lab. 
+713 
+Invest. 102, 554-559 (2022). 
+714 
+25. 
+Nagendran, M., et al. Artificial intelligence versus clinicians: systematic 
+715 
+review of design, reporting standards, and claims of deep learning studies. 
+716 
+BMJ 368, m689 (2020). 
+717 
+26. 
+Tham, Y.C., et al. Building the world’s first truly global medical foundation 
+718 
+model. Nature Medicine (2025). 
+719 
+27. 
+Chang, K., et al. The Cancer Genome Atlas Pan-Cancer analysis project. Nat. 
+720 
+Genet. 45, 1113-1120 (2013). 
+721 
+28. 
+Wang, X., et al. A pathology foundation model for cancer diagnosis and 
+722 
+prognosis prediction. Nature 634, 970-978 (2024). 
+723 
+29. 
+Zimmermann, E., et al. Virchow2: Scaling self-supervised mixed magnification 
+724 
+models in pathology. arXiv preprint arXiv:2408.00738 (2024). 
+725 
+30. 
+Dismukes, J., et al. Prophylactic Central Neck Dissection in Papillary Thyroid 
+726 
+Carcinoma: All Risks, No Reward. J. Surg. Res. 264, 230-235 (2021). 
+727 
+31. 
+Huang, T.W., et al. Recommendation for axillary lymph node dissection in 
+728 
+women with early breast cancer and sentinel node metastasis: A systematic 
+729 
+review and meta-analysis of randomized controlled trials using the GRADE 
+730 
+system. Int. J. Surg. 34, 73-80 (2016). 
+731 
+32. 
+Bundred, J.R., et al. Margin status and survival outcomes after breast cancer 
+732 
+conservation surgery: prospectively registered systematic review and meta-
+733 
+analysis. BMJ 378, e070346 (2022). 
+734 
+33. 
+Yang, Z., et al. A foundation model for generalizable cancer diagnosis and 
+735 
+survival prediction from histopathological images. Nature Communications 16, 
+736 
+2366 (2025). 
+737 
+34. 
+Institute, N.C. About Rare Cancers.  (2019). 
+738 
+35. 
+Society, A.C. New Case Estimates by Cancer Type, 2025. Vol. 2025 (2025). 
+739 
+36. 
+Rajpurkar, P., Chen, E., Banerjee, O. & Topol, E.J. AI in health and medicine. 
+740 
+Nature Medicine 28, 31-38 (2022). 
+741 
+37. 
+Xu, H., et al. A whole-slide foundation model for digital pathology from 
+742 
+real-world data. Nature 630, 181-188 (2024). 
+743 
+38. 
+Campanella, G., et al. Real-world deployment of a fine-tuned pathology 
+744 
+foundation model for lung cancer biomarker detection. Nature Medicine (2025). 
+745 
+39. 
+Banerji, C.R.S., Chakraborti, T., Harbron, C. & MacArthur, B.D. Clinical AI 
+746 
+tools must convey predictive uncertainty for each individual patient. Nature 
+747 
+Medicine 29, 2996-2998 (2023). 
+748 
+40. 
+Kappen, T.H., et al. Evaluating the impact of prediction models: lessons 
+749 
+learned, challenges, and recommendations. Diagn Progn Res 2, 11 (2018). 
+750 
+41. 
+Meara, J.G., et al. Global Surgery 2030: evidence and solutions for achieving 
+751 
+health, welfare, and economic development. The Lancet 386, 569-624 (2015). 
+752 
+
+PAGE 32
+42. 
+Dobson, G.P. Trauma of major surgery: A global problem that is not going away. 
+753 
+Int. J. Surg. 81, 47-54 (2020). 
+754 
+43. 
+ARPA-H. The Big Question: Precision Surgical Interventions.  (2024). 
+755 
+44. 
+Boer, M.d., et al. Micrometastases or Isolated Tumor Cells and the Outcome 
+756 
+of Breast Cancer. New England Journal of Medicine 361, 653-663 (2009). 
+757 
+45. 
+Pleijhuis, R.G., et al. Obtaining adequate surgical margins in breast-
+758 
+conserving therapy for patients with early-stage breast cancer: current 
+759 
+modalities and future directions. Ann. Surg. Oncol. 16, 2717-2730 (2009). 
+760 
+46. 
+Loftus, T.J., et al. Artificial Intelligence and Surgical Decision-making. 
+761 
+JAMA Surgery 155, 148-158 (2020). 
+762 
+47. 
+Stockl, T., et al. Accuracy of Frozen Section in the Diagnosis of 
+763 
+Gynecological Tumors: 5 Years of Experience from a Tertiary Center. Gynecol. 
+764 
+Oncol. 139, 598 (2015). 
+765 
+48. 
+Kondepudi, A., et al. Foundation models for fast, label-free detection of 
+766 
+glioma infiltration. Nature 637, 439-445 (2025). 
+767 
+49. 
+Fu, X., et al. A foundation model of transcription across human cell types. 
+768 
+Nature 637, 965-973 (2025). 
+769 
+50. 
+Wang, S., et al. Annotation-efficient deep learning for automatic medical 
+770 
+image segmentation. Nature Communications 12, 5915 (2021). 
+771 
+51. 
+Hu, X., Zeng, D., Xu, X. & Shi, Y. Semi-supervised Contrastive Learning 
+772 
+for Label-Efficient Medical Image Segmentation. in Medical Image Computing 
+773 
+and Computer Assisted Intervention – MICCAI 2021 (eds. de Bruijne, M., et 
+774 
+al.) 481-490 (Springer International Publishing, Cham, 2021). 
+775 
+52. 
+Lu, M.Y., et al. Data-efficient and weakly supervised computational pathology 
+776 
+on whole-slide images. Nat. Biomed. Eng. 5, 555-570 (2021). 
+777 
+53. 
+Walsh, E. & Orsi, N.M. The current troubled state of the global pathology 
+778 
+workforce: a concise review. Diagn. Pathol. 19, 163 (2024). 
+779 
+54. 
+Robboy, S.J., Black-Schaffer, W.S. & Wheeler, T.M. International Medical 
+780 
+Graduates and the Shortage of US Pathologists. Arch. Pathol. Lab. Med. 148, 
+781 
+1181-1182 (2024). 
+782 
+55. 
+Zhang, X., Lin, D., Pforsich, H. & Lin, V.W. Physician workforce in the United 
+783 
+States of America: forecasting nationwide shortages. Human Resources for 
+784 
+Health 18, 8 (2020). 
+785 
+56. 
+Cruz Rivera, S., et al. Guidelines for clinical trial protocols for 
+786 
+interventions involving artificial intelligence: the SPIRIT-AI extension. 
+787 
+Nature Medicine 26, 1351-1363 (2020). 
+788 
+57. 
+Ibrahim, H., et al. Reporting guidelines for clinical trials of artificial 
+789 
+intelligence interventions: the SPIRIT-AI and CONSORT-AI guidelines. Trials 
+790 
+22, 11 (2021). 
+791 
+58. 
+Vyas, D.A., Eisenstein, L.G. & Jones, D.S. Hidden in Plain Sight — 
+792 
+Reconsidering the Use of Race Correction in Clinical Algorithms. New England 
+793 
+Journal of Medicine 383, 874-882 (2020). 
+794 
+59. 
+Obermeyer, Z., Powers, B., Vogeli, C. & Mullainathan, S. Dissecting racial 
+795 
+bias in an algorithm used to manage the health of populations. Science 366, 
+796 
+
+PAGE 33
+447-453 (2019). 
+797 
+60. 
+Lüscher, T.F., Wenzl, F.A., D’Ascenzo, F., Friedman, P.A. & Antoniades, C. 
+798 
+Artificial intelligence in cardiovascular medicine: clinical applications. 
+799 
+Eur. Heart J. 45, 4291-4304 (2024). 
+800 
+ 
+801 
+Methods 
+802 
+Ethical approval 
+803 
+This study was approved by the Ethics Committee of Sun Yat-sen University Cancer Center 
+804 
+(Approval No. SL-B2024-708) and carried out in compliance with the Declaration of Helsinki. 
+805 
+This was a prospective observational study, not an interventional trial. Written informed consent 
+806 
+was obtained from all subjects enrolled in the prospective cohort, while the requirement for 
+807 
+informed consent was waived for retrospective cohorts. The study was registered in the Chinese 
+808 
+Clinical Trial Registry (ChiCTR2500106350) as a retrospective registration. 
+809 
+ 
+810 
+Large-scale intraoperative frozen section dataset 
+811 
+To develop a clinically-oriented foundation model for intraoperative pathology, we constructed 
+812 
+a large-scale dataset of frozen section whole-slide images (WSIs), comprising 103,797 slides 
+813 
+from 51,186 patients. Retrospective data were collected from eight independent medical centers, 
+814 
+including Sun Yat-sen University Cancer Center (SYCC), Zhujiang Hospital, Southern Medical 
+815 
+University (ZJH), Jiangmen Central Hospital (JMH), Zhongshan City People’s Hospital (ZSH), 
+816 
+Nanfang Hospital, Southern Medical University (NFH), Affiliated Cancer Hospital & Institute 
+817 
+of Guangzhou Medical University (GZH), Huizhou Central People’s Hospital (HZH), and The 
+818 
+Tenth Affiliated Hospital, Southern Medical University, Dongguan People’s Hospital (DGH). 
+819 
+All slides collected from the participating centers were obtained from routine clinical 
+820 
+intraoperative consultations. In total, these cohorts encompassed 38,253 patients and 81,678 
+821 
+intraoperative frozen WSIs collected between May 2017 and July 2024. The following 
+822 
+inclusion criteria were applied to all cases: (1) at least one available intraoperative frozen 
+823 
+section; (2) presence of identifiable tissue on the slide; (3) absence of scanning artifacts such 
+824 
+as defocus or blurring; and (4) availability of complete diagnostic information, including 
+825 
+intraoperative frozen section and corresponding postoperative paraffin section reports, as well 
+826 
+as basic clinical characteristics (e.g., age and sex). Slides were manually reviewed by two 
+827 
+
+PAGE 34
+experienced pathologists based on thumbnail inspection to assess tissue presence and image 
+828 
+quality, and only those with severe scanning-related artifacts (e.g., out-of-focus regions or 
+829 
+extensive image degradation) that precluded tissue recognition were excluded, while intrinsic 
+830 
+artifacts inherent to frozen section preparation were retained. The detailed inclusion period, 
+831 
+number of patients, number of slides, and baseline characteristics of each cohort are 
+832 
+summarized in Supplementary Tables S1.1-1.8. To further increase histological diversity, we 
+833 
+additionally curated 15,975 frozen WSIs from The Cancer Genome Atlas (TCGA). The detailed 
+834 
+selection process was as follows: diagnostic slides prepared from formalin-fixed paraffin-
+835 
+embedded (FFPE) tissues were excluded, resulting in 21,094 slides. These were subsequently 
+836 
+reviewed by two experienced pathologists, and immunohistochemistry as well as other non-
+837 
+frozen section slides were removed. To ensure consistency, all patients were categorized into 
+838 
+24 major anatomical sites according to the definitions provided by the Genomic Data Commons 
+839 
+(GDC) system.61 For model development, WSIs from ZJH, JMH, TCGA, and a subset of SYCC 
+840 
+(43,013 slides) were used for CRISP pretraining. The remaining SYCC slides (5,178) were 
+841 
+reserved for downstream task development and internal evaluation, ensuring no data leakage 
+842 
+between pretraining and testing. External validation was performed using ZSH, NFH, GZH, 
+843 
+HZH, and DGH cohorts.  
+844 
+For the prospective real-world deployment study of CRISP, patients undergoing thyroid, breast, 
+845 
+or lung surgery with intraoperative consultation at Sun Yat-sen University Cancer Center were 
+846 
+consecutively recruited between November 2024 and July 2025, representing the most common 
+847 
+sites for intraoperative consultation. Inclusion criteria were: (1) at least one available 
+848 
+intraoperative frozen section; (2) presence of identifiable tissue on the slide; (3) absence of 
+849 
+scanning artifacts such as defocus or blurring; (4) complete diagnostic and clinical information; 
+850 
+(5) age ≥18 years at the time of surgery; and (6) documented informed consent. Following 
+851 
+screening, a total of 2,071 patients with 4,143 intraoperative frozen sections were included. To 
+852 
+further assess geographical generalizability, two additional prospective cohorts from FUSCC 
+853 
+and TCIH were included, with the same inclusion criteria applied. To simulate real-world 
+854 
+application, 100 consecutive cases from SYCC were included for simulated clinical deployment 
+855 
+analysis. Recruitment periods and detailed clinical characteristics for each cohort are provided 
+856 
+in Supplementary Tables S1.9-1.11. 
+857 
+
+PAGE 35
+ 
+858 
+Data digitization and preprocessing  
+859 
+All clinical intraoperative frozen sections included in this study were digitized at 40× 
+860 
+magnification (0.25 μm/pixel). Slides from the SYCC cohort were primarily scanned using an 
+861 
+Aperio AT2 scanner (Leica Biosystems, Wetzlar, Germany) and stored in SVS format. Data 
+862 
+from the ZJH, GZH, HZH, and DGH cohorts were scanned with a PHILIPS Ultra-Fast Scanner 
+863 
+(Philips Electronics N.V., Amsterdam, Netherlands) and saved in iSyntax format. NFH and 
+864 
+ZSH cohort slides were mainly scanned using a KF-PRO-120-HI scanner (Jiangfeng Biotech, 
+865 
+Ningbo, China) and stored in KFB format. JMH cohort slides were scanned using an SQS-600P 
+866 
+scanner (Shengqiang Technology Co., Ltd., Shenzhen, China) and saved in SDPC format. 
+867 
+Slides from the prospective SYCC cohort were mainly scanned with a PHILIPS Ultra-Fast 
+868 
+Scanner (Philips Electronics N.V., Amsterdam, Netherlands) and saved in iSyntax format. 
+869 
+Slides from the FUSCC and TCIH cohorts were mainly scanned using an Aperio AT2 scanner 
+870 
+(Leica Biosystems, Wetzlar, Germany) and stored in SVS format. 
+871 
+WSIs were processed using vendor-provided API tools to extract full-slide thumbnail images. 
+872 
+Given the extensive presence of non-informative background areas, tissue regions were 
+873 
+automatically segmented using the CLAM toolkit to identify and isolate relevant histological 
+874 
+content for subsequent analysis.52 Segmented tissue regions were partitioned into a series of 
+875 
+non-overlapping patches of 512×512 pixels at a resolution of 0.25 microns per pixel (MPP). 
+876 
+To mitigate center-specific biases introduced by variations in optical resolution, slide 
+877 
+preparation, and scanning settings, redundant patches from higher-resolution images were 
+878 
+downsampled. This approach ensured a balanced representation of patches from each center, 
+879 
+reducing the risk of model overfitting to specific institutional characteristics. In total, 
+880 
+approximately 50 million patches were extracted from 81,667 slides for model pretraining. 
+881 
+No color normalization (e.g., Vahadane or Macenko) was applied in order to preserve inter-
+882 
+institutional variability and reflect real-world clinical conditions.  
+883 
+ 
+884 
+Network architecture 
+885 
+Building on previous studies of FFPE-based pathology foundation models, we focus here on 
+886 
+intraoperative frozen sections and introduce CRISP, a specialized pathology foundation model 
+887 
+
+PAGE 36
+for their analysis. CRISP is built upon Virchow2, a state-of-the-art pathology foundation model 
+888 
+pretrained on 1 million hematoxylin and eosin (H&E)-stained WSIs.15,29 Virchow2 was selected 
+889 
+as the backbone model based on prior large-scale benchmarking studies demonstrating its 
+890 
+strong overall performance across multiple pathology tasks.18 To adapt this general-purpose 
+891 
+model to the frozen section domain while preserving its learned representations and 
+892 
+generalizability, we employed low-rank adaptation (LoRA).62 LoRA is a parameter-efficient 
+893 
+fine-tuning (PEFT) method that injects trainable rank decomposition matrices into the self-
+894 
+attention layers of the transformer architecture, keeping the remaining model weights frozen 
+895 
+during training. This approach drastically reduces the number of trainable parameters, 
+896 
+computational overhead, and risk of catastrophic forgetting. In this study, LoRA modules were 
+897 
+integrated into the query and value projection matrices of each attention layer, initialized with 
+898 
+a rank of 8 and a scaling factor of 16. This configuration resulted in only 2 million trainable 
+899 
+parameters, constituting merely 0.3% of the model’s total 633 million parameters. 
+900 
+ 
+901 
+Model training 
+902 
+For pretraining, we utilized DINO, a self-supervised learning strategy effective for learning 
+903 
+visual representations without labeled data.63 Specifically, DINO operates on a teacher-student 
+904 
+paradigm in which two different augmented views of the same image are processed by the 
+905 
+student and teacher networks, respectively. The student network learns to predict the output 
+906 
+distribution of the teacher network, thereby encouraging the learning of semantically 
+907 
+meaningful features without manual annotation. The teacher network’s weights are updated via 
+908 
+an exponential moving average (EMA) of the student weights, with a momentum coefficient 
+909 
+set to 0.9995. The model was trained using the AdamW optimizer (𝛽1= 0.9, 𝛽2= 0.999) with 
+910 
+mixed-precision (FP16) arithmetic to accelerate training and reduce memory consumption. 
+911 
+Pretraining was conducted using 8 NVIDIA H800 GPUs with a batch size of 384 for 640,000 
+912 
+iterations. 
+913 
+For downstream intraoperative tasks, a slide-level prediction pipeline was implemented. In 
+914 
+computational pathology, WSIs are typically too large to be processed directly by deep learning 
+915 
+models. Therefore, the analysis pipeline was divided into three steps: patch-level feature 
+916 
+extraction, feature aggregation, and slide-level prediction. In this study, each 512×512 patch 
+917 
+
+PAGE 37
+(at 0.25 MPP) was resized to 224×224 pixels to serve as input to the frozen CRISP encoder; 
+918 
+this corresponds to the same field of view as 256×256 patches at 0.5 MPP, a commonly adopted 
+919 
+setting in baseline models, thereby ensuring consistent input resolution and fair comparison 
+920 
+across models.16,37 From the final layer of the transformer, the [CLS] token embedding and the 
+921 
+mean-pooled embeddings of all patch tokens were concatenated, forming a comprehensive 
+922 
+2,560-dimensional feature vector for each patch. To identify diagnostically critical regions, we 
+923 
+employed an attention-based multiple instance learning (ABMIL) model as the feature 
+924 
+aggregator.64 The ABMIL module learns to assign an attention weight to each patch feature 
+925 
+vector, effectively highlighting salient patches and generating a weighted slide-level feature 
+926 
+representation. This aggregated feature vector was then passed through a single fully connected 
+927 
+classification layer to produce the final slide-level prediction. For supervised downstream tasks, 
+928 
+the cross-entropy loss function was used. Only the ABMIL aggregator and the classification 
+929 
+layer were trained from scratch, while the CRISP encoder remained frozen to leverage the 
+930 
+pretrained features. The model was optimized using the Adam optimizer with a learning rate of 
+931 
+2×10-4 and weight decay of 1×10⁻⁵. Early stopping based on validation loss was implemented 
+932 
+to halt training upon performance saturation and prevent overfitting. In all downstream task 
+933 
+comparisons, identical strategies were employed across comparator models to guarantee 
+934 
+fairness in performance assessment. 
+935 
+ 
+936 
+Downstream task  
+937 
+To comprehensively evaluate CRISP, 98 retrospective downstream tasks were established. The 
+938 
+reference labels for all tasks were based on postoperative FFPE morphology integrated with 
+939 
+immunohistochemical and molecular analyses, and were independently verified by a 
+940 
+pathologist. Aggregator development for all downstream tasks was conducted using the SYCC 
+941 
+cohort, with patients in the internal test sets kept independent from the training and validation 
+942 
+sets to prevent data leakage. Data were randomly split at the patient level into training, 
+943 
+validation, and test sets to prevent data leakage, with stratification by outcome labels; identical 
+944 
+splits were used for all models to ensure fair comparison. No explicit rebalancing strategies 
+945 
+were applied in order to preserve the original class distribution. A shared set of hyperparameters 
+946 
+was used across all tasks and models to ensure a fair comparison. Baseline models were selected 
+947 
+
+PAGE 38
+based on their relevance to histopathology foundation modeling, as well as the availability of 
+948 
+publicly accessible implementations or pretrained weights, to ensure reproducibility and fair 
+949 
+comparison. 
+950 
+Classification of common benign and malignant lesions: Each benign-malignant 
+951 
+classification task was formulated as an independent slide-level binary problem, with slides 
+952 
+containing malignant regions designated as positive. Six prevalent tissue sites were included: 
+953 
+lung, breast, thyroid, head and neck, brain, and ovary. The task encompassed commonly 
+954 
+encountered benign and malignant lesions, such as pulmonary adenocarcinoma and 
+955 
+inflammatory nodules, to replicate large-scale clinical pre-screening scenarios. The abdominal 
+956 
+metastasis classification task was incorporated to evaluate CRISP’s capability in distinguishing 
+957 
+complex metastatic lesions. Abdominal metastases represent a frequent dissemination route for 
+958 
+multiple cancers and often signal disease progression; accurate identification can therefore 
+959 
+inform patient management and improve clinical outcomes.65,66 Malignant abdominal nodules 
+960 
+comprised diverse metastatic cancers, including ovarian, intestinal, and gastric origins 
+961 
+(Supplementary Table S6.1). Model performance was assessed on 2,771 slides across five 
+962 
+external cohorts, with dataset partitions detailed in Supplementary Table S2.1. For comparison, 
+963 
+a case-level aggregation strategy was implemented by concatenating slide-level features from 
+964 
+the same case to form case-level representations. Identical data splits and evaluation protocols 
+965 
+were used to ensure fair comparison. 
+966 
+Early intraoperative decision: The primary central nervous system lymphoma differentiation 
+967 
+(PCNSLD) task was defined as a slide-level binary classification, aimed at accurately 
+968 
+distinguishing primary central nervous system lymphoma (PCNSL) from other brain lesions. 
+969 
+PCNSL is recognized as one of the most common primary malignant brain tumors, exhibiting 
+970 
+poor prognosis, presenting diagnostic challenges, and being primarily managed with 
+971 
+radiotherapy and chemotherapy, in contrast to other brain lesions.67 Accurate intraoperative 
+972 
+identification of PCNSL can prevent unnecessary surgical interventions and facilitate precision 
+973 
+treatment. Slides containing PCNSL were labeled positive, whereas slides of other common 
+974 
+brain lesions—including gliomas, medulloblastomas, central neurocytomas, metastases, and 
+975 
+inflammatory lesions—were labeled negative. External validation was performed using 461 
+976 
+slides from the NFH cohort. The central nervous system lesion classification (CNSLC) task 
+977 
+
+PAGE 39
+comprised the same dataset but was formulated as a fine-grained multi-class classification to 
+978 
+distinguish among the aforementioned lesion types. Detailed dataset partitions for 
+979 
+intraoperative decision tasks are provided in Supplementary Table S3.1. 
+980 
+Mid-procedure decision: The ovarian cancer coarse-grained subtyping (OCCGS) task 
+981 
+involved slide-level three-class classification to differentiate primary ovarian carcinomas, 
+982 
+metastatic ovarian tumors, and benign ovarian lesions. As the ovary is a common site of 
+983 
+metastasis from extragenital malignancies, distinguishing primary from metastatic tumors 
+984 
+remains a critical diagnostic challenge during surgery.68,69 Accurate classification informs the 
+985 
+surgical extent and guides additional treatment directed at the primary site. The ovarian cancer 
+986 
+fine-grained subtyping (OCCFS) task shared the same dataset but focused on fine-grained 
+987 
+classification of primary ovarian carcinoma subtypes, including serous, clear cell, and 
+988 
+endometrioid adenocarcinomas. 
+989 
+The thyroid nodule differential diagnosis (TNDD) task involved a slide-level three-class 
+990 
+classification of thyroid nodules into papillary thyroid carcinoma, follicular-patterned tumors, 
+991 
+and benign lesions such as nodular goiter. Frozen section diagnosis of thyroid nodules is critical 
+992 
+for intraoperative surgical decision-making, as papillary carcinoma and nodular goiter often 
+993 
+dictate different surgical extents, while follicular-patterned tumors typically require diagnostic 
+994 
+surgery pending definitive FFPE evaluation.70  
+995 
+The parathyroid gland detection (PGD) task was a slide-level binary classification for detecting 
+996 
+parathyroid tissue in thyroidectomy frozen sections. Inadvertent parathyroid resection, 
+997 
+occurring in up to 16% of thyroidectomies, is the primary cause of postoperative 
+998 
+hypocalcemia.71,72 Accurate frozen-section recognition of parathyroid tissue is therefore 
+999 
+essential for preventing misresection and optimizing surgical outcomes. Labels were assigned 
+1000 
+solely based on the presence of parathyroid tissue, with all other tissues—including thyroid, 
+1001 
+lymph nodes, and thyroid carcinoma—classified as negative, reflecting real-world 
+1002 
+intraoperative settings. 
+1003 
+Late intraoperative assessment: Sentinel lymph node metastasis detection (SLMD), cervical 
+1004 
+lymph node metastasis detection (CLMD), and breast cancer surgical margin assessment 
+1005 
+(BSMA) are three slide-level binary classification tasks designed to detect residual tumor cells 
+1006 
+in lymph nodes and surgical margins. Sentinel lymph node assessment and margin evaluation 
+1007 
+
+PAGE 40
+are critical indicators of surgical completeness and directly influence patient prognosis and risk 
+1008 
+of recurrence.73,74 In thyroid cancer, accurate intraoperative identification of central lymph node 
+1009 
+metastasis can help avoid unnecessary dissections, whereas in breast cancer, margin and 
+1010 
+sentinel lymph node assessment form the basis of individualized treatment.13,75,76 
+1011 
+Pan-cancer detection study: The pan-cancer detection task was designed to develop a 
+1012 
+universal model capable of accurately identifying malignant lesions across intraoperative 
+1013 
+frozen samples of any source or type, thereby evaluating CRISP performance under data-
+1014 
+limited conditions, particularly in unseen samples and rare cancers. Model development was 
+1015 
+based on 3,071 benign and malignant WSIs from six common frozen tissue sites in the SYCC 
+1016 
+cohort. Given that clinical decision-making is case-based, external validation was conducted at 
+1017 
+the case level. For each case, positivity was defined as the presence of at least one malignant 
+1018 
+slide. All slide-level features from a case were concatenated and directly input into the 
+1019 
+aggregator as case-level features. The model was validated across five external cohorts 
+1020 
+comprising 5,867 cases: ZSH and NFH served as two independent cohorts, whereas GZH, HZH, 
+1021 
+and DGH were combined into a single cohort. Detailed dataset partitions are provided in 
+1022 
+Supplementary Tables S4.2-4.5. For subgroup analyses, eight tissue sites (stomach, bone, 
+1023 
+esophagus, kidney, bladder, adrenal gland, testis, and thymus) were combined as “Else”,  
+1024 
+owing to limited sample sizes or unidirectional labels in external cohorts, which precluded 
+1025 
+reliable calculation of metrics such as AUROC.  
+1026 
+ 
+1027 
+Prospective cohort study 
+1028 
+In the prospective cohort, the diagnostic reference standard for each patient was established 
+1029 
+based on the postoperative FFPE pathology report in combination with immunohistochemistry 
+1030 
+and molecular test results, and independently verified by a board-certified pathologist blinded 
+1031 
+to the study. Patients from SYCC were assigned to one of six intraoperative decision tasks 
+1032 
+(PNBM, TNBM, BNBM, CLMD, SLMD, BSMA) according to the surgical indication and 
+1033 
+sample type. Detailed dataset partitions are provided in Figure 2b. Aggregators used for 
+1034 
+validation in these six tasks were directly transferred from retrospective downstream task 
+1035 
+construction without any task-specific fine-tuning. For clinical applicability, validation was 
+1036 
+performed at the patient level. 
+1037 
+
+PAGE 41
+Information on frozen-section slide preparation personnel was obtained from intraoperative 
+1038 
+reports, encompassing a total of 30 histotechnologists; four with single-class labels were not 
+1039 
+suitable for AUROC-based evaluation and were therefore grouped into an “Else” category for 
+1040 
+analysis. Diagnostic outcomes and confidence levels were derived from the content of the 
+1041 
+intraoperative frozen-section reports. Confidence assessment was conducted according to a 
+1042 
+prespecified rule set: reports indicating “consistent with”, “consider”, or “favor” were 
+1043 
+categorized as relatively definitive, whereas reports stating “not excluded”, “suspicious for”, or 
+1044 
+“requires differential diagnosis” were categorized as indeterminate (Supplementary Table S6.2). 
+1045 
+All classifications were independently reviewed and confirmed by a pathologist blinded to the 
+1046 
+study. Immunohistochemistry requirements were similarly inferred from the report content. 
+1047 
+The upper and lower thresholds used for coarse screening were defined based on the range of 
+1048 
+prediction scores observed in misclassified cases, such that samples within the retained range 
+1049 
+were classified with near-perfect accuracy by the model. 
+1050 
+To evaluate clinical performance, a reader study was conducted using the entire prospective 
+1051 
+SYCC cohort. One senior pathologist (Pathologist 1; 10 years of diagnostic experience) and 
+1052 
+two junior pathologists (Pathologist 2, 3; 2 years of experience) independently reviewed all 
+1053 
+cases, blinded to model predictions and study design. Readers were asked to perform diagnostic 
+1054 
+classification across multiple clinically relevant tasks, consistent with the study endpoints. All 
+1055 
+reader predictions were recorded for subsequent analysis and comparison with model outputs. 
+1056 
+To simulate intraoperative conditions during the reader study, each case was evaluated under a 
+1057 
+time constraint of 5 minutes. Linear probing experiments were conducted on multi-organ 
+1058 
+benign-versus-malignant classification tasks (lung, breast, and thyroid) to assess the intrinsic 
+1059 
+discriminative capacity and transferability of pretrained features. A standardized benchmark 
+1060 
+subset comprising 75 frozen-section slides from an independent SYCC cohort, not used during 
+1061 
+foundation model pretraining, was constructed for evaluation, with regions of interest annotated 
+1062 
+by an independent pathologist. For the linear probing experiments, fixed feature representations 
+1063 
+were extracted from each foundation model, and logistic regression classifiers were trained on 
+1064 
+top without updating the backbone parameters, applying identical data splits and 
+1065 
+hyperparameters across all models to ensure fair comparison. To evaluate robustness, we further 
+1066 
+assessed model performance under common perturbations, including color shifts, image blur, 
+1067 
+
+PAGE 42
+additive noise, and reduced image resolution, based on the linear probing setting. The entire 
+1068 
+process was designed as a largely automated pipeline (slide scanning → data upload → model 
+1069 
+inference → result output), with minimal manual intervention required. Regarding the 
+1070 
+simulated deployment analysis, whole-slide images were digitized using six PHILIPS Ultra-
+1071 
+Fast Scanners in parallel and automatically uploaded to a local server via the SYCC intranet. 
+1072 
+Model inference was performed on a server equipped with two NVIDIA A100 GPUs, and 
+1073 
+results were returned via an internal web-based interface. For the pre-screening strategy, the 
+1074 
+same threshold and decision criteria used in the prospective SYCC cohort were applied to this 
+1075 
+independent dataset. 
+1076 
+Micro-metastases and macro-metastases were defined according to AJCC guidelines and 
+1077 
+determined based on both intraoperative frozen-section and postoperative FFPE pathology 
+1078 
+reports, and were independently morphologically reviewed by a pathologist blinded to the study. 
+1079 
+Micro-metastases were defined as malignant foci within sentinel lymph nodes measuring 
+1080 
+greater than 0.2 mm but not exceeding 2 mm, whereas macro-metastases were defined as 
+1081 
+malignant foci larger than 2 mm.77 
+1082 
+ 
+1083 
+Statistical analysis 
+1084 
+For binary classification tasks, model performance was evaluated using the area under the 
+1085 
+receiver operating characteristic curve (AUROC), F1 score, accuracy, and specificity at 90% 
+1086 
+and 95% sensitivity thresholds. For multi-class classification tasks, performance was assessed 
+1087 
+using macro-averaged AUROC and top-k accuracy. For each case, logits from multiple classes 
+1088 
+were combined using a weighted summation, followed by a sigmoid transformation to rescale 
+1089 
+the aggregated value into a unified CRISP score between 0 and 1. For binary classification tasks, 
+1090 
+optimal thresholds were determined using the Youden index on the internal validation set and 
+1091 
+subsequently applied to external test cohorts; for multi-class tasks, predictions were assigned 
+1092 
+based on the class with the highest logit. To compare overall model performance across multiple 
+1093 
+tasks, paired Wilcoxon signed-rank tests were performed, and p-values were adjusted for 
+1094 
+multiple comparisons using the Holm method.78 The effect size r is derived from the formula r 
+1095 
+= Z / sqrt(N), with Z representing the standard normal deviate corresponding to U, and N 
+1096 
+denoting the combined sample size. Two-sided 95% confidence intervals (CIs) were computed 
+1097 
+
+PAGE 43
+via bootstrap with 1,000 iterations. Differences in predicted value distributions for multi-class 
+1098 
+tasks were assessed using one-way analysis of variance (ANOVA) followed by Tukey’s 
+1099 
+honestly significant difference (HSD) test for pairwise comparisons. For binary tasks, group 
+1100 
+differences in predicted score distributions were evaluated using two-sided Student’s t-tests; 
+1101 
+non-parametric alternatives were considered when normality assumptions were not met. 
+1102 
+Statistical significance was defined as not significant (P > 0.05), * (P ≤ 0.05), ** (P ≤ 0.01) 
+1103 
+and *** (P ≤ 0.001). Boxplots depict the median (50th percentile), interquartile range (25th-
+1104 
+75th percentile); whiskers extend to the non-outlier range; outliers are plotted individually. Data 
+1105 
+analysis was performed using R version 4.2.1 (2022-06-23) and Python 3.13.5 using the 
+1106 
+numpy (version 2.2.3), scipy (version 1.15.3) and scikit-learn (version 1.7.0) packages, and 
+1107 
+deep learning models were implemented in PyTorch 2.7.1. 
+1108 
+ 
+1109 
+Data availability 
+1110 
+The TCGA whole-slide images and associated clinical data can be accessed through the NIH 
+1111 
+Genomic Data Commons (https://portal.gdc.cancer.gov). Whole-slide images and clinical data 
+1112 
+from the internal and external cohorts are not publicly available owing to institutional policies 
+1113 
+and patient privacy regulations, but were collected under Institutional Review Board approvals. 
+1114 
+Access to these datasets for non-commercial academic use may be requested from the 
+1115 
+corresponding author (caimy@sysucc.org.cn). Requests will be evaluated and responded to 
+1116 
+within two weeks. A de-identified dataset comprising approximately 35,000 annotated patch-
+1117 
+level images together with 75 corresponding whole-slide images from SYCC intraoperative 
+1118 
+frozen sections used in the linear probing experiments is publicly available to facilitate 
+1119 
+independent validation and future research (https://huggingface.co/datasets/FTZhou/CRISP). 
+1120 
+All other data supporting the findings of this study are available within the article and its 
+1121 
+Supplementary Information files. 
+1122 
+ 
+1123 
+Code availability 
+1124 
+
+PAGE 44
+The source code for the proposed framework is available at https://github.com/FT-ZHOU-
+1125 
+ZZZ/CRISP. The pretrained model weights of CRISP are available at Hugging Face 
+1126 
+(https://huggingface.co/FTZhou/CRISP). 
+1127 
+ 
+1128 
+Methods-only references 
+1129 
+ 
+1130 
+61. 
+Institute, N.C. Genomic Data Commons Data Portal. Vol. 2025. 
+1131 
+62. 
+Hu, E.J., et al. Lora: Low-rank adaptation of large language models. ICLR 1, 
+1132 
+3 (2022). 
+1133 
+63. 
+Caron, M., et al. Emerging properties in self-supervised vision transformers. 
+1134 
+in Proceedings of the IEEE/CVF international conference on computer vision 
+1135 
+9650-9660 (2021). 
+1136 
+64. 
+Ilse, M., Tomczak, J. & Welling, M. Attention-based deep multiple instance 
+1137 
+learning. in International conference on machine learning 2127-2136 (PMLR, 
+1138 
+2018). 
+1139 
+65. 
+Cui, H.T., Zhu, Q.Y., Zhao, H.W., Liu, H.L. & Wang, N. Pregnancy is associated 
+1140 
+with the prognosis of ovarian cancer patients with abdominal metastasis. Am. 
+1141 
+J. Cancer Res. 15, 168-181 (2025). 
+1142 
+66. 
+Chen, H., et al. Artificial intelligence assisted real-time recognition of 
+1143 
+intra-abdominal metastasis during laparoscopic gastric cancer surgery. npj 
+1144 
+Digital Medicine 8, 9 (2025). 
+1145 
+67. 
+von Baumgarten, L., et al. The Diagnosis and Treatment of Primary CNS Lymphoma. 
+1146 
+Dtsch Arztebl Int 115, 419-426 (2018). 
+1147 
+68. 
+Lee, S.J., et al. Clinical characteristics of metastatic tumors to the ovaries. 
+1148 
+J. Korean Med. Sci. 24, 114-119 (2009). 
+1149 
+69. 
+Prat, J. Ovarian carcinomas, including secondary tumors: diagnostically 
+1150 
+challenging areas. Mod. Pathol. 18, S99-S111 (2005). 
+1151 
+70. 
+Trosman, S.J., Bhargavan, R., Prendes, B.L., Burkey, B.B. & Scharpf, J. The 
+1152 
+contemporary utility of intraoperative frozen sections in thyroid surgery. 
+1153 
+Am. J. Otolaryngol. 38, 614-617 (2017). 
+1154 
+71. 
+Khairy, G.A. & Al-Saif, A. Incidental parathyroidectomy during thyroid 
+1155 
+resection: incidence, risk factors, and outcome. Ann. Saudi Med. 31, 274-278 
+1156 
+(2011). 
+1157 
+72. 
+Page, C. & Strunski, V. Parathyroid risk in total thyroidectomy for bilateral, 
+1158 
+benign, multinodular goitre: report of 351 surgical cases. J. Laryngol. Otol. 
+1159 
+121, 237-241 (2007). 
+1160 
+73. 
+Park, K.U., et al. Sentinel Lymph Node Biopsy in Early-Stage Breast Cancer: 
+1161 
+ASCO Guideline Update. Journal of Clinical Oncology 43, 1720-1741 (2025). 
+1162 
+74. 
+Li, W. & Li, X. Development of intraoperative assessment of margins in breast 
+1163 
+conserving surgery: a narrative review. Gland Surg 11, 258-269 (2022). 
+1164 
+75. 
+Yu, J., et al. Lymph node metastasis prediction of papillary thyroid carcinoma 
+1165 
+based on transfer learning radiomics. Nature Communications 11, 4807 (2020). 
+1166 
+76. 
+Kopicky, L., Fan, B. & Valente, S.A. Intraoperative evaluation of surgical 
+1167 
+
+PAGE 45
+margins in breast cancer. Semin. Diagn. Pathol. 41, 293-300 (2024). 
+1168 
+77. 
+Frederick, L., et al. AJCC cancer staging manual, (Springer Science & Business 
+1169 
+Media, 2002). 
+1170 
+78. 
+Holm, S. A simple sequentially rejective multiple test procedure. Scandinavian 
+1171 
+journal of statistics, 65-70 (1979). 
+1172 
+ 
+1173 
+
+PAGE 46
+Largest Clinical-Grade Dataset
+Intraoperative Frozen Section
+Sample Collection
+Dataset Construction
+103,797 WSIs
+51,186 Patients
+10 Medical Centers
+25 Major Sites
+CRISP
+50m Tiles
+98 Downstream Tasks
+Malignant
+Discrimination
+Unsupervised
+Pretraining
+Intraoperative
+Decision-Making 
+Pan-Cancer
+Validation
+6 Clinical Applications
+Clinical
+Robustness
+Precise
+Diagnosis
+Clinical Workflow
+Integration
+PCS-SYCC (n = 2,071)
+2024.11-2025.7
+PCS-FUSCC (n = 516)
+2024.11-2025.6
+PCS-TCIH (n = 477)
+2024.12-2025.6
+Prospective Cohort
+Tissue Sampling
+Assisted Diagnosis
+Frozen Section Preparation
+AI-Based Triage
+Intraoperative
+Management
+CRISP
+Laboratory Condition
+Robustness
+CRISP Score
+Challenging
+Cases
+Typical Cases:
+AI Diagnosis
+Preventing 74.5% of 
+unnecessary additional 
+testing.
+Reducing pathologist 
+workload by 35%.
+Detected 87.5% of 
+micrometastatic foci.
+81,667 WSIs
+…
+Model Pretraining
+Retrospective Validation
+Real-World Deployment
+a
+b
+c
+d
+e
+f
+CRISP
+Virchow2
+Virchow
+UNI
+CONCH
+CHIEF
+Pretraining
+Retrospective Validation
+Real-World Deployment
+
+PAGE 47
+Malignancy Identification
+7 Major Sites
+21 Subtasks
+6,262 Slides
+130
+46
+104
+136
+55
+168
+82
+104
+109
+100
+109
+100
+32
+93
+46
+79
+37
+12
+439
+43
+42
+129
+33
+157
+28
+42
+36
+101
+Malignant
+Benign
+ZSH
+SYCC
+NFH
+ZHDG
+ZHG
+ZSGZ
+a
+b
+c
+d
+e
+f
+g
+Indeterminate Lesion
+CRISP
+Surgical Decision
+AI Suggestion
+Radical 
+Resection
+Conservative
+Management
+Malignant
+Benign
+4 mm
+4 mm
+50 µm
+
+PAGE 48
+All slides, NFZS Cohort (n = 335)
+Predictions
+Lymphoma
+5%
+Non-lymphoma
+95%
+Glioma
+84%
+Medulloblastoma
+6%
+Inflammation
+2%
+Central Neurocytoma
+3%
+Metastatic Carcinoma
+5%
+Serous Carcinoma
+36%
+Clear Cell Carcinoma
+14%
+Endometrioid 
+Adenocarcinoma
+50%
+NFZS Cohort
+Primary
+13%
+Benign
+85%
+Metastatic
+2%
+ZSH Cohort
+PTC
+43%
+Other Benign
+50%
+Follicular 
+Lesion
+7%
+NFH Cohort
+Positive
+16%
+Negative
+84%
+All slides, ZSH Cohort (n = 192)
+Predictions
+OCCGS-SYCC 
+(Macro AUC)
+PGD-NFH
+(AUROC)
+OCCGS-NFZS 
+(Macro AUC)
+OCFGS-SYCC 
+(Macro AUC)
+OCFGS-NFZS 
+(Macro AUC)
+TNDD-SYCC 
+(Macro AUC)
+PGD-SYCC 
+(AUROC)
+TNDD-ZSH 
+(Macro AUC)
+b
+c
+d
+e
+f
+h
+i
+j
+k
+Data Utilization
+Training & Validation
+SYCC Cohort
+4,044 Intraoperative
+Frozen Slides
+External Validation 1
+ZSH Cohort
+752 Intraoperative
+Frozen Slides
+External Validation 2
+NFH Cohort
+1,791 Intraoperative
+Frozen Slides
+Clinical Surgery Timeline
+Early Intraoperative
+Mid-procedure
+Late Intraoperative
+CRISP
+Precise Surgical Intervention 
+Challenge1: PCNSL Differentiation
+Challenge2: CNS Lesion Classification
+Z
+Challenge: Ovarian Cancer Subtyping
+(Coarse/Fine-Grained)
+Challenge1: TN Differential Diagnosis
+Challenge2: Parathyroid Gland Detection
+Challenge: Cervical Lymph Node 
+Metastasis Detection
+Challenge1: Sentinel Lymph Node 
+Metastasis Detection
+Challenge2: Surgical Margin Assessment
+Early:
+Determining Surgical Approach
+Mid:
+Defining Extent of Resection
+Late:
+Completeness of Resection
+8 Challenges
+20 Validation Cohorts
+a
+g
+CRISP
+Virchow2
+Virchow
+UNI
+CONCH
+CHIEF
+
+PAGE 49
+SYCC Test Cohort
+Positive
+41%
+Negative
+59%
+ZSH Cohort
+21%
+79%
+NFH Cohort
+15%
+85%
+Sentinel Lymph Node Metastasis Detection
+SYCC Test Cohort
+Positive
+25%
+Negative
+75%
+NFH Cohort
+6%
+94%
+Cervical Lymph Node Metastasis Detection
+SYCC Test Cohort
+Positive
+26%
+Negative
+74%
+ZSH Cohort
+13%
+87%
+NFH Cohort
+10%
+90%
+Breast Cancer Surgical Margin Assessment
+b
+a
+c
+d
+e
+5 mm
+
+PAGE 50
+33%
+67%
+Unobserved
+50%
+Observed
+50%
+25%
+75%
+13%
+87%
+i
+Rare
+Common
+Malignant
+Benign
+Observed
+Unobserved
+Data Utilization
+CRISP
+8,938 Patients
+13,851 Slides
+Training & Validation
+SYCC Cohort
+3,071 Patients
+6 Observed Sites
+External Validation 1
+ZSH Cohort
+1,676 Patients
+17 Anatomical Sites
+External Validation 2
+NFH Cohort
+3,344 Patients
+17 Anatomical Sites
+External Validation 3
+HDGZ Cohort
+847 Patients
+17 Anatomical Sites
+Pan-Cancer
+Identification
+Clinical Robustness
+Unobserved Institution
+Unobserved Cancers
+Rare Cancers Detection
+a
+b
+c
+d
+f
+g
+h
+j
+i
+e
+Rare
+12%
+Common
+88%
+11%
+89%
+ZSH
+NFH
+HDGZ
+
+PAGE 51
+924
+140
+284
+66
+49
+110
+164
+102
+30
+74
+40
+88
+Prospective Cohort
+2024.11-2025.07
+PCS
+3,064 Patients
+6 Anatomical Sites
+571 patients
+152 patients
+Unassisted
+Assisted
+a
+b
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+0.9956
+0.0044
+Negative
+Positive
+Micrometastasis
+Malignant
+Benign
+2 mm
+c
+2024.11-2025.07
+SYCC
+2,071 Patients
+3 Anatomical Sites
+2024.12-2025.06
+FUSCC
+516 Patients
+6 Anatomical Sites
+2024.12-2025.06
+TCIH
+477 Patients
+5 Anatomical Sites
+SYCC-BREA Patient A
+Age: 53
+CRISP Score: 0.557
+
+PAGE 52
+Lung
+SYCC
+Ex-Test1
+Ex-Test2 (NFH)
+Breast
+Thyroid
+H&N
+Brain
+Ovary
+Abdomen
+a
+b
+
+PAGE 53
+Lymphoma
+13%
+Non-lymphoma
+87%
+Glioma
+79%
+Medulloblastoma
+5%
+Inflammation
+3%
+Central Neurocytoma
+1%
+Metastatic Carcinoma
+12%
+Serous Carcinoma
+73%
+Clear Cell Carcinoma
+8%
+Endometrioid 
+Adenocarcinoma
+19%
+Primary
+27%
+Benign
+60%
+Metastatic
+13%
+PTC
+39%
+Other Benign
+48%
+Follicular 
+Lesion
+13%
+Positive
+43%
+Negative
+57%
+a
+b
+c
+d
+e
+f
+g
+h
+
+PAGE 54
+PCNSLD
+CNSLC
+OCCGS
+OCCFS
+TNDD
+PGD
+SYCC
+External-Test
+External-Test
+SYCC
+
+PAGE 55
+SLMD
+CLMD
+BSMA
+SYCC
+NFH
+ZSH
+
+PAGE 56
+a
+b
+c
+d
+e
+f
+g
+
+PAGE 57
+a
+b
+c
+d
+e
+f
+
+PAGE 58
+a
+b
+c
+d
+e
+f
+
+PAGE 59
+a
+b
+c
+
+PAGE 60
+
+PAGE 61
+a
+b
+
+PAGE 62
+
+PAGE 63
+
+PAGE 64
+≥

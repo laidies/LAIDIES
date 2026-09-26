@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "navier-stokes-claim-20260911",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "9ff1e8fce88bcfed193807a038b55989f7059b5f828dbb51f75fe1009a9b2916",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "If software already checked every step of the Lean formalization, why isn't the Navier–Stokes problem considered solved?",
+      "response": "Because the machine check only confirms that each encoded step follows the formal rules — like a referee confirming recorded moves are legal. It cannot confirm that the encoded statement and assumptions actually match the original Millennium Problem, that the overall argument is what it claims to be, or that the mathematics community accepts it. On top of that, Clay's rules require publication in a qualifying outlet, a two-year wait and general acceptance before it will even consider the solution. So a passing formal check is one rung of the ladder, not the top.",
+      "expectedEvidence": "An accurate answer must distinguish step-validity from statement-match (P006) and cite the stage ladder plus Clay's three conditions (P007, P009) without claiming any later stage has occurred.",
+      "assessment": "The article supports this answer fully: P006 supplies the mechanism and its limit, P007 supplies the Clay conditions, and P009 confirms which stages remain unestablished. Explain-back passes."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mechanism, how much of that headline is established, and what should a careful reader ask?",
+      "response": "Apply the stage ladder: the announcement and released evidence stages have occurred — the claim is now inspectable, which is genuinely more than a press release alone. But independent checking (other labs synthesizing the molecule and reproducing the assays), broad acceptance (clinical evidence and peer consensus) and formal recognition (regulatory approval) have not occurred. The reader should ask which stage each part of the headline rests on and match their confidence to that rung — 'cures infections' claims the top of a ladder whose first two rungs are all that exist.",
+      "expectedEvidence": "A correct transfer maps announcement/released-evidence to the preprint and repository, names the unoccurred later stages, and calibrates the headline against them, exactly as P009–P010 prescribe.",
+      "assessment": "The article's mechanism transfers cleanly to this unseen case: the stage ladder and the inspectable-versus-verified distinction resolve the scenario without stretching. Transfer passes."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The reader can follow the causal sequence: September 8 publication, what the manuscript claims to construct, the September 10 investigation update, and what remains unchecked.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 8, OpenAI published a 166-page manuscript and a public repository it describes as Lean formalizations. The company says an internal AI system solved the Navier–Stokes existence and smoothness problem, one of mathematics’ Millennium Prize Problems.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI’s manuscript says it constructs a smooth, forced fluid that starts at rest, develops unbounded speed in finite time and keeps finite energy. Nature reported the announcement as OpenAI’s claim. LAiDIES inspected the manuscript’s abstract and first twelve pages and the public repository; we did not check the 166-page proof theorem by theorem or run the formalization.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>There is also an unresolved attribution question around concurrent research. Mathematician Tristan Buckmaster says he asked whether private Codex sessions containing his group’s drafts had been used. His statement explicitly says he does not know whether the data was used and is not accusing anyone. OpenAI’s September 10 update says its own investigation found those prompts could not have influenced its result, including through training. The supplied record does not independently resolve the two accounts.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Singularity (P003) and Lean formalization (P006) are defined in plain terms at their first meaningful use; 'agents' is glossed via the linked explainer in P012.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The Navier–Stokes equations are mathematical rules used to describe how fluids move. The open question asks whether a smooth three-dimensional flow must stay smooth, or whether it can reach a point where its speed grows without bound in a finite time. That point is called a <strong>singularity</strong>.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A <strong>Lean formalization</strong> is a proof rewritten so software can check each encoded step against formal rules. Think of a referee checking every recorded move against a rulebook. That can expose an invalid move. Mathematicians must still judge whether the encoded statement and assumptions match the original problem, whether the whole argument is sound and whether the result earns broad acceptance.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "OpenAI says thousands of agents worked concurrently on the result. <a href=\"/library.html#ai-fundamentals-101::%40ch-2-2-4-agentic-ai-the-layer-that-acts\">AI Fundamentals 101: Agentic AI — The Layer That Acts</a> explains how agents can coordinate tools and multiple steps.",
+          "locator": "P012"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a recognizable situation: evaluating the next dramatic AI headline, with a worked example (an AI-discovered treatment).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The change now is that specialists can inspect public materials behind a dramatic “AI solved it” headline. Independent verification, community acceptance and any prize decision have not happened in the evidence reviewed here.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>For this claim, or a future headline saying AI discovered a treatment, ask which stage has happened: announcement, released evidence, independent checking, broad acceptance or formal recognition. Then match the headline’s certainty to that stage.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or distinctive process details appear in reader-facing prose; the only advice given (the stage question) follows directly from sourced distinctions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The change now is that specialists can inspect public materials behind a dramatic “AI solved it” headline. Independent verification, community acceptance and any prize decision have not happened in the evidence reviewed here.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>For this claim, or a future headline saying AI discovered a treatment, ask which stage has happened: announcement, released evidence, independent checking, broad acceptance or formal recognition. Then match the headline’s certainty to that stage.</p>",
+          "locator": "P010"
+        }
+      ]
+    }
+  }
+}

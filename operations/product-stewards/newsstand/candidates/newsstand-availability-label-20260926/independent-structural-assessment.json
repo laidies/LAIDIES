@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "newsstand-interface-structural-reuse-independent-assessment-v1",
+  "candidateId": "newsstand-availability-label-20260926",
+  "decision": "ACCEPT_FOR_IMPLEMENTATION_PENDING_RENDERED_ADMISSION",
+  "maker": "/root",
+  "reviewer": "/root/california_order_producer",
+  "artifactFirst": true,
+  "proposal": {
+    "path": "operations/product-stewards/newsstand/candidates/newsstand-availability-label-20260926/structural-reuse-proposal.json",
+    "sha256": "2108dabf367f02223124e2d0adaaa4c05052b6c9032006a0f8eaaf065a62dd08"
+  },
+  "source": {
+    "path": "content/site/newsstand-catchup-v1.js",
+    "sha256": "70737c34915b54f95b6ca81ac6d19a57d4217329ba088debdc385f1f499e6ea7"
+  },
+  "findings": [
+    "The reused title is already public interface copy, so this route authors no new microcopy.",
+    "Clearing the aggregate detail removes the incorrect implication that one dataset timestamp is both editions’ publication date.",
+    "Clearing the aggregate live-region count removes the same freshness overclaim for assistive-technology users.",
+    "The section remains labelled through nonempty #ns-title, and the edition controls retain their own state and date text.",
+    "The duplicated “Choose a paper” region title and multi-edition primary button is slightly repetitive but truthful and usable."
+  ],
+  "contraryAuthority": "None found. The reader contract governs effective state and access but does not require aggregate freshness prose.",
+  "limit": "This is independent semantic and accessibility assessment of the exact structural proposal, not rendered implementation admission. Root maker must inspect the implemented one-current and two-current states before final independent review.",
+  "reviewedAt": "2026-09-26T16:18:00Z"
+}

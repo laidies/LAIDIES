@@ -1,0 +1,42 @@
+{
+  "schema": "newsstand-current-source-preflight-receipt-v1",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "sourceReviewedAt": "2026-09-25T14:11:53.470Z",
+  "eventDatesPreserved": true,
+  "publicProseChanged": true,
+  "providerCalled": false,
+  "result": "PRE_REVIEW_PASS",
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/weekly-20260923/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-preflight-v8-current-sources-20260925/ --preflight-only",
+  "stdout": "{\"status\":\"PRE_REVIEW_PASS\",\"candidateDir\":\"operations/product-stewards/newsstand/candidates/weekly-20260923/\",\"scope\":\"Validation-only pre-review gate; no provider request, editorial judgment, admission or publication.\"}",
+  "currentEvidence": {
+    "path": "operations/product-stewards/newsstand/evidence/morning-20260925/candidate-refresh/web-source-capture.json",
+    "sha256": "610a096e89ef8e1064b9f555a59fea06d49f2a0558a0cf386322565292198439"
+  },
+  "bindings": {
+    "sourceEvidence": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/source-assessment.json",
+      "sha256": "8447cec6b71408f415073cdcebbcfd14028c9d6d665bf366a51839282a90a522"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/article.md",
+      "sha256": "8b5bd6323aa6d1c0f809f1ab07cc09e13076ef00c8eab08f2e519fade0208095"
+    },
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/story.json",
+      "sha256": "f86189f365bdaedf5f1be137a67a7676f6c7bbe31f8fea1ad0dea923d4d0a497"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/review-text.json",
+      "sha256": "7d9d1e679684d1270df7fd5652506cc152c029536e84ad7ec0388b3f1ee1f092"
+    },
+    "producerReview": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/producer-publication-review.json",
+      "sha256": "075e9a1b83d38c3ee0d1e6d1683a17c16beadb7256071976d6d2857a5a515a86"
+    }
+  },
+  "nextReviewCommand": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/weekly-20260923/ --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/ --output operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v8-current-sources-20260925/",
+  "externalReview": {
+    "status": "PENDING_PROVIDER_AUTH",
+    "called": false
+  }
+}

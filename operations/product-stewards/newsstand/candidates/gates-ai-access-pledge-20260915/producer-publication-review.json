@@ -1,0 +1,606 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "gates-ai-access-pledge-20260915",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/puzzle_visual_reconcile",
+  "reviewer": {
+    "id": "/root/puzzle_visual_reconcile",
+    "principalId": "/root/puzzle_visual_reconcile",
+    "role": "Producer actual complete Gates prose read",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-15T23:30:56.459153+00:00",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/publication-manifest.json",
+      "sha256": "f8dffc082dcd53038f481427d3655f8cdc697ce4b7afa4dac68b2b86e2027092"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/review-text.json",
+      "sha256": "a73511de8ee3a24ddeea43873eaf0c627a86ab6ac0a7d8fde3c8ac3c9290c76d"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/rendered-article.html",
+      "sha256": "055d7c641c9b40a7aebfec07b553ff31bb50c6d6101d9c817cb004164604f380"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/puzzle_visual_reconcile",
+    "reviewedAt": "2026-09-15T14:12:13Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.”",
+            "locator": "opening"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "AI system entry"
+          }
+        ],
+        "actualObservation": "Read the entire current registered artifact. It walks through nine adjacent term entries with repeated definition, comparison, In real life and role-sentence moves. Team, taxi, Clueless wardrobe, Walkman, toolbox, collage and Miss Jeeves compete for attention without one request developing across the parts. The opening command supplies terminology before a learner-owned problem. Individual role assertions do not show how to find and repair a failure; the promised what-to-fix payoff is unearned. The repeated instructional structure becomes dry despite references."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "introduction ending"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully",
+            "locator": "chapter ending"
+          }
+        ],
+        "actualObservation": "Read the entire current registered artifact. Northstar and Juniper carry a connected and understandable technical diagnosis, but the broad book is framed around fixing one private decision. The opening does not establish judging public hype or informed participation before tracing context, inference and tools. The worked example dominates; the final future-topic list returns to machinery rather than earning the missing civic and public-claim motivations. Reject for the foundational destination, while retaining the useful causal explanation as a strength rather than pretending every sentence is poor."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Its origin-versus-truth distinction is demonstrated and returned to the actual AI-label job.",
+        "The train example converts a broad check-sources instruction into line, stations and day."
+      ],
+      "evidence": [
+        {
+          "excerpt": "The first helps you decide what you are looking at. It cannot do the second for you.",
+          "locator": "LAiDIES Read ending"
+        },
+        {
+          "excerpt": "that means confirming which line, which stations and which day.",
+          "locator": "What This Means"
+        }
+      ]
+    },
+    "limits": [
+      "Own producer calibration from actual artifact reads; not independent calibration or present-day legal validation."
+    ],
+    "reuseDisclosure": "Same producer principal calibration from actual14:12:13Z artifact reads reused with unchanged registry; historical timestamp retained. Gates qualitative candidate observations are new and story-specific."
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why does AI access require more than handing everyone the same chatbot?",
+    "promisedPayoff": "Understand the Gates funding pledge, language and local-context requirements, and why funded potential is not a demonstrated benefit.",
+    "centralMentalModel": "Availability, local suitability and demonstrated benefit are separate requirements.",
+    "dailyLifeConnection": "An answer recommending an unavailable service is not usable simply because its wording is understandable.",
+    "surfaceJob": "Short dated ordinary funding/access news with evidence limits, not medical advice or a tool promotion.",
+    "desiredReaderFeeling": "I can ask who this tool actually works for without being dazzled by the funding figure."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The funding event appears first; local language data immediately receives a concrete meaning.",
+      "artifactEvidence": [
+        {
+          "excerpt": "examples that represent how people actually speak",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Reader can assess whom a funded AI tool can help instead of equating an announced sum with impact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Funding, deployment and a demonstrated benefit are different things.",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct adult question and concrete example respect a beginner without cheerleading the funder.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Useful for whom?",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The unavailable-clinic example earns the opening question by making the access problem visible.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Translating the words would not create that missing service.",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Pledge explicitly attributed to AP; critics and foundation rationale separately attributed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "AP reported on September 15.",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Dated AP report retained; exact announcement day not inferred. Actual project evidence is a future trigger.",
+      "artifactEvidence": [
+        {
+          "excerpt": "AP reported on September 15.",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "272 core visible words, with narrow event and proportionate explanation; no long tutorial or medical instruction.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It is a funding pledge, not evidence of benefits already delivered.",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "A specific two-year $1 billion pledge, not a generic prediction, anchors the story.",
+      "artifactEvidence": [
+        {
+          "excerpt": "pledging $1 billion over two years",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Independent warning and pilot limits preserve uncertainty about actual benefit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "weak health infrastructure remains a barrier.",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "A hypothetical health worker receives guidance that cannot be used locally; the text makes no treatment recommendation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "imagine a health worker receiving clear guidance",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human consequence precedes the data abstraction; the example returns to required local evaluation and ends with a better evidence question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "evaluation in the settings the tools are meant to serve.",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Producer simulation distinguishes a pledge, usable local fit and evaluated benefit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Funding, deployment and a demonstrated benefit are different things.",
+          "locator": "exact story.json prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What was pledged, and why is AI access more than opening a chatbot?",
+        "probeResponse": "The foundation pledged funding for AI access. Language and local conditions matter: clear advice cannot create an unavailable clinic. The foundation proposes support, while funding and pilots alone do not demonstrate benefit.",
+        "expectedEvidence": "Funding, deployment and a demonstrated benefit are different things."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "A distinct classroom grant example tests whether the same funding-versus-benefit distinction travels.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A classroom pilot does not become effective simply because it won a grant.",
+          "locator": "exact story.json prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Does a classroom AI project winning a grant establish effective learning?",
+        "probeResponse": "If a classroom AI project wins funding, I would ask who and where it was tested, what it was compared with and what improved. A grant does not demonstrate better learning.",
+        "expectedEvidence": "A classroom pilot does not become effective simply because it won a grant."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Reader gets specific questions about test population, setting, comparison and improvement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "who and where was it tested, compared with what, and what improved?",
+          "locator": "exact story.json prose"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No decorative analogy. Explicit imagined clinic demonstrates missing physical service without implying AI can supply it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Translating the words would not create that missing service.",
+          "locator": "exact story.json prose"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "One necessary data term defined inline; no detached glossary.",
+      "artifactLocator": "exact Gates article"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Each paragraph advances pledge, local fit, evidence limit or action; no repeated lesson template.",
+      "artifactLocator": "exact Gates article"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Imagined clinic serves the local-availability mechanism; no decorative world reference.",
+      "artifactLocator": "exact Gates article"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "One evidence-checking class link, no scattered references.",
+      "artifactLocator": "exact Gates article"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Readable guidance cannot create an unavailable treatment; local language data and evaluation reconnect to usability.",
+      "artifactLocator": "exact Gates article"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Exact test population, place, comparator and improved outcome questions supplied.",
+      "artifactLocator": "exact Gates article"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Local language data defined immediately through speech examples.",
+      "artifactLocator": "exact Gates article"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Pledge funds potential access; local fit matters; benefit needs separate evaluation.",
+      "artifactLocator": "exact Gates article"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "AP pledge and Shaffer warning attributed; no effectiveness statistics or guarantee.",
+      "artifactLocator": "exact Gates article"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Current Sep15 AP and 2026 foundation report raw captures retained; no exact release date inferred.",
+      "artifactLocator": "exact Gates article"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Plain words for grant, clinic, people and tests; funder rationale not marketing promise.",
+      "artifactLocator": "exact Gates article"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Useful-for-whom question and visible local obstacle carry interest without a long checklist.",
+      "artifactLocator": "exact Gates article"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No public benchmark name; causal visibility and retained limits do the communication job.",
+      "artifactLocator": "exact Gates article"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Opening usefulness question answered through unavailable service and evaluation.",
+      "artifactLocator": "exact Gates article"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Clinic example returns to local language data and evaluation in actual settings.",
+      "artifactLocator": "exact Gates article"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No borrowed persona, wording or performance style.",
+      "artifactLocator": "exact Gates article"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Question followed directly by dated pledge and bounded mechanism.",
+      "artifactLocator": "exact Gates article"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Main explanatory share details language, local situation and unusable advice.",
+      "artifactLocator": "exact Gates article"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Translation cannot create service click follows concrete unavailable-clinic setup.",
+      "artifactLocator": "exact Gates article"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends with narrow evidence questions; no grand moral or product-change instruction.",
+      "artifactLocator": "exact Gates article"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Funding event connects to what useful AI access means for workers and communities.",
+      "artifactLocator": "exact Gates article"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reported pledge and usefulness question precede data and local evaluation.",
+      "artifactLocator": "exact Gates article"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Short imagined clinic sentence is subordinate to news event and evidence boundary.",
+      "artifactLocator": "exact Gates article"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Adult conversational explanation avoids specialist model-training detail.",
+      "artifactLocator": "exact Gates article"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/ap-complete-captured-body.txt",
+        "sha256": "632be92bcfd605fcbb5e11bf0949558ba58dc906a2d285448f29a84d7973ae91"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/foundation-report-capture.txt",
+        "sha256": "d4e6040ef7729d3c3311a87cf81fc4643bf7b751f3a52173b2d1659e80291588"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "pledge",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The Gates Foundation is pledging $1 billion over two years for AI access in health, education, agriculture and local languages, AP reported on September 15.",
+            "locator": "exact story.json prose"
+          }
+        ],
+        "sourceIds": [
+          "ap-gates"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "L1794: NEW YORK (AP) — cite190†Bill Gates is warning technology companies and world leaders that they must act now to ensure artificial intelligence combats social inequities rather than deepening disparities — and his foundation is pledging $1 billion to improve access.\nL1795: The Microsoft co-founder made the appeal in cite191†the Gates Foundation’s annual Goalkeepers report , which tracks progress on the development goals set by the United Nations to improve quality of life by 2030. The donation announced Tuesday will be spread over the next two years for AI-focused efforts to train models on local languages, improve health outcomes, upgrade educational tools and cite192†inform small farmers’ practices around the world.",
+            "locator": "ap-gates captured line"
+          }
+        ],
+        "scopeAndFreshness": "AP report dated September15; exact announcement date deliberately not resolved. Pledge not expenditure.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/ap-complete-captured-body.txt",
+          "sha256": "632be92bcfd605fcbb5e11bf0949558ba58dc906a2d285448f29a84d7973ae91"
+        }
+      },
+      {
+        "claimId": "language-context",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AI tools need to work in local languages and reflect local circumstances.",
+            "locator": "exact story.json prose"
+          }
+        ],
+        "sourceIds": [
+          "foundation-report"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "L335: This requires investment in local language datasets and evaluations tailored to how people use language in the places these tools are meant to serve.",
+            "locator": "foundation report actual captured line"
+          },
+          {
+            "excerpt": "L343: The same is true in health. Global health guidelines already exist. The work now is making those guidelines locally relevant: incorporating the right epidemiology for a specific country, the treatment options actually available in that health system, the operating conditions of the clinics where health workers are making decisions.",
+            "locator": "foundation report actual captured line"
+          }
+        ],
+        "scopeAndFreshness": "Foundation stated rationale, not proof of benefit; health-worker example explicitly hypothetical.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/foundation-report-capture.txt",
+          "sha256": "d4e6040ef7729d3c3311a87cf81fc4643bf7b751f3a52173b2d1659e80291588"
+        }
+      },
+      {
+        "claimId": "human-support",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Its proposed goal is useful support for health workers, teachers and farmers, rather than replacing their judgment.",
+            "locator": "exact story.json prose"
+          }
+        ],
+        "sourceIds": [
+          "foundation-report"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "L203: Of course, healthcare workers, farmers, and teachers should continue to bring their unique judgment, creativity, and care to their work. But designed well, AI can give them more support, helping knowledge travel farther, faster.",
+            "locator": "foundation-report captured line"
+          }
+        ],
+        "scopeAndFreshness": "Attributed proposed goal, not product guarantee.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/foundation-report-capture.txt",
+          "sha256": "d4e6040ef7729d3c3311a87cf81fc4643bf7b751f3a52173b2d1659e80291588"
+        }
+      },
+      {
+        "claimId": "criticism",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AP reports University of Vermont sociologist Jonathan Shaffer warning that marginalized people may remain missing from the data and weak health infrastructure remains a barrier.",
+            "locator": "exact story.json prose"
+          }
+        ],
+        "sourceIds": [
+          "ap-gates"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "L1836: More data won’t guarantee more equitable tools, according to Jonathan Shaffer, an assistant professor of sociology at the University of Vermont. Shaffer, whose research focuses on how global health governance is shaped by science and knowledge, noted that health infrastructure is extraordinarily weak in many parts of the world.\nL1837: The most marginalized populations would likely remain excluded from the data fed into health-oriented AI models, he suggested, which “may even amplify the kinds of inequalities” the foundation aims to reduce.",
+            "locator": "ap-gates captured line"
+          }
+        ],
+        "scopeAndFreshness": "Shaffer independent warning, not foundation admission or established measured outcome.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/ap-complete-captured-body.txt",
+          "sha256": "632be92bcfd605fcbb5e11bf0949558ba58dc906a2d285448f29a84d7973ae91"
+        }
+      },
+      {
+        "claimId": "pilots",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Many promising tools are still pilots, the foundation says.",
+            "locator": "exact story.json prose"
+          }
+        ],
+        "sourceIds": [
+          "foundation-report"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "L241: Today, many of the most promising AI tools are still in pilot mode. They need to work in all languages, on ordinary phones, and in the places where people make real-life decisions before they can be trusted to take to scale. But the distance between pilot mode and scale could be much shorter than it was for earlier technologies—because if done well, AI can reach people through natural conversation, on a device already in their pocket.",
+            "locator": "foundation-report captured line"
+          }
+        ],
+        "scopeAndFreshness": "Foundation claim; no specific effectiveness metric repeated.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/foundation-report-capture.txt",
+          "sha256": "d4e6040ef7729d3c3311a87cf81fc4643bf7b751f3a52173b2d1659e80291588"
+        }
+      },
+      {
+        "claimId": "disclosure",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AP discloses Gates Foundation funding for Africa health and development coverage; it retains editorial responsibility.",
+            "locator": "exact story.json prose"
+          }
+        ],
+        "sourceIds": [
+          "ap-gates"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "L1856: The Associated Press receives financial support for global health and development coverage in Africa from the Gates Foundation. AP coverage of philanthropy and nonprofits receives support through the AP’s collaboration with The Conversation US, with funding from Lilly Endowment Inc. The AP is solely responsible for this content. For all of AP’s philanthropy coverage, visit cite206†https://apnews.com/hub/philanthropy .",
+            "locator": "ap-gates captured line"
+          }
+        ],
+        "scopeAndFreshness": "Funding disclosure retained from AP.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/ap-complete-captured-body.txt",
+          "sha256": "632be92bcfd605fcbb5e11bf0949558ba58dc906a2d285448f29a84d7973ae91"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-15",
+    "nextTrigger": "Original pledge release or correction; project deployment, evaluations, spending evidence or report corrections.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 0,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW",
+    "priorComparable": {
+      "candidateId": "gates-ai-access-pledge-20260915",
+      "reviewIssues": 1,
+      "reviewCycles": 1,
+      "artifact": {
+        "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/prose-v1-preserved/review-text.json",
+        "sha256": "38ecfbf7e7c5e39793d280e1c20ebaa6b90a37cb9e647287bfe24f38a148427b"
+      },
+      "rawReview": {
+        "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/editorial-review-v1/article-editorial-provider.raw.json",
+        "sha256": "081d8cbc35bb7b9cfabc9948277d6dab3ea669b2778f775bc161e98aef60093b"
+      }
+    }
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "gates-ai-access-pledge-20260915",
+    "revision": "Second exact prose iteration of same funding event, repair to AP attribution verb after actual first qualified review."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Candidate-only AP quotation-form repair made; source-art rebound to exact prose. No new reusable defect, first independent issue and protocol failure retained in actual metrics; second editorial pending."
+  },
+  "verdict": "PASS",
+  "limits": [],
+  "limitations": [
+    "Producer assessment only, not independent admission.",
+    "AI simulations, not observed human readers.",
+    "Existing calibration by this exact principal from14:12:13Z reused with unchanged registry SHA; its timestamp retained, not a new blind calibration claim.",
+    "Root rendered source-art and performed maker review; prose producer separately inspected art, and independent Claude prose admission remains pending. No assembly/canonical/public mutation."
+  ]
+}

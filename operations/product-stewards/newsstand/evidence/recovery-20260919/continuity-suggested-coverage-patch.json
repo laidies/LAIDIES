@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "newsstand-private-coverage-patch-suggestion-v1",
+  "generatedAt": "2026-09-19T17:02:13Z",
+  "appliesTo": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "sha256AtInspection": "eaa58cee70061c282a6af60bfdd0763cb05aa9596b0ffc5dbb56e4033b2b9f4e"
+  },
+  "mergeAuthority": "/root",
+  "sourceCheckSuggestions": [
+    {
+      "url": "https://deepmind.google/blog/",
+      "suggestedStatus": "CHECKED",
+      "suggestedAssessment": "September 19 normal-web index inspection showed the same current headline set already published or dispositioned; followed Gemini 3.8 Flash and Fairwind pages are dated September 2. No additional selected event.",
+      "evidencePath": "operations/product-stewards/newsstand/evidence/recovery-20260919/continuity-source-observations.json"
+    },
+    {
+      "url": "https://gemini.google/release-notes/",
+      "suggestedStatus": "CHECKED",
+      "suggestedAssessment": "Newest dated Apps entry remains the September 10 Windows app, already published as gemini-windows-20260913.",
+      "evidencePath": "operations/product-stewards/newsstand/evidence/recovery-20260919/continuity-source-observations.json"
+    },
+    {
+      "url": "https://www.oneusefulthing.org/archive",
+      "suggestedStatus": "CHECKED",
+      "suggestedAssessment": "Archive now shows Mollick's September 18 essay The Overhang; full visible article read and routed as a practitioner source candidate with self-reported-example limits.",
+      "evidencePath": "operations/product-stewards/newsstand/evidence/recovery-20260919/continuity-source-observations.json"
+    },
+    {
+      "url": "https://www.alliekmiller.com/resources",
+      "suggestedStatus": "CHECKED",
+      "suggestedAssessment": "Current resources page read; visible titles and descriptions remain undated, so no dated freshness or new event is claimed.",
+      "evidencePath": "operations/product-stewards/newsstand/evidence/recovery-20260919/continuity-source-observations.json"
+    },
+    {
+      "url": "https://aidailybrief.ai/agent.json",
+      "suggestedStatus": "CHECKED",
+      "suggestedAssessment": "Index generated September 19 16:59:11.150Z lists five September 13-17 episodes and none for September 18-19. Transcript URLs are publisher listings; only September 13 has a saved complete transcript read.",
+      "evidencePath": "operations/product-stewards/newsstand/evidence/recovery-20260919/continuity-aidb-rolling-window.json"
+    },
+    {
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "suggestedStatus": "CHECKED",
+      "suggestedAssessment": "Current show page plus distinct Apple search results corroborate September 16 and 17 episode metadata only; no transcript or full-audio review claim.",
+      "evidencePath": "operations/product-stewards/newsstand/evidence/recovery-20260919/continuity-source-observations.json"
+    }
+  ],
+  "leadSuggestions": [
+    {
+      "id": "ethan-mollick-overhang-20260918",
+      "suggestedStatus": "SOURCE_CANDIDATE",
+      "event": "Mollick's September 18 practitioner essay on using deep knowledge, wide knowledge, taste, and agency with current AI",
+      "sourceUrls": ["https://www.oneusefulthing.org/p/the-overhang"],
+      "readerUse": "Practical learning and work guidance for readers deciding where human judgment still matters.",
+      "limits": "Practitioner commentary with self-reported project examples; no independent model-performance validation."
+    },
+    {
+      "id": "typesafe-jev-system-one-20260915",
+      "suggestedStatus": "EVIDENCE_HOLD",
+      "event": "TypeSafe announces Jev early access as a structured probabilistic decision model",
+      "sourceUrls": ["https://typesafe.ai/blog/introducing-system-one-models-and-jev"],
+      "readerUse": "Could explain the difference between a structured decision model and a general chat response.",
+      "limits": "Performance, speed, cost, and reliability claims are company claims. Independent evaluation is missing; the source itself notes simplified demos, possible evaluation bias, and unresolved commercial sustainability."
+    }
+  ],
+  "retainedBlockEvidence": "operations/product-stewards/newsstand/evidence/recovery-20260919/continuity-held-recovery-review.json",
+  "suggestedNextCheckAt": "2026-09-20T17:00:00Z",
+  "cursorMutation": "NONE",
+  "quietClaim": false,
+  "coverageMutationPerformed": false,
+  "canonicalMutationPerformed": false,
+  "publicMutationPerformed": false
+}

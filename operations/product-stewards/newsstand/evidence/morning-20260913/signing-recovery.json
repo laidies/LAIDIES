@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "luminairy-signing-recovery-audit-v1",
+  "auditedAt": "2026-09-13T14:24:42Z",
+  "scope": "Read-only metadata audit of documented LUMINAiRY signer recovery paths. No credential bytes, public-key coordinates, signing operations, key generation, rotation, gate changes, or canonical writes were performed.",
+  "request": {
+    "candidate": "Hannah approved-v10",
+    "trustedKeyIdsSought": [
+      "luminairy-editorial-offline-r4-20260902",
+      "luminairy-editorial-offline-r3-20260823"
+    ]
+  },
+  "observations": [
+    {
+      "path": "scripts/validate-luminairy-claims.mjs",
+      "finding": "The validator recognizes r3 and r4 as public P-256 verification identities only. It contains no signing command or private-key location."
+    },
+    {
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/luminairy/OPERATING-SPEC.md",
+      "finding": "The documented trust boundary says the public candidate contains only the pinned P-256 verification key and not the private signing authority. It assigns LUMINAiRY building ownership to the LUMINAiRY building champion and research ownership to the PATRON SAiNTS, MAiVENS & TRAiLBLAZERS research/editorial sub-champion."
+    },
+    {
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/luminairy/build-packet-building-completion-2026-07-26.md",
+      "finding": "The documented signing role is an independent Editorial/Curriculum plus AI Accuracy/Trust plus Rights judge, separate from the maker. No secure signer location is named."
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/hannah-fry-why-maiven-20260906/research-brief.md",
+      "finding": "The candidate records that no repository signing command or private key is provided and that the trusted offline P-256 authority is outside candidate content."
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/hannah-fry-why-maiven-20260906/current-base-20260911/luminairy-editorial-receipts.json",
+      "finding": "Metadata identifies offline-P256 receipt authority and lists r3, r4 and r5 as trusted verifier identities. This establishes public verification compatibility, not possession or recovery of an r3/r4 signer."
+    },
+    {
+      "path": "/private/tmp/laidies-luminairy-reconcile.ruEIHR",
+      "finding": "The named prior owner temporary path is absent. No recovery material was read from it."
+    }
+  ],
+  "availability": {
+    "r3": "UNRECOVERABLE_FROM_DOCUMENTED_BOUNDED_PATHS",
+    "r4": "UNRECOVERABLE_FROM_DOCUMENTED_BOUNDED_PATHS",
+    "documentedSignerOwner": "Independent Editorial/Curriculum + AI Accuracy/Trust + Rights judge, separate from the maker; no individual or secure location documented.",
+    "privateKeyBytesInspected": false
+  },
+  "recoveryDecision": "HOLD_HANNAH_APPROVED_V10_PENDING_AUTHORIZED_OFFLINE_SIGNER_REFERENCE",
+  "userInputNeeded": true,
+  "exactUserQuestion": "Which authorized offline signer or secure recovery location controls luminairy-editorial-offline-r4-20260902 or luminairy-editorial-offline-r3-20260823 for the independently reviewed Hannah receipt? Please provide the owner or approved recovery route only; do not paste key material.",
+  "prohibitedActionsNotTaken": [
+    "No broad credential-store scan",
+    "No key generation or rotation",
+    "No signature attempt",
+    "No validator or gate weakening",
+    "No canonical or public content edit"
+  ]
+}

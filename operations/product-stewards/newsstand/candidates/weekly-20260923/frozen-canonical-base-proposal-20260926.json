@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "newsstand-weekly-frozen-base-proposal.v1",
+  "status": "PROPOSED_NOT_APPLIED",
+  "problem": "producer-contract.json canonicalTruth[1].source points directly to content/newsstand-stories.js. The field bound SHA 88df47bf4bf21bc420eb08a7a65b2cb456d82c1db74aa160bc2ce1263c5b0719, then unrelated canonical publication advanced that file to e1677798a1954d032658bd624c46d481a19183bb956e97d6a08c905726e19883, invalidating the private contract after v15 completed.",
+  "smallest_change": "At package preparation, write an immutable candidate-owned copy of the exact then-current dataset (for example publication-base-20260926.js). Bind canonicalTruth[1].source to that copy, preserving the same bytes and hash, and retain publicationBase as the separate final current-head comparison required by the publisher.",
+  "why": "The contract's predecessor-comparison evidence becomes stable while the publisher still fail-closes if the live canonical dataset has moved before promotion. A later unrelated Daily publication no longer invalidates an already-completed independent prose review; a real predecessor or pointer conflict remains visible at the final publication-base check.",
+  "nonchanges": ["No current contract field was changed by this proposal.", "No public or canonical write is proposed.", "The final Weekly publisher must continue to compare its frozen publicationBase against current canonical bytes before promotion."]
+}

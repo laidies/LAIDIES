@@ -1,0 +1,1076 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "epa-public-participation-20260911",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "principalId": "/root/weekly_recovery",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-11T17:46:45.100164Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/publication-manifest.json",
+      "sha256": "e03c4cad07c4ec1c81e176d8498f75f9424e843a4683122c851554b54b5b8317"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/review-text.json",
+      "sha256": "bfcfae20f3077bf578a1ca7853eed596784998588e6e38d809998873e04c3c5d"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/rendered-article.html",
+      "sha256": "f626759e1ac231dc9013a187ad4dd94d19c5b6db5eb37c6ea5569e24c61e159b"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Could a neighbour lose a guaranteed chance to learn about and comment on an air permit for a nearby data centre?",
+    "promisedPayoff": "Separate the proposed federal floor change from current state and major-permit rules, then identify the live local process for a particular project.",
+    "centralMentalModel": "Federal floor, state choice and individual permit are three different layers.",
+    "dailyLifeConnection": "A reader may live near a proposed data centre whose backup engines require an air permit.",
+    "surfaceJob": "September 11 report on the July 7 proposal and September 3 independent reporting.",
+    "desiredReaderFeeling": "I can tell what has and has not changed and ask the local agency the right question."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies plainClarity evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "EPA still lists it as proposed",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies readerValue evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "national floor could disappear",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies laidiesVoice evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Why is this in AI news?",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies engagingEnjoyable evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "does not describe the building’s physical size",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies factualIntegrity evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "would not have to",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies freshnessReviewability evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "EPA still lists it as proposed",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies surfaceFit evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "EPA proposal could let states drop public notice",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies datedChange evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "July 7 proposal",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies consequenceAndUncertainty evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "state rules would not vanish automatically",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies dailyLifeConnection evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "proposed near you",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies communicationBenchmark evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Which public-notice rule applies today?",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies explainBack evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Changing that plan would still require",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Does the EPA proposal itself erase a state's current public-comment rule?",
+        "probeResponse": "No. If finalized, it would let a state revise the rule; doing nothing keeps the existing rule, and changing the state plan has its own public process and EPA review.",
+        "expectedEvidence": "Proposal, state choice and plan revision stay distinct.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies unseenTransfer evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Is this a minor or major permit?",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A factory permit is described as minor. What transfers?",
+        "probeResponse": "Minor refers to emissions thresholds. Check whether the permit is minor or major and which current state notice rule applies before inferring the comment route.",
+        "expectedEvidence": "The permit category and current jurisdiction rule determine the route.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies usefulAction evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Find the state or local air-permitting agency",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies analogyIntegrity evidence while keeping proposal, state choice, permit category and current action connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "historical example",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The story avoids glossaryAccumulation; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The story avoids templateRepetition; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The story avoids decorativeAnalogy; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The story avoids referenceConfetti; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The story avoids missingMechanism; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The story avoids genericAction; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The story avoids jargonBeforeMeaning; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The story avoids disconnectedSystem; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The story avoids factlessConfidence; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The story avoids staleUnreviewableClaims; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The story avoids corporateSludge; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The story avoids joylessInstruction; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The story avoids benchmarkNameDrop; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The story avoids curiosityWithoutPayoff; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The story avoids familiarExampleWithoutTechnicalReturn; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The story avoids communicationPastiche; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The story avoids entertainmentBeforeUnderstanding; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The story avoids mechanismCompressedBehindHook; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The story avoids prematureClickBeforeMechanism; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The story avoids inflatedTakeawayEnding; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The story avoids purposeTooNarrow; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The story avoids mechanismBeforeMotivation; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The story avoids workedExampleOvertakesBookPurpose; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The story avoids technicalExplainerVoice; the legal status, state mechanism, permit example and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+        "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "proposal-status",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "July 7 proposal could let state and local air agencies drop public notice and comment for some data-centre air permits",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "epa-proposed-rule",
+          "epa-current-status"
+        ],
+        "scopeAndFreshness": "Official proposal and current EPA status index; no final-rule claim.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ACTION: Proposed rule.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "A 30-day period for submittal of public comment",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If this rule is finalized as proposed, State and local air agencies would be allowed to, but would not be required to, revise their existing SIP-approved minor NSR program public participation requirements through the SIP submission and approval process (SIP process).",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If an air agency chooses not to revise its minor NSR program’s existing public participation requirements in response to a final version of this proposed rule, those existing minor NSR public participation requirements would remain in the SIP and continue to apply to minor sources and minor modifications regulated by the air agency within its jurisdiction.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "any amendments to SIPs pursued as a result of this action would, if finalized, involve mandatory opportunities for public participation both at the State and local level and during the Agency review process",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "The EPA is not proposing to revise the minimum Federal public participation requirements that apply to the permitting of new major sources or major modifications to existing sources under air agencies’ major NSR programs",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "New stationary sources are considered “minor” if they do not have the potential to emit air pollutants in amounts equal to or exceeding the “major source” statutory thresholds",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Comments must be received on or before August 21, 2026.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Proposed Rule: Minor New Source Review Program Public Participation Requirements for State Implementation Plans",
+            "locator": "https://www.epa.gov/nsr/nsr-regulatory-actions"
+          },
+          {
+            "excerpt": "July 1, 2026 - EPA signed a proposed rulemaking related to the public participation elements for Clean Air Act minor New Source Review (NSR) programs.",
+            "locator": "https://www.epa.gov/nsr/nsr-regulatory-actions"
+          }
+        ]
+      },
+      {
+        "claimId": "closed-deadline",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "federal comment deadline closed August 21",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ],
+        "scopeAndFreshness": "Deadline is stated as closed, not a current invitation.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ACTION: Proposed rule.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "A 30-day period for submittal of public comment",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If this rule is finalized as proposed, State and local air agencies would be allowed to, but would not be required to, revise their existing SIP-approved minor NSR program public participation requirements through the SIP submission and approval process (SIP process).",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If an air agency chooses not to revise its minor NSR program’s existing public participation requirements in response to a final version of this proposed rule, those existing minor NSR public participation requirements would remain in the SIP and continue to apply to minor sources and minor modifications regulated by the air agency within its jurisdiction.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "any amendments to SIPs pursued as a result of this action would, if finalized, involve mandatory opportunities for public participation both at the State and local level and during the Agency review process",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "The EPA is not proposing to revise the minimum Federal public participation requirements that apply to the permitting of new major sources or major modifications to existing sources under air agencies’ major NSR programs",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "New stationary sources are considered “minor” if they do not have the potential to emit air pollutants in amounts equal to or exceeding the “major source” statutory thresholds",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Comments must be received on or before August 21, 2026.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "current-federal-floor",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "federal rules set a minimum: state and local programs must provide notice and 30 days for public comment on minor-source permits",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ],
+        "scopeAndFreshness": "Current federal minimum described from proposal's account of existing rule.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ACTION: Proposed rule.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "A 30-day period for submittal of public comment",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If this rule is finalized as proposed, State and local air agencies would be allowed to, but would not be required to, revise their existing SIP-approved minor NSR program public participation requirements through the SIP submission and approval process (SIP process).",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If an air agency chooses not to revise its minor NSR program’s existing public participation requirements in response to a final version of this proposed rule, those existing minor NSR public participation requirements would remain in the SIP and continue to apply to minor sources and minor modifications regulated by the air agency within its jurisdiction.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "any amendments to SIPs pursued as a result of this action would, if finalized, involve mandatory opportunities for public participation both at the State and local level and during the Agency review process",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "The EPA is not proposing to revise the minimum Federal public participation requirements that apply to the permitting of new major sources or major modifications to existing sources under air agencies’ major NSR programs",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "New stationary sources are considered “minor” if they do not have the potential to emit air pollutants in amounts equal to or exceeding the “major source” statutory thresholds",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Comments must be received on or before August 21, 2026.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "minor-definition",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "minor-source permit</strong> is an emissions category below major-source thresholds",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ],
+        "scopeAndFreshness": "Plain rendering of the official potential-to-emit threshold definition.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ACTION: Proposed rule.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "A 30-day period for submittal of public comment",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If this rule is finalized as proposed, State and local air agencies would be allowed to, but would not be required to, revise their existing SIP-approved minor NSR program public participation requirements through the SIP submission and approval process (SIP process).",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If an air agency chooses not to revise its minor NSR program’s existing public participation requirements in response to a final version of this proposed rule, those existing minor NSR public participation requirements would remain in the SIP and continue to apply to minor sources and minor modifications regulated by the air agency within its jurisdiction.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "any amendments to SIPs pursued as a result of this action would, if finalized, involve mandatory opportunities for public participation both at the State and local level and during the Agency review process",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "The EPA is not proposing to revise the minimum Federal public participation requirements that apply to the permitting of new major sources or major modifications to existing sources under air agencies’ major NSR programs",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "New stationary sources are considered “minor” if they do not have the potential to emit air pollutants in amounts equal to or exceeding the “major source” statutory thresholds",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Comments must be received on or before August 21, 2026.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "state-choice",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "If EPA finalizes the proposal, a state or local air agency could revise its existing public-participation rules; it would not have to",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ],
+        "scopeAndFreshness": "Proposal contingency and optional state action remain explicit.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ACTION: Proposed rule.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "A 30-day period for submittal of public comment",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If this rule is finalized as proposed, State and local air agencies would be allowed to, but would not be required to, revise their existing SIP-approved minor NSR program public participation requirements through the SIP submission and approval process (SIP process).",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If an air agency chooses not to revise its minor NSR program’s existing public participation requirements in response to a final version of this proposed rule, those existing minor NSR public participation requirements would remain in the SIP and continue to apply to minor sources and minor modifications regulated by the air agency within its jurisdiction.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "any amendments to SIPs pursued as a result of this action would, if finalized, involve mandatory opportunities for public participation both at the State and local level and during the Agency review process",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "The EPA is not proposing to revise the minimum Federal public participation requirements that apply to the permitting of new major sources or major modifications to existing sources under air agencies’ major NSR programs",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "New stationary sources are considered “minor” if they do not have the potential to emit air pollutants in amounts equal to or exceeding the “major source” statutory thresholds",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Comments must be received on or before August 21, 2026.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "existing-rules-retained",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "If the agency leaves them alone, they continue to apply",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ],
+        "scopeAndFreshness": "Direct plain inference from official retention clause.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ACTION: Proposed rule.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "A 30-day period for submittal of public comment",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If this rule is finalized as proposed, State and local air agencies would be allowed to, but would not be required to, revise their existing SIP-approved minor NSR program public participation requirements through the SIP submission and approval process (SIP process).",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If an air agency chooses not to revise its minor NSR program’s existing public participation requirements in response to a final version of this proposed rule, those existing minor NSR public participation requirements would remain in the SIP and continue to apply to minor sources and minor modifications regulated by the air agency within its jurisdiction.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "any amendments to SIPs pursued as a result of this action would, if finalized, involve mandatory opportunities for public participation both at the State and local level and during the Agency review process",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "The EPA is not proposing to revise the minimum Federal public participation requirements that apply to the permitting of new major sources or major modifications to existing sources under air agencies’ major NSR programs",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "New stationary sources are considered “minor” if they do not have the potential to emit air pollutants in amounts equal to or exceeding the “major source” statutory thresholds",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Comments must be received on or before August 21, 2026.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "state-plan-process",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Changing that plan would still require public participation at the state or local level and during EPA review",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ],
+        "scopeAndFreshness": "State-program revision process is distinct from later individual permit notice.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ACTION: Proposed rule.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "A 30-day period for submittal of public comment",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If this rule is finalized as proposed, State and local air agencies would be allowed to, but would not be required to, revise their existing SIP-approved minor NSR program public participation requirements through the SIP submission and approval process (SIP process).",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If an air agency chooses not to revise its minor NSR program’s existing public participation requirements in response to a final version of this proposed rule, those existing minor NSR public participation requirements would remain in the SIP and continue to apply to minor sources and minor modifications regulated by the air agency within its jurisdiction.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "any amendments to SIPs pursued as a result of this action would, if finalized, involve mandatory opportunities for public participation both at the State and local level and during the Agency review process",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "The EPA is not proposing to revise the minimum Federal public participation requirements that apply to the permitting of new major sources or major modifications to existing sources under air agencies’ major NSR programs",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "New stationary sources are considered “minor” if they do not have the potential to emit air pollutants in amounts equal to or exceeding the “major source” statutory thresholds",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Comments must be received on or before August 21, 2026.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "major-unchanged",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "proposal also leaves federal public-participation requirements for new major sources and major modifications unchanged",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ],
+        "scopeAndFreshness": "Major-source boundary preserved.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ACTION: Proposed rule.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "A 30-day period for submittal of public comment",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If this rule is finalized as proposed, State and local air agencies would be allowed to, but would not be required to, revise their existing SIP-approved minor NSR program public participation requirements through the SIP submission and approval process (SIP process).",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If an air agency chooses not to revise its minor NSR program’s existing public participation requirements in response to a final version of this proposed rule, those existing minor NSR public participation requirements would remain in the SIP and continue to apply to minor sources and minor modifications regulated by the air agency within its jurisdiction.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "any amendments to SIPs pursued as a result of this action would, if finalized, involve mandatory opportunities for public participation both at the State and local level and during the Agency review process",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "The EPA is not proposing to revise the minimum Federal public participation requirements that apply to the permitting of new major sources or major modifications to existing sources under air agencies’ major NSR programs",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "New stationary sources are considered “minor” if they do not have the potential to emit air pollutants in amounts equal to or exceeding the “major source” statutory thresholds",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Comments must be received on or before August 21, 2026.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "data-centre-permit-relevance",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Data centres often use stationary engines or turbines for primary or backup power, and EPA says state and local agencies issue most of their air permits",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "epa-data-centre-resources"
+        ],
+        "scopeAndFreshness": "Sector link comes from EPA; no claim about every data centre.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Power sources are a major concern for planning data centers and AI infrastructure. Stationary combustion turbines and stationary engines – common sources of primary and backup power for data centers – are subject to various new source performance standards",
+            "locator": "https://www.epa.gov/stationary-sources-air-pollution/clean-air-act-resources-data-centers"
+          },
+          {
+            "excerpt": "State and local air agencies issue most air permits for data centers, under programs approved as meeting minimum requirements established by the CAA and EPA regulations.",
+            "locator": "https://www.epa.gov/stationary-sources-air-pollution/clean-air-act-resources-data-centers"
+          }
+        ]
+      },
+      {
+        "claimId": "pennsylvania-example",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Pennsylvania described an Amazon data-centre application covering 280 natural-gas backup engines and three diesel emergency engines",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "pa-amazon-permit-example"
+        ],
+        "scopeAndFreshness": "Historical example preserves fuel and engine counts.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "In April 2026, Amazon submitted to DEP a plan approval application for the installation of 280 natural gas-fired generator engines and three diesel-fired emergency generator engines. These generator engines will only provide backup electricity to the data center in the event of a main utility power supply interruption and for other limited testing and maintenance purposes.",
+            "locator": "https://www.pa.gov/agencies/dep/newsroom/2026-07-13-dep-to-host-community-meeting-on-proposed-air-quality-permit-for-amazon-data-center-bucks-county"
+          },
+          {
+            "excerpt": "The public comment period on DEP’s proposed decision on the air quality Minor New Source Plan Approval Application No. 09-0261A will be open for 30 days after publication in the Pennsylvania Bulletin.",
+            "locator": "https://www.pa.gov/agencies/dep/newsroom/2026-07-13-dep-to-host-community-meeting-on-proposed-air-quality-permit-for-amazon-data-center-bucks-county"
+          }
+        ]
+      },
+      {
+        "claimId": "pennsylvania-comment",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "state planned a community meeting and a 30-day comment period for that minor-source application",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "pa-amazon-permit-example"
+        ],
+        "scopeAndFreshness": "Past tense; no current participation invitation.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "In April 2026, Amazon submitted to DEP a plan approval application for the installation of 280 natural gas-fired generator engines and three diesel-fired emergency generator engines. These generator engines will only provide backup electricity to the data center in the event of a main utility power supply interruption and for other limited testing and maintenance purposes.",
+            "locator": "https://www.pa.gov/agencies/dep/newsroom/2026-07-13-dep-to-host-community-meeting-on-proposed-air-quality-permit-for-amazon-data-center-bucks-county"
+          },
+          {
+            "excerpt": "The public comment period on DEP’s proposed decision on the air quality Minor New Source Plan Approval Application No. 09-0261A will be open for 30 days after publication in the Pennsylvania Bulletin.",
+            "locator": "https://www.pa.gov/agencies/dep/newsroom/2026-07-13-dep-to-host-community-meeting-on-proposed-air-quality-permit-for-amazon-data-center-bucks-county"
+          }
+        ]
+      },
+      {
+        "claimId": "reported-dispute",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Associated Press reported on September 3 that critics fear residents in states with weak local requirements could lose notice of some projects. EPA’s response was that states would choose their own process and the proposal orders no particular state change",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "ap-independent-report",
+          "epa-proposed-rule"
+        ],
+        "scopeAndFreshness": "Attributed concerns and agency position; official text supplies mechanism.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A plan by the Environmental Protection Agency could make it harder for the public to learn about and comment on proposed AI data centers",
+            "locator": "https://www.local10.com/business/2026/09/03/epa-proposal-could-leave-the-public-in-the-dark-on-data-center-plans/"
+          },
+          {
+            "excerpt": "States could still offer opportunities for public comment, but the EPA would no longer mandate them as a condition for states to grant permits.",
+            "locator": "https://www.local10.com/business/2026/09/03/epa-proposal-could-leave-the-public-in-the-dark-on-data-center-plans/"
+          },
+          {
+            "excerpt": "An EPA spokesperson called that a false narrative.",
+            "locator": "https://www.local10.com/business/2026/09/03/epa-proposal-could-leave-the-public-in-the-dark-on-data-center-plans/"
+          },
+          {
+            "excerpt": "In our proposal we are saying that states get to pick how they want their permitting process to go for minor sources",
+            "locator": "https://www.local10.com/business/2026/09/03/epa-proposal-could-leave-the-public-in-the-dark-on-data-center-plans/"
+          },
+          {
+            "excerpt": "ACTION: Proposed rule.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "A 30-day period for submittal of public comment",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If this rule is finalized as proposed, State and local air agencies would be allowed to, but would not be required to, revise their existing SIP-approved minor NSR program public participation requirements through the SIP submission and approval process (SIP process).",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If an air agency chooses not to revise its minor NSR program’s existing public participation requirements in response to a final version of this proposed rule, those existing minor NSR public participation requirements would remain in the SIP and continue to apply to minor sources and minor modifications regulated by the air agency within its jurisdiction.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "any amendments to SIPs pursued as a result of this action would, if finalized, involve mandatory opportunities for public participation both at the State and local level and during the Agency review process",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "The EPA is not proposing to revise the minimum Federal public participation requirements that apply to the permitting of new major sources or major modifications to existing sources under air agencies’ major NSR programs",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "New stationary sources are considered “minor” if they do not have the potential to emit air pollutants in amounts equal to or exceeding the “major source” statutory thresholds",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Comments must be received on or before August 21, 2026.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "resident-question",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Find the state or local air-permitting agency responsible for that project. Ask: Is this a minor or major permit? Which public-notice rule applies today? Where is the live notice or docket?",
+            "locator": "P009"
+          }
+        ],
+        "sourceIds": [
+          "epa-proposed-rule",
+          "epa-data-centre-resources"
+        ],
+        "scopeAndFreshness": "Proportionate process question, not legal advice or claim of an open window.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/source-evidence.json",
+          "sha256": "80c58cb26cb920b2af98912165876c237fbe978b27dfcc775a193e1d5fd83b65"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ACTION: Proposed rule.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "A 30-day period for submittal of public comment",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If this rule is finalized as proposed, State and local air agencies would be allowed to, but would not be required to, revise their existing SIP-approved minor NSR program public participation requirements through the SIP submission and approval process (SIP process).",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "If an air agency chooses not to revise its minor NSR program’s existing public participation requirements in response to a final version of this proposed rule, those existing minor NSR public participation requirements would remain in the SIP and continue to apply to minor sources and minor modifications regulated by the air agency within its jurisdiction.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "any amendments to SIPs pursued as a result of this action would, if finalized, involve mandatory opportunities for public participation both at the State and local level and during the Agency review process",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "The EPA is not proposing to revise the minimum Federal public participation requirements that apply to the permitting of new major sources or major modifications to existing sources under air agencies’ major NSR programs",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "New stationary sources are considered “minor” if they do not have the potential to emit air pollutants in amounts equal to or exceeding the “major source” statutory thresholds",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Comments must be received on or before August 21, 2026.",
+            "locator": "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf"
+          },
+          {
+            "excerpt": "Power sources are a major concern for planning data centers and AI infrastructure. Stationary combustion turbines and stationary engines – common sources of primary and backup power for data centers – are subject to various new source performance standards",
+            "locator": "https://www.epa.gov/stationary-sources-air-pollution/clean-air-act-resources-data-centers"
+          },
+          {
+            "excerpt": "State and local air agencies issue most air permits for data centers, under programs approved as meeting minimum requirements established by the CAA and EPA regulations.",
+            "locator": "https://www.epa.gov/stationary-sources-air-pollution/clean-air-act-resources-data-centers"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen the EPA regulatory-action index, federal docket and relevant state permit notice if publication slips beyond September 11, EPA issues a final or revised rule, or a specific local project becomes the reader’s subject.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW",
+    "priorComparable": {
+      "candidateId": "epa-public-participation-20260911",
+      "version": "independent-review/final-v1",
+      "reviewIssues": 0,
+      "reviewCycles": 1,
+      "artifact": {
+        "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/independent-review/final-v1/ordinary-candidate.json",
+        "sha256": "fe68824b9a0df54eb958f05efb9b7236794173f32c432e1c0def7088550c2ab2"
+      }
+    }
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "epa-public-participation-20260911",
+    "predecessorVersion": "independent-review/final-v1",
+    "predecessorArtifact": {
+      "path": "operations/product-stewards/newsstand/candidates/epa-public-participation-20260911/independent-review/final-v1/ordinary-candidate.json",
+      "sha256": "fe68824b9a0df54eb958f05efb9b7236794173f32c432e1c0def7088550c2ab2"
+    },
+    "repairSummary": "Replaced unexplained federal-floor shorthand in the headline and opening with the specific public-notice and comment effect; preserved proposal status, state choice and all source limits."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Complete primary and independent source text and atomic claims were checked before dispatch; no unresolved candidate issue remains."
+  },
+  "limitations": [
+    "Producer review only, not independent admission.",
+    "No reviewed source establishes that Pennsylvania or another state has reduced current public-participation rights.",
+    "No reviewed source establishes how EPA will finalize the proposal or which states would change their rules."
+  ]
+}

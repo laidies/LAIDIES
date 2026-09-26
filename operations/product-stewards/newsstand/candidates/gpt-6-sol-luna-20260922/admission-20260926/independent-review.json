@@ -1,0 +1,993 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "gpt-6-sol-luna-20260922",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-26T14:59:47.758Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/review-text.json",
+      "sha256": "7039bc53530073b2d938e73c1456817166d15058fcd97bb08db7be82a1700b71"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/publication-manifest.json",
+      "sha256": "e22a057454cb19f24bef076aad726be126136bcf410c776177dddc08b48225f7"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/rendered-article.html",
+      "sha256": "4800f535e5791ed29eeca87b39d7babfd6c046b0166fdc95c4f47c27fe75ba85"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Can I pick GPT-6 Sol or Luna in my own ChatGPT account, and do the lower prices reduce what I pay?",
+    "promisedPayoff": "Knowing which OpenAI service and billing surface the announcement actually touches, so the reader can check her own account instead of assuming an upgrade.",
+    "centralMentalModel": "One model name spans several distinct services (Chat, Work, Codex, API), each with its own availability rules and its own billing: per-token API prices are developer usage meters, not subscription prices.",
+    "dailyLifeConnection": "Using Chat personally while an employer provides Work, and noticing the two model pickers differ (P004, P007).",
+    "surfaceJob": "A dated news article reporting the September 22 announcement and bounding what it does and does not establish for a reader's account.",
+    "desiredReaderFeeling": "Calm and equipped: no fear of a bill change, no false expectation of an automatic upgrade, and a concrete way to check."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Each technical term is defined in plain words at first use: API in P003, workspace in P005, model picker in P010; sentences are short and readable throughout.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "A model picker is the list of AI models an account can choose. The <a href=\\\"/library.html#ai-fundamentals-101::%40ch-4-4-2-what-a-token-actually-is\\\"><strong>AI Fundamentals 101 lesson on tokens</strong></a> explains why text processed can be a usage meter rather than a monthly subscription price.",
+          "locator": "P010"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline the reader learns which services carry the models, why the pricing figures don't touch her subscription, and how to check her own picker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, direct second-person guidance without condescension or borrowed persona; the cocktail-party line P009 is candid and adult.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI says GPT-6 Sol can take on difficult work tasks. For a routine email, summary or document draft, another available model may be a sensible alternative; compare it with Sol or Luna in your own service before treating a new name as an automatic upgrade.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "“Sol and Luna are model names, but access and price depend on the service you use. The lower numbers are API prices for developers, not a new ChatGPT subscription bill.”",
+          "locator": "P009"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The human question (is this in my account, does it change my bill) drives the piece; interest is sustained by resolving a genuine confusion rather than by forced humour.",
+      "artifactEvidence": [
+        {
+          "excerpt": "GPT-6 Sol and Luna: where the price applies",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>A model name can appear in more than one OpenAI service. You might use Chat personally and Work through an employer, and the lists of available models can differ.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“Sol and Luna are model names, but access and price depend on the service you use. The lower numbers are API prices for developers, not a new ChatGPT subscription bill.”",
+          "locator": "P009"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated announcement (September 22, P002) is reported with what it establishes and explicitly what it cannot establish for a particular account (P005), proper news scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI introduced GPT-6 Sol and Luna on September 22. Its release notes place them in ChatGPT Work and Codex, and say they are separate from the models in ordinary Chat.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The personal-Chat-versus-employer-Work situation in P004 is a recognizable professional scenario that makes the service-boundary mechanism concrete.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A model name can appear in more than one OpenAI service. You might use Chat personally and Work through an employer, and the lists of available models can differ.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose (P001, P009), concrete causality (service determines availability and billing, P003–P005) and a useful next question (check your own picker, P007) with no imitation of any famous explainer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "“Sol and Luna are model names, but access and price depend on the service you use. The lower numbers are API prices for developers, not a new ChatGPT subscription bill.”",
+          "locator": "P009"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The article's mechanism let me answer, in ordinary language, why an announced model may not appear in a reader's picker: separate services plus plan/workspace settings plus gradual rollout.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI introduced GPT-6 Sol and Luna on September 22. Its release notes place them in ChatGPT Work and Codex, and say they are separate from the models in ordinary Chat.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why could a colleague see GPT-6 Sol in her model picker while I cannot, even though we both use ChatGPT?",
+        "response": "Because the models were introduced only in ChatGPT Work and Codex, not ordinary Chat, and even within Work the visible model choices depend on the workspace's plan and settings, with a gradual rollout — so two people using different services or workspaces can see different pickers.",
+        "expectedEvidence": "P002 places the models in Work and Codex and separate from Chat; P004 notes lists can differ between personal Chat and employer Work; P005 explains plan/workspace settings and gradual rollout.",
+        "assessment": "The article supplies every causal step needed for this answer in ordinary language, so the explain-back succeeds without outside knowledge."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The service-versus-billing-surface mechanism transferred cleanly to a new scenario (freelancer fearing a bill change from headline price cuts) not present in the article.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>OpenAI’s performance and cost comparisons are its own evaluation claims. They do not promise that a particular task will be faster, cheaper or better for you.</p>",
+          "locator": "P008"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Do the announced lower prices change her Plus subscription, and can she simply switch to Luna in her account?",
+        "response": "No on both counts as stated. The lower figures are per-token API prices charged to developers whose software sends work to the model — a usage meter, not her flat subscription. And Luna was introduced in ChatGPT Work and Codex, separate from ordinary Chat, so she must check her own service's model picker rather than assume the headline applies to her plan.",
+        "expectedEvidence": "P003 defines the API and states the figures are not a subscription price; P002 bounds availability to Work and Codex; P007 gives the check-your-picker procedure; P010 explains per-token usage metering.",
+        "assessment": "The article's mechanism resolves this genuinely new scenario completely, showing the service/billing-surface model transfers beyond the cases it discusses."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Specific proportionate action: identify your service, inspect its current model picker and your plan/workspace details before assuming an upgrade (P007), and compare models for routine tasks (P006).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI says GPT-6 Sol can take on difficult work tasks. For a routine email, summary or document draft, another available model may be a sensible alternative; compare it with Sol or Luna in your own service before treating a new name as an automatic upgrade.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The only figurative device, the usage-meter framing for per-token billing in P010, maps accurately to how API billing works and keeps its limits; no overreaching analogies.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "A model picker is the list of AI models an account can choose. The <a href=\\\"/library.html#ai-fundamentals-101::%40ch-4-4-2-what-a-token-actually-is\\\"><strong>AI Fundamentals 101 lesson on tokens</strong></a> explains why text processed can be a usage meter rather than a monthly subscription price.",
+          "locator": "P010"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim traces to a supplied source excerpt with attribution and limits intact; the only omission (Free/Go users getting Luna in the desktop app per the release) does not contradict anything the article asserts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI introduced GPT-6 Sol and Luna on September 22. Its release notes place them in ChatGPT Work and Codex, and say they are separate from the models in ordinary Chat.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The announcement is dated September 22 in P002, sources were accessed September 26, and P005 flags the gradual rollout so readers know a checked claim may differ from their live account.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI introduced GPT-6 Sol and Luna on September 22. Its release notes place them in ChatGPT Work and Codex, and say they are separate from the models in ordinary Chat.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "This is a fresh announcement with no predecessor events to conflate; the article carefully distinguishes the dated announcement from the current, unverifiable state of any individual account picker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI introduced GPT-6 Sol and Luna on September 22. Its release notes place them in ChatGPT Work and Codex, and say they are separate from the models in ordinary Chat.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (billing surface, picker availability, task choice) while uncertainty survives: rollout is gradual, and OpenAI's comparisons are its own evaluation claims with no promised reader outcome.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>OpenAI says GPT-6 Sol can take on difficult work tasks. For a routine email, summary or document draft, another available model may be a sensible alternative; compare it with Sol or Luna in your own service before treating a new name as an automatic upgrade.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>OpenAI’s performance and cost comparisons are its own evaluation claims. They do not promise that a particular task will be faster, cheaper or better for you.</p>",
+          "locator": "P008"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Definitions are woven into the causal account of availability and billing rather than stacked as a glossary.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Sections progress from event to boundary to action without repeated paragraph scaffolds.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The usage-meter framing does explanatory work for per-token billing; nothing decorative.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references anywhere in the piece.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal chain from service and plan/workspace settings to visible model choices is spelled out (P002, P005, P007).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Advice is concrete: identify your service, open its model picker, check plan and workspace details (P007).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "API, workspace and model picker are each explained at first meaningful use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Chat, Work, Codex and the API are explicitly connected through availability rules and billing surfaces rather than listed in isolation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Provider claims are attributed as OpenAI's own evaluations and rollout uncertainty is preserved (P005, P008).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The announcement is dated September 22 and sources were accessed September 26; claims are traceable to the cited release and release notes.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete throughout; even OpenAI's marketing framing is bounded as its own claim.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The reader's real question and money stakes give the checklist human interest; it never becomes a terminology manual.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmarks or famous explainers are invoked.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's question about where the price applies is answered directly in P003 and P009.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The employer-Work example in P004 returns to the technical mechanism of per-service pickers and settings in P005 and P007.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The voice is original and plain; no imitated communicator mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "There is no humour or spectacle competing with the explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The mechanism occupies most of the piece; the hook is a single headline line.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The API-versus-subscription conclusion in P003 arrives with its explanation of what an API is and how it is billed.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending deflates rather than inflates: provider comparisons do not promise reader outcomes (P008).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers all three requested surfaces: ordinary Chat, Work/Codex, and API billing, plus reader action.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The reader's stake (her account and bill) is established in the headline and story before any technical machinery.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The single employer example stays brief and serves the broader service-boundary orientation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "This is a bounded news report where explaining the specific availability-and-billing mechanism is exactly the right perspective, organised around the reader's account.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+        "sha256": "1a35c53e4d18e6786fc8dbbef8f9bfd3b254bcb48d2b369f1a62903f269a6dbe"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "work-codex-not-chat",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI introduced GPT-6 Sol and Luna on September 22. Its release notes place them in ChatGPT Work and Codex, and say they are separate from the models in ordinary Chat.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+          "sha256": "1a35c53e4d18e6786fc8dbbef8f9bfd3b254bcb48d2b369f1a62903f269a6dbe"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re introducing GPT-6 Sol and GPT-6 Luna in ChatGPT Work and Codex. These models are separate from the models available in Chat.",
+            "locator": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+          },
+          {
+            "excerpt": "Available models and reasoning effort options depend on your plan and workspace settings.",
+            "locator": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+          }
+        ],
+        "scopeAndFreshness": "P002 mirrors the release-notes excerpt almost verbatim: 'introducing GPT-6 Sol and GPT-6 Luna in ChatGPT Work and Codex. These models are separate from the models available in Chat.' Attribution to the release notes is retained."
+      },
+      {
+        "claimId": "api-not-subscription",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "“Sol and Luna are model names, but access and price depend on the service you use. The lower numbers are API prices for developers, not a new ChatGPT subscription bill.”",
+            "locator": "P009"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+          "sha256": "1a35c53e4d18e6786fc8dbbef8f9bfd3b254bcb48d2b369f1a62903f269a6dbe"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "GPT‑6 Sol and GPT‑6 Luna are available in ChatGPT Work and Codex starting today for all Plus, Pro, Business, Enterprise, and Edu users. Free and Go users can access GPT‑6 Luna in the desktop app. These models are not yet available in Chat.",
+            "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+          },
+          {
+            "excerpt": "Prices are per 1 million tokens. GPT‑6 Sol can take on difficult work tasks while giving you more room to iterate with higher usage limits and lower cost.",
+            "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+          }
+        ],
+        "scopeAndFreshness": "The release excerpt states 'Prices are per 1 million tokens', which is usage-metered API billing rather than a subscription figure; P003 attributes the prices to OpenAI, explains what an API is, and draws only the boundary that the figures are not a ChatGPT subscription price. The source implies rather than states the negative, but the inference is faithful and limited."
+      },
+      {
+        "claimId": "plan-workspace-boundary",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+          "sha256": "1a35c53e4d18e6786fc8dbbef8f9bfd3b254bcb48d2b369f1a62903f269a6dbe"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We’re introducing GPT-6 Sol and GPT-6 Luna in ChatGPT Work and Codex. These models are separate from the models available in Chat.",
+            "locator": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+          },
+          {
+            "excerpt": "Available models and reasoning effort options depend on your plan and workspace settings.",
+            "locator": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+          }
+        ],
+        "scopeAndFreshness": "P005 matches the release-notes excerpt 'Available models and reasoning effort options depend on your plan and workspace settings', is attributed with 'OpenAI says', and correctly adds that gradual rollout means the announcement cannot show a particular account's picker, consistent with the stated source limitation."
+      },
+      {
+        "claimId": "provider-task-positioning",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI says GPT-6 Sol can take on difficult work tasks. For a routine email, summary or document draft, another available model may be a sensible alternative; compare it with Sol or Luna in your own service before treating a new name as an automatic upgrade.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "<p>OpenAI’s performance and cost comparisons are its own evaluation claims. They do not promise that a particular task will be faster, cheaper or better for you.</p>",
+            "locator": "P008"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/editorial-input.json",
+          "sha256": "1a35c53e4d18e6786fc8dbbef8f9bfd3b254bcb48d2b369f1a62903f269a6dbe"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "GPT‑6 Sol and GPT‑6 Luna are available in ChatGPT Work and Codex starting today for all Plus, Pro, Business, Enterprise, and Edu users. Free and Go users can access GPT‑6 Luna in the desktop app. These models are not yet available in Chat.",
+            "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+          },
+          {
+            "excerpt": "Prices are per 1 million tokens. GPT‑6 Sol can take on difficult work tasks while giving you more room to iterate with higher usage limits and lower cost.",
+            "locator": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+          }
+        ],
+        "scopeAndFreshness": "The release excerpt states 'GPT-6 Sol can take on difficult work tasks'; P006 attributes this to OpenAI, and P008 explicitly bounds performance and cost comparisons as the provider's own evaluation claims that promise no reader outcome."
+      }
+    ],
+    "reviewedThrough": "2026-09-26",
+    "nextTrigger": "OpenAI changes Sol or Luna availability, rollout, plan/workspace conditions or API prices; or a source correction appears.",
+    "correctionOwner": "/root/morning_aidb_20260920"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 2,
+    "reviewCycles": 3,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound ordinary candidate covers the September 22 Sol/Luna product-surface and API-price distinction."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All reader outcomes and news checks pass and every failure family is clear; the mechanism supported both the explain-back and a new transfer scenario without gaps."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=2; evidence gaps repaired=0; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/admission-20260926/news-editorial-analysis.json",
+      "sha256": "e2a14fec983ba9206817eb10f5e30a3fac2cb06f74b92357c750ddacc4df7c3d"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/admission-20260926/independent-raw-report.json",
+    "sha256": "1d82678dbd938ba459fcdf82181363ce675a06d55de3c52867cd8e4c85adacfa"
+  }
+}

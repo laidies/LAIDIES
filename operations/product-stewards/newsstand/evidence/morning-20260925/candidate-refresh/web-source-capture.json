@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "newsstand-candidate-current-source-capture-v1",
+  "observedAt": "2026-09-25T07:04:16-07:00",
+  "editorialDate": "2026-09-25",
+  "reviewer": "/root/california_order_producer",
+  "method": "Normal web opens of every selected original plus focused official-domain development searches. Exact prior event dates were preserved; crawl dates were not treated as event dates.",
+  "candidates": [
+    {
+      "candidateId": "california-ai-oversight-order-20260920",
+      "result": "NO_MATERIAL_CHANGE",
+      "sources": [
+        {
+          "url": "https://www.gov.ca.gov/wp-content/uploads/2026/09/FINAL-N-9-26-AI-EO-9.18.26-SIGNED.pdf",
+          "webResult": "turn1181view0",
+          "eventDate": "2026-09-18",
+          "currentEvidence": "The order still sets May 1, 2027 and December 1, 2027 as separate implementation deadlines and requires November 16, 2026 recommendations about possible amendments, including a verified frontier-model shutoff."
+        },
+        {
+          "url": "https://www.gov.ca.gov/2026/09/18/governor-newsom-issues-executive-order-to-accelerate-independent-oversight-and-advance-the-creation-of-an-ai-kill-switch/",
+          "webResult": "turn1181view1",
+          "eventDate": "2026-09-18",
+          "currentEvidence": "The page still calls the shutoff and embedded-verifier requirements proposals under consideration."
+        },
+        {
+          "url": "https://www.eff.org/deeplinks/2026/09/eff-statement-california-governors-executive-order-ai",
+          "webResult": "turn1181view2",
+          "eventDate": "2026-09-18",
+          "currentEvidence": "EFF still supports broader reporting and third-party investigation while describing shutoff effectiveness as active research and warning about protected speech."
+        },
+        {
+          "url": "https://www.gov.ca.gov/2026/09/23/governor-newsom-announces-world-leading-experts-to-deliver-on-his-ai-executive-order-including-advancing-creation-of-a-kill-switch/",
+          "webResult": "turn1183view0",
+          "eventDate": "2026-09-23",
+          "currentEvidence": "The named adviser group exists, but the page still describes a shutoff and embedded third parties as proposals under consideration."
+        }
+      ],
+      "developmentCheck": {
+        "query": "site:gov.ca.gov N-9-26 AI executive order September 24 2026 update",
+        "webResult": "turn1190search8",
+        "finding": "No later official implementation outcome or enacted shutoff requirement surfaced."
+      }
+    },
+    {
+      "candidateId": "california-data-centre-laws-20260921",
+      "result": "NO_MATERIAL_CHANGE",
+      "sources": [
+        {
+          "url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+          "webResult": "turn1183view1",
+          "eventDate": "2026-09-21",
+          "currentEvidence": "The page still identifies seven signed bills and uses administration framing about ratepayer protection."
+        },
+        {
+          "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1168",
+          "webResult": "turn1183view2",
+          "eventDate": "2026-09-21",
+          "currentEvidence": "The chaptered text remains Chapter 440 and requires the commission to assess opportunities for rate structures; it does not supply an adopted tariff or household saving."
+        },
+        {
+          "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1577",
+          "webResult": "turn1183view3",
+          "eventDate": "2026-09-21",
+          "currentEvidence": "The chaptered text remains Chapter 434 with permit-stage and state reporting, annual anonymized aggregate publication, exclusions, and a 2029 load-trend assessment."
+        }
+      ],
+      "developmentCheck": {
+        "queries": [
+          "site:cpuc.ca.gov SB 1168 data centers rate structures September 2026 proceeding",
+          "site:energy.ca.gov AB 1577 data center reporting September 2026 implementation"
+        ],
+        "webResults": ["turn1190search5", "turn1190search9"],
+        "finding": "No official result tied a new CPUC tariff or CEC implementation rule to SB 1168 or AB 1577. Search surfaced an earlier CPUC large-load proceeding and general CEC data-rulemaking background, neither a new bill outcome."
+      }
+    },
+    {
+      "candidateId": "weekly-changes-need-different-verbs-20260923",
+      "result": "MATERIAL_STATUS_UPDATE_AND_SOURCE_URL_REPAIR",
+      "materialChange": "On September 24 the Senate completed the Rule 14 process and placed H.R. 9340 on its legislative calendar. This is later action than the draft's September 23 cutoff, but it is not Senate passage or enactment.",
+      "sourceRepair": {
+        "incorrect": "https://www.bleepingcomputer.com/news/security/malicious-ai-agents-deploy-card-skimmers-on-online-stores/",
+        "correct": "https://www.bleepingcomputer.com/news/security/malicious-ai-agents-steal-600k-credit-cards-infect-100-plus-sites-with-skimmers/"
+      },
+      "sources": [
+        {"url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm", "webResult": "turn1184view0", "currentEvidence": "The engrossed text remains House-passed September 16."},
+        {"url": "https://clerk.house.gov/Votes/2026312", "webResult": "turn1184view1", "currentEvidence": "The House vote remains 417–3."},
+        {"url": "https://www.dailypress.senate.gov/", "webResult": "turn1187search0", "currentEvidence": "The Senate's September 24 record says H.R. 9340 received second reading and was placed on the calendar."},
+        {"url": "https://www.bleepingcomputer.com/news/security/malicious-ai-agents-steal-600k-credit-cards-infect-100-plus-sites-with-skimmers/", "webResult": "turn1188view0", "currentEvidence": "The September 23 report remains accessible at the corrected URL and attributes the campaign findings to Gambit."},
+        {"url": "https://gambit.security/blog-posts/autonomous-ai-agents-online-retailers-25-a-company", "webResult": "turn1188view1", "currentEvidence": "Gambit's September 22 publication still labels itself an interim report and states evidence and uncertainty boundaries."},
+        {"url": "https://claude.com/blog/cowork-is-now-claude", "webResult": "turn1185view0", "currentEvidence": "The September 16 announcement still states a gradual Pro/Max rollout with more plans to follow."},
+        {"url": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude", "webResult": "turn1190search2", "currentEvidence": "Current help says rollout remains staged and some Pro/Max accounts may not yet have the merged experience."},
+        {"url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/", "webResult": "turn1185view1", "currentEvidence": "The announcement still limits Sol/Luna to Work and Codex for named plans, with Luna desktop access for Free/Go and no Chat availability."},
+        {"url": "https://help.openai.com/en/articles/6825453-chatgpt-plus", "webResult": "turn1191search0", "currentEvidence": "The current release notes confirm a September 22 release and say these models remain separate from Chat."}
+      ],
+      "unchangedSelectedSources": "The California originals are covered by the two current checks above. No affected-party update changed the card-skimmer story's reader-specific exposure limit."
+    }
+  ],
+  "limits": [
+    "This is candidate freshness evidence, not independent editorial admission or publication authority.",
+    "No provider reviewer was called.",
+    "No canonical, shared or public record was changed."
+  ]
+}

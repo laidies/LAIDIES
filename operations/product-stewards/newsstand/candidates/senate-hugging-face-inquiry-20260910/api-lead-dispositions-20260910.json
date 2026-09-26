@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "newsstand-source-disposition-v1",
+  "checkedAt": "2026-09-10T21:37:21-07:00",
+  "items": [
+    {
+      "id": "openai-gpt-live-1-20260910",
+      "disposition": "KEEP",
+      "reason": "This has a concrete downstream reader effect beyond developer plumbing: OpenAI says GPT-Live-1 is generally available for developers to put into phone calls, customer support, reservations, tutoring and other voice apps. A person using one of those services may encounter an AI voice that can listen and speak at the same time, handle interruptions and background noise, and continue talking while a separate model or agent uses tools. That is a distinct change in the products people may call or use.",
+      "primarySources": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-live-1-in-the-api/",
+          "facts": [
+            "OpenAI dated the release September 10, 2026 and says GPT-Live-1 is available in the API that day.",
+            "OpenAI describes a full-duplex voice layer that listens and speaks at the same time, handles interruptions, and can delegate reasoning and tool calls to a separate backend model.",
+            "OpenAI names phone-call uses including restaurant reservations and customer support.",
+            "The voice layer costs $0.05 per minute; backend-model and tool charges are additional."
+          ],
+          "limitation": "The performance figures and customer examples on the release page are vendor-supplied claims, not an independent evaluation. General API availability does not establish that any particular reader-facing service has adopted it."
+        },
+        {
+          "url": "https://developers.openai.com/api/docs/changelog",
+          "facts": [
+            "The September 10 changelog marks GPT-Live-1 generally available through v1/live/sessions and says sessions are billed per second at $0.05 per minute, with backend and tool usage charged separately."
+          ],
+          "limitation": "This is OpenAI's own product changelog."
+        }
+      ],
+      "nextTrigger": "Before drafting, obtain independent reporting or direct evidence from a deployed reader-facing service about actual experience, disclosure, consent and failure handling; do not repeat vendor customer metrics as established outcomes."
+    },
+    {
+      "id": "openai-agents-api-20260910",
+      "disposition": "SOURCE_HOLD",
+      "reason": "The public beta is technically substantial, but the current evidence does not establish a distinct change a nondeveloper reader can encounter today. OpenAI now offers developers a managed Codex-style harness for durable sessions, context compaction, recovery, tools, sandboxes and subagents. Those capabilities may make long-running agent products easier to build, but the release page and customer quotations do not independently show better reliability, safety or outcomes in a public product.",
+      "primarySources": [
+        {
+          "url": "https://openai.com/index/introducing-the-agents-api/",
+          "facts": [
+            "OpenAI dated the release September 10, 2026 and calls the Agents API a public beta available to all developers.",
+            "OpenAI says it manages the agent harness while developers choose the model, tools and an OpenAI-hosted, self-hosted or partner sandbox.",
+            "The service provides durable sessions, context compaction, tool search, programmatic tool calling and optional multi-agent orchestration.",
+            "OpenAI says there is no separate Agents API fee; developers pay for the tokens and tools their agents use."
+          ],
+          "limitation": "This is a vendor announcement. The quoted customer performance and cost figures are not independent evidence, and public beta status signals that the interface may change before general availability."
+        },
+        {
+          "url": "https://developers.openai.com/api/docs/changelog",
+          "facts": [
+            "The September 10 changelog confirms public beta and names managed session orchestration, context compaction and recovery, durable sessions, progress streaming, tool and MCP connections, and hosted or external sandboxes."
+          ],
+          "limitation": "This is OpenAI's own product changelog."
+        }
+      ],
+      "attemptedRecovery": "The official release and developer changelog were read in full for launch status, capability scope, environment choice and pricing. No independent evaluation or named generally available reader-facing product change was recovered in this bounded check.",
+      "nextTrigger": "Reopen when an independently examined public product uses the API, when OpenAI publishes safety and reliability evidence tied to the managed harness, or when general availability materially changes access or responsibility boundaries."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "laidies-newsstand-combined-editorial-raw.v1",
+  "candidateId": "national-safety-proposals-20260911",
+  "storySha256": "6a22c3d7f6a7112fd6cca46352f80cc91a155b9c63f867289a63d9344e81bc23",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "verdict": "PASS",
+  "findings": {
+    "reader": "A well-bounded dated news article that answers legal status first, explains both proposed braking mechanisms with their triggers and coverage, keeps attribution and uncertainty intact, and ends with a specific transferable four-question tool. No failure families present; explain-back and a novel state-licensing transfer scenario both succeed on the article's own mechanisms.",
+    "facts": "All fifteen claims verify against their assigned source excerpts with attribution and legal-status limits intact. One claim (superintelligence-definition) is qualified: 'defeat important forms of human control' compresses the source's 'overthrow human governments' clause, but the sponsor attribution and shutdown-command example are preserved. Dates, sequencing and the proposals-versus-law distinction are accurate throughout."
+  },
+  "readerProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-provider.raw.json",
+    "sha256": "b5bec1749380ac50bb63c7e7b8b281c49953d2234591378d5a529505aa33abed"
+  },
+  "factualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-provider.raw.json",
+    "sha256": "b5bec1749380ac50bb63c7e7b8b281c49953d2234591378d5a529505aa33abed"
+  },
+  "factualJudgment": {
+    "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-judgment.json",
+    "sha256": "0687f336e395c1ba2485786bd5f6cc794434a83ef2907d9c602bfe83a2b98c7b"
+  },
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  }
+}

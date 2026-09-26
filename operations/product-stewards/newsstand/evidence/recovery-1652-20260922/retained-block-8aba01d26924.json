@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "newsstand-source-recovery-review-v1",
+  "url": "https://x.com/bot/status/2098183353665261979",
+  "originalCheckedAt": "2026-09-21T23:27:06.918Z",
+  "originalNotRetried": true,
+  "reviewedAt": "2026-09-23T03:51:47.838361+00:00",
+  "reviewedBy": "/root",
+  "assessment": "DISTINCT_DISCOVERY_NO_RELEVANT_PUBLISHER_IDENTIFIED. Original content remains unverified; distinct discovery is not equivalent evidence.",
+  "missingInput": "Account/product identity and a publisher-controlled announcement or primary record.",
+  "nextCheckAt": "2026-09-23T14:00:00Z",
+  "nextRecoveryStep": "Identify the account/product from an already admitted source, then inspect its official publisher record; do not repeat the X URL.",
+  "originalCapture": {
+    "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260921/remaining-route-rechecks.json",
+    "sha256": "aeb1b39c54717bf26bef18b25118c3f2165365a1ed69e85ba6fe2eb877bddda6"
+  },
+  "recoverySources": [
+    {
+      "url": "web search: 2098183353665261979 original announcement",
+      "status": "CHECKED",
+      "checkedAt": "2026-09-23T03:06:09Z",
+      "assessment": "Returned unrelated results; no legitimate publisher identity was identified.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1652-20260922/stale-source-capture-bundle.json",
+        "sha256": "50f47041699ef353d7afa73e2e0572fc8a5a248e15ae0e1b710d4d3a26200fc1"
+      }
+    }
+  ]
+}

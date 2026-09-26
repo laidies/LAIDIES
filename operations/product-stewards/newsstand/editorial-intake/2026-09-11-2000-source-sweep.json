@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "newsstand-source-sweep-v1",
+  "sweepId": "2026-09-11-2000-source-sweep",
+  "checkedAt": "2026-09-12T03:03:36Z",
+  "editorialDate": "2026-09-11",
+  "scope": "Fresh provider, policy, reporting, and science index checks. No coverage state, draft, release, or scheduler was changed.",
+  "coverageComparison": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "leadCount": 25,
+    "existingIdsChecked": [
+      "openai-habitat-storage-engineering-20260911",
+      "anthropic-threat-report-20260910",
+      "openai-agents-api-20260910",
+      "openai-gpt-live-1-20260910",
+      "openai-data-agent-20260910",
+      "openai-financial-services-20260910",
+      "openai-antimicrobials-20260910",
+      "eff-wiser-records-20260908",
+      "papercut-ai-campaign-20260910",
+      "china-distillation-advisory-20260908",
+      "crisp-pathology-20260910",
+      "anthropic-pentagon-ruling-20260827"
+    ]
+  },
+  "sourceChecks": [
+    {
+      "desk": "official-openai",
+      "url": "https://openai.com/news/",
+      "checkedAt": "2026-09-12T03:03:36Z",
+      "status": "CHECKED_NO_NEW_DATED_EVENT",
+      "observedDatedItems": [
+        {
+          "eventDate": "2026-09-11",
+          "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users",
+          "url": "https://openai.com/index/scaling-storage-one-billion-users-part-one/",
+          "coverageDisposition": "existing openai-habitat-storage-engineering-20260911"
+        }
+      ],
+      "note": "The remaining leading cards are existing September 8-10 coverage items."
+    },
+    {
+      "desk": "official-anthropic-newsroom-engineering",
+      "urls": [
+        "https://www.anthropic.com/news",
+        "https://www.anthropic.com/engineering"
+      ],
+      "checkedAt": "2026-09-12T03:03:36Z",
+      "status": "CHECKED_NO_NEW_DATED_EVENT",
+      "observedDatedItems": [
+        {
+          "eventDate": "2026-09-10",
+          "title": "Detecting and countering misuse of AI: September 2026",
+          "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+          "coverageDisposition": "existing anthropic-threat-report-20260910"
+        }
+      ],
+      "gap": "The Engineering featured containment item has no displayed date; it cannot establish a current engineering event or provider-wide quiet."
+    },
+    {
+      "desk": "official-google-and-gemini-api",
+      "urls": [
+        "https://blog.google/innovation-and-ai/technology/ai/",
+        "https://ai.google.dev/gemini-api/docs/changelog"
+      ],
+      "checkedAt": "2026-09-12T03:03:36Z",
+      "status": "CHECKED_NO_NEW_DATED_API_EVENT",
+      "observedDatedItems": [
+        {
+          "eventDate": "2026-09-03",
+          "title": "Lyria 3.5 in public preview",
+          "url": "https://ai.google.dev/gemini-api/docs/changelog",
+          "coverageDisposition": "older changelog item; no September 9-11 Gemini API entry"
+        }
+      ],
+      "gap": "Google's AI category remains an undated mixed-card page and cannot certify no Google or DeepMind announcement."
+    },
+    {
+      "desk": "independent-ap",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "checkedAt": "2026-09-12T03:03:36Z",
+      "status": "CHECKED_INDEX_NO_VERIFIABLE_NEW_EVENT",
+      "observedDatedItems": [],
+      "gap": "The hub exposed old/pinned AI headlines without article dates in the inspected index. The Anthropic-Pentagon article remains existing anthropic-pentagon-ruling-20260827; index placement is not event-date proof."
+    },
+    {
+      "desk": "independent-reuters",
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "checkedAt": "2026-09-12T03:03:36Z",
+      "status": "EVIDENCE_BLOCKED",
+      "observedDatedItems": [],
+      "gap": "The AI hub returned an internal error again. No quiet conclusion is valid.",
+      "nextAction": "Recover a dated direct Reuters AI article or another legitimate independent reporting route."
+    },
+    {
+      "desk": "independent-cybersecurity-bleepingcomputer",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "checkedAt": "2026-09-12T03:03:36Z",
+      "status": "CHECKED_NO_NEW_UNDERLYING_EVENT",
+      "observedDatedItems": [
+        {
+          "eventDate": "2026-09-11",
+          "title": "Hackers abused Claude to extract secrets from 1.8M Android apps",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-abused-claude-to-extract-secrets-from-18m-android-apps/",
+          "coverageDisposition": "Independent reporting that attributes the activity to Anthropic's existing September threat report; not a separate event."
+        }
+      ]
+    },
+    {
+      "desk": "consumer-policy-ftc",
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "checkedAt": "2026-09-12T03:03:36Z",
+      "status": "CHECKED_NO_NEW_AI_ACTION",
+      "observedDatedItems": [
+        {
+          "eventDate": "2026-09-10",
+          "title": "FTC Publishes Proposed 2027 Budget for Horseracing Integrity and Safety Authority",
+          "url": "https://www.ftc.gov/news-events/news/press-releases",
+          "coverageDisposition": "Not an AI action."
+        },
+        {
+          "eventDate": "2026-08-27",
+          "title": "FTC Finalizes Orders with Cox Media Group, Two Other Firms Settling Charges They Deceived Customers About ‘Active Listening’ AI-Powered Marketing Service",
+          "url": "https://www.ftc.gov/news-events/news/press-releases",
+          "coverageDisposition": "Older, distinct FTC consumer-protection matter; it is not the Anthropic researcher Coxon story."
+        }
+      ]
+    },
+    {
+      "desk": "rights-policy-eff",
+      "url": "https://www.eff.org/deeplinks",
+      "checkedAt": "2026-09-12T03:03:36Z",
+      "status": "CHECKED_NO_NEW_AI_EVENT",
+      "observedDatedItems": [
+        {
+          "eventDate": "2026-09-08",
+          "title": "New Records Reveal Problems with Medicare’s AI Prior Authorization Experiment",
+          "url": "https://www.eff.org/deeplinks/2026/09/new-records-reveal-problems-medicares-ai-prior-authorization-experiment",
+          "coverageDisposition": "existing eff-wiser-records-20260908"
+        }
+      ]
+    },
+    {
+      "desk": "science-nature-machine-learning",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "checkedAt": "2026-09-12T03:03:36Z",
+      "status": "NEW_RESEARCH_REFERENCE_EVIDENCE_BLOCKED",
+      "observedDatedItems": [
+        {
+          "eventDate": "2026-09-09",
+          "title": "DeepMind’s new genome ‘atlas’ charts effects of all nine billion human gene mutations",
+          "url": "https://www.nature.com/articles/d41586-026-02835-4",
+          "sourceReference": "The September 11 Nature podcast page identifies this as a September 9 Nature News item; its own full article redirected to cookie authorization during this sweep."
+        },
+        {
+          "eventDate": "2026-09-10",
+          "title": "A clinically-oriented foundation model for intraoperative pathology",
+          "url": "https://www.nature.com/articles/s41591-026-04703-0",
+          "coverageDisposition": "existing crisp-pathology-20260910 evidence hold"
+        }
+      ],
+      "gap": "The Nature News genome article is not readable through the current route. Its underlying paper/model, scope, validation, and any health implication need source recovery before a research story is admitted."
+    }
+  ],
+  "possibleLeads": [
+    {
+      "id": "deepmind-genome-atlas-20260909",
+      "eventDate": "2026-09-09",
+      "status": "EVIDENCE_BLOCKED_RESEARCH_LEAD",
+      "referenceUrls": [
+        "https://www.nature.com/articles/d41586-026-02835-4"
+      ],
+      "why": "A dated Nature News item identifies a distinct DeepMind genome-mutation research event absent from the 25 lead IDs. The inspected page does not expose the underlying study or results.",
+      "nextAction": "Recover the named underlying primary paper/model source and independent interpretation; do not infer medical benefit, clinical availability, or performance from the headline."
+    },
+    {
+      "id": "reuters-ai-hub-20260911-2000",
+      "eventDate": null,
+      "status": "EVIDENCE_BLOCKED",
+      "referenceUrls": [
+        "https://www.reuters.com/technology/artificial-intelligence/"
+      ],
+      "why": "Required independent reporting route remained unavailable.",
+      "nextAction": "Retain as a source gap rather than labeling the desk quiet."
+    }
+  ],
+  "notQuietEvidence": [
+    "Reuters was unavailable.",
+    "Google and Anthropic engineering indexes contained undated material.",
+    "Nature surfaced a distinct dated research reference whose article was inaccessible.",
+    "AP's old legal article is explicitly treated as an existing August 27 event, not a current lead."
+  ]
+}

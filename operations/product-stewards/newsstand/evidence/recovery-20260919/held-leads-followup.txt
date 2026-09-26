@@ -1,0 +1,591 @@
+On-demand design of controlled-release systems using an expert-mimic AI framework | Nature Communications (https://www.nature.com/articles/s41467-026-77619-5)
+citeturn876search0 [wordlim: 200] Published: 4 days ago; Crawled: 4 days ago; Nat Commun (2026). https://doi.org/10.1038/s41467-026-77619-5 ...   * DOI (Digital Object Identifier): https://doi.org/10.1038/s41467-026-77619-5
+## Abstract
+
+Navigating a vast formulation-preparation design space that is highly sensitive to perturbations makes trial-and-error approaches inefficient and costly for diverse clinical needs. Here, we introduce an expert-mimic AI framework called E-MAF that integrates a process-aware surrogate with an optimized genetic algorithm to emulate coarse-to-fine reasoning, autonomously generating lab-ready designs tailored to desired release profiles. We show that E-MAF delivers on-demand release and shortens design cycles from 6-12 months to approximately 1 hour. We demonstrate that in vitro release, in vivo pharmacokinetics and therapeutic effects match or surpass commercial benchmarks across 7 active pharmaceutical ingredients. We show that E-MAF also enables release profiles that are hard to achieve by conventional approaches, exemplified by ≤2% risperidone burst within 1 h and near-zero-order release over ~28 days in vivo. These results demonstrate E-MAF’s potential to accelerate polymeric controlled-release system development and drug-delivery industrialization.
+
+## Acknowledgements
+
+We thank all members of our laboratory and collaborating facilities for technical assistance and helpful discussions. The authors used AI-assisted technologies (ChatGPT, OpenAI; DeepSeek) for language refinement during manuscript preparation under the full supervision, verification, and approval of the authors.
+
+## Funding
+
+Strategic Priority Research Program of the Chinese Academy of Sciences grant XDB1310000. Major Program of the National Natural Science Foundation of China grant T2394503 (Y.X.). National Natural Science Foundation of China Excellent Young Scientists Fund (Hong Kong and Macau) 22322816. National Key Research and Development Program of China grant 2021YFC2302600 (G.M.). Key Project of the National Natural Science Foundation of China, grant 32030062 (G.M.). IPE Project for Frontier Basic Research grant QYJC-2023-04. Open Funding Project of the State Key Laboratory of Biochemical Engineering & Key Laboratory of Biopharmaceutical Preparation and Delivery grant 2023KF-02.
+
+## Author information
+
+Author notes
+
+  1. These authors contributed equally: Ying Qin, Rushuang Zhou, Yali Ming, Bohao Li.
+
+### Authors and Affiliations
+
+  1. Department of Data Science, City University of Hong Kong, Hong Kong, PR China
+
+Ying Qin & Yining Dong
+
+  2. State Key Laboratory of Biopharmaceutical Preparation and Delivery, Institute of Process Engineering, Chinese Academy of Sciences, Beijing, PR China
+
+Ying Qin, Yali Ming, Donglin Sui, Jingxuan Liu, Guanghui Ma & Yufei Xia
+
+  3. Department of Biomedical Engineering, City University of Hong Kong, Hong Kong, PR China
+
+Rushuang Zhou
+
+  4. University of Chinese Academy of Sciences, Beijing, PR China
+
+Yali Ming, Guanghui Ma & Yufei Xia
+
+  5. School of Computer Science and Engineering, Sun Yat-sen University, Guangzhou, PR China
+
+Bohao Li & Yuedong Yang
+
+  6. Huili Pharmaceutical Co., Ltd., Suzhou, PR China
+
+Yuning Hu & Hang Wang
+
+Authors
+
+  1. Ying Qin
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+  2. Rushuang Zhou
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+  3. Yali Ming
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+  4. Bohao Li
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+  5. Yuning Hu
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+  6. Donglin Sui
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+  7. Jingxuan Liu
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+  8. Hang Wang
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+  9. Guanghui Ma
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+  10. Yuedong Yang
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+  11. Yining Dong
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+  12. Yufei Xia
+
+View author publications
+
+Search author on:PubMed Google Scholar
+
+### Corresponding authors
+
+Correspondence to Yuedong Yang (yangyd25@mail.sysu.edu.cn), Yining Dong (yining.dong@cityu.edu.hk) or Yufei Xia (yfxia@ipe.ac.cn).
+
+## Ethics declarations
+
+### Competing interests
+
+Y.H. and H.W. are employees of Huili Pharmaceutical Co., Ltd., which provided proprietary formulation and process data used in this study. A patent application covering aspects of the E-MAF framework and its application to controlled-release formulation design described in this work has been submitted, with Y.Q., R.Z., and Y.D. listed as inventors. All other authors declare no competing interests. E-MAF is a framework designed to accelerate the development and clinical translation of polymeric controlled-release systems and drug-delivery technologies. Intellectual property rights associated with formulations and preparation parameters generated by E-MAF should vest in its users across industry and academia worldwide.
+
+## Additional information
+
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+Diversity, equity, ethics, and inclusion: Our research team is committed to fostering an inclusive, equitable, and ethical scientific environment. Team members from diverse backgrounds contributed to this work, and all experiments were conducted in accordance with institutional ethical guidelines. We strive to ensure fair access to data, transparency of methods, and respectful collaboration across disciplines.
+
+## Supplementary information
+
+### Supplementary Information (download PDF )
+
+### Description of Addtional Supplementary Files (download PDF )
+
+### Supplementary Data 1-4 (download XLSX )
+
+### Reporting Summary (download PDF )
+
+### Transparent Peer Review file (download PDF )
+
+## Source data
+
+### Source Data (download XLSX )
+
+## Rights and permissions
+
+Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+
+Reprints and permissions
+
+## About this article
+
+### Cite this article
+
+Qin, Y., Zhou, R., Ming, Y. et al. On-demand design of controlled-release systems using an expert-mimic AI framework. Nat Commun (2026). https://doi.org/10.1038/s41467-026-77619-5
+
+  * Received: 23 February 2026
+
+  * Accepted: 28 August 2026
+
+  * Published: 15 September 2026
+
+  * DOI (Digital Object Identifier): https://doi.org/10.1038/s41467-026-77619-5--------------------------------------------------------------------------------
+Attorney General of the United States Todd Blanche Briefs Members of the Media, Sep. 15, 2026 – The White House (https://www.whitehouse.gov/videos/attorney-general-of-the-united-states-todd-blanche-briefs-members-of-the-media-sep-15-2026/)
+citeturn876search1 [wordlim: 200] Published: 4 days ago; Crawled: today; # Attorney General of the United States Todd Blanche Briefs Members of the Media, Sep. ... September 15, 2026
+
+Videos
+
+# Attorney General of the United States Todd Blanche Briefs Members of the Media, Sep. 15, 2026
+
+September 15, 2026
+
+Attorney General of the United States Todd Blanche Briefs Members of the Media, Sep. 15, 2026--------------------------------------------------------------------------------
+Attorney General Todd Blanche holds a press briefing in the Rose Garden of the White House, September 15, 2026 – The White House (https://www.whitehouse.gov/gallery/attorney-general-todd-blanche-holds-a-press-briefing-in-the-rose-garden-of-the-white-house-september-15-2026/)
+citeturn876search2 [wordlim: 200] Published: 4 days ago; Crawled: 2 days ago; # Attorney General Todd Blanche holds a press briefing in the Rose Garden of the White House, September 15, 2026
+
+Galleries
+
+# Attorney General Todd Blanche holds a press briefing in the Rose Garden of the White House, September 15, 2026
+
+Image: Attorney General, Todd Blanche, holds a press briefing in the Rose Garden of the White House, Tuesday, September 15, 2026. (Official White House Photo by Cashen Turner) Image: Attorney General, Todd Blanche, holds a press briefing in the Rose Garden of the White House, Tuesday, September 15, 2026. (Official White House Photo by Cashen Turner) Image: Attorney General, Todd Blanche, holds a press briefing in the Rose Garden of the White House, Tuesday, September 15, 2026. (Official White House Photo by Cashen Turner) Image: Attorney General, Todd Blanche, holds a press briefing in the Rose Garden of the White House, Tuesday, September 15, 2026. (Official White House Photo by Cashen Turner) Image: Attorney General, Todd Blanche, holds a press briefing in the Rose Garden of the White House, Tuesday, September 15, 2026. (Official White House Photo by Cashen Turner) Image: Attorney General, Todd Blanche, holds a press briefing in the Rose Garden of the White House, Tuesday, September 15, 2026. (Official White House Photo by Cashen Turner) Image: Attorney General, Todd Blanche, holds a press briefing in the Rose Garden of the White House, Tuesday, September 15, 2026. (Official White House Photo by Cashen Turner) Image: Attorney General, Todd Blanche, holds a press briefing in the Rose Garden of the White House, Tuesday, September 15, 2026. (Official White House Photo by Cashen Turner) Image: Attorney General, Todd Blanche, holds a press briefing in the Rose Garden of the White House, Tuesday, September 15, 2026. (Official White House Photo by Cashen Turner) Image: Attorney General, Todd Blanche, holds a press briefing in the Rose Garden of the White House, Tuesday, September 15, 2026. (Official White House Photo by Cashen Turner) Image: Attorney General, Todd Blanche, holds a press briefing in the Rose Garden of the White House, Tuesday, September 15, 2026. (Official White House Photo by Cashen Turner)--------------------------------------------------------------------------------
+Videos – The White House (https://www.whitehouse.gov/videos/?query-7-page=13)
+citeturn876search3 [wordlim: 200] Crawled: today; ## AG Todd Blanche: A promise made, promise kept in making America safe again 🇺🇸 ... September 15, 2026
+
+# Video Library
+
+Featured 56:02
+
+## President Trump Makes an Announcement on Healthcare, Sep. 18, 2026
+
+September 18, 2026 56:02
+
+17:55
+
+## President Trump Participates in a Rose Garden Dinner, Sep. 17, 2026
+
+September 17, 2026 17:55
+
+00:42
+
+## AG Todd Blanche: A promise made, promise kept in making America safe again 🇺🇸
+
+September 17, 2026 00:42
+
+  * 56:02
+
+### President Trump Makes an Announcement on Healthcare, Sep. 18, 2026
+
+September 18, 2026
+
+  * 17:55
+
+### President Trump Participates in a Rose Garden Dinner, Sep. 17, 2026
+
+September 17, 2026
+
+  * 00:42
+
+### AG Todd Blanche: A promise made, promise kept in making America safe again 🇺🇸
+
+September 17, 2026
+
+  * 00:47
+
+### Iryna Zarutska
+
+September 16, 2026
+
+  * 06:15
+
+### President Trump Gaggles with Press Upon Arrival at Charlotte, NC, Sep. 16, 2026
+
+September 16, 2026
+
+  * 01:44
+
+### Promises Made, Promises Kept: MAHA
+
+September 16, 2026
+
+  * 33:45
+
+### Attorney General of the United States Todd Blanche Briefs Members of the Media, Sep. 15, 2026
+
+September 15, 2026
+
+  * 00:38
+
+### The entire Trump Administration has taken on crime in this country and MADE AMERICA SAFE AGAIN. 🇺🇸
+
+September 15, 2026
+
+  * 00:44
+
+### Monday Night Football
+
+September 14, 2026
+
+  * 00:59
+
+### 25th Anniversary of 9/11 at the Pentagon
+
+September 14, 2026
+
+  * 00:38
+
+### It’s Saturday in America. 🏈🦅
+
+September 14, 2026
+
+  * 43:42
+
+### Vice President JD Vance Holds a Fraud Task Force Press Conference
+
+September 14, 2026
+
+1 2 3 … 185--------------------------------------------------------------------------------
+Videos – The White House (https://www.whitehouse.gov/videos/?query-7-page=46%3Fquery-inherit-past_event_type%3Dvideo%3Fquery-inherit-playlist_term%3Dpromises-made-promises-kept-executive-actions-bill-signings%3Fquery-inherit-playlist_term%3Dvp-jd-vance%3Fquery-inherit-playlist_term%3Dpress-briefings%3Fquery-inherit-playlist_term%3Dfirst-lady-melania-trump%3Fquery-inherit-past_event_type%3Dshort%3Fquery-inherit-playlist_term%3Dpromises-made-promises-kept-executive-actions-bill-signings%3Fquery-inherit-past_event_type%3Dlive%3Fquery-inherit-playlist_term%3Damerica-250%3Fquery-inherit-playlist_term%3Dthe-founders-museum-moments-that-made-us)
+citeturn876search4 [wordlim: 200] Crawled: yesterday; ## AG Todd Blanche: A promise made, promise kept in making America safe again 🇺🇸 ... September 15, 2026
+
+# Video Library
+
+Featured 17:55
+
+## President Trump Participates in a Rose Garden Dinner, Sep. 17, 2026
+
+September 17, 2026 17:55
+
+00:42
+
+## AG Todd Blanche: A promise made, promise kept in making America safe again 🇺🇸
+
+September 17, 2026 00:42
+
+00:47
+
+## Iryna Zarutska
+
+September 16, 2026 00:47
+
+  * 17:55
+
+### President Trump Participates in a Rose Garden Dinner, Sep. 17, 2026
+
+September 17, 2026
+
+  * 00:42
+
+### AG Todd Blanche: A promise made, promise kept in making America safe again 🇺🇸
+
+September 17, 2026
+
+  * 00:47
+
+### Iryna Zarutska
+
+September 16, 2026
+
+  * 06:15
+
+### President Trump Gaggles with Press Upon Arrival at Charlotte, NC, Sep. 16, 2026
+
+September 16, 2026
+
+  * 01:44
+
+### Promises Made, Promises Kept: MAHA
+
+September 16, 2026
+
+  * 33:45
+
+### Attorney General of the United States Todd Blanche Briefs Members of the Media, Sep. 15, 2026
+
+September 15, 2026
+
+  * 00:38
+
+### The entire Trump Administration has taken on crime in this country and MADE AMERICA SAFE AGAIN. 🇺🇸
+
+September 15, 2026
+
+  * 00:44
+
+### Monday Night Football
+
+September 14, 2026
+
+  * 00:59
+
+### 25th Anniversary of 9/11 at the Pentagon
+
+September 14, 2026
+
+  * 00:38
+
+### It’s Saturday in America. 🏈🦅
+
+September 14, 2026
+
+  * 43:42
+
+### Vice President JD Vance Holds a Fraud Task Force Press Conference
+
+September 14, 2026
+
+  * 00:45
+
+### President Donald J. Trump in Ireland: Postcard Edition 🇺🇸🤝🇮🇪
+
+September 14, 2026--------------------------------------------------------------------------------
+Factbase Transcripts – Roll Call (https://rollcall.com/factbase/trump/transcript/donald-trump-press-conference-briefing-todd-blanche-september-15-2026/)
+citeturn876search5 [wordlim: 200] Published: 4 days ago; Crawled: today; # Press Briefing: Todd Blanche Holds a Press Briefing at The White House - September 15, 2026 ... Full Transcript ... Um, so on -- OpenAI has said that they are working with Google and Anthropic on security measures for their AI models.
+
+Donald J. Trump
+
+Transcripts White House Calendar White House Press Releases
+
+# Press Briefing: Todd Blanche Holds a Press Briefing at The White House - September 15, 2026
+
+StressLens
+
+8 Topics
+
+10 Entities
+
+Moderation
+
+Speakers
+
+Image Todd Blanche
+
+Todd Blanche said 254 sentences of a total of 361 sentences.
+
+71%
+
+Todd Blanche said 4179 words of a total of 5633 words.
+
+75%
+
+Todd Blanche talked 1474 seconds of a total of 2002 seconds.
+
+74%
+
+Image Question
+
+Question said 107 sentences of a total of 361 sentences.
+
+30%
+
+Question said 1454 words of a total of 5633 words.
+
+26%
+
+Question talked 528 seconds of a total of 2002 seconds.
+
+27%
+
+Full Transcript
+
+## Todd Blanche
+
+00:00:00-00:00:39 (40 sec)
+
+All right. Good afternoon, everybody. So before -- before taking questions, I thought it made sense to, since it is me here, the attorney general, to just spend a few minutes talking about the work that we're doing, um, at the Department of Justice. And we do it in every district in this country.
+
+## Todd Blanche
+
+00:22:34-00:23:04 (30 sec)
+
+And it's a big -- it's a big emphasis of DEA Administer Cole and our prosecutors around the country. So when we can prove -- and sometimes if somebody is an addict, it's difficult to prove who they actually got the pill from. But in the cases where we know who the dealer was, and we can prove beyond a reasonable doubt that the person sold the death pill to the victim who then dies, that's a that's a federal crime and that's something that we will readily prosecute as often as we can.
+
+## Todd Blanche
+
+00:23:04-00:23:24 (20 sec)
+
+As far as the AI question, I answered it earlier, but I mean, there's no -- I mean, this should not be breaking news, that this AI, um, issue that suddenly come up two months before an election is being -- the president calls it a hoax. The way this has come around today and not three months ago, I mean, I was watching the news today.
+
+## Todd Blanche
+
+00:23:24-00:23:49 (24 sec)
+
+Every Democrat Senator suddenly races to a microphone to talk about AI after being eerily silent for months and months and months. So to talk about the timing of this is being nothing but an effort to influence the midterms, I shouldn't have to say that out loud. Of course, that's what it is, and that shouldn't be what drives the decisions that we're making around AI. We can't lose the AI race to China, right?
+
+Specifically, under your leadership, will the DOJ finally investigate the treatment of the January 6th political prisoners and the four deaths that occurred that day, including the killing of two women by police, and any federal agency involvement?
+
+## Question
+
+00:27:17-00:27:26 (9 sec)
+
+And will you also consider investigating whether there was any improper contact, as it was reported by sources between Merrick Garland's DOJ and activist DC judges?
+
+## Todd Blanche
+
+00:27:26-00:27:50 (24 sec)
+
+So on -- so again, the same question about ongoing investigations, it's not appropriate for me to talk about them and it never will be. When it comes to the Weaponization Working group, we've been putting out a work product almost every month for the past several months, including in August, addressing another one of the issues that we were charged with looking into.
+
+## Question
+
+00:28:29-00:28:49 (20 sec)
+
+Thank you, Mr. Attorney General. Um, so on -- OpenAI has said that they are working with Google and Anthropic on security measures for their AI models. Do they need antitrust waivers? Do you see that in the future? Plus, um, are you concerned about who controls the information that is coming out of AI models?
+
+## Todd Blanche
+
+00:28:49-00:29:18 (28 sec)
+
+Well, whether entities need an antitrust waiver is not something I can answer from the podium of the White House. There's dozens of factors that go into that and there's an application process, and there's a -- kind of a process that DOJ and others use to determine, so I can't address that. I can say that to the extent that, um, those companies are looking to regulate themselves or fix problems that they have, that they should do that, but working with us if necessary.
+
+--------------------------------------------------------------------------------
+CNN.com - Transcripts (https://prod.transcripts.cnn.com/show/ist/date/2026-09-15/segment/01)
+citeturn876search6 [wordlim: 200] Published: 4 days ago; Crawled: today; Aired 2:00-3p ET Aired September 15, 2026 - 14:00   ET THIS IS A RUSH TRANSCRIPT. ... Look, I'm hoping that you heard Todd Blanche there, as you were speaking, the attorney general, addressing, of course, the media, saying they will --
+Return to Transcripts main page Isa Soares Tonight U.S. Attorney General Blanche Speaking at the White House; Supreme Court Blocks Trump's Plan to Change Mail Ballot Rules; 78th Primetime Emmy Awards. Aired 2:00-3p ET Aired September 15, 2026 - 14:00   ET THIS IS A RUSH TRANSCRIPT. THIS COPY MAY NOT BE IN ITS FINAL FORM AND MAY BE UPDATED.
+[14:00:00]
+ISA SOARES, HOST, ISA SOARES TONIGHT: A very warm welcome to the show, everyone, I'm Isa Soares. Tonight, President Donald Trump lashes out at the
+U.S. Supreme Court after it refuses to back his plans to limit mail ballots in November's Midterm election.
+We'll have the very latest for you from the White House. Then multiple European countries are shoring up their borders after some reported
+altercations with Russia overnight. We have the latest on that. Plus, a new report from the Pentagon Watchdog reveals what the Iran war has really cost
+the U.S., we'll be live from Capitol Hill for you this hour.
+But first, tonight, we do begin in the United States with just 49 days until the November Midterms. --------------------------------------------------------------------------------
+Licensable video: Attorney General Blanche says DOJ would investigate AI-related violations (https://www.reutersconnect.com/item/attorney-general-blanche-says-doj-would-investigate-ai-related-violations/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1ZBMzAxMDE1MDkyMDI2UlAx)
+citeturn876search7 [wordlim: 200] Published: 4 days ago; Crawled: yesterday;  WASHINGTON, D.C., UNITED STATES (SEPTEMBER 15, 2026) (UNRESTRICTED POOL) ... AI, Blanche, midterm
+
+# Attorney General Blanche says DOJ would investigate AI-related violations
+
+## Licensable video:
+
+REUTERS
+
+Image
+
+Video shows
+
+ WASHINGTON, D.C., UNITED STATES (SEPTEMBER 15, 2026) (UNRESTRICTED POOL)  
+
+U.S. ATTORNEY GENERAL, TODD BLANCHE, ADDRESSING JOURNALIST OUTSIDE THE WHITE HOUSE 
+
+(SOUNDBITE) (English) U.S. ATTORNEY GENERAL, TODD BLANCHE, IN EXCHANGE WITH JOURNALIST:
+
+JOURNALIST ASKING (OFF CAMERA): "What are your concerns about artificial intelligence? What regulations are needed? Do you think there should be a slowdown in that technology, especially with how it's being used increasingly in law enforcement operations? And then secondly, more broadly, what role should Americans expect the Justice Department to take in the upcoming midterm elections."
+
+BLANCHE: "So I'll answer the first question. I mean, the second question first, the federal government is always involved in elections. That's not new to this administration, that's not new to the Biden administration. And so our role is going to be the same role that federal governments, play in elections under the law, as we're required to do and as we should do. So we're going to continue to do that in this election, just like the Biden administration did it during during the elections when Biden was president. And so, as far as AI is concerned, we have a lot of there's a lot of criminal laws. And so if anybody associated with AI, violates criminal law, well, we'll investigate that. We already have. There's there's plenty of cases involving AI that we've charged individuals. I do not think it's the job of the Department of Justice to regulate, we are prosecutors, not regulators. So we're not going to try to regulate AI. AI is extraordinarily beneficial to our society. There's a lot of great work that AI does. And and it's also something that conveniently has become a flashpoint this week. And the president spoke about that and I very much agree with him."
+
+Video available in multiple formats
+
+## No Restrictions
+
+Broadcast: None. Digital: None.. For Reuters customers only.
+
+  * Original Date
+
+SEPTEMBER 15, 2026
+
+  * Duration
+
+00:01:34
+
+  * Source
+
+REUTERS
+
+  * Country
+
+US
+
+  * Keywords
+
+AI, Blanche, midterm
+
+  * USN
+
+VA301015092026RP1
+
+  * Slug
+
+USA-WHITE HOUSE/AI
+
+Topics
+
+North AmericaGovernment/Politics--------------------------------------------------------------------------------
+AG Blanche: It's Not "The Job" Of The Department Of Justice To Regulate AI | Video | RealClearPolitics (https://www.realclearpolitics.com/video/2026/09/15/ag_blanche_its_not_the_job_of_the_department_of_justice_to_regulate_ai.html)
+citeturn876search8 [wordlim: 200] Published: 4 days ago; Crawled: 3 days ago; # AG Blanche: It's Not "The Job" Of The Department Of Justice To Regulate AI ... On Date September 15, 2026
+--------------------------------------------------------------------------------
+Blanche vows to continue midterm efforts despite court blocking mail ballots rule – Roll Call (https://rollcall.com/2026/09/15/blanche-vows-to-continue-midterm-efforts-despite-court-blocking-mail-ballots-rule/)
+citeturn876search9 [wordlim: 200] Published: 4 days ago; Crawled: today; Posted September 15, 2026 at 6:14pm ... After a brief political firestorm swept across Washington after several executives of leading artificial intelligence firms called for development to slow and Congress to legislate safety guardrails, Blanche said Democrats poured lighter fluid on the matter to help them in the midterms.“Every Democrat senator suddenly races to a microphone to talk about AI after being eerily silent for months and months and months.
+--------------------------------------------------------------------------------
+White House pre-selects reporters to call on. Trump slammed Biden for that. - The Washington Post (https://www.washingtonpost.com/politics/2026/09/15/white-house-pre-selects-reporters-call-trump-slammed-biden-that/)
+citeturn876search10 [wordlim: 25] Published: 4 days ago; Crawled: yesterday; “They give you a list, guys,” Attorney General Todd Blanche said at Tuesday’s White House press briefing.September 15, 2026
+--------------------------------------------------------------------------------
+Attorney General Blanche on Su… - Washington Today - Apple Podcasts (https://podcasts.apple.com/us/podcast/attorney-general-blanche-on-supreme-court-blocking/id387042247?i=1000789862121)
+citeturn876search11 [wordlim: 200] Published: 4 days ago; Crawled: 3 days ago; Attorney General Todd Blanche fills in as White House press secretary for today's news conference and is asked about the Supreme Court blocking the Trump Administration's plans to restrict mail-in ballots for the midterm elections; FBI Director Kash Patel tells the Senate Judiciary Committee FBI agents may be sent to the polls on election day; Director Patel is also asked about changes to hiring standards to no longer automatically disqualify applicants who had engaged in prostitution or bestiality; More questions to lawmakers about potential dangers of Artificial Intelligence and whether legislative action is needed, after President Donald Trump called such concerns a 'hoax'; Senate does not vote to advance a cryptocurrency regulation bill amid a dispute over whether there are enough ethical safeguards to prevent elected leaders from profiting off of digital assets; Federal judge rules the Kennedy Center Board cannot put President Trump's name on the building. ... September 15, 2026 at 10:47 PM UTC
+--------------------------------------------------------------------------------
+25-1979 Christopher Wright, et al. v. United Services Automobile Association, et al. (https://www.ca1.uscourts.gov/sites/ca1/files/calendar.pdf?simple=True)
+citeturn876search12 [wordlim: 200] Published: 2 weeks ago; Crawled: 2 weeks ago; Todd Blanche ... TO BE CALLED TUESDAY, SEPTEMBER 15, 2026, AT 9:30 A.M.
+--------------------------------------------------------------------------------
+Case: 26-60086  Document: 93-1  Page: 1  Date Filed: 09/15/2026 (https://www.ca5.uscourts.gov/opinions/unpub/26/26-60086.0.pdf)
+citeturn876search13 [wordlim: 200] Published: 4 days ago; Crawled: 4 days ago; September 15, 2026 ... Todd Wallace Blanche, U.S.
+--------------------------------------------------------------------------------
+UNPUBLISHED (https://www.ca4.uscourts.gov/opinions/261012.U.pdf)
+citeturn876search14 [wordlim: 200] Published: 4 days ago; TODD BLANCHE, Attorney General, ... Submitted: August 31, 2026  Decided: September 15, 2026
+--------------------------------------------------------------------------------
+Attorney General Blanche Opposes AI ‘Regulation by Prosecution’ (https://www.reddit.com/r/law/comments/1wh3uo2/attorney_general_blanche_opposes_ai_regulation_by/)
+citeturn876reddit15 [wordlim: 200] Published: 4 days ago; [Tuesday September 15 2026] [+37 votes] ... “I’m not going to do regulation by prosecution and investigate or prosecute AI companies when there’s not a statute that they’re violating,” Blanche said.
+--------------------------------------------------------------------------------
+Trump's AG Says AI 'Hoax' Concerns Are Attempt to 'Influence the Midterms' (https://www.reddit.com/r/politics/comments/1whaxtx/trumps_ag_says_ai_hoax_concerns_are_attempt_to/)
+citeturn876reddit16 [wordlim: 200] Published: 3 days ago; Speaking to reporters Tuesday, Blanche questioned the timing of Democratic lawmakers' renewed calls for AI regulation and suggested the debate was being driven in part by the approaching elections. ... [Tuesday September 15 2026] [+13 votes]
+--------------------------------------------------------------------------------
+Trump's AG Says AI 'Hoax' Concerns Are Attempt to 'Influence the Midterms' (https://www.reddit.com/r/NewsThread/comments/1whb00s/trumps_ag_says_ai_hoax_concerns_are_attempt_to/)
+citeturn876reddit17 [wordlim: 200] Published: 3 days ago; Speaking to reporters Tuesday, Blanche questioned the timing of Democratic lawmakers' renewed calls for AI regulation and suggested the debate was being driven in part by the approaching elections. ...   [Tuesday September 15 2026] [+14 votes]
+--------------------------------------------------------------------------------
+NOT FOR PUBLICATION (https://cdn.ca9.uscourts.gov/datastore/opinions/2026/09/17/15-73093.pdf)
+citeturn876search18 [wordlim: 200] Published: 2 days ago; TODD BLANCHE, Acting Attorney General, ... 15-73093 ... Argued and Submitted September 3, 2026
+--------------------------------------------------------------------------------
+Blanche: Epstein files ‘should not be a part of anything going forward’ at DOJ (https://www.reddit.com/r/BasiliskEschaton/comments/1sbnvdy/blanche_epstein_files_should_not_be_a_part_of/)
+citeturn876reddit19 [wordlim: 200] Published: 5 months ago; We are the architects of the **Unholy Timeline**, mapping the immanentization of the **Eschaton** through the precision of the human-AI dyad. ... We should demand to see a transcript or he answer to this under oath. ... Fuck you, Blanche! ... [Tuesday September 15 2026] [+1 votes]
+--------------------------------------------------------------------------------
+Blanche vows to release more 9/11 documents: "We're not protecting people" (https://www.reddit.com/r/WhatTrumpHasDone/comments/1wgoqgt/blanche_vows_to_release_more_911_documents_were/)
+citeturn876reddit20 [wordlim: 200] Published: 4 days ago; [Tuesday September 15 2026] [+2 votes] ... "The one thing that we are not doing, we're not protecting people," Blanche said in an exclusive interview with CBS News.
+--------------------------------------------------------------------------------
+New AI Model Predicts How Cancer Cells Respond to Drugs (https://en.westlake.edu.cn/news_events/westlakenews/research/202609/t20260918_69874.html)
+citeturn876view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://en.westlake.edu.cn/news_events/westlakenews/research/202609/t20260918_69874.html","lineno":null}); Total lines: 0
+

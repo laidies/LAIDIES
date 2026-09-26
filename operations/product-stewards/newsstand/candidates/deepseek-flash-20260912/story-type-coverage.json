@@ -1,0 +1,53 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "model-tool-release",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "On September 10, DeepSeek introduced V4.1-Flash with native image understanding; one older technical label is scheduled to route to it on September 14.",
+    "plainLanguageIdentity": "A model does the generating behind an app’s interface, and the app maker chooses which model to connect.",
+    "evidenceBasis": "DeepSeek’s September 10 announcement supports the model and September 14 route; Vercel’s September 9 announcement supports availability through its AI Gateway.",
+    "evidenceLimits": "The announcements establish the model capability and named routes. They do not identify the features of every app.",
+    "readerRelevance": "A reader can understand why a picture-aware model may matter to an app she uses without confusing the model announcement with the app’s own feature release.",
+    "affectedPeople": "The picture capability matters through apps that connect the model and pass it an image; the September 14 technical change applies to requests using the named older label.",
+    "changesNow": "V4.1-Flash is available with image understanding. The older deepseek-v4-pro label is scheduled to route to it on September 14.",
+    "uncertainty": "The sources do not identify which specific apps connect the model or which picture features those apps expose.",
+    "readerAction": "Check whether the specific app accepts a picture and what the app says it can do with it.",
+    "betterQuestion": "What can the model receive, and has this app been built to pass that material to it?"
+  },
+  "typeAnswers": {
+    "model-tool-release": {
+      "productRange": "V4.1-Flash is available through DeepSeek’s API and Vercel’s AI Gateway; a specific app’s interface and features remain its maker’s choice.",
+      "newCapabilities": "DeepSeek describes native multimodal support, and Vercel describes native image understanding.",
+      "bestFitTasks": "A conditional photo-app example shows the mechanism: pass a picture to the model so its answer can take the image into account.",
+      "notFor": "The announcements do not establish a quality improvement, an individual price, or the features of every app.",
+      "nearestAlternatives": "One older label, deepseek-v4-pro, is scheduled to route to V4.1-Flash until V4.1-Pro launches.",
+      "availability": "V4.1-Flash is live through the DeepSeek API and available through Vercel AI Gateway.",
+      "freePaidBoundary": "No personal price or access-tier claim is made.",
+      "costBoundary": "The article does not report a reader price.",
+      "limitations": "The September 14 older-label route is a bounded technical note; it does not replace an app’s own feature information.",
+      "technicalExampleProportionality": "One photo-app example teaches app maker → selected model → image passed → image-aware answer.",
+      "vendorEvidenceBoundary": "DeepSeek supports direct model and route statements; Vercel supports its gateway availability statement."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding.",
+    "actualMeaningExact": "The new ability is underneath; the app’s own update tells you what is available in the tool you use.",
+    "mechanismExact": "A model does the generating behind an app’s interface, and the app maker chooses which model to connect.",
+    "familiarExampleExact": "Picture a photo app: if its maker connects it to V4.1-Flash and passes along the image, the model can consider the picture when it answers.",
+    "jargon": [
+      {
+        "term": "model",
+        "plainMeaning": "A model does the generating behind an app’s interface, and the app maker chooses which model to connect."
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "the interface and model are separate layers",
+        "learningPayoff": "AI Fundamentals 101 chapter 10.2 explains how the interface you see sits above the model doing the generating.",
+        "disposition": "link",
+        "destination": "/library.html#ai-fundamentals-101::%40ch-10-10-2-the-layers-of-the-stack"
+      }
+    ]
+  }
+}

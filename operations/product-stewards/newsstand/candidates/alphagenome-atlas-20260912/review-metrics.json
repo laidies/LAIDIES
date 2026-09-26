@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "laidies.newsstand-review-metrics.v1",
+  "candidateId": "alphagenome-atlas-20260912",
+  "reviewIssues": 3,
+  "reviewCycles": 3,
+  "scope": "Three actual independent attempts retained; two independent/root-review issues plus one producer artifact repair. Evidence and prose counts separated below.",
+  "proseReview": {
+    "reviewIssues": 2,
+    "reviewCycles": 3
+  },
+  "evidencePacket": {
+    "rounds": 2,
+    "gaps": 1,
+    "repaired": 1,
+    "checkedClaims": 5,
+    "exactSourceExcerpts": 6
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 2,
+    "reviewCycles": 3,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "stage": "independent",
+      "review": "runtime-claude-fable-20260912-v1",
+      "verdict": "PROTOCOL_HOLD",
+      "issues": 1,
+      "note": "Actual provider reader assessment passed. Factual assessment qualified the limit claim because the supplied packet omitted the ancestry-evaluation passage; runtime preserved the raw judgment and failed on the EVIDENCE_GAP learning disposition."
+    },
+    {
+      "stage": "producer-repair",
+      "note": "Added the exact page-18 ancestry-evaluation passage to the primary source packet and re-bound current records; article prose and v1 provider artifacts remain unchanged."
+    },
+    {
+      "stage": "root-reconciliation",
+      "review": "runtime-claude-fable-20260912-v2",
+      "verdict": "ROOT_RECONCILIATION_HOLD",
+      "issues": 1,
+      "note": "Provider PASS overridden: reviewer inferred a 12-of-265 validation fraction from counts that have different units. Current producer repair removes the denominator framing; v2 artifacts remain preserved."
+    },
+    {
+      "stage": "producer-repair",
+      "verdict": "PRODUCER_READY_FOR_INDEPENDENT_REVIEW",
+      "issues": 1,
+      "note": "Actual committed story omitted the source-backed rare epilepsy and overlooked-change context. Current bytes restore it; root read and accepted the complete final prose for producer self-review."
+    },
+    {
+      "stage": "independent",
+      "review": "runtime-claude-fable-20260912-v3",
+      "verdict": "PASS",
+      "issues": 0,
+      "note": "Root read complete actual judgment. No false validation fraction; research triage and clinical limits retained."
+    }
+  ]
+}

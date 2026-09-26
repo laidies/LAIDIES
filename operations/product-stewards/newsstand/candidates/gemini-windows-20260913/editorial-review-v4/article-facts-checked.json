@@ -1,0 +1,257 @@
+{
+  "kind": "facts",
+  "startedAt": "2026-09-13T20:39:19.217Z",
+  "replayedAt": null,
+  "completedAt": "2026-09-13T20:39:46.177Z",
+  "requestedModel": "claude-fable-5",
+  "providerModel": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "providerId": "181e8c21-d50c-4563-850e-ef247fc2f77d",
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 14047,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2430,
+    "output_tokens_details": {
+      "thinking_tokens": 502
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14047,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 2430,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 14047,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 14047
+        },
+        "type": "message",
+        "model": null
+      }
+    ],
+    "speed": "standard"
+  },
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "requestSha256": "b189b9ff0dd89c65d2efdb1b08cc7544a19509ecdd24cfc47d9ca1ad20456391",
+  "rawSha256": "c97defb34ae3115c77ffd90c312ba4622e6305a6744ecbc6ca883e3e6acbbdfc",
+  "protocolSha256": "7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "outcomes": {
+    "factualIntegrity": {
+      "state": "pass",
+      "reason": "Every material claim is traceable to the supplied vendor passages with correct attribution and no overstated capability.",
+      "passages": [
+        "P002",
+        "P005",
+        "P006"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+          "locator": "P006"
+        }
+      ],
+      "artifactLocator": "P002, P005, P006"
+    },
+    "freshnessReviewability": {
+      "state": "pass",
+      "reason": "The September 10 announcement date, named vendor sources and lastCheckedAt timestamp make the time-sensitive availability claims checkable.",
+      "passages": [
+        "P002",
+        "P005"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        }
+      ],
+      "artifactLocator": "P002, P005"
+    },
+    "datedChange": {
+      "state": "pass",
+      "reason": "This is a single fresh product release clearly dated to September 10 with no conflation of older events and newly reported evidence.",
+      "passages": [
+        "P002",
+        "P004"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Think of browser Gemini and the Windows app as two doors into the same shop. The new door may save a few steps; it does not make Gemini a different kind of tool.</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P002, P004"
+    },
+    "consequenceAndUncertainty": {
+      "state": "pass",
+      "reason": "The article gives concrete consequences and preserves uncertainty by rejecting automatic-access assumptions, requiring output checking and flagging remaining account controls.",
+      "passages": [
+        "P003",
+        "P008",
+        "P009"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>That is the practical difference from the browser: the shortcut and window are closer to the task. If you are revising a school-volunteer email, you could paste the draft and ask for a warmer version that keeps the date and request unchanged. You still check it before sending.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Gemini on Windows is mostly a faster doorway: Alt + Space opens it beside what you are doing. It is not proof that Gemini can automatically see your screen, files or every app.”",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "A desktop app changes the route into a tool. It does not erase account controls, feature limits or the need to decide what information to share. For help checking an AI draft without rewriting the whole thing, see <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output (And Checking It)</a>.",
+          "locator": "P009"
+        }
+      ],
+      "artifactLocator": "P003, P008, P009"
+    }
+  },
+  "claims": {
+    "windows-release": {
+      "state": "supported",
+      "reason": "The Google blog passage states global availability for Windows 10 and 11 and its published_time metadata is 2026-09-10, matching the article's date and scope.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "google-windows-blog"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "shortcut-and-scope": {
+      "state": "supported",
+      "reason": "Release notes describe quick answers, drafting and brainstorming alongside active applications via Alt + Space, matching the article's stated scope without exaggeration.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "gemini-release-notes"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "requirements": {
+      "state": "supported",
+      "reason": "The Help source lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and a stable internet connection, matching all four stated requirements.",
+      "passages": [
+        "P005"
+      ],
+      "sourceIds": [
+        "gemini-windows-help"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        }
+      ],
+      "artifactLocator": "P005"
+    },
+    "account-admin": {
+      "state": "supported",
+      "reason": "Help documentation requires a personal Google Account or a work/school account with Gemini turned on by the administrator, exactly as the article states.",
+      "passages": [
+        "P005"
+      ],
+      "sourceIds": [
+        "gemini-windows-help",
+        "workspace-windows-update"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        }
+      ],
+      "artifactLocator": "P005"
+    },
+    "admin-limit": {
+      "state": "supported",
+      "reason": "The administrator-enablement wording in Help and the Workspace update's account-specific availability limitation directly support that the administrator controls availability on managed accounts.",
+      "passages": [
+        "P005"
+      ],
+      "sourceIds": [
+        "gemini-windows-help",
+        "workspace-windows-update"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        }
+      ],
+      "artifactLocator": "P005"
+    },
+    "connected-apps": {
+      "state": "supported",
+      "reason": "Help documents image upload and release notes describe optionally connecting Google apps like Gmail and Drive, matching the article's opt-in framing.",
+      "passages": [
+        "P006"
+      ],
+      "sourceIds": [
+        "gemini-windows-help",
+        "gemini-release-notes",
+        "workspace-windows-update"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+          "locator": "P006"
+        }
+      ],
+      "artifactLocator": "P006"
+    }
+  },
+  "verdict": "PASS",
+  "summary": "All material claims about the Gemini Windows app release date, global availability, Alt + Space shortcut scope, system requirements, account/administrator conditions and optional connected apps are supported by the supplied vendor sources; the article preserves uncertainty and avoids automatic-access or accuracy promises, so it passes all outcomes with no new defect.",
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All six claims are supported by the supplied source passages and all four outcomes pass; no reusable failure was observed in this artifact."
+  }
+}

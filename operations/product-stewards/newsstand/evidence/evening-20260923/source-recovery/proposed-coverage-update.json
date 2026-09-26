@@ -1,0 +1,228 @@
+{
+  "schema": "newsstand-source-recovery-proposal.v1",
+  "asOfLocalDate": "2026-09-23",
+  "receiptRecordedAt": "2026-09-24T03:53:29.474Z",
+  "ownerScope": "Evidence proposal only; no canonical, coverage-progress, cursor, candidate, issue, or public mutation.",
+  "researchCompletionCertified": false,
+  "completeness": "PARTIAL. Permitted current desk/provider indexes and selected consequential originals were inspected. This does not establish a quiet cycle, a complete AIDB inventory, or any complete AIDB transcript review.",
+  "routeGuard": {
+    "path": "route-guard.txt",
+    "observedAt": "2026-09-24T03:01:16Z",
+    "result": "NEWSSTAND SOURCE ROUTES PASS desks=6 sources=8 research_completion_certified=false"
+  },
+  "rawCaptures": [
+    {
+      "path": "standing-routes-raw.json",
+      "sha256": "0eb5ff1180e88aedb05e4284f19f95c727646333791c68c26ad1e4cd8cc259f3",
+      "scope": "permitted source index opens plus AIDB expected-path normal failures"
+    },
+    {
+      "path": "standing-routes-finds-raw.json",
+      "sha256": "30b8c490fe5d688d98128f619ae4535a0092d7a3a9a0ddd4cb5d5775aed2e264",
+      "scope": "exact current index markers"
+    },
+    {
+      "path": "consequential-leads-raw.json",
+      "sha256": "760d56df80f2041a29191f2e64b6ba1fb30a1f8cad33b0dacd78e25d1aca6b8a",
+      "scope": "four full consequential originals"
+    },
+    {
+      "path": "codex-sandbox-primary-raw.json",
+      "sha256": "119c78c79e9dad1f33b27b6d8be94f3df200fbd5eea4761578c6e44ec627e19d",
+      "scope": "Accomplish researcher original"
+    }
+  ],
+  "sourceRestrictions": [
+    {
+      "url": "https://aidailybrief.beehiiv.com/",
+      "disposition": "NOT_OPENED",
+      "reason": "coverage retryPolicy NONRETRYABLE; exact URL was not retried"
+    },
+    {
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "disposition": "NOT_OPENED",
+      "reason": "coverage retryPolicy NONRETRYABLE; exact URL was not retried"
+    }
+  ],
+  "proposedSourceChecks": [
+    {
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "status": "CHECKED_NO_NEW_AI_MATERIAL_IDENTIFIED",
+      "evidence": "standing-routes-raw.json",
+      "limit": "Index observation only."
+    },
+    {
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "status": "CHECKED_CURRENT_INDEX_NO_DISTINCT_REUTERS_RECOVERY",
+      "evidence": "standing-routes-raw.json",
+      "limit": "Permitted AP hub is a genuine distinct current publisher route, but this index observation does not recover or validate any specific blocked Reuters article."
+    },
+    {
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "status": "CHECKED_NO_SEP23_MARKER",
+      "evidence": "standing-routes-finds-raw.json",
+      "limit": "No new Nature item was inferred from an absent exact-date marker."
+    },
+    {
+      "url": "https://www.eff.org/issues/ai",
+      "status": "CHECKED_NO_SEP23_MARKER",
+      "evidence": "standing-routes-finds-raw.json",
+      "limit": "No new EFF item was inferred from an absent exact-date marker."
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "status": "CHECKED_NEW_AND_EXISTING_SECURITY_LEADS",
+      "evidence": "standing-routes-finds-raw.json; consequential-leads-raw.json",
+      "limit": "The Sep23 card-skimmer report maps to the existing private candidate; ClosedQuorum is dated Sep22 and has no household-specific loss or action shown in this receipt."
+    },
+    {
+      "url": "https://openai.com/news/",
+      "status": "CHECKED_TWO_NEW_SEP23_PRIMARY_RELEASES",
+      "evidence": "standing-routes-finds-raw.json; consequential-leads-raw.json",
+      "limit": "Their claims are vendor-published; neither creates a general product-access claim."
+    },
+    {
+      "url": "https://www.anthropic.com/news",
+      "status": "CHECKED_EXISTING_SCIENCE_LEAD",
+      "evidence": "standing-routes-finds-raw.json; consequential-leads-raw.json",
+      "limit": "Anthropic says ART function remains unknown; this is not a confirmed applied medical capability."
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "status": "CHECKED_NO_SEP23_2026_ENTRY_IDENTIFIED",
+      "evidence": "standing-routes-finds-raw.json",
+      "limit": "Exact date find only located 2025 material."
+    },
+    {
+      "url": "https://deepmind.google/blog/",
+      "status": "CHECKED_NO_SEP23_MARKER",
+      "evidence": "standing-routes-finds-raw.json",
+      "limit": "No new item inferred from missing exact-date marker."
+    },
+    {
+      "url": "https://gemini.google/release-notes/",
+      "status": "CHECKED_NO_SEP23_MARKER",
+      "evidence": "standing-routes-finds-raw.json",
+      "limit": "No new item inferred from missing exact-date marker."
+    }
+  ],
+  "nonretryableRecoveryReviews": [
+    {
+      "blockedUrl": "https://aidailybrief.beehiiv.com/",
+      "originalBlockedTimestamp": "RETAIN_EXISTING_COVERAGE_TIMESTAMP",
+      "alternateUrl": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "alternateStatus": "CURRENT_PERMITTED_CHANNEL_PARTIAL",
+      "evidence": "standing-routes-raw.json; standing-routes-finds-raw.json",
+      "finding": "The permitted Apple listing had no Sep23 marker in the captured page. It is a distinct public channel but does not recover Beehiiv newsletter content or a complete release inventory.",
+      "nextRecoveryStep": "Retain the Beehiiv hold. Use only a newly discovered permitted publisher-owned archive or a fully accessible Apple item as a separate receipt."
+    },
+    {
+      "blockedUrl": "https://www.reuters.com/technology/artificial-intelligence/",
+      "originalBlockedTimestamp": "RETAIN_EXISTING_COVERAGE_TIMESTAMP",
+      "alternateUrl": "https://apnews.com/hub/artificial-intelligence",
+      "alternateStatus": "CURRENT_PERMITTED_INDEPENDENT_INDEX_REVIEW",
+      "evidence": "standing-routes-raw.json",
+      "finding": "The AP index was newly captured without reopening Reuters. It is not article-level corroboration for an unnamed Reuters report and therefore does not cure the source-specific hold.",
+      "nextRecoveryStep": "Retain the Reuters hold; recover only a distinct attributed publisher article or primary source matching a concrete blocked report."
+    }
+  ],
+  "aidbInventoryProposal": {
+    "indexUrl": "https://aidailybrief.ai/agent.json",
+    "evidence": "standing-routes-raw.json; standing-routes-finds-raw.json",
+    "observedLatestReleasedIdentity": {
+      "date": "2026-09-22",
+      "title": "Agent Wars!",
+      "durationMin": 31,
+      "html": "https://aidailybrief.ai/e/2026-09-22",
+      "transcript": "https://aidailybrief.ai/e/2026-09-22/transcript.md"
+    },
+    "retainedOlderIncompleteReleasedIdentities": [
+      "2026-09-21 The State of the AI Debate",
+      "2026-09-20 7 Ways How We Use AI Is Changing",
+      "2026-09-18 The AI Challenges Businesses Are Actually Focused On Right Now",
+      "2026-09-17 Why Everyone Is Getting Excited About Personal AI Agents"
+    ],
+    "expectedSep23Probes": [
+      {
+        "url": "https://aidailybrief.ai/e/2026-09-23",
+        "result": "Internal Error"
+      },
+      {
+        "url": "https://aidailybrief.ai/e/2026-09-23.md",
+        "result": "Internal Error"
+      },
+      {
+        "url": "https://aidailybrief.ai/e/2026-09-23/transcript.md",
+        "result": "Internal Error"
+      }
+    ],
+    "disposition": "HOLD_AIDB_RELEASE_REVIEW",
+    "limits": "No Sep23 item is listed in the live agent index capture. Expected URLs were normally attempted and inaccessible. The index provides metadata only; no complete episode body, audio, or transcript was reviewed."
+  },
+  "leadDispositions": [
+    {
+      "lead": "ChatGPT Ads expands to Southeast Asia and Taiwan",
+      "source": "https://openai.com/index/chatgpt-ads-expands-southeast-asia-taiwan/",
+      "disposition": "HOLD_REGION_SPECIFIC_MARKETING_PLATFORM",
+      "basis": "Seven Asian markets added; ads remain limited to Free and Go plans, and the source says paid Plus/Pro/Enterprise are ad-free.",
+      "readerLimit": "No Canadian availability or reader action is shown.",
+      "nextAction": "Only reconsider if local availability, reader-facing ad behavior, or a clear Canadian small-business decision becomes primary-sourced."
+    },
+    {
+      "lead": "Airbnb widens access to GPT-6 Astra and OpenAI frontier models",
+      "source": "https://openai.com/index/airbnb-gpt-6-astra/",
+      "disposition": "HOLD_VENDOR_CASE_STUDY",
+      "basis": "A company agreement expands Airbnb internal engineering/product access; it is not a consumer feature launch.",
+      "readerLimit": "The vendor report offers a customer claim, not independently verified availability or results.",
+      "nextAction": "No candidate unless a broader individual reader consequence is separately reported."
+    },
+    {
+      "lead": "Claude discovers ART enzyme system",
+      "source": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+      "disposition": "HOLD_EARLY_SCIENCE_PENDING_PRIMARY_REVIEW",
+      "basis": "Anthropic reports a preprint and says ART function is unknown.",
+      "readerLimit": "No applied health result or general Claude access change is established.",
+      "nextAction": "If prioritized, recover and inspect the linked preprint before any public claim."
+    },
+    {
+      "lead": "ClosedQuorum Windows malware",
+      "source": "https://www.bleepingcomputer.com/news/security/new-closedquorum-windows-malware-uses-ai-for-attack-decisions/",
+      "disposition": "HOLD_NO_DOCUMENTED_IN_THE_WILD_DEPLOYMENT",
+      "basis": "Cisco describes a new automated malware architecture, while the article explicitly says it is unclear whether it is a test or experiment and lacks confirmation of in-the-wild deployment.",
+      "readerLimit": "No ordinary-reader exposure/action is established in this evidence.",
+      "nextAction": "Reconsider after a credible primary incident or user-protective guidance is available."
+    },
+    {
+      "lead": "Codex sandbox escapes fixed in August",
+      "source": "https://www.accomplish.ai/blog/escaping-the-openai-codex-sandbox-twice/",
+      "secondary": "https://www.bleepingcomputer.com/news/security/researchers-escape-openai-codex-sandbox-to-run-commands-on-host/",
+      "disposition": "KEEP_SOURCE_BOUND_SECURITY_CANDIDATE_RECOMMENDED",
+      "basis": "Researcher original says both reported Aug12 and fixed within eight days; it specifies patched Codex Desktop build 26.818.21641+ and Codex CLI 0.149.0+.",
+      "readerQuestion": "If I use Codex Desktop or CLI, how do I check that I am on a fixed version before opening an untrusted repository?",
+      "claimLimit": "This packet does not independently test the fixes or assert the vulnerabilities affected every installed version.",
+      "nextAction": "Root may create a source-bound private candidate with an exact version-check instruction after confirming current official release/version path."
+    },
+    {
+      "lead": "Claude Marketplace",
+      "source": "https://claude.com/blog/claude-marketplace",
+      "evidence": "Root-provided existing capture evidence/recovery-1600-20260923/marketplace-original.json",
+      "disposition": "PRIMARY_VERIFIED_LOWER_PROMINENCE_TEAM_PROCUREMENT_HOLD",
+      "basis": "Root recovered the actual primary by a related link at 16:00.",
+      "readerLimit": "Do not present as general new-tool availability; current evidence supports team plugin/agent/service discovery.",
+      "nextAction": "Root may assess later only if a concrete manager procurement/discovery payoff warrants a distinct candidate."
+    },
+    {
+      "lead": "Malicious AI agents card skimmers",
+      "source": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "disposition": "RETAIN_EXISTING_PRIVATE_CANDIDATE",
+      "existingCandidate": "candidates/malicious-ai-agents-card-skimmers-20260923/",
+      "basis": "The current index confirms Sep23 publication and >600,000-card claim; no duplicate candidate proposed."
+    }
+  ],
+  "outstandingWork": [
+    "Retain all older source-specific blocked timestamps; this proposal does not renew them.",
+    "Recover a complete permitted AIDB episode or transcript before treating any AIDB release as fully reviewed.",
+    "For the sandbox lead, confirm exact current official version-check/update instructions before public production.",
+    "For Anthropic ART, inspect the linked preprint before any efficacy or medical-use language."
+  ]
+}

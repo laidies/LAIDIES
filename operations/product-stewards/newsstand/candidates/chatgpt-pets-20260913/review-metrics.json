@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "laidies.newsstand-review-metrics.v1",
+  "candidateId": "chatgpt-pets-20260913",
+  "proseReview": {
+    "reviewIssues": 0,
+    "reviewCycles": 2
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "stage": "producer",
+      "verdict": "PASS",
+      "note": "Producer self-review passed after prose clarity repairs and the final Class Notes learning link."
+    },
+    {
+      "stage": "independent-preflight",
+      "review": "editorial-review-v1",
+      "verdict": "PRE_PROVIDER_PACKET_HOLD",
+      "providerCall": false,
+      "issues": 1,
+      "note": "Current article paragraph references differed from editorial-input.json. Rebuilt the exact paragraph packet; no Claude request or raw provider output was created."
+    },
+    {
+      "stage": "independent-preflight",
+      "review": "editorial-review-v2",
+      "verdict": "PRE_PROVIDER_PACKET_HOLD",
+      "providerCall": false,
+      "issues": 1,
+      "note": "Source objects lacked the passages required by the review-packet compactor. This was a schema/preparation hold; no Claude request or raw provider output was created."
+    },
+    {
+      "stage": "independent",
+      "review": "editorial-review-v3",
+      "verdict": "EVIDENCE_PACKET_INADEQUATE",
+      "providerCall": true,
+      "issues": 0,
+      "startedAt": "2026-09-13T14:53:54.937Z",
+      "completedAt": "2026-09-13T14:55:24.258Z",
+      "checked": {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/editorial-review-v3/article-editorial-checked.json",
+        "sha256": "aa8fed435f9df12a4c767cf8f6176d271988eb4e44ca47b4a4d7d3bb4e9247df"
+      },
+      "note": "Claude returned reader and facts PASS, but post-review assembly correctly held it: its packet carried producer claim summaries rather than literal captured source passages. The raw review is preserved and is not an admission."
+    },
+    {
+      "stage": "evidence-packet-repair",
+      "review": "editorial-review-v4",
+      "providerCall": false,
+      "note": "Replaced summaries with literal passages from the preserved official Pets documentation and September 11 changelog, in the same `source.passage` and `source.additionalPassage` fields consumed by the assembler. Article and art bytes did not change."
+    },
+    {
+      "stage": "independent",
+      "review": "editorial-review-v4",
+      "verdict": "PASS",
+      "providerCall": true,
+      "issues": 0,
+      "requestedModel": "claude-fable-5",
+      "providerModel": [
+        "claude-haiku-4-5-20251001",
+        "claude-fable-5"
+      ],
+      "startedAt": "2026-09-13T15:00:01.372Z",
+      "completedAt": "2026-09-13T15:01:21.329Z",
+      "checked": {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/editorial-review-v4/article-editorial-checked.json",
+        "sha256": "c89fb5227f6f478ffb33a71b84f7824fb518aafdc68d850b715a849fc18bc28c"
+      },
+      "result": {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/editorial-review-v4/article-result.json",
+        "sha256": "f807e94540ed484c3573286e8318c8c0584ff0bf76d1fe0c77df53b36a604f20"
+      },
+      "note": "Actual independent combined editorial judgment passed with literal captured source excerpts. Reader and facts both passed; this remains private candidate evidence, not publication authority."
+    }
+  ],
+  "evidencePacket": {
+    "rounds": 4,
+    "gaps": 2,
+    "repaired": 2,
+    "checkedClaims": 3,
+    "suppliedSourcePassages": 3,
+    "independentFactsVerdict": "PASS",
+    "independentReaderVerdict": "PASS",
+    "sourcePacket": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/editorial-input.json",
+      "sha256": "9f1031d9bdefbe854b0147ad64e689ff0e0de4c98588c3f67d84166e2bcb9193"
+    },
+    "learningDisposition": {
+      "reader": {
+        "disposition": "NO_NEW_DEFECT",
+        "rationale": "All outcomes and news checks pass and every failure family is clear; no reusable defect pattern was observed in this artifact."
+      },
+      "facts": {
+        "disposition": "NO_NEW_DEFECT",
+        "rationale": "Every claim is supported by its registered source and all four fact outcomes pass; no defect or evidence gap was found."
+      }
+    },
+    "note": "Rounds count the two pre-provider packet checks plus v3 and v4 independent-review attempts. Gaps count v2 missing required source fields and v3 summary-instead-of-captured-text evidence; v1 was a paragraph-reference synchronization hold, not a source gap."
+  }
+}

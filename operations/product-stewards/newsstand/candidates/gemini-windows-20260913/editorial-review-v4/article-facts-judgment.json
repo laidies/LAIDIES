@@ -1,0 +1,114 @@
+{
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "claims": {
+    "windows-release": {
+      "state": "supported",
+      "reason": "The Google blog passage states global availability for Windows 10 and 11 and its published_time metadata is 2026-09-10, matching the article's date and scope.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "google-windows-blog"
+      ]
+    },
+    "shortcut-and-scope": {
+      "state": "supported",
+      "reason": "Release notes describe quick answers, drafting and brainstorming alongside active applications via Alt + Space, matching the article's stated scope without exaggeration.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "gemini-release-notes"
+      ]
+    },
+    "requirements": {
+      "state": "supported",
+      "reason": "The Help source lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and a stable internet connection, matching all four stated requirements.",
+      "passages": [
+        "P005"
+      ],
+      "sourceIds": [
+        "gemini-windows-help"
+      ]
+    },
+    "account-admin": {
+      "state": "supported",
+      "reason": "Help documentation requires a personal Google Account or a work/school account with Gemini turned on by the administrator, exactly as the article states.",
+      "passages": [
+        "P005"
+      ],
+      "sourceIds": [
+        "gemini-windows-help",
+        "workspace-windows-update"
+      ]
+    },
+    "admin-limit": {
+      "state": "supported",
+      "reason": "The administrator-enablement wording in Help and the Workspace update's account-specific availability limitation directly support that the administrator controls availability on managed accounts.",
+      "passages": [
+        "P005"
+      ],
+      "sourceIds": [
+        "gemini-windows-help",
+        "workspace-windows-update"
+      ]
+    },
+    "connected-apps": {
+      "state": "supported",
+      "reason": "Help documents image upload and release notes describe optionally connecting Google apps like Gmail and Drive, matching the article's opt-in framing.",
+      "passages": [
+        "P006"
+      ],
+      "sourceIds": [
+        "gemini-windows-help",
+        "gemini-release-notes",
+        "workspace-windows-update"
+      ]
+    }
+  },
+  "outcomes": {
+    "factualIntegrity": {
+      "state": "pass",
+      "reason": "Every material claim is traceable to the supplied vendor passages with correct attribution and no overstated capability.",
+      "passages": [
+        "P002",
+        "P005",
+        "P006"
+      ]
+    },
+    "freshnessReviewability": {
+      "state": "pass",
+      "reason": "The September 10 announcement date, named vendor sources and lastCheckedAt timestamp make the time-sensitive availability claims checkable.",
+      "passages": [
+        "P002",
+        "P005"
+      ]
+    },
+    "datedChange": {
+      "state": "pass",
+      "reason": "This is a single fresh product release clearly dated to September 10 with no conflation of older events and newly reported evidence.",
+      "passages": [
+        "P002",
+        "P004"
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "state": "pass",
+      "reason": "The article gives concrete consequences and preserves uncertainty by rejecting automatic-access assumptions, requiring output checking and flagging remaining account controls.",
+      "passages": [
+        "P003",
+        "P008",
+        "P009"
+      ]
+    }
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All six claims are supported by the supplied source passages and all four outcomes pass; no reusable failure was observed in this artifact."
+  },
+  "summary": "All material claims about the Gemini Windows app release date, global availability, Alt + Space shortcut scope, system requirements, account/administrator conditions and optional connected apps are supported by the supplied vendor sources; the article preserves uncertainty and avoids automatic-access or accuracy promises, so it passes all outcomes with no new defect."
+}

@@ -1,0 +1,238 @@
+{
+  "schemaVersion": "laidies-content-producer-contract.v1",
+  "candidateId": "china-amodei-response-20260915",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "producer": "/root/puzzle_visual_reconcile",
+  "status": "READY_TO_DRAFT",
+  "readerContract": {
+    "humanQuestion": "What did China actually say in the AI slowdown debate, and is that a new rule?",
+    "promisedPayoff": "Identify the ministry response, distinguish it from a company proposal and know what evidence would establish an implemented rule.",
+    "priorKnowledge": "No technical background; readers may conflate a public statement with policy taking effect.",
+    "centralMentalModel": "A company proposal, a government response and an implemented rule are different events; the ministry answer states a position.",
+    "dailyLifeConnection": "A reader hearing that China responded can explain the response accurately without assuming her AI tools changed.",
+    "surfaceJob": "Short dated ordinary governance news, not a geopolitical prediction or product tutorial.",
+    "desiredFeeling": "I can follow the disagreement without inflating what this statement changed."
+  },
+  "canonicalTruth": [
+    {
+      "claimId": "ministry-qa",
+      "owner": "Exact complete relevant primary Q&A governs what Guo said, with search-surface access limitation.",
+      "freshnessTrigger": "New official policy text, agreement or implementation evidence, not another headline alone.",
+      "source": {
+        "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/primary-qa-search-transcription.txt",
+        "sha256": "57431858dfb36fcdcdd97b3db50fc83a85aa249c16de5d1fece84ba1aedee4a5"
+      }
+    },
+    {
+      "claimId": "elpais-context",
+      "owner": "Complete El Pais publisher report corroborates the ministry response and explains Amodei context; strict100-derived-word budget.",
+      "freshnessTrigger": "New official policy text, agreement or implementation evidence, not another headline alone.",
+      "source": {
+        "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/elpais-complete-publisher-capture.txt",
+        "sha256": "4901f6a8fa1b47551f27333381064ce302be344231252604cf4ad56b935e49ae"
+      }
+    }
+  ],
+  "positiveExemplars": [
+    {
+      "id": "CQX-GOOD-NEWS-002",
+      "strengthsToUse": [
+        "Separate position from implemented rule",
+        "Keep attribution beside the claim",
+        "Give a precise evidence distinction"
+      ],
+      "patternsNotToCopy": [
+        "EU legal facts",
+        "Microsoft consultation scenario",
+        "caller ID analogy"
+      ]
+    }
+  ],
+  "knownFailurePreflight": {
+    "registryVersion": "laidies-content-quality-exemplars.v1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "negativeExemplarIds": [
+      "CQX-BAD-001",
+      "CQX-BAD-002"
+    ],
+    "knownDefectsRemaining": [],
+    "dispositions": {
+      "glossaryAccumulation": {
+        "status": "CLEAR",
+        "producerGuard": "No detached glossary; explain governance through who writes rules and how they are enforced.",
+        "preventionEvidence": "Planned prevention: No detached glossary; explain governance through who writes rules and how they are enforced."
+      },
+      "templateRepetition": {
+        "status": "CLEAR",
+        "producerGuard": "Advance ministry answer, disputed company proposal, position versus implementation.",
+        "preventionEvidence": "Planned prevention: Advance ministry answer, disputed company proposal, position versus implementation."
+      },
+      "decorativeAnalogy": {
+        "status": "CLEAR",
+        "producerGuard": "Use direct statement-versus-rule distinction; no decorative cultural comparison.",
+        "preventionEvidence": "Planned prevention: Use direct statement-versus-rule distinction; no decorative cultural comparison."
+      },
+      "referenceConfetti": {
+        "status": "CLEAR",
+        "producerGuard": "Primary relevant Q&A and one complete report only; omit nationalist editorial commentary.",
+        "preventionEvidence": "Planned prevention: Primary relevant Q&A and one complete report only; omit nationalist editorial commentary."
+      },
+      "missingMechanism": {
+        "status": "CLEAR",
+        "producerGuard": "Explain how a response states a position while an implemented rule requires an actual requirement and enforcement.",
+        "preventionEvidence": "Planned prevention: Explain how a response states a position while an implemented rule requires an actual requirement and enforcement."
+      },
+      "genericAction": {
+        "status": "CLEAR",
+        "producerGuard": "Reader can ask what requirement took effect, for whom and how enforced when hearing a policy claim.",
+        "preventionEvidence": "Planned prevention: Reader can ask what requirement took effect, for whom and how enforced when hearing a policy claim."
+      },
+      "jargonBeforeMeaning": {
+        "status": "CLEAR",
+        "producerGuard": "Avoid frontier and national security jargon; explain rules concretely.",
+        "preventionEvidence": "Planned prevention: Avoid frontier and national security jargon; explain rules concretely."
+      },
+      "disconnectedSystem": {
+        "status": "CLEAR",
+        "producerGuard": "Keep company proposal and government response distinct; do not infer product settings effects.",
+        "preventionEvidence": "Planned prevention: Keep company proposal and government response distinct; do not infer product settings effects."
+      },
+      "joylessInstruction": {
+        "status": "CLEAR",
+        "producerGuard": "Let the reader land one useful conversational correction rather than a checklist.",
+        "preventionEvidence": "Planned prevention: Let the reader land one useful conversational correction rather than a checklist."
+      },
+      "purposeTooNarrow": {
+        "status": "CLEAR",
+        "producerGuard": "Explain international governance news as civic context rather than personal account utility.",
+        "preventionEvidence": "Planned prevention: Explain international governance news as civic context rather than personal account utility."
+      },
+      "mechanismBeforeMotivation": {
+        "status": "CLEAR",
+        "producerGuard": "Start with the dated response before explaining the evidence distinction.",
+        "preventionEvidence": "Planned prevention: Start with the dated response before explaining the evidence distinction."
+      },
+      "workedExampleOvertakesBookPurpose": {
+        "status": "CLEAR",
+        "producerGuard": "One sentence about hearing China responded, then return to actual statement.",
+        "preventionEvidence": "Planned prevention: One sentence about hearing China responded, then return to actual statement."
+      },
+      "technicalExplainerVoice": {
+        "status": "CLEAR",
+        "producerGuard": "Use position, proposal, rule and enforcement in ordinary language.",
+        "preventionEvidence": "Planned prevention: Use position, proposal, rule and enforcement in ordinary language."
+      }
+    }
+  },
+  "draftArchitecture": {
+    "plainAnswer": "On September14 Guo called for open inclusive AI and criticized fear-mongering in response to slowdown calls; this answer states a position, not a new implemented rule.",
+    "causalSequence": [
+      "Reuters asks about AI leaders slowdown calls and Amodei China concerns.",
+      "Guo responds with open inclusive development and criticism of fear-mongering.",
+      "Reader distinguishes a company proposal, official position and actual rule with implementation."
+    ],
+    "workedCase": "Hearing China responded does not establish China agreed to a slowdown.",
+    "transferCase": "A different government statement needs exact requirements and implementation evidence before calling it a rule change.",
+    "usefulAction": "Ask what requirement took effect, who it applies to and how enforced.",
+    "formatSpecificStructure": "The Story; LAiDIES Read; What This Means; Cocktail Party.",
+    "antiTemplateDecision": "No settings advice, policy invention, prediction or Global Times attribution drift.",
+    "analogyPlan": [],
+    "humourPlan": {
+      "noneReason": "A tight diplomatic response needs a useful distinction without spectacle."
+    },
+    "readerQuestions": [
+      {
+        "id": "event",
+        "question": "What did Guo say and when?"
+      },
+      {
+        "id": "disagreement",
+        "question": "What was he responding to?"
+      },
+      {
+        "id": "effect",
+        "question": "What does this answer establish?"
+      }
+    ],
+    "requiredTerms": [
+      {
+        "term": "AI governance",
+        "meaning": "how AI development is guided by rules and oversight"
+      }
+    ],
+    "presentationPlan": "Reuse exact unchanged /assets/newsstand/trump-public-discussion-20260914.png, now independently admitted against this exact China story at art/independent-review.json; deterministic prose HTML."
+  },
+  "communicationDesign": {
+    "benchmarkId": "HANNAH_FRY_COMMUNICATION_LENS_V2",
+    "benchmark": {
+      "path": "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md",
+      "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"
+    },
+    "mode": "PROPORTIONAL",
+    "surfaceAdaptation": "Answer dated ministry response first, then distinguish proposed company restriction from official position and actual implementation.",
+    "imitationBoundary": "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+    "dimensions": {
+      "humanQuestion": {
+        "disposition": "APPLY",
+        "reason": "What did China actually say, rather than what a headline implies?",
+        "plannedEvidence": "What did China actually say, rather than what a headline implies?"
+      },
+      "usefulCuriosity": {
+        "disposition": "APPLY",
+        "reason": "Why an official response is not the same as an implemented rule.",
+        "plannedEvidence": "Why an official response is not the same as an implemented rule."
+      },
+      "invisibleProcessConcrete": {
+        "disposition": "APPLY",
+        "reason": "Name exact requirements, affected people and enforcement as evidence needed for a real rule.",
+        "plannedEvidence": "Name exact requirements, affected people and enforcement as evidence needed for a real rule."
+      },
+      "familiarTechnicalMovement": {
+        "disposition": "APPLY",
+        "reason": "Connect hearing China responded to the precise words in the answer, not a tool settings change.",
+        "plannedEvidence": "Connect hearing China responded to the precise words in the answer, not a tool settings change."
+      },
+      "limitationsConsequences": {
+        "disposition": "APPLY",
+        "reason": "Keep response attributed; no agreement, new law or product behavior inferred.",
+        "plannedEvidence": "Keep response attributed; no agreement, new law or product behavior inferred."
+      },
+      "betterNextQuestion": {
+        "disposition": "APPLY",
+        "reason": "What requirement took effect, for whom and how enforced?",
+        "plannedEvidence": "What requirement took effect, for whom and how enforced?"
+      },
+      "humourSurprise": {
+        "disposition": "NOT_APPLICABLE",
+        "reason": "Precise diplomatic attribution serves this short report."
+      }
+    },
+    "explanationArc": {
+      "mode": "PROPORTIONAL",
+      "retainedMoves": [
+        "dated response",
+        "disputed proposal",
+        "position versus rule",
+        "better evidence question"
+      ],
+      "adaptation": "Short news answers first, then resolves what the statement does and does not establish."
+    }
+  },
+  "representativeProofPlan": {
+    "highestRisk": "Attributing Global Times agenda claims to ministry, implying agreed slowdown or new enacted policy.",
+    "plannedProof": "Use exact complete Q&A; restrict El Pais context to Amodei; explicitly bound effect to this answer.",
+    "acceptanceOutcome": "Reader can name Guo response without claiming a rule or agreement took effect."
+  },
+  "ratchet": {
+    "targets": {
+      "repeatedKnownDefects": 0,
+      "objectiveDefectsFirstFoundAtReview": 0
+    },
+    "rule": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "visualAdmission": {
+    "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/art/independent-review.json",
+    "sha256": "886874776be1e29939166c3b3d6285616fee63f031cff02038db11854e925251"
+  }
+}

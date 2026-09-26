@@ -1,0 +1,245 @@
+{
+  "schemaVersion": "newsstand-source-budget-v2",
+  "candidateId": "ai-research-automation-20260919",
+  "method": "Conservative whitespace count of every visitor-facing source-derived fragment and every claim limitation. Shared wording is charged in full to each provider. Editorial synthesis, learning authority and artifact description are explicitly accounted rather than silently exempted.",
+  "limits": {
+    "Anthropic": 200,
+    "OpenAI": 200
+  },
+  "allocations": [
+    {
+      "allocationId": "shared-headline-anthropic",
+      "publisher": "Anthropic",
+      "field": "headline",
+      "exactDerivedText": "AI agents are doing more research work. Humans still set the course.",
+      "words": 12
+    },
+    {
+      "allocationId": "shared-headline-openai",
+      "publisher": "OpenAI",
+      "field": "headline",
+      "exactDerivedText": "AI agents are doing more research work. Humans still set the course.",
+      "words": 12
+    },
+    {
+      "allocationId": "shared-opening-anthropic",
+      "publisher": "Anthropic",
+      "field": "the_story",
+      "exactDerivedText": "Two companies report different internal snapshots.",
+      "words": 6
+    },
+    {
+      "allocationId": "shared-opening-openai",
+      "publisher": "OpenAI",
+      "field": "the_story",
+      "exactDerivedText": "Two companies report different internal snapshots.",
+      "words": 6
+    },
+    {
+      "allocationId": "anthropic-index",
+      "publisher": "Anthropic",
+      "field": "the_story",
+      "exactDerivedText": "Anthropic says that in its August 2026 internal index, Claude led 26% of AI research work, performed at least collaboratively in more than 90%, and was fully autonomous in none.",
+      "words": 30
+    },
+    {
+      "allocationId": "openai-agent-runtime",
+      "publisher": "OpenAI",
+      "field": "the_story",
+      "exactDerivedText": "OpenAI reports a different measure: by mid-August, its agents’ total runtime across the research organization was equivalent to 3.1 standard eight-hour agent workdays for each human workday.",
+      "words": 27
+    },
+    {
+      "allocationId": "anthropic-supervision",
+      "publisher": "Anthropic",
+      "field": "laidies_read",
+      "exactDerivedText": "In Anthropic’s scale, “led” means completing most of a defined task from a high-level prompt while a human supervises. Fully autonomous work removes the human; Anthropic says no measured subset reached it.",
+      "words": 32
+    },
+    {
+      "allocationId": "openai-human-role-and-intervention",
+      "publisher": "OpenAI",
+      "field": "laidies_read",
+      "exactDerivedText": "OpenAI says people still set priorities, judge results and decide whether to scale, pause or deploy. In the six months it studied, more than half of successful four-to-eight-hour tasks needed at least one intervention.",
+      "words": 34
+    },
+    {
+      "allocationId": "shared-preliminary-anthropic",
+      "publisher": "Anthropic",
+      "field": "laidies_read",
+      "exactDerivedText": "Both reports are preliminary internal measurements.",
+      "words": 6
+    },
+    {
+      "allocationId": "shared-preliminary-openai",
+      "publisher": "OpenAI",
+      "field": "laidies_read",
+      "exactDerivedText": "Both reports are preliminary internal measurements.",
+      "words": 6
+    },
+    {
+      "allocationId": "anthropic-method-limits",
+      "publisher": "Anthropic",
+      "field": "laidies_read",
+      "exactDerivedText": "Anthropic used a Claude judge, found borderline disagreement and says cross-company comparison lacks a common method.",
+      "words": 16
+    },
+    {
+      "allocationId": "openai-method-limits",
+      "publisher": "OpenAI",
+      "field": "laidies_read",
+      "exactDerivedText": "OpenAI says coverage is incomplete; agent runtime, code and experiment counts do not directly measure overall research progress.",
+      "words": 18
+    },
+    {
+      "allocationId": "anthropic-autonomy-takeaway",
+      "publisher": "Anthropic",
+      "field": "what_this_means",
+      "exactDerivedText": "This does not establish recursive self-improvement—a model independently building its successor without a human in the loop. Bounded investigations can run for hours, which may speed up a lab without transferring authority over the next model, evidence or deployment.",
+      "words": 39
+    },
+    {
+      "allocationId": "shared-cocktail-anthropic",
+      "publisher": "Anthropic",
+      "field": "cocktail_party",
+      "exactDerivedText": "“Inside Anthropic and OpenAI, agents do more hands-on research work, but people still control goals, judgment and deployment.”",
+      "words": 18
+    },
+    {
+      "allocationId": "shared-cocktail-openai",
+      "publisher": "OpenAI",
+      "field": "cocktail_party",
+      "exactDerivedText": "“Inside Anthropic and OpenAI, agents do more hands-on research work, but people still control goals, judgment and deployment.”",
+      "words": 18
+    },
+    {
+      "allocationId": "anthropic-source-label",
+      "publisher": "Anthropic",
+      "field": "sources[0].label",
+      "exactDerivedText": "Anthropic — Measurements for understanding the pace of AI development inside frontier labs",
+      "words": 13
+    },
+    {
+      "allocationId": "openai-source-label",
+      "publisher": "OpenAI",
+      "field": "sources[1].label",
+      "exactDerivedText": "OpenAI — Research acceleration: The view inside OpenAI",
+      "words": 8
+    },
+    {
+      "allocationId": "anthropic-claim-limitations",
+      "publisher": "Anthropic",
+      "field": "claim-map.limit",
+      "exactDerivedText": "Anthropic internal prototype index; self-measured and method-dependent. Anthropic uses an Epoch AI scale; boundary judgments can differ.",
+      "words": 17
+    },
+    {
+      "allocationId": "openai-claim-limitations",
+      "publisher": "OpenAI",
+      "field": "claim-map.limit",
+      "exactDerivedText": "Internal provider metric using a standard eight-hour workday. Provider description of current internal practice. Successful tasks with ground-truth outcomes; provider classifier and internal sample.",
+      "words": 24
+    }
+  ],
+  "totals": {
+    "Anthropic": 189,
+    "OpenAI": 153
+  },
+  "quoteDerivedWords": {
+    "Anthropic": 1,
+    "OpenAI": 0,
+    "note": "Only the quoted label “led” is reproduced as direct provider wording; the article paraphrases all other evidence."
+  },
+  "accountedFields": [
+    {
+      "field": "headline",
+      "classification": "SOURCE_DERIVED_SHARED",
+      "allocationIds": [
+        "shared-headline-anthropic",
+        "shared-headline-openai"
+      ]
+    },
+    {
+      "field": "heroVisual.alt",
+      "classification": "ARTIFACT_DESCRIPTION",
+      "note": "Describes the inspected purpose-built illustration; no provider fact."
+    },
+    {
+      "field": "the_story",
+      "classification": "MIXED",
+      "allocationIds": [
+        "shared-opening-anthropic",
+        "shared-opening-openai",
+        "anthropic-index",
+        "openai-agent-runtime"
+      ],
+      "synthesis": [
+        "These figures describe work inside the companies that made the systems. They are not a change to an everyday ChatGPT or Claude account."
+      ]
+    },
+    {
+      "field": "laidies_read",
+      "classification": "MIXED",
+      "allocationIds": [
+        "anthropic-supervision",
+        "openai-human-role-and-intervention",
+        "shared-preliminary-anthropic",
+        "shared-preliminary-openai",
+        "anthropic-method-limits",
+        "openai-method-limits"
+      ],
+      "synthesis": [
+        "The crucial distinction is between doing a research task and deciding what research should happen."
+      ]
+    },
+    {
+      "field": "what_this_means",
+      "classification": "MIXED",
+      "allocationIds": [
+        "anthropic-autonomy-takeaway"
+      ],
+      "synthesis": [
+        "When you see the next dramatic percentage, ask three questions: Which work was counted? What did the human still decide? Was the measure independently checked? Those questions separate a real change in research practice from a claim that the machines are running the laboratory."
+      ]
+    },
+    {
+      "field": "cocktail_party",
+      "classification": "SOURCE_DERIVED_SHARED",
+      "allocationIds": [
+        "shared-cocktail-anthropic",
+        "shared-cocktail-openai"
+      ]
+    },
+    {
+      "field": "class_notes",
+      "classification": "EDITORIAL_AUTHORITY",
+      "note": "Current LAiDIES Library destination and learning payoff; not evidence for provider measurements."
+    },
+    {
+      "field": "sources[0].label",
+      "classification": "SOURCE_DERIVED",
+      "allocationIds": [
+        "anthropic-source-label"
+      ]
+    },
+    {
+      "field": "sources[1].label",
+      "classification": "SOURCE_DERIVED",
+      "allocationIds": [
+        "openai-source-label"
+      ]
+    },
+    {
+      "field": "claim-map.limit",
+      "classification": "SOURCE_DERIVED",
+      "allocationIds": [
+        "anthropic-claim-limitations",
+        "openai-claim-limitations"
+      ]
+    }
+  ],
+  "allVisitorFieldsAccountedFor": true,
+  "allClaimLimitationsAccountedFor": true,
+  "withinLimits": true,
+  "unmappedSourceDerivedClaims": []
+}

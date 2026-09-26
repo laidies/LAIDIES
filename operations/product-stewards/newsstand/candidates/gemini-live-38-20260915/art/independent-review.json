@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "gemini-live-38-20260915-art",
+  "stage": "INDEPENDENT_VISUAL_ADMISSION",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root/puzzle_visual_reconcile",
+    "reviewedAt": "2026-09-15T23:09:11.663248+00:00",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true,
+    "independentFromMaker": true,
+    "calibration": {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/calibration.json",
+      "sha256": "7549b6cbf3c2ec10f0f48e4369fb1c34a5831a9e1f9aa16955956ef9cff909cd"
+    }
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/producer-contract-final.json",
+    "sha256": "bdde5d8122e48523ce7f9833bec5b3e96b84a91858a2c7cdd5ea00e67361fbee"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/producer-self-review.json",
+    "sha256": "6fd7fd4d603fa9d452fa30deb8168d31196596ef2427538c8b1addb46ca0c8f4"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/illustration-v2.png",
+    "sha256": "b7e54e28876b055184723ad2749acda5d485efe4d87de972e2d82313819b27fe",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/story.json",
+    "sha256": "aa42019b6e35a6e71546f36bbc19b2f667e991cac074531610752ee83e36c2cc",
+    "kind": "TEXT",
+    "locator": "headline",
+    "exactTextOrSilentPurpose": "Gemini\u2019s new voice models can keep talking while they work."
+  },
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/independent-mobile-preview-v2.png",
+    "sha256": "47e5b20fbfffe563768189b70066f1a9e0522e81aeea284b1a7f6f5b55be52f7"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "Phone displays cyan speech waveform; separate pink waveform stretches toward partly dashed cyan route on folded paper. Ongoing spoken exchange and revisable plan fit the story, without a booking or accuracy claim.",
+      "artifactLocator": "phone screen and central pink wave over route"
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Navy ink hatching, warm paper, orange desk and cyan/pink accents preserve the viewed destination editorial print grammar. No real location is named.",
+      "artifactLocator": "whole illustration"
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No people, canon characters, logos, place names or town-map claim appear. The paper is an unnamed conceptual sketch.",
+      "artifactLocator": "whole illustration"
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "Phone rests on desk; folded sheet has coherent creases; pencil lies on sheet. Pink speech wave is clearly a conceptual overlay, not a physical object requiring support.",
+      "artifactLocator": "phone base, paper folds, pencil"
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "No words, numbers or cardinal-style compass glyphs remain. The screen contains waveform marks only. Removed compass is absent.",
+      "artifactLocator": "whole illustration and phone screen"
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "Contemporary phone and stationery fit the conceptual scene; no people, clothing or historical period claim requires an era substitution.",
+      "artifactLocator": "phone and stationery"
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "Required phone, route sheet and pencil carry voice, revisable planning and unfinished-work jobs; cup, book, plants, bag and compass from v1 are absent.",
+      "artifactLocator": "whole illustration"
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "Actually viewed390x260 proportional preview: phone and cyan screen wave remain separate from pink voice wave; cyan route and dashed continuation remain visible, with pencil recognizable. No tiny lettering is needed for meaning. Integrated article crop/runtime is outside this source-art admission.",
+      "artifactLocator": "independent-mobile-preview-v2.png"
+    }
+  ],
+  "visibleDefects": [],
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect; prior known v1 text and extra-prop issues retained in bound history and repaired."
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First illustration for this Gemini live-voice story; v2 is a repair iteration of the same scene, not a new comparable product candidate."
+  },
+  "revisionOf": {
+    "artifact": {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/illustration-v1.png",
+      "sha256": "f9099fa10950ed7eaa4da6db420c3e38692568e944a183e5b01bb72cf1f639f0"
+    },
+    "review": {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/independent-generated-artifact-review-v1.json",
+      "sha256": "6fd494dd41f29a343ccf91f8fbde13d1371834600fffd60bf5b0537f755cf398"
+    },
+    "repair": "Removed compass lettering and peripheral props; unchanged required metaphor."
+  },
+  "ratchet": {
+    "reviewIssues": 0,
+    "reviewCycles": 2,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "repeatedKnownDefects": 1
+  },
+  "reviewHistory": {
+    "renderIterations": 2,
+    "independentInspectionCycles": 2,
+    "cumulativeIndependentIssues": 2,
+    "currentUnresolvedIssues": 0
+  },
+  "limitations": [
+    "Proportional source-art mobile preview inspected, not an integrated runtime/account/native accessibility review.",
+    "Calibration uses complete registered negative descriptions; no bound blind negative raster exists in fixtures, and none is fabricated.",
+    "Source art is conceptual, not actual Google UI or evidence of successful route planning."
+  ]
+}

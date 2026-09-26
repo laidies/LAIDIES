@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "newsstand-web-tool-capture-v1",
+  "capturedAt": "2026-09-25T14:03:14.793Z",
+  "scope": "Actual bounded morning source observations. Web-tool reference IDs identify complete returned results; concise extracted material is separated from full tool-native results because this local receipt cannot serialize the tool transcript byte-for-byte.",
+  "routeGuard": {
+    "command": "node scripts/check-practitioner-signal-pilot.mjs --newsstand-only --as-of 2026-09-25",
+    "result": "PASS desks=6 sources=8 research_completion_certified=false"
+  },
+  "results": [
+    {
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "toolRef": "turn1178view0",
+      "status": "CHECKED_PARTIAL",
+      "observation": "AI hub opened, but the returned capture was navigation-heavy; no fresh article was selected from the bounded extract."
+    },
+    {
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "toolRef": "turn1182view1",
+      "status": "CHECKED",
+      "observation": "Sep24 index has Australian agent incident and lab-device story; Australian incident matches existing Medicare candidate, not a new candidate."
+    },
+    {
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "toolRef": "turn1180view5",
+      "status": "CHECKED",
+      "observation": "Latest visible releases Sep17 and earlier; no material AI development in the bounded capture."
+    },
+    {
+      "url": "https://www.eff.org/updates",
+      "toolRef": "turn1180view6",
+      "status": "CHECKED",
+      "observation": "Latest visible AI-related item is Sep24 DraftKings behavioural advertising advocacy piece; no independent primary-backed new candidate selected."
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/",
+      "toolRef": "turn1179view4",
+      "status": "CHECKED",
+      "observation": "Sep24 Carbonato report was followed to its full article and matches an already-EXCLUDED canonical Docker-administration-surface lead; no new lead was added."
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-carbonato-malware-uses-ai-agents-to-hijack-exposed-docker-hosts/",
+      "toolRef": "turn1182view0",
+      "status": "FULL_ARTICLE_INSPECTED",
+      "observation": "Report attributes Carbonato operation evidence to ThreatDown; Docker API exposure and AI-agent role are reported. No exploit reproduction or consumer impact inferred."
+    },
+    {
+      "url": "https://openai.com/news/",
+      "toolRef": "turn1180view2",
+      "status": "CHECKED",
+      "observation": "Latest visible Sep23 entries; no Sep24/25 release in the returned index."
+    },
+    {
+      "url": "https://www.anthropic.com/news",
+      "toolRef": "turn1180view3",
+      "status": "CHECKED",
+      "observation": "Latest visible Sep23 CRISPR-like discovery, already independently seen in prior scope; no Sep24/25 release."
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "toolRef": "turn1180view4",
+      "status": "CHECKED",
+      "observation": "Latest Sep22 TTS GA and Sep18 legacy-access items; no Sep24/25 entry."
+    },
+    {
+      "url": "https://aidailybrief.ai/agent.json",
+      "toolRef": "turn1179view8",
+      "status": "CHECKED_METADATA_ONLY",
+      "observation": "Generated 2026-09-25T14:01:42.720Z. Rolling index lists Sep24 \u201cAI Agents Are Moving Into the Real World\u201d and earlier editions. Index metadata is not a transcript or complete edition review."
+    },
+    {
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "toolRef": "turn1182view2",
+      "status": "PARTIAL",
+      "observation": "Returned page segment was platform navigation rather than episode enumeration; no publisher-linked episode identity added."
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-24",
+      "toolRef": "turn1180view0",
+      "status": "UNAVAILABLE",
+      "observation": "One normal permitted open returned Internal Error."
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-24/transcript.md",
+      "toolRef": "turn1180view1",
+      "status": "UNAVAILABLE",
+      "observation": "One normal permitted open returned Internal Error."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-09-19T17:31:02.051Z",
+  "completedAt": "2026-09-19T17:31:02.193Z",
+  "exitCode": 1,
+  "command": [
+    "node",
+    "operations/product-stewards/newsstand/review-runtime/run-pilot.mjs",
+    "article",
+    "claude",
+    "--candidate-dir",
+    "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/",
+    "--calibration",
+    "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/",
+    "--output",
+    "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-review-v1/"
+  ],
+  "stdout": "",
+  "stderr": "node:fs:441\n    return binding.readFileUtf8(path, stringToFlags(options.flag));\n                   ^\n\nError: ENOENT: no such file or directory, open 'operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/writer-input-current.json'\n    at Object.readFileSync (node:fs:441:20)\n    at read (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:23:18)\n    at json (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:24:26)\n    at assertArticlePreReviewPackage (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:31:14)\n    at async file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:156:2 {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: 'operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/writer-input-current.json'\n}\n\nNode.js v24.18.0\n"
+}

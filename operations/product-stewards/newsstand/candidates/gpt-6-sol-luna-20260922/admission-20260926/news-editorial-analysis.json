@@ -1,0 +1,92 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "gpt-6-sol-luna-20260922",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "7039bc53530073b2d938e73c1456817166d15058fcd97bb08db7be82a1700b71",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why could a colleague see GPT-6 Sol in her model picker while I cannot, even though we both use ChatGPT?",
+      "response": "Because the models were introduced only in ChatGPT Work and Codex, not ordinary Chat, and even within Work the visible model choices depend on the workspace's plan and settings, with a gradual rollout — so two people using different services or workspaces can see different pickers.",
+      "expectedEvidence": "P002 places the models in Work and Codex and separate from Chat; P004 notes lists can differ between personal Chat and employer Work; P005 explains plan/workspace settings and gradual rollout.",
+      "assessment": "The article supplies every causal step needed for this answer in ordinary language, so the explain-back succeeds without outside knowledge."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Do the announced lower prices change her Plus subscription, and can she simply switch to Luna in her account?",
+      "response": "No on both counts as stated. The lower figures are per-token API prices charged to developers whose software sends work to the model — a usage meter, not her flat subscription. And Luna was introduced in ChatGPT Work and Codex, separate from ordinary Chat, so she must check her own service's model picker rather than assume the headline applies to her plan.",
+      "expectedEvidence": "P003 defines the API and states the figures are not a subscription price; P002 bounds availability to Work and Codex; P007 gives the check-your-picker procedure; P010 explains per-token usage metering.",
+      "assessment": "The article's mechanism resolves this genuinely new scenario completely, showing the service/billing-surface model transfers beyond the cases it discusses."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The event (September 22 introduction), where the models landed (Work and Codex, not Chat) and the pricing announcement are laid out in causal order.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI introduced GPT-6 Sol and Luna on September 22. Its release notes place them in ChatGPT Work and Codex, and say they are separate from the models in ordinary Chat.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "API, workspace and model picker each receive a plain-language definition at their first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI also lists lower API prices. An API is the developer-facing connection that lets software send work to a model and pay for the text it processes. Those figures are not a ChatGPT subscription price.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>OpenAI says model and reasoning choices depend on a plan and workspace settings. A workspace is a shared work account whose plan and settings can affect which model choices appear. Its rollout is gradual, so an announcement cannot show what a particular account can select.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "A model picker is the list of AI models an account can choose. The <a href=\\\"/library.html#ai-fundamentals-101::%40ch-4-4-2-what-a-token-actually-is\\\"><strong>AI Fundamentals 101 lesson on tokens</strong></a> explains why text processed can be a usage meter rather than a monthly subscription price.",
+          "locator": "P010"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are grounded in recognizable situations: a personal Chat account versus an employer Work workspace, and drafting a routine email or summary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A model name can appear in more than one OpenAI service. You might use Chat personally and Work through an employer, and the lists of available models can differ.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>OpenAI says GPT-6 Sol can take on difficult work tasks. For a routine email, summary or document draft, another available model may be a sensible alternative; compare it with Sol or Luna in your own service before treating a new name as an automatic upgrade.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; all advice follows from sourced boundaries (check the picker, treat comparisons as provider claims) rather than invented facts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI says GPT-6 Sol can take on difficult work tasks. For a routine email, summary or document draft, another available model may be a sensible alternative; compare it with Sol or Luna in your own service before treating a new name as an automatic upgrade.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>First identify the service you use: Chat, Work or Codex. Then look at that service’s current model picker and your plan or workspace details before assuming Sol or Luna is an upgrade you already have.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>OpenAI’s performance and cost comparisons are its own evaluation claims. They do not promise that a particular task will be faster, cheaper or better for you.</p>",
+          "locator": "P008"
+        }
+      ]
+    }
+  }
+}

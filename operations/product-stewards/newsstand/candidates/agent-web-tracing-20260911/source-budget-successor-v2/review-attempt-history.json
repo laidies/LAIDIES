@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "laidies.newsstand-review-attempt-history.v1",
+  "candidateId": "agent-web-tracing-20260911",
+  "attempts": [
+    {
+      "cycle": 1,
+      "path": "operations/product-stewards/newsstand/candidates/agent-web-tracing-20260911/independent-review/runtime-claude-fable-20260911-v1",
+      "status": "COMPLETED_PASS_SUPERSEDED_BY_SOURCE_BUDGET_FAILURE",
+      "rawSha256": "92f0d53cf2e6765dd37fb57196bfce23b96606e0023c850fbd64388bdded3f6a"
+    },
+    {
+      "cycle": 2,
+      "path": "operations/product-stewards/newsstand/candidates/agent-web-tracing-20260911/source-budget-successor-v2/independent-review/runtime-claude-fable-20260911-v2",
+      "status": "COMPLETED_RAW_PROTOCOL_DISPOSITION_FAILURE",
+      "rawSha256": "e47ecf82647159f47c4dc13d784c709c4b575a32e74c17fa2ac598ed3335899a",
+      "findings": [
+        "dated entry was described as log creation",
+        "private source-budget claim retained stale 168/49 totals"
+      ]
+    },
+    {
+      "cycle": 3,
+      "path": "operations/product-stewards/newsstand/candidates/agent-web-tracing-20260911/source-budget-successor-v2/independent-review/runtime-claude-fable-20260911-v3",
+      "status": "INTERRUPTED_BEFORE_PROVIDER_RESULT",
+      "rawSha256": null,
+      "reason": "Maker stopped the dispatch after root identified that the private budget constraint had been inserted as a visitor-facing factual claim requiring arbitrary paragraph attribution."
+    },
+    {
+      "cycle": 4,
+      "path": "operations/product-stewards/newsstand/candidates/agent-web-tracing-20260911/source-budget-successor-v2/independent-review/runtime-claude-fable-20260911-v4",
+      "status": "COMPLETED_PASS",
+      "rawSha256": "6ce59fb4365cf0bf2f25d2540dc693a44b157b559fee9547d5fed138fe27abbc",
+      "checkedSha256": "7f404eecdb57e73f662d33d558bee419aa66ff0942c06666e1df961896c94202"
+    }
+  ],
+  "nextCycle": null,
+  "finalDisposition": "SUCCESSOR_READY_FOR_ISSUE_ADMISSION"
+}

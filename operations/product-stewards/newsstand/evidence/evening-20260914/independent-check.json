@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "newsstand-independent-evening-check-v1",
+  "checkedAt": "2026-09-15T03:04:00Z",
+  "asOfVancouver": "2026-09-14",
+  "scope": "Normal-web independent check of the six-desk public-interest agenda and named evidence gaps. Provider indexes are root-owned and excluded.",
+  "excludedNonretryableRoutes": [
+    "Nature s41593-026-02446-2, s41586-026-11001-9 and d41586-026-02845-2",
+    "Reuters AI index",
+    "exact X links for Cognition/Devin and Grok",
+    "AIDB September 12 and September 14 endpoints"
+  ],
+  "deskObservations": [
+    {
+      "desk": "Associated Press AI",
+      "result": "ONE_SEPARATE_EVENT_ON_WATCH;_ONE_CONTEXT_EXPLAINER",
+      "observed": [
+        {"url": "https://apnews.com/article/b85df16775ff7e9611a456b061a0e4b9", "title": "Trump calls AI risks a 'hoax'", "date": "2026-09-14"},
+        {"url": "https://apnews.com/article/98316b0d64de17191f33c0fbf1d37858", "title": "New warnings about the risks of AI to humanity revive a long-running debate", "date": "2026-09-14"},
+        {"url": "https://apnews.com/article/3da458d2c078da3e60900728d59f1ae8", "title": "China bristles at Anthropic CEO's fearmongering about its AI development", "date": "2026-09-14"}
+      ],
+      "disposition": "China's Foreign Ministry response to Amodei is a separate actor/action from the September 14 Trump post. It is held as china-amodei-ai-governance-response-20260914 because AP reports no completed agreement, framework or changed reader-facing rule. The risk-debate item is an explainer restating existing Coxon/Amodei context and creates no discrete event. Exact findings and later access failure are bound in ap-normal-web-access-20260915.json."
+    },
+    {
+      "desk": "FTC press releases",
+      "result": "NO_NEW_AI_RELEASE_OBSERVED",
+      "url": "https://www.ftc.gov/about-ftc/bureaus-offices/press-releases",
+      "observed": "Current September list showed September 10 horseracing budget, September 9 policy withdrawal and September 8 payment-processor enforcement; none was an AI-specific release."
+    },
+    {
+      "desk": "BleepingComputer AI",
+      "result": "NO_NEW_DISTINCT_EVENT",
+      "url": "https://www.bleepingcomputer.com/tag/artificial-intelligence/",
+      "observed": "Latest indexed AI items remain September 11 Claude Android-app-secret misuse and September 10 PaperCut reporting, already assessed in the current coverage record."
+    },
+    {
+      "desk": "EFF AI",
+      "result": "NO_NEW_SEPTEMBER_14_ITEM_CONFIRMED",
+      "url": "https://www.eff.org/issues/ai",
+      "observed": "Normal search returned no newer dated EFF AI item than the previously recorded September 8 Medicare-prior-authorization post."
+    }
+  ],
+  "gapChecks": [
+    {
+      "topic": "ProteinTalks / medical research",
+      "result": "HOLD_SOURCE_GAP",
+      "observed": "No distinct legitimate independent report or accessible underlying paper was found. The blocked Nature routes were not retried. No clinical-benefit claim is supported by this check.",
+      "nextAction": "Wait for an accessible legitimate independent report or underlying study."
+    },
+    {
+      "topic": "Devin / Cognition exact X evidence",
+      "result": "HOLD_ORIGINAL_EVIDENCE_GAP",
+      "observed": "Cognition's normal public blog currently shows an early SWE-1.6 preview dated March 1 and older entries; Bessemer's September 8 investment post is a secondary investor account. Neither establishes the content of the blocked exact X post.",
+      "nextAction": "Keep the exact-X original-evidence hold; do not substitute the investor post."
+    },
+    {
+      "topic": "Grok exact X evidence",
+      "result": "HOLD_ORIGINAL_EVIDENCE_GAP",
+      "observed": "xAI's normal news index displayed latest dated posts from August 11 and earlier. It did not establish the content of the blocked exact Grok X post.",
+      "nextAction": "Keep the exact-X original-evidence hold."
+    }
+  ],
+  "actionableLeads": [
+    {
+      "candidateId": "china-amodei-ai-governance-response-20260914",
+      "status": "SEPARATE_EVENT_WATCH",
+      "evidence": "operations/product-stewards/newsstand/evidence/evening-20260914/china-amodei-response-research-hold.json",
+      "reason": "Distinct Foreign Ministry response, held for lack of a concrete action rather than deduplicated with the Trump story."
+    }
+  ],
+  "limitations": [
+    "Search/index observations are not exhaustive discovery or claim verification.",
+    "No blocked URL, paid source, provider index, editorial provider or publication path was invoked.",
+    "Later normal-web opens of the two exact AP short URLs returned non-retryable safety errors. This is an access limitation, not a finding that the AP events lack evidence."
+  ]
+}

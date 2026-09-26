@@ -1,0 +1,15 @@
+{
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924 --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-20260905 --output operations/product-stewards/newsstand/candidates/openai-agent-australia-medicare-20260924/full-preflight-r2 --preflight-only --effort medium",
+  "executedAt": "2026-09-25T03:16:46.923Z",
+  "exitCode": 1,
+  "stdout": {
+    "text": "",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "text": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Calibration protocol changed\n+ actual - expected\n\n+ 'f605c29bc07c6610b12e7df945888cd128395fd074f56895543889c31c5e12bb'\n- '7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837'\n\n    at file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:153:231\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: 'f605c29bc07c6610b12e7df945888cd128395fd074f56895543889c31c5e12bb',\n  expected: '7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837',\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.18.0\n",
+    "sha256": "1f612d7f1844bc220a1c19233a1571fa61b94d80efd876d32fec7bd2cfaadd29"
+  },
+  "providerRequestMade": false,
+  "scope": "Unmodified run-pilot preflight-only invocation; no model call, editorial judgment, admission, or publication."
+}

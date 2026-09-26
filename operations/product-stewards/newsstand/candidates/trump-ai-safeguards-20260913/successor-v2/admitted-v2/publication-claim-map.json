@@ -1,0 +1,56 @@
+[
+  {
+    "claimId": "ap-sep13-remarks",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>On September 13, the Associated Press reported that President Trump played down checking AI development while stressing competition with China. He later said he was not downplaying risk, expected AI to bring more good than bad, and acknowledged some regulation without giving specifics. The report described possible White House and congressional meetings.</p>",
+        "locator": "P002"
+      },
+      {
+        "excerpt": "<p>For now, the verified change is an argument over how quickly AI should move and who should check it. When a headline says “guardrails,” ask whether it names a company commitment, a proposal or a government action—and what would actually be checked.</p>",
+        "locator": "P004"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/editorial-input.json",
+      "sha256": "4007b4d7442ec85d70264b9b10f85c7ef37a3a81da011e3a8fe34d208fdaa0e6"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Trump played down checking AI development while citing competition with China.\n\nHe said he was not downplaying risks, acknowledged some regulation and gave no specifics about potential rules.\n\nThe report described possible White House and congressional meetings; neither leader gave concrete steps.",
+        "locator": "https://apnews.com/article/9df0ebb4c1b0619aa0f88057b5a1092d"
+      },
+      {
+        "excerpt": "Authority: Associated Press reporting returned as full article text by normal web search (turn655news0).\nLimitation: Reported remarks and possible meetings, not an enacted federal action or complete legal inventory.",
+        "locator": "https://apnews.com/article/9df0ebb4c1b0619aa0f88057b5a1092d"
+      }
+    ],
+    "scopeAndFreshness": "P002 matches the AP excerpts on all elements: played down checking AI development, cited competition with China, later said he was not downplaying risk, acknowledged some regulation without specifics, and described possible White House and congressional meetings; the source's limitation (remarks, not enacted action) is preserved by the article's framing."
+  },
+  {
+    "claimId": "amodei-evaluators",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>This is a disagreement about pace, not a switch in the rules of the AI products you use. Anthropic, the maker of Claude, has proposed slowing capability gains enough for safety work to catch up. Its concrete idea is embedded third-party evaluators: independent reviewers working inside an AI company, with access to check safety work and report findings. That is Anthropic’s proposal and stated commitment, not a federal requirement.</p>",
+        "locator": "P003"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/editorial-input.json",
+      "sha256": "4007b4d7442ec85d70264b9b10f85c7ef37a3a81da011e3a8fe34d208fdaa0e6"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Amodei says pacing means taking adequate time to align and safeguard models and let third-party evaluators confirm this.\n\nHis first step is embedded third-party evaluators with ongoing employee-like access to verify safety practices and report incidents.\n\nAnthropic says it is unilaterally committing to that step and calls on governments to require other frontier companies to match it.",
+        "locator": "https://darioamodei.com/post/we-must-pace-the-frontier"
+      },
+      {
+        "excerpt": "Authority: Dario Amodei primary essay, opened and captured through normal web access (turn652view0).\nLimitation: A primary-company proposal and stated commitment; it is not evidence of a federal requirement or completed evaluator access.",
+        "locator": "https://darioamodei.com/post/we-must-pace-the-frontier"
+      }
+    ],
+    "scopeAndFreshness": "P003 accurately renders the essay's first step — embedded third-party evaluators with inside access to verify safety work and report findings — and explicitly retains the source limitation by stating this is Anthropic's proposal and stated commitment, not a federal requirement."
+  }
+]

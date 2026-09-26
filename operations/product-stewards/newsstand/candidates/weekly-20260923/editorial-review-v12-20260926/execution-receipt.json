@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "laidies.newsstand-editorial-review-execution-receipt.v1",
+  "candidateId": "weekly-changes-need-different-verbs-20260923",
+  "attempt": "editorial-review-v12-20260926",
+  "attemptedAt": "2026-09-26T15:14:04Z",
+  "providerRoute": "claude-fable-5",
+  "effort": "medium",
+  "runtimeLimitSeconds": 240,
+  "status": "EXTERNAL_PROVIDER_TIMEOUT",
+  "admissionAuthority": false,
+  "publicationAuthority": false,
+  "preflight": "PASS",
+  "artifactBindings": {
+    "request": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v12-20260926/article-editorial-request.json",
+      "sha256": "425e0507624aba36d37ae1e79195d14ea69074354d4947aa4dd9b06c019c5d92"
+    },
+    "packet": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v12-20260926/article-editorial-packet.json",
+      "sha256": "5a9fcd090dd97891a7e864cd514e21c8c239d7b053fbd8f33cef1257667ce4e0"
+    },
+    "raw": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v12-20260926/article-editorial-provider.raw.json",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "failure": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260923/editorial-review-v12-20260926/article-editorial-failure.json",
+      "sha256": "ef9b1c90f2f53bd3ed834f8ec78f324720633c8fec9b1b637435f10db22387ad"
+    }
+  },
+  "combinedStdoutStderr": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Provider execution failed: TIMEOUT\n    at run (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:88:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:180:16 {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: false,\n  expected: true,\n  operator: '==',\n  diff: 'simple'\n}\n\nNode.js v24.18.0\n",
+  "result": "No independent judgment was produced. The runtime terminated the configured provider at its 240-second timeout and preserved the failure receipt.",
+  "nextAction": "Do not replay v12. Restore a responsive configured reviewer route or authorize a distinct review operation; then use a separately versioned request.",
+  "limits": [
+    "Producer receipt remains PASS. This is not an independent editorial admission or publication approval."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "proseReview": {
+    "reviewIssues": 1,
+    "reviewCycles": 2
+  },
+  "evidencePacket": {
+    "rounds": 2,
+    "gaps": 1
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "review": "runtime-claude-fable-20260912-v1",
+      "verdict": "HOLD",
+      "reason": "Stale numbered paragraph retained Settings navigation already removed by producer; count the completed review and its issue. Root had found unsupported UI before review."
+    },
+    {
+      "review": "runtime-claude-fable-20260912-v2",
+      "verdict": "PASS",
+      "reason": "Exact numbered paragraphs regenerated from completeArtifact; runtime and assembly now reject mismatch."
+    }
+  ],
+  "limitations": [
+    "Source-budget reconciliation remains required before publication."
+  ]
+}

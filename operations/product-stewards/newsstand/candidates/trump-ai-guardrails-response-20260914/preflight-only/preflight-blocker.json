@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "laidies-newsstand-preflight-attempt.v1",
+  "candidateId": "trump-ai-guardrails-response-20260914",
+  "attemptedAt": "2026-09-14T22:08:00Z",
+  "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914 --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905 --output operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/preflight-only --preflight-only",
+  "result": "HOLD",
+  "providerCalled": false,
+  "error": "prepared draft: trump-ai-guardrails-response-20260914 published story image is missing or incomplete",
+  "interpretation": "Expected under the assigned no-image stage. All non-visual preflight findings observed in earlier attempts were repaired before this final attempt.",
+  "nextGate": "Bind a separately produced and independently admitted image, then rerun this exact validation-only command before any qualified editorial review."
+}

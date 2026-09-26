@@ -1,0 +1,60 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "health-science",
+  "overlays": [
+    "research-benchmark"
+  ],
+  "universalAnswers": {
+    "whatHappened": "On September 8 Google DeepMind introduced AlphaGenome Atlas, a lookup resource for predicted molecular effects of every possible single-letter DNA change.",
+    "plainLanguageIdentity": "A DNA variant is a difference in a DNA sequence; Atlas estimates possible biological effects and helps researchers sort variants for follow-up.",
+    "evidenceBasis": "Google DeepMind’s announcement, the technical report’s ranked-case and laboratory passages, and Nature’s September 9 independent reporting support the resource, scale and bounded research sequence.",
+    "evidenceLimits": "The report describes a research ranking and laboratory work, not proof of diagnosis, treatment improvement, patient benefit or independent replication.",
+    "readerRelevance": "Readers can distinguish a rapid research shortlist from a personal health answer when they encounter AI-and-genetics headlines.",
+    "affectedPeople": "The research concerns scientists studying genetic variation and readers of health headlines; it establishes no personal clinical recommendation.",
+    "changesNow": "Researchers can look up precomputed predictions for around nine billion single-letter variants, rather than calculate each prediction afresh.",
+    "uncertainty": "Cell-type relevance, ancestry representation and experimental validation remain important limits; no general clinical result is established.",
+    "readerAction": "Ask what a gene predictor estimated, which biological setting it covered, and what real-world test followed.",
+    "betterQuestion": "Did the research prioritize a variant for study, or show that using it changes diagnosis or treatment outcomes?"
+  },
+  "typeAnswers": {
+    "health-science": {
+      "aiRole": "AlphaGenome estimates regulatory effects from DNA sequence and AVI ranks variants using 18 input features; neither makes a personal medical decision.",
+      "professionalRole": "Researchers still choose follow-up questions and conduct biological validation; the report describes laboratory tests of a nearby stretch of DNA after a ranked research case.",
+      "evidenceLevel": "An 83-page technical research report with benchmarks, one rare-disease case and one laboratory experiment, not an approval or routine clinical service.",
+      "benefitClaim": "The report measures prioritization and interpretation of variants; it does not measure improved diagnosis, treatment, or patient outcomes.",
+      "risksAndFalseResults": "A prediction may be wrong or irrelevant in a particular cell type or person, so treating it as a diagnosis could create false certainty; this is a boundary rather than a measured patient harm.",
+      "availability": "Scores and an interface are made available for research exploration; no patient-ready diagnostic or access pathway is verified.",
+      "readerBoundary": "This research explanation is not medical advice and is not a reason to interpret a personal genetic result or change care."
+    },
+    "research-benchmark": {
+      "researchQuestion": "Can precomputed AlphaGenome predictions help prioritize and interpret non-coding DNA variants across the human genome?",
+      "method": "The team computed predictions for about nine billion possible single-letter variants and evaluated research examples; the article does not turn a laboratory count into a success rate.",
+      "result": "The report presents a ranked research case and laboratory evidence for some nearby changes; this is not automatic diagnosis or improved treatment.",
+      "sponsorAndInterests": "Google DeepMind researchers and academic collaborators authored the report; the primary report is the basis for research claims.",
+      "independentReplication": "No independent replication has been verified for this candidate; Nature coverage is independent reporting, not a replication study.",
+      "realWorldTransfer": "Precomputed scores can speed a research search, but a useful variant still needs validation in the relevant biological setting before any clinical conclusion.",
+      "limitations": "The reported case and laboratory example are bounded. The article makes no fraction-of-variants validation claim; cell-type, ancestry and experimental-validation limits remain."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "On September 8, Google DeepMind introduced AlphaGenome Atlas: a research resource where scientists can look up predicted molecular effects of every possible one-letter DNA change in the human genome, instead of calculating each prediction afresh.",
+    "actualMeaningExact": "The news is faster access to a research starting point.",
+    "mechanismExact": "If a study has many variants to investigate, the Atlas can point researchers toward changes that may affect biology, so they can decide what to examine more closely.",
+    "familiarExampleExact": "Atlas can turn a giant DNA list into a research shortlist. The score says what might be worth testing; the experiment still has to do the proving.",
+    "jargon": [
+      {
+        "term": "DNA variant",
+        "plainMeaning": "A DNA variant is a difference in a DNA sequence."
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "A result on one evaluation does not prove reliability for every real task.",
+        "learningPayoff": "AI Fundamentals 101 chapter 12 distinguishes a research score from proof it works in every biological or clinical setting.",
+        "disposition": "link",
+        "destination": "/library.html#ai-fundamentals-101::%40ch-12-12-1-the-problem-how-do-you-measure-good"
+      }
+    ]
+  }
+}

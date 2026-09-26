@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "laidies.newsstand-repair-history.v1",
+  "candidateId": "nvidia-groq-inquiry-20260912",
+  "createdAt": "2026-09-12T18:47:18.000Z",
+  "origin": "New bounded candidate from the September 12 reporting reconciliation.",
+  "repairs": [
+    {
+      "at": "2026-09-12T18:47:18.000Z",
+      "kind": "producer-source-and-reader-binding",
+      "status": "RESOLVED",
+      "finding": "The story required an attributed inquiry boundary and an explanation of the licence and hires without a whole-company purchase.",
+      "repair": "Bound Reuters and Groq separately, preserved New York Times attribution, explained inference and omitted disputed price, remedies and consumer forecasts.",
+      "remaining": "Distinct independent semantic review remained required.",
+      "draftAndBindingLane": "/root/producer_repair_sol",
+      "producerReviewer": "/root"
+    },
+    {
+      "at": "2026-09-12T18:55:00.000Z",
+      "kind": "pre-provider-source-packet-repair",
+      "status": "RESOLVED",
+      "finding": "The first builder supplied public source metadata where the editorial resolver required exact source passages.",
+      "repair": "Root preserved exact reopened Reuters and Groq passages, passed those source-evidence objects into the editorial packet, asserted actual source resolution and added a metadata-only negative control.",
+      "remaining": "This mechanical repair did not perform or replace independent semantic review.",
+      "repairOwner": "/root"
+    },
+    {
+      "at": "2026-09-12T19:00:09.000Z",
+      "kind": "v1-transfer-fidelity-repair",
+      "status": "RESOLVED_FOR_SUCCESSOR_PRODUCER",
+      "finding": "The v1 provider review passed but its explain-back invented a dominant-firm frame, and its unseen transfer invented a rival relationship and implied that a non-exclusive licence removed the original company’s technology.",
+      "repair": "The successor states that the licence permits Nvidia to use the technology and does not by itself stop Groq using or licensing it. The transfer probe now forbids invented market relationships, ownership loss and competition outcomes.",
+      "remaining": "A distinct v2 independent reviewer must assess the successor. The exact v1 raw report and root reconciliation remain preserved.",
+      "draftAndBindingLane": "/root/producer_repair_sol",
+      "producerReviewer": "/root"
+    }
+  ]
+}

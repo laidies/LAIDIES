@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "laidies-newsstand-preflight-attempt.v1",
+  "candidateId": "gpt-6-sol-luna-20260922",
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  },
+  "attempts": [
+    {
+      "kind": "PRE_REVIEW_VALIDATION_ONLY",
+      "result": "HOLD",
+      "actualFailure": "story-type coverage learning connection was too short; after repair, ordinary model-release utility was missing a task and nearest-alternative trade-off."
+    },
+    {
+      "kind": "PRE_REVIEW_VALIDATION_ONLY",
+      "result": "PASS",
+      "command": "node operations/product-stewards/newsstand/review-runtime/run-pilot.mjs article claude --candidate-dir operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922 --output operations/product-stewards/newsstand/candidates/gpt-6-sol-luna-20260922/preflight-20260926 --calibration operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905 --preflight-only",
+      "output": {
+        "status": "PRE_REVIEW_PASS",
+        "scope": "Validation-only pre-review gate; no provider request, editorial judgment, admission or publication."
+      }
+    }
+  ],
+  "remainingAction": "Create a current producer-publication-review.json and editorial-input.json binding the final review text and source packet, then obtain the required distinct independent editorial review. Provider calls remain prohibited while reviewer authentication is false."
+}

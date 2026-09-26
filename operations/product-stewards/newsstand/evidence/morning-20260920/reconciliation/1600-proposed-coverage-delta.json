@@ -1,0 +1,85 @@
+{
+  "schema": "newsstand-coverage-reconciliation-proposal.v1",
+  "proposalOnly": true,
+  "scope": "PARTIAL_AIDB_AND_HOUSE_SOURCE_CHECKPOINT_ONLY",
+  "rawReceiptAt": "2026-09-20T16:26:02-07:00",
+  "rawReceiptMeaning": "Filesystem receipt time of the first four preserved normal-web captures, not a claimed source-response, AIDB publication, or legislative-action time. No fresh six-desk/provider sweep is represented here.",
+  "nonMutation": "This is a private proposal. It does not change coverage-progress.json, source checks, lead status, cursors, canonical issues, CURRENT records, or public content.",
+  "proposedSourceChecks": [
+    {
+      "url": "https://aidailybrief.ai/agent.json",
+      "role": "AIDB_WEBSITE_INDEX",
+      "status": "CHECKED",
+      "rawReceiptAt": "2026-09-20T16:26:02-07:00",
+      "assessment": "The publisher index was generated 2026-09-20T23:24:10.589Z and lists September 14, 15, 16 and 17 editions; September 17 remains the newest listed edition. The index supplies metadata and links only. Existing nonretryable full-content JSON/transcript blocks were not retried, so none of the newly observed editions is complete or cursor-eligible.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/morning-20260920/reconciliation/1600-aidb-raw.json",
+        "sha256": "4b51fc1751b2f71cfca263a266a4e17714f547687566cc392949c1e6256cae56"
+      }
+    },
+    {
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "role": "AIDB_PODCAST_INDEX",
+      "status": "PARTIAL",
+      "rawReceiptAt": "2026-09-20T16:26:02-07:00",
+      "assessment": "The normal-web Apple listing was checked in the same capture. It did not provide an inspectable full episode or transcript, so it cannot complete or identify item dispositions for a new edition.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/morning-20260920/reconciliation/1600-aidb-raw.json",
+        "sha256": "4b51fc1751b2f71cfca263a266a4e17714f547687566cc392949c1e6256cae56"
+      }
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9340eh/html/BILLS-119hr9340eh.htm",
+      "role": "PRIMARY_LEGISLATIVE_TEXT",
+      "status": "CHECKED",
+      "rawReceiptAt": "2026-09-20T16:26:02-07:00",
+      "assessment": "The engrossed-House text defines covered large-load customers as non-residential IT/data customers at 100 megawatts or more, sets a full-incremental-cost standard, and requires state consideration/hearing within one year and determination within two years if enacted. It records House passage September 16; it does not demonstrate enactment or a household-rate result.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/morning-20260920/reconciliation/1600-house-engrossed-text-raw.json",
+        "sha256": "fbcfb527d589d267ef560851f72f1f11f05f877380aba4d64026aa6dfc78f0ab"
+      }
+    },
+    {
+      "url": "https://www.publicpower.org/periodical/article/ratepayer-protection-act-blocked-senate",
+      "role": "SENATE_STATUS_SECTOR_REPORTING",
+      "status": "CHECKED_LIMITED",
+      "rawReceiptAt": "2026-09-20T16:26:02-07:00",
+      "assessment": "APPA reports a September 17 unanimous-consent attempt and a Senate-floor objection. This supports an attributed Senate-status limit only; it is not an official Senate action record. The direct Congress.gov route was robots-blocked in normal web research and no alternative transport was used.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/morning-20260920/reconciliation/1600-house-primary-status-raw.json",
+        "sha256": "4562dd4c69427b939f2afe6e78487a08601085cffaae6442c507d53685f0e305"
+      }
+    }
+  ],
+  "proposedLeadDispositions": [
+    {
+      "id": "house-ratepayer-protection-act-20260916",
+      "status": "IN_PRODUCTION",
+      "disposition": "SOURCE_BOUND_RESEARCH_PACKET_REQUIRES_PRODUCER_CONTRACT_BEFORE_NEW_DRAFT",
+      "evidence": [
+        "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/source-evidence.json",
+        "operations/product-stewards/newsstand/candidates/house-ratepayer-protection-20260920/source-bound-candidate.json"
+      ],
+      "limits": "Use the verified House text and committee's 417-3 vote. Attribute the Senate unanimous-consent objection to APPA. Do not claim enactment, a complete official Senate docket, a mandatory immediate nationwide payment rule, or a guaranteed household-bill reduction.",
+      "nextAction": "Pass the producer contract, then author a new source-bound draft; the existing research wording is unadmitted and cannot be post-hoc admitted. Create/admit exact non-character hero art, then run producer self-review, independent review and admission after normal Claude reviewer authentication is restored. Before promotion, recover an official Senate record or retain the APPA attribution with reviewer approval."
+    },
+    {
+      "id": "aidb-september-14-through-17-20260920",
+      "status": "EVIDENCE_BLOCKED",
+      "disposition": "PUBLISHER_INDEX_RECOVERED_FULL_CONTENT_STILL_UNINSPECTED",
+      "limits": "Do not equate the index metadata, teaser, Apple listing or titles with a transcript, item count or review of a complete edition. Preserve existing nonretryable content-route blocks.",
+      "nextAction": "Wait for a distinct legitimate publisher full-content source; then inspect every item and run the selector before any cursor advance."
+    },
+    {
+      "id": "ai-slowdown-antitrust-complaint-20260918",
+      "status": "IN_PRODUCTION",
+      "disposition": "ROOT_SOURCE_RECOVERY_REPORTED",
+      "limits": "Root reports a recovered original complaint PDF and supporting reporting. This proposal does not recharacterize those documents or claim a final admission while independent reviewer access remains blocked.",
+      "nextAction": "Root-owned candidate proceeds through its production and review path after Claude authentication is restored."
+    }
+  ],
+  "preservedBlocks": [
+    "No nonretryable AIDB full-content, newsletter, X, Reuters or prior blocked original route was retried.",
+    "Congress.gov direct status access was robots-blocked in normal web research; no proxy, mirror, API, direct-download or alternative transport was used."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "candidateId": "rathat-android-20260916",
+  "primaryType": "safety-incident",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "Zimperium reported RatHat on September 16 as an Android malware family it says reaches deceptive download portals from text phishing or malicious ads.",
+    "plainLanguageIdentity": "It is a reported deceptive installation chain, not a claim that receiving a message remotely infects every Android phone.",
+    "evidenceBasis": "Zimperium’s report and current Google Play Protect and restricted-settings guidance are captured and bound.",
+    "evidenceLimits": "The vendor report does not establish prevalence; Google’s protections are not a guarantee that any device is clean.",
+    "readerRelevance": "A person may see a surprise app-download link or be asked to approve sensitive settings on a personal phone.",
+    "affectedPeople": "People considering an app file from outside Google Play or a sensitive permission request.",
+    "changesNow": "A new report gives readers a reason to recognize this delivery-and-permission pattern.",
+    "uncertainty": "The report does not show every Android phone is infected or that legitimate accessibility tools are unsafe.",
+    "readerAction": "Use the organization’s official site or Google Play for an unexpected app request, keep Play Protect on, and do not allow restricted settings unless the developer is trusted.",
+    "betterQuestion": "Which developer is asking, why does this specific app need this access, and did I obtain it through a source I trust?"
+  },
+  "typeAnswers": {
+    "safety-incident": {
+      "incident": "Zimperium reported an Android malware family delivered through deceptive third-party download portals, then manually installed as an APK.",
+      "harm": "The report describes a deceptive chain and sensitive permission request; it makes no harm-count or prevalence claim.",
+      "affectedPeople": "The report is relevant to someone who is asked to install an app from a link or grant sensitive access, but does not prove that person is affected.",
+      "failedControl": "The reported lure seeks manual installation and Accessibility Service activation; Android offers Play Protect and restricted-settings checks.",
+      "responsibility": "The malware operator uses deception; the reader and app provider each have different decisions about sources and permissions.",
+      "confirmedUnknown": "Confirmed: Zimperium published its report. Unknown: prevalence, which readers have encountered it, and whether any particular phone is affected.",
+      "remediation": "Google recommends Play Protect and says not to allow restricted settings unless the developer is trusted.",
+      "recurrenceRisk": "The report does not quantify risk. Avoiding unexpected download links and reviewing sensitive requests can reduce exposure to this reported chain."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads.",
+    "actualMeaningExact": "Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.",
+    "mechanismExact": "The malware then tries to persuade the person to turn on Accessibility access.",
+    "familiarExampleExact": "If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead.",
+    "jargon": [
+      {
+        "term": "Accessibility",
+        "plainMeaning": "That setting can let an app read what is on screen and interact with apps on a person’s behalf."
+      },
+      {
+        "term": "restricted settings",
+        "plainMeaning": "Restricted settings are Android’s extra pause for sensitive access from an app installed outside Google Play."
+      },
+      {
+        "term": "Play Protect",
+        "plainMeaning": "Google’s built-in app safety check"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "controls only protect the action they actually check",
+        "learningPayoff": "AI Fundamentals 101 helps readers ask where a safety boundary applies and where a person still needs to review an action.",
+        "disposition": "link",
+        "destination": "/library.html#ai-fundamentals-101::%40chapter-10"
+      }
+    ]
+  }
+}

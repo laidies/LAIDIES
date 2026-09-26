@@ -1,0 +1,573 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "openai-math-advisory-group-20260921",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/california_order_producer",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/california_order_producer",
+    "principalId": "/root/california_order_producer",
+    "role": "Producer completion and exact complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-22T04:38:45.748Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-math-advisory-group-20260921/publication-manifest.json",
+      "sha256": "552042a8695852255b6483c960033f095fc59cca384ceb1cb2fe324ca6c857be"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-math-advisory-group-20260921/review-text.json",
+      "sha256": "1fd18336cd7fb72b5a2c697d2cab7688a08da7dfa1cccf845c6f1ad78c379a80"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/openai-math-advisory-group-20260921/rendered-article.html",
+      "sha256": "b1ccca3a68705cb53ebafb766d78e904f13e790257cb36a08dc8292d2426cf1e"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/california_order_producer",
+    "reviewedAt": "2026-09-22T04:38:44.748Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Did independent mathematicians just get control over OpenAI’s mathematics claims?",
+    "promisedPayoff": "Know what the new group can advise on, what it cannot decide, and why a public recommendation is different from validating a proof.",
+    "centralMentalModel": "An independent advisory group can inspect the release problem and publish advice; OpenAI retains company decisions, and each claimed result still needs its own mathematical scrutiny.",
+    "dailyLifeConnection": "The reader sees a company announce an independent advisory group and wants to know whether that is oversight with power or advice the company may choose to follow.",
+    "surfaceJob": "Daily company-governance brief on the September 21 mathematics advisory-group announcement and the group’s own authority statement.",
+    "desiredReaderFeeling": "I can explain the safeguard without mistaking independence for control or company claims for validated results."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies plainClarity while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The group can give and publish advice, but it cannot make OpenAI follow it.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies readerValue while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Watch for the group’s promised public recommendations and compare them with OpenAI’s response.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies laidiesVoice while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is useful scrutiny, but it is different from a regulator, a veto or proof that the report is correct.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies engagingEnjoyable while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "An outside expert can mark up a report and publish her concerns",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies factualIntegrity while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a company claim.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies freshnessReviewability while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI announced on September 21",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies surfaceFit while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Independent mathematicians can advise OpenAI — but cannot make its decisions",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies datedChange while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI announced on September 21",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies consequenceAndUncertainty while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The existence of an advisory group does not validate a proof.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies dailyLifeConnection while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the organisation receiving the advice still decides whether to act.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies communicationBenchmark while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Here is the mechanism",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies explainBack while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI still decides what to do, and each claimed result still needs its own scrutiny.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Did independent mathematicians just get control over OpenAI’s mathematics claims?",
+        "probeResponse": "The new group can advise OpenAI and publish recommendations, but OpenAI retains its decisions. Its existence does not independently validate the mathematical results OpenAI reports.",
+        "expectedEvidence": "Public advice, company-owned decisions and result-by-result validation.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies unseenTransfer while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "what independent checking has happened",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A company forms an independent council. What would show whether it has power?",
+        "probeResponse": "For another company advisory council, check whether advice is public, whether the company must respond and who keeps final authority before calling it oversight with power.",
+        "expectedEvidence": "Published advice, required response and final-decision ownership.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies usefulAction while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "compare them with OpenAI’s response",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact prose satisfies analogyIntegrity while separating advice, authority and independent validation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the organisation receiving the advice still decides whether to act",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The exact prose contains no glossaryAccumulation defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The exact prose contains no templateRepetition defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The exact prose contains no decorativeAnalogy defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The exact prose contains no referenceConfetti defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The exact prose contains no missingMechanism defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The exact prose contains no genericAction defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The exact prose contains no jargonBeforeMeaning defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The exact prose contains no disconnectedSystem defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The exact prose contains no factlessConfidence defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The exact prose contains no staleUnreviewableClaims defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The exact prose contains no corporateSludge defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The exact prose contains no joylessInstruction defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The exact prose contains no benchmarkNameDrop defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The exact prose contains no curiosityWithoutPayoff defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The exact prose contains no familiarExampleWithoutTechnicalReturn defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The exact prose contains no communicationPastiche defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The exact prose contains no entertainmentBeforeUnderstanding defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The exact prose contains no mechanismCompressedBehindHook defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The exact prose contains no prematureClickBeforeMechanism defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The exact prose contains no inflatedTakeawayEnding defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The exact prose contains no purposeTooNarrow defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The exact prose contains no mechanismBeforeMotivation defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The exact prose contains no workedExampleOvertakesBookPurpose defect.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The exact prose contains no technicalExplainerVoice defect.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-math-advisory-group-20260921/editorial-input.json",
+        "sha256": "eb7e9d90a67f1ee0a93a1d17e783e7ecd12ebada1c1193fea08532ad297f4c7b"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-math-advisory-group-20260921/source-packet.json",
+        "sha256": "8d8cde42c3215da10b3a76d6bdc3f7732e2278ea25f433de348a032738a58cbe"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-math-advisory-group-20260921/source-evidence.json",
+        "sha256": "924203d92c1f1726f626645be24a909805607ff9bbb5fa7418c3287332bc3340"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "group-announced-and-current-task",
+        "claim": "OpenAI announced the independent group on September 21; the group says its current task is advising OpenAI on coordinating release of many results the company reports its model produced.",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI announced on September 21 that mathematicians had formed an independent group",
+            "locator": "The Story"
+          },
+          {
+            "excerpt": "Its first task is advising OpenAI on how to coordinate the release",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "openai-date",
+          "agmai-task"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "September 21, 2026",
+            "locator": "https://openai.com/index/advisory-group-on-mathematics-and-ai/"
+          },
+          {
+            "excerpt": "We are currently facing the very specific challenge of advising OpenAI on how to coordinate the release of a large number of significant results in mathematics that they report have been produced by their internal model.",
+            "locator": "https://agmai.org/"
+          }
+        ],
+        "scopeAndFreshness": "The OpenAI page supplies the announcement date; the group supplies its current task. The result identity remains attributed to OpenAI.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-math-advisory-group-20260921/editorial-input.json",
+          "sha256": "eb7e9d90a67f1ee0a93a1d17e783e7ecd12ebada1c1193fea08532ad297f4c7b"
+        }
+      },
+      {
+        "claimId": "result-count-attributed",
+        "claim": "OpenAI says its internal model resolved more than 100 long-standing problems; the reviewed group statement does not independently validate that count.",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says that model has resolved more than 100 long-standing problems. That is a company claim.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "openai-count",
+          "agmai-reported"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "this model has now resolved more than 100 long-standing open problems across most areas of mathematics",
+            "locator": "https://openai.com/index/advisory-group-on-mathematics-and-ai/"
+          },
+          {
+            "excerpt": "results in mathematics that they report have been produced by their internal model",
+            "locator": "https://agmai.org/"
+          }
+        ],
+        "scopeAndFreshness": "OpenAI capability claim is attributed; no independent replication or validation is inferred.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-math-advisory-group-20260921/editorial-input.json",
+          "sha256": "eb7e9d90a67f1ee0a93a1d17e783e7ecd12ebada1c1193fea08532ad297f4c7b"
+        }
+      },
+      {
+        "claimId": "advice-remit",
+        "claim": "The group may advise on significance, review, communication, release coordination, professional standards and support for research and learning.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The group may advise on review, communication, research standards and how AI tools support mathematical work and learning.",
+            "locator": "What This Means for You"
+          }
+        ],
+        "sourceIds": [
+          "openai-remit"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "The group will advise on the review and communication of emerging results: they will help OpenAI assess their significance, advise on how to coordinate their dissemination, and advise on academic and professional standards of mathematical research. It will also advise on how our tools can support mathematical research and learning.",
+            "locator": "https://openai.com/index/advisory-group-on-mathematics-and-ai/"
+          }
+        ],
+        "scopeAndFreshness": "OpenAI describes the remit; advice is not binding authority.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-math-advisory-group-20260921/editorial-input.json",
+          "sha256": "eb7e9d90a67f1ee0a93a1d17e783e7ecd12ebada1c1193fea08532ad297f4c7b"
+        }
+      },
+      {
+        "claimId": "independence-public-advice-no-decision-power",
+        "claim": "The group says it operates independently, accepts no payment for this work, will publish recommendations and has no decision-making power at an AI company.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The group can give and publish advice, but it cannot make OpenAI follow it.",
+            "locator": "The LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "agmai-independence"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "This group operates independently of any AI company and members do not accept payment for this work. We will publish our recommendations to AI companies on this website.",
+            "locator": "https://agmai.org/"
+          },
+          {
+            "excerpt": "Although we will give advice, we do not have decision making power at any AI company, and the responsibility for the decisions made by any company will rest with that company.",
+            "locator": "https://agmai.org/"
+          }
+        ],
+        "scopeAndFreshness": "The group’s own description establishes its stated governance boundary, not the future influence or effectiveness of its advice.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-math-advisory-group-20260921/editorial-input.json",
+          "sha256": "eb7e9d90a67f1ee0a93a1d17e783e7ecd12ebada1c1193fea08532ad297f4c7b"
+        }
+      },
+      {
+        "claimId": "internal-pace-excluded",
+        "claim": "The group does not advise OpenAI on how to pace internal progress in mathematics.",
+        "candidateEvidence": [
+          {
+            "excerpt": "It does not advise OpenAI on how quickly to pursue internal mathematics progress.",
+            "locator": "What This Means for You"
+          }
+        ],
+        "sourceIds": [
+          "openai-pace"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Importantly, the group will not be responsible for advising us on how to pace our internal progress on mathematics.",
+            "locator": "https://openai.com/index/advisory-group-on-mathematics-and-ai/"
+          }
+        ],
+        "scopeAndFreshness": "Explicit limit from OpenAI’s announcement.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-math-advisory-group-20260921/editorial-input.json",
+          "sha256": "eb7e9d90a67f1ee0a93a1d17e783e7ecd12ebada1c1193fea08532ad297f4c7b"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-21",
+    "nextTrigger": "New public recommendation, OpenAI response, membership change, completed proof review or publication after September 21.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "The existing Navier–Stokes candidate explains one claimed result; this is the first candidate on the advisory group’s governance role."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No reusable defect was found; Class Notes links the exact live Verification Spot-Check at /library.html#working-with-ai-101::%40try-this-the-verification-spot-check."
+  },
+  "limitations": [
+    "OpenAI’s more-than-100 result count remains a company claim.",
+    "No public group recommendation or OpenAI response was available in the reviewed evidence.",
+    "No hero visual has been produced or admitted.",
+    "Producer explain-back and transfer are AI simulations; no human-reader comprehension observation was made."
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "schema": "newsstand-ap-new-leads.v1",
+  "checkedAt": "2026-09-14T22:04:55Z",
+  "writtenAt": "2026-09-14T22:07:31.037Z",
+  "scope": "Private source reconciliation only. No public draft, candidate prose, canonical/coverage/cursor update, provider review, release, retry of the prior long blocked Trump URL, or alternate-transport safety bypass.",
+  "discovery": {
+    "hubMethod": "Root normal AP-hub browsing",
+    "normalWebSources": [
+      {
+        "reference": "turn678view0",
+        "url": "https://apnews.com/article/trump-ai-guardrails-data-centers-b85df16775ff7e9611a456b061a0e4b9",
+        "title": "Trump calls AI risks a hoax, says there is a SICK conspiracy against AI and data centers",
+        "publishedAt": "2026-09-14T14:14:30Z",
+        "originalUrl": "https://apnews.com/article/b85df16775ff7e9611a456b061a0e4b9",
+        "fullVsTeaser": "FULL_REPORTING_TEXT_IN_NORMAL_WEB_OPEN"
+      },
+      {
+        "reference": "turn678view1",
+        "url": "https://apnews.com/article/china-anthropic-ai-us-amodei-3da458d2c078da3e60900728d59f1ae8",
+        "title": "China bristles at Anthropic CEO’s fearmongering about its AI development",
+        "publishedAt": "2026-09-14T09:28:39Z",
+        "originalUrl": "https://apnews.com/article/3da458d2c078da3e60900728d59f1ae8",
+        "fullVsTeaser": "FULL_REPORTING_TEXT_IN_NORMAL_WEB_OPEN"
+      },
+      {
+        "reference": "turn678view2",
+        "url": "https://apnews.com/article/artificial-intelligence-threats-humanity-anthropic-openai-98316b0d64de17191f33c0fbf1d37858",
+        "title": "New warnings about the risks of AI to humanity revive a long-running debate",
+        "publishedAt": "2026-09-14T04:09:36Z",
+        "originalUrl": "https://apnews.com/article/98316b0d64de17191f33c0fbf1d37858",
+        "fullVsTeaser": "FULL_REPORTING_TEXT_IN_NORMAL_WEB_OPEN"
+      }
+    ],
+    "directHttpAttempts": [
+      {
+        "name": "trump-hoax",
+        "checkedAt": "2026-09-14T22:04:55Z",
+        "curlExit": 0,
+        "httpStatus": 403,
+        "url": "https://apnews.com/article/b85df16775ff7e9611a456b061a0e4b9",
+        "capture": {
+          "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-ap-new-leads-captures/trump-hoax.body",
+          "sha256": "b03a7a220908761cd528ad3099eabbef6750f68e371f84c55e424933bc831c9e",
+          "bytes": 5564
+        },
+        "result": "403 Cloudflare response; direct fetch does not displace the successful normal web open and was not retried through alternate transport."
+      },
+      {
+        "name": "china-anthropic",
+        "checkedAt": "2026-09-14T22:04:55Z",
+        "curlExit": 0,
+        "httpStatus": 403,
+        "url": "https://apnews.com/article/3da458d2c078da3e60900728d59f1ae8",
+        "capture": {
+          "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-ap-new-leads-captures/china-anthropic.body",
+          "sha256": "f6196808480c5c19c004eb9078031daf1a0f1fef01bdc20fe89ef458f33b5e06",
+          "bytes": 5564
+        },
+        "result": "403 Cloudflare response; direct fetch does not displace the successful normal web open and was not retried through alternate transport."
+      },
+      {
+        "name": "risk-debate",
+        "checkedAt": "2026-09-14T22:04:55Z",
+        "curlExit": 0,
+        "httpStatus": 403,
+        "url": "https://apnews.com/article/98316b0d64de17191f33c0fbf1d37858",
+        "capture": {
+          "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-ap-new-leads-captures/risk-debate.body",
+          "sha256": "c049ae40f698f1294a018e2ae2f1141a5e3ae3e4382203f9edfda531280ba3d5",
+          "bytes": 5564
+        },
+        "result": "403 Cloudflare response; direct fetch does not displace the successful normal web open and was not retried through alternate transport."
+      }
+    ]
+  },
+  "existingCoverage": [
+    {
+      "storyId": "trump-ai-safeguards-20260913",
+      "headline": "Trump backs the AI race as calls to slow it grow",
+      "comparison": "September13 article covered reported Irish remarks, later qualification, and possible meetings. It did not cover September14 social-media posts calling AI-risk claims a hoax or the only-control statement."
+    },
+    {
+      "storyId": "amodei-ai-pacing-20260912",
+      "headline": "Anthropic’s chief calls for slower AI development—and outside safety checks.",
+      "comparison": "It covered Amodei’s company proposal for pacing and outside evaluators. It did not cover China’s Foreign Ministry response."
+    },
+    {
+      "storyId": "coxon-warning-20260910",
+      "headline": "An Anthropic researcher quit to warn that the AI race could outrun its safety rules.",
+      "comparison": "It already explains Coxon’s warning as a forecast, not a finding. The AP risk explainer is broader context and does not create a separate event."
+    }
+  ],
+  "events": [
+    {
+      "eventId": "trump-ai-guardrails-response-20260914",
+      "source": {
+        "reference": "turn678view0",
+        "url": "https://apnews.com/article/trump-ai-guardrails-data-centers-b85df16775ff7e9611a456b061a0e4b9",
+        "title": "Trump calls AI risks a hoax, says there is a SICK conspiracy against AI and data centers",
+        "publishedAt": "2026-09-14T14:14:30Z"
+      },
+      "disposition": "KEEP_FOR_QUALIFICATION",
+      "proposedCandidateId": "trump-ai-guardrails-response-20260914",
+      "eventIdentity": "September14 presidential social-media posts and public statements rejecting AI-risk claims and new guardrails, reported by AP.",
+      "sourceBackedFacts": [
+        "AP reports Trump posted that AI takeover/destruction claims were a hoax and said presidential control was sufficient.",
+        "AP reports the posts opposed calls by Amodei, Altman and Musk for greater government oversight.",
+        "AP reports the White House company meeting was not yet scheduled; it cannot be reported as a completed meeting or enacted policy."
+      ],
+      "readerReason": "Material dated escalation in the public oversight argument after the published September13 Trump story. It is a political position, not a new product setting or federal rule.",
+      "relationshipToExisting": "Distinct follow-up to trump-ai-safeguards-20260913, not a duplicate. Preserve the earlier story.",
+      "limits": [
+        "Do not state a general refusal to regulate; AP also reports administration figures describing concern and smart regulation.",
+        "Do not treat a possible White House meeting as scheduled or completed."
+      ],
+      "nextAction": "Private ordinary-candidate qualification against the preserved full normal-web source. Seek sources only for any added policy claim; do not use the prior long blocked Trump URL."
+    },
+    {
+      "eventId": "china-amodei-ai-governance-response-20260914",
+      "source": {
+        "reference": "turn678view1",
+        "url": "https://apnews.com/article/china-anthropic-ai-us-amodei-3da458d2c078da3e60900728d59f1ae8",
+        "title": "China bristles at Anthropic CEO’s fearmongering about its AI development",
+        "publishedAt": "2026-09-14T09:28:39Z"
+      },
+      "disposition": "WATCH_SEPARATE_EVENT_NOT_YET_PRODUCE",
+      "eventIdentity": "China Foreign Ministry response to Amodei’s China-related AI pacing argument, reported by AP.",
+      "sourceBackedFacts": [
+        "AP reports China’s Foreign Ministry said fearmongering and confrontation disrupt global AI governance.",
+        "AP reports a Trump-Xi meeting is planned for September24, where AI governance is expected among topics."
+      ],
+      "relationshipToExisting": "Separate response to Amodei, but it extends the pacing story without a reader-specific concrete change today.",
+      "limits": [
+        "A planned summit is not a completed agreement.",
+        "No changed chip policy, global framework, or reader-facing rule is established."
+      ],
+      "nextAction": "Watch for formal government action, summit outcome, or concrete framework; do not merge with Trump merely because both mention China."
+    },
+    {
+      "eventId": "ap-ai-risk-debate-explainer-20260914",
+      "source": {
+        "reference": "turn678view2",
+        "url": "https://apnews.com/article/artificial-intelligence-threats-humanity-anthropic-openai-98316b0d64de17191f33c0fbf1d37858",
+        "title": "New warnings about the risks of AI to humanity revive a long-running debate",
+        "publishedAt": "2026-09-14T04:09:36Z"
+      },
+      "disposition": "MERGE_EXISTING_COVERAGE_NO_NEW_CANDIDATE",
+      "eventIdentity": "AP explainer recapping public warnings, proposals and contested timelines for AI risk.",
+      "relationshipToExisting": "It recaps the published Coxon warning, Amodei pacing proposal and Anthropic threat report. It adds framing but no discrete new change.",
+      "limits": [
+        "Risk timing, nature and likelihood remain contested; no catastrophe forecast becomes a finding."
+      ],
+      "nextAction": "Use only as corroborating background for a separately admitted follow-up."
+    }
+  ],
+  "newEligibleLeads": [
+    {
+      "candidateId": "trump-ai-guardrails-response-20260914",
+      "status": "KEEP_FOR_PRIVATE_ORDINARY_QUALIFICATION",
+      "sourceReference": "turn678view0",
+      "reason": "Distinct dated policy-position escalation after the published September13 story, with no enacted-rule or completed-meeting claim."
+    }
+  ],
+  "holds": [
+    {
+      "eventId": "china-amodei-ai-governance-response-20260914",
+      "status": "WATCH",
+      "reason": "Distinct diplomatic response but no sufficiently reader-specific concrete change for ordinary production today."
+    }
+  ],
+  "result": "ONE_SOURCE_BACKED_PRIVATE_KEEP: trump-ai-guardrails-response-20260914; ONE_SEPARATE_WATCH; ONE_EXISTING-COVERAGE_MERGE",
+  "mutations": {
+    "publicContent": false,
+    "canonicalContent": false,
+    "coverageProgress": false,
+    "sharedCursor": false,
+    "providerReview": false
+  },
+  "captureManifest": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-ap-new-leads-captures/capture-manifest.json",
+    "sha256": "a368f9069831f1517e7a795822dd9c079ab97524a65312980f6917b63e3e6b4a"
+  }
+}

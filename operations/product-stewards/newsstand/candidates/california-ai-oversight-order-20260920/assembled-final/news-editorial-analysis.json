@@ -1,0 +1,92 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "california-ai-oversight-order-20260920",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "bfaf92406a2f7b226fe3dfbe081755ae092de962f198315362fb7cc00e69f56e",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why does the September 18 executive order not force AI companies to build a kill switch right now, even though the order took effect immediately?",
+      "response": "Because the order's operative verb for the kill switch is 'recommend', not 'require'. What took effect immediately are duties on state agencies: the Government Operations Agency must submit recommendations by November 16, 2026 on whether amendments like a shutoff requirement are technically feasible and potentially effective, and must complete two separate existing-law implementation steps by May 1, 2027 and December 1, 2027. A company-facing shutoff mandate would only exist if the law is later amended after those recommendations.",
+      "expectedEvidence": "The reader should cite the recommendation deadline and its 'technically feasible and potentially effective' framing, the two distinct 2027 implementation dates, and the operative-verb distinction between agency study duties and company requirements.",
+      "assessment": "The article fully supports this answer: P002 states the non-installation, P004 gives the recommendation date and standard, P003 separates the two 2027 deadlines, and P009 supplies the operative-verb rule."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, how do you determine whether your company is actually under a watermarking mandate?",
+      "response": "Find the signed order and read the operative verbs and their subjects. If the watermarking provision directs a state agency to study, recommend, or develop criteria by a date, it is a policy-development step binding the agency, not companies — like California's kill-switch item, which was one topic in a recommendation menu due November 16. Only enacted statutory or regulatory language with 'shall' directed at companies creates a current obligation, and separate implementation deadlines for agencies do not accelerate duties on you.",
+      "expectedEvidence": "Correct application requires the operative-verb test, distinguishing agency deadlines from company obligations, and treating the signed text as controlling over announcements or vendor summaries.",
+      "assessment": "The scenario is absent from the article yet solvable entirely from its mechanism (P009's verb rule, P005's recommendations-not-requirements distinction, P002's signed-text-over-headline correction), demonstrating genuine transfer."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The September 18 order, its immediate effect, its recommendation mandate and its two implementation deadlines are laid out as a causal sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>No. California’s September 18 executive order took effect immediately, but it did not install a universal AI shutoff or order every company to build one. The “kill switch” is one idea the order tells state agencies to study for possible changes to existing law.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>What changed now is the timetable for oversight California had already enacted. By May 1, 2027, the Government Operations Agency must publish application requirements and criteria for organizations seeking certification to independently examine AI safety and risk. A separate auditor-registry implementation step is due December 1, 2027.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The key date for the headline claim is November 16, 2026. By then, the agency and California’s emergency-services office must recommend whether proposed legal amendments are technically feasible and potentially effective.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Kill switch', 'independent verifiers' and 'recommendations' each gain plain meaning at first meaningful use; the operative-verb note anchors the legal term.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>No. California’s September 18 executive order took effect immediately, but it did not install a universal AI shutoff or order every company to build one. The “kill switch” is one idea the order tells state agencies to study for possible changes to existing law.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The required menu includes putting designated independent verifiers inside large labs building the most advanced general-purpose AI models; independently checking company safety frameworks, transparency reports and risk assessments; requiring a shutoff whose effectiveness is checked over time; and expanding reportable critical incidents to cover loss-of-control events. Those are subjects for recommendations. They are not universal requirements created by this order.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "In an executive order, the operative verb matters. “Recommend by November 16” describes a policy-development step; it does not mean “companies must install this now.”",
+          "locator": "P009"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is concrete: nothing binds companies now, no proven single shutoff design exists, and the real decision point is the November blueprint.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>There is also no evidence yet that one shutoff design would work across advanced AI systems. The Electronic Frontier Foundation supports broader incident reporting and third-party investigations, while saying kill-switch effectiveness remains active research. It also warns that a government-controlled switch could be abused against protected speech. That is an advocacy group’s support and caution, not a technical verdict.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The clean reading is less cinematic and more useful: California accelerated existing oversight, set a November deadline for a policy blueprint, and left the proposed shutoff requirement to later decisions.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "“California ordered a November plan for possible AI shutoff rules. It did not install a universal kill switch.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or unsupported advice; all guidance flows from the order's own language and EFF's stated position.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>There is also no evidence yet that one shutoff design would work across advanced AI systems. The Electronic Frontier Foundation supports broader incident reporting and third-party investigations, while saying kill-switch effectiveness remains active research. It also warns that a government-controlled switch could be abused against protected speech. That is an advocacy group’s support and caution, not a technical verdict.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "In an executive order, the operative verb matters. “Recommend by November 16” describes a policy-development step; it does not mean “companies must install this now.”",
+          "locator": "P009"
+        }
+      ]
+    }
+  }
+}

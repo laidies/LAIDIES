@@ -1,0 +1,584 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "anthropic-lsvp-beta-20260917",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/aft_school_story",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/aft_school_story",
+    "principalId": "/root/aft_school_story",
+    "role": "Producer exact complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-19T18:05:27.673Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/publication-manifest.json",
+      "sha256": "df94a1e82a5f03a73c99856df4e17ee261e1aec29171cbafc2a06ca735097b23"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/review-text.json",
+      "sha256": "9d69d9f006c8dfeabba01b4998eb4938992c5fa6f120298c2f751c630eb27d51"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/rendered-article.html",
+      "sha256": "0826a0215c3b7301a5df1eb3cd263b0244b6396c36a5853d6232420aa76f96c7"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/aft_school_story",
+    "reviewedAt": "2026-09-15T23:13:39.848Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "If a headline says Claude has fewer biology safeguards, does that change my account and how should I read the safety claim?",
+    "promisedPayoff": "Understand that this is vetted institutional access, distinguish request-time blocking from later monitoring, and ask what evidence shows a control worked.",
+    "centralMentalModel": "LSVP trades some immediate biology refusals for vetted, scoped institutional access plus monitoring; it is not open consumer access.",
+    "dailyLifeConnection": "A reader can separate a public-account change from a verified research program when she sees the next AI-and-bioweapons headline.",
+    "surfaceJob": "September 19 Daily candidate on Anthropic’s September 17 institutional LSVP beta.",
+    "desiredReaderFeeling": "I can read the safety headline without mistaking changed access for no safeguards or proven protection."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vetting happens before access; monitoring happens after requests run.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This changes access for vetted research institutions, not your personal Claude account.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Less blocking does not mean no monitoring.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "who gets access",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It does not prove that the controls have prevented misuse.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic announced its Life Sciences Verification Program on September 17.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic is easing Claude’s biology restrictions for vetted research teams",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic announced its Life Sciences Verification Program on September 17.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The announcement explains how Anthropic intends the system to work. It does not prove that the controls have prevented misuse.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For the next headline, ask whether it concerns a public account or a verified program",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vetting happens before access; monitoring happens after requests run.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This changes access for vetted research institutions, not your personal Claude account. Vetting happens before access; monitoring happens after requests run.",
+          "locator": "What This Means"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "If a headline says Claude has fewer biology safeguards, does that change my account and how should I read the safety claim?",
+        "probeResponse": "This is an institutional beta, not a change to my personal Claude account. Anthropic verifies access first, then monitors activity afterward; its announcement does not prove that this stopped misuse.",
+        "expectedEvidence": "Institutional beta, personal account unchanged, before-access vetting, after-request monitoring, no proven outcome.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For the next headline, ask whether it concerns a public account or a verified program, whether a safeguard blocks a request before it runs or reviews activity later, and what evidence shows the control worked.",
+          "locator": "What This Means"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "How should I read a different claim that an AI safety control changed?",
+        "probeResponse": "For another safety headline, I should ask who gets access, whether the control blocks before action or reviews later, and what outcome evidence shows it worked.",
+        "expectedEvidence": "Ask who gets access, when the control acts and what evidence shows it worked.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For the next headline, ask whether it concerns a public account or a verified program, whether a safeguard blocks a request before it runs or reviews activity later, and what evidence shows the control worked.",
+          "locator": "What This Means"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete producer read keeps institutional eligibility, changed request blocking, later monitoring and the missing outcome evidence connected without describing dangerous biology or addressing the reader as a lab worker.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vetting happens before access; monitoring happens after requests run.",
+          "locator": "What This Means"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Actual read avoids glossaryAccumulation: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Actual read avoids templateRepetition: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Actual read avoids decorativeAnalogy: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Actual read avoids referenceConfetti: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Actual read avoids missingMechanism: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Actual read avoids genericAction: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Actual read avoids jargonBeforeMeaning: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Actual read avoids disconnectedSystem: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Actual read avoids factlessConfidence: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Actual read avoids staleUnreviewableClaims: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Actual read avoids corporateSludge: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Actual read avoids joylessInstruction: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Actual read avoids benchmarkNameDrop: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Actual read avoids curiosityWithoutPayoff: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Actual read avoids familiarExampleWithoutTechnicalReturn: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Actual read avoids communicationPastiche: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Actual read avoids entertainmentBeforeUnderstanding: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Actual read avoids mechanismCompressedBehindHook: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Actual read avoids prematureClickBeforeMechanism: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Actual read avoids inflatedTakeawayEnding: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Actual read avoids purposeTooNarrow: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Actual read avoids mechanismBeforeMotivation: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Actual read avoids workedExampleOvertakesBookPurpose: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Actual read avoids technicalExplainerVoice: the dated program change, institutional boundary, safeguard mechanism and evidence limit stay connected in plain language.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/editorial-input.json",
+        "sha256": "4a98154eea949bb9aba3c063a5ec271712b68f0bd4feed8b07b3955629cccd99"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/source-packet.json",
+        "sha256": "fb9bc8f07df4efec888732622b526465333961e1d5d3b7cf572823c3580e8a2b"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/source-evidence.json",
+        "sha256": "edb5d588e1f8c2e46800eb38a2ebd7c7763c1242fca1d3b69742f50c9271b29e"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "event",
+        "claim": "Anthropic announced LSVP September 17 as a beta with more permissive biology access for verified research teams.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic announced its Life Sciences Verification Program on September 17. The beta gives verified life-science teams versions of Claude that allow more biology requests than general Claude.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "anthropic-lsvp-20260917-event-1",
+          "anthropic-lsvp-20260917-event-2"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Today, we are introducing the Life Sciences Verification Program (LSVP), which gives life science professionals access to our Mythos, Opus, and Sonnet models with a refined set of safeguards more permissive for biology-related work.",
+            "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+          },
+          {
+            "excerpt": "The program is launching in beta, initially for teams and institutions.",
+            "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+          }
+        ],
+        "scopeAndFreshness": "Official September 17 announcement reread September 19; provider description only.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/editorial-input.json",
+          "sha256": "4a98154eea949bb9aba3c063a5ec271712b68f0bd4feed8b07b3955629cccd99"
+        }
+      },
+      {
+        "claimId": "purpose",
+        "claim": "Anthropic says LSVP is designed for life-science tasks that generally available Claude models block.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic says the program is designed for life-science work that general Claude blocks. The closest alternative is general Claude with stricter biology restrictions; special access is unnecessary when an ordinary request already works there.",
+            "locator": "LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "anthropic-lsvp-20260917-purpose-1"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "The LSVP is designed to enable life science professionals to use our models across a wide range of tasks that are currently blocked in our generally available Fable models",
+            "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+          }
+        ],
+        "scopeAndFreshness": "Provider purpose statement; the ordinary-use alternative is a bounded editorial consequence.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/editorial-input.json",
+          "sha256": "4a98154eea949bb9aba3c063a5ec271712b68f0bd4feed8b07b3955629cccd99"
+        }
+      },
+      {
+        "claimId": "access",
+        "claim": "Standard Use is team-wide and renewed yearly; High-risk Use is a project-specific six-month add-on that removes life-science request blocks while other safeguards remain.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Standard Use covers a team and renews yearly. High-risk Use is an extra six-month grant for one project that removes life-science request blocks. Anthropic says other safeguards remain.",
+            "locator": "LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "anthropic-lsvp-20260917-access-1",
+          "anthropic-lsvp-20260917-access-2",
+          "anthropic-lsvp-20260917-access-3"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "These grants can be extended to entire teams and are renewed once a year.",
+            "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+          },
+          {
+            "excerpt": "High-risk Use is an add-on grant for teams working in areas blocked under Standard Use. It removes all safeguards that block life sciences requests. This grant applies to a single research project and must be renewed every six months.",
+            "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+          },
+          {
+            "excerpt": "All other safeguards, such as cyber classifiers, will remain in place under LSVP grants.",
+            "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+          }
+        ],
+        "scopeAndFreshness": "Access structure as described by Anthropic; no independent safety evidence.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/editorial-input.json",
+          "sha256": "4a98154eea949bb9aba3c063a5ec271712b68f0bd4feed8b07b3955629cccd99"
+        }
+      },
+      {
+        "claimId": "monitoring",
+        "claim": "Anthropic says LSVP moves from request-time biology blocking toward monitoring patterns after activity, ties access to approved use cases and retains LSVP traffic for 30 days.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic says LSVP replaces immediate refusals with looking for patterns after activity runs. Access is tied to an approved use case. The company says it keeps LSVP traffic for 30 days so monitoring can happen.",
+            "locator": "LAiDIES Read"
+          }
+        ],
+        "sourceIds": [
+          "anthropic-lsvp-20260917-monitoring-1",
+          "anthropic-lsvp-20260917-monitoring-2",
+          "anthropic-lsvp-20260917-monitoring-3"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Each entity’s access is tied to the use cases it has specified in its grant applications",
+            "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+          },
+          {
+            "excerpt": "LSVP shifts safeguards from real-time blocking to offline monitoring.",
+            "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+          },
+          {
+            "excerpt": "this requires 30-day retention for LSVP traffic",
+            "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+          }
+        ],
+        "scopeAndFreshness": "Provider-stated design; effectiveness is not established.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/editorial-input.json",
+          "sha256": "4a98154eea949bb9aba3c063a5ec271712b68f0bd4feed8b07b3955629cccd99"
+        }
+      },
+      {
+        "claimId": "availability",
+        "claim": "The beta begins with teams and institutions; individual Pro and Max access is planned later.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Teams and institutions come first; individual Pro and Max access is planned later.",
+            "locator": "The Story"
+          }
+        ],
+        "sourceIds": [
+          "anthropic-lsvp-20260917-availability-1",
+          "anthropic-lsvp-20260917-availability-2"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "The program is launching in beta, initially for teams and institutions.",
+            "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+          },
+          {
+            "excerpt": "We will continue to improve the program and expand access to individual Pro and Max plans over time.",
+            "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+          }
+        ],
+        "scopeAndFreshness": "Launch availability as of September 19; may change.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/editorial-input.json",
+          "sha256": "4a98154eea949bb9aba3c063a5ec271712b68f0bd4feed8b07b3955629cccd99"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-19",
+    "nextTrigger": "Material eligibility, grant, monitoring, retention or availability change; or publication after September 19.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First NewsStand story on Anthropic’s September 17 Life Sciences Verification Program; the prior threat report concerns misuse incidents, not this access program."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Specialist framing and unexplained contract jargon were repaired before independent editorial review."
+  },
+  "limitations": [
+    "Producer AI simulations; no observed human comprehension test.",
+    "The only factual source is Anthropic’s own announcement; no independent safety, research or program-outcome evidence.",
+    "Independent art admission and independent editorial review remain separate gates."
+  ]
+}

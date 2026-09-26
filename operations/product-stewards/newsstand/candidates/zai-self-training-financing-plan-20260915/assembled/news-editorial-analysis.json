@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "zai-self-training-financing-plan-20260915",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "4d30f251cb708bcff62ce886fa35ab914f6cc540204c04f11f3b093a60dc1a3b",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why doesn't a US$5 billion financing plan for a 'Fully Self Training' system show that AI can already improve itself?",
+      "response": "Because the filing is a proposal about money and intentions, not a measurement of a system. The financing itself is conditional — the share placing and bond issue each have separate completion conditions and may not even happen (P002, P003). What the money would fund is a vision: the company wants earlier GLM models to build training environments, generate data and develop tasks for later models, with manual spot-checking as a proposed safeguard (P004). Wanting a loop to work and describing how you would build it are inputs to research, not outputs of it. Demonstrated capability would require a measured result — a named model that changed, an improvement, and a check on that improvement — which the filing does not contain (P005, P008). So the sum of money answers questions about intent and scale of ambition, never the capability question (P006).",
+      "expectedEvidence": "A correct answer must distinguish the three separated questions (financing completion, research intent, shown capability), note the conditionality of the transactions, describe the vision's loop in causal terms, and identify what evidence a capability claim would need (named model, measured improvement, verification).",
+      "assessment": "The article supports this answer fully: every element of the explain-back is drawn from P002–P008 in ordinary language, so the mechanism passes."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's method, how should you evaluate the friend's claim?",
+      "response": "Apply the three-question separation from P006: (1) Has the funding actually closed, or is it announced and conditional? (2) What does the money intend to fund — here, building a practice-and-share system, which is a research/engineering plan, like Z.AI's intent that models generate data and develop tasks (P004)? (3) What capability has been shown — is there a named robot fleet, a measured skill improvement, and an independent check of that improvement (P008)? The announcement answers only the first two. 'Robots now teach themselves jobs' converts a funded ambition into an available capability, exactly the plan-versus-proof slippage the article warns about (P001, P005). The proportionate reply to the friend: the money is real intent, the self-teaching is a goal, and no jobs change until a measured demonstration with stated limits exists.",
+      "expectedEvidence": "The transfer must reuse the plan/intent/capability decomposition and the which-system-changed, what-improved, how-checked evidence test on a genuinely new domain, preserving uncertainty about both funding completion and eventual success.",
+      "assessment": "The mechanism transferred cleanly with no article-specific facts needed beyond the method, so unseen transfer passes."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The incident (September 13 conditional financing filing, amounts, ~60% allocation) and the causal content of the Fully Self Training vision are laid out understandably (P002, P004).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>AI-model developer Z.AI’s September 13 filing proposes conditional share and bond financing totalling roughly US$5 billion. About 60% of intended net proceeds would support next-generation GLM language models, its Fully Self Training research and computing infrastructure.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Share placing means selling newly issued shares to investors; convertible bonds are borrowing that can later become shares. The transactions have separate completion conditions.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Fully Self Training is explicitly a technical vision: earlier GLM models would help build training environments for later ones. The company wants models to generate training data, develop tasks and help improve computing systems. Its proposed checks include manual spot-checking.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Share placing and convertible bonds are defined at first meaningful use (P003); Fully Self Training is unpacked into its concrete intended activities (P004).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Share placing means selling newly issued shares to investors; convertible bonds are borrowing that can later become shares. The transactions have separate completion conditions.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Fully Self Training is explicitly a technical vision: earlier GLM models would help build training environments for later ones. The company wants models to generate training data, develop tasks and help improve computing systems. Its proposed checks include manual spot-checking.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequence is grounded in a specific situation — choosing a work tool when a colleague forwards a self-improvement headline (P007) — not an abstract warning.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Suppose a colleague forwards “AI can now improve itself” while you are choosing a tool for a work task. Ask whether the report describes an investment plan or a test of a named system.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>You do not need to predict whether the entire ambition will succeed to read this announcement accurately. For a later capability claim, ask: which model changed, what improved, and how was the improvement checked? Look for the measured result and its limits before treating the ambition as an available feature.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal LAiDIES operating notes or distinctive process details appear; all advice (P006–P008) follows directly from the plan-versus-proof distinction the filing supports.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Keep three questions separate: will financing complete, what research will it support, and what capability has actually been shown? A large proposed sum cannot answer the last question.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>You do not need to predict whether the entire ambition will succeed to read this announcement accurately. For a later capability claim, ask: which model changed, what improved, and how was the improvement checked? Look for the measured result and its limits before treating the ambition as an available feature.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "Background on language-model training: <a href=\\\"/library.html#ai-fundamentals-101::%40ch-5-5-2-the-core-idea-guess-check-adjust\\\">AI Fundamentals 101 §5.2 — The Core Idea: Guess, Check, Adjust</a>. This explains the training loop, not proof that Z.AI’s proposed self-training vision works.",
+          "locator": "P010"
+        }
+      ]
+    }
+  }
+}

@@ -5,6 +5,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { buildDerivatives } from "./build-newsstand-derivatives.mjs";
+import selection from "../content/newsstand-selection.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const storyRaw = fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8");
@@ -44,3 +45,41 @@ badIssues.issues.push({ status: "complete", editionDate: canonical.publications.
 assert.throws(() => buildDerivatives({ storyRaw, columns, issues: badIssues }), /ineligible service record/,
   "known-bad unadmitted service reference must fail the derivative build");
 console.log(`NEWSSTAND DERIVATIVE TEST PASS deterministic=1 held_feed=0 held_archive=0 front_paige_persistent=1 weekly_held=1 bad_service_rejected=1`);
+
+const activity = first.feed.dailyActivity;
+if (activity) {
+  assert.equal(activity.editionDate, canonical.publications.daily.editionDate);
+  for (const defect of ['CANDIDATE', 'EXPIRED', 'INELIGIBLE', 'changed-text']) {
+    const altered = structuredClone(columns), record=altered.records.find(r=>r.id===activity.id);
+    if (defect==='INELIGIBLE') record.publicEligibility=defect;
+    else if (defect==='changed-text') record.summary='Unreviewed replacement';
+    else record.status=defect;
+    assert.equal(buildDerivatives({storyRaw,columns:altered,issues}).feed.dailyActivity,null,defect+' must not reach Homepage activity');
+  }
+  const altered=structuredClone(issues); altered.issues.find(i=>i.editionDate===activity.editionDate).serviceRecordIds=altered.issues.find(i=>i.editionDate===activity.editionDate).serviceRecordIds.filter(id=>id!==activity.id);
+  assert.equal(buildDerivatives({storyRaw,columns,issues:altered}).feed.dailyActivity,null,'desk without admitted service must not be promoted');
+  console.log('HOMEPAGE ACTIVITY DERIVATIVE: exact current selection and five negative exposure checks passed');
+}
+
+const unranked = structuredClone(canonical);
+const added = structuredClone(unranked.stories.find(story => story.id === 'honeybook-plugin-20260912'));
+added.id = 'new-unreviewed-niche-announcement'; added.slug = added.id;
+unranked.stories.push(added); unranked.publications.daily.issue.storyIds.push(added.id);
+assert.throws(() => buildDerivatives({storyRaw: `window.NEWSSTAND_DATA=${JSON.stringify(unranked)};`, columns, issues}), /reader relevance and placement required/);
+const currentDailyIssue = canonical.publications.daily.issue;
+const currentDailyStories = canonical.stories
+  .filter((story) => (currentDailyIssue.storyIds || []).includes(story.id))
+  .sort(selection.compare);
+if (currentDailyStories.length) {
+  assert.equal(first.feed.current[0].id, currentDailyStories[0].id,
+    "current lead must follow the canonical Daily issue's date-first reviewed selection");
+}
+const serviceOnly = structuredClone(canonical);
+serviceOnly.publications.daily.issue.storyIds = [];
+const serviceOnlyResult = buildDerivatives({ storyRaw: `window.NEWSSTAND_DATA=${JSON.stringify(serviceOnly)};`, columns, issues });
+assert.equal(serviceOnlyResult.feed.current.some(item => item.edition === "daily" && item.id !== serviceOnly.publications.daily.issue.frontPaigeStoryId), false,
+  "a service-only Daily issue must not invent an ordinary Daily lead");
+for (let i = 1; i < first.feed.archive.length; i++) {
+  assert.ok(Date.parse(first.feed.archive[i-1].publishedAt) >= Date.parse(first.feed.archive[i].publishedAt), 'archive remains chronological');
+}
+console.log('RELEVANCE: unreviewed new announcement rejected; current lead and chronological archive verified');

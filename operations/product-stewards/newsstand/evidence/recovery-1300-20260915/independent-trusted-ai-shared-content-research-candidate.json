@@ -1,0 +1,43 @@
+{
+  "recordKind": "SOURCE_BOUND_PRIVATE_RESEARCH_CANDIDATE",
+  "researcherPrincipal": "/root/puzzle_visual_reconcile",
+  "recordedAt": "2026-09-15 20:08:51 UTC",
+  "productionStatus": "NOT_DRAFTED_NOT_REVIEWED_NOT_ADMITTED",
+  "publicWrites": false,
+  "id": "trusted-ai-shared-content-malvertising-20260915",
+  "disposition": "KEEP_RESEARCH_LEAD_NOT_AUTOMATIC_NEW_INCIDENT",
+  "readerQuestion": "Can a real AI-platform domain host someone else's malicious download instructions?",
+  "sources": [
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/how-threat-actors-are-turning-trusted-ai-platforms-into-an-attack-surface/",
+      "role": "SPONSORED_HUNTRESS_OVERVIEW_NOT_INDEPENDENT_INVESTIGATION",
+      "capture": "independent-capture-fullsources.json",
+      "derivedWordBudget": 200
+    },
+    {
+      "url": "https://www.huntress.com/blog/fakeagent-claude-desktop-malvertising-ends-in-dotnet-rat",
+      "role": "OBSERVING_SECURITY_VENDOR_PRIMARY",
+      "actualFetchedUrl": "https://www.huntress.com/blog/fakeagent-claude-desktop-malvertising-ends-in-dotnet-rat?hnt=nsnzaa2spign&utm_campaign=cy26-09-camp-multi-global-prospect-all-x-x-social_eng-bleeping_computer&utm_medium=resource_link&utm_source=bleepingcomputer",
+      "capture": "independent-capture-agenda.json",
+      "additionalCapture": "independent-capture-methods.json",
+      "readScope": "Complete core technical analysis, conclusions and IOC tables inspected; malicious endpoints never visited",
+      "derivedWordBudget": 200
+    }
+  ],
+  "sourceBoundFacts": [
+    "Sept11 sponsored overview discusses AI sharing/Artifact surfaces used for malicious content and search ads.",
+    "Huntress observed FakeAgent activity July21–22 in29 organizations; fake Claude Desktop instructions on real Artifact domain led to external SectopRAT download.",
+    "Hosting user-generated content on a trusted domain does not make that content an official installer or recommendation."
+  ],
+  "deduplication": "Different reader mechanism from published model misuse/Android-secret extraction and Senate HuggingFace inquiry. Underlying FakeAgent campaign is July, not a newly observed September15 compromise.",
+  "missingInputs": [
+    "An independent fresh investigation or substantive new campaign development is required to frame this as a new incident rather than timely recap/advisory."
+  ],
+  "doNotClaim": [
+    "AI platform hacked",
+    "Anthropic endorsed malware",
+    "New September15 breach",
+    "Bleeping sponsored article independently corroborates Huntress",
+    "AsyncRAT final attribution: primary update identifies SectopRAT"
+  ]
+}

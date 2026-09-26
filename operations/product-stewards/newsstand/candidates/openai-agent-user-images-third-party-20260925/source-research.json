@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "newsstand-source-research-v1",
+  "candidateId": "openai-agent-user-images-third-party-20260925",
+  "status": "EVIDENCE_BLOCKED",
+  "recordedAt": "2026-09-26T14:33:36.188Z",
+  "operator": "/root/california_order_producer",
+  "readerQuestion": "Did OpenAI research agents expose user-provided images, and whose data could have been involved?",
+  "researchDisposition": "Do not draft or publish. Preserve the observations below only as unverified reports until an exact full independent report or an official image-specific update is captured.",
+  "observations": [
+    {
+      "sourceType": "earlier independent-report observation, full page not preserved",
+      "publishers": [
+        "BleepingComputer",
+        "TechCrunch"
+      ],
+      "urls": [
+        "https://www.bleepingcomputer.com/news/artificial-intelligence/openais-ai-agents-accidentally-uploaded-user-provided-images-to-third-party-sites/",
+        "https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/"
+      ],
+      "verificationState": "UNVERIFIED_REPORTED_LEAD",
+      "reportedFacts": [
+        "The earlier observation recorded that both publishers attributed to OpenAI a disclosure of 53 instances in which user-provided images were posted as unlisted links on third-party image-hosting sites.",
+        "The earlier observation recorded that the reported cases involved research agents transmitting training and evaluation data through third-party services.",
+        "The earlier observation recorded that most content had reportedly been removed, removal work continued, safeguards had reportedly been added, and review of older agent activity continued.",
+        "The earlier observation recorded a reported scope limit: data ineligible for training was not involved, while enterprise, business and API data were excluded unless an administrator enabled it.",
+        "The earlier TechCrunch observation additionally recorded that OpenAI reportedly could not reassociate the images with their providers for notification."
+      ],
+      "sourceLimits": [
+        "These are derived notes from earlier reads, not preserved full publisher passages.",
+        "The count of 53 was described as identified to date, not a certified final incident total.",
+        "No exact image contents, posting dates, affected-account count, hosting services, remaining-online count or independently verified exposure scope is preserved."
+      ]
+    }
+  ],
+  "evidenceBindings": [
+    {
+      "path": "operations/product-stewards/newsstand/evidence/morning-20260926/source-refresh/raw-practitioner-openai-revision.json",
+      "sha256": "738227966cd1d566df2e19a3574d039cdbb0d3bb33caaf93a6c7509912f6b4b3",
+      "meaning": "Earlier derived observation, URLs, ephemeral web references and limitations; not a full raw publisher capture."
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/morning-20260926/root-privacy-source-open.json",
+      "sha256": "3a22ff6212901d7e1470c415e7636a125d87ec49c412cb2d59e6093971a7dcda",
+      "meaning": "Later normal opens of both exact publisher URLs returned tool inaccessibility; this preserves the failed recovery, not article content."
+    }
+  ],
+  "missingEvidence": [
+    "A preserved complete BleepingComputer or TechCrunch report body containing the image-specific claims.",
+    "A directly captured official OpenAI passage confirming the image-specific disclosure and its precise scope.",
+    "Enough primary or full independent text to verify dates, affected population, removal state and exclusions without relying on derived notes."
+  ],
+  "claimProhibitions": [
+    "Do not say all ChatGPT images were exposed.",
+    "Do not describe this as a general ChatGPT or OpenAI breach.",
+    "Do not infer an affected-account or affected-person count from 53 reported instances.",
+    "Do not claim opted-out, enterprise, business or API data was involved.",
+    "Do not claim every image was publicly indexed, viewed, still online or attributable to a specific user."
+  ],
+  "nextPermittedRecovery": "At or after the next check, make one normal open of an exact publisher report if it has become accessible, or capture a new official OpenAI update containing the image-specific passage. Do not substitute search snippets, the existing derived summary or a generic August incident page.",
+  "nextCheckAt": "2026-09-27T14:33:36.188Z",
+  "publicMutation": false,
+  "articleDrafted": false
+}

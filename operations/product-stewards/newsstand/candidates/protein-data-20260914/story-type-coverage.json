@@ -1,0 +1,50 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "candidateId": "protein-data-20260914",
+  "primaryType": "research-benchmark",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "Nature reported that five drug companies pooled 20,167 private protein-ligand structures to fine-tune a research AI model.",
+    "plainLanguageIdentity": "A reported research-model comparison rather than a medicine, trial, approval or patient outcome.",
+    "evidenceBasis": "One complete captured Nature report with the stated consortium numbers and limitations.",
+    "evidenceLimits": "The model is not public and the described study has not been peer reviewed.",
+    "readerRelevance": "Readers can separate a better model test result from a claim that a treatment works.",
+    "affectedPeople": "No patient group, prescription, product user or care change is identified.",
+    "changesNow": "No medicine, clinical result or public model release is reported.",
+    "uncertainty": "Whether this reported benchmark will lead to validated drugs remains unknown.",
+    "readerAction": "Ask whether an AI-drug headline describes a model, a tested drug or a patient outcome.",
+    "betterQuestion": "What stage of evidence does this headline actually report?"
+  },
+  "typeAnswers": {
+    "research-benchmark": {
+      "researchQuestion": "The report asks whether private protein-ligand structures can improve predictions on held-out structures.",
+      "method": "The consortium fine-tuned an OpenFold3-based model and compared prediction accuracy on examples kept outside training.",
+      "result": "Nature reports the private-data model predicted more held-out protein-molecule structures accurately than public-data comparisons.",
+      "sponsorAndInterests": "Five drug companies supplied proprietary structures and therefore have a direct research interest in the reported model improvement.",
+      "independentReplication": "Nature reports the described study has not been peer reviewed, so no independent replication is established here.",
+      "realWorldTransfer": "A held-out structure benchmark can guide research but does not establish a treatment works in people.",
+      "limitations": "The model is not public, the study is unreviewed and no clinical or patient outcome is reported."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "This is a research-model comparison, not an announcement of a new drug.",
+    "actualMeaningExact": "A model benchmark asks whether a system makes better predictions.",
+    "mechanismExact": "A held-out test uses examples kept separate from training.",
+    "familiarExampleExact": "Ask whether a later headline reports a model, a tested drug, or a patient outcome.",
+    "jargon": [
+      {
+        "term": "held-out test",
+        "plainMeaning": "examples kept separate from training"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "limits of model benchmarks",
+        "learningPayoff": "AI Fundamentals 101 explains why a score describes a specific test rather than every later use.",
+        "disposition": "link",
+        "destination": "/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed"
+      }
+    ]
+  }
+}

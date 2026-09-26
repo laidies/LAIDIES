@@ -1,0 +1,1228 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "weekly-promises-and-proof-20260916",
+  "surface": "NEWSSTAND_WEEKLY",
+  "contentClass": "NEWS",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "maker": "/root",
+  "reviewer": {
+    "id": "claude-fable-newsstand-weekly",
+    "principalId": "anthropic:claude-fable-5:newsstand-weekly:medium",
+    "role": "independent Weekly editorial and factual reviewer",
+    "modelFamily": "anthropic",
+    "modelEffort": "medium",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-19T16:06:28.523Z",
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "The September 16 Claude PASS is preserved but superseded because a September 18 post-period update changed the prose. This receipt uses a new full review of the revised September 19 package."
+  ],
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/publication-manifest.json",
+      "sha256": "c0a068cff8c61ce35a901a044455acca380f26e3873cf24ec8ed493472ee779a"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/review-text.json",
+      "sha256": "88cfed673328258d87b17293f071a5090d9d503630ee84625f18a8f2bc9726a1"
+    }
+  },
+  "calibration": {
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-weekly:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Beyond alarming AI-safety headlines, what actually changed this week for my school, my tools and the institutions around me?",
+    "promisedPayoff": "The reader can sort each announcement into proposal, signed opt-in protection, misuse report or product rollout, and know what question to ask about each.",
+    "centralMentalModel": "The distance between an assurance and something a person can verify: who is covered, whether participation is required, and what evidence can be inspected or published.",
+    "dailyLifeConnection": "A parent asking which exact AI product a school uses and whether the contract covers it; checking a voice assistant's finished packing list; recognising when a chat has become a sales conversation.",
+    "surfaceJob": "A dated weekly news roundup for September 9–16, 2026 distinguishing kinds of change and their implementation status.",
+    "desiredReaderFeeling": "Oriented and unpanicked: equipped to ask specific verification questions without needing technical expertise."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every development is explained in ordinary sentences; contract terms, rollout paths and report scope are stated without unexplained jargon.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The week’s strongest thread is the distance between an assurance and something a person can verify. For outside safety review, that means who gets access and what they can publish. For a school, it means the product and contract actually covered. For an everyday tool, it means what changed on your account and whether the result matches the request.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond headlines the reader gains a usable sorting tool (proposal vs contract vs report vs rollout) plus specific questions to ask a school or a voice tool.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>You do not need a new AI routine because several companies made announcements. Follow the part that touches your life: ask your school about its exact product and agreement; check a voice tool’s finished result; notice when a conversation has become a sales conversation.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "The useful question this week is not just “what did they promise?” It is “who does it cover, and how will we know it works?”",
+          "locator": "P007"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult tone: 'A contract is not improved by being unintelligible to the people it is meant to protect' is direct without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>None of these questions requires you to know how to build an AI model. They require the person making the claim to explain it.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The live question — who checks the most powerful AI before things go wrong — carries interest; the packing-list and shop-stock touches keep it human without forced humour.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "The useful question this week is not just “what did they promise?” It is “who does it cover, and how will we know it works?”",
+          "locator": "P007"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated roundup with a covered period, per-event dates and a clearly separated post-period update fits the weekly news surface exactly.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "School contract questions, checking a spoken assistant's finished list and spotting a seller's conversation are recognisable daily situations tied to each mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>You do not need a new AI routine because several companies made announcements. Follow the part that touches your life: ask your school about its exact product and agreement; check a voice tool’s finished result; notice when a conversation has become a sales conversation.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose leads, causality is concrete (opt-in coverage, redaction disclosure, sponsored-chat separation), limits survive, and it ends with a better next question rather than imitation of any explainer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>If you are following the safety debate, watch for the practical next step: reviewers’ access terms, funding arrangements and findings they can publish. Agreement with the idea is easier to announce than evidence that it is working.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "The useful question this week is not just “what did they promise?” It is “who does it cover, and how will we know it works?”",
+          "locator": "P007"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The article gives enough mechanism to answer why a named evaluation partner is still not evidence of independent review: access, funding and publication terms are unsettled.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>If you are following the safety debate, watch for the practical next step: reviewers’ access terms, funding arrangements and findings they can publish. Agreement with the idea is easier to announce than evidence that it is working.</p>",
+          "locator": "P006"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why does Anthropic naming Accenture as a paid evaluation partner on September 18 still not count as independent outside review of its models?",
+        "response": "Because the mechanism that makes review independent is not yet in place: independence comes from settled access terms (what reviewers can see), publication rights (what they can say without the company's editorial control, with redactions disclosed) and a funding structure that does not run directly from the company being reviewed. Anthropic says access and reporting standards are unsettled and it is paying Accenture directly, so a partner has been named but none of the verification machinery exists yet — it is a step past a promise, not evidence.",
+        "expectedEvidence": "A correct answer must cite the unsettled access and reporting standards, the direct-funding arrangement, and the article's distinction between announcing an arrangement and producing inspectable findings.",
+        "assessment": "The article's update section and what_this_means (P002, P006) supply every element of this causal chain in plain language, so a reader can reproduce it accurately."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The covered/opt-in/verification frame transfers cleanly to novel institutional pledges outside the article; my invented employer-hiring scenario resolves with it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The week’s strongest thread is the distance between an assurance and something a person can verify. For outside safety review, that means who gets access and what they can publish. For a school, it means the product and contract actually covered. For an everyday tool, it means what changed on your account and whether the result matches the request.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "The useful question this week is not just “what did they promise?” It is “who does it cover, and how will we know it works?”",
+          "locator": "P007"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's frame, what should the applicant check before trusting the pledge?",
+        "response": "Sort the pieces by kind: the auditor appointment is a proposal-stage arrangement — check whether access terms, funding independence and publication rights are settled and whether any findings exist yet. The addendum is a signed but opt-in protection — check whether the specific business unit hiring her opted in, and whether the tool screening her résumé falls inside the 'dedicated hiring AI' definition or is an excluded general-purpose product. Neither the press release nor a familiar company name establishes that her application is covered; a rollout of the pledge's branding is not evidence the safeguards operate.",
+        "expectedEvidence": "Application of the covered-product/opt-in logic from the school-contract section and the access/funding/publication test from the evaluator sections to a situation absent from the article.",
+        "assessment": "The article's mechanism (P003, P007) resolves this new scenario completely without extra concepts, demonstrating genuine transfer."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Actions are specific and proportionate: ask the school for the exact product and agreement, verify the voice tool's output, notice the sponsored conversation; no routine overhaul demanded.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>You do not need a new AI routine because several companies made announcements. Follow the part that touches your life: ask your school about its exact product and agreement; check a voice tool’s finished result; notice when a conversation has become a sales conversation.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>If you are following the safety debate, watch for the practical next step: reviewers’ access terms, funding arrangements and findings they can publish. Agreement with the idea is easier to announce than evidence that it is working.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The single comparison — treating a sponsored chat like speaking to a shop about its own stock — maps the incentive structure accurately and keeps its limit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "All fifteen material claims match their bound sources with attribution and limitations carried into the prose; no claim exceeds its evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Every event carries a specific date, the covered period (September 9–16) and publication/check dates are stated, and each claim traces to a named dated source.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article distinguishes last week's coverage from this week's developments and fences the September 18 Accenture update in a separately dated post-period section.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (opt-in coverage gaps, subscription boundaries, seller conversations) and uncertainty survives throughout: commitments are not operating systems, tests are not availability, reports are not measures of all use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm. This week, the argument moved upstream: who gets to check the most powerful AI before things go wrong?</p><p>Alongside that debate came changes closer to home, in school contracts and the conversations people have with AI tools. They deserve different questions. A public commitment, a signed agreement and a product rollout are different kinds of news.</p><h3>A call to slow down—and let outsiders look inside</h3><p>On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development. Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.</p><p>His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.</p><p>That is a more inspectable promise than “trust us.” It remains a commitment to put a system in place, not evidence that the reviewers are already operating. Wider limits would require cooperation across companies and governments.</p><h3>The misuse report is serious without embellishment</h3><p>Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.</p><p>The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm. That distinction does not make the concern trivial. Research can have beneficial and harmful applications; evidence of a risky use is different from proof of someone’s intentions or a finished attack.</p><h3>School privacy: ask whether the agreement covers the product</h3><p>Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9. The signed agreement gives US schools a route to request protections for covered educational AI products. It bans using covered data for advertising and generally for model training, with a narrow safety exception.</p><p>Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them. A familiar company name on a school’s software list is therefore not enough to establish coverage.</p><p>For a parent, the useful question is specific: which AI product does the school use, and has it put these protections into that product’s agreement? Ask for the answer in ordinary language. A contract is not improved by being unintelligible to the people it is meant to protect.</p><h3>Two changes to the conversations you may have</h3><p>Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live. Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.</p><p>The appeal is less waiting in silence while a tool works through a request. The limit is equally ordinary: a fluent conversation does not establish that the task was completed correctly. If you talk through a packing list for a weekend away, check that the final list kept the details you gave it. Availability still depends on the rollout and the feature.</p><p>On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers. That is a seller’s conversation. Treat it like speaking to a shop about its own stock.</p><h3>Update before publication: September 18</h3><p>After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business. Anthropic will pay for that work directly. The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>If you are following the safety debate, watch for the practical next step: reviewers’ access terms, funding arrangements and findings they can publish. Agreement with the idea is easier to announce than evidence that it is working.</p>",
+          "locator": "P006"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No definition lists; terms are woven into causal explanation as needed.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Sections vary in structure by story type rather than repeating one scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The shop-stock comparison does explanatory work about incentive alignment; nothing is merely decorative.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references; every citation is a working source.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Each conclusion carries its causal steps: opt-in mechanics, exclusion definitions, redaction disclosure, rollout paths.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Advice names exact actions (which product, which agreement, check the final list) rather than 'be careful'.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "No technical term is used before its plain meaning is available in context.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The pieces connect through one thread — assurance versus verifiable evidence — stated and applied across all four stories.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is trimmed everywhere: 'a commitment, not evidence', 'a test', 'coverage is not automatic'.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Every material claim carries a date, a source and a covered period; the post-period update is separately dated.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Prose is concrete and plain; provider announcement language is translated, not repeated.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Human situations and a live public question keep the piece from becoming a checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is invoked anywhere.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline question 'what is actually changing?' is answered story by story with implementation status.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The packing-list and shop examples return to the mechanism: output verification and speaker identity.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The voice is the publication's own; no imitation of another communicator's mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No spectacle; the serious topics are treated soberly and humour is absent where inappropriate.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The opening is brief; the causal explanations occupy the body of each section.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Conclusions like 'not a completed independent assessment' arrive after their supporting facts.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending deflates rather than inflates: no new routine needed, watch for implementation evidence.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers the full reader job across safety debate, schools and consumer tools; no single task swallows the scope.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human reason — who checks powerful AI, what covers your school — is established before any mechanics.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No single worked example dominates; four stories share the frame proportionately.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The organising perspective is the reader's verification question, not specialist taxonomy or workflow inspection.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "reviewedThrough": "2026-09-19",
+    "nextTrigger": "Recheck when implementation, contract scope or rollout changes; exact independent review remains required before release.",
+    "correctionOwner": "NewsStand",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/prior-weekly.json",
+        "sha256": "dbeac4bc3e8654ed81fcaaa14c8ee348cf672c71b16626cf7fa99cd3bec5ed6e"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/amodei.json",
+        "sha256": "a7fddf341c031be67061f2e3bbc7eb2a2f0ac78adcca260f650e331e76d3986a"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/anthropic.json",
+        "sha256": "9d0bd627cb31f3ced3e0199359fbaa021e7f2128dfc7e5e1865f4e020f16a47a"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/school-announcement.json",
+        "sha256": "75c304f381f001b7f086806a9dd2ca4f018f45e7a5543a7f1f72e406ac213bc3"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/school-contract.json",
+        "sha256": "b1333ef937df3be04c10cb328e4ed50a61b9e383dc4f6ab915b9dec32e940bc0"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/google.json",
+        "sha256": "f04800663b242252e0c975893fd99b8fe632311e1756ac7b880fd6229bed1554"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/openai.json",
+        "sha256": "3493eab0fa0a132d9726be29600b60462fc88eeb9945b8c858e681b23c70107b"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/anthropic-evaluator-update.json",
+        "sha256": "cbfad398f3305258bdede85e32b36cf2e4b81c38a5bb390711f142082b80c457"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "prior-comparison",
+        "status": "VERIFIED",
+        "sourceIds": [
+          "prior-weekly"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Last week, we looked at image-editing controls, failed safety boundaries and legal consequences after harm.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/prior-weekly.json",
+          "sha256": "dbeac4bc3e8654ed81fcaaa14c8ee348cf672c71b16626cf7fa99cd3bec5ed6e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The immediately preceding LAiDIES Weekly covered image-editing controls, failed agent-safety boundaries and legal consequences after harm.",
+            "locator": "Current canonical prior Weekly story"
+          }
+        ],
+        "scopeAndFreshness": "LAiDIES comparison only. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "amodei-date-proposal",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "amodei"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "On September 12, Anthropic chief Dario Amodei called for slowing improvements to the most capable AI systems so safety work can keep up. He is not proposing an end to model development.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/amodei.json",
+          "sha256": "a7fddf341c031be67061f2e3bbc7eb2a2f0ac78adcca260f650e331e76d3986a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The primary essay is dated only September 2026 on its page. Amodei calls for slowing the rate of capability improvement rather than halting development, describes a unilateral Anthropic commitment as a first step, and proposes outside reviewers with ongoing employee-like access to relevant workspaces and tools, subject to stated exceptions. He says reviewers should be able to publish without Anthropic editorial control, with narrow redactions disclosed when they affect conclusions.",
+            "locator": "Dario primary page: date, proposal and reviewer-access passages; weeklyDateCheck: dated original-post evidence"
+          }
+        ],
+        "scopeAndFreshness": "Primary page gives only September; September 12 comes from separately captured dated-post evidence. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "amodei-review-access",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "amodei"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic’s own commitment is to invite outside reviewers with ongoing access similar to staff who assess risk.",
+            "locator": "Exact complete story prose"
+          },
+          {
+            "excerpt": "His proposed arrangement includes access to relevant workspaces and tools, with privacy, legal and contractual exceptions. Reviewers would be able to publish findings without Anthropic’s editorial control, subject to narrow redactions, and say if a redaction affected their conclusions.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/amodei.json",
+          "sha256": "a7fddf341c031be67061f2e3bbc7eb2a2f0ac78adcca260f650e331e76d3986a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The primary essay is dated only September 2026 on its page. Amodei calls for slowing the rate of capability improvement rather than halting development, describes a unilateral Anthropic commitment as a first step, and proposes outside reviewers with ongoing employee-like access to relevant workspaces and tools, subject to stated exceptions. He says reviewers should be able to publish without Anthropic editorial control, with narrow redactions disclosed when they affect conclusions.",
+            "locator": "Dario primary page: date, proposal and reviewer-access passages; weeklyDateCheck: dated original-post evidence"
+          }
+        ],
+        "scopeAndFreshness": "A commitment and proposal, not evidence that reviewers are operating or an industry agreement exists. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "anthropic-report-scope",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "anthropic"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Separately, Anthropic’s September 10 threat report describes concerning uses of its systems, including surveillance and biological research with potential for harm. These are the company’s findings about activity it observed, not a measure of all AI use.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/anthropic.json",
+          "sha256": "9d0bd627cb31f3ced3e0199359fbaa021e7f2128dfc7e5e1865f4e020f16a47a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic's September 10 threat report says it observed uses spanning surveillance and biological research. In the biology examples, it describes working scientists and dual-use activity; it does not assert that the scientists intended harm or that a completed weapon resulted.",
+            "locator": "Threat report landing date/title; Threat report detailed biology and surveillance passages"
+          }
+        ],
+        "scopeAndFreshness": "Provider report about its own observed activity, not all AI use. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "anthropic-biology-limit",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "anthropic"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "The biological examples do not establish a completed weapon, and the report does not assert that the scientists intended harm.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/anthropic.json",
+          "sha256": "9d0bd627cb31f3ced3e0199359fbaa021e7f2128dfc7e5e1865f4e020f16a47a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic's September 10 threat report says it observed uses spanning surveillance and biological research. In the biology examples, it describes working scientists and dual-use activity; it does not assert that the scientists intended harm or that a completed weapon resulted.",
+            "locator": "Threat report landing date/title; Threat report detailed biology and surveillance passages"
+          }
+        ],
+        "scopeAndFreshness": "Retains the report’s express evidentiary limits. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "school-event",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "school-announcement"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Microsoft, the American Federation of Teachers and the United Federation of Teachers announced school AI privacy terms on September 9.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/school-announcement.json",
+          "sha256": "75c304f381f001b7f086806a9dd2ca4f018f45e7a5543a7f1f72e406ac213bc3"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Microsoft's September 9 announcement says the AFT, UFT and Microsoft created school AI privacy terms and that eligible districts can incorporate the protections into their Microsoft customer agreement.",
+            "locator": "Announcement date and agreement description"
+          }
+        ],
+        "scopeAndFreshness": "Participant announcement; contract controls exact scope. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "school-contract-scope",
+        "status": "VERIFIED",
+        "sourceIds": [
+          "school-contract"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Coverage is not automatic. Schools must opt in, and the definition excludes general-purpose productivity, communications and search products even when schools use them.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/school-contract.json",
+          "sha256": "b1333ef937df3be04c10cb328e4ed50a61b9e383dc4f6ab915b9dec32e940bc0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The signed agreement makes each principle binding for an education customer that opts in. Its covered-product definition excludes general-purpose productivity, collaboration, communications, search, cloud, developer and workplace products, even when a school uses them. For covered data, the agreement prohibits use for advertising and generally prohibits model training, with a narrow exception for improving safety and security.",
+            "locator": "Signed agreement opt-in clauses; Signed agreement covered-product exclusions; Signed agreement covered-data advertising and model-training clauses"
+          }
+        ],
+        "scopeAndFreshness": "Signed contract establishes scope, not uptake or tested effectiveness. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "google-date-rollout",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "google"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Google announced Gemini 3.8 Live and Live Extended Thinking on September 15. It says the models can continue a spoken conversation while processing tasks in the background. The first is rolling out in Search Live; Extended Thinking is rolling out in Gemini Live.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/google.json",
+          "sha256": "f04800663b242252e0c975893fd99b8fe632311e1756ac7b880fd6229bed1554"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Google announced Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking on September 15. It says the models can continue live spoken interaction while processing tasks; 3.8 Live is rolling out in Search Live and Extended Thinking in Gemini Live. The described Docs features require Google AI Pro or Ultra, while Gmail and Keep features require a Google AI subscription.",
+            "locator": "Google announcement date and rollout passages; Google Docs, Gmail and Keep availability passages"
+          }
+        ],
+        "scopeAndFreshness": "Provider rollout statement; availability can vary. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "google-subscription-boundary",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "google"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Its Docs features require Google AI Pro or Ultra; Gmail and Keep features require a Google AI subscription.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/google.json",
+          "sha256": "f04800663b242252e0c975893fd99b8fe632311e1756ac7b880fd6229bed1554"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Google announced Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking on September 15. It says the models can continue live spoken interaction while processing tasks; 3.8 Live is rolling out in Search Live and Extended Thinking in Gemini Live. The described Docs features require Google AI Pro or Ultra, while Gmail and Keep features require a Google AI subscription.",
+            "locator": "Google announcement date and rollout passages; Google Docs, Gmail and Keep availability passages"
+          }
+        ],
+        "scopeAndFreshness": "Provider availability statement, not a global equal-access claim. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "openai-sponsored-test",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "openai"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "On September 16, OpenAI announced it is testing an optional, separately labelled advertiser-sponsored chat after an ad click in ChatGPT, with select US advertisers.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/openai.json",
+          "sha256": "3493eab0fa0a132d9726be29600b60462fc88eeb9945b8c858e681b23c70107b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI announced on September 16 that it is testing optional, clearly labelled Sponsored Agents with select US advertisers. After a person clicks an ad, the sponsored conversation is with the advertiser and remains separate from the original ChatGPT conversation and its independent answers.",
+            "locator": "OpenAI date, test scope and separation passages"
+          }
+        ],
+        "scopeAndFreshness": "Provider test announcement; no broad-availability claim. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "openai-speaker",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "openai"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "That is a seller’s conversation. Treat it like speaking to a shop about its own stock.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/openai.json",
+          "sha256": "3493eab0fa0a132d9726be29600b60462fc88eeb9945b8c858e681b23c70107b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI announced on September 16 that it is testing optional, clearly labelled Sponsored Agents with select US advertisers. After a person clicks an ad, the sponsored conversation is with the advertiser and remains separate from the original ChatGPT conversation and its independent answers.",
+            "locator": "OpenAI date, test scope and separation passages"
+          }
+        ],
+        "scopeAndFreshness": "Described interaction boundary; no privacy or effectiveness claim. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "school-data-use",
+        "status": "VERIFIED",
+        "sourceIds": [
+          "school-contract"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "It bans using covered data for advertising and generally for model training, with a narrow safety exception.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/school-contract.json",
+          "sha256": "b1333ef937df3be04c10cb328e4ed50a61b9e383dc4f6ab915b9dec32e940bc0"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The signed agreement makes each principle binding for an education customer that opts in. Its covered-product definition excludes general-purpose productivity, collaboration, communications, search, cloud, developer and workplace products, even when a school uses them. For covered data, the agreement prohibits use for advertising and generally prohibits model training, with a narrow exception for improving safety and security.",
+            "locator": "Signed agreement opt-in clauses; Signed agreement covered-product exclusions; Signed agreement covered-data advertising and model-training clauses"
+          }
+        ],
+        "scopeAndFreshness": "Applies only inside the opt-in agreement and covered-product/data definitions. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "evaluator-partner-date",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "anthropic-evaluator-update"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "After this roundup’s covered week, Anthropic named Accenture as an evaluation partner, with the work led by its Faculty business.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/anthropic-evaluator-update.json",
+          "sha256": "cbfad398f3305258bdede85e32b36cf2e4b81c38a5bb390711f142082b80c457"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic announced on September 18 that Accenture will be an embedded evaluation partner, with the work led by Accenture's Faculty business. Anthropic says it will fund Accenture's work directly. It also says access and reporting standards remain unsettled and that no settled funding system exists; the work is beginning, so the announcement is not a completed independent assessment.",
+            "locator": "Lines 11–24: date, partner, Faculty lead, direct funding, unsettled access/reporting/funding standards, work beginning"
+          }
+        ],
+        "scopeAndFreshness": "Provider announcement of a planned arrangement, not completed findings. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "evaluator-direct-funding",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "anthropic-evaluator-update"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic will pay for that work directly.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/anthropic-evaluator-update.json",
+          "sha256": "cbfad398f3305258bdede85e32b36cf2e4b81c38a5bb390711f142082b80c457"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic announced on September 18 that Accenture will be an embedded evaluation partner, with the work led by Accenture's Faculty business. Anthropic says it will fund Accenture's work directly. It also says access and reporting standards remain unsettled and that no settled funding system exists; the work is beginning, so the announcement is not a completed independent assessment.",
+            "locator": "Lines 11–24: date, partner, Faculty lead, direct funding, unsettled access/reporting/funding standards, work beginning"
+          }
+        ],
+        "scopeAndFreshness": "Company-described funding arrangement; no claim of financial independence. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      },
+      {
+        "claimId": "evaluator-unsettled-no-findings",
+        "status": "QUALIFIED",
+        "sourceIds": [
+          "anthropic-evaluator-update"
+        ],
+        "candidateEvidence": [
+          {
+            "excerpt": "The company says access and reporting standards are still unsettled. Naming a partner is a step beyond the earlier promise; it is not a completed independent assessment.",
+            "locator": "Exact complete story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/sources-current-20260919/anthropic-evaluator-update.json",
+          "sha256": "cbfad398f3305258bdede85e32b36cf2e4b81c38a5bb390711f142082b80c457"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic announced on September 18 that Accenture will be an embedded evaluation partner, with the work led by Accenture's Faculty business. Anthropic says it will fund Accenture's work directly. It also says access and reporting standards remain unsettled and that no settled funding system exists; the work is beginning, so the announcement is not a completed independent assessment.",
+            "locator": "Lines 11–24: date, partner, Faculty lead, direct funding, unsettled access/reporting/funding standards, work beginning"
+          }
+        ],
+        "scopeAndFreshness": "The final sentence is a bounded editorial consequence of the provider saying the work is beginning and standards remain unsettled. Sources and candidate were rechecked on September 19, 2026; recheck on material provider, agreement, rollout or correction change."
+      }
+    ]
+  },
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/weekly-news-editorial-policy.json",
+      "sha256": "1bd57b1b88a2b0ac530fdc1e6c8112269327417dfcaae197173785137ee62d9e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/assembled-late-recovery/news-editorial-analysis.json",
+      "sha256": "02ffd6146f0745686ee665d09c84e11be8637ec8abb5511dcaa4d4d0d706b340"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/assembled-late-recovery/independent-raw-report.json",
+    "sha256": "e915631d8a19da78c64d5348912f9e08faf30e946c98570ca34a2f1e5298dd04"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "weekly-control-layers-20260909",
+    "repairSummary": "Preserves original interrupted Sept16 packet. Complete revised prose reread Sept19; adds actual Sept18 evaluator announcement, direct funding and unsettled standards, revises practical next step, dates late publication honestly."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "priorComparable": {
+      "candidateId": "weekly-control-layers-20260909",
+      "reviewIssues": 5,
+      "reviewCycles": 1
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW",
+    "evidencePacket": {
+      "rounds": 1,
+      "gaps": 0
+    }
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The new exact-prose reader and factual review both passed; every current claim is supported or qualified and no current repair was identified."
+  }
+}
