@@ -39,6 +39,14 @@ jobs:
           node scripts/test-newsstand-hosted-probe.mjs
           node scripts/test-newsstand-hosted-release.mjs
           node scripts/test-newsstand-hosted-provider.mjs
+      - name: Verify portable provider-preserving uploader
+        shell: bash
+        run: |
+          npm install --prefix "$RUNNER_TEMP/newsstand-wrangler" --no-audit --no-fund wrangler@4.105.0
+          package_dir="$RUNNER_TEMP/newsstand-wrangler/node_modules/wrangler"
+          node scripts/test-newsstand-hosted-wrangler.mjs "$package_dir/wrangler-dist/cli.js"
+          node scripts/patch-newsstand-hosted-wrangler.mjs "$package_dir"
+          node --check "$package_dir/wrangler-dist/laidies-preserve.cjs"
       - name: Report actual migration readiness
         shell: bash
         run: |
