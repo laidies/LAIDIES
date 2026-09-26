@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "newsstand-hosted-readiness.v1",
+  "pinnedSourceCommit": "89bda7b6da3ce7713cdeb358b770b9a4330fad51",
+  "sourcePins": [
+    {
+      "path": ".github/workflows/newsstand-cloud-intake.yml",
+      "sha256": "cb3dd7aedb2a2ea303340b2fb997e3551c4cb28dd2e0b105794d0e1d67eecc90"
+    },
+    {
+      "path": ".github/workflows/production-release.yml",
+      "sha256": "53ebbed84bd1d1b8bcdaaca5b526472c3719abf2f0b33513358a3ee2c3352dcf"
+    },
+    {
+      "path": "scripts/run-newsstand-cloud-intake.mjs",
+      "sha256": "34ff09e24df15ff2e5ab7dc9b75d9addee10441b5efc1c2f799dea54b2cd5ce5"
+    },
+    {
+      "path": "scripts/check-newsstand-release-scope.mjs",
+      "sha256": "c993ccb9dac50dec498a2a8818d22b4d58f2a9cc16aac710284eb294964cd814"
+    }
+  ],
+  "stages": [
+    {
+      "id": "source-intake",
+      "entrypoint": {
+        "kind": "github-workflow",
+        "path": ".github/workflows/newsstand-cloud-intake.yml",
+        "command": "node scripts/run-newsstand-cloud-intake.mjs --output .newsstand-cloud-intake/receipt.json --state-output .newsstand-cloud-intake/state.json"
+      },
+      "requiredAuth": [],
+      "qualification": "not-applicable"
+    },
+    {
+      "id": "research",
+      "entrypoint": null,
+      "requiredAuth": [],
+      "qualification": "not-applicable"
+    },
+    {
+      "id": "writer",
+      "entrypoint": null,
+      "requiredAuth": [],
+      "qualification": "not-applicable"
+    },
+    {
+      "id": "independent-reviewer",
+      "entrypoint": null,
+      "requiredAuth": ["CLAUDE_CODE_OAUTH_TOKEN"],
+      "qualification": "unqualified"
+    },
+    {
+      "id": "signer",
+      "entrypoint": null,
+      "requiredAuth": [],
+      "qualification": "not-applicable"
+    },
+    {
+      "id": "provider-preserving-publisher",
+      "entrypoint": {
+        "kind": "github-workflow",
+        "path": ".github/workflows/production-release.yml",
+        "command": "npx --yes wrangler@4.119.0 pages deploy \"$ARTIFACT_DIR\" --project-name \"$PROJECT_NAME\" --branch \"$PRODUCTION_BRANCH\" --commit-hash \"$SOURCE_COMMIT\" --commit-dirty=false"
+      },
+      "requiredAuth": ["CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID"],
+      "qualification": "not-applicable"
+    },
+    {
+      "id": "live-verification",
+      "entrypoint": null,
+      "requiredAuth": [],
+      "qualification": "not-applicable"
+    }
+  ]
+}
