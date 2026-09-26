@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "buist-ai-slowdown-20260920-art",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root",
+    "reviewedAt": "2026-09-26T18:12:31.657937+00:00",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/producer-contract-20260926.json",
+    "sha256": "3a507054d88f78b9e8648c4e313973a22cf5f6b8fcba7a62d02f66ef6e58c487"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/buist-complaint-v2.png",
+    "sha256": "c622d294758eabeec9c757a25b8bc971a3fb607f4dd37feea3fe8247ba299009",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/story.json",
+    "sha256": "c9b68c12714ba06b0fb77a202b81112bcbe81a7b19fc4ab2f14feff981ccac93",
+    "kind": "TEXT",
+    "locator": "headline in complete complaint-only article record",
+    "exactTextOrSilentPurpose": "AI subscribers sue four companies over an alleged agreement to slow development"
+  },
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/mobile-preview-v2.png",
+    "sha256": "503e13debd8be0d0b7825e29dbfe9e4e9faf64e582aaeea385f23a66b2806cfb"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "Open clipped packet under a magnifier represents a filing examined; four separate receipt slips represent subscribers without visually claiming an agreement was proven.",
+      "artifactLocator": "1536x1024 full image and 390x260 mobile preview inspected by root"
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Detailed ink contours, paper texture, navy desk and four electric accent trays fit the approved editorial still-life direction; no named location is represented.",
+      "artifactLocator": "1536x1024 full image and 390x260 mobile preview inspected by root"
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No people, faces, characters, robots or named town landmarks appear.",
+      "artifactLocator": "1536x1024 full image and 390x260 mobile preview inspected by root"
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "The clip grips the packet edge; magnifier rests on the paper; each thin curled receipt is supported by its own tray. Folder and papers have consistent perspective.",
+      "artifactLocator": "1536x1024 full image and 390x260 mobile preview inspected by root"
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "Paper contains plain rules and neutral bands, with no letters, numbers, logo or generated pseudo-text.",
+      "artifactLocator": "1536x1024 full image and 390x260 mobile preview inspected by root"
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "Contemporary ordinary desk materials; no people or wardrobe and no historical-era claim.",
+      "artifactLocator": "1536x1024 full image and 390x260 mobile preview inspected by root"
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "Dominant folder, magnifier and four receipts support filing and payment meanings. Secondary cup, plant and stationery are unobtrusive desk context.",
+      "artifactLocator": "1536x1024 full image and 390x260 mobile preview inspected by root"
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "All four thin receipt silhouettes, separated coloured trays and central magnifier/packet remain distinct in the actual 390x260 preview.",
+      "artifactLocator": "1536x1024 full image and 390x260 mobile preview inspected by root"
+    }
+  ],
+  "visibleDefects": [],
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT",
+    "summary": "V1 receipt-stack defect is repaired in V2; no unresolved new visual defect observed."
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First production candidate for this story. V1 is an internal rejected attempt, not a prior released comparable production.",
+    "priorAttemptReview": {
+      "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/independent-review-v1.json",
+      "sha256": "e9be7bef2256b6f63437a8ff4dee5ef59ab84167df3a5c8afdce2b71147a3012"
+    }
+  },
+  "limits": [
+    "Style reference inspected separately; not supplied as a physical generation input. No photographic depiction of actual filing or subscribers claimed."
+  ],
+  "copyRevisionAssessment": "Re-read corrected companion: removal of the unsupported safety-motive clause does not alter the filed allegation, four subscribers or the no-verdict boundary. Same exact inspected V2 full/mobile pixels remain suitable."
+}

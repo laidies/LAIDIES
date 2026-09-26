@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "buist-ai-slowdown-20260920-art",
+  "stage": "INDEPENDENT_VISUAL_ADMISSION",
+  "verdict": "HOLD",
+  "reviewer": {
+    "principalId": "/root/california_order_producer",
+    "role": "Independent visual reviewer",
+    "reviewedAt": "2026-09-26T17:47:28Z",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true,
+    "independentFromMaker": true
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/producer-contract-20260926.json",
+    "sha256": "9aa3c39775cdc6a6fd9f78167f09a283c5d4bf7465f11860b4ee9da6454b8f60"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/buist-complaint-v1.png",
+    "sourcePath": "/Users/alisoneakin/.codex/generated_images/01a071e7-db55-7a22-8c99-04eba5060355/exec-e0e96c96-b5f1-479b-b166-ec9755114b59.png",
+    "sha256": "4e063880339ec3cfbbee610ff440f98481f50d867ab07ed3d65d6e011ac17016",
+    "kind": "STILL",
+    "dimensions": "1536x1024"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/story.json",
+    "sha256": "fa7e0836cd465ccc7a68fd207886e514a709ad51645e0e51e23580daa8d68cbc",
+    "kind": "TEXT",
+    "locator": "headline and complaint-only article record",
+    "exactTextOrSilentPurpose": "AI subscribers sue four companies over an alleged agreement to slow development"
+  },
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/mobile-preview.png",
+    "sha256": "2410deeb2d7ee5312417f355196cb4a44ccd0ae89e3569b3c84389c45af95ae1",
+    "dimensions": "390x260"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "HOLD",
+      "observation": "The central folder, clipped complaint and magnifying glass clearly show a filing being examined, and four coloured trays keep the companies separate. The trays contain four thick multi-page document stacks rather than four distinct subscription receipts. The subscriber-payment stake therefore is not visible as required.",
+      "artifactLocator": "Full pixels: four top trays. Mobile preview: top row."
+    },
+    {
+      "id": "allegationBoundary",
+      "result": "PASS",
+      "observation": "There are no connecting arrows, wires, handshakes, verdict marks, court symbols or other devices that present coordination or liability as proven.",
+      "artifactLocator": "Full pixels and 390x260 preview."
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "The navy ground, cyan, magenta, coral and lime accents, warm paper, ink detail and print texture fit the approved adult editorial direction. The generic desk makes no invented courtroom or named-location claim.",
+      "artifactLocator": "Full pixels and 390x260 preview."
+    },
+    {
+      "id": "characterAndIdentity",
+      "result": "PASS",
+      "observation": "No people, hands, faces, robots, MAiVEN, TRAiLBLAZER, corporate marks or recognizable product interfaces appear.",
+      "artifactLocator": "Full pixels and 390x260 preview."
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "The open folder, aligned central paper stack, binder clip, magnifying glass and four trays are supported and coherently oriented. No anatomy is present.",
+      "artifactLocator": "Full pixels and 390x260 preview."
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "Only blank rule lines appear. There are no visible words, letters, numbers, dates, signatures, stamps, watermarks or logos.",
+      "artifactLocator": "Full-resolution pixels."
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "HOLD",
+      "observation": "The complaint and four separate lanes remain clear at 390x260, but the tray contents read as paper files or inbox stacks rather than receipt-like slips. Resizing does not recover the missing payment meaning.",
+      "artifactLocator": "390x260 preview, top row."
+    }
+  ],
+  "visibleDefects": [
+    {
+      "id": "REQUIRED-RECEIPTS-NOT-DEPICTED",
+      "severity": "MATERIAL",
+      "contractRequirement": "Exactly four distinct unbranded subscription receipts, each supported in its own visibly separate paper lane or shallow desk tray.",
+      "observation": "Each of the four trays holds a thick stack of full-page ruled documents. None reads as one distinct subscription receipt.",
+      "effect": "The scene communicates four separate document files but not that four paying subscribers brought the allegation.",
+      "minimalRepair": "Replace only the paper stack in each coloured tray with exactly one small, narrow receipt-like slip: one receipt per tray, with blank rule lines or a neutral colour band and no words, numbers, dates or logos. Keep all four trays separate and preserve the central complaint, folder, clip, magnifier, palette and composition."
+    }
+  ],
+  "generationLimitations": [
+    "The maker used a condensed equivalent prompt rather than the exact saved prompt.",
+    "The approved style reference was inspected separately but was not supplied as a physical image-generation reference input."
+  ],
+  "learningDisposition": {
+    "kind": "NEW_DEFECT",
+    "summary": "A counted set of coloured lanes is insufficient when the contract also requires a specific object in each lane; inspect the object category itself at full and card size."
+  },
+  "admission": {
+    "eligible": false,
+    "nextAction": "Regenerate or edit the four tray contents as exactly four distinct receipt-like slips, then obtain a new maker inspection and independent full/mobile pixel review."
+  }
+}

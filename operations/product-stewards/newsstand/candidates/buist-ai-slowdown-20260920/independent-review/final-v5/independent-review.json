@@ -1,0 +1,1005 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "buist-ai-slowdown-20260920",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/buist_final_producer",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-26T18:15:59.105Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/review-text.json",
+      "sha256": "5ab1bd479040edaf1d581ccf932a0e46436f6ba613a5d1ec4ecdb03485b92d12"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/publication-manifest.json",
+      "sha256": "87ddbcb48e022940142f5e190fea714ef5b7909e1a6e58c056754b1c4d80f903"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/rendered-article.html",
+      "sha256": "1e1f1e6174c325593c9b6b1fdd60694914fbd0303ba14f461f2201a3945fcb46"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why are paying AI subscribers suing over a proposed safety slowdown, and does their lawsuit show the companies broke the law?",
+    "promisedPayoff": "The reader learns what the plaintiffs allege (a cross-company agreement to slow product improvement), what they ask for, and why a filed complaint decides nothing.",
+    "centralMentalModel": "A complaint records allegations and requests; independent company action and an agreement among rivals are different claims, and only a court resolves which occurred.",
+    "dailyLifeConnection": "Anyone paying for a subscription whose value depends on ongoing improvements can see why an alleged slowdown pact would matter to what they bought.",
+    "surfaceJob": "A dated news brief reporting the September 18 filing, its pleaded sequence, its self-imposed boundary, and its procedural stage.",
+    "desiredReaderFeeling": "Informed and calm: able to distinguish allegation from judgment without alarm about their own subscription."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every sentence is short and untechnical; legal terms like proposed class action and antitrust are defined in plain words at first use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A <strong>proposed class action</strong> is a request to bring one case for a larger group. The plaintiffs ask for class certification, damages and an order stopping the alleged agreement; filing the request does not approve or grant any of them. <strong>Antitrust</strong> is the area of law the plaintiffs invoke in arguing that the alleged agreement restrained competition.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline the reader gains the allegation/judgment distinction, the pleaded boundary on independent safety measures, and concrete questions to ask about their own service.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement. Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development. This report describes the September 18 complaint, not later filings or rulings.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A <strong>proposed class action</strong> is a request to bring one case for a larger group. The plaintiffs ask for class certification, damages and an order stopping the alleged agreement; filing the request does not approve or grant any of them. <strong>Antitrust</strong> is the area of law the plaintiffs invoke in arguing that the alleged agreement restrained competition.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case. If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers. This report is about what the plaintiffs filed on September 18.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid adult register; the café comparison and the direct 'ask what was filed' guidance are conversational without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Think of four competing cafés. Each can decide on its own to close early for a kitchen inspection. A claim that they agreed together to close early is a different claim. The comparison explains the plaintiffs’ argument; it does not show that it happened in this case.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case. If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers. This report is about what the plaintiffs filed on September 18.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The consumer stake (paid subscriptions losing value) sustains interest and the café scene adds lightness that serves the distinction rather than decorating it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Think of four competing cafés. Each can decide on its own to close early for a kitchen inspection. A claim that they agreed together to close early is a different claim. The comparison explains the plaintiffs’ argument; it does not show that it happened in this case.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "As a dated news brief it answers what was filed, when, by whom, and explicitly bounds itself to the September 18 complaint, not later rulings.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement. Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development. This report describes the September 18 complaint, not later filings or rulings.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case. If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers. This report is about what the plaintiffs filed on September 18.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The subscription-value framing and the checklist for any legal story affecting a service the reader uses ground the mechanism in a recognizable situation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case. If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers. This report is about what the plaintiffs filed on September 18.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose (subscriber value), concrete causal chain (paid access → alleged pact → claimed reduced value → undecided relief), and a next question in P006; no imitation of any communicator.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A <strong>proposed class action</strong> is a request to bring one case for a larger group. The plaintiffs ask for class certification, damages and an order stopping the alleged agreement; filing the request does not approve or grant any of them. <strong>Antitrust</strong> is the area of law the plaintiffs invoke in arguing that the alleged agreement restrained competition.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case. If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers. This report is about what the plaintiffs filed on September 18.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The article supplies enough mechanism to answer why a filing proves nothing and how independent action differs from an agreement; my explain-back below succeeds from P002–P005 alone.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement. Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development. This report describes the September 18 complaint, not later filings or rulings.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Think of four competing cafés. Each can decide on its own to close early for a kitchen inspection. A claim that they agreed together to close early is a different claim. The comparison explains the plaintiffs’ argument; it does not show that it happened in this case.</p>",
+          "locator": "P005"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why does the complaint's mention of Amodei's September 12 public call not, by itself, show the four companies agreed to slow development?",
+        "response": "Because one executive publicly urging a slowdown is a single company's own statement; the plaintiffs must show the rivals actually agreed with each other to slow their competing products. The complaint offers the essay as its pleaded sequence — the plaintiffs' account of events — and a filed complaint only records what plaintiffs allege; a court must still test whether an agreement existed, whether it was unlawful, and what remedy would follow.",
+        "expectedEvidence": "A correct answer must distinguish independent action from a cross-company agreement (P003, P005) and note that a filing decides nothing about agreement, legality, or remedy (P002).",
+        "assessment": "The article supports this answer fully: P003 states the essay is the plaintiffs' account and not proof, P002 states the filing decides nothing, and P005 supplies the independent-versus-agreed distinction. Pass."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The independent-action-versus-agreement distinction and the filing-is-not-a-finding rule transfer cleanly to my new streaming-price scenario below.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement. Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development. This report describes the September 18 complaint, not later filings or rulings.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Think of four competing cafés. Each can decide on its own to close early for a kitchen inspection. A claim that they agreed together to close early is a different claim. The comparison explains the plaintiffs’ argument; it does not show that it happened in this case.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case. If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers. This report is about what the plaintiffs filed on September 18.</p>",
+          "locator": "P006"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Does the simultaneous timing plus the filed complaint show the streaming services broke competition law, and can each service still trim its own catalogue for its own reasons?",
+        "response": "No. Simultaneous conduct can result from each service independently reacting to the same licensing pressures — like each café closing early on its own. The complaint records the subscribers' allegation of an agreement and their requested remedies; it decides nothing. Each service remains free to independently manage its own catalogue; only a proven agreement among the rivals about that conduct would raise the antitrust problem, and a court must assess whether one existed.",
+        "expectedEvidence": "Correct application requires: parallel conduct is not itself an agreement (P005), a filing records allegations and requests without resolving them (P002, P004), and independent action is expressly outside the challenge (P003).",
+        "assessment": "The article's mechanism transfers cleanly: every element of the answer maps from the café distinction, the filing-is-not-a-finding rule, and the pleaded independent-action boundary. Pass."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "P006 gives specific, proportionate steps: ask what was filed or ordered, from what date, and what the provider actually told customers — not generic 'be careful' advice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case. If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers. This report is about what the plaintiffs filed on September 18.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The café analogy maps the exact legal distinction (independent early closing vs agreed early closing) and states its own limit: it explains the argument, not what happened.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Think of four competing cafés. Each can decide on its own to close early for a kitchen inspection. A claim that they agreed together to close early is a different claim. The comparison explains the plaintiffs’ argument; it does not show that it happened in this case.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim traces to the complaint excerpts with attribution to plaintiffs preserved and the filing's evidentiary limits stated in the text itself.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement. Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development. This report describes the September 18 complaint, not later filings or rulings.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A <strong>proposed class action</strong> is a request to bring one case for a larger group. The plaintiffs ask for class certification, damages and an order stopping the alleged agreement; filing the request does not approve or grant any of them. <strong>Antitrust</strong> is the area of law the plaintiffs invoke in arguing that the alleged agreement restrained competition.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Both key events are dated (September 12 essay, September 18 filing), the source is a docketed public PDF, and the report explicitly bounds itself to the complaint, not later filings or rulings.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement. Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development. This report describes the September 18 complaint, not later filings or rulings.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case. If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers. This report is about what the plaintiffs filed on September 18.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The September 12 public essay and the September 18 filing are kept distinct, and the pleaded sequence is separated from any newly established fact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement. Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development. This report describes the September 18 complaint, not later filings or rulings.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "P006 gives concrete consequences (no automatic refund or class membership) while P002 preserves uncertainty about agreement, legality and remedy throughout.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case. If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers. This report is about what the plaintiffs filed on September 18.</p>",
+          "locator": "P006"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Only two terms are defined and each is immediately connected to what the plaintiffs did and asked for.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop the story sequentially — filing, pleaded sequence, procedure, analogy, consequence — with no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The café comparison does the core explanatory job of separating independent from coordinated action and carries its own limit.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references; the single analogy is functional.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal chain from paid subscriptions to alleged agreement to claimed reduced value to requested relief is complete.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Advice is case-specific: what was filed or ordered, the applicable date, and what the provider told customers.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Class action and antitrust are explained at first meaningful use; no unexplained legal jargon remains.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Plaintiffs, defendants, the complaint, the court's role and the reader's subscription are connected in one flow of effect.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is consistently pared back: allegations attributed to plaintiffs, no prediction of outcome, filing decides nothing.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "All time-sensitive claims are dated (September 12 essay, September 18 filing) and traceable to the docketed complaint.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete throughout; no vague corporate or motivational filler.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The consumer stake and café scene keep human interest alive; it never becomes a terminology manual.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is invoked anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's question — who is suing and over what — is fully answered with the procedural limit explained.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The café example returns explicitly to the legal mechanism: agreement versus independent action in this case.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The voice is original and plain; no imitation of any communicator's mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The single light element serves the distinction; nothing displaces understanding.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "There is no oversized hook; the mechanism occupies the body of the piece.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No conclusion is asserted before its basis; the piece pointedly withholds any conclusion the court has not reached.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending narrows rather than inflates: it restricts itself to what was filed on September 18.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers the full reader job: alleged harm, the independent-safety distinction, and why a complaint is not a judgment.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The reader's stake — paid subscriptions allegedly losing value — opens the piece before any procedure is explained.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The café example is one short paragraph and never crowds the report's purpose.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "For a bounded news report the organising perspective is the reader's subscription and the case's procedural stage, exactly the right scope.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+        "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "filing-parties",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AI subscribers sue four companies over an alleged agreement to slow development",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "CHARLES BUIST, CHEYENNE HUNT, CHRISTINE BULLOCK, and NICK SPETSAS ... v. ANTHROPIC, PBC; OPENAI OPCO, LLC; SPACEXAI LLC; AND GOOGLE LLC.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "P002 matches the complaint caption and stamp: four named subscribers, Document 1 filed 09/18/26, against Anthropic PBC, OpenAI OpCo, SpaceXAI and Google, framed strictly as a filing fact."
+      },
+      {
+        "claimId": "alleged-restraint",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "This action challenges an agreement among the four companies at the frontier of artificial intelligence—Anthropic, OpenAI, SpaceXAI, and Google—to slow the pace at which each company improves the competing products it sells to consumers.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          },
+          {
+            "excerpt": "The value of those subscriptions consists of access to Defendants’ most capable models and to the improvements Defendants continually release. Defendants market and price those subscriptions on exactly that basis. An agreement that slows improvement lowers the quality of what subscribers receive for the price they pay.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "P002 mirrors paragraph 1 (challenged agreement to slow competing products) and paragraphs 14–15 (subscription value tied to improvements), and correctly attributes it as an unresolved allegation."
+      },
+      {
+        "claimId": "amodei-sequence",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement. Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development. This report describes the September 18 complaint, not later filings or rulings.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "On the morning of September 12, 2026, Anthropic’s Chief Executive Officer, Dario Amodei, published an essay titled We Must Pace the Frontier. It declared: “We must slow the pace at which we improve the capabilities of AI models.” It called for “industry-wide coordination” among frontier laboratories.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "P003 accurately reports the complaint's paragraph 2 account of Amodei's September 12 essay calling to slow capability improvements, and explicitly labels it the plaintiffs' pleaded sequence rather than proof of agreement."
+      },
+      {
+        "claimId": "independent-safety-boundary",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement. Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development. This report describes the September 18 complaint, not later filings or rulings.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "“The plaintiffs say companies may make their own safety choices. Their complaint targets an alleged agreement among rivals about the pace of development.”",
+            "locator": "P007"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Plaintiffs do not seek to prohibit any Defendant from independently adopting safety measures or product guardrails, independently slowing or suspending its own development.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "P003's 'narrow line' faithfully restates paragraph 151: plaintiffs do not seek to prohibit any defendant from independently adopting safety measures or slowing its own development, presented as a pleaded limit, not a ruling."
+      },
+      {
+        "claimId": "requested-relief",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>A <strong>proposed class action</strong> is a request to bring one case for a larger group. The plaintiffs ask for class certification, damages and an order stopping the alleged agreement; filing the request does not approve or grant any of them. <strong>Antitrust</strong> is the area of law the plaintiffs invoke in arguing that the alleged agreement restrained competition.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The Class consists of all persons in the United States who ... purchased an individual subscription ... Plaintiffs request certification, damages and injunctive relief.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "P004 matches the complaint's request for certification, damages and injunctive relief (paragraphs 123–124 and prayer) and correctly states that filing grants none of them."
+      },
+      {
+        "claimId": "legal-theory",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>A <strong>proposed class action</strong> is a request to bring one case for a larger group. The plaintiffs ask for class certification, damages and an order stopping the alleged agreement; filing the request does not approve or grant any of them. <strong>Antitrust</strong> is the area of law the plaintiffs invoke in arguing that the alleged agreement restrained competition.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Violation of Section 1 of the Sherman Act, 15 U.S.C. § 1 (Against All Defendants).",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "P004 identifies antitrust as the invoked area of law; the complaint's first claim pleads Sherman Act §1 against all defendants, so the article's plainer framing is accurate and conservatively within the source."
+      }
+    ],
+    "reviewedThrough": "2026-09-26",
+    "nextTrigger": "A later filing, ruling, class-certification decision, settlement, dismissal, provider customer notice, or a fresh dated report.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "predecessors": [
+      {
+        "storyId": "amodei-ai-pacing-20260912",
+        "storySha256": "8b365596a7b65f4c51a137e8455ee56ce8ce0e2ca5fe4ac2b14046496407fc96"
+      }
+    ],
+    "noComparableReason": "First candidate-specific producer review of this September 18 complaint; the Amodei pacing story is prior public chronology, not a comparable review artifact."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All reader outcomes and news checks pass and every failure family is clear; no repair or additional evidence is needed."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=2; evidence gaps repaired=1; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/independent-review/final-v5/news-editorial-analysis.json",
+      "sha256": "46d2d4bb9a6a44fe1cb9290c5c8c9b6bdd8417b95452f587a1907c3215a2b54c"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/independent-review/final-v5/independent-raw-report.json",
+    "sha256": "4b2b49c8080286d360d1ad0842f649a4502a84912fe73eef1129c23c82806586"
+  }
+}

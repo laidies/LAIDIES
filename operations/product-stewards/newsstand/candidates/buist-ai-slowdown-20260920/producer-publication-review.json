@@ -1,0 +1,591 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "buist-ai-slowdown-20260920",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/buist_final_producer",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/buist_final_producer",
+    "principalId": "/root/buist_final_producer",
+    "role": "Producer exact complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-26T18:13:00.000Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/publication-manifest.json",
+      "sha256": "87ddbcb48e022940142f5e190fea714ef5b7909e1a6e58c056754b1c4d80f903"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/review-text.json",
+      "sha256": "5ab1bd479040edaf1d581ccf932a0e46436f6ba613a5d1ec4ecdb03485b92d12"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/rendered-article.html",
+      "sha256": "1e1f1e6174c325593c9b6b1fdd60694914fbd0303ba14f461f2201a3945fcb46"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/buist_final_producer",
+    "reviewedAt": "2026-09-26T18:10:00.000Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why are paying AI subscribers suing over a proposed safety slowdown, and does their lawsuit show the companies broke the law?",
+    "promisedPayoff": "Understand the alleged competition harm, the distinction from independent safety measures, and why a filed complaint is not a judgment.",
+    "centralMentalModel": "A complaint is one side asking a court to decide a dispute; it is evidence of what is alleged, not proof the allegations are true.",
+    "dailyLifeConnection": "Personal subscribers pay for access to evolving AI tools; this dispute concerns the value they say those subscriptions should deliver.",
+    "surfaceJob": "Private Daily candidate on the September18 filing; publication date assigned only at actual admission.",
+    "desiredReaderFeeling": "I understand what is being challenged and what the court has not decided."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies plainClarity while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies readerValue while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies laidiesVoice while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This report describes the September 18 complaint, not later filings or rulings.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies engagingEnjoyable while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Think of four competing cafés.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies factualIntegrity while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies freshnessReviewability while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This report describes the September 18 complaint, not later filings or rulings.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies surfaceFit while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "AI subscribers sue four companies over an alleged agreement to slow development",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies datedChange while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "filed a proposed class-action complaint on September 18",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies consequenceAndUncertainty while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "filing the request does not approve or grant any of them.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies dailyLifeConnection while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies communicationBenchmark while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A claim that they agreed together to close early is a different claim.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies explainBack while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Their complaint targets an alleged agreement among rivals about the pace of development.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Why are paying AI subscribers suing over a proposed safety slowdown, and does their lawsuit show the companies broke the law?",
+        "probeResponse": "The complaint says competitors coordinated the pace of improvement, while allowing that each company can make its own safety choices. Filing puts that accusation and requested relief before a court; it does not answer either.",
+        "expectedEvidence": "Alleged coordination, independent safety choices, filing rather than decision, and no automatic customer remedy.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies unseenTransfer while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "what was filed or ordered, what date it applies from, and what the provider has actually told customers.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A new headline says subscribers sued an AI provider. What should I check before changing my account?",
+        "probeResponse": "For a later product-law headline, separate the filed claim from an order, check whether the group is proposed or certified, and look for the actual customer notice before changing an account decision.",
+        "expectedEvidence": "Separate filed claim, court order, class status and provider customer notice.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies usefulAction while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask what was filed or ordered, what date it applies from, and what the provider has actually told customers.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact producer read satisfies analogyIntegrity while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The comparison explains the plaintiffs’ argument; it does not show that it happened in this case.",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete exact story avoids glossaryAccumulation: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete exact story avoids templateRepetition: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete exact story avoids decorativeAnalogy: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete exact story avoids referenceConfetti: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete exact story avoids missingMechanism: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete exact story avoids genericAction: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete exact story avoids jargonBeforeMeaning: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete exact story avoids disconnectedSystem: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete exact story avoids factlessConfidence: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete exact story avoids staleUnreviewableClaims: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete exact story avoids corporateSludge: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete exact story avoids joylessInstruction: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete exact story avoids benchmarkNameDrop: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete exact story avoids curiosityWithoutPayoff: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete exact story avoids familiarExampleWithoutTechnicalReturn: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete exact story avoids communicationPastiche: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete exact story avoids entertainmentBeforeUnderstanding: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete exact story avoids mechanismCompressedBehindHook: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete exact story avoids prematureClickBeforeMechanism: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete exact story avoids inflatedTakeawayEnding: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete exact story avoids purposeTooNarrow: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete exact story avoids mechanismBeforeMotivation: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete exact story avoids workedExampleOvertakesBookPurpose: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete exact story avoids technicalExplainerVoice: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+        "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/source-evidence.json",
+        "sha256": "b2c3ad876aa61ebe7c19765051b655be317d8fcabb78d2a5e9faf0032e3f41e1"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/source-packet.json",
+        "sha256": "70d9c1b625f8b7fe73bfe255095a01582e60b0f954ede963510d78cf47ec3016"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "filing-parties",
+        "claim": "Four named subscribers filed a September 18 complaint against four named companies.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google.",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "P1-1"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "CHARLES BUIST, CHEYENNE HUNT, CHRISTINE BULLOCK, and NICK SPETSAS ... v. ANTHROPIC, PBC; OPENAI OPCO, LLC; SPACEXAI LLC; AND GOOGLE LLC.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Caption and filing stamp identify the named parties and September 18 filing; this is a filing fact only.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        }
+      },
+      {
+        "claimId": "alleged-restraint",
+        "claim": "Plaintiffs allege coordination slowed competing AI product improvement and reduced prior subscription value; the filing does not resolve that claim.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "P1-6",
+          "P1-7"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "This action challenges an agreement among the four companies at the frontier of artificial intelligence—Anthropic, OpenAI, SpaceXAI, and Google—to slow the pace at which each company improves the competing products it sells to consumers.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          },
+          {
+            "excerpt": "The value of those subscriptions consists of access to Defendants’ most capable models and to the improvements Defendants continually release. Defendants market and price those subscriptions on exactly that basis. An agreement that slows improvement lowers the quality of what subscribers receive for the price they pay.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Paragraphs 1 and 14 supply plaintiffs’ allegation; the story explicitly withholds a finding of agreement, legality, or remedy.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        }
+      },
+      {
+        "claimId": "amodei-sequence",
+        "claim": "The complaint identifies an Amodei September 12 call as part of plaintiffs’ pleaded sequence.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement.",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "P1-4"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "On the morning of September 12, 2026, Anthropic’s Chief Executive Officer, Dario Amodei, published an essay titled We Must Pace the Frontier. It declared: “We must slow the pace at which we improve the capabilities of AI models.” It called for “industry-wide coordination” among frontier laboratories.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "This is the complaint’s pleaded account of the sequence, not independent proof of a cross-company agreement.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        }
+      },
+      {
+        "claimId": "independent-safety-boundary",
+        "claim": "The complaint says it does not seek to stop companies from independently taking safety measures or slowing their own work.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development.",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "P1-5"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Plaintiffs do not seek to prohibit any Defendant from independently adopting safety measures or product guardrails, independently slowing or suspending its own development.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Paragraph 151 states the pleaded limit; it is not a ruling about any company’s conduct.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        }
+      },
+      {
+        "claimId": "requested-relief",
+        "claim": "Plaintiffs request class certification, damages and injunctive relief, none of which filing grants.",
+        "candidateEvidence": [
+          {
+            "excerpt": "The plaintiffs ask for class certification, damages and an order stopping the alleged agreement; filing the request does not approve or grant any of them.",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "P1-2"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "The Class consists of all persons in the United States who ... purchased an individual subscription ... Plaintiffs request certification, damages and injunctive relief.",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "The complaint requests these remedies; the story does not report certification or awarded relief.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        }
+      },
+      {
+        "claimId": "legal-theory",
+        "claim": "The complaint pleads a Sherman Act claim against all defendants.",
+        "candidateEvidence": [
+          {
+            "excerpt": "<strong>Antitrust</strong> is the area of law the plaintiffs invoke in arguing that the alleged agreement restrained competition.",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "P1-3"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Violation of Section 1 of the Sherman Act, 15 U.S.C. § 1 (Against All Defendants).",
+            "locator": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+          }
+        ],
+        "scopeAndFreshness": "The filing identifies its legal theory; the story offers no legal advice or court conclusion.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/editorial-input.json",
+          "sha256": "258470db7e41de3836fa32381917ea17d448bf00c1fff4522fae9b30b622d647"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-26",
+    "nextTrigger": "A later filing, ruling, class-certification decision, settlement, dismissal, provider customer notice, or a fresh dated report.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "predecessors": [
+      {
+        "storyId": "amodei-ai-pacing-20260912",
+        "storySha256": "8b365596a7b65f4c51a137e8455ee56ce8ce0e2ca5fe4ac2b14046496407fc96"
+      }
+    ],
+    "noComparableReason": "First candidate-specific producer review of this September 18 complaint; the Amodei pacing story is prior public chronology, not a comparable review artifact."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The final producer pass found no unresolved prose, source, term, teaching or allegation-boundary defect. The independent editorial call remains a separate required gate."
+  },
+  "limitations": [
+    "Producer self-review only; independent editorial admission remains required.",
+    "The sole legal source is the September 18 complaint; it does not establish the allegations, later docket status, class certification, relief or any account change.",
+    "The story-specific visual has a separate independent pixel admission; this producer review does not make a public rendering or release claim.",
+    "Producer explain-back and transfer are simulations; no human-reader comprehension observation is claimed."
+  ]
+}

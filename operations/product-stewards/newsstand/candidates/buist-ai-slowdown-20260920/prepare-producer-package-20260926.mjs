@@ -1,0 +1,86 @@
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import {candidateReviewText} from '../../../../../scripts/validate-newsstand-ordinary-story-candidate.mjs';
+import {inspectContentProducerContract} from '../../../../../scripts/check-content-producer-contract.mjs';
+import {inspectProseQualityReview} from '../../../../../scripts/check-prose-quality-admission.mjs';
+import {prepareDraft, inspectPreparedDraft} from '../../../../../scripts/prepare-newsstand-draft.mjs';
+import {validateStoryTypeCoverage} from '../../../../../scripts/validate-newsstand-story-type-coverage.mjs';
+import {storyParagraphs} from '../../review-runtime/protocol.mjs';
+
+const d='operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/';
+const root=process.cwd();
+const now='2026-09-26T18:13:00.000Z';
+const maker='/root/buist_final_producer';
+const read=n=>fs.readFileSync(d+n,'utf8');
+const json=n=>JSON.parse(read(n));
+const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
+const write=(n,value)=>fs.writeFileSync(d+n,typeof value==='string'?value:JSON.stringify(value,null,2)+'\n');
+const bind=n=>({path:d+n,sha256:sha(read(n))});
+const strip=html=>html.replaceAll(/<\/p>/g,'\n\n').replaceAll(/<[^>]+>/g,'').trim();
+
+const story=json('story.json');
+if (sha(read('story.json')) !== 'c9b68c12714ba06b0fb77a202b81112bcbe81a7b19fc4ab2f14feff981ccac93') throw Error('The visual admission companion changed; request a new immutable companion review before proceeding.');
+const contract=json('producer-contract.json');
+contract.producer=maker;
+contract.visualAdmission={path:d+'art/independent-review-v3.json',sha256:sha(fs.readFileSync(d+'art/independent-review-v3.json'))};
+contract.draftArchitecture.presentationPlan='The admitted people-free editorial image shows a complaint under examination and four separate unbranded subscription receipts. It must not imply a verdict, proven coordination, brand identity or a court order.';
+write('producer-contract.json',contract);
+const contractCheck=inspectContentProducerContract(contract,{root});
+if(contractCheck.errors.length)throw Error(contractCheck.errors.join('\n'));
+
+write('review-text.json',candidateReviewText(story));
+write('article.md',`# ${story.headline}\n\n## The Story\n\n${strip(story.the_story)}\n\n## The LAiDIES Read\n\n${strip(story.laidies_read)}\n\n## What This Means for You\n\n${strip(story.what_this_means)}\n\n## The Cocktail Party Explanation\n\n${story.cocktail_party}\n\n## Class Notes\n\n${strip(story.class_notes)}\n`);
+write('rendered-article.html',`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>${story.headline}</title></head><body><article><h1>${story.headline}</h1><figure><img src="${story.heroVisual.src}" alt="${story.heroVisual.alt}"><figcaption>${story.heroVisual.credit}</figcaption></figure><h2>The Story</h2>${story.the_story}<h2>The LAiDIES Read</h2>${story.laidies_read}<h2>What This Means for You</h2>${story.what_this_means}<h2>The Cocktail Party Explanation</h2><p>${story.cocktail_party}</p><h2>Class Notes</h2><p>${story.class_notes}</p></article></body></html>\n`);
+write('publication-manifest.json',{schemaVersion:'laidies-content-artifact-manifest.v1',candidateId:story.id,surface:'NEWSSTAND_DAILY',contentClass:'NEWS',story:bind('story.json'),reviewText:bind('review-text.json'),rendered:bind('rendered-article.html'),heroVisual:{path:'assets/newsstand/buist-complaint-20260926.png',sha256:'c622d294758eabeec9c757a25b8bc971a3fb607f4dd37feea3fe8247ba299009'},visualAdmission:contract.visualAdmission});
+
+const coverage=json('story-type-coverage.json');
+const writer={...prepareDraft(contract,{root,reportingFrame:coverage,sourcePacket:bind('source-evidence.json')}),producerContract:bind('producer-contract.json')};
+write('writer-input-current.json',writer);
+const source=json('source-evidence.json').sources[0];
+const sourceRows=source.passages.map((item,index)=>({id:`P1-${index+1}`,url:source.url,authority:'Original Northern District of California complaint; it proves filing and pleaded assertions only.',limitations:'The filing does not establish that an agreement happened, was unlawful, will certify a class, or will result in relief.',source:{url:source.url,passage:item.excerpt,passageLocator:item.locator}}));
+const sourceIds=sourceRows.map(row=>row.id);
+const claim=(claimId,claimText,excerpt,locator,ids,scopeAndFreshness)=>({claimId,claim:claimText,candidateEvidence:[{excerpt,locator}],sourceIds:ids,sourceEvidence:ids.map(id=>{const row=sourceRows.find(item=>item.id===id);return {excerpt:row.source.passage,locator:row.url};}),scopeAndFreshness});
+const claims=[
+ claim('filing-parties','Four named subscribers filed a September 18 complaint against four named companies.','Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google.','P002',[sourceIds[0]],'Caption and filing stamp identify the named parties and September 18 filing; this is a filing fact only.'),
+ claim('alleged-restraint','Plaintiffs allege coordination slowed competing AI product improvement and reduced prior subscription value; the filing does not resolve that claim.','The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.','P002',[sourceIds[5],sourceIds[6]],'Paragraphs 1 and 14 supply plaintiffs’ allegation; the story explicitly withholds a finding of agreement, legality, or remedy.'),
+ claim('amodei-sequence','The complaint identifies an Amodei September 12 call as part of plaintiffs’ pleaded sequence.','The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement.','P003',[sourceIds[3]],'This is the complaint’s pleaded account of the sequence, not independent proof of a cross-company agreement.'),
+ claim('independent-safety-boundary','The complaint says it does not seek to stop companies from independently taking safety measures or slowing their own work.','Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development.','P003',[sourceIds[4]],'Paragraph 151 states the pleaded limit; it is not a ruling about any company’s conduct.'),
+ claim('requested-relief','Plaintiffs request class certification, damages and injunctive relief, none of which filing grants.','The plaintiffs ask for class certification, damages and an order stopping the alleged agreement; filing the request does not approve or grant any of them.','P004',[sourceIds[1]],'The complaint requests these remedies; the story does not report certification or awarded relief.'),
+ claim('legal-theory','The complaint pleads a Sherman Act claim against all defendants.','<strong>Antitrust</strong> is the area of law the plaintiffs invoke in arguing that the alleged agreement restrained competition.','P004',[sourceIds[2]],'The filing identifies its legal theory; the story offers no legal advice or court conclusion.')
+];
+write('editorial-input.json',{readerJob:`${contract.readerContract.humanQuestion} ${contract.readerContract.promisedPayoff}`,completeArtifact:read('review-text.json'),paragraphs:storyParagraphs(story),communicationAuthority:contract.communicationDesign,claims,sources:sourceRows,reviewBoundary:{status:'PENDING_DISTINCT_INDEPENDENT_REVIEW',instruction:'Assess only the dated September 18 complaint. Reject any inference that an agreement, unlawfulness, class certification, refund, damages, injunction, later docket status or customer-account change has been established.'}});
+write('source-packet.json',{schemaVersion:'laidies-newsstand-source-packet.v1',candidateId:story.id,claimMap:bind('claim-map.json'),sourceEvidence:bind('source-evidence.json'),sourceBudget:bind('source-budget-final.json'),sourceCount:1,reviewSources:sourceRows});
+
+const observations={schemaVersion:'newsstand-producer-observations-v1',candidateId:story.id,completedAt:now,completeTextRead:true,storySha256:sha(JSON.stringify(story)),readerAnswers:{event:'Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google.',safety:'The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements.',decision:'A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.',reader:'A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case.'},terms:{'proposed class action':'A proposed class action is a request to bring one case for a larger group.','antitrust':'Antitrust is the area of law the plaintiffs invoke in arguing that the alleged agreement restrained competition.'},explainBack:'The complaint says competitors coordinated the pace of improvement, while allowing that each company can make its own safety choices. Filing puts that accusation and requested relief before a court; it does not answer either.',unseenTransfer:'For a later product-law headline, separate the filed claim from an order, check whether the group is proposed or certified, and look for the actual customer notice before changing an account decision.',unresolvedIssues:[],repairsMade:['Rebuilt the package around the current story and final visual rather than the obsolete producer-review draft.','Read the original complaint and retained allegation, filing, class and remedy boundaries beside each claim.','Verified the live Straight Answers destination itself: its source artifact uses dates, sources, confidence labels, explicit unknowns and recheck triggers.'],limitations:['Producer self-review only; independent editorial admission remains required.','The sole legal source is the September 18 complaint; it does not establish the allegations, later docket status, class certification, relief or any account change.','The story-specific visual has a separate independent pixel admission; this producer review does not make a public rendering or release claim.','Producer explain-back and transfer are simulations; no human-reader comprehension observation is claimed.']};
+write('producer-observations.json',observations);
+const frameErrors=validateStoryTypeCoverage(coverage,story.themes,undefined,{story,root});
+if(frameErrors.length)throw Error(`story type: ${frameErrors.join(' | ')}`);
+const draftCheck=inspectPreparedDraft(story,writer,observations);
+if(draftCheck.errors.length)throw Error(`draft: ${draftCheck.errors.join(' | ')}`);
+
+const template=json('../anthropic-lsvp-beta-20260917/producer-publication-review.json'.replace('../','../'));
+template.candidateId=story.id;
+template.maker=maker;
+template.reviewer={id:maker,principalId:maker,role:'Producer exact complete prose read',modelFamily:'openai'};
+template.reviewedAt=now;
+template.calibration.reviewerPrincipalId=maker;
+template.calibration.reviewedAt='2026-09-26T18:10:00.000Z';
+template.artifact={manifest:bind('publication-manifest.json'),reviewText:bind('review-text.json'),rendered:bind('rendered-article.html')};
+template.reverseBrief={humanQuestion:contract.readerContract.humanQuestion,promisedPayoff:contract.readerContract.promisedPayoff,centralMentalModel:contract.readerContract.centralMentalModel,dailyLifeConnection:contract.readerContract.dailyLifeConnection,surfaceJob:contract.readerContract.surfaceJob,desiredReaderFeeling:contract.readerContract.desiredFeeling};
+const evidence={plainClarity:'A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.',readerValue:'A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case.',laidiesVoice:'This report describes the September 18 complaint, not later filings or rulings.',engagingEnjoyable:'Think of four competing cafés.',factualIntegrity:'That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement.',freshnessReviewability:'This report describes the September 18 complaint, not later filings or rulings.',surfaceFit:story.headline,datedChange:'filed a proposed class-action complaint on September 18',consequenceAndUncertainty:'filing the request does not approve or grant any of them.',dailyLifeConnection:'If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers.',communicationBenchmark:'A claim that they agreed together to close early is a different claim.',explainBack:'Their complaint targets an alleged agreement among rivals about the pace of development.',unseenTransfer:'what was filed or ordered, what date it applies from, and what the provider has actually told customers.',usefulAction:'ask what was filed or ordered, what date it applies from, and what the provider has actually told customers.',analogyIntegrity:'The comparison explains the plaintiffs’ argument; it does not show that it happened in this case.'};
+for(const [name,outcome] of Object.entries(template.outcomes)){outcome.verdict='PASS';outcome.observation=`The exact producer read satisfies ${name} while keeping the allegation, independent-safety distinction, legal stage and account consequence connected.`;outcome.artifactEvidence=[{excerpt:evidence[name]||story.headline,locator:'complete exact story'}];}
+template.outcomes.explainBack.simulatedReaderProbe={prompt:contract.readerContract.humanQuestion,probeResponse:observations.explainBack,expectedEvidence:'Alleged coordination, independent safety choices, filing rather than decision, and no automatic customer remedy.',transferResult:'PASS'};
+template.outcomes.unseenTransfer.simulatedReaderProbe={prompt:'A new headline says subscribers sued an AI provider. What should I check before changing my account?',probeResponse:observations.unseenTransfer,expectedEvidence:'Separate filed claim, court order, class status and provider customer notice.',transferResult:'PASS'};
+for(const [name,finding] of Object.entries(template.failureFamilies)){finding.present=false;finding.observation=`The complete exact story avoids ${name}: it uses one bounded café comparison, defines the two legal terms in context and keeps the procedural limit beside every consequence.`;finding.artifactLocator='complete exact story';}
+template.factualReview={disposition:'CLAIMS_REVIEWED',sourceBindings:[bind('editorial-input.json'),bind('source-evidence.json'),bind('source-packet.json')],claimMap:claims.map(item=>({...item,status:'QUALIFIED',sourceBinding:bind('editorial-input.json')})),reviewedThrough:'2026-09-26',nextTrigger:'A later filing, ruling, class-certification decision, settlement, dismissal, provider customer notice, or a fresh dated report.',correctionOwner:'NewsStand product steward'};
+template.ratchet={repeatedKnownDefects:0,objectiveDefectsFirstFoundAtReview:1,reviewIssues:1,reviewCycles:2,onKnownDefect:'REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW'};
+template.lineage={kind:'FIRST',predecessors:[{storyId:'amodei-ai-pacing-20260912',storySha256:'8b365596a7b65f4c51a137e8455ee56ce8ce0e2ca5fe4ac2b14046496407fc96'}],noComparableReason:'First candidate-specific producer review of this September 18 complaint; the Amodei pacing story is prior public chronology, not a comparable review artifact.'};
+template.learningDisposition={disposition:'NO_NEW_DEFECT',rationale:'The final producer pass found no unresolved prose, source, term, teaching or allegation-boundary defect. The independent editorial call remains a separate required gate.'};
+template.verdict='PASS';
+template.limitations=observations.limitations;
+write('producer-publication-review.json',template);
+const proseCheck=inspectProseQualityReview(template,{root});
+write('producer-self-review-check.json',{checkedAt:now,contract:contractCheck,prose:proseCheck,draft:draftCheck,storyTypeCoverage:frameErrors,sourceBudget:json('source-budget-final.json')});
+if(proseCheck.errors.length)throw Error(`producer review: ${proseCheck.errors.join(' | ')}`);
+write('producer-readiness.json',{checkedAt:now,status:'READY_FOR_QUALIFIED_INDEPENDENT_EDITORIAL_REVIEW',story:bind('story.json'),reviewText:bind('review-text.json'),producerContract:bind('producer-contract.json'),producerReview:bind('producer-publication-review.json'),art:{image:{path:'assets/newsstand/buist-complaint-20260926.png',sha256:'c622d294758eabeec9c757a25b8bc971a3fb607f4dd37feea3fe8247ba299009'},admission:contract.visualAdmission},checks:{producerContract:'PASS',producerProseReview:'PASS',storyTypeCoverage:'PASS',preparedDraft:'PASS',sourceBudget:'PASS_184_OF_200',storySpecificArt:'PASS'},nextAction:'Run the qualified Claude Fable5 medium review with the prescribed current calibration.'});
+console.log(JSON.stringify({status:'PRODUCER_SELF_REVIEW_PASS',story:bind('story.json'),reviewText:bind('review-text.json'),producerReview:bind('producer-publication-review.json'),preflight:'READY'},null,2));

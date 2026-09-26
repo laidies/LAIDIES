@@ -7,6 +7,7 @@
   // Reviewed September 26. Newest Vancouver date first; relevance within each day.
   var order = [
   "openai-agent-australia-medicare-20260924",
+  "buist-ai-slowdown-20260920",
   "california-ai-oversight-order-20260920",
   "california-data-centre-laws-20260921",
   "gpt-6-sol-luna-20260922",

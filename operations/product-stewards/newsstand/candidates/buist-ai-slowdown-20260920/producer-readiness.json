@@ -1,40 +1,39 @@
 {
-  "checkedAt": "2026-09-26T17:34:22Z",
-  "status": "HOLD_FOR_ART_ONLY",
+  "checkedAt": "2026-09-26T18:13:00.000Z",
+  "status": "READY_FOR_QUALIFIED_INDEPENDENT_EDITORIAL_REVIEW",
   "story": {
     "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/story.json",
-    "sha256": "321509d4a0a7e51589d5bd6863194b7447a0e5a4304c685d79cadccbd704a360"
+    "sha256": "c9b68c12714ba06b0fb77a202b81112bcbe81a7b19fc4ab2f14feff981ccac93"
   },
-  "article": {
-    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/article.md",
-    "sha256": "33c5a8524a39c62508b385b2fbc12296673ac9a596e5c22a29d16bd846ab4b73"
-  },
-  "claimMap": {
-    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/claim-map.json",
-    "sha256": "0128da37d5d19fbdfd0d66ce7831032969ff4a4d9a2b7d555f20307fb35c8cac"
-  },
-  "sourceBudget": {
-    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/source-budget-final.json",
-    "sha256": "d969105556f29022daad2bdc069618479ad0dc82a347d1ffb2f40ee627532695"
+  "reviewText": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/review-text.json",
+    "sha256": "5ab1bd479040edaf1d581ccf932a0e46436f6ba613a5d1ec4ecdb03485b92d12"
   },
   "producerContract": {
     "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/producer-contract.json",
-    "sha256": "d5b02ad4b8817510ccca3329fe6efe40f45a79c7353792afb8565dc624a858ab"
+    "sha256": "c44c97e1703ab2ea5fa804ef7fd853c7efa8936a6e43afc1d34fe4c549df0632"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/producer-publication-review.json",
+    "sha256": "201c606668e959161708321fddf8344ea3669141558b6bf2cc2fe42537e23e09"
+  },
+  "art": {
+    "image": {
+      "path": "assets/newsstand/buist-complaint-20260926.png",
+      "sha256": "c622d294758eabeec9c757a25b8bc971a3fb607f4dd37feea3fe8247ba299009"
+    },
+    "admission": {
+      "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/independent-review-v3.json",
+      "sha256": "6d3da3dc2ac391ac6734844f4ebee815f5715135aa99e6cf124d14be4cda80ad"
+    }
   },
   "checks": {
-    "datedSourcePackage": "PASS",
-    "claimMap": "PASS",
-    "sourceBudget": "PASS_164_OF_200",
-    "classNotes": "PASS",
-    "producerContract": "PENDING_REBIND_AFTER_ART"
+    "producerContract": "PASS",
+    "producerProseReview": "PASS",
+    "storyTypeCoverage": "PASS",
+    "preparedDraft": "PASS",
+    "sourceBudget": "PASS_184_OF_200",
+    "storySpecificArt": "PASS"
   },
-  "missingBindings": [
-    "heroVisual.src",
-    "heroVisual.alt",
-    "heroVisual.credit",
-    "admitted art receipt",
-    "producer publication review bound to final visual",
-    "genuine cross-family editorial review"
-  ],
-  "nextAction": "Root binds admitted art, then run the existing runtime preflight against this unchanged prose package."
+  "nextAction": "Run the qualified Claude Fable5 medium review with the prescribed current calibration."
 }

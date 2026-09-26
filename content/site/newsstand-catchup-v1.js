@@ -39,7 +39,7 @@
 
   function text(value) {
     var node = document.createElement("div");
-    node.innerHTML = String(value || "");
+    node.innerHTML = String(value || "").replace(/<br\b[^>]*>|<\/(?:p|div|li|h[1-6]|blockquote|section)>/gi, " ");
     return (node.textContent || "").replace(/\s+/g, " ").trim();
   }
 

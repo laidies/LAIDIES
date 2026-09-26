@@ -1,23 +1,52 @@
 {
   "schema": "laidies.newsstand-story-type-coverage.v1",
-  "primaryType": "legal-accountability-report",
+  "primaryType": "legal-policy",
+  "overlays": [],
   "universalAnswers": {
-    "whatHappened": "Four subscribers filed a complaint on September 18.",
-    "plainLanguageIdentity": "A dated report about what plaintiffs filed, not a decision on their claims.",
+    "whatHappened": "Four subscribers filed a September 18 complaint alleging an agreement to slow AI development.",
+    "plainLanguageIdentity": "A dated complaint report, not a court decision or customer notice.",
     "evidenceBasis": "The original 29-page complaint.",
-    "evidenceLimits": "The filing does not decide alleged conduct, unlawfulness, class certification, relief, or later case status.",
-    "readerRelevance": "A paying subscriber can distinguish a complaint from a change to her plan or a court order.",
-    "readerAction": "Check whether a report describes a filing, order, or customer notice before acting on it."
+    "evidenceLimits": "The filing establishes what plaintiffs alleged and requested, not agreement, unlawfulness, class certification, relief, or later case status.",
+    "readerRelevance": "Subscribers can distinguish an allegation from an account change or court order.",
+    "affectedPeople": "The four named plaintiffs, the four named defendant companies, and the proposed group described in the complaint; filing does not make every subscriber a class member.",
+    "changesNow": "The complaint was filed September 18; this report describes that filing only.",
+    "uncertainty": "Whether the alleged agreement occurred, was unlawful, or produces relief is not decided by filing.",
+    "readerAction": "Before acting on a legal headline, identify whether it describes a complaint, an order, or a direct customer notice.",
+    "betterQuestion": "What did the filing allege and request, and what later document would actually decide it?"
+  },
+  "typeAnswers": {
+    "legal-policy": {
+      "legalStatus": "A private proposed class-action complaint filed September 18 in the Northern District of California.",
+      "jurisdiction": "United States District Court for the Northern District of California, San Francisco Division.",
+      "parties": "Four named subscribers sued Anthropic, OpenAI OpCo, SpaceXAI and Google.",
+      "allegationVsFinding": "Plaintiffs allege an agreement restrained competition; the complaint is not a finding that it happened or was unlawful.",
+      "currentEffect": "Filing records claims and requests but does not itself change subscriptions, certify a class, grant damages, or impose an order.",
+      "unresolvedQuestions": "Whether an agreement occurred, whether it violates law, whether a class will be certified, and whether any relief is granted.",
+      "nextMilestone": "A later court filing or order would be needed for a later-status report."
+    }
   },
   "translation": {
-    "newsVersionExact": "Four paying AI subscribers filed a proposed class-action complaint on September 18.",
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google.",
     "actualMeaningExact": "A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.",
-    "mechanismExact": "The plaintiffs say competitors may not agree together on how quickly their products should improve.",
-    "familiarExampleExact": "Think of four competing cafés. Each can decide on its own to close early for a kitchen inspection.",
+    "mechanismExact": "The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought.",
+    "familiarExampleExact": "A claim that they agreed together to close early is a different claim.",
+    "jargon": [
+      {
+        "term": "proposed class action",
+        "plainMeaning": "a request to bring one case for a larger group"
+      },
+      {
+        "term": "antitrust",
+        "plainMeaning": "the area of law the plaintiffs invoke in arguing that the alleged agreement restrained competition"
+      }
+    ],
     "learningConnections": [
       {
+        "concept": "Dated sources and claim limits",
+        "learningPayoff": "Shows how to separate a sourced claim from the larger conclusion a headline invites.",
         "disposition": "link",
-        "destination": "/newsstand.html#amodei-ai-pacing-20260912"
+        "destination": "/library.html#straight-answers"
       }
     ]
   }

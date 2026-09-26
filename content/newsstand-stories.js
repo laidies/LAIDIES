@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-26T17:25:11.636Z",
-  "lastCheckedAt": "2026-09-26T17:25:11.636Z",
+  "generatedAt": "2026-09-26T18:27:49.745Z",
+  "lastCheckedAt": "2026-09-26T18:27:49.745Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -28,7 +28,8 @@ window.NEWSSTAND_DATA = {
           "openai-agent-australia-medicare-20260924",
           "california-ai-oversight-order-20260920",
           "california-data-centre-laws-20260921",
-          "claude-opus-5-5-20260924"
+          "claude-opus-5-5-20260924",
+          "buist-ai-slowdown-20260920"
         ],
         "serviceRecordIds": [
           "DAILY-2026-09-26-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
@@ -40,9 +41,9 @@ window.NEWSSTAND_DATA = {
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-26T17:25:11.636Z",
-      "updatedAt": "2026-09-26T17:25:11.636Z",
-      "lastCheckedAt": "2026-09-26T17:25:11.636Z",
+      "publishedAt": "2026-09-26T18:27:49.745Z",
+      "updatedAt": "2026-09-26T18:27:49.745Z",
+      "lastCheckedAt": "2026-09-26T18:27:49.745Z",
       "maxAgeHours": 36,
       "note": "The Daily for 2026-09-26."
     },
@@ -4358,7 +4359,8 @@ window.NEWSSTAND_DATA = {
       "predecessorStoryIds": [],
       "successorStoryIds": [
         "trump-ai-safeguards-20260913",
-        "trump-ai-guardrails-response-20260914"
+        "trump-ai-guardrails-response-20260914",
+        "buist-ai-slowdown-20260920"
       ],
       "relationshipType": null,
       "bigPicture": null,
@@ -7111,6 +7113,73 @@ window.NEWSSTAND_DATA = {
       "saint_lane": null,
       "badge": "THE LATEST",
       "retraction": null
+    },
+    {
+      "id": "buist-ai-slowdown-20260920",
+      "slug": "buist-ai-slowdown-20260920",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-26T18:27:49.745Z",
+      "updatedAt": "2026-09-26T17:52:45Z",
+      "lastCheckedAt": "2026-09-26T17:52:45Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:buist-ai-slowdown-20260920"
+      },
+      "headline": "AI subscribers sue four companies over an alleged agreement to slow development",
+      "heroVisual": {
+        "src": "/assets/newsstand/buist-complaint-20260926.png",
+        "alt": "Pop-art editorial still life of an open complaint folder under a magnifying glass, beside four separate trays each holding an unbranded subscription receipt slip.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Four paying AI subscribers filed a proposed class-action complaint on September 18 against Anthropic, OpenAI OpCo, SpaceXAI and Google. The plaintiffs allege the companies agreed to slow improvements to competing AI products, reducing the value of subscriptions people had already bought. A filing records that allegation; it does not decide whether an agreement happened, whether it was unlawful, or what remedy would follow.</p><p>The complaint points to a September 12 public call by Anthropic CEO Dario Amodei to slow AI capability improvements. That is the plaintiffs’ account of the sequence, not proof of a cross-company agreement. Their complaint draws a narrow line: it says it does not seek to stop a company from taking its own safety measures or slowing its own development. This report describes the September 18 complaint, not later filings or rulings.</p>",
+      "laidies_read": "<p>A <strong>proposed class action</strong> is a request to bring one case for a larger group. The plaintiffs ask for class certification, damages and an order stopping the alleged agreement; filing the request does not approve or grant any of them. <strong>Antitrust</strong> is the area of law the plaintiffs invoke in arguing that the alleged agreement restrained competition.</p><p>Think of four competing cafés. Each can decide on its own to close early for a kitchen inspection. A claim that they agreed together to close early is a different claim. The comparison explains the plaintiffs’ argument; it does not show that it happened in this case.</p>",
+      "what_this_means": "<p>A court filing does not change an AI subscription, establish a refund, or make every paid subscriber part of a case. If a legal story affects a service you use, ask what was filed or ordered, what date it applies from, and what the provider has actually told customers. This report is about what the plaintiffs filed on September 18.</p>",
+      "cocktail_party": "“The plaintiffs say companies may make their own safety choices. Their complaint targets an alleged agreement among rivals about the pace of development.”",
+      "class_notes": "<a href=\"/library.html#straight-answers\">Straight Answers About AI</a> models how to keep a dated, sourced claim separate from the larger conclusion a headline invites.",
+      "sources": [
+        {
+          "id": "buist-complaint-20260918",
+          "label": "Buist et al. v. Anthropic, PBC et al. — Complaint, No. 3:26-cv-10693 (N.D. Cal.)",
+          "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf",
+          "publisherType": "primary court filing",
+          "accessedAt": "2026-09-26",
+          "approvalStatus": "recovered-current"
+        }
+      ],
+      "themes": [
+        "AI governance",
+        "consumer subscriptions",
+        "legal process"
+      ],
+      "concepts": [
+        "allegation",
+        "proposed class action",
+        "independent decision-making"
+      ],
+      "tags": [
+        "Anthropic",
+        "OpenAI",
+        "Google",
+        "SpaceXAI",
+        "antitrust",
+        "AI safety"
+      ],
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [
+        "amodei-ai-pacing-20260912"
+      ],
+      "successorStoryIds": [],
+      "relationshipType": "reported-legal-follow-up",
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "aidb_credit": null,
+      "saint_lane": "Elle Woods · Receipts",
+      "badge": "THE LATEST"
     }
   ]
 };

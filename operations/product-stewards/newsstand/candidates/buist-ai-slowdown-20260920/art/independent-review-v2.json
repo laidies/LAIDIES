@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "buist-ai-slowdown-20260920-art",
+  "stage": "INDEPENDENT_VISUAL_ADMISSION",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root/california_order_producer",
+    "role": "Independent visual reviewer",
+    "reviewedAt": "2026-09-26T17:55:30Z",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true,
+    "independentFromMaker": true,
+    "calibration": {
+      "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/reviewer-calibration-20260926.json",
+      "sha256": "fd621c3d40c1a5eb36f2ce9c31ed3f9134bfdd48ffd3d6608d7678479c2bda67"
+    }
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/producer-contract-20260926.json",
+    "sha256": "508c124fd51f3830d7bf858f8db69e8fefa0401e79fd9e3e05ace19723dd86e1"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/root-self-review-v2.json",
+    "sha256": "e4529f1cc397d0528859c73b538e8028b4fcd9b7e956009d8c14634c4d21d66a"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/buist-complaint-v2.png",
+    "sourcePath": "/Users/alisoneakin/.codex/generated_images/01a071e7-db55-7a22-8c99-04eba5060355/exec-9ea6b28e-72b1-4e7c-bf46-5346134508c5.png",
+    "sha256": "c622d294758eabeec9c757a25b8bc971a3fb607f4dd37feea3fe8247ba299009",
+    "kind": "STILL",
+    "dimensions": "1536x1024"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/story.json",
+    "sha256": "93814624eed60039ae253124bb17e3118c7393929ed51691b76b7c64e2c90df4",
+    "kind": "TEXT",
+    "locator": "headline in complete complaint-only article record",
+    "exactTextOrSilentPurpose": "AI subscribers sue four companies over an alleged agreement to slow development"
+  },
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/mobile-preview-v2.png",
+    "sha256": "503e13debd8be0d0b7825e29dbfe9e4e9faf64e582aaeea385f23a66b2806cfb",
+    "dimensions": "390x260"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "A clipped multi-page complaint in an open folder is examined through a magnifying glass. Exactly four thin, narrow receipt-like slips appear, one in each otherwise empty coloured tray, making the four subscribers' payment stake visible without adding brands.",
+      "artifactLocator": "Full pixels and 390x260 preview."
+    },
+    {
+      "id": "allegationBoundary",
+      "result": "PASS",
+      "observation": "The four trays remain physically separate and have no connecting arrows, wires, handshakes or shared pipeline. No verdict, guilt, liability, class certification, refund, damages or court-order symbol appears.",
+      "artifactLocator": "Full pixels and 390x260 preview."
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "The navy ground, electric cyan, magenta, coral and lime accents, warm paper, hand-inked detail and print texture fit the approved adult editorial direction. The generic desk makes no invented courtroom, company-office or named-location claim.",
+      "artifactLocator": "Full pixels and 390x260 preview."
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No people, hands, faces, robots, MAiVEN, TRAiLBLAZER, company marks, app icons or recognizable interfaces appear.",
+      "artifactLocator": "Full pixels and 390x260 preview."
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "The folder, paper stack, binder clip, magnifying glass, trays and individually curled receipts are supported and coherently oriented. No anatomy is present.",
+      "artifactLocator": "Full-resolution pixels."
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "The contemporary folder, paper, magnifier, receipt slips, cup, stationery, books and plant make no historical, wardrobe, branded-product or named-place claim.",
+      "artifactLocator": "Full pixels and 390x260 preview."
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "The complaint and receipts contain blank ruled lines and neutral blocks only. No visible words, letters, numbers, dates, signatures, stamps, watermarks, pseudo-text or logos appear.",
+      "artifactLocator": "Full-resolution pixels."
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "The complaint, magnifier, exactly four receipts and four separate lanes perform the required explanatory work. Secondary desk objects establish an editorial setting without changing the claim.",
+      "artifactLocator": "Full pixels and 390x260 preview."
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "At 390x260 the central filing, magnifier, four coloured trays and one narrow receipt in each tray remain distinct. No required object is clipped or visually merged.",
+      "artifactLocator": "390x260 preview."
+    }
+  ],
+  "visibleDefects": [],
+  "generationLimitations": [
+    "V2 was produced as a precise edit with the exact V1 file as input and the saved prompt-v2.txt instruction; the base V1 had been generated from a condensed equivalent of the original prompt.",
+    "The approved style reference was inspected separately but was not supplied as a physical image-generation reference input."
+  ],
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT",
+    "rationale": "The retained V1 HOLD records the repaired receipt-object defect. Exact full and mobile inspection of V2 found no additional reusable defect."
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First production candidate for this exact Buist complaint visual job; V1 was an internal rejected render within the same candidate.",
+    "internalRepairHistory": {
+      "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/art/independent-review-v1.json",
+      "sha256": "e9be7bef2256b6f63437a8ff4dee5ef59ab84167df3a5c8afdce2b71147a3012",
+      "verdict": "HOLD",
+      "repair": "Replaced the four tray document stacks with exactly four distinct receipt-like slips, one per separate tray."
+    }
+  },
+  "admission": {
+    "eligible": true,
+    "nextAction": "Bind the exact V2 image and this independent visual admission to the final story package; preserve the V1 HOLD in lineage."
+  }
+}
