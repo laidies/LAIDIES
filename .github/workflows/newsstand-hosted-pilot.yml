@@ -36,6 +36,7 @@ jobs:
         run: |
           node scripts/test-newsstand-hosted-readiness.mjs
           node scripts/test-newsstand-hosted-claude.mjs
+          node scripts/test-newsstand-hosted-probe.mjs
           node scripts/test-newsstand-hosted-release.mjs
           node scripts/test-newsstand-hosted-provider.mjs
       - name: Report actual migration readiness
