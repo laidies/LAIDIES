@@ -41,6 +41,10 @@ jobs:
           node scripts/test-newsstand-hosted-provider.mjs
           node scripts/test-newsstand-hosted-sources.mjs
           node scripts/test-newsstand-hosted-overlay.mjs
+          node scripts/test-newsstand-hosted-protocol.mjs
+          node scripts/test-newsstand-hosted-research.mjs
+          node scripts/test-verify-newsstand-hosted-live.mjs
+          node scripts/test-deploy-newsstand-hosted.mjs
       - name: Verify portable provider-preserving uploader
         shell: bash
         run: |
@@ -67,8 +71,8 @@ jobs:
           exit "$result"
 
   model-transport:
-    # Enable only after Ali authorizes the new persistent Claude token.
-    if: vars.NEWSSTAND_HOSTED_MODEL_PROBE_ENABLED == 'true'
+    # Credential probe is already verified; repeat only on explicit manual dispatch.
+    if: github.event_name == 'workflow_dispatch' && vars.NEWSSTAND_HOSTED_MODEL_PROBE_ENABLED == 'true'
     runs-on: ubuntu-latest
     environment: production
     timeout-minutes: 10
