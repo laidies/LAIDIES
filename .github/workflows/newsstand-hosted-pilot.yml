@@ -39,6 +39,7 @@ jobs:
           node scripts/test-newsstand-hosted-probe.mjs
           node scripts/test-newsstand-hosted-release.mjs
           node scripts/test-newsstand-hosted-provider.mjs
+          node scripts/test-newsstand-hosted-sources.mjs
       - name: Verify portable provider-preserving uploader
         shell: bash
         run: |
@@ -102,3 +103,30 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: node scripts/read-newsstand-hosted-provider.mjs
+
+  source-capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: scripts
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Capture a complete public primary source privately
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import path from 'node:path';
+          import {captureSources} from './scripts/capture-newsstand-hosted-sources.mjs';
+          const result=await captureSources({
+            approvedHosts:['internationalaisafetyreport.org'],
+            sources:[{id:'safety-report-2026',url:'https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026'}],
+            outputDirectory:path.join(process.env.RUNNER_TEMP,'newsstand-primary-capture')
+          });
+          for(const r of result.records) console.log(JSON.stringify({id:r.id,status:r.status,bytes:r.bytes,sha256:r.sha256,reason:r.reason}));
+          console.log('Download proof only. Factual research and publication admission remain separate. Raw bodies are not uploaded or logged.');
+          if(result.records.some(r=>r.status==='UNAVAILABLE')) process.exitCode=2;
+          NODE
