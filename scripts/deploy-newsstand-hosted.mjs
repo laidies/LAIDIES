@@ -29,6 +29,9 @@ export async function deployHostedTransaction(input,{provider=readProvider,run=c
   fs.mkdirSync(input.receiptDirectory,{recursive:true,mode:0o700});
   const manifest=json(input.candidateManifestPath),delta=json(input.deltaPath),preserve=json(input.preservePath),base=json(input.providerBasePath);
   const staged=fs.realpathSync(input.stageDirectory);
+  const allowed=new Set([...delta.map(f=>f.path),'_worker.js','_redirects']);
+  const inventory=(dir,prefix='')=>{for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const relative=prefix+entry.name;if(entry.isSymbolicLink())throw Error('UNSAFE_STAGED_SYMLINK');if(entry.isDirectory())inventory(path.join(dir,entry.name),relative+'/');else if(!entry.isFile()||!allowed.has(relative))throw Error('UNDECLARED_STAGED_FILE');}};
+  inventory(staged);
   for(const f of [...delta,...manifest.files.filter(x=>['_worker.js','_redirects'].includes(x.path))]){
    if(typeof f.path!=='string'||path.posix.isAbsolute(f.path)||f.path.includes('..')||f.path.includes('\\'))throw Error('UNSAFE_ARTIFACT_PATH');
    const target=fs.realpathSync(path.join(staged,f.path));if(!target.startsWith(staged+path.sep))throw Error('UNSAFE_ARTIFACT_PATH');
