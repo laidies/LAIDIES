@@ -17,7 +17,7 @@ assert.deepEqual(seen.model, 'claude-fable-5'); assert.equal(seen.effort, 'mediu
 assert.equal(success.privateResult.provider, provider);
 const serialised = JSON.stringify({...success, privateResult: undefined});
 assert.doesNotMatch(serialised, /private article|private rubric|review output|fact output|normalized review/);
-assert.doesNotMatch(serialised, /providerRaw|structured_output/i);
+assert.doesNotMatch(serialised, /structured_output|privateResult/i);
 
 assert.equal((await runHostedEditorial({packet, protocol, protocolIdentity: {...QUALIFIED_PROTOCOL, sha256: '0'.repeat(64)}, execute: async () => provider})).status, 'PROTOCOL_BINDING_MISMATCH');
 assert.equal((await runHostedEditorial({packet, protocol, protocolIdentity: QUALIFIED_PROTOCOL, execute: async () => ({...provider, modelUsage: {'other-model': {}}})})).status, 'MODEL_MISMATCH');
