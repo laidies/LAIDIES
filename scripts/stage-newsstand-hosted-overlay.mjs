@@ -16,7 +16,8 @@ function boundFile(root,relative) {
   return fs.readFileSync(target);
 }
 
-export function stageOverlay({baseManifest,providerBase,predecessor,sourceDirectory,controlDirectory,changedPaths,outputDirectory}) {
+export function stageOverlay({baseManifest,providerBase,predecessor,scope,sourceDirectory,controlDirectory,changedPaths,outputDirectory}) {
+  if(scope?.schema!=='laidies.newsstand-production-scope.v1' || scope.project!=='laidies-sunnyvaile' || scope.productionBranch!=='homepage-redesign' || !Array.isArray(scope.allowedArtifactPaths) || !scope.allowedArtifactPaths.length || scope.allowedArtifactPaths.some(p=>!validPath(p)||controls.includes(p))) throw Error('STAGE_SCOPE_REQUIRED');
   if(baseManifest?.schema!=='laidies-release-artifact-manifest/v1' || !Array.isArray(baseManifest.files) || identity(baseManifest.files)!==baseManifest.identitySha256) throw Error('BASE_MANIFEST_INVALID');
   if(predecessor?.schemaVersion!=='newsstand-service-predecessor-verification-v1' || predecessor.artifactIdentitySha256!==baseManifest.identitySha256 || predecessor.deploymentId!==providerBase?.id || predecessor.providerHeadId!==providerBase?.id || providerBase?.productionBranch!=='homepage-redesign') throw Error('BASE_PREDECESSOR_UNBOUND');
   const files=new Map();
@@ -29,6 +30,7 @@ export function stageOverlay({baseManifest,providerBase,predecessor,sourceDirect
   const staticPaths=baseManifest.files.filter(f=>!controls.includes(f.path)).map(f=>'/'+f.path).sort();
   if(JSON.stringify(Object.keys(provider).sort())!==JSON.stringify(staticPaths) || Object.values(provider).some(v=>!/^[a-f0-9]{32}$/.test(v))) throw Error('BASE_PROVIDER_PATH_MISMATCH');
   if(!Array.isArray(changedPaths) || !changedPaths.length || new Set(changedPaths).size!==changedPaths.length || changedPaths.some(p=>!validPath(p)||controls.includes(p))) throw Error('INVALID_CHANGE_SET');
+  if(changedPaths.some(p=>!scope.allowedArtifactPaths.includes(p))) throw Error('CHANGE_OUTSIDE_BOUND_SCOPE');
   const staged=new Map(),preserve={...provider},delta=[];
   for(const p of changedPaths) {
     const body=boundFile(sourceDirectory,p),record={path:p,sha256:hash(body),bytes:body.length};
@@ -48,7 +50,7 @@ export function stageOverlay({baseManifest,providerBase,predecessor,sourceDirect
   for(const [p,body] of staged) {fs.mkdirSync(path.dirname(path.join(stage,p)),{recursive:true});fs.writeFileSync(path.join(stage,p),body,{flag:'wx'});}
   const records=[...files.values()].sort((a,b)=>a.path.localeCompare(b.path));
   const manifest={schema:baseManifest.schema,createdAt:new Date().toISOString(),artifactDirectory:stage,artifactMode:'provider-preserving-overlay',baseDeploymentId:providerBase.id,fileCount:records.length,totalBytes:records.reduce((n,r)=>n+r.bytes,0),files:records,identitySha256:identity(records)};
-  for(const [name,value] of Object.entries({'manifest.json':manifest,'preserve.json':preserve,'delta.json':delta})) fs.writeFileSync(path.join(outputDirectory,name),JSON.stringify(value,null,2)+'\n',{flag:'wx',mode:0o600});
+  for(const [name,value] of Object.entries({'manifest.json':manifest,'preserve.json':preserve,'delta.json':delta,'scope.json':scope})) fs.writeFileSync(path.join(outputDirectory,name),JSON.stringify(value,null,2)+'\n',{flag:'wx',mode:0o600});
   return {stage,manifest,delta:delta.map(r=>r.path),preservedCount:Object.keys(preserve).length,deployed:false};
 }
 
