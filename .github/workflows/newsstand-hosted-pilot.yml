@@ -1,0 +1,53 @@
+name: NewsStand hosted runtime pilot
+
+on:
+  push:
+    branches: [ops/newsstand-hosted-20260926]
+    paths:
+      - .github/workflows/newsstand-hosted-pilot.yml
+      - scripts/*newsstand-hosted*.mjs
+      - operations/product-stewards/newsstand/hosted-publishing-20260926/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: newsstand-hosted-pilot
+  cancel-in-progress: false
+
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            .github/workflows
+            scripts
+            operations/release-control
+            operations/product-stewards/newsstand/hosted-publishing-20260926
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test hosted failure handling
+        run: |
+          node scripts/test-newsstand-hosted-readiness.mjs
+      - name: Report actual migration readiness
+        shell: bash
+        run: |
+          set +e
+          node scripts/check-newsstand-hosted-readiness.mjs > "$RUNNER_TEMP/newsstand-readiness.json"
+          result=$?
+          set -e
+          cat "$RUNNER_TEMP/newsstand-readiness.json"
+          {
+            echo '## NewsStand migration readiness'
+            echo 'This pilot checks dependencies. It does not research, write, review or publish an article.'
+            echo '```json'
+            cat "$RUNNER_TEMP/newsstand-readiness.json"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$result"
