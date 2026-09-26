@@ -56,13 +56,9 @@
     },
     {
       "id": "provider-preserving-publisher",
-      "entrypoint": {
-        "kind": "github-workflow",
-        "path": ".github/workflows/production-release.yml",
-        "command": "npx --yes wrangler@4.119.0 pages deploy \"$ARTIFACT_DIR\" --project-name \"$PROJECT_NAME\" --branch \"$PRODUCTION_BRANCH\" --commit-hash \"$SOURCE_COMMIT\" --commit-dirty=false"
-      },
-      "requiredAuth": ["CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID"],
-      "qualification": "not-applicable"
+      "entrypoint": null,
+      "requiredAuth": [],
+      "qualification": "unqualified"
     },
     {
       "id": "live-verification",

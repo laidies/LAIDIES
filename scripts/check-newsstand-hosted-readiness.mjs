@@ -55,22 +55,25 @@ export function evaluateHostedReadiness({contract, repoRoot = ROOT, env = proces
   if (issues.length) return {status: "INVALID_CONTRACT", ready: false, issues, stages: []};
 
   const head = readGit(repoRoot, ["rev-parse", "HEAD"])?.trim() || null;
-  if (head !== contract.pinnedSourceCommit) issues.push({code: "STALE_SOURCE", detail: `expected ${contract.pinnedSourceCommit}, found ${head || "unavailable"}`});
+  if (readGit(repoRoot, ["rev-parse", "--verify", `${contract.pinnedSourceCommit}^{commit}`]) === null) {
+    issues.push({code: "MISSING_PINNED_SOURCE_COMMIT", stage: "source", detail: contract.pinnedSourceCommit});
+  }
   for (const pin of contract.sourcePins) {
-    const content = readGit(repoRoot, ["show", `${contract.pinnedSourceCommit}:${pin.path}`]);
-    if (content === null) issues.push({code: "MISSING_PINNED_SOURCE", stage: "source", detail: pin.path});
+    const content = readGit(repoRoot, ["show", `HEAD:${pin.path}`]);
+    if (content === null) issues.push({code: "MISSING_CURRENT_SOURCE", stage: "source", detail: pin.path});
     else if (sha256(content) !== pin.sha256) issues.push({code: "SOURCE_PIN_MISMATCH", stage: "source", detail: pin.path});
+    if (readGit(repoRoot, ["diff", "--quiet", "HEAD", "--", pin.path]) === null) issues.push({code: "DIRTY_PINNED_SOURCE", stage: "source", detail: pin.path});
   }
 
   const stages = contract.stages.map(stage => {
     const blockers = [];
     if (stage.entrypoint === null) blockers.push({code: "MISSING_PORTABLE_ENTRYPOINT", detail: "no hosted command is approved in the contract"});
     for (const name of stage.requiredAuth) if (!env[name]) blockers.push({code: "MISSING_AUTH", detail: name});
-    if (stage.qualification === "unqualified") blockers.push({code: "UNQUALIFIED_REVIEWER", detail: "no hosted qualification/calibration is recorded"});
+    if (stage.qualification === "unqualified") blockers.push({code: stage.id === "independent-reviewer" ? "UNQUALIFIED_REVIEWER" : "UNQUALIFIED_STAGE", detail: "no hosted qualification/calibration is recorded"});
     return {id: stage.id, ready: blockers.length === 0, blockers};
   });
   for (const stage of stages) for (const blocker of stage.blockers) issues.push({...blocker, stage: stage.id});
-  const sourceIssue = issues.some(issue => ["STALE_SOURCE", "MISSING_PINNED_SOURCE", "SOURCE_PIN_MISMATCH"].includes(issue.code));
+  const sourceIssue = issues.some(issue => ["MISSING_PINNED_SOURCE_COMMIT", "MISSING_CURRENT_SOURCE", "SOURCE_PIN_MISMATCH", "DIRTY_PINNED_SOURCE"].includes(issue.code));
   return {status: sourceIssue ? "STALE_SOURCE" : issues.length ? "BLOCKED" : "READY_FOR_HOSTED_PILOT", ready: issues.length === 0, sourceCommit: head, stages, issues};
 }
 
