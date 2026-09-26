@@ -3,8 +3,8 @@
 import crypto from 'node:crypto';
 
 export const QUALIFIED_PROTOCOL = Object.freeze({
-  path: 'operations/product-stewards/newsstand/review-runtime/protocol.mjs',
-  sha256: '1a74aa1ebd16201e939fd5df0b5a64722ff1e94c45f79bff6f359dce53f9e448',
+  path: 'operations/product-stewards/newsstand/review-runtime/protocol-hosted.mjs',
+  sha256: '7cf854639fe05d1d244f178f1583e0d595c9288ac968196bd9412d9a772faed3',
   calibrationPath: 'operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-current-registry-20260926-v3/calibration-result.json',
   registrySha256: 'be22fb5ae73c431ae0fd5e20c3d29f305eaaa609d5c752dbfc7abedff6ecb06b',
   model: 'claude-fable-5',
