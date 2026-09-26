@@ -55,3 +55,7 @@ const held={edition:'daily',status:'hold',publishedAt:null,bigPicture:null,corre
 assert.deepEqual(validateOrdinaryHeldRecord(held),[]);
 for(const key of ['bigPicture','correction','retraction','correctionHistory','predecessorStoryIds','successorStoryIds']){const bad={...held};delete bad[key];assert.ok(validateOrdinaryHeldRecord(bad).length,key+' must fail before review');}
 assert.ok(validateOrdinaryHeldRecord({...held,status:'published'}).length);
+
+assert.match(validateOrdinaryHeldRecord({...held,closing_note:'Independent review and publication remain pending.'}).join(';'),/private pending publication status/);
+assert.deepEqual(validateOrdinaryHeldRecord({...held,closing_note:'A Senate decision remains pending.'}),[]);
+console.log('Ordinary pre-review rejects leaked workflow status without rejecting pending real-world events.');

@@ -257,24 +257,24 @@
     {
       "url": "https://aidailybrief.ai/agent.json",
       "role": "AIDB",
-      "checkedAt": "2026-09-26T14:01:44Z",
+      "checkedAt": "2026-09-26T17:05:13.992Z",
       "status": "CHECKED",
-      "assessment": "Complete website identity enumeration only; metadata is not full edition content.",
+      "assessment": "Actual current website-index enumeration: generated 2026-09-26T17:05:13.992Z; newest website identity remains Sep24. This is metadata only, not a complete edition review.",
       "capture": {
-        "path": "operations/product-stewards/newsstand/evidence/morning-20260926/source-refresh/raw-web-observations.json",
-        "sha256": "d171139dfe2079f931ddc92d44c9ecba17dab2482528e7837971649651530855"
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1000-20260926/source-recovery/raw-source-observations.json",
+        "sha256": "2b991619292f31df2e94c813100a258c161db3d1862f7f799de695b126dbb87b"
       },
       "previousObservation": {
-        "checkedAt": "2026-09-25T20:04:50Z",
+        "checkedAt": "2026-09-26T14:01:44Z",
         "status": "CHECKED",
-        "assessment": "The index was generated at 2026-09-25T19:54:32.178Z and still lists September 24 as its newest edition. It is metadata, not complete edition content.",
+        "assessment": "Complete website identity enumeration only; metadata is not full edition content.",
         "capture": {
-          "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260925/source-refresh/raw-source-observations.json",
-          "sha256": "6cbf29ef12abbcbdcab5eedcdef073dbd693a01644946345dd726ac32a65fcf3"
+          "path": "operations/product-stewards/newsstand/evidence/morning-20260926/source-refresh/raw-web-observations.json",
+          "sha256": "d171139dfe2079f931ddc92d44c9ecba17dab2482528e7837971649651530855"
         }
       },
       "timestampMeaning": "Actual Sep26 agent index inspection.",
-      "nextCheckAt": "2026-09-27T14:00:00Z"
+      "nextCheckAt": "2026-09-27T17:05:13.992Z"
     },
     {
       "url": "https://aidailybrief.ai/e/2026-09-14.json",
@@ -3042,7 +3042,7 @@
     {
       "id": "california-eo-n-9-26-20260918",
       "event": "California Executive Order N-9-26",
-      "status": "IN_PRODUCTION",
+      "status": "COVERED",
       "sourceUrls": [
         "https://www.gov.ca.gov/wp-content/uploads/2026/09/FINAL-N-9-26-AI-EO-9.18.26-SIGNED.pdf",
         "https://www.eff.org/deeplinks/2026/09/eff-statement-california-governors-executive-order-ai"
@@ -3052,9 +3052,16 @@
       "owner": "/root",
       "reviewedAt": "2026-09-20T20:12:31.369111+00:00",
       "sourceReview": "operations/product-stewards/newsstand/evidence/morning-20260920/reconciliation/proposed-coverage-update.json",
-      "nextAction": "September25 source refresh98130cad and full preflight PASS v12; restore existing qualified Claude authentication, review exact current candidate, then admission/current-date release.",
-      "productionBlockEvidence": "operations/product-stewards/newsstand/evidence/evening-20260920/reviewer-auth-recovery.json",
-      "candidatePath": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920"
+      "nextAction": "Monitor concrete implementation, the recommendation deadline and verified subsequent amendments; do not duplicate the published order story.",
+      "candidatePath": "operations/product-stewards/newsstand/candidates/california-ai-oversight-order-20260920",
+      "previousProductionState": {
+        "status": "IN_PRODUCTION",
+        "nextAction": "September25 source refresh98130cad and full preflight PASS v12; restore existing qualified Claude authentication, review exact current candidate, then admission/current-date release.",
+        "productionBlockEvidence": "operations/product-stewards/newsstand/evidence/evening-20260920/reviewer-auth-recovery.json"
+      },
+      "storyId": "california-ai-oversight-order-20260920",
+      "coverageReason": "This is the same signed September18 executive order explained by the published California oversight article: current actions, recommendations and the November16 timetable, with EFF technical and speech-risk criticism attributed. The separate intake identity no longer requires a duplicate story.",
+      "publicationReceipt": "operations/product-stewards/newsstand/evidence/news-recovery-20260926/california-publication-receipt.json"
     },
     {
       "id": "house-ratepayer-protection-act-20260916",
@@ -3511,9 +3518,9 @@
       "sourceUrls": [
         "https://www.anthropic.com/claude-opus-5-5"
       ],
-      "status": "IN_PRODUCTION",
+      "status": "PUBLISHED",
       "owner": "newsstand-producer",
-      "nextAction": "Final repaired source-bound candidate with independent visual PASS and full PRE_REVIEW_PASS (1c74fe4d). Restore qualified reviewer authentication, review exactfinalprose; then assembly/admission/current-date release. No publicnews yet.",
+      "nextAction": "Watch for quantified plan limits or confirmed account availability; publish a source-bound follow-up only for a distinct reader consequence.",
       "candidate": {
         "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/research-packet.json",
         "sha256": "0b318f052858aabbc8310e3278ef37f2fbc79f1a4607cd36a8d487a69fd787de",
@@ -3524,7 +3531,9 @@
         "sha256": "81ffb25eea157fcae4bebd75f2b30138b114a537d6f466eb079406f0234bce54"
       },
       "limits": "Official vendor claims on capability, speed, cost and availability require reader-plan scoping.",
-      "candidatePath": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924"
+      "candidatePath": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924",
+      "storyId": "claude-opus-5-5-20260924",
+      "coverageReason": "Exact official Sep22 Opus announcement now covered in independently reviewed subscriber-first Daily published Sep26; named plan usage limits and saveable reset, API price boundary, no invented message count."
     },
     {
       "id": "draftkings-ai-losing-gamblers-20260924",
@@ -3705,8 +3714,9 @@
       ],
       "status": "EVIDENCE_BLOCKED",
       "missingInput": "Complete Sep24 publisher edition or transcript, including item list and actual contents.",
-      "attemptedRecovery": "The current official agent index was inspected at 2026-09-25T14:03:14.793Z. One normal permitted open of both exact edition and transcript URLs returned Internal Error. The index title is metadata only and was not treated as a transcript.",
-      "nextCheckAt": "2026-09-25T21:00:00Z"
+      "attemptedRecovery": "Current official agent.json was inspected at 2026-09-26T17:05:13.992Z and still identifies Sep24 as newest website metadata. Expected Sep25 edition and transcript endpoints returned HTTP 404; no new complete edition or transcript was recovered. Metadata was not treated as content.",
+      "nextCheckAt": "2026-09-27T17:05:55Z",
+      "sourceReview": "operations/product-stewards/newsstand/evidence/recovery-1000-20260926/source-recovery/raw-source-observations.json"
     },
     {
       "id": "anthropic-claude-code-cloud-credits-20260923",
@@ -3716,12 +3726,12 @@
       ],
       "status": "EVIDENCE_BLOCKED",
       "owner": "/root",
-      "nextAction": "Recover an official Anthropic eligibility and offer-terms record before reporting amounts, subscriber qualification or expiry dates as provider-confirmed facts.",
-      "reviewedAt": "2026-09-25T20:04:50Z",
-      "sourceReview": "operations/product-stewards/newsstand/evidence/recovery-1300-20260925/source-refresh/raw-source-observations.json",
+      "nextAction": "Recover an official Anthropic offer-terms record; do not promote secondary-reported eligibility, credits, or deadlines as provider-confirmed.",
+      "reviewedAt": "2026-09-26T17:05:38Z",
+      "sourceReview": "operations/product-stewards/newsstand/evidence/recovery-1000-20260926/source-recovery/raw-source-observations.json",
       "missingInput": "Accessible official Anthropic record confirming eligible plans, credit amounts, claim deadline, expiry and how cloud-session usage interacts with normal plan limits.",
-      "attemptedRecovery": "Read the complete BleepingComputer report and followed its linked claim route once; the provider route was restricted. Foreground searched official help/docs and opened Claude Code cloud documentation; operation/plans verified, promotional terms not recovered.",
-      "nextCheckAt": "2026-09-25T23:00:00Z",
+      "attemptedRecovery": "Read the complete BleepingComputer report (turn1283view3). It reports cloud-session availability and promotional credit terms. The official Claude Code product page was also inspected, but it confirms plans rather than the promotion's eligibility, amount, deadline, expiry, or relation to normal limits.",
+      "nextCheckAt": "2026-09-27T17:05:38Z",
       "additionalEvidence": "operations/product-stewards/newsstand/evidence/recovery-1300-20260925/claude-official-doc-recovery.json"
     },
     {
@@ -3779,13 +3789,13 @@
       ],
       "status": "EVIDENCE_BLOCKED",
       "owner": "NewsStand product steward",
-      "reviewedAt": "2026-09-26T14:11:08Z",
+      "reviewedAt": "2026-09-26T17:05:41Z",
       "reviewedBy": "/root/california_order_producer",
-      "attemptedRecovery": "Earlier derived observations were preserved, but full report bodies were not. Later normal opens of both exact publisher URLs were inaccessible. The rendered official page and linked August incident page did not provide the image-specific passage.",
+      "attemptedRecovery": "A normal exact open of the BleepingComputer and TechCrunch reports remained inaccessible (turn1283view0 and turn1283view1). The official OpenAI incident page was fully inspected (turn1283view2): it confirms ongoing review and agent spam as a third-party impact category but does not contain an image-specific passage, a 53-image count, or affected-user scope.",
       "missingInput": "A preserved complete independent publisher report or a directly captured official OpenAI image-specific update, plus sufficient text to verify the reported scope.",
-      "nextCheckAt": "2026-09-27T14:33:36.188Z",
-      "nextAction": "Keep the lead evidence-blocked. At or after the next check, use one normal exact publisher open if accessible or capture a new official image-specific update. Do not draft from derived notes.",
-      "sourceReview": "operations/product-stewards/newsstand/evidence/morning-20260926/source-refresh/raw-practitioner-openai-revision.json",
+      "nextCheckAt": "2026-09-27T17:05:41Z",
+      "nextAction": "Keep EVIDENCE_BLOCKED. At the next check, recover a complete exact publisher report or directly captured official image-specific update; do not draft from the general agent-spam category.",
+      "sourceReview": "operations/product-stewards/newsstand/evidence/recovery-1000-20260926/source-recovery/raw-source-observations.json",
       "candidatePath": "operations/product-stewards/newsstand/candidates/openai-agent-user-images-third-party-20260925",
       "sourceResearch": {
         "path": "operations/product-stewards/newsstand/candidates/openai-agent-user-images-third-party-20260925/source-research.json",

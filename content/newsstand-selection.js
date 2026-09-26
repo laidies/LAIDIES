@@ -10,6 +10,7 @@
   "california-ai-oversight-order-20260920",
   "california-data-centre-laws-20260921",
   "gpt-6-sol-luna-20260922",
+  "claude-opus-5-5-20260924",
   "ai-research-automation-20260919",
   "anthropic-lsvp-beta-20260917",
   "openai-misalignment-reporting-20260916",

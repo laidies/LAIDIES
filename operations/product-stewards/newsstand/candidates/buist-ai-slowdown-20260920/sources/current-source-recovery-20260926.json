@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "laidies-newsstand-source-recovery.v2",
+  "candidateId": "buist-ai-slowdown-20260920",
+  "observedAt": "2026-09-26",
+  "status": "PRIMARY_COMPLAINT_RECOVERED_DATED_COMPLAINT_REPORT_READY",
+  "primaryComplaint": {
+    "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf",
+    "path": "operations/product-stewards/newsstand/candidates/buist-ai-slowdown-20260920/sources/complaint-retrieved-20260926.pdf",
+    "sha256": "cabf650266e3bfb5f6441d3b374c519a6600bc67fc8926093cf014aad6ff783f",
+    "retrievedAt": "2026-09-26",
+    "pages": 29,
+    "readScope": [
+      "Full complaint text is retained locally; verified reading for this draft was limited to the listed caption, introduction, class definition, both claims for relief, requested relief, and paragraph 151.",
+      "caption and filing stamp, introduction, class definition, both claims for relief, requested relief, and paragraph 151 checked against the source text"
+    ],
+    "verifiedClaims": [
+      {
+        "id": "filing",
+        "locator": "caption; Document 1, filed 09/18/26, page 1",
+        "fact": "Four named plaintiffs filed a class-action complaint against Anthropic, OpenAI OpCo, SpaceXAI and Google in the Northern District of California."
+      },
+      {
+        "id": "allegation",
+        "locator": "paragraphs 1–15; 137–145",
+        "fact": "Plaintiffs allege an agreement among competitors to slow product improvement and an associated loss of subscription value; this remains an allegation."
+      },
+      {
+        "id": "scope",
+        "locator": "paragraph 151, page 28",
+        "fact": "The complaint says plaintiffs do not seek to prohibit defendants from independently adopting safety measures or independently slowing or suspending their own development."
+      },
+      {
+        "id": "class-and-relief",
+        "locator": "paragraphs 123–124; prayer, pages 28–29",
+        "fact": "The pleading proposes a class and requests certification, damages and injunctive relief; none is a court-granted outcome."
+      },
+      {
+        "id": "claims",
+        "locator": "pages 25 and 27",
+        "fact": "The complaint pleads a Sherman Act Section 1 claim and a separate request for injunctive relief under Clayton Act Section 16."
+      }
+    ]
+  },
+  "currentDocket": {
+    "url": "https://www.courtlistener.com/docket/74816200/buist-v-anthropic-pbc/",
+    "attemptedAt": "2026-09-26",
+    "normalAccessAttempts": [
+      {
+        "route": "public HTML",
+        "result": "HTTP 403",
+        "preservedBytes": false
+      },
+      {
+        "route": "CourtListener v4 docket API",
+        "result": "HTTP 401 Authentication credentials were not provided",
+        "preservedBytes": false
+      },
+      {
+        "route": "CourtListener v4 docket-entry API",
+        "result": "HTTP 401 Authentication credentials were not provided",
+        "preservedBytes": false
+      }
+    ],
+    "publicationBoundary": "This candidate reports the September 18 complaint only. It does not describe later docket filings, rulings, service, amended pleadings, or responses."
+  },
+  "sourceBudget": {
+    "complaintDerivedWordsMaximum": 200
+  },
+  "nextRequiredEvidence": "None for the dated complaint report. Fresh docket evidence is required only for a later-status follow-up.",
+  "timestampBoundary": "The shell did not preserve a response timestamp for these requests. Dates are observation dates, not invented times."
+}

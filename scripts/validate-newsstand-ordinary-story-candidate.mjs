@@ -44,6 +44,7 @@ export function validateOrdinaryHeldRecord(story) {
   const errors=[];
   if(story?.edition!=="daily" || story.status!=="hold" || story.publishedAt!==null) errors.push("ordinary story must be an unpublished held Daily record");
   if(story?.bigPicture!==null || story?.correction!==null || story?.retraction!==null || !Array.isArray(story?.correctionHistory) || story.correctionHistory.length || !Array.isArray(story?.predecessorStoryIds) || !Array.isArray(story?.successorStoryIds) || story.successorStoryIds.length) errors.push("ordinary candidate cannot replace, correct or retract an incumbent");
+  if(/independent review and publication remain pending|(?:editorial|independent) review (?:is |remains? )?pending|publication (?:is |remains? )?pending/i.test(story?.closing_note||'')) errors.push('ordinary closing note contains private pending publication status');
   return errors;
 }
 export function validateModelReleaseUtility(story) {

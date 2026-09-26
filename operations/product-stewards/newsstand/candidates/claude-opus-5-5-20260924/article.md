@@ -1,28 +1,28 @@
-# Claude API prices are separate from subscription usage limits
+# Claude raises usage limits for paying subscribers
 
 ## The Story
 
-Anthropic announced Claude Opus 5.5 on September 22.
-
-For developers paying Anthropic directly for API use — a software connection to a model — input costs $4 and output $20 per million tokens. Those are usage charges based on text processed, not monthly Claude subscription prices.
+Anthropic announced Claude Opus 5.5 on September 22. With the launch, it says it raised five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans.
 
 ## The LAiDIES Read
 
-For subscriptions, Anthropic says it raised five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans. A usage limit is the amount a plan lets you use within a stated time window. Subscription users also get a rate-limit reset they can save for later.
+A usage limit is the amount a plan lets you use within a stated time window. A higher limit may mean more use before you have to wait for the five-hour allowance to reset. Anthropic does not say how much more or promise a message count.
 
-The announcement does not quantify those limits or map ordinary Claude-chat model-selector access plan by plan. “Available on all platforms” does not mean every account can select Opus 5.5 in chat today.
+Anthropic also says subscription users get a rate-limit reset they can save and use when they choose.
+
+Separately, developers paying Anthropic directly for API use — a software connection to a model — pay $4 for input and $20 for output per million tokens. Those are usage charges based on text processed, not monthly Claude subscription prices.
 
 ## What This Means for You
 
-If you pay for Claude chat, the API figures do not describe your monthly plan price. Check the model selector and current plan details for your account to see whether Opus 5.5 is offered and what limit applies.
+If you use one of the named plans, check your current plan details and model selector to see what limit and model access apply to your account. The announcement does not map ordinary Claude-chat access plan by plan.
 
-Anthropic says Opus 5.5 is best suited to moving a software project to a new system or reviewing its code. For a simple email rewrite or summary, another Claude model may be a cheaper or faster alternative.
+Anthropic says Opus 5.5 can take on long software jobs such as moving a project to a new system or reviewing its code.
 
-If you pay Anthropic directly for API usage, the token table is your meter. Anthropic’s performance, speed, safety and cost-per-task claims are not independently validated here.
+Compared with Fable 5.1, Anthropic says Opus 5.5 performs similarly on most work. That does not show Opus 5.5 is necessary for a routine email or summary; another Claude model may be enough. Anthropic’s performance, speed, safety and cost-per-task claims are not independently validated here.
 
 ## The Cocktail Party Explanation
 
-“Anthropic lowered API token prices and separately raised named subscriptions’ usage limits. It did not publish each plan’s new limit or selector access.”
+“Anthropic raised five-hour usage limits on four paid plan types and added a saveable reset. It did not publish the size of each increase or a message count.”
 
 ## Class Notes
 

@@ -1,0 +1,985 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "claude-opus-5-5-20260924",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/california_order_producer",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-26T17:14:15.563Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/review-text.json",
+      "sha256": "9817746af495f498fe84f4ce882baeed94d467c5a9645df984e157dcf47a6218"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/publication-manifest.json",
+      "sha256": "d44dc0b01e1ab93fbf13c3fbf232043bb5093407920f190686223f21e48bf3f7"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/rendered-article.html",
+      "sha256": "7b5b2f5f07750a216083feeb80a08d3eeab7932e9499a26d786ffeac8d95f30b"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Anthropic changed prices and limits — which change actually touches my subscription, and which only touches API billing?",
+    "promisedPayoff": "You will know which of the two meters (time-windowed plan limits vs per-token API charges) applies to your account and what remains unproven.",
+    "centralMentalModel": "Two separate meters: subscriptions are governed by usage limits within a time window; direct API use is billed per million tokens processed; platform availability does not equal per-plan selector access.",
+    "dailyLifeConnection": "A Claude chat subscriber wondering whether the headline price numbers change their monthly bill, and whether they can pick Opus 5.5 in the selector today.",
+    "surfaceJob": "A dated daily news brief reporting what Anthropic announced on September 22 and bounding what the announcement does and does not establish.",
+    "desiredReaderFeeling": "Oriented and unhurried: confident about which change applies to them and equipped to check their own account rather than assume."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Usage limit and API are each defined in plain language at first meaningful use; sentences are short and free of unexplained jargon.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A usage limit is the amount a plan lets you use within a stated time window. The announcement does not quantify those limits or map ordinary Claude-chat model-selector access plan by plan.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>For developers paying Anthropic directly for API use — a software connection to a model — input costs $4 and output $20 per million tokens. Those are usage charges based on text processed, not monthly Claude subscription prices.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader learns which meter governs their bill and gets a concrete check to run on their own account.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For developers paying Anthropic directly for API use — a software connection to a model — input costs $4 and output $20 per million tokens. Those are usage charges based on text processed, not monthly Claude subscription prices.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>If you pay for Claude chat, the API figures do not describe your monthly plan price. Check the model selector and current plan details for your account to see whether Opus 5.5 is offered and what limit applies.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Candid adult register — 'not monthly Claude subscription prices', 'does not mean every account can select' — without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>“Available on all platforms” does not mean every account can select Opus 5.5 in chat today.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“Anthropic lowered API token prices and separately raised named subscriptions’ usage limits. It did not publish each plan’s new limit or selector access.”",
+          "locator": "P009"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Interest is sustained by the reader's own bill question and the mild tension between 'available on all platforms' and what that actually proves; humour is appropriately absent per the surface adaptation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>“Available on all platforms” does not mean every account can select Opus 5.5 in chat today.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>If you pay for Claude chat, the API figures do not describe your monthly plan price. Check the model selector and current plan details for your account to see whether Opus 5.5 is offered and what limit applies.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "As a dated news brief it reports what happened (P002), why it matters (P006), and stays within scope without drifting into a tutorial.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic announced Claude Opus 5.5 on September 22. With the launch, it says it raised five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans. Subscription users also get a rate-limit reset they can save for later.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>If you pay for Claude chat, the API figures do not describe your monthly plan price. Check the model selector and current plan details for your account to see whether Opus 5.5 is offered and what limit applies.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The mechanism is anchored in two recognizable situations: paying for Claude chat and paying Anthropic directly for API use, plus the everyday email-rewrite task.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you pay for Claude chat, the API figures do not describe your monthly plan price. Check the model selector and current plan details for your account to see whether Opus 5.5 is offered and what limit applies.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Anthropic says Opus 5.5 can take on moving a software project to a new system or reviewing its code. For a simple email rewrite or summary, another Claude model may be a cheaper or faster alternative.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If you pay Anthropic directly for API usage, the token table is your meter. Anthropic’s performance, speed, safety and cost-per-task claims are not independently validated here.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Answer-first structure, concrete two-meter causality, preserved limits, and a better next question (check your selector and plan details), with no imitation of any communicator's persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A usage limit is the amount a plan lets you use within a stated time window. The announcement does not quantify those limits or map ordinary Claude-chat model-selector access plan by plan.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>If you pay for Claude chat, the API figures do not describe your monthly plan price. Check the model selector and current plan details for your account to see whether Opus 5.5 is offered and what limit applies.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If you pay Anthropic directly for API usage, the token table is your meter. Anthropic’s performance, speed, safety and cost-per-task claims are not independently validated here.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The two-meter mechanism in P003–P004 supports an accurate ordinary-language answer to why the token prices leave a subscriber's monthly bill unchanged.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A usage limit is the amount a plan lets you use within a stated time window. The announcement does not quantify those limits or map ordinary Claude-chat model-selector access plan by plan.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>For developers paying Anthropic directly for API use — a software connection to a model — input costs $4 and output $20 per million tokens. Those are usage charges based on text processed, not monthly Claude subscription prices.</p>",
+          "locator": "P004"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why does Anthropic's $4-input / $20-output token pricing not change what a Claude Pro subscriber pays each month?",
+        "response": "Because the two products run on different meters. A subscription is a flat monthly fee whose constraint is a usage limit — how much you can do inside a five-hour window — so the launch changes the subscriber's ceiling, not their price. Token prices meter a different pipe entirely: developers who pay Anthropic directly are charged per million tokens of text processed, so the $4/$20 figures move only those metered bills.",
+        "expectedEvidence": "P003 defines the subscription meter as a time-windowed usage limit; P004 defines API charges as per-token usage billing explicitly 'not monthly Claude subscription prices'; P006 ties each meter to the correct reader.",
+        "assessment": "The article's mechanism fully supports this causal answer in ordinary language; nothing had to be imported from outside the text."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The subscription-vs-token distinction and the availability-vs-selector boundary transfer cleanly to new pricing headlines and plan questions not covered in the article.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For developers paying Anthropic directly for API use — a software connection to a model — input costs $4 and output $20 per million tokens. Those are usage charges based on text processed, not monthly Claude subscription prices.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>“Available on all platforms” does not mean every account can select Opus 5.5 in chat today.</p>",
+          "locator": "P005"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using the article's two-meter model, what should the consultancy actually expect, and how should they verify it?",
+        "response": "The 20% cut applies to per-token API pricing, so their flat Team seat price is unchanged — finance should expect the same invoice. What Anthropic says did change for them is the five-hour usage limit, which was raised, plus a saveable rate-limit reset; neither is quantified. And the price headline proves nothing about the chat selector: they should open the model selector on a Team account and check current plan documentation before telling anyone Opus 5.5 is available to them.",
+        "expectedEvidence": "P004 (token prices are not subscription prices), P002 (Team limits raised, reset added), P003 (limits unquantified), P005–P006 (availability language does not prove selector access; check the account).",
+        "assessment": "The article's mechanism resolves this genuinely new scenario completely, correctly separating the invoice, the limit and the selector questions — strong transfer."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The action is specific and proportionate: check the model selector and current plan details on your own account rather than trusting the announcement or memory.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you pay for Claude chat, the API figures do not describe your monthly plan price. Check the model selector and current plan details for your account to see whether Opus 5.5 is offered and what limit applies.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<a href=\\\"/library.html#working-with-ai-101::%407-4-free-vs-paid-the-honest-answer\\\">Working with AI 101 §7.4 — Free vs Paid (The Honest Answer)</a> explains why the model, product surface and plan are separate choices — and why current access should be checked instead of remembered.",
+          "locator": "P010"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The prose uses no figurative analogy; the 'token table is your meter' framing maps accurately to per-usage billing and carries its limits (P008's non-validation caveat).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you pay Anthropic directly for API usage, the token table is your meter. Anthropic’s performance, speed, safety and cost-per-task claims are not independently validated here.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim traces to the supplied Anthropic excerpts with attribution retained ('it says', 'Anthropic says') and no numbers or plan names altered.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic announced Claude Opus 5.5 on September 22. With the launch, it says it raised five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans. Subscription users also get a rate-limit reset they can save for later.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>For developers paying Anthropic directly for API use — a software connection to a model — input costs $4 and output $20 per million tokens. Those are usage charges based on text processed, not monthly Claude subscription prices.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Anthropic says Opus 5.5 can take on moving a software project to a new system or reviewing its code. For a simple email rewrite or summary, another Claude model may be a cheaper or faster alternative.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The event date (September 22), the check date (September 26 access, lastCheckedAt), and the single traceable source URL make the time-sensitive claims reviewable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic announced Claude Opus 5.5 on September 22. With the launch, it says it raised five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans. Subscription users also get a rate-limit reset they can save for later.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>If you pay for Claude chat, the API figures do not describe your monthly plan price. Check the model selector and current plan details for your account to see whether Opus 5.5 is offered and what limit applies.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article reports one dated launch and clearly separates what newly changed (limits raised, reset added) from what remains unestablished (per-plan selector access).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic announced Claude Opus 5.5 on September 22. With the launch, it says it raised five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans. Subscription users also get a rate-limit reset they can save for later.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A usage limit is the amount a plan lets you use within a stated time window. The announcement does not quantify those limits or map ordinary Claude-chat model-selector access plan by plan.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (which meter governs your bill, when a cheaper model suffices) and uncertainty survives: unquantified limits, unproven selector access, unvalidated provider claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>“Available on all platforms” does not mean every account can select Opus 5.5 in chat today.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>If you pay for Claude chat, the API figures do not describe your monthly plan price. Check the model selector and current plan details for your account to see whether Opus 5.5 is offered and what limit applies.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If you pay Anthropic directly for API usage, the token table is your meter. Anthropic’s performance, speed, safety and cost-per-task claims are not independently validated here.</p>",
+          "locator": "P008"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Definitions appear only where the mechanism needs them and immediately connect to billing consequences.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Sections do distinct jobs (event, mechanism, consequence) without repeated scaffolds.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No decorative comparison appears; the meter framing is literal and load-bearing.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references anywhere in the piece.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal steps from plan type to applicable meter to bill impact are all present in P003–P004 and P006.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The advice names the exact things to check: model selector and current plan details for your account.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "API, tokens and usage limits are each glossed in plain terms at first meaningful use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Plans, chat selector and API billing are explicitly related, not merely listed side by side.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is calibrated: provider statements carry 'it says'/'Anthropic says' and unvalidated claims are flagged in P008.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The dated announcement, access date and source URL make every time-sensitive claim traceable.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete throughout; even the provider's 'available on all platforms' is unpacked rather than echoed.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Dry but purposeful for a bounded pricing brief; the reader's own bill question supplies the human interest.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is mentioned in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline question is answered directly with the two-meter distinction and its boundary.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The email-rewrite example in P007 returns to the technical point about model choice and cost.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation of any communicator's voice or mannerisms; original plain explanation throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle competes with the explanation; understanding leads.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "There is no oversized hook; the mechanism occupies the body of the piece.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The headline claim is immediately followed by the mechanism and its limits rather than asserted and abandoned.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending remains bounded, explicitly withholding validation of performance and cost claims.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers all three reader jobs: subscription change, API change, and the selector-access boundary.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The reader's bill question motivates the mechanism before any numbers are given.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The brief examples (email rewrite, token meter) serve the news purpose without crowding it out.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "For a bounded news report, explaining this specific billing mechanism is exactly the right organising perspective, and it stays reader-oriented.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/editorial-input.json",
+        "sha256": "231415c11c83f4c0f32ddb40e7876c741acc8499ccabafd0bf987cb82ded74f3"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "release-date",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Anthropic announced Claude Opus 5.5 on September 22. With the launch, it says it raised five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans. Subscription users also get a rate-limit reset they can save for later.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/editorial-input.json",
+          "sha256": "231415c11c83f4c0f32ddb40e7876c741acc8499ccabafd0bf987cb82ded74f3"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Claude Opus 5.5 — September 22, 2026. Claude Opus 5.5 is now available on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure.",
+            "locator": "https://www.anthropic.com/claude-opus-5-5"
+          }
+        ],
+        "scopeAndFreshness": "P002 states the September 22 announcement; the source page heading 'Claude Opus 5.5 — September 22, 2026' supplies exactly that date, checked September 26."
+      },
+      {
+        "claimId": "api-prices",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>For developers paying Anthropic directly for API use — a software connection to a model — input costs $4 and output $20 per million tokens. Those are usage charges based on text processed, not monthly Claude subscription prices.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>If you pay Anthropic directly for API usage, the token table is your meter. Anthropic’s performance, speed, safety and cost-per-task claims are not independently validated here.</p>",
+            "locator": "P008"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/editorial-input.json",
+          "sha256": "231415c11c83f4c0f32ddb40e7876c741acc8499ccabafd0bf987cb82ded74f3"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Input and output tokens are $4 and $20 per million, 20% less than Opus 5. Cache reads (which make up the majority of agentic and coding work costs) are $0.20 per million tokens, 60% less than Opus 5.",
+            "locator": "https://www.anthropic.com/claude-opus-5-5"
+          }
+        ],
+        "scopeAndFreshness": "P004's $4 input / $20 output per million tokens matches the source excerpt verbatim, and the article correctly frames these as direct API usage charges, not subscription prices."
+      },
+      {
+        "claimId": "subscription-limits",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Anthropic announced Claude Opus 5.5 on September 22. With the launch, it says it raised five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans. Subscription users also get a rate-limit reset they can save for later.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>A usage limit is the amount a plan lets you use within a stated time window. The announcement does not quantify those limits or map ordinary Claude-chat model-selector access plan by plan.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/editorial-input.json",
+          "sha256": "231415c11c83f4c0f32ddb40e7876c741acc8499ccabafd0bf987cb82ded74f3"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "In addition to the price drop, we’re increasing five-hour usage limits on Pro, Max, Team, and seat-based Enterprise plans. We’re also providing subscription users a rate limit reset, which you can now save and use whenever you choose.",
+            "locator": "https://www.anthropic.com/claude-opus-5-5"
+          }
+        ],
+        "scopeAndFreshness": "P002 mirrors the source: five-hour limits raised on Pro, Max, Team and seat-based Enterprise, plus a saveable rate-limit reset, attributed with 'it says'; P003 preserves the source limitation that limits are not quantified."
+      },
+      {
+        "claimId": "task-positioning",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Anthropic says Opus 5.5 can take on moving a software project to a new system or reviewing its code. For a simple email rewrite or summary, another Claude model may be a cheaper or faster alternative.</p>",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "<p>If you pay Anthropic directly for API usage, the token table is your meter. Anthropic’s performance, speed, safety and cost-per-task claims are not independently validated here.</p>",
+            "locator": "P008"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/editorial-input.json",
+          "sha256": "231415c11c83f4c0f32ddb40e7876c741acc8499ccabafd0bf987cb82ded74f3"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Opus 5.5 is particularly good at long and sprawling jobs like codebase-wide migrations and audits.",
+            "locator": "https://www.anthropic.com/claude-opus-5-5"
+          }
+        ],
+        "scopeAndFreshness": "P007 attributes the migration/code-review positioning to Anthropic, a fair plain-language paraphrase of 'codebase-wide migrations and audits'; the cheaper/faster-alternative sentence is editorial interpretation, correctly hedged with 'may' and flagged as not benchmark-derived in P008."
+      },
+      {
+        "claimId": "access-boundary",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>A usage limit is the amount a plan lets you use within a stated time window. The announcement does not quantify those limits or map ordinary Claude-chat model-selector access plan by plan.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>“Available on all platforms” does not mean every account can select Opus 5.5 in chat today.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/editorial-input.json",
+          "sha256": "231415c11c83f4c0f32ddb40e7876c741acc8499ccabafd0bf987cb82ded74f3"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Claude Opus 5.5 is now available on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure. On the Claude Platform, developers can get started with claude-opus-5-5.",
+            "locator": "https://www.anthropic.com/claude-opus-5-5"
+          }
+        ],
+        "scopeAndFreshness": "P003 and P005 assert a bounded gap: the announcement lists platform availability (AWS, Google Cloud, Azure, developer access) without a plan-by-plan chat selector map, and the supplied source excerpt indeed contains no such mapping."
+      }
+    ],
+    "reviewedThrough": "2026-09-26",
+    "nextTrigger": "Official price, plan, usage-limit or model-selector change.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 9,
+    "reviewIssues": 9,
+    "reviewCycles": 5,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW",
+    "repairedIssues": [
+      "Inaccurate two-bills headline",
+      "Cost-change conflation of a price and an allowance",
+      "Third-party app/API payer ambiguity",
+      "Work-only provider-claim wording",
+      "Unsubstantiated aggregate source-budget number",
+      "Generic generated self-review evidence",
+      "Unexplained developer jargon in the public task-fit sentence",
+      "Overstated provider task positioning as best suited rather than source-faithful task support",
+      "Developer-first headline buried the subscriber limit and reset news"
+    ]
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First candidate explaining Anthropic Opus 5.5 direct API prices and subscription-limit changes together; GPT-6 Sol/Luna covers a distinct provider and product rollout."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All eleven outcomes and four news checks pass and all twenty-four failure families are clear; no defect or uncertain judgment requires repair."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=2; evidence gaps repaired=1; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/admission-complete-20260926/news-editorial-analysis.json",
+      "sha256": "08138cfba09fb9f9026743de3f5ea32150a7af162ec258533854ff3d2f470e2e"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/admission-complete-20260926/independent-raw-report.json",
+    "sha256": "71bb1fa6a58fab4e40371dbaf3236be7abd618c84063698aa443bd49c1cfc6b9"
+  }
+}

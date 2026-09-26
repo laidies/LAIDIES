@@ -1,0 +1,79 @@
+{
+  "schema": "newsstand-private-proposed-coverage-delta-v1",
+  "base": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+  "baseCheckedAt": "2026-09-26T14:16:01Z",
+  "proposalOnly": true,
+  "sourceObservation": "operations/product-stewards/newsstand/evidence/recovery-1000-20260926/source-recovery/raw-source-observations.json",
+  "sourceChecks": [
+    {
+      "operation": "replace",
+      "matchUrl": "https://aidailybrief.ai/agent.json",
+      "changedFields": {
+        "checkedAt": "2026-09-26T17:05:13.992Z",
+        "status": "CHECKED",
+        "assessment": "Actual current website-index enumeration: generated 2026-09-26T17:05:13.992Z; newest website identity remains Sep24. This is metadata only, not a complete edition review.",
+        "nextCheckAt": "2026-09-27T17:05:13.992Z",
+        "capture": { "path": "operations/product-stewards/newsstand/evidence/recovery-1000-20260926/source-recovery/raw-source-observations.json", "sha256": "2b991619292f31df2e94c813100a258c161db3d1862f7f799de695b126dbb87b" }
+      }
+    },
+    {
+      "operation": "append",
+      "row": {
+        "url": "https://aidailybrief.ai/e/2026-09-25",
+        "role": "AIDB_EXPECTED_DATED_EDITION",
+        "checkedAt": "2026-09-26T17:05:55Z",
+        "status": "UNAVAILABLE",
+        "assessment": "The direct expected edition endpoint returned HTTP 404; no full content exists at this URL in this observation.",
+        "missingInput": "A legitimate complete publisher edition or transcript and explicit identity binding.",
+        "nextCheckAt": "2026-09-27T17:05:55Z",
+        "capture": { "path": "operations/product-stewards/newsstand/evidence/recovery-1000-20260926/source-recovery/raw-source-observations.json", "sha256": "2b991619292f31df2e94c813100a258c161db3d1862f7f799de695b126dbb87b" }
+      }
+    }
+  ],
+  "leads": [
+    {
+      "operation": "replace",
+      "id": "anthropic-claude-code-cloud-credits-20260923",
+      "changedFields": {
+        "reviewedAt": "2026-09-26T17:05:38Z",
+        "attemptedRecovery": "Read the complete BleepingComputer report (turn1283view3). It reports cloud-session availability and promotional credit terms. The official Claude Code product page was also inspected, but it confirms plans rather than the promotion's eligibility, amount, deadline, expiry, or relation to normal limits.",
+        "sourceReview": "operations/product-stewards/newsstand/evidence/recovery-1000-20260926/source-recovery/raw-source-observations.json",
+        "nextCheckAt": "2026-09-27T17:05:38Z",
+        "nextAction": "Recover an official Anthropic offer-terms record; do not promote secondary-reported eligibility, credits, or deadlines as provider-confirmed."
+      }
+    },
+    {
+      "operation": "replace",
+      "id": "openai-agent-user-images-third-party-20260925",
+      "changedFields": {
+        "reviewedAt": "2026-09-26T17:05:41Z",
+        "attemptedRecovery": "A normal exact open of the BleepingComputer and TechCrunch reports remained inaccessible (turn1283view0 and turn1283view1). The official OpenAI incident page was fully inspected (turn1283view2): it confirms ongoing review and agent spam as a third-party impact category but does not contain an image-specific passage, a 53-image count, or affected-user scope.",
+        "sourceReview": "operations/product-stewards/newsstand/evidence/recovery-1000-20260926/source-recovery/raw-source-observations.json",
+        "nextCheckAt": "2026-09-27T17:05:41Z",
+        "nextAction": "Keep EVIDENCE_BLOCKED. At the next check, recover a complete exact publisher report or directly captured official image-specific update; do not draft from the general agent-spam category."
+      }
+    },
+    {
+      "operation": "replace",
+      "id": "google-gemini-live-avatar-20260924",
+      "changedFields": {
+        "status": "EXCLUDED",
+        "reviewedAt": "2026-09-26T17:05:44Z",
+        "reviewedBy": "source-recovery-1000-20260926",
+        "reason": "The complete official announcement confines availability to Gemini Enterprise. It describes an enterprise-agent feature and provider safeguards, but this pass found no ordinary personal-Gemini access, pricing, regional availability, or independent reader consequence.",
+        "sourceReview": "operations/product-stewards/newsstand/evidence/recovery-1000-20260926/source-recovery/raw-source-observations.json",
+        "nextAction": "Reassess only with verified ordinary-user availability or a distinct, source-backed workplace consequence."
+      }
+    },
+    {
+      "operation": "replace",
+      "id": "aidb-20260924-ai-agents-real-world",
+      "changedFields": {
+        "attemptedRecovery": "Current official agent.json was inspected at 2026-09-26T17:05:13.992Z and still identifies Sep24 as newest website metadata. Expected Sep25 edition and transcript endpoints returned HTTP 404; no new complete edition or transcript was recovered. Metadata was not treated as content.",
+        "nextCheckAt": "2026-09-27T17:05:55Z",
+        "sourceReview": "operations/product-stewards/newsstand/evidence/recovery-1000-20260926/source-recovery/raw-source-observations.json"
+      }
+    }
+  ],
+  "noNewKeep": "No new KEEP row is proposed. This pass recovered no source-bound private research candidate that clears the evidence boundary; retains are concrete source holds with named missing input and next checks."
+}

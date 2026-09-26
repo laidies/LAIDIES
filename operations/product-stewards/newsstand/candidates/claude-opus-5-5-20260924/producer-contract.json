@@ -20,7 +20,7 @@
       "owner": "Anthropic controls the official announcement, availability statement, API prices and subscription-limit description.",
       "source": {
         "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/source-evidence.json",
-        "sha256": "e4c92b2575b49fc091bf2ec2ea4b97c7c81debfc3ac96f11df2771c79da5bf7e"
+        "sha256": "5f13fb67769f352db1a939f485495a37dac83e9a9d3d94985223a7fcc1fd8819"
       },
       "freshnessTrigger": "Recheck the official announcement, pricing and plan help before publication and whenever Anthropic changes model availability, token prices or subscription limits."
     }
@@ -122,12 +122,12 @@
     }
   },
   "draftArchitecture": {
-    "openingJob": "Answer immediately that the API price and subscription limit are different changes.",
+    "openingJob": "Lead with the higher five-hour limits and saveable reset for named Claude subscriptions, then distinguish the secondary developer API prices.",
     "causalSequence": [
-      "Anthropic announced Opus 5.5 on September 22 and says it is available across its platforms and named cloud partners.",
-      "Developers using the API are billed by token; Anthropic published $4 input and $20 output prices per million tokens.",
-      "Subscriptions use plan limits rather than those token prices; Anthropic says five-hour limits increased on Pro, Max, Team and seat-based Enterprise.",
+      "Anthropic announced Opus 5.5 on September 22 and says five-hour limits increased on Pro, Max, Team and seat-based Enterprise plans.",
+      "Subscription users also receive a rate-limit reset that can be saved for later.",
       "The announcement does not quantify the new limits or map model-selector eligibility for every individual plan.",
+      "Developers using the API are billed by token; Anthropic published $4 input and $20 output prices per million tokens.",
       "A reader must check the current selector and plan page for her account while keeping provider performance claims attributed."
     ],
     "workedCase": "A Pro subscriber does not multiply her chat by the $4 API input price. She looks at the subscription plan’s current usage and model access. A developer making API calls uses the token price table instead.",
@@ -172,7 +172,7 @@
       }
     ],
     "presentationPlan": "Use the independently admitted people-free desk illustration: chat and hourglass for the subscription time window, and abstract processed blocks with a counter and receipt for direct API metering. No logos, prices, quantified limits or universal-access symbols.",
-    "plainAnswer": "The $4 and $20 figures are developer API token prices. Anthropic separately says it increased five-hour limits on named paid subscriptions, but the announcement does not quantify those limits or prove plan-by-plan ordinary-chat selector access."
+    "plainAnswer": "Anthropic says it increased five-hour limits on named paid subscriptions and added a saveable reset, but did not quantify each plan’s new limit. The $4 and $20 figures are separate developer API token prices."
   },
   "communicationDesign": {
     "benchmarkId": "HANNAH_FRY_COMMUNICATION_LENS_V2",
@@ -255,5 +255,5 @@
     },
     "rule": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
   },
-  "createdAt": "2026-09-25T03:18:11.286Z"
+  "createdAt": "2026-09-26T17:02:52.000Z"
 }

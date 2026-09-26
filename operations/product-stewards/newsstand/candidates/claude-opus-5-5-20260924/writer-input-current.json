@@ -13,12 +13,12 @@
       "desiredFeeling": "I can tell which number belongs to developer billing, which change belongs to subscriptions, and what I still need to verify in my own plan."
     },
     "explanationPlan": {
-      "openingJob": "Answer immediately that the API price and subscription limit are different changes.",
+      "openingJob": "Lead with the higher five-hour limits and saveable reset for named Claude subscriptions, then distinguish the secondary developer API prices.",
       "causalSequence": [
-        "Anthropic announced Opus 5.5 on September 22 and says it is available across its platforms and named cloud partners.",
-        "Developers using the API are billed by token; Anthropic published $4 input and $20 output prices per million tokens.",
-        "Subscriptions use plan limits rather than those token prices; Anthropic says five-hour limits increased on Pro, Max, Team and seat-based Enterprise.",
+        "Anthropic announced Opus 5.5 on September 22 and says five-hour limits increased on Pro, Max, Team and seat-based Enterprise plans.",
+        "Subscription users also receive a rate-limit reset that can be saved for later.",
         "The announcement does not quantify the new limits or map model-selector eligibility for every individual plan.",
+        "Developers using the API are billed by token; Anthropic published $4 input and $20 output prices per million tokens.",
         "A reader must check the current selector and plan page for her account while keeping provider performance claims attributed."
       ],
       "workedCase": "A Pro subscriber does not multiply her chat by the $4 API input price. She looks at the subscription plan’s current usage and model access. A developer making API calls uses the token price table instead.",
@@ -63,7 +63,7 @@
         }
       ],
       "presentationPlan": "Use the independently admitted people-free desk illustration: chat and hourglass for the subscription time window, and abstract processed blocks with a counter and receipt for direct API metering. No logos, prices, quantified limits or universal-access symbols.",
-      "plainAnswer": "The $4 and $20 figures are developer API token prices. Anthropic separately says it increased five-hour limits on named paid subscriptions, but the announcement does not quantify those limits or prove plan-by-plan ordinary-chat selector access."
+      "plainAnswer": "Anthropic says it increased five-hour limits on named paid subscriptions and added a saveable reset, but did not quantify each plan’s new limit. The $4 and $20 figures are separate developer API token prices."
     },
     "communication": {
       "benchmarkId": "HANNAH_FRY_COMMUNICATION_LENS_V2",
@@ -169,9 +169,9 @@
       "translation": {
         "schema": "laidies.newsstand-reader-translation.v1",
         "newsVersionExact": "Anthropic announced Claude Opus 5.5 on September 22.",
-        "actualMeaningExact": "Those are usage charges based on text processed, not monthly Claude subscription prices.",
-        "mechanismExact": "If you pay Anthropic directly for API usage, the token table is your meter.",
-        "familiarExampleExact": "If you pay for Claude chat, the API figures do not describe your monthly plan price.",
+        "actualMeaningExact": "A higher limit may mean more use before you have to wait for the five-hour allowance to reset.",
+        "mechanismExact": "Those are usage charges based on text processed, not monthly Claude subscription prices.",
+        "familiarExampleExact": "If you use one of the named plans, check your current plan details and model selector to see what limit and model access apply to your account.",
         "jargon": [
           {
             "term": "API",
@@ -312,8 +312,8 @@
       {
         "kind": "additional-primary-evidence",
         "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/source-evidence.json",
-        "sha256": "e4c92b2575b49fc091bf2ec2ea4b97c7c81debfc3ac96f11df2771c79da5bf7e",
-        "text": "{\n  \"schemaVersion\": \"newsstand-source-evidence-v1\",\n  \"candidateId\": \"claude-opus-5-5-20260924\",\n  \"eventDate\": \"2026-09-22\",\n  \"researchDate\": \"2026-09-24\",\n  \"status\": \"SOURCE_BOUND_RESEARCH_READY_NO_PUBLIC_PROSE\",\n  \"records\": [\n    {\n      \"sourceId\": \"anthropic-opus-5-5-official\",\n      \"url\": \"https://www.anthropic.com/claude-opus-5-5\",\n      \"capture\": \"sources/anthropic-original-current-check.json\",\n      \"captureSha256\": \"b9d868685e5569a1ece04510fb9caf55ec809c106a3d1001997ca0cc869a2e0d\",\n      \"role\": \"primary official original for release date, platform availability, API pricing, subscription-limit changes, and provider claims\"\n    },\n    {\n      \"sourceId\": \"recovery-proposal\",\n      \"path\": \"operations/product-stewards/newsstand/evidence/recovery-1000-20260924/source-recovery/proposed-coverage-update.json\",\n      \"sha256\": \"070aadbcd871ced5d120a0eaea1f48dc5e8b8e86efd3700b5c8cbde504f89c0f\",\n      \"role\": \"intake disposition and reader-question boundary only\"\n    }\n  ],\n  \"sourceCompleteness\": {\n    \"officialReleaseOriginal\": \"COMPLETE\",\n    \"currentOfficialAvailabilityStatement\": \"COMPLETE_BUT_NOT_PLAN_BY_PLAN\",\n    \"individualClaudePlanSelectorEligibility\": \"UNRESOLVED\",\n    \"apiPricing\": \"COMPLETE_AS_PUBLISHED\",\n    \"independentPerformanceValidation\": \"NOT_REQUIRED_FOR_RESEARCH_PACKET_AND_NOT_ESTABLISHED\"\n  }\n}\n"
+        "sha256": "5f13fb67769f352db1a939f485495a37dac83e9a9d3d94985223a7fcc1fd8819",
+        "text": "{\n  \"schemaVersion\": \"newsstand-source-evidence-v1\",\n  \"candidateId\": \"claude-opus-5-5-20260924\",\n  \"eventDate\": \"2026-09-22\",\n  \"researchDate\": \"2026-09-26\",\n  \"status\": \"SOURCE_BOUND_CURRENT_FOR_REVIEW\",\n  \"records\": [\n    {\n      \"sourceId\": \"anthropic-opus-5-5-official\",\n      \"url\": \"https://www.anthropic.com/claude-opus-5-5\",\n      \"capture\": \"sources/anthropic-original-current-check.json\",\n      \"captureSha256\": \"be39b17dd19d7e9042bdd828657ba2b460f7e58e3bc97d7e8f3c8f7c66180dee\",\n      \"role\": \"primary official original for release date, platform availability, API pricing, subscription-limit changes, and provider claims\",\n      \"currentRawCapture\": \"source-refresh-20260926/anthropic-opus-5-5.html\",\n      \"currentRawCaptureSha256\": \"587eae114ebf4ad7d156434bba65f30ecf1bd4a2b82be46ab3a325beaaee9472\",\n      \"observedAt\": \"2026-09-26T17:02:52Z\"\n    },\n    {\n      \"sourceId\": \"recovery-proposal\",\n      \"path\": \"operations/product-stewards/newsstand/evidence/recovery-1000-20260924/source-recovery/proposed-coverage-update.json\",\n      \"sha256\": \"070aadbcd871ced5d120a0eaea1f48dc5e8b8e86efd3700b5c8cbde504f89c0f\",\n      \"role\": \"intake disposition and reader-question boundary only\"\n    }\n  ],\n  \"sourceCompleteness\": {\n    \"officialReleaseOriginal\": \"COMPLETE\",\n    \"currentOfficialAvailabilityStatement\": \"COMPLETE_BUT_NOT_PLAN_BY_PLAN\",\n    \"individualClaudePlanSelectorEligibility\": \"UNRESOLVED\",\n    \"apiPricing\": \"COMPLETE_AS_PUBLISHED\",\n    \"independentPerformanceValidation\": \"NOT_REQUIRED_FOR_RESEARCH_PACKET_AND_NOT_ESTABLISHED\"\n  }\n}\n"
       }
     ],
     "sourceCoverageClaim": "Only the supplied bound evidence; no claim of comprehensive news discovery.",
@@ -326,11 +326,11 @@
     },
     {
       "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/source-evidence.json",
-      "sha256": "e4c92b2575b49fc091bf2ec2ea4b97c7c81debfc3ac96f11df2771c79da5bf7e"
+      "sha256": "5f13fb67769f352db1a939f485495a37dac83e9a9d3d94985223a7fcc1fd8819"
     }
   ],
   "producerContract": {
     "path": "operations/product-stewards/newsstand/candidates/claude-opus-5-5-20260924/producer-contract.json",
-    "sha256": "3c91f97a74212583811f2997fdc39bd645fc1583310b2fcda4893d4ee5578b0b"
+    "sha256": "d502b70dee1ba622368424f504c4bc3aa96b0df8fdc645e9fef745f530cdefb4"
   }
 }

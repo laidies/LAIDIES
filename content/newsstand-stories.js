@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-26T15:36:26.105Z",
-  "lastCheckedAt": "2026-09-26T15:36:26.105Z",
+  "generatedAt": "2026-09-26T17:25:11.636Z",
+  "lastCheckedAt": "2026-09-26T17:25:11.636Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -22,12 +22,13 @@ window.NEWSSTAND_DATA = {
         "status": "complete",
         "disposition": "service_ready",
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
-        "weeklyStoryId": "weekly-promises-and-proof-20260916",
+        "weeklyStoryId": "weekly-changes-need-different-verbs-20260923",
         "storyIds": [
           "gpt-6-sol-luna-20260922",
           "openai-agent-australia-medicare-20260924",
           "california-ai-oversight-order-20260920",
-          "california-data-centre-laws-20260921"
+          "california-data-centre-laws-20260921",
+          "claude-opus-5-5-20260924"
         ],
         "serviceRecordIds": [
           "DAILY-2026-09-26-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
@@ -39,9 +40,9 @@ window.NEWSSTAND_DATA = {
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-26T15:36:26.105Z",
-      "updatedAt": "2026-09-26T15:36:26.105Z",
-      "lastCheckedAt": "2026-09-26T15:36:26.105Z",
+      "publishedAt": "2026-09-26T17:25:11.636Z",
+      "updatedAt": "2026-09-26T17:25:11.636Z",
+      "lastCheckedAt": "2026-09-26T17:25:11.636Z",
       "maxAgeHours": 36,
       "note": "The Daily for 2026-09-26."
     },
@@ -7043,6 +7044,72 @@ window.NEWSSTAND_DATA = {
       ],
       "saint_lane": null,
       "badge": "THE WEEKLY",
+      "retraction": null
+    },
+    {
+      "id": "claude-opus-5-5-20260924",
+      "slug": "claude-opus-5-5-20260924",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-26T17:25:11.636Z",
+      "updatedAt": "2026-09-26T17:02:52.000Z",
+      "lastCheckedAt": "2026-09-26T17:02:52.000Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:claude-opus-5-5-20260924"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "Claude raises usage limits for paying subscribers",
+      "heroVisual": {
+        "src": "/assets/newsstand/claude-opus-usage-20260924.png",
+        "alt": "Editorial illustration of two laptops separated by an hourglass and a usage counter, representing subscription time limits and metered API use.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Anthropic announced Claude Opus 5.5 on September 22. With the launch, it says it raised five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans.</p>",
+      "laidies_read": "<p>A usage limit is the amount a plan lets you use within a stated time window. A higher limit may mean more use before you have to wait for the five-hour allowance to reset. Anthropic does not say how much more or promise a message count.</p><p>Anthropic also says subscription users get a rate-limit reset they can save and use when they choose.</p><p>Separately, developers paying Anthropic directly for API use — a software connection to a model — pay $4 for input and $20 for output per million tokens. Those are usage charges based on text processed, not monthly Claude subscription prices.</p>",
+      "what_this_means": "<p>If you use one of the named plans, check your current plan details and model selector to see what limit and model access apply to your account. The announcement does not map ordinary Claude-chat access plan by plan.</p><p>Anthropic says Opus 5.5 can take on long software jobs such as moving a project to a new system or reviewing its code.</p><p>Compared with Fable 5.1, Anthropic says Opus 5.5 performs similarly on most work. That does not show Opus 5.5 is necessary for a routine email or summary; another Claude model may be enough. Anthropic’s performance, speed, safety and cost-per-task claims are not independently validated here.</p>",
+      "cocktail_party": "“Anthropic raised five-hour usage limits on four paid plan types and added a saveable reset. It did not publish the size of each increase or a message count.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "<a href=\"/library.html#working-with-ai-101::%407-4-free-vs-paid-the-honest-answer\">Working with AI 101 §7.4 — Free vs Paid (The Honest Answer)</a> explains why the model, product surface and plan are separate choices — and why current access should be checked instead of remembered.",
+      "sources": [
+        {
+          "id": "anthropic-opus-5-5-official",
+          "label": "Anthropic — Claude Opus 5.5 announcement",
+          "url": "https://www.anthropic.com/claude-opus-5-5",
+          "publisherType": "company-primary-announcement",
+          "accessedAt": "2026-09-26",
+          "approvalStatus": "independent-review-required"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "AI products",
+        "pricing",
+        "subscriptions"
+      ],
+      "concepts": [
+        "API pricing",
+        "usage limits",
+        "plan availability"
+      ],
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "Opus 5.5",
+        "API",
+        "subscriptions"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST",
       "retraction": null
     }
   ]

@@ -1,0 +1,93 @@
+{
+  "schema": "newsstand-private-source-observations-v1",
+  "scope": "Sep26 10:00 Vancouver recovery; source observation only; no canonical or public mutation",
+  "triggeredAt": "2026-09-26T17:01:17.945Z",
+  "observedAt": "2026-09-26T17:05:14Z",
+  "routeGuard": {
+    "command": "node scripts/check-practitioner-signal-pilot.mjs --newsstand-only --as-of 2026-09-26",
+    "result": "NEWSSTAND SOURCE ROUTES PASS desks=6 sources=8 research_completion_certified=false"
+  },
+  "desks": [
+    {
+      "desk": "accountability_and_work_economy",
+      "source": "AP AI hub",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "response": { "toolResponse": "turn1281view0", "httpObservation": "403 from direct curl; rendered index accessible through normal reader" },
+      "passages": [
+        "The rendered AI hub lists 'OpenAI says its systems behaved unpredictably and accessed US government sites.'",
+        "It also lists 'Lawsuit says Anthropic, OpenAI, SpaceXAI and Google made illegal agreement on AI slowdown.'"
+      ],
+      "disposition": "No new row proposed: both identities map to existing Australia/misalignment or slowdown coverage lanes and the index alone does not establish a distinct publishable event."
+    },
+    {
+      "desk": "medical_science",
+      "source": "Nature machine-learning subject index",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "response": { "toolResponse": "turn1281view1", "httpObservation": "302 to idp.nature.com, then 20-second timeout in direct curl" },
+      "passages": ["The normal reader exposed the current subject index but no complete current paper or methods record was recovered in this pass."],
+      "disposition": "No change proposed. Existing Sep26 biomedical leads remain evidence-blocked; this route cannot establish clinical or ordinary-reader consequences."
+    },
+    {
+      "desk": "public_record",
+      "source": "FTC AI index",
+      "url": "https://www.ftc.gov/industry/technology/artificial-intelligence",
+      "response": { "toolResponse": "turn1281view2", "httpObservation": "403 from direct curl; rendered index accessible through normal reader" },
+      "passages": ["The latest visible AI item is the Sep. 11, 2025 companion-chatbot inquiry."],
+      "disposition": "No Sep24-26 item was enumerated; no lead change proposed."
+    },
+    {
+      "desk": "contrary_evidence",
+      "source": "EFF AI index",
+      "url": "https://www.eff.org/issues/ai",
+      "response": { "toolResponse": "turn1281view3", "httpObservation": "HTTP 200 direct curl" },
+      "passages": ["The current visible dated item is September 17, 2026."],
+      "disposition": "No later current item; no lead change proposed."
+    },
+    {
+      "desk": "security",
+      "source": "BleepingComputer AI category and exact Claude-code report",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-rolls-out-up-to-250-in-free-claude-code-credits-but-only-for-cloud-sessions/",
+      "response": { "toolResponse": "turn1283view3", "httpObservation": "HTTP 200 direct curl for category" },
+      "passages": [
+        "The complete report says cloud sessions run on Anthropic infrastructure and claims up to $250 promotional credits.",
+        "It attributes $100 to eligible Pro users and $250 to Max subscribers, with an October 7 claim deadline and November 4 expiry.",
+        "The report says the credits are separate from normal limits while available, after which cloud sessions count against normal limits."
+      ],
+      "disposition": "Retain EVIDENCE_BLOCKED: this is a complete independent report, but the official Claude Code page confirms plans only, not offer eligibility, amounts, dates, or usage-limit terms."
+    },
+    {
+      "desk": "product_releases",
+      "source": "OpenAI News / Anthropic News / Gemini API changelog",
+      "urls": ["https://openai.com/news/", "https://www.anthropic.com/news", "https://ai.google.dev/gemini-api/docs/changelog"],
+      "response": { "toolResponses": ["turn1281view5", "turn1283view4", "turn1281view7"], "httpObservations": ["OpenAI direct curl 403", "Anthropic HTTP 200", "Gemini changelog HTTP 200"] },
+      "passages": [
+        "OpenAI's incident page confirms third-party posting as a category of 'agent spam', says it has notified dozens of third parties, and says review is ongoing; it does not name or count user images.",
+        "Anthropic's current newsroom lists Sep. 23 enzyme research after the Sep. 22 Opus release; no Sep. 26 item appears.",
+        "Google's Sep. 24 Live Avatar announcement says the feature is available in Gemini Enterprise and says outputs are watermarked with SynthID."
+      ],
+      "disposition": "Propose exclusion for the enterprise-only Live Avatar lead. Retain the OpenAI images lead as EVIDENCE_BLOCKED because neither exact independent report was accessible and the official page lacks the image-specific passage."
+    }
+  ],
+  "aidb": {
+    "indexUrl": "https://aidailybrief.ai/agent.json",
+    "observedAt": "2026-09-26T17:05:13.992Z",
+    "response": "turn1281view8 / turn1284view5",
+    "passages": [
+      "agent.json was generated at 2026-09-26T17:05:13.992Z and its newest website edition is Sep. 24, 'AI Agents Are Moving Into the Real World.'",
+      "The index records edition metadata and URLs only; it is not a transcript or complete-item review."
+    ],
+    "expectedDatedEdition": {
+      "edition": "2026-09-25",
+      "urls": ["https://aidailybrief.ai/e/2026-09-25", "https://aidailybrief.ai/e/2026-09-25/transcript.md"],
+      "directResponses": ["HTTP 404 at 2026-09-25T14:11:06Z", "HTTP 404 at 2026-09-26T17:05:55Z"],
+      "status": "NO_COMPLETE_EDITION_RECOVERED"
+    },
+    "latestComplete": "Sep. 13 remains the latest complete, cursor-processed edition. No newer full edition or transcript was recovered."
+  },
+  "limits": [
+    "AIDB remains a scout only.",
+    "No captured source establishes the reported 53-image scope, affected-user count, or a general ChatGPT breach.",
+    "No official Anthropic promotion-terms record was recovered.",
+    "No source index alone was treated as complete independent coverage."
+  ]
+}

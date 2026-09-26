@@ -26,8 +26,26 @@ for (const snapshot of issue.stories) {
   assert.ok(storyIndex >= 0, `current fixture requires admitted story ${snapshot.id}`);
   fixtureDataset.stories[storyIndex] = structuredClone(snapshot);
 }
-const projected = projectDailyIssue({ dataset: fixtureDataset, issue, columns });
 const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
+// A separately admitted Weekly can advance after this Daily was published.
+// Replaying the older Daily against that live pointer must fail; historical
+// replay uses only the exact checksum-bound predecessor, never a made-up pointer.
+if ((fixtureDataset.publications.weekly?.storyId || null) !== (issue.weeklyStoryId || null)) {
+  assert.throws(() => projectDailyIssue({ dataset: fixtureDataset, issue, columns }), /Weekly continuity must preserve/,
+    "historical Daily cannot roll back a subsequently admitted Weekly");
+  const binding = issue.sourceIdentity.ordinaryCandidate;
+  assert.ok(binding, "historical fixture requires a bound publication predecessor");
+  const candidateRaw = fs.readFileSync(path.join(ROOT, binding.path), "utf8");
+  assert.equal(sha256(candidateRaw), binding.sha256, "historical candidate binding must match");
+  const predecessor = JSON.parse(candidateRaw).publicationBase;
+  const predecessorRaw = fs.readFileSync(path.join(ROOT, predecessor.path), "utf8");
+  assert.equal(sha256(predecessorRaw), predecessor.sha256, "historical predecessor bytes must match");
+  const predecessorContext = { window: {} };
+  vm.runInNewContext(predecessorRaw, predecessorContext);
+  fixtureDataset.publications.weekly = JSON.parse(JSON.stringify(predecessorContext.window.NEWSSTAND_DATA.publications.weekly));
+  assert.equal(fixtureDataset.publications.weekly.storyId, issue.weeklyStoryId);
+}
+const projected = projectDailyIssue({ dataset: fixtureDataset, issue, columns });
 const envelopeRoot = path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private");
 const matchingEnvelopes = fs.readdirSync(envelopeRoot)
   .filter((name) => name.startsWith(date) && name.endsWith(".json"))

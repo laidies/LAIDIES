@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "claude-opus-5-5-20260924",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "9cf1848319ad5281ecbf77b92526a07ab8ebc246212ed02e2dc4ebf63dfb889a",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why doesn't the new $4 input / $20 output token pricing make a Pro subscriber's monthly Claude bill cheaper?",
+      "response": "Because two separate meters run on two separate billing channels. A Pro subscription charges a flat monthly fee and meters usage as an allowance inside a five-hour window that resets; token prices meter the volume of text processed and are charged per use only to developers who pay Anthropic directly through the API. Changing the per-token rate alters what a developer pays per unit of text, but a subscriber never pays per token, so their bill is untouched — what changed for them is a larger (unquantified) five-hour allowance and a saveable reset.",
+      "expectedEvidence": "P005 states the $4/$20 figures are usage charges based on text processed, not monthly subscription prices; P003 defines the subscription meter as an amount per time window with a five-hour reset; P002 and P004 identify the subscriber-side changes as raised limits and a saveable reset.",
+      "assessment": "The article's mechanism fully supports this causal answer in ordinary language; both meters and their billing channels are explicit, so a reader could reproduce this reasoning unaided."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, which of her two predictions is wrong, which is unproven, and what should she actually do?",
+      "response": "The cost prediction is wrong: $4/$20 per million tokens is API developer billing based on text processed; the Team plan's flat subscription fee does not price per token, so the announcement changes the team's allowance (a raised five-hour usage limit plus a saveable reset), not the invoice. The selector prediction is unproven: Team is named in the limit-increase sentence, but the announcement supplies no plan-by-plan chat model-selector map, so Opus 5.5 access must be verified. She should check the team's plan details and the model selector in the account itself before telling staff anything.",
+      "expectedEvidence": "P005 separates token charges from subscription prices; P002 and P004 name the actual subscriber-side changes; P006 states the announcement does not map ordinary chat access plan by plan and directs readers to their own plan details and selector.",
+      "assessment": "The article's two-meter model plus its access-boundary caveat resolves this genuinely new scenario cleanly, showing the mechanism transfers beyond the cases the article discusses."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "What happened (Opus 5.5 launch, limit increases, saveable reset, API prices) and the causal sequence are stated with dates and attribution.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic announced Claude Opus 5.5 on September 22. With the launch, it says it raised five-hour usage limits on Pro, Max, Team and seat-based Enterprise plans.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Anthropic also says subscription users get a rate-limit reset they can save and use when they choose.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Separately, developers paying Anthropic directly for API use — a software connection to a model — pay $4 for input and $20 for output per million tokens. Those are usage charges based on text processed, not monthly Claude subscription prices.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Usage limit, five-hour reset, API, and per-million-token pricing each get plain meaning at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A usage limit is the amount a plan lets you use within a stated time window. A higher limit may mean more use before you have to wait for the five-hour allowance to reset. Anthropic does not say how much more or promise a message count.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Separately, developers paying Anthropic directly for API use — a software connection to a model — pay $4 for input and $20 for output per million tokens. Those are usage charges based on text processed, not monthly Claude subscription prices.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are tied to a named-plan subscriber checking their own selector and to a routine email or summary that may not need Opus.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you use one of the named plans, check your current plan details and model selector to see what limit and model access apply to your account. The announcement does not map ordinary Claude-chat access plan by plan.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Compared with Fable 5.1, Anthropic says Opus 5.5 performs similarly on most work. That does not show Opus 5.5 is necessary for a routine email or summary; another Claude model may be enough. Anthropic’s performance, speed, safety and cost-per-task claims are not independently validated here.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes leak into reader-facing text and all advice follows directly from stated source gaps.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you use one of the named plans, check your current plan details and model selector to see what limit and model access apply to your account. The announcement does not map ordinary Claude-chat access plan by plan.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Compared with Fable 5.1, Anthropic says Opus 5.5 performs similarly on most work. That does not show Opus 5.5 is necessary for a routine email or summary; another Claude model may be enough. Anthropic’s performance, speed, safety and cost-per-task claims are not independently validated here.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<a href=\\\"/library.html#working-with-ai-101::%407-4-free-vs-paid-the-honest-answer\\\">Working with AI 101 §7.4 — Free vs Paid (The Honest Answer)</a> explains why the model, product surface and plan are separate choices — and why current access should be checked instead of remembered.",
+          "locator": "P010"
+        }
+      ]
+    }
+  }
+}
