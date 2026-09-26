@@ -7,7 +7,7 @@ import {spawnSync} from "node:child_process";
 import {fileURLToPath} from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const STAGES = ["source-intake", "research", "writer", "independent-reviewer", "signer", "provider-preserving-publisher", "live-verification"];
+const STAGES = ["source-intake", "research", "writer", "independent-reviewer", "provider-preserving-publisher", "live-verification"];
 const SHA256 = /^[a-f0-9]{64}$/;
 const COMMIT = /^[a-f0-9]{40}$/;
 

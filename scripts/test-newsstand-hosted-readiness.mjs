@@ -22,7 +22,7 @@ assert.equal(missingAuth.status, "BLOCKED");
 assert.ok(missingAuth.issues.some(issue => issue.code === "MISSING_AUTH" && issue.stage === "independent-reviewer" && issue.detail === "CLAUDE_CODE_OAUTH_TOKEN"));
 assert.ok(missingAuth.issues.some(issue => issue.code === "MISSING_PORTABLE_ENTRYPOINT" && issue.stage === "provider-preserving-publisher"));
 assert.ok(missingAuth.issues.some(issue => issue.code === "UNQUALIFIED_STAGE" && issue.stage === "provider-preserving-publisher"));
-assert.ok(missingAuth.issues.some(issue => issue.code === "MISSING_PORTABLE_ENTRYPOINT" && issue.stage === "signer"));
+assert.ok(missingAuth.issues.some(issue => issue.code === "MISSING_PORTABLE_ENTRYPOINT" && issue.stage === "research"));
 assert.ok(missingAuth.issues.some(issue => issue.code === "UNQUALIFIED_REVIEWER" && issue.stage === "independent-reviewer"));
 assert.doesNotMatch(JSON.stringify(missingAuth), /token-value|secret-value/i, "output must never contain an auth value");
 
@@ -57,7 +57,7 @@ assert.ok(alteredResult.issues.some(issue => issue.code === "DIRTY_PINNED_SOURCE
 fs.rmSync(alteredRoot, {recursive: true, force: true});
 
 const localPath = clone(contract);
-localPath.stages.find(stage => stage.id === "signer").entrypoint = {kind: "local-path", path: "/Users/alisoneakin/private-signer", command: "swift signer.swift"};
+localPath.stages.find(stage => stage.id === "research").entrypoint = {kind: "local-path", path: "/Users/alisoneakin/private-research", command: "node research.mjs"};
 assert.ok(validateContract(localPath).some(error => /github-workflow/.test(error)), "a local-only path must be rejected as a portable entrypoint");
 
 const partial = clone(contract);

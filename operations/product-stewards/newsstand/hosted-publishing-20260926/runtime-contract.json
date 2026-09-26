@@ -39,20 +39,18 @@
     {
       "id": "writer",
       "entrypoint": null,
-      "requiredAuth": [],
-      "qualification": "not-applicable"
+      "requiredAuth": [
+        "CLAUDE_CODE_OAUTH_TOKEN"
+      ],
+      "qualification": "unqualified"
     },
     {
       "id": "independent-reviewer",
       "entrypoint": null,
-      "requiredAuth": ["CLAUDE_CODE_OAUTH_TOKEN"],
+      "requiredAuth": [
+        "CLAUDE_CODE_OAUTH_TOKEN"
+      ],
       "qualification": "unqualified"
-    },
-    {
-      "id": "signer",
-      "entrypoint": null,
-      "requiredAuth": [],
-      "qualification": "not-applicable"
     },
     {
       "id": "provider-preserving-publisher",
