@@ -87,13 +87,13 @@ function schemaFromTemplate(value, { constants = false } = {}) {
   if (Array.isArray(value)) {
     if (constants && value.length === 0) return { type: 'array', maxItems: 0 };
     if (constants && value.every((item) => typeof item === 'string')) return { type: 'array', minItems: value.length, maxItems: value.length, items: { enum: value } };
-    return { type: 'array', minItems: value.length, ...(value.length ? { items: schemaFromTemplate(value[0]) } : {}) };
+    return { type: 'array', minItems: value.length, maxItems: value.length, ...(value.length ? { items: { anyOf: value.map(item => schemaFromTemplate(item)) } } : {}) };
   }
   if (!isObject(value)) return {};
   const keys = Object.keys(value);
   return {
     type: 'object', additionalProperties: false, required: keys,
-    properties: Object.fromEntries(keys.map((key) => [key, schemaFromTemplate(value[key], { constants: ['schema', 'primaryType', 'overlays'].includes(key) })])),
+    properties: Object.fromEntries(keys.map((key) => [key, schemaFromTemplate(value[key], { constants: ['schema', 'primaryType', 'overlays', 'term', 'concept', 'disposition', 'destination', 'recordPath'].includes(key) })])),
   };
 }
 
@@ -122,7 +122,7 @@ function writerOutputSchema(reportingFrame, researchClaims) {
 
 const WRITER_SYSTEM_PROMPT = `You are the named hosted LAiDIES NewsStand producer. Create one complete ordinary Daily story for adult women with no technical AI background, including people using AI for themselves as well as at work. Do not manufacture a workplace task or generic lifestyle use case; explain the actual consequence of this news for its relevant readers. Follow the supplied valid producer contract and writer guidance. The independently admitted research packet is the only factual authority. Do not use memory, browse, infer a missing citation, strengthen QUALIFIED evidence, or add a factual assertion that is absent from the admitted claim set.
 
-Return the public story content, an exhaustive map of every material factual claim used, and fresh answers for the supplied story-type coverage structure. The coverage translations and term meanings must be exact excerpts from your public prose; preserve the selected type, overlays and learning destination. Candidate evidence must be an exact excerpt from the returned public prose, and every claimId and sourceId must come from the admitted research. Copy each admitted claim status and scopeAndFreshness exactly, without paraphrasing, translating spelling, or adding a recheck note; these are immutable provenance, not prose to edit. Preserve uncertainty, distinguish a request or disclosure promise from an accomplished outcome, explain necessary terms in context, answer the contracted reader questions, and use the exact supplied learning destination. Do not claim publication, independent admission, observed human evidence, or producer self-review. A separate isolated call reads the exact finished artifact and performs the producer self-review plus calibration against the supplied positive and negative exemplars.`;
+Return the public story content, an exhaustive map of every material factual claim used, and fresh answers for the supplied story-type coverage structure. The coverage translations and term meanings must be exact excerpts from your public prose; preserve the selected type, overlays and learning destination. Candidate evidence must be an exact excerpt from the returned public prose, and every claimId and sourceId must come from the admitted research. Copy each admitted claim status and scopeAndFreshness exactly, without paraphrasing, translating spelling, or adding a recheck note; these are immutable provenance, not prose to edit. Use storyFrame.producedAt as the publication date: distinguish an older announcement date from today, and never call an older event just announced or this week. Keep the reportingFrame array lengths, term order and learning destinations exactly as supplied; do not add extra jargon records. Preserve uncertainty, distinguish a request or disclosure promise from an accomplished outcome, explain necessary terms in context, answer the contracted reader questions, and use the exact supplied learning destination. Do not claim publication, independent admission, observed human evidence, or producer self-review. A separate isolated call reads the exact finished artifact and performs the producer self-review plus calibration against the supplied positive and negative exemplars.`;
 
 function selfReviewSchema(outcomes, families, calibrationMaterials) {
   return {
@@ -655,10 +655,8 @@ export async function runHostedWriter({
   };
   let reviewProvider;
   try { reviewProvider = await executor({ request: reviewRequest, model: HOSTED_PROTOCOL_MODEL, effort: HOSTED_PROTOCOL_EFFORT }); }
-  catch {
-    const outcome = publicResult('PRODUCER_SELF_REVIEW_EXECUTION_ERROR', { storySha256, makerPrincipal });
-    Object.defineProperty(outcome, 'privateResult', { value: { story, storyRaw, writerOutput, writerRequest, writerProvider } });
-    return outcome;
+  catch (error) {
+    return privateFailure('PRODUCER_SELF_REVIEW_EXECUTION_ERROR', { story, storyRaw, writerOutput, writerRequest, writerProvider, reviewRequest }, error);
   }
   const reviewModels = validateProvider(reviewProvider);
   if (!reviewModels) return privateFailure('INVALID_SELF_REVIEW_PROVIDER_OUTPUT', { story, storyRaw, writerRequest, writerProvider, reviewRequest, reviewProvider });
