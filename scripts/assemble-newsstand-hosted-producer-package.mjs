@@ -243,7 +243,7 @@ export function assembleHostedProducerPackage({
     const passages = [...new Set(evidence.map((item) => item.excerpt))];
     return {
       id: source.sourceId, url: source.url, authority: source.publisherType,
-      source: { url: source.url, passage: passages[0], passageLocator: source.url, additionalPassage: passages.slice(1).join('\n'), additionalPassageLocator: source.url },
+      source: { url: source.url, passage: passages[0], passageLocator: source.url, additionalPassages: passages.slice(1), additionalPassageLocator: source.url },
       limitations: [...new Set(evidence.map((item) => item.qualification))].join(' '),
     };
   });
