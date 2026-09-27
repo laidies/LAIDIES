@@ -12,6 +12,6 @@ try{
  const result=await reviewHostedCandidate({...payload.config,runtimeRoot});
  const review=path.join(runtimeRoot,payload.config.outputDirectory),evidence=path.join(output,'evidence');fs.mkdirSync(evidence,{mode:0o700});
  if(fs.existsSync(review))for(const name of fs.readdirSync(review)){if(!/^article-(?:editorial-(?:packet|request|provider\.raw|judgment|checked)|result)\.json$|^runner-private\.log$/.test(name))throw Error();fs.copyFileSync(path.join(review,name),path.join(evidence,name));fs.chmodSync(path.join(evidence,name),0o600);}
- fs.writeFileSync(path.join(evidence,'exercise-result.json'),JSON.stringify({...result,qualification,scope:'Private full-cloud editorial exercise of an already published article; no new publication.'},null,2)+'\n',{mode:0o600});
+ fs.writeFileSync(path.join(evidence,'exercise-result.json'),JSON.stringify({...result,qualification,scope:'Private full-cloud editorial review of an exact candidate; no publication.'},null,2)+'\n',{mode:0o600});
  console.log(JSON.stringify(result));if(result.status!=='HOSTED_CANDIDATE_EDITORIAL_PASS')process.exitCode=2;
 }catch{console.error('PRIVATE_CANDIDATE_EXERCISE_FAILED');process.exitCode=2;}

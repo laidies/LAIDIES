@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { assembleHostedProducerPackage } from './assemble-newsstand-hosted-producer-package.mjs';
+import { assembleHostedProducerPackage, storyParagraphs } from './assemble-newsstand-hosted-producer-package.mjs';
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
 const stable = (value) => value === null || typeof value !== 'object' ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(stable).join(',')}]` : `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stable(value[key])}`).join(',')}}`;
@@ -140,3 +140,6 @@ try {
   fs.rmSync(root, { recursive: true, force: true });
 }
 console.log('PASS hosted producer package: actual model coverage/self-review, exact bindings, canonical records, four runtime gates, no fabricated PASS');
+
+assert.deepEqual(storyParagraphs({headline:'Title',the_story:'<h2>Heading</h2><p>A &amp; B.</p>'}), [{id:'P001',text:'Title',exact:'Title',field:'headline'},{id:'P002',text:'HeadingA & B.',exact:'<h2>Heading</h2><p>A &amp; B.</p>',field:'the_story'}]);
+assert.notDeepEqual(storyParagraphs({headline:'Title'}), []);

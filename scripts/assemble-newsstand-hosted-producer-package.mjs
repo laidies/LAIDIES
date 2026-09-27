@@ -122,12 +122,16 @@ function stripHtml(value) {
   return String(value ?? '').replace(/<\/p>\s*<p>/gi, '\n\n').replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').trim();
 }
 
-function storyParagraphs(story) {
-  const fields = ['the_story', 'laidies_read', 'what_this_means', 'cocktail_party', 'class_notes'];
+export function storyParagraphs(story) {
+  // Match the qualified editorial protocol's passage identity exactly.
+  const clean = s => s.replace(/<[^>]*>/g, '').replaceAll('&amp;', '&').replaceAll('&nbsp;', ' ').replaceAll('&quot;', '"').replaceAll('&#39;', "'");
   const rows = [];
-  for (const field of fields) {
-    const parts = String(story[field] ?? '').split(/<\/p>\s*<p>/i).map((part) => stripHtml(part)).filter(Boolean);
-    parts.forEach((part, index) => rows.push({ id: `${field}-${index + 1}`, text: part, exact: part, field }));
+  for (const field of ['headline', 'dek', 'the_story', 'laidies_read', 'what_this_means', 'cocktail_party', 'class_notes']) {
+    if (typeof story[field] !== 'string' || !story[field]) continue;
+    let chunks = story[field].match(/<p\b[^>]*>[\s\S]*?<\/p>/gi) || [story[field]];
+    const words = s => clean(s).replace(/\s+/g, '').trim();
+    if (words(chunks.join('')) !== words(story[field])) chunks = [story[field]];
+    for (const part of chunks) rows.push({id: `P${String(rows.length + 1).padStart(3, '0')}`, text: clean(part), exact: JSON.stringify(part).slice(1, -1), field});
   }
   return rows;
 }
