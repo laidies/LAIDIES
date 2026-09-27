@@ -1,0 +1,61 @@
+name: NewsStand hosted full-source research
+on:
+  push:
+    branches: [ops/newsstand-hosted-20260926]
+    paths:
+      - .github/workflows/newsstand-hosted-research.yml
+      - operations/product-stewards/newsstand/hosted-publishing-20260926/research-plan.enc
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: newsstand-hosted-research
+  cancel-in-progress: false
+jobs:
+  research:
+    if: github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/ops/newsstand-hosted-20260926'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: write
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check evidence and isolation boundaries
+        run: |
+          node scripts/test-newsstand-hosted-research.mjs
+          node scripts/test-verify-newsstand-hosted-research.mjs
+          node scripts/test-newsstand-hosted-protocol.mjs
+          node scripts/test-newsstand-hosted-research-cycle.mjs
+      - name: Install pinned isolated researcher
+        run: npm install --global @anthropic-ai/claude-code@2.1.251
+      - name: Decrypt controlled research plan
+        env:
+          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
+        run: |
+          mkdir -m 700 "$RUNNER_TEMP/newsstand-research"
+          cp operations/product-stewards/newsstand/hosted-publishing-20260926/research-plan.enc "$RUNNER_TEMP/newsstand-research/input.enc"
+          cd "$RUNNER_TEMP"
+          node "$GITHUB_WORKSPACE/scripts/newsstand-private-envelope.mjs" decrypt --input newsstand-research/input.enc --output newsstand-research/input.json --context laidies-newsstand --schema research-plan-v1 --purpose hosted-research-20260926
+      - name: Capture sources and independently verify actual extracted claims
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: node scripts/run-newsstand-hosted-research-cycle.mjs "$RUNNER_TEMP/newsstand-research/input.json" "$RUNNER_TEMP/newsstand-research/result" "${{ github.run_id }}-${{ github.run_attempt }}"
+      - name: Preserve private evidence and hold reasons
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
+        run: |
+          if [[ ! -d "$RUNNER_TEMP/newsstand-research/result" ]]; then
+            node --input-type=module -e 'import fs from "node:fs"; const p=process.env.RUNNER_TEMP+"/newsstand-research/result"; fs.mkdirSync(p,{recursive:true,mode:0o700}); fs.writeFileSync(p+"/cycle-result.json",JSON.stringify({schema:"newsstand-hosted-research-cycle.v1",status:"HELD_BEFORE_RESEARCH_EXECUTION",publicationActionTaken:false}),{mode:0o600,flag:"wx"});'
+          fi
+          node scripts/preserve-newsstand-hosted-research.mjs "$RUNNER_TEMP/newsstand-research/result"
+      - name: Remove ephemeral private source bodies
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/newsstand-research"
