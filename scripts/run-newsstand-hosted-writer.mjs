@@ -97,16 +97,32 @@ function schemaFromTemplate(value, { constants = false } = {}) {
   };
 }
 
-function writerOutputSchema(reportingFrame) {
+function writerOutputSchema(reportingFrame, researchClaims) {
   return {
     ...HOSTED_WRITER_OUTPUT_SCHEMA,
-    properties: { ...HOSTED_WRITER_OUTPUT_SCHEMA.properties, storyTypeCoverage: schemaFromTemplate(reportingFrame) },
+    properties: {
+      ...HOSTED_WRITER_OUTPUT_SCHEMA.properties,
+      storyTypeCoverage: schemaFromTemplate(reportingFrame),
+      claimMap: {
+        ...HOSTED_WRITER_OUTPUT_SCHEMA.properties.claimMap,
+        items: { anyOf: researchClaims.map(claim => ({
+          ...HOSTED_WRITER_OUTPUT_SCHEMA.properties.claimMap.items,
+          properties: {
+            ...HOSTED_WRITER_OUTPUT_SCHEMA.properties.claimMap.items.properties,
+            claimId: { const: claim.claimId },
+            status: { const: claim.status },
+            scopeAndFreshness: { const: claim.scopeAndFreshness },
+            sourceIds: { type: 'array', minItems: 1, uniqueItems: true, items: { enum: [...new Set(claim.sourceEvidence.map(evidence => evidence.sourceId))] } },
+          },
+        })) },
+      },
+    },
   };
 }
 
 const WRITER_SYSTEM_PROMPT = `You are the named hosted LAiDIES NewsStand producer. Create one complete ordinary Daily story for adult women with no technical AI background, including people using AI for themselves as well as at work. Do not manufacture a workplace task or generic lifestyle use case; explain the actual consequence of this news for its relevant readers. Follow the supplied valid producer contract and writer guidance. The independently admitted research packet is the only factual authority. Do not use memory, browse, infer a missing citation, strengthen QUALIFIED evidence, or add a factual assertion that is absent from the admitted claim set.
 
-Return the public story content, an exhaustive map of every material factual claim used, and fresh answers for the supplied story-type coverage structure. The coverage translations and term meanings must be exact excerpts from your public prose; preserve the selected type, overlays and learning destination. Candidate evidence must be an exact excerpt from the returned public prose, and every claimId and sourceId must come from the admitted research. Preserve uncertainty, distinguish a request or disclosure promise from an accomplished outcome, explain necessary terms in context, answer the contracted reader questions, and use the exact supplied learning destination. Do not claim publication, independent admission, observed human evidence, or producer self-review. A separate isolated call reads the exact finished artifact and performs the producer self-review plus calibration against the supplied positive and negative exemplars.`;
+Return the public story content, an exhaustive map of every material factual claim used, and fresh answers for the supplied story-type coverage structure. The coverage translations and term meanings must be exact excerpts from your public prose; preserve the selected type, overlays and learning destination. Candidate evidence must be an exact excerpt from the returned public prose, and every claimId and sourceId must come from the admitted research. Copy each admitted claim status and scopeAndFreshness exactly, without paraphrasing, translating spelling, or adding a recheck note; these are immutable provenance, not prose to edit. Preserve uncertainty, distinguish a request or disclosure promise from an accomplished outcome, explain necessary terms in context, answer the contracted reader questions, and use the exact supplied learning destination. Do not claim publication, independent admission, observed human evidence, or producer self-review. A separate isolated call reads the exact finished artifact and performs the producer self-review plus calibration against the supplied positive and negative exemplars.`;
 
 function selfReviewSchema(outcomes, families, calibrationMaterials) {
   return {
@@ -590,7 +606,7 @@ export async function runHostedWriter({
   const guidance = { ...writerInput.packet };
   delete guidance.sources;
   const writerRequest = {
-    outputSchema: writerOutputSchema(writerInput.packet.reportingFrame),
+    outputSchema: writerOutputSchema(writerInput.packet.reportingFrame, researchPacket.claims),
     messages: [
       { role: 'system', content: WRITER_SYSTEM_PROMPT },
       { role: 'user', content: JSON.stringify({
