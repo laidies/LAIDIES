@@ -66,7 +66,7 @@ fs.writeFileSync(${JSON.stringify(auditPath)}, JSON.stringify({
 if (input === 'TIMEOUT') setTimeout(() => {}, 10_000);
 else if (input === 'OUTPUT_LIMIT') process.stdout.write('x'.repeat(4_096));
 else if (input === 'INVALID_JSON') process.stdout.write('private malformed provider output');
-else if (input === 'NONZERO') { process.stderr.write('private provider stderr'); process.exit(8); }
+else if (input === 'NONZERO') { process.stdout.write('private provider stdout'); process.stderr.write('private provider stderr ' + process.env.CLAUDE_CODE_OAUTH_TOKEN); process.exit(8); }
 else if (input === 'PROVIDER_ERROR') process.stdout.write(JSON.stringify(${JSON.stringify(provider({ is_error: true, subtype: 'error_during_execution' }))}));
 else if (input === 'WRONG_MODEL') process.stdout.write(JSON.stringify(${JSON.stringify(provider({ modelUsage: { 'claude-other': {} } }))}));
 else if (input === 'NON_CLAUDE_MODEL') process.stdout.write(JSON.stringify(${JSON.stringify(provider({ modelUsage: { 'claude-fable-5': {}, 'unqualified-model': {} } }))}));
@@ -138,6 +138,26 @@ try {
     );
   }
 
+  await assert.rejects(
+    execute({ request: request('NONZERO'), model: 'claude-fable-5', effort: 'medium' }),
+    (error) => {
+      assert.ok(error instanceof HostedProtocolExecutionError);
+      assert.equal(error.code, 'PROVIDER_ERROR');
+      assert.equal(Object.prototype.propertyIsEnumerable.call(error, 'privateEvidence'), false, 'diagnostics stay out of ordinary error serialization');
+      assert.deepEqual(error.privateEvidence, {
+        event: 'process_exit',
+        exitCode: 8,
+        stdout: { text: 'private provider stdout', truncated: false },
+        stderr: { text: 'private provider stderr [REDACTED]', truncated: false },
+      }, 'private custody receives the bounded child diagnostic with credentials redacted');
+      const publicError = JSON.stringify({ name: error.name, code: error.code, message: error.message, stack: error.stack });
+      assert.ok(!publicError.includes('private provider stdout'));
+      assert.ok(!publicError.includes('private provider stderr'));
+      assert.ok(!publicError.includes(privateToken));
+      return true;
+    },
+  );
+
   const outputLimited = createHostedProtocolExecutor({
     token: privateToken,
     cli: fakeCli,
@@ -152,7 +172,15 @@ try {
   const missingCli = createHostedProtocolExecutor({ token: privateToken, cli: path.join(testRoot, 'missing-cli') });
   await assert.rejects(
     missingCli({ request: request(), model: 'claude-fable-5', effort: 'medium' }),
-    (error) => error instanceof HostedProtocolExecutionError && error.code === 'EXECUTION_ERROR',
+    (error) => {
+      assert.ok(error instanceof HostedProtocolExecutionError);
+      assert.equal(error.code, 'EXECUTION_ERROR');
+      assert.equal(error.privateEvidence.event, 'spawn_error');
+      assert.equal(error.privateEvidence.spawnErrorCode, 'ENOENT');
+      assert.equal(error.privateEvidence.stdout.text, '');
+      assert.equal(error.privateEvidence.stderr.text, '');
+      return true;
+    },
   );
 
   await assert.rejects(

@@ -14,17 +14,36 @@ const MIN_TIMEOUT_MS = 1_000;
 const MAX_TIMEOUT_MS = 480_000;
 const MIN_OUTPUT_BYTES = 1_024;
 const MAX_OUTPUT_BYTES = 1_000_000;
+const MAX_PRIVATE_DIAGNOSTIC_BYTES = 64 * 1024;
 
 export class HostedProtocolExecutionError extends Error {
-  constructor(code, message) {
+  constructor(code, message, privateEvidence = undefined) {
     super(message);
     this.name = 'HostedProtocolExecutionError';
     this.code = code;
+    // The caller may place this only in its encrypted custody record.  Keeping
+    // it non-enumerable makes ordinary error serialization safe by default.
+    if (privateEvidence !== undefined) {
+      Object.defineProperty(this, 'privateEvidence', { value: privateEvidence });
+    }
   }
 }
 
 function fail(code, message) {
   throw new HostedProtocolExecutionError(code, message);
+}
+
+function privateDiagnosticText(value, token) {
+  const bytes = Buffer.isBuffer(value) ? value : Buffer.from(String(value ?? ''), 'utf8');
+  const clipped = bytes.subarray(0, MAX_PRIVATE_DIAGNOSTIC_BYTES).toString('utf8');
+  return {
+    text: typeof token === 'string' && token.length > 0 ? clipped.split(token).join('[REDACTED]') : clipped,
+    truncated: bytes.length > MAX_PRIVATE_DIAGNOSTIC_BYTES,
+  };
+}
+
+function executionError(code, message, privateEvidence) {
+  return new HostedProtocolExecutionError(code, message, privateEvidence);
 }
 
 function isPlainObject(value) {
@@ -169,6 +188,7 @@ export function createHostedProtocolExecutor({
         }
 
         const stdout = [];
+        const stderr = [];
         let capturedBytes = 0;
         let settled = false;
         let timedOut = false;
@@ -193,29 +213,41 @@ export function createHostedProtocolExecutor({
             return;
           }
           if (keep) stdout.push(chunk);
+          else stderr.push(chunk);
         };
+
+        const diagnostic = ({ event, spawnError, exitCode, signal } = {}) => ({
+          event,
+          ...(typeof spawnError?.code === 'string' ? { spawnErrorCode: spawnError.code } : {}),
+          ...(typeof spawnError?.errno === 'string' ? { spawnErrno: spawnError.errno } : {}),
+          ...(typeof spawnError?.syscall === 'string' ? { spawnSyscall: spawnError.syscall } : {}),
+          ...(typeof exitCode === 'number' ? { exitCode } : {}),
+          ...(typeof signal === 'string' ? { signal } : {}),
+          stdout: privateDiagnosticText(Buffer.concat(stdout), token),
+          stderr: privateDiagnosticText(Buffer.concat(stderr), token),
+        });
 
         child.stdout.on('data', (chunk) => collect(chunk, true));
         child.stderr.on('data', (chunk) => collect(chunk, false));
-        child.once('error', () => {
+        child.once('error', (error) => {
           if (settled) return;
           settled = true;
           clearTimeout(timer);
-          reject(new HostedProtocolExecutionError('EXECUTION_ERROR', 'Hosted provider could not be started.'));
+          reject(executionError('EXECUTION_ERROR', 'Hosted provider could not be started.', diagnostic({ event: 'spawn_error', spawnError: error })));
         });
-        child.once('close', (code) => {
+        child.once('close', (code, signal) => {
           if (settled) return;
           settled = true;
           clearTimeout(timer);
           if (timedOut) {
-            reject(new HostedProtocolExecutionError('TIMEOUT', 'Hosted provider exceeded its execution time limit.'));
+            reject(executionError('TIMEOUT', 'Hosted provider exceeded its execution time limit.', diagnostic({ event: 'timeout', exitCode: code, signal })));
             return;
           }
           if (outputLimited) {
-            reject(new HostedProtocolExecutionError('OUTPUT_LIMIT', 'Hosted provider exceeded its output limit.'));
+            reject(executionError('OUTPUT_LIMIT', 'Hosted provider exceeded its output limit.', diagnostic({ event: 'output_limit', exitCode: code, signal })));
             return;
           }
-          resolve({ code, stdout: Buffer.concat(stdout).toString('utf8') });
+          resolve({ code, signal, stdout: Buffer.concat(stdout).toString('utf8'), diagnostic: diagnostic({ event: 'process_exit', exitCode: code, signal }) });
         });
 
         child.stdin.on('error', () => {});
@@ -223,16 +255,23 @@ export function createHostedProtocolExecutor({
       });
 
       if (execution.code !== 0) {
-        fail('PROVIDER_ERROR', 'Hosted provider did not complete successfully.');
+        throw executionError('PROVIDER_ERROR', 'Hosted provider did not complete successfully.', execution.diagnostic);
       }
 
       let provider;
       try {
         provider = JSON.parse(execution.stdout);
       } catch {
-        fail('INVALID_PROVIDER_OUTPUT', 'Hosted provider output is invalid.');
+        throw executionError('INVALID_PROVIDER_OUTPUT', 'Hosted provider output is invalid.', execution.diagnostic);
       }
-      return validateProvider(provider);
+      try {
+        return validateProvider(provider);
+      } catch (error) {
+        if (error instanceof HostedProtocolExecutionError) {
+          throw executionError(error.code, error.message, execution.diagnostic);
+        }
+        throw error;
+      }
     } finally {
       fs.rmSync(temporaryRoot, { recursive: true, force: true });
     }
