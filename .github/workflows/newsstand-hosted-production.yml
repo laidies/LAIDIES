@@ -33,6 +33,7 @@ jobs:
           node-version: 22
       - name: Check writer and private-runtime boundaries
         run: |
+          node scripts/test-newsstand-hosted-protocol.mjs
           node scripts/test-newsstand-hosted-writer.mjs
           node scripts/test-assemble-newsstand-hosted-producer-package.mjs
           node scripts/test-review-newsstand-hosted-candidate.mjs
