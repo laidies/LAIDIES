@@ -202,6 +202,13 @@ try {
   assert.equal(held.nextRequiredStage, 'REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW');
   assert.equal(held.privateResult.producerSelfReviewAssessment.verdict, 'HOLD');
 
+  const tooLong = storyOutput();
+  tooLong.storyContent.closing_note = 'additional text '.repeat(600);
+  const lengthExecutor = executor({ writer: tooLong });
+  const lengthHeld = await runHostedWriter({ ...base, execute: lengthExecutor.execute });
+  assert.equal(lengthHeld.status, 'WRITER_OUTPUT_REJECTED');
+  assert.equal(lengthExecutor.calls.length, 1, 'overlong prose never advances to self-review');
+
   const quoted = storyOutput();
   quoted.storyContent.watch_fors = 'The phrase "a proposal" describes a request, not a result.';
   for (const prefixed of [false, true]) {

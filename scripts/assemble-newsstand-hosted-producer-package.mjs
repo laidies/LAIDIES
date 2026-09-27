@@ -201,6 +201,10 @@ export function assembleHostedProducerPackage({
     files.set(name, { body, value: typeof value === 'string' ? null : value, binding });
     return binding;
   };
+  const contractBinding = write('producer-contract.json', producerContractRaw);
+  const originalWriterContractBinding = { ...writerInput.producerContract };
+  writerInput = { ...writerInput, producerContract: contractBinding };
+  const writerInputBinding = write('writer-input-current.json', writerInput);
   const story = privateWriter.story;
   const reviewText = write('review-text.json', privateWriter.storyRaw);
   const storyBinding = write('story.json', privateWriter.storyRaw);
@@ -310,6 +314,7 @@ export function assembleHostedProducerPackage({
     writerRequestSha256: writerResult.writerRequestSha256,
     selfReviewRequestSha256: writerResult.selfReviewRequestSha256,
     admittedResearchSha256: admittedResearch.admittedPayloadSha256,
+    writerInputRelocation: { originalSha256: sha256(writerInputRaw), originalContractBinding: originalWriterContractBinding, packageBinding: writerInputBinding, packageContractBinding: contractBinding, change: 'Only the exact unchanged contract locator is relocated into the self-contained candidate package.' },
   };
   const metricsBinding = write('assembly-metrics.json', assemblyMetrics);
 

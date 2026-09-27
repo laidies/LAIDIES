@@ -42,7 +42,6 @@ export async function executeHostedProduction({payload,outputDirectory,onProgres
   const assembled=assembleHostedProducerPackage({writerResult,producerContractRaw,writerInputRaw,admittedResearch:admitted.privateResult.admittedResearch,packagePlan:{...payload.config.packagePlan,root},metrics,modelQualification,runtime});save('assembly.json',assembled);onProgress({stage:'PRODUCER_PACKAGE',status:assembled.status});
   if(!assembled.producerPackageBuilt)return finish('PRODUCER_PACKAGE',assembled.status);
   const candidate=controlled(assembled.packagePath);
-  for(const name of ['producer-contract.json','writer-input-current.json'])fs.copyFileSync(controlled(input+'/'+name),path.join(candidate,name));
   for(const name of fs.readdirSync(candidate)){fs.copyFileSync(path.join(candidate,name),path.join(evidence,'candidate-'+name));fs.chmodSync(path.join(evidence,'candidate-'+name),0o600);}
   if(assembled.status!=='PRODUCER_PACKAGE_READY')return finish('PRODUCER_PACKAGE',assembled.status);
   onProgress({stage:'INDEPENDENT_EDITORIAL',status:'STARTED'});const reviewed=await reviewHostedCandidate({runtimeRoot:root,candidateDirectory:assembled.packagePath,calibrationDirectory:payload.config.calibrationDirectory,outputDirectory:assembled.packagePath+'/independent-review'});
