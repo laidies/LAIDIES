@@ -174,6 +174,8 @@ try {
   const unsupportedExecutor = executor({ writer: storyOutput('unadmitted-claim') });
   const unsupported = await runHostedWriter({ ...base, execute: unsupportedExecutor.execute });
   assert.equal(unsupported.status, 'WRITER_OUTPUT_REJECTED');
+  assert.ok(unsupported.privateResult.writerProvider, 'rejected actual output is retained privately for repair');
+  assert.equal(JSON.stringify(unsupported).includes('writerProvider'), false);
   assert.equal(unsupportedExecutor.calls.length, 1, 'unsupported claim stops before producer self-review');
 
   const strengthenedExecutor = executor({ strengthenQualifiedClaim: true });
@@ -199,6 +201,8 @@ try {
   const failed = await runHostedWriter({ ...base, execute: secretExecutor.execute });
   assert.equal(failed.status, 'EXECUTION_ERROR');
   assert.equal(JSON.stringify(failed).includes('PRIVATE TOKEN'), false);
+  assert.ok(failed.privateResult.writerRequest);
+  assert.equal(failed.privateResult.executionFailure.code, 'EXECUTION_ERROR');
   assert.equal(captured.join(''), '', 'adapter logs no credentials, private research, draft, or review output');
 } finally {
   process.stdout.write = stdout;

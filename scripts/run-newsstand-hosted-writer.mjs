@@ -549,6 +549,17 @@ function validateSelfReview(output, { makerPrincipal, artifactSha256, artifactRa
   return { output, actualPass };
 }
 
+function privateFailure(status, evidence, error) {
+  const outcome = publicResult(status);
+  // Raw requests and provider failures belong only in the encrypted evidence channel.
+  let detail = String(error?.message || '');
+  for (const key of ['CLAUDE_CODE_OAUTH_TOKEN', 'NEWSSTAND_PRIVATE_HANDOFF_KEY_B64', 'CLOUDFLARE_API_TOKEN']) {
+    if (process.env[key]) detail = detail.split(process.env[key]).join('[REDACTED]');
+  }
+  Object.defineProperty(outcome, 'privateResult', { value: { ...evidence, executionFailure: error ? { code: error.code || 'EXECUTION_ERROR', detail, ...(error.privateEvidence ? { evidence: error.privateEvidence } : {}) } : null } });
+  return outcome;
+}
+
 export async function runHostedWriter({
   producerContractRaw,
   writerInput,
@@ -571,7 +582,7 @@ export async function runHostedWriter({
   let executor = execute;
   if (executor === undefined) {
     try { executor = createHostedProtocolExecutor(); }
-    catch { return publicResult('EXECUTION_ERROR'); }
+    catch (error) { return privateFailure('EXECUTION_ERROR', {}, error); }
   }
   if (typeof executor !== 'function') return publicResult('EXECUTOR_MISSING');
 
@@ -593,11 +604,11 @@ export async function runHostedWriter({
   };
   let writerProvider;
   try { writerProvider = await executor({ request: writerRequest, model: HOSTED_PROTOCOL_MODEL, effort: HOSTED_PROTOCOL_EFFORT }); }
-  catch { return publicResult('EXECUTION_ERROR'); }
+  catch (error) { return privateFailure('EXECUTION_ERROR', { writerRequest }, error); }
   const writerModels = validateProvider(writerProvider);
-  if (!writerModels) return publicResult('INVALID_WRITER_PROVIDER_OUTPUT');
+  if (!writerModels) return privateFailure('INVALID_WRITER_PROVIDER_OUTPUT', { writerRequest, writerProvider });
   const writerOutput = validateWriterOutput(writerProvider.structured_output, contract, research, storyFrame, writerInput.packet.reportingFrame);
-  if (!writerOutput) return publicResult('WRITER_OUTPUT_REJECTED');
+  if (!writerOutput) return privateFailure('WRITER_OUTPUT_REJECTED', { writerRequest, writerProvider });
 
   const story = assembleStory(writerOutput.storyContent, storyFrame, researchPacket);
   const storyRaw = `${JSON.stringify(story, null, 2)}\n`;
@@ -633,11 +644,11 @@ export async function runHostedWriter({
     return outcome;
   }
   const reviewModels = validateProvider(reviewProvider);
-  if (!reviewModels) return publicResult('INVALID_SELF_REVIEW_PROVIDER_OUTPUT', { storySha256, makerPrincipal });
+  if (!reviewModels) return privateFailure('INVALID_SELF_REVIEW_PROVIDER_OUTPUT', { story, storyRaw, writerRequest, writerProvider, reviewRequest, reviewProvider });
   const review = validateSelfReview(reviewProvider.structured_output, {
     makerPrincipal, artifactSha256: storySha256, artifactRaw: storyRaw, outcomes, families, claimStatuses, questions, terms, calibration,
   });
-  if (!review) return publicResult('INVALID_PRODUCER_SELF_REVIEW', { storySha256, makerPrincipal });
+  if (!review) return privateFailure('INVALID_PRODUCER_SELF_REVIEW', { story, storyRaw, writerRequest, writerProvider, reviewRequest, reviewProvider });
 
   const status = review.actualPass ? 'PRODUCER_SELF_REVIEW_ASSESSMENT_PASSED' : 'PRODUCER_SELF_REVIEW_REJECTED';
   const outcome = publicResult(status, {
