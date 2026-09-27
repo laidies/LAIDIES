@@ -85,6 +85,7 @@ function schemaFromTemplate(value, { constants = false } = {}) {
   if (typeof value === 'boolean') return { const: value };
   if (typeof value === 'number') return { type: 'number' };
   if (Array.isArray(value)) {
+    if (constants && value.length === 0) return { type: 'array', maxItems: 0 };
     if (constants && value.every((item) => typeof item === 'string')) return { type: 'array', minItems: value.length, maxItems: value.length, items: { enum: value } };
     return { type: 'array', minItems: value.length, ...(value.length ? { items: schemaFromTemplate(value[0]) } : {}) };
   }

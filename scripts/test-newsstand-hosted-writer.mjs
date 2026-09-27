@@ -159,6 +159,10 @@ try {
   assert.equal(good.admissionAuthority, false);
   assert.equal(good.humanEvidenceClaimed, false);
   assert.equal(good.privateResult.story.status, 'hold');
+  const schema = good.privateResult.writerRequest.outputSchema;
+  assert.deepEqual(schema.properties.storyTypeCoverage.properties.overlays, { type: 'array', maxItems: 0 }, 'no overlays must be a valid empty-array schema, never enum: []');
+  const checkEnums = value => { if (!value || typeof value !== 'object') return; if (Array.isArray(value.enum)) assert.ok(value.enum.length, 'JSON Schema forbids empty enums'); for (const child of Object.values(value)) checkEnums(child); };
+  checkEnums(schema);
   assert.equal(good.privateResult.producerSelfReviewAssessment.reviewerPrincipalId, makerPrincipal);
   assert.equal(goodExecutor.calls.length, 2, 'writer and producer self-review are separate isolated calls');
   const writerPayload = JSON.parse(goodExecutor.calls[0].request.messages[1].content);
