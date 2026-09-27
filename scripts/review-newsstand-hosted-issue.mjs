@@ -3,6 +3,8 @@
 // A deliberately narrow bridge: it can review one same-day ordinary-news
 // append, but it neither writes the Daily store nor releases anything.
 import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   createHostedProtocolExecutor,
@@ -12,7 +14,13 @@ import {
 
 const HASH = /^[a-f0-9]{64}$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
-export const MODERN_NEWSSTAND_RUNTIME = '/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/scripts';
+// Pin the two imported modern runtime files. These are from modern source
+// commit 8af0ebb2038c76692b368819f514ccd33c6b2f0c; a hosted runner must
+// supply that runtime root rather than relying on a developer-machine path.
+export const MODERN_NEWSSTAND_RUNTIME_PINS = Object.freeze({
+  'scripts/promote-daily-edition.mjs': 'b1a7fdfc3c7b48719c36c3196281864c06354236670b207f44e4dea23a3ac405',
+  'scripts/validate-newsstand-ordinary-story-candidate.mjs': '6f972257d098606454fa02be9a4310d9fc92f5a2ed76dabd512a0dcd60f5fd22',
+});
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
 const stable = (value) => value === null || typeof value !== 'object'
@@ -43,13 +51,39 @@ function held(status, extra = {}, privateResult) {
   return result;
 }
 
-async function modernRuntime(runtime) {
+async function modernRuntime(runtime, runtimeRoot) {
   if (runtime) return runtime;
+  if (typeof runtimeRoot !== 'string' || !runtimeRoot) throw Error('runtime root required');
+  const root = fs.realpathSync(runtimeRoot);
+  for (const [relative, pin] of Object.entries(MODERN_NEWSSTAND_RUNTIME_PINS)) {
+    const file = path.join(root, relative);
+    if (!fs.statSync(file).isFile() || sha256(fs.readFileSync(file)) !== pin) throw Error('modern runtime pin mismatch');
+  }
   const [writer, candidate] = await Promise.all([
-    import(pathToFileURL(`${MODERN_NEWSSTAND_RUNTIME}/promote-daily-edition.mjs`).href),
-    import(pathToFileURL(`${MODERN_NEWSSTAND_RUNTIME}/validate-newsstand-ordinary-story-candidate.mjs`).href),
+    import(pathToFileURL(path.join(root, 'scripts/promote-daily-edition.mjs')).href),
+    import(pathToFileURL(path.join(root, 'scripts/validate-newsstand-ordinary-story-candidate.mjs')).href),
   ]);
   return { promoteDailyIssue: writer.promoteDailyIssue, loadOrdinaryStoryCandidate: candidate.loadOrdinaryStoryCandidate };
+}
+
+function independentReviewerPrincipal(candidate, root) {
+  const binding = candidate?.candidate?.reviewEvidence?.independent;
+  if (!object(binding) || typeof binding.path !== 'string' || !HASH.test(binding.sha256 ?? '') || typeof root !== 'string') throw Error('candidate reviewer receipt missing');
+  const base = fs.realpathSync(root);
+  const file = path.resolve(base, binding.path);
+  if (!file.startsWith(`${base}${path.sep}`) || !fs.statSync(file).isFile()) throw Error('candidate reviewer receipt path invalid');
+  const raw = fs.readFileSync(file, 'utf8');
+  if (sha256(raw) !== binding.sha256) throw Error('candidate reviewer receipt binding invalid');
+  const principal = JSON.parse(raw)?.reviewer?.principalId;
+  if (typeof principal !== 'string' || !principal) throw Error('candidate reviewer principal missing');
+  return principal;
+}
+
+function validProvider(provider) {
+  return object(provider) && provider.is_error === false && provider.subtype === 'success'
+    && object(provider.modelUsage) && Object.keys(provider.modelUsage).includes(HOSTED_PROTOCOL_MODEL)
+    && Object.keys(provider.modelUsage).every((model) => model.startsWith('claude-'))
+    && object(provider.structured_output);
 }
 
 function parseRaw(raw) {
@@ -97,6 +131,7 @@ export async function reviewHostedIssue({
   reviewerIdentity = 'anthropic:claude-fable-5:newsstand-issue-review:medium',
   reviewerRole = 'Independent NewsStand Daily same-day news-revision reviewer',
   root,
+  runtimeRoot,
   now = new Date().toISOString(),
   executor,
   runtime,
@@ -110,16 +145,18 @@ export async function reviewHostedIssue({
   if (!Array.isArray(store.issues) || store.issues.filter((issue) => issue?.editionDate === predecessor.editionDate).length !== 1
     || store.issues.find((issue) => issue?.editionDate === predecessor.editionDate)?.envelopeSha256 !== sha256(predecessorEnvelopeRaw)
     || issueMaker !== candidateProof.maker || issueMaker === reviewerIdentity) return held('ISSUE_REVIEW_INPUT_REJECTED');
-  let loaded;
+  let loaded; let request; let provider; let modelExecuted = false;
   try {
-    loaded = await modernRuntime(runtime);
+    loaded = await modernRuntime(runtime, runtimeRoot);
     if (typeof loaded.loadOrdinaryStoryCandidate !== 'function' || typeof loaded.promoteDailyIssue !== 'function') throw Error('runtime');
     const candidate = loaded.loadOrdinaryStoryCandidate(candidateProof.binding, { root, date: proposed.editionDate, now });
+    const candidateReviewer = independentReviewerPrincipal(candidate, root);
     if (candidate.candidate.candidateId !== candidateProof.candidateId || candidate.maker !== candidateProof.maker
-      || candidate.reviewedAt !== candidateProof.reviewedAt || !exactAppend({ predecessor, proposed, candidate: { ...candidate, binding: candidateProof.binding } })) {
+      || candidate.reviewedAt !== candidateProof.reviewedAt || reviewerIdentity === candidateReviewer
+      || !exactAppend({ predecessor, proposed, candidate: { ...candidate, binding: candidateProof.binding } })) {
       return held('ISSUE_REVIEW_INPUT_REJECTED');
     }
-    const request = {
+    request = {
       outputSchema: HOSTED_ISSUE_REVIEW_SCHEMA,
       messages: [{ role: 'system', content: SYSTEM }, { role: 'user', content: JSON.stringify({
         schema: 'newsstand-hosted-issue-review-request.v1',
@@ -130,7 +167,9 @@ export async function reviewHostedIssue({
       }) }],
     };
     const execute = executor ?? createHostedProtocolExecutor();
-    const provider = await execute({ request, model: HOSTED_PROTOCOL_MODEL, effort: HOSTED_PROTOCOL_EFFORT });
+    provider = await execute({ request, model: HOSTED_PROTOCOL_MODEL, effort: HOSTED_PROTOCOL_EFFORT });
+    modelExecuted = true;
+    if (!validProvider(provider)) return held('ISSUE_REVIEW_HELD', { modelExecuted }, { request, provider });
     const verdict = provider?.structured_output?.verdict;
     if (verdict !== 'ACCEPT_LOCAL_CANONICAL_SUCCESSOR') {
       return held('ISSUE_REVIEW_HELD', { modelExecuted: true }, { request, provider });
@@ -158,6 +197,6 @@ export async function reviewHostedIssue({
     Object.defineProperty(result, 'privateResult', { value: { request, provider, probe }, enumerable: false });
     return result;
   } catch (error) {
-    return held('ISSUE_REVIEW_HELD', {}, { errorCode: error?.code ?? 'RUNTIME_OR_GATE_REJECTED' });
+    return held('ISSUE_REVIEW_HELD', { modelExecuted }, { request, provider, errorCode: error?.code ?? 'RUNTIME_OR_GATE_REJECTED' });
   }
 }
