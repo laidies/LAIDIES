@@ -141,7 +141,7 @@ try {
     const rejected = await runHostedResearch({ capture, captureDirectory: sourcesDirectory, researchPlan, execute: attempted.execute });
     assert.equal(rejected.status, 'EVIDENCE_VALIDATION_REJECTED');
     assert.equal(rejected.researchAdmission, false);
-    assert.equal(rejected.privateResult, undefined);
+    assert.equal(rejected.privateResult.provider.structured_output, invalidOutput); assert.equal(JSON.stringify(rejected).includes(sourceOneBody), false);
   }
 
   const tightBudgetPlan = structuredClone(researchPlan);

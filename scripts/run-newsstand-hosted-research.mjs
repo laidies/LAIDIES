@@ -114,6 +114,8 @@ function text(value, maximum = 2_000) {
   return typeof value === 'string' && value.trim().length > 0 && value.length <= maximum;
 }
 
+function privateOutcome(status, extra, privateResult) { const value=publicResult(status, extra); Object.defineProperty(value, 'privateResult', {value: privateResult}); return value; }
+
 function publicResult(status, extra = {}) {
   return {
     status,
@@ -349,15 +351,15 @@ export async function runHostedResearch({ capture, captureDirectory, researchPla
     return publicResult('EXECUTION_ERROR', { sourceSetSha256 });
   }
   if (!isObject(provider) || provider.is_error !== false || provider.subtype !== 'success' || !isObject(provider.modelUsage)) {
-    return publicResult('INVALID_PROVIDER_OUTPUT', { sourceSetSha256 });
+    return privateOutcome('INVALID_PROVIDER_OUTPUT', { sourceSetSha256, providerRawSha256: sha256(stable(provider)) }, { request, provider, modelOutput: isObject(provider)?.structured_output ?? null });
   }
   const models = Object.keys(provider.modelUsage);
   if (!models.includes(HOSTED_PROTOCOL_MODEL) || models.some((model) => !model.startsWith('claude-')) || !isObject(provider.structured_output)) {
-    return publicResult('INVALID_PROVIDER_OUTPUT', { sourceSetSha256 });
+    return privateOutcome('INVALID_PROVIDER_OUTPUT', { sourceSetSha256, providerRawSha256: sha256(stable(provider)) }, { request, provider, modelOutput: isObject(provider)?.structured_output ?? null });
   }
 
   const boundEvidence = validateOutput(provider.structured_output, sources, needs, researchPlan.sourceBudgets);
-  if (!boundEvidence) return publicResult('EVIDENCE_VALIDATION_REJECTED', { sourceSetSha256, model: models });
+  if (!boundEvidence) return privateOutcome('EVIDENCE_VALIDATION_REJECTED', { sourceSetSha256, model: models, providerRawSha256: sha256(stable(provider)) }, { request, provider, modelOutput: provider.structured_output, boundEvidence: null });
 
   const outcome = publicResult('RESEARCH_TRANSPORT_SUCCESS', {
     sourceSetSha256,
