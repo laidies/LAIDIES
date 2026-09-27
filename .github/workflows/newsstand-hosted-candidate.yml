@@ -41,7 +41,7 @@ jobs:
           mkdir -m 700 "$RUNNER_TEMP/newsstand-candidate"
           cp operations/product-stewards/newsstand/hosted-publishing-20260926/candidate-exercise.enc "$RUNNER_TEMP/newsstand-candidate/input.enc"
           cd "$RUNNER_TEMP"
-          node "$GITHUB_WORKSPACE/scripts/newsstand-private-envelope.mjs" decrypt --input newsstand-candidate/input.enc --output newsstand-candidate/input.gz --context laidies-newsstand --schema candidate-exercise-input-v1 --run-purpose hosted-candidate-exercise-20260926
+          node "$GITHUB_WORKSPACE/scripts/newsstand-private-envelope.mjs" decrypt --input newsstand-candidate/input.enc --output newsstand-candidate/input.gz --context laidies-newsstand --schema candidate-exercise-input-v1 --purpose hosted-candidate-exercise-20260926
       - name: Execute all candidate preflight and real independent editorial review
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
