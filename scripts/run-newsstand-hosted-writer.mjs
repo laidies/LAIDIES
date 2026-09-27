@@ -40,7 +40,7 @@ export const CURRENT_PRODUCER_CHECKER_SHA256 = sha256(fs.readFileSync(CHECKER_PA
 export const HOSTED_WRITER_OUTPUT_SCHEMA = Object.freeze({
   type: 'object',
   additionalProperties: false,
-  required: ['storyContent', 'claimMap'],
+  required: ['storyContent', 'claimMap', 'storyTypeCoverage'],
   properties: {
     storyContent: {
       type: 'object',
@@ -76,17 +76,41 @@ export const HOSTED_WRITER_OUTPUT_SCHEMA = Object.freeze({
         },
       },
     },
+    storyTypeCoverage: { type: 'object' },
   },
 });
 
+function schemaFromTemplate(value, { constants = false } = {}) {
+  if (typeof value === 'string') return constants ? { const: value } : { type: 'string', minLength: 1 };
+  if (typeof value === 'boolean') return { const: value };
+  if (typeof value === 'number') return { type: 'number' };
+  if (Array.isArray(value)) {
+    if (constants && value.every((item) => typeof item === 'string')) return { type: 'array', minItems: value.length, maxItems: value.length, items: { enum: value } };
+    return { type: 'array', minItems: value.length, ...(value.length ? { items: schemaFromTemplate(value[0]) } : {}) };
+  }
+  if (!isObject(value)) return {};
+  const keys = Object.keys(value);
+  return {
+    type: 'object', additionalProperties: false, required: keys,
+    properties: Object.fromEntries(keys.map((key) => [key, schemaFromTemplate(value[key], { constants: ['schema', 'primaryType', 'overlays'].includes(key) })])),
+  };
+}
+
+function writerOutputSchema(reportingFrame) {
+  return {
+    ...HOSTED_WRITER_OUTPUT_SCHEMA,
+    properties: { ...HOSTED_WRITER_OUTPUT_SCHEMA.properties, storyTypeCoverage: schemaFromTemplate(reportingFrame) },
+  };
+}
+
 const WRITER_SYSTEM_PROMPT = `You are the named hosted LAiDIES NewsStand producer. Create one complete ordinary Daily story for smart professional women with no technical AI background. Follow the supplied valid producer contract and writer guidance. The independently admitted research packet is the only factual authority. Do not use memory, browse, infer a missing citation, strengthen QUALIFIED evidence, or add a factual assertion that is absent from the admitted claim set.
 
-Return the public story content and an exhaustive map of every material factual claim used. Candidate evidence must be an exact excerpt from the returned public prose, and every claimId and sourceId must come from the admitted research. Preserve uncertainty, distinguish a request or disclosure promise from an accomplished outcome, explain necessary terms in context, answer the contracted reader questions, and use the exact supplied learning destination. Do not claim publication, independent admission, observed human evidence, or producer self-review. A separate isolated call reads the exact finished artifact and performs the producer self-review.`;
+Return the public story content, an exhaustive map of every material factual claim used, and fresh answers for the supplied story-type coverage structure. The coverage translations and term meanings must be exact excerpts from your public prose; preserve the selected type, overlays and learning destination. Candidate evidence must be an exact excerpt from the returned public prose, and every claimId and sourceId must come from the admitted research. Preserve uncertainty, distinguish a request or disclosure promise from an accomplished outcome, explain necessary terms in context, answer the contracted reader questions, and use the exact supplied learning destination. Do not claim publication, independent admission, observed human evidence, or producer self-review. A separate isolated call reads the exact finished artifact and performs the producer self-review plus calibration against the supplied positive and negative exemplars.`;
 
-function selfReviewSchema(outcomes, families) {
+function selfReviewSchema(outcomes, families, calibrationMaterials) {
   return {
     type: 'object', additionalProperties: false,
-    required: ['reviewerPrincipalId', 'modelFamily', 'artifactSha256', 'verdict', 'outcomes', 'failureFamilies', 'factualClaims', 'readerAnswers', 'termChecks', 'explainBack', 'unseenTransfer', 'repairsRequired', 'unresolvedIssues', 'learningDisposition', 'humanEvidenceClaimed', 'independentAdmissionClaimed'],
+    required: ['reviewerPrincipalId', 'modelFamily', 'artifactSha256', 'verdict', 'outcomes', 'failureFamilies', 'factualClaims', 'readerAnswers', 'termChecks', 'explainBack', 'unseenTransfer', 'calibration', 'repairsRequired', 'unresolvedIssues', 'learningDisposition', 'humanEvidenceClaimed', 'independentAdmissionClaimed'],
     properties: {
       reviewerPrincipalId: { type: 'string', minLength: 1 },
       modelFamily: { const: 'anthropic' },
@@ -99,6 +123,31 @@ function selfReviewSchema(outcomes, families) {
       termChecks: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['term', 'meaning', 'artifactEvidence'], properties: { term: { type: 'string', minLength: 1 }, meaning: { type: 'string', minLength: 1 }, artifactEvidence: { type: 'string', minLength: 1 } } } },
       explainBack: { type: 'object', additionalProperties: false, required: ['evidenceType', 'prompt', 'probeResponse', 'expectedEvidence', 'assessment'], properties: { evidenceType: { const: 'PRODUCER_SIMULATION' }, prompt: { type: 'string', minLength: 1 }, probeResponse: { type: 'string', minLength: 1 }, expectedEvidence: { type: 'string', minLength: 1 }, assessment: { type: 'string', minLength: 1 } } },
       unseenTransfer: { type: 'object', additionalProperties: false, required: ['evidenceType', 'prompt', 'probeResponse', 'expectedEvidence', 'assessment'], properties: { evidenceType: { const: 'PRODUCER_SIMULATION' }, prompt: { type: 'string', minLength: 1 }, probeResponse: { type: 'string', minLength: 1 }, expectedEvidence: { type: 'string', minLength: 1 }, assessment: { type: 'string', minLength: 1 } } },
+      calibration: {
+        type: 'object', additionalProperties: false, required: ['negatives', 'positive'], properties: {
+          negatives: {
+            type: 'array', minItems: calibrationMaterials.negatives.length, maxItems: calibrationMaterials.negatives.length,
+            items: {
+              type: 'object', additionalProperties: false, required: ['exemplarId', 'verdict', 'identifiedFailureFamilies', 'evidence'],
+              properties: {
+                exemplarId: { enum: calibrationMaterials.negatives.map((item) => item.exemplarId) },
+                verdict: { const: 'REJECT' },
+                identifiedFailureFamilies: { type: 'array', minItems: 1, items: { type: 'string', minLength: 1 } },
+                evidence: { type: 'array', minItems: 1, items: { type: 'object', additionalProperties: false, required: ['excerpt', 'locator'], properties: { excerpt: { type: 'string', minLength: 15 }, locator: { type: 'string', minLength: 1 } } } },
+              },
+            },
+          },
+          positive: {
+            type: 'object', additionalProperties: false, required: ['exemplarId', 'verdict', 'strengthsRetained', 'evidence'],
+            properties: {
+              exemplarId: { const: calibrationMaterials.positive.exemplarId },
+              verdict: { const: 'PASS' },
+              strengthsRetained: { type: 'array', minItems: 1, items: { type: 'string', minLength: 1 } },
+              evidence: { type: 'array', minItems: 1, items: { type: 'object', additionalProperties: false, required: ['excerpt', 'locator'], properties: { excerpt: { type: 'string', minLength: 15 }, locator: { type: 'string', minLength: 1 } } } },
+            },
+          },
+        },
+      },
       repairsRequired: { type: 'array', items: { type: 'string', minLength: 1 } },
       unresolvedIssues: { type: 'array', items: { type: 'string', minLength: 1 } },
       learningDisposition: { type: 'object', additionalProperties: false, required: ['disposition', 'rationale'], properties: { disposition: { enum: ['NO_NEW_DEFECT', 'CANDIDATE_REPAIR_ONLY', 'EVIDENCE_GAP'] }, rationale: { type: 'string', minLength: 1 } } },
@@ -194,6 +243,45 @@ function validateFrame(frame, candidateId) {
   return true;
 }
 
+function sameShape(actual, template) {
+  if (typeof template === 'string') return text(actual);
+  if (typeof template === 'number') return typeof actual === 'number' && Number.isFinite(actual);
+  if (typeof template === 'boolean') return actual === template;
+  if (Array.isArray(template)) return Array.isArray(actual) && actual.length >= template.length && (template.length === 0 || actual.every((item) => sameShape(item, template[0])));
+  if (!isObject(template)) return actual === template;
+  return exactKeys(actual, Object.keys(template)) && Object.keys(template).every((key) => sameShape(actual[key], template[key]));
+}
+
+function validateCoverage(coverage, frame, publicText) {
+  if (!sameShape(coverage, frame)
+    || coverage.schema !== frame.schema
+    || coverage.primaryType !== frame.primaryType
+    || stable(coverage.overlays) !== stable(frame.overlays)) return false;
+  for (const field of ['newsVersionExact', 'actualMeaningExact', 'mechanismExact', 'familiarExampleExact']) {
+    if (!publicText.includes(coverage.translation?.[field] ?? '')) return false;
+  }
+  for (const [index, item] of (coverage.translation?.jargon ?? []).entries()) {
+    if (item.term !== frame.translation?.jargon?.[index]?.term || !publicText.includes(item.plainMeaning ?? '')) return false;
+  }
+  for (const [index, item] of (coverage.translation?.learningConnections ?? []).entries()) {
+    const planned = frame.translation?.learningConnections?.[index];
+    if (!planned || ['concept', 'disposition', 'destination', 'recordPath'].some((field) => item[field] !== planned[field])) return false;
+  }
+  return true;
+}
+
+function calibrationMaterials(contract, writerInput) {
+  const negativeIds = contract.knownFailurePreflight?.negativeExemplarIds;
+  const negatives = writerInput.packet?.negativeExamples;
+  const positives = writerInput.packet?.positiveExamples;
+  if (!Array.isArray(negativeIds) || !Array.isArray(negatives) || negativeIds.length !== negatives.length
+    || !Array.isArray(positives) || positives.length !== contract.positiveExemplars?.length || positives.length !== 1) return null;
+  return {
+    negatives: negativeIds.map((exemplarId, index) => ({ exemplarId, failureFamilies: negatives[index].failureFamilies, artifact: negatives[index].artifact })),
+    positive: { exemplarId: contract.positiveExemplars[0].id, artifact: positives[0].artifact, strengths: contract.positiveExemplars[0].strengthsToUse },
+  };
+}
+
 function validateResearch(packet, candidateId, makerPrincipal) {
   const rootKeys = ['schemaVersion', 'candidateId', 'decision', 'researcherPrincipalId', 'reviewer', 'reviewedAt', 'sourceSetSha256', 'evidenceOutputSha256', 'admittedPayloadSha256', 'sourceBindings', 'claims', 'limitations'];
   if (!exactKeys(packet, rootKeys)
@@ -279,8 +367,8 @@ function publicProse(story) {
   return STORY_FIELDS.map((field) => story[field] ?? '').join('\n') + `\n${story.watch_fors ?? ''}\n${story.closing_note ?? ''}`;
 }
 
-function validateWriterOutput(output, contract, research, frame) {
-  if (!exactKeys(output, ['storyContent', 'claimMap'])
+function validateWriterOutput(output, contract, research, frame, reportingFrame) {
+  if (!exactKeys(output, ['storyContent', 'claimMap', 'storyTypeCoverage'])
     || !exactKeys(output.storyContent, [...STORY_FIELDS, 'watch_fors', 'closing_note', 'themes', 'concepts', 'tags'])
     || output.storyContent.headline.includes('<')
     || STORY_FIELDS.some((field) => !text(output.storyContent[field]))
@@ -293,6 +381,7 @@ function validateWriterOutput(output, contract, research, frame) {
     || output.claimMap.length === 0) return null;
 
   const prose = publicProse(output.storyContent);
+  if (!validateCoverage(output.storyTypeCoverage, reportingFrame, prose)) return null;
   const wordCount = prose.replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
   if (wordCount < 100 || wordCount > 2_000) return null;
   const usedClaims = new Set();
@@ -369,8 +458,8 @@ function evidenceInArtifact(evidence, raw) {
     && evidence.every((item) => exactKeys(item, ['excerpt', 'locator']) && text(item.excerpt) && text(item.locator) && raw.includes(item.excerpt));
 }
 
-function validateSelfReview(output, { makerPrincipal, artifactSha256, artifactRaw, outcomes, families, claimStatuses, questions, terms }) {
-  if (!exactKeys(output, ['reviewerPrincipalId', 'modelFamily', 'artifactSha256', 'verdict', 'outcomes', 'failureFamilies', 'factualClaims', 'readerAnswers', 'termChecks', 'explainBack', 'unseenTransfer', 'repairsRequired', 'unresolvedIssues', 'learningDisposition', 'humanEvidenceClaimed', 'independentAdmissionClaimed'])
+function validateSelfReview(output, { makerPrincipal, artifactSha256, artifactRaw, outcomes, families, claimStatuses, questions, terms, calibration }) {
+  if (!exactKeys(output, ['reviewerPrincipalId', 'modelFamily', 'artifactSha256', 'verdict', 'outcomes', 'failureFamilies', 'factualClaims', 'readerAnswers', 'termChecks', 'explainBack', 'unseenTransfer', 'calibration', 'repairsRequired', 'unresolvedIssues', 'learningDisposition', 'humanEvidenceClaimed', 'independentAdmissionClaimed'])
     || output.reviewerPrincipalId !== makerPrincipal
     || output.modelFamily !== 'anthropic'
     || output.artifactSha256 !== artifactSha256
@@ -422,6 +511,27 @@ function validateSelfReview(output, { makerPrincipal, artifactSha256, artifactRa
       || probe.evidenceType !== 'PRODUCER_SIMULATION'
       || !['prompt', 'probeResponse', 'expectedEvidence', 'assessment'].every((field) => text(probe[field]))) return null;
   }
+  if (!exactKeys(output.calibration, ['negatives', 'positive'])
+    || !Array.isArray(output.calibration.negatives)
+    || output.calibration.negatives.length !== calibration.negatives.length
+    || !exactKeys(output.calibration.positive, ['exemplarId', 'verdict', 'strengthsRetained', 'evidence'])
+    || output.calibration.positive.exemplarId !== calibration.positive.exemplarId
+    || output.calibration.positive.verdict !== 'PASS'
+    || !Array.isArray(output.calibration.positive.strengthsRetained)
+    || output.calibration.positive.strengthsRetained.length === 0
+    || !evidenceInArtifact(output.calibration.positive.evidence, stable(calibration.positive.artifact))) return null;
+  const calibratedNegatives = new Map();
+  for (const item of output.calibration.negatives) {
+    const material = calibration.negatives.find((entry) => entry.exemplarId === item?.exemplarId);
+    if (!material || calibratedNegatives.has(item.exemplarId)
+      || !exactKeys(item, ['exemplarId', 'verdict', 'identifiedFailureFamilies', 'evidence'])
+      || item.verdict !== 'REJECT'
+      || !Array.isArray(item.identifiedFailureFamilies)
+      || !material.failureFamilies.every((family) => item.identifiedFailureFamilies.includes(family))
+      || !evidenceInArtifact(item.evidence, stable(material.artifact))) return null;
+    calibratedNegatives.set(item.exemplarId, item);
+  }
+  if (calibratedNegatives.size !== calibration.negatives.length) return null;
   if (output.explainBack.prompt === output.unseenTransfer.prompt
     || outcomeMap.size !== outcomes.length
     || familyMap.size !== families.length
@@ -455,6 +565,8 @@ export async function runHostedWriter({
   if (!validateFrame(storyFrame, contract.candidateId)) return publicResult('STORY_FRAME_REJECTED');
   const research = validateResearch(researchPacket, contract.candidateId, makerPrincipal);
   if (!research) return publicResult('RESEARCH_ADMISSION_REJECTED');
+  const calibration = calibrationMaterials(contract, writerInput);
+  if (!calibration || !isObject(writerInput.packet.reportingFrame)) return publicResult('WRITER_INPUT_REJECTED');
 
   let executor = execute;
   if (executor === undefined) {
@@ -466,7 +578,7 @@ export async function runHostedWriter({
   const guidance = { ...writerInput.packet };
   delete guidance.sources;
   const writerRequest = {
-    outputSchema: HOSTED_WRITER_OUTPUT_SCHEMA,
+    outputSchema: writerOutputSchema(writerInput.packet.reportingFrame),
     messages: [
       { role: 'system', content: WRITER_SYSTEM_PROMPT },
       { role: 'user', content: JSON.stringify({
@@ -484,7 +596,7 @@ export async function runHostedWriter({
   catch { return publicResult('EXECUTION_ERROR'); }
   const writerModels = validateProvider(writerProvider);
   if (!writerModels) return publicResult('INVALID_WRITER_PROVIDER_OUTPUT');
-  const writerOutput = validateWriterOutput(writerProvider.structured_output, contract, research, storyFrame);
+  const writerOutput = validateWriterOutput(writerProvider.structured_output, contract, research, storyFrame, writerInput.packet.reportingFrame);
   if (!writerOutput) return publicResult('WRITER_OUTPUT_REJECTED');
 
   const story = assembleStory(writerOutput.storyContent, storyFrame, researchPacket);
@@ -496,7 +608,7 @@ export async function runHostedWriter({
   const questions = (contract.draftArchitecture.readerQuestions ?? []).map((question) => question.id);
   const terms = (contract.draftArchitecture.requiredTerms ?? []).map((term) => term.term);
   const reviewRequest = {
-    outputSchema: selfReviewSchema(outcomes, families),
+    outputSchema: selfReviewSchema(outcomes, families, calibration),
     messages: [
       { role: 'system', content: `You are ${makerPrincipal}, performing the producer's own artifact-first review of the exact story you just made. Read the complete supplied story bytes. This is a producer self-review, not independent admission and not observed human evidence. Assess every required NEWS outcome and every named failure family with exact artifact excerpts or locators. Check every mapped factual claim against the independently admitted research. Use PRODUCER_SIMULATION for explain-back and a distinct unseen-transfer case; never label either as an observed reader. Return PASS only if every outcome passes, no failure family is present, every claim remains supported or explicitly qualified, and no repair or unresolved issue remains. Otherwise return HOLD or REJECT and name the repair or evidence gap.` },
       { role: 'user', content: JSON.stringify({
@@ -509,6 +621,7 @@ export async function runHostedWriter({
         explanationPlan: contract.draftArchitecture,
         requiredOutcomes: outcomes,
         requiredFailureFamilies: families,
+        calibrationMaterials: calibration,
       }) },
     ],
   };
@@ -522,7 +635,7 @@ export async function runHostedWriter({
   const reviewModels = validateProvider(reviewProvider);
   if (!reviewModels) return publicResult('INVALID_SELF_REVIEW_PROVIDER_OUTPUT', { storySha256, makerPrincipal });
   const review = validateSelfReview(reviewProvider.structured_output, {
-    makerPrincipal, artifactSha256: storySha256, artifactRaw: storyRaw, outcomes, families, claimStatuses, questions, terms,
+    makerPrincipal, artifactSha256: storySha256, artifactRaw: storyRaw, outcomes, families, claimStatuses, questions, terms, calibration,
   });
   if (!review) return publicResult('INVALID_PRODUCER_SELF_REVIEW', { storySha256, makerPrincipal });
 
@@ -538,7 +651,7 @@ export async function runHostedWriter({
     selfReviewRequestSha256: sha256(stable(reviewRequest)),
   });
   Object.defineProperty(outcome, 'privateResult', {
-    value: { story, storyRaw, claimMap: writerOutput.claimMap, writerOutput, producerSelfReviewAssessment: review.output, writerRequest, reviewRequest, writerProvider, reviewProvider },
+    value: { story, storyRaw, storyTypeCoverage: writerOutput.storyTypeCoverage, claimMap: writerOutput.claimMap, writerOutput, producerSelfReviewAssessment: review.output, writerRequest, reviewRequest, writerProvider, reviewProvider },
   });
   return outcome;
 }

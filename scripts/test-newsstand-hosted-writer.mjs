@@ -18,7 +18,8 @@ const contract = {
     readerQuestions: [{ id: 'change', question: 'What changed?' }],
     requiredTerms: [{ term: 'disclosure', meaning: 'making information public' }],
   },
-  knownFailurePreflight: { dispositions: Object.fromEntries(FAILURE_FAMILIES.map((family) => [family, { status: 'CLEAR' }])) },
+  positiveExemplars: [{ id: 'GOOD', strengthsToUse: ['A connected explanation'], patternsNotToCopy: ['Exact wording'] }],
+  knownFailurePreflight: { negativeExemplarIds: ['BAD'], dispositions: Object.fromEntries(FAILURE_FAMILIES.map((family) => [family, { status: 'CLEAR' }])) },
 };
 const producerContractRaw = `${JSON.stringify(contract)}\n`;
 const writerInput = {
@@ -27,7 +28,20 @@ const writerInput = {
     method: 'Explain the dated change, mechanism, consequence, uncertainty and useful question.',
     reader: contract.readerContract, explanationPlan: contract.draftArchitecture,
     communication: { mode: 'PROPORTIONAL' }, prevention: contract.knownFailurePreflight.dispositions,
-    positiveExamples: [{}], negativeExamples: [{}], sources: [{ text: 'unadmitted source bytes must not enter the request' }],
+    positiveExamples: [{ artifact: 'A clear explanation connects the request to what it does and does not establish.' }],
+    negativeExamples: [{ failureFamilies: ['missingMechanism'], artifact: 'A vague announcement offers confidence but never explains what changed or how.' }],
+    reportingFrame: {
+      schema: 'laidies.newsstand-story-type-coverage.v1', primaryType: 'legal-policy', overlays: [],
+      universalAnswers: { whatHappened: 'placeholder answer replaced by the hosted writer' },
+      typeAnswers: { 'legal-policy': { legalStatus: 'placeholder answer replaced by the hosted writer' } },
+      translation: {
+        schema: 'laidies.newsstand-reader-translation.v1',
+        newsVersionExact: 'placeholder', actualMeaningExact: 'placeholder', mechanismExact: 'placeholder', familiarExampleExact: 'placeholder',
+        jargon: [{ term: 'disclosure', plainMeaning: 'placeholder' }],
+        learningConnections: [{ concept: 'Evidence', learningPayoff: 'Learn to check claims.', disposition: 'link', destination: '/library.html#working-with-ai-101', recordPath: 'private/learning.json' }],
+      },
+    },
+    sources: [{ text: 'unadmitted source bytes must not enter the request' }],
   },
   bindings: [{ path: 'private/source-packet.json', sha256: '1'.repeat(64) }],
   producerContract: { path: 'private/producer-contract.json', sha256: sha256(producerContractRaw) },
@@ -77,6 +91,20 @@ const storyOutput = (claimId = 'proposal-status') => ({
     candidateEvidence: ['The proposal is not a rule in force.', 'The request could make company reports easier to compare, while leaving the underlying environmental result unmeasured.'],
     sourceIds: ['primary'], status: 'QUALIFIED', scopeAndFreshness: claims[0].scopeAndFreshness,
   }],
+  storyTypeCoverage: {
+    schema: 'laidies.newsstand-story-type-coverage.v1', primaryType: 'legal-policy', overlays: [],
+    universalAnswers: { whatHappened: 'The proposal asks companies to disclose how much electricity and water their systems use.' },
+    typeAnswers: { 'legal-policy': { legalStatus: 'The proposal is not a rule in force.' } },
+    translation: {
+      schema: 'laidies.newsstand-reader-translation.v1',
+      newsVersionExact: 'A new proposal asks AI companies to disclose how much electricity and water their systems use.',
+      actualMeaningExact: 'The proposal is not a rule in force.',
+      mechanismExact: 'A reporting request can reveal information; it does not itself lower electricity or water use.',
+      familiarExampleExact: 'ask whether it describes a requested disclosure, a rule that took effect, or a measured outcome',
+      jargon: [{ term: 'disclosure', plainMeaning: 'making information public' }],
+      learningConnections: [{ concept: 'Evidence', learningPayoff: 'Learn to check claims.', disposition: 'link', destination: '/library.html#working-with-ai-101', recordPath: 'private/learning.json' }],
+    },
+  },
 });
 
 const outcomes = ['plainClarity', 'readerValue', 'laidiesVoice', 'engagingEnjoyable', 'factualIntegrity', 'freshnessReviewability', 'surfaceFit', 'datedChange', 'consequenceAndUncertainty', 'dailyLifeConnection', 'communicationBenchmark', 'explainBack', 'unseenTransfer', 'usefulAction', 'analogyIntegrity'];
@@ -91,6 +119,10 @@ function reviewOutput(storyRaw, verdict = 'PASS') {
     termChecks: [{ term: 'disclosure', meaning: 'making information public', artifactEvidence: 'Disclosure means making information public.' }],
     explainBack: { evidenceType: 'PRODUCER_SIMULATION', prompt: 'Explain the proposal boundary.', probeResponse: 'It asks for reporting and does not prove a reduction.', expectedEvidence: 'request versus result', assessment: 'The explanation preserves the distinction.' },
     unseenTransfer: { evidenceType: 'PRODUCER_SIMULATION', prompt: 'Apply the distinction to a voluntary workplace report.', probeResponse: 'A request to report a number does not establish improvement.', expectedEvidence: 'reporting versus outcome', assessment: 'The transfer uses a different case.' },
+    calibration: {
+      negatives: [{ exemplarId: 'BAD', verdict: 'REJECT', identifiedFailureFamilies: ['missingMechanism'], evidence: [{ excerpt: 'never explains what changed or how', locator: 'negative exemplar BAD' }] }],
+      positive: { exemplarId: 'GOOD', verdict: 'PASS', strengthsRetained: ['connected explanation'], evidence: [{ excerpt: 'connects the request to what it does and does not establish', locator: 'positive exemplar GOOD' }] },
+    },
     repairsRequired: pass ? [] : ['Obtain evidence for the unsupported outcome.'], unresolvedIssues: pass ? [] : ['Measured outcome is unsupported.'],
     learningDisposition: { disposition: pass ? 'NO_NEW_DEFECT' : 'EVIDENCE_GAP', rationale: pass ? 'No reusable defect was found in this producer assessment.' : 'The candidate needs evidence before independent review.' },
     humanEvidenceClaimed: false, independentAdmissionClaimed: false,
