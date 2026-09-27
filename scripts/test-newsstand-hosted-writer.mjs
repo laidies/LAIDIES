@@ -202,6 +202,18 @@ try {
   assert.equal(held.nextRequiredStage, 'REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW');
   assert.equal(held.privateResult.producerSelfReviewAssessment.verdict, 'HOLD');
 
+  const quoted = storyOutput();
+  quoted.storyContent.watch_fors = 'The phrase "a proposal" describes a request, not a result.';
+  for (const prefixed of [false, true]) {
+    const e = executor({ writer: quoted });
+    const result = await runHostedWriter({ ...base, execute: async input => {
+      const response = await e.execute(input);
+      if (e.calls.length === 2) response.structured_output.termChecks[0].artifactEvidence = (prefixed ? 'watch_fors: ' : '') + quoted.storyContent.watch_fors;
+      return response;
+    } });
+    assert.equal(result.status, prefixed ? 'INVALID_PRODUCER_SELF_REVIEW' : 'PRODUCER_SELF_REVIEW_ASSESSMENT_PASSED', 'accept literal prose despite JSON escaping, but reject invented locator prefixes');
+  }
+
   const wrongMaker = await runHostedWriter({ ...base, makerPrincipal: 'openai:/root', execute: executor().execute });
   assert.equal(wrongMaker.status, 'INVALID_MAKER_PRINCIPAL');
 

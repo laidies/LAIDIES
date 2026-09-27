@@ -124,20 +124,20 @@ const WRITER_SYSTEM_PROMPT = `You are the named hosted LAiDIES NewsStand produce
 
 Return the public story content, an exhaustive map of every material factual claim used, and fresh answers for the supplied story-type coverage structure. The coverage translations and term meanings must be exact excerpts from your public prose; preserve the selected type, overlays and learning destination. Candidate evidence must be an exact excerpt from the returned public prose, and every claimId and sourceId must come from the admitted research. Copy each admitted claim status and scopeAndFreshness exactly, without paraphrasing, translating spelling, or adding a recheck note; these are immutable provenance, not prose to edit. Use storyFrame.producedAt as the publication date: distinguish an older announcement date from today, and never call an older event just announced or this week. Keep the reportingFrame array lengths, term order and learning destinations exactly as supplied; do not add extra jargon records. Preserve uncertainty, distinguish a request or disclosure promise from an accomplished outcome, explain necessary terms in context, answer the contracted reader questions, and use the exact supplied learning destination. Do not claim publication, independent admission, observed human evidence, or producer self-review. A separate isolated call reads the exact finished artifact and performs the producer self-review plus calibration against the supplied positive and negative exemplars.`;
 
-function selfReviewSchema(outcomes, families, calibrationMaterials) {
+function selfReviewSchema(outcomes, families, calibrationMaterials, exact) {
   return {
     type: 'object', additionalProperties: false,
     required: ['reviewerPrincipalId', 'modelFamily', 'artifactSha256', 'verdict', 'outcomes', 'failureFamilies', 'factualClaims', 'readerAnswers', 'termChecks', 'explainBack', 'unseenTransfer', 'calibration', 'repairsRequired', 'unresolvedIssues', 'learningDisposition', 'humanEvidenceClaimed', 'independentAdmissionClaimed'],
     properties: {
-      reviewerPrincipalId: { type: 'string', minLength: 1 },
+      reviewerPrincipalId: { const: exact.makerPrincipal },
       modelFamily: { const: 'anthropic' },
-      artifactSha256: { type: 'string', pattern: '^[a-f0-9]{64}$' },
+      artifactSha256: { const: exact.artifactSha256 },
       verdict: { enum: ['PASS', 'HOLD', 'REJECT'] },
       outcomes: { type: 'array', minItems: outcomes.length, maxItems: outcomes.length, items: { type: 'object', additionalProperties: false, required: ['name', 'verdict', 'observation', 'artifactEvidence'], properties: { name: { enum: outcomes }, verdict: { enum: ['PASS', 'HOLD', 'FAIL'] }, observation: { type: 'string', minLength: 1 }, artifactEvidence: { type: 'array', minItems: 1, items: { type: 'object', additionalProperties: false, required: ['excerpt', 'locator'], properties: { excerpt: { type: 'string', minLength: 1 }, locator: { type: 'string', minLength: 1 } } } } } } },
       failureFamilies: { type: 'array', minItems: families.length, maxItems: families.length, items: { type: 'object', additionalProperties: false, required: ['name', 'present', 'observation', 'artifactLocator'], properties: { name: { enum: families }, present: { type: 'boolean' }, observation: { type: 'string', minLength: 1 }, artifactLocator: { type: 'string', minLength: 1 } } } },
       factualClaims: { type: 'array', minItems: 1, items: { type: 'object', additionalProperties: false, required: ['claimId', 'verdict', 'observation'], properties: { claimId: { type: 'string', minLength: 1 }, verdict: { enum: ['SUPPORTED', 'QUALIFIED', 'GAP'] }, observation: { type: 'string', minLength: 1 } } } },
-      readerAnswers: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['questionId', 'answer', 'artifactEvidence'], properties: { questionId: { type: 'string', minLength: 1 }, answer: { type: 'string', minLength: 1 }, artifactEvidence: { type: 'string', minLength: 1 } } } },
-      termChecks: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['term', 'meaning', 'artifactEvidence'], properties: { term: { type: 'string', minLength: 1 }, meaning: { type: 'string', minLength: 1 }, artifactEvidence: { type: 'string', minLength: 1 } } } },
+      readerAnswers: { type: 'array', minItems: exact.questions.length, maxItems: exact.questions.length, items: { type: 'object', additionalProperties: false, required: ['questionId', 'answer', 'artifactEvidence'], properties: { questionId: exact.questions.length ? { enum: exact.questions } : { type: 'string' }, answer: { type: 'string', minLength: 1 }, artifactEvidence: { type: 'string', minLength: 1, description: 'Exact contiguous quotation from the article only. No section label, locator prefix, surrounding quotation marks, or explanation.' } } } },
+      termChecks: { type: 'array', minItems: exact.terms.length, maxItems: exact.terms.length, items: { type: 'object', additionalProperties: false, required: ['term', 'meaning', 'artifactEvidence'], properties: { term: exact.terms.length ? { enum: exact.terms } : { type: 'string' }, meaning: { type: 'string', minLength: 1 }, artifactEvidence: { type: 'string', minLength: 1, description: 'Exact contiguous quotation from the article only. No section label, locator prefix, surrounding quotation marks, or explanation.' } } } },
       explainBack: { type: 'object', additionalProperties: false, required: ['evidenceType', 'prompt', 'probeResponse', 'expectedEvidence', 'assessment'], properties: { evidenceType: { const: 'PRODUCER_SIMULATION' }, prompt: { type: 'string', minLength: 1 }, probeResponse: { type: 'string', minLength: 1 }, expectedEvidence: { type: 'string', minLength: 1 }, assessment: { type: 'string', minLength: 1 } } },
       unseenTransfer: { type: 'object', additionalProperties: false, required: ['evidenceType', 'prompt', 'probeResponse', 'expectedEvidence', 'assessment'], properties: { evidenceType: { const: 'PRODUCER_SIMULATION' }, prompt: { type: 'string', minLength: 1 }, probeResponse: { type: 'string', minLength: 1 }, expectedEvidence: { type: 'string', minLength: 1 }, assessment: { type: 'string', minLength: 1 } } },
       calibration: {
@@ -469,10 +469,18 @@ function assembleStory(content, frame, researchPacket) {
   };
 }
 
+function containsArtifactExcerpt(raw, excerpt) {
+  if (raw.includes(excerpt)) return true;
+  try {
+    const collect = value => typeof value === 'string' ? [value] : value && typeof value === 'object' ? Object.values(value).flatMap(collect) : [];
+    return collect(JSON.parse(raw)).some(value => value.includes(excerpt));
+  } catch { return false; }
+}
+
 function evidenceInArtifact(evidence, raw) {
   return Array.isArray(evidence)
     && evidence.length > 0
-    && evidence.every((item) => exactKeys(item, ['excerpt', 'locator']) && text(item.excerpt) && text(item.locator) && raw.includes(item.excerpt));
+    && evidence.every((item) => exactKeys(item, ['excerpt', 'locator']) && text(item.excerpt) && text(item.locator) && containsArtifactExcerpt(raw, item.excerpt));
 }
 
 function validateSelfReview(output, { makerPrincipal, artifactSha256, artifactRaw, outcomes, families, claimStatuses, questions, terms, calibration }) {
@@ -514,13 +522,13 @@ function validateSelfReview(output, { makerPrincipal, artifactSha256, artifactRa
   const answerMap = new Map();
   for (const item of output.readerAnswers ?? []) {
     if (!exactKeys(item, ['questionId', 'answer', 'artifactEvidence']) || answerMap.has(item.questionId)
-      || !questions.includes(item.questionId) || !text(item.answer) || !text(item.artifactEvidence) || !artifactRaw.includes(item.artifactEvidence)) return null;
+      || !questions.includes(item.questionId) || !text(item.answer) || !text(item.artifactEvidence) || !containsArtifactExcerpt(artifactRaw, item.artifactEvidence)) return null;
     answerMap.set(item.questionId, item);
   }
   const termMap = new Map();
   for (const item of output.termChecks ?? []) {
     if (!exactKeys(item, ['term', 'meaning', 'artifactEvidence']) || termMap.has(item.term)
-      || !terms.includes(item.term) || !text(item.meaning) || !text(item.artifactEvidence) || !artifactRaw.includes(item.artifactEvidence)) return null;
+      || !terms.includes(item.term) || !text(item.meaning) || !text(item.artifactEvidence) || !containsArtifactExcerpt(artifactRaw, item.artifactEvidence)) return null;
     termMap.set(item.term, item);
   }
   for (const probe of [output.explainBack, output.unseenTransfer]) {
@@ -636,9 +644,9 @@ export async function runHostedWriter({
   const questions = (contract.draftArchitecture.readerQuestions ?? []).map((question) => question.id);
   const terms = (contract.draftArchitecture.requiredTerms ?? []).map((term) => term.term);
   const reviewRequest = {
-    outputSchema: selfReviewSchema(outcomes, families, calibration),
+    outputSchema: selfReviewSchema(outcomes, families, calibration, { makerPrincipal, artifactSha256: storySha256, questions, terms }),
     messages: [
-      { role: 'system', content: `You are ${makerPrincipal}, performing the producer's own artifact-first review of the exact story you just made. Read the complete supplied story bytes. This is a producer self-review, not independent admission and not observed human evidence. Assess every required NEWS outcome and every named failure family with exact artifact excerpts or locators. Check every mapped factual claim against the independently admitted research. Use PRODUCER_SIMULATION for explain-back and a distinct unseen-transfer case; never label either as an observed reader. Return PASS only if every outcome passes, no failure family is present, every claim remains supported or explicitly qualified, and no repair or unresolved issue remains. Otherwise return HOLD or REJECT and name the repair or evidence gap.` },
+      { role: 'system', content: `You are ${makerPrincipal}, performing the producer's own artifact-first review of the exact story you just made. Read the complete supplied story bytes. This is a producer self-review, not independent admission and not observed human evidence. Assess every required NEWS outcome and every named failure family with exact artifact excerpts or locators. For every artifactEvidence string and evidence excerpt, copy only an exact contiguous passage from the article or specified exemplar. Never prepend a section label, field name, paragraph number or quotation marks. Put locators only in separately named locator fields. Copy reviewerPrincipalId and artifactSha256 exactly; use only the supplied reader question IDs and required terms. Check every mapped factual claim against the independently admitted research. Use PRODUCER_SIMULATION for explain-back and a distinct unseen-transfer case; never label either as an observed reader. Return PASS only if every outcome passes, no failure family is present, every claim remains supported or explicitly qualified, and no repair or unresolved issue remains. Otherwise return HOLD or REJECT and name the repair or evidence gap.` },
       { role: 'user', content: JSON.stringify({
         schema: 'newsstand-hosted-producer-self-review-request.v1',
         makerPrincipal,
