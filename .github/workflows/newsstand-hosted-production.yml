@@ -1,0 +1,66 @@
+name: NewsStand hosted writer and independent review
+on:
+  push:
+    branches: [ops/newsstand-hosted-20260926]
+    paths:
+      - .github/workflows/newsstand-hosted-production.yml
+      - operations/product-stewards/newsstand/hosted-publishing-20260926/production-input.enc
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: newsstand-hosted-production
+  cancel-in-progress: false
+jobs:
+  produce:
+    if: github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/ops/newsstand-hosted-20260926'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: write
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            scripts
+            content
+            operations/product-stewards
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check writer and private-runtime boundaries
+        run: |
+          node scripts/test-newsstand-hosted-writer.mjs
+          node scripts/test-assemble-newsstand-hosted-producer-package.mjs
+          node scripts/test-review-newsstand-hosted-candidate.mjs
+          node scripts/test-materialize-newsstand-hosted-runtime.mjs
+      - name: Install pinned isolated producer and reviewer
+        run: npm install --global @anthropic-ai/claude-code@2.1.251
+      - name: Decrypt exact research and producer runtime
+        env:
+          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
+        run: |
+          mkdir -m 700 "$RUNNER_TEMP/newsstand-production"
+          cp operations/product-stewards/newsstand/hosted-publishing-20260926/production-input.enc "$RUNNER_TEMP/newsstand-production/input.enc"
+          cd "$RUNNER_TEMP"
+          node "$GITHUB_WORKSPACE/scripts/newsstand-private-envelope.mjs" decrypt --input newsstand-production/input.enc --output newsstand-production/input.gz --context laidies-newsstand --schema production-input-v1 --purpose hosted-production-20260926
+      - name: Write, self-review, assemble and independently review the exact new article
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: node scripts/execute-newsstand-hosted-production.mjs "$RUNNER_TEMP/newsstand-production/input.gz" "$RUNNER_TEMP/newsstand-production/result"
+      - name: Preserve actual outputs and hold reasons privately
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
+        run: |
+          if [[ ! -d "$RUNNER_TEMP/newsstand-production/result/evidence" ]]; then
+            node --input-type=module -e 'import fs from "node:fs"; const p=process.env.RUNNER_TEMP+"/newsstand-production/result/evidence"; fs.mkdirSync(p,{recursive:true,mode:0o700}); fs.writeFileSync(p+"/production-result.json",JSON.stringify({schema:"newsstand-hosted-production-result.v1",status:"HELD_BEFORE_PRODUCER_EXECUTION",publicationActionTaken:false}),{mode:0o600,flag:"wx"});'
+          fi
+          node scripts/preserve-newsstand-hosted-production.mjs "$RUNNER_TEMP/newsstand-production/result/evidence"
+      - name: Remove ephemeral private producer files
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/newsstand-production"
