@@ -56,11 +56,11 @@ export async function deployHostedTransaction(input,{provider=readProvider,run=c
   const after=await provider(auth);deployedId=after.id;save('provider-after.json',after);
   if(after.id===base.id)throw Error('DEPLOYMENT_NOT_ADVANCED');
   const live=await verify({predecessorFiles:base.files,manifest,delta,deploymentId:after.id,providerAPI:()=>provider(auth)});
+  if(live?.status!=='BYTE_VERIFIED'||live.deploymentId!==after.id||live.canonicalProductionHeadId!==after.id||live.byteVerification!==true)throw Error('LIVE_BYTE_VERIFICATION_FAILED');
   save('live-bytes.json',live);
-  // The actual browser suite must be in the admitted private runtime; no skip counts as success.
-  const browser=await run(process.execPath,[input.browserScript],{cwd:input.runtimeRoot,env:{PATH:env.PATH,HOME:env.HOME,NEWSSTAND_ROOT:input.runtimeRoot,NEWSSTAND_PUBLIC_ORIGIN:'https://laidies.ai',NEWSSTAND_CHROME_PATH:input.chromePath,NEWSSTAND_REQUIRE_BROWSER:'1'},timeoutMs:300000});
-  if(!browser.ok||!/NEWSSTAND BROWSER PASS checks=\d+/.test(browser.output))throw Error('LIVE_READER_VERIFICATION_FAILED');
-  save('reader-journey.json',{status:'VERIFIED',checkedAt:new Date().toISOString(),outputSha256:sha(browser.output),result:browser.output.match(/NEWSSTAND BROWSER PASS[^\n]*/)[0]});
+  const origins=[`https://${after.id.slice(0,8)}.laidies-sunnyvaile.pages.dev`,'https://laidies.ai']; const journeys=[];
+  for(const origin of origins){const browser=await run(process.execPath,[input.browserScript],{cwd:input.runtimeRoot,env:{PATH:env.PATH,HOME:env.HOME,NEWSSTAND_ROOT:input.runtimeRoot,NEWSSTAND_PUBLIC_ORIGIN:origin,NEWSSTAND_CHROME_PATH:input.chromePath,NEWSSTAND_REQUIRE_BROWSER:'1'},timeoutMs:300000});if(!browser.ok||!/NEWSSTAND BROWSER PASS checks=\d+/.test(browser.output))throw Error('LIVE_READER_VERIFICATION_FAILED');journeys.push({origin,result:browser.output.match(/NEWSSTAND BROWSER PASS[^\n]*/)[0]});}
+  save('reader-journey.json',{status:'VERIFIED',checkedAt:new Date().toISOString(),journeys});
   const final=await provider(auth);if(final.id!==after.id)throw Error('PROVIDER_CHANGED_DURING_READER_CHECK');
   const result={status:'PUBLISHED_AND_VERIFIED',deploymentId:after.id,sourceCommit:input.sourceCommit,artifactIdentitySha256:manifest.identitySha256,byteVerification:true,readerJourneyVerified:true};save('result.json',result);return result;
  }catch(error){

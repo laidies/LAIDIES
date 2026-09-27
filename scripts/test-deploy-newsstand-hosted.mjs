@@ -12,13 +12,13 @@ async function scenario({gatePass=true,upload=true,browser=true,mutate=false,dri
  if(mutate)fs.writeFileSync(path.join(stage,'newsstand.html'),'changed');
  if(extra)fs.writeFileSync(path.join(stage,'index.html'),'unapproved');
  let calls=0,runs=[];
- const result=await deployHostedTransaction(input,{env:{PATH:'/usr/bin',HOME:root,CLOUDFLARE_ACCOUNT_ID:'account',CLOUDFLARE_API_TOKEN:'secret',CLAUDE_CODE_OAUTH_TOKEN:'model-secret',NEWSSTAND_PRIVATE_HANDOFF_KEY_B64:'private-key'},prepare:()=>'/pinned-wrangler',gate:()=>({result:gatePass?'PREPARED_FOR_SEPARATE_DEPLOYMENT':'BLOCKED'}),provider:async()=>{if(throwProvider)throw Error('secret private article');calls++;return calls<3?{...base,id:drift&&calls===2?'drift':base.id}:{...base,id:'b'.repeat(36)};},verify:async()=>({byteVerification:true}),run:async(exe,args,options)=>{runs.push({args,options});return runs.length===1?{ok:upload,output:'secret private output'}:{ok:browser,output:browser?'NEWSSTAND BROWSER PASS checks=73 desktop=1440 mobile=390,320':'SKIP NEWSSTAND BROWSER'};}});
+ const result=await deployHostedTransaction(input,{env:{PATH:'/usr/bin',HOME:root,CLOUDFLARE_ACCOUNT_ID:'account',CLOUDFLARE_API_TOKEN:'secret',CLAUDE_CODE_OAUTH_TOKEN:'model-secret',NEWSSTAND_PRIVATE_HANDOFF_KEY_B64:'private-key'},prepare:()=>'/pinned-wrangler',gate:()=>({result:gatePass?'PREPARED_FOR_SEPARATE_DEPLOYMENT':'BLOCKED'}),provider:async()=>{if(throwProvider)throw Error('secret private article');calls++;return calls<3?{...base,id:drift&&calls===2?'drift':base.id}:{...base,id:'b'.repeat(36)};},verify:async()=>({status:'BYTE_VERIFIED',deploymentId:'b'.repeat(36),canonicalProductionHeadId:'b'.repeat(36),byteVerification:true}),run:async(exe,args,options)=>{runs.push({args,options});return runs.length===1?{ok:upload,output:'secret private output'}:{ok:browser,output:browser?'NEWSSTAND BROWSER PASS checks=73 desktop=1440 mobile=390,320':'SKIP NEWSSTAND BROWSER'};}});
  assert.doesNotMatch(JSON.stringify(result),/secret|private article/);
  for(const run of runs)assert.equal(run.options.env.CLAUDE_CODE_OAUTH_TOKEN,undefined);
  return{result,runs};
 }
 try{
- const good=await scenario();assert.equal(good.result.status,'PUBLISHED_AND_VERIFIED');assert.equal(good.runs.length,2);assert.equal(good.runs[1].options.env.NEWSSTAND_REQUIRE_BROWSER,'1');
+ const good=await scenario();assert.equal(good.result.status,'PUBLISHED_AND_VERIFIED');assert.equal(good.runs.length,3);assert.match(good.runs[1].options.env.NEWSSTAND_PUBLIC_ORIGIN,/pages.dev/);assert.equal(good.runs[1].options.env.NEWSSTAND_REQUIRE_BROWSER,'1');
  for(const options of [{gatePass:false},{mutate:true},{drift:true},{throwProvider:true},{extra:true}]){const x=await scenario(options);assert.equal(x.result.status,'PUBLICATION_HELD');assert.equal(x.runs.length,0);}
  const uncertain=await scenario({upload:false});assert.equal(uncertain.result.status,'DEPLOYMENT_ATTEMPT_REQUIRES_RECONCILIATION');assert.equal(uncertain.runs.length,1);
  const reader=await scenario({browser:false});assert.equal(reader.result.code,'LIVE_READER_VERIFICATION_FAILED');assert.equal(reader.result.readerJourneyVerified,false);
