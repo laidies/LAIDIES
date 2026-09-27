@@ -9,6 +9,7 @@ import {evaluateHostedReadiness, validateContract} from "./check-newsstand-hoste
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const contract = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/hosted-publishing-20260926/runtime-contract.json"), "utf8"));
+const pilotWorkflow = fs.readFileSync(path.join(ROOT, ".github/workflows/newsstand-hosted-pilot.yml"), "utf8");
 const clone = value => JSON.parse(JSON.stringify(value));
 const assess = (value = contract, env = {}) => evaluateHostedReadiness({contract: value, repoRoot: ROOT, env});
 const actualGit = (root, args) => {
@@ -17,6 +18,13 @@ const actualGit = (root, args) => {
 };
 
 assert.deepEqual(validateContract(contract), [], "the committed contract must be structurally valid");
+assert.doesNotMatch(pilotWorkflow, /scripts\/\*newsstand-hosted\*\.mjs|hosted-publishing-20260926\/\*\*/, "unrelated hosted work must not invoke the legacy readiness gate");
+for (const governedPath of [
+  "scripts/check-newsstand-hosted-readiness.mjs",
+  "scripts/test-newsstand-hosted-readiness.mjs",
+  "operations/product-stewards/newsstand/hosted-publishing-20260926/runtime-contract.json",
+  ...contract.sourcePins.map(pin => pin.path),
+]) assert.match(pilotWorkflow, new RegExp(governedPath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), `pilot trigger must cover ${governedPath}`);
 const missingAuth = assess();
 assert.equal(missingAuth.status, "BLOCKED");
 assert.ok(missingAuth.issues.some(issue => issue.code === "MISSING_AUTH" && issue.stage === "independent-reviewer" && issue.detail === "CLAUDE_CODE_OAUTH_TOKEN"));

@@ -4,9 +4,13 @@ on:
   push:
     branches: [ops/newsstand-hosted-20260926]
     paths:
-      - .github/workflows/newsstand-hosted-pilot.yml
-      - scripts/*newsstand-hosted*.mjs
-      - operations/product-stewards/newsstand/hosted-publishing-20260926/**
+      - scripts/check-newsstand-hosted-readiness.mjs
+      - scripts/test-newsstand-hosted-readiness.mjs
+      - operations/product-stewards/newsstand/hosted-publishing-20260926/runtime-contract.json
+      - .github/workflows/newsstand-cloud-intake.yml
+      - .github/workflows/production-release.yml
+      - scripts/run-newsstand-cloud-intake.mjs
+      - scripts/check-newsstand-release-scope.mjs
   workflow_dispatch:
 
 permissions:
