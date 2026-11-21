@@ -5,6 +5,19 @@ on:
     - cron: "30 16,23 * * *"
   workflow_dispatch:
     inputs:
+      semantic_inspect:
+        description: "Re-seal the exact private semantic trial result"
+        required: false
+        type: boolean
+        default: false
+      semantic_artifact_id:
+        description: "Exact source artifact ID"
+        required: false
+        type: string
+      semantic_ciphertext_sha256:
+        description: "Exact source ciphertext SHA-256"
+        required: false
+        type: string
       semantic_candidate:
         description: "Run the bound private semantic planning input only"
         required: false
@@ -26,7 +39,7 @@ concurrency:
 
 jobs:
   private-intake:
-    if: inputs.semantic_candidate != true
+    if: inputs.semantic_candidate != true && inputs.semantic_inspect != true
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -89,7 +102,7 @@ jobs:
           key: newsstand-cloud-intake-${{ github.run_id }}
 
   private-semantic:
-    if: github.event_name == 'workflow_dispatch' && inputs.semantic_candidate == true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch' && inputs.semantic_candidate == true && inputs.semantic_inspect != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production
     timeout-minutes: 20
@@ -174,3 +187,39 @@ jobs:
       - name: Remove private runner files
         if: always()
         run: rm -rf -- "$RUNNER_TEMP/newsstand-semantic"
+
+  private-semantic-inspection:
+    if: github.event_name == 'workflow_dispatch' && inputs.semantic_inspect == true && inputs.semantic_candidate != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Calibrate encrypted inspection
+        run: node scripts/test-reseal-newsstand-semantic-result.mjs
+      - name: Re-seal the exact hosted result
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_ARTIFACT_ID: ${{ inputs.semantic_artifact_id }}
+          SOURCE_CIPHERTEXT_SHA256: ${{ inputs.semantic_ciphertext_sha256 }}
+          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
+          NEWSSTAND_SEMANTIC_TRANSFER_KEY_B64: ${{ secrets.NEWSSTAND_SEMANTIC_TRANSFER_KEY_B64 }}
+        run: |
+          set -euo pipefail
+          mkdir -m 700 "$RUNNER_TEMP/semantic-inspection"
+          node scripts/reseal-newsstand-semantic-result.mjs "$SOURCE_ARTIFACT_ID" "$SOURCE_CIPHERTEXT_SHA256" "$RUNNER_TEMP/semantic-inspection/transfer.enc"
+      - name: Preserve only the encrypted transfer
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsstand-private-semantic-transfer-${{ github.run_id }}
+          path: ${{ runner.temp }}/semantic-inspection/transfer.enc
+          if-no-files-found: error
+          retention-days: 1
+      - name: Remove temporary encrypted files
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/semantic-inspection"
