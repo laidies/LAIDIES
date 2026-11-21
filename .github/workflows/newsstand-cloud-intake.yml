@@ -5,6 +5,11 @@ on:
     - cron: "30 16,23 * * *"
   workflow_dispatch:
     inputs:
+      semantic_candidate:
+        description: "Run the bound private semantic planning input only"
+        required: false
+        type: boolean
+        default: false
       backfill_since:
         description: "Optional bounded AIDB/Mollick recovery start (YYYY-MM-DD, maximum 21 days)"
         required: false
@@ -13,6 +18,7 @@ on:
 permissions:
   contents: read
   issues: write
+  actions: read
 
 concurrency:
   group: newsstand-cloud-intake
@@ -20,6 +26,7 @@ concurrency:
 
 jobs:
   private-intake:
+    if: inputs.semantic_candidate != true
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -80,3 +87,90 @@ jobs:
         with:
           path: .newsstand-cloud-intake/state.json
           key: newsstand-cloud-intake-${{ github.run_id }}
+
+  private-semantic:
+    if: github.event_name == 'workflow_dispatch' && inputs.semantic_candidate == true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Calibrate semantic and custody boundaries
+        run: |
+          set -euo pipefail
+          node scripts/test-custody-codex-auth.mjs
+          node scripts/test-select-newsstand-custody-artifacts.mjs
+          node scripts/test-restore-newsstand-cloud-custody.mjs
+          node scripts/test-newsstand-hosted-semantic-input.mjs
+          node scripts/test-prepare-newsstand-hosted-semantic-plan.mjs
+      - name: Restore encrypted dedicated session
+        id: restore
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
+          CODEX_AUTH_CAPSULE_B64: ${{ secrets.CODEX_AUTH_CAPSULE_B64 }}
+          CODEX_AUTH_CAPSULE_METADATA_B64: ${{ secrets.CODEX_AUTH_CAPSULE_METADATA_B64 }}
+        run: |
+          set -euo pipefail
+          mkdir -m 700 "$RUNNER_TEMP/newsstand-semantic" "$RUNNER_TEMP/newsstand-semantic/codex"
+          node scripts/restore-newsstand-cloud-custody.mjs "$RUNNER_TEMP/newsstand-semantic/codex"
+      - name: Run exact source-bound pinned semantic producer
+        id: semantic
+        env:
+          CODEX_HOME: ${{ runner.temp }}/newsstand-semantic/codex
+          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
+          NEWSSTAND_SEMANTIC_PACKAGE_SHA256: ${{ secrets.NEWSSTAND_SEMANTIC_PACKAGE_SHA256 }}
+          NEWSSTAND_SEMANTIC_PART_01: ${{ secrets.NEWSSTAND_SEMANTIC_PART_01 }}
+          NEWSSTAND_SEMANTIC_PART_02: ${{ secrets.NEWSSTAND_SEMANTIC_PART_02 }}
+          NEWSSTAND_SEMANTIC_PART_03: ${{ secrets.NEWSSTAND_SEMANTIC_PART_03 }}
+          NEWSSTAND_SEMANTIC_PART_04: ${{ secrets.NEWSSTAND_SEMANTIC_PART_04 }}
+          NEWSSTAND_SEMANTIC_PART_05: ${{ secrets.NEWSSTAND_SEMANTIC_PART_05 }}
+          NEWSSTAND_SEMANTIC_PART_06: ${{ secrets.NEWSSTAND_SEMANTIC_PART_06 }}
+          NEWSSTAND_SEMANTIC_PART_07: ${{ secrets.NEWSSTAND_SEMANTIC_PART_07 }}
+          NEWSSTAND_SEMANTIC_PART_08: ${{ secrets.NEWSSTAND_SEMANTIC_PART_08 }}
+          NEWSSTAND_SEMANTIC_PART_09: ${{ secrets.NEWSSTAND_SEMANTIC_PART_09 }}
+          NEWSSTAND_SEMANTIC_PART_10: ${{ secrets.NEWSSTAND_SEMANTIC_PART_10 }}
+          NEWSSTAND_SEMANTIC_PART_11: ${{ secrets.NEWSSTAND_SEMANTIC_PART_11 }}
+          NEWSSTAND_SEMANTIC_PART_12: ${{ secrets.NEWSSTAND_SEMANTIC_PART_12 }}
+        run: |
+          set -euo pipefail
+          npm install --global @openai/codex@0.153.4
+          node scripts/run-newsstand-hosted-semantic-input.mjs "$RUNNER_TEMP/newsstand-semantic" "$RUNNER_TEMP/newsstand-semantic/result.enc"
+      - name: Preserve encrypted semantic result
+        if: always() && steps.semantic.outcome != 'skipped'
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsstand-private-semantic-result-${{ github.run_id }}
+          path: ${{ runner.temp }}/newsstand-semantic/result.enc
+          if-no-files-found: error
+          retention-days: 30
+      - name: Seal refreshed dedicated session
+        id: seal
+        if: always() && steps.restore.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
+        run: |
+          set -euo pipefail
+          export AUTH_CUSTODY_WORKFLOW_ID="$(gh api repos/laidies/LAIDIES/actions/workflows/newsstand-cloud-intake.yml --jq '.id')"
+          export AUTH_CUSTODY_RUN_ID="$GITHUB_RUN_ID"
+          export AUTH_CUSTODY_RUN_STARTED_AT="$(gh api "repos/laidies/LAIDIES/actions/runs/$GITHUB_RUN_ID" --jq '.created_at')"
+          export AUTH_CUSTODY_SOURCE_COMMIT="$GITHUB_SHA"
+          export AUTH_CUSTODY_SOURCE_REF="$GITHUB_REF"
+          node scripts/custody-codex-auth.mjs seal "$RUNNER_TEMP/newsstand-semantic/codex/auth.json" "$RUNNER_TEMP/newsstand-semantic/sealed/auth.enc" "$RUNNER_TEMP/newsstand-semantic/sealed/auth-meta.json"
+      - name: Preserve encrypted refreshed custody
+        if: always() && steps.seal.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsstand-codex-auth-current
+          path: ${{ runner.temp }}/newsstand-semantic/sealed
+          if-no-files-found: error
+          retention-days: 90
+      - name: Remove private runner files
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/newsstand-semantic"
