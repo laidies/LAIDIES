@@ -121,6 +121,8 @@ jobs:
           node scripts/test-restore-newsstand-cloud-custody.mjs
           node scripts/test-newsstand-hosted-semantic-input.mjs
           node scripts/test-prepare-newsstand-hosted-semantic-plan.mjs
+      - name: Install pinned isolated producer
+        run: npm install --global @openai/codex@0.153.4
       - name: Restore encrypted dedicated session
         id: restore
         env:
@@ -137,6 +139,7 @@ jobs:
         env:
           CODEX_HOME: ${{ runner.temp }}/newsstand-semantic/codex
           NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
+          NEWSSTAND_SEMANTIC_TRANSFER_KEY_B64: ${{ secrets.NEWSSTAND_SEMANTIC_TRANSFER_KEY_B64 }}
           NEWSSTAND_SEMANTIC_PACKAGE_SHA256: ${{ secrets.NEWSSTAND_SEMANTIC_PACKAGE_SHA256 }}
           NEWSSTAND_SEMANTIC_PART_01: ${{ secrets.NEWSSTAND_SEMANTIC_PART_01 }}
           NEWSSTAND_SEMANTIC_PART_02: ${{ secrets.NEWSSTAND_SEMANTIC_PART_02 }}
@@ -152,7 +155,6 @@ jobs:
           NEWSSTAND_SEMANTIC_PART_12: ${{ secrets.NEWSSTAND_SEMANTIC_PART_12 }}
         run: |
           set -euo pipefail
-          npm install --global @openai/codex@0.153.4
           node scripts/run-newsstand-hosted-semantic-input.mjs "$RUNNER_TEMP/newsstand-semantic" "$RUNNER_TEMP/newsstand-semantic/result.enc"
       - name: Preserve encrypted semantic result
         if: always() && steps.semantic.outcome != 'skipped'
@@ -162,6 +164,14 @@ jobs:
           path: ${{ runner.temp }}/newsstand-semantic/result.enc
           if-no-files-found: error
           retention-days: 30
+      - name: Preserve optional one-time encrypted transfer
+        if: always() && steps.semantic.outcome != 'skipped'
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsstand-private-semantic-transfer-${{ github.run_id }}
+          path: ${{ runner.temp }}/newsstand-semantic/transfer.enc
+          if-no-files-found: ignore
+          retention-days: 1
       - name: Seal refreshed dedicated session
         id: seal
         if: always() && steps.restore.outcome == 'success'
