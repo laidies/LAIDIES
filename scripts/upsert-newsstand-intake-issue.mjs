@@ -142,6 +142,18 @@ async function api(path, options = {}) {
   return response.status === 204 ? null : response.json();
 }
 
+// Never decide that a queue is reconciled from a truncated GitHub page.
+export async function allApiPages(endpoint, request = api) {
+  const items = [], separator = endpoint.includes("?") ? "&" : "?";
+  for (let page = 1; page <= 100; page++) {
+    const batch = await request(`${endpoint}${separator}per_page=100&page=${page}`);
+    if (!Array.isArray(batch) || batch.length > 100) throw new Error("INTAKE_PAGINATION_INVALID");
+    items.push(...batch);
+    if (batch.length < 100) return items;
+  }
+  throw new Error("INTAKE_PAGINATION_LIMIT: reconciliation requires the complete queue");
+}
+
 async function main() {
   const receiptPath = process.argv[2];
   if (!receiptPath) throw new Error("usage: node scripts/upsert-newsstand-intake-issue.mjs RECEIPT.json");
@@ -156,7 +168,7 @@ async function main() {
   } catch (error) {
     if (!/422/.test(error.message)) throw error;
   }
-  const issues = await api(`/issues?state=open&labels=${encodeURIComponent(LABEL)}&per_page=100`);
+  const issues = await allApiPages(`/issues?state=open&labels=${encodeURIComponent(LABEL)}`);
   let issue = issues.find((candidate) => candidate.title === TITLE);
   if (!issue && !(receipt.counts.newSignals || receipt.counts.sourceHealthAlerts)) {
     console.log("NO_ISSUE_UPDATE — no unresolved signals or source-health failures");
@@ -172,7 +184,7 @@ async function main() {
       })
     });
   }
-  const comments = await api(`/issues/${issue.number}/comments?per_page=100`);
+  const comments = await allApiPages(`/issues/${issue.number}/comments`);
   const priorText = [issue.body, ...comments.map((comment) => comment.body)].join("\n");
   receipt = removeAlreadyReported(receipt, priorText);
   const unresolved = unresolvedSignalIds(priorText, receipt, registry);

@@ -1,3 +1,4 @@
+import "./test-newsstand-cloud-intake-pagination.mjs";
 import assert from "node:assert/strict";
 import { buildIntake, normalizeBackfillSince, parseAidbItems, parseApHubItems, parseFeedItems, parseOpenAiChangelogItems, selectDueSources, validateIntakeReceipt } from "./run-newsstand-cloud-intake.mjs";
 import { buildClosureComment, buildIssueComment, extractSignalIds, extractSourceHealthMarkers, removeAlreadyReported, removeResolvedSignals, unresolvedSignalIds, unresolvedSourceHealthMarkers } from "./upsert-newsstand-intake-issue.mjs";
