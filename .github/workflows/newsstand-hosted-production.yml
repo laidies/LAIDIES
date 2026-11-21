@@ -7,6 +7,11 @@ on:
       - scripts/run-newsstand-hosted-writer.mjs
       - operations/product-stewards/newsstand/hosted-publishing-20260926/production-input.enc
   workflow_dispatch:
+    inputs:
+      verify_codex_migration:
+        type: boolean
+        default: false
+        description: Verify encrypted dedicated Codex session migration only; never produce or publish
 permissions:
   contents: read
 concurrency:
@@ -14,7 +19,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   produce:
-    if: github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/ops/newsstand-hosted-20260926'
+    if: github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/ops/newsstand-hosted-20260926' && inputs.verify_codex_migration != true
     runs-on: ubuntu-latest
     environment: production
     permissions:
@@ -66,3 +71,68 @@ jobs:
       - name: Remove ephemeral private producer files
         if: always()
         run: rm -rf -- "$RUNNER_TEMP/newsstand-production"
+  verify-auth-migration:
+    if: github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/ops/newsstand-hosted-20260926' && inputs.verify_codex_migration == true
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Calibrate encrypted custody boundaries
+        run: |
+          set -euo pipefail
+          test "$(sha256sum scripts/custody-codex-auth.mjs | cut -d' ' -f1)" = c61697e7482a29880bace8b346c94bd8cc684b5aa8673766292bbe1dc5920a6d
+          test "$(sha256sum scripts/newsstand-private-envelope.mjs | cut -d' ' -f1)" = 0421ed6de44df85a7a33fceef06dbb04ce447212390d576e924f0a1059218431
+          node scripts/test-custody-codex-auth.mjs
+      - name: Restore the migrated encrypted dedicated session
+        id: restore_migration
+        env:
+          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
+          CODEX_AUTH_CAPSULE_B64: ${{ secrets.CODEX_AUTH_CAPSULE_B64 }}
+          CODEX_AUTH_CAPSULE_METADATA_B64: ${{ secrets.CODEX_AUTH_CAPSULE_METADATA_B64 }}
+        run: |
+          set -euo pipefail
+          mkdir -m 700 "$RUNNER_TEMP/newsstand-migration" "$RUNNER_TEMP/newsstand-migration/codex"
+          node --input-type=module -e 'import fs from "node:fs";for(const [key,name] of [["CODEX_AUTH_CAPSULE_B64","auth.enc"],["CODEX_AUTH_CAPSULE_METADATA_B64","auth-meta.json"]]){const x=process.env[key]||"";if(!x||x.length>48000||!/^[A-Za-z0-9+/]+={0,2}$/.test(x))throw Error("CAPSULE_INVALID");const b=Buffer.from(x,"base64");if(b.toString("base64")!==x)throw Error("CAPSULE_INVALID");fs.writeFileSync(process.env.RUNNER_TEMP+"/newsstand-migration/"+name,b,{mode:0o600,flag:"wx"});}'
+          unset CODEX_AUTH_CAPSULE_B64 CODEX_AUTH_CAPSULE_METADATA_B64
+          node scripts/custody-codex-auth.mjs restore "$RUNNER_TEMP/newsstand-migration/auth.enc" "$RUNNER_TEMP/newsstand-migration/codex/auth.json" "$RUNNER_TEMP/newsstand-migration/auth-meta.json"
+      - name: Probe the dedicated subscription session
+        env:
+          CODEX_HOME: ${{ runner.temp }}/newsstand-migration/codex
+        run: |
+          set -euo pipefail
+          npm install --global @openai/codex@0.153.4
+          mkdir -m 700 "$RUNNER_TEMP/newsstand-migration/probe"
+          printf '%s' '{"type":"object","additionalProperties":false,"required":["ok"],"properties":{"ok":{"type":"boolean","const":true}}}' > "$RUNNER_TEMP/newsstand-migration/probe/schema.json"
+          printf '%s' 'Return only the required JSON with ok true. Do not use tools.' | codex exec --ephemeral --ignore-user-config --ignore-rules --config 'mcp_servers={}' --skip-git-repo-check --sandbox read-only --cd "$RUNNER_TEMP/newsstand-migration/probe" --model gpt-5.6-terra --config 'model_reasoning_effort="medium"' --output-schema "$RUNNER_TEMP/newsstand-migration/probe/schema.json" --output-last-message "$RUNNER_TEMP/newsstand-migration/probe/result.json" - > "$RUNNER_TEMP/newsstand-migration/probe/run.log" 2>&1
+          node --input-type=module -e 'import fs from "node:fs";if(JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/newsstand-migration/probe/result.json")).ok!==true)throw Error("AUTH_PROBE_FAILED");console.log("DEDICATED_CODEX_MIGRATION_VERIFIED");'
+      - name: Seal the refreshed dedicated session
+        id: seal_migration
+        if: always() && steps.restore_migration.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
+        run: |
+          set -euo pipefail
+          export AUTH_CUSTODY_WORKFLOW_ID="$(gh api repos/laidies/LAIDIES/actions/workflows/newsstand-hosted-production.yml --jq '.id')"
+          export AUTH_CUSTODY_RUN_ID="$GITHUB_RUN_ID"
+          export AUTH_CUSTODY_RUN_STARTED_AT="$(gh api "repos/laidies/LAIDIES/actions/runs/$GITHUB_RUN_ID" --jq '.created_at')"
+          export AUTH_CUSTODY_SOURCE_COMMIT="$GITHUB_SHA"
+          export AUTH_CUSTODY_SOURCE_REF="$GITHUB_REF"
+          node scripts/custody-codex-auth.mjs seal "$RUNNER_TEMP/newsstand-migration/codex/auth.json" "$RUNNER_TEMP/newsstand-migration/sealed/auth.enc" "$RUNNER_TEMP/newsstand-migration/sealed/auth-meta.json"
+      - name: Preserve only encrypted refreshed custody
+        if: always() && steps.seal_migration.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsstand-codex-auth-migration
+          path: ${{ runner.temp }}/newsstand-migration/sealed
+          if-no-files-found: error
+          retention-days: 90
+      - name: Remove migration material
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/newsstand-migration"
