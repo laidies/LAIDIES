@@ -5,6 +5,11 @@ on:
     - cron: "30 16,23 * * *"
   workflow_dispatch:
     inputs:
+      transfer_release_custody:
+        description: "One-time encrypted transfer to the private NewsStand publisher; no publication"
+        required: false
+        type: boolean
+        default: false
       semantic_inspect:
         description: "Re-seal the exact private semantic trial result"
         required: false
@@ -39,7 +44,7 @@ concurrency:
 
 jobs:
   private-intake:
-    if: inputs.semantic_candidate != true && inputs.semantic_inspect != true
+    if: inputs.transfer_release_custody != true && inputs.semantic_candidate != true && inputs.semantic_inspect != true
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -102,7 +107,7 @@ jobs:
           key: newsstand-cloud-intake-${{ github.run_id }}
 
   private-semantic:
-    if: github.event_name == 'workflow_dispatch' && inputs.semantic_candidate == true && inputs.semantic_inspect != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
+    if: inputs.transfer_release_custody != true && github.event_name == 'workflow_dispatch' && inputs.semantic_candidate == true && inputs.semantic_inspect != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production
     timeout-minutes: 20
@@ -199,7 +204,7 @@ jobs:
         run: rm -rf -- "$RUNNER_TEMP/newsstand-semantic"
 
   private-semantic-inspection:
-    if: github.event_name == 'workflow_dispatch' && inputs.semantic_inspect == true && inputs.semantic_candidate != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
+    if: inputs.transfer_release_custody != true && github.event_name == 'workflow_dispatch' && inputs.semantic_inspect == true && inputs.semantic_candidate != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production
     timeout-minutes: 10
@@ -233,3 +238,41 @@ jobs:
       - name: Remove temporary encrypted files
         if: always()
         run: rm -rf -- "$RUNNER_TEMP/semantic-inspection"
+
+  transfer-release-custody:
+    if: github.event_name == 'workflow_dispatch' && inputs.transfer_release_custody == true && inputs.semantic_candidate != true && inputs.semantic_inspect != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test authenticated custody boundaries
+        run: node scripts/test-newsstand-release-custody.mjs
+      - name: Seal the existing release credential for the private publisher
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          NEWSSTAND_RELEASE_TRANSFER_KEY_B64: ${{ secrets.NEWSSTAND_RELEASE_TRANSFER_KEY_B64 }}
+        run: |
+          set -euo pipefail
+          mkdir -m 700 "$RUNNER_TEMP/newsstand-release-custody"
+          node scripts/newsstand-release-custody.mjs seal "$RUNNER_TEMP/newsstand-release-custody"
+      - name: Retain only the encrypted one-time handoff
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsstand-release-custody-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/newsstand-release-custody/release-custody.enc
+            ${{ runner.temp }}/newsstand-release-custody/receipt.json
+          if-no-files-found: error
+          retention-days: 1
+      - name: Remove temporary ciphertext
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/newsstand-release-custody"
