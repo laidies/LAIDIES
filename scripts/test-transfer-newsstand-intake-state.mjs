@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';import crypto from 'node:crypto';
+import {sealIntakeState,openIntakeState} from './transfer-newsstand-intake-state.mjs';
+const raw=Buffer.from('{"schemaVersion":"newsstand-cloud-intake-state-v2","updatedAt":"2026-11-21T00:00:00Z","sources":{"SRC-TEST":{"itemIds":["exact"],"emittedSignalIds":["retained"]}}}\n');
+const args={raw,cacheKey:'newsstand-cloud-intake-123',runId:'456',keyB64:crypto.randomBytes(32).toString('base64')};
+const ciphertext=sealIntakeState(args),input={...args,ciphertext,expectedSha256:crypto.createHash('sha256').update(ciphertext).digest('hex')};
+assert.deepEqual(openIntakeState(input),raw);
+for(const change of [{cacheKey:'newsstand-cloud-intake-999'},{runId:'999'},{keyB64:crypto.randomBytes(32).toString('base64')},{expectedSha256:'0'.repeat(64)}])assert.throws(()=>openIntakeState({...input,...change}));
+for(const bad of [Buffer.from('{}'),Buffer.alloc(2000001)])assert.throws(()=>sealIntakeState({...args,raw:bad}));
+assert.throws(()=>sealIntakeState({...args,cacheKey:'newsstand-cloud-intake-'}));
+console.log('PASS exact intake state bytes retained; wrong cache/run/key/hash and malformed/oversized state rejected');

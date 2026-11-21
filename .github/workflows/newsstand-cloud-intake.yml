@@ -5,6 +5,13 @@ on:
     - cron: "30 16,23 * * *"
   workflow_dispatch:
     inputs:
+      transfer_intake_state:
+        description: "One-time exact cached state export; no intake or schedule change"
+        type: boolean
+        default: false
+      intake_cache_key:
+        description: "Exact existing newsstand-cloud-intake run cache key"
+        type: string
       transfer_release_custody:
         description: "One-time encrypted transfer to the private NewsStand publisher; no publication"
         required: false
@@ -44,7 +51,7 @@ concurrency:
 
 jobs:
   private-intake:
-    if: inputs.transfer_release_custody != true && inputs.semantic_candidate != true && inputs.semantic_inspect != true
+    if: inputs.transfer_intake_state != true && inputs.transfer_release_custody != true && inputs.semantic_candidate != true && inputs.semantic_inspect != true
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -107,7 +114,7 @@ jobs:
           key: newsstand-cloud-intake-${{ github.run_id }}
 
   private-semantic:
-    if: inputs.transfer_release_custody != true && github.event_name == 'workflow_dispatch' && inputs.semantic_candidate == true && inputs.semantic_inspect != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
+    if: inputs.transfer_intake_state != true && inputs.transfer_release_custody != true && github.event_name == 'workflow_dispatch' && inputs.semantic_candidate == true && inputs.semantic_inspect != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production
     timeout-minutes: 20
@@ -204,7 +211,7 @@ jobs:
         run: rm -rf -- "$RUNNER_TEMP/newsstand-semantic"
 
   private-semantic-inspection:
-    if: inputs.transfer_release_custody != true && github.event_name == 'workflow_dispatch' && inputs.semantic_inspect == true && inputs.semantic_candidate != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
+    if: inputs.transfer_intake_state != true && inputs.transfer_release_custody != true && github.event_name == 'workflow_dispatch' && inputs.semantic_inspect == true && inputs.semantic_candidate != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production
     timeout-minutes: 10
@@ -240,7 +247,7 @@ jobs:
         run: rm -rf -- "$RUNNER_TEMP/semantic-inspection"
 
   transfer-release-custody:
-    if: github.event_name == 'workflow_dispatch' && inputs.transfer_release_custody == true && inputs.semantic_candidate != true && inputs.semantic_inspect != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
+    if: inputs.transfer_intake_state != true && github.event_name == 'workflow_dispatch' && inputs.transfer_release_custody == true && inputs.semantic_candidate != true && inputs.semantic_inspect != true && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production
     timeout-minutes: 5
@@ -276,3 +283,52 @@ jobs:
       - name: Remove temporary ciphertext
         if: always()
         run: rm -rf -- "$RUNNER_TEMP/newsstand-release-custody"
+
+  transfer-intake-state:
+    if: github.event_name == 'workflow_dispatch' && github.repository == 'laidies/LAIDIES' && github.ref == 'refs/heads/main' && inputs.transfer_intake_state == true && inputs.transfer_release_custody != true && inputs.semantic_candidate != true && inputs.semantic_inspect != true
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate exact state key and transfer boundaries
+        env:
+          INTAKE_CACHE_KEY: ${{ inputs.intake_cache_key }}
+        run: |
+          set -euo pipefail
+          [[ "$INTAKE_CACHE_KEY" =~ ^newsstand-cloud-intake-[0-9]+$ ]]
+          node scripts/test-transfer-newsstand-intake-state.mjs
+      - name: Restore only the named existing cache
+        id: exact-intake-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .newsstand-cloud-intake/state.json
+          key: ${{ inputs.intake_cache_key }}
+          fail-on-cache-miss: true
+      - name: Seal exact cached bytes
+        env:
+          EXACT_CACHE_HIT: ${{ steps.exact-intake-cache.outputs.cache-hit }}
+          MATCHED_CACHE_KEY: ${{ steps.exact-intake-cache.outputs.cache-matched-key }}
+          INTAKE_CACHE_KEY: ${{ inputs.intake_cache_key }}
+          NEWSSTAND_INTAKE_TRANSFER_KEY_B64: ${{ secrets.NEWSSTAND_INTAKE_TRANSFER_KEY_B64 }}
+        run: |
+          set -euo pipefail
+          [[ "$EXACT_CACHE_HIT" == true && "$MATCHED_CACHE_KEY" == "$INTAKE_CACHE_KEY" ]]
+          mkdir -m 700 "$RUNNER_TEMP/intake-state-transfer"
+          node scripts/transfer-newsstand-intake-state.mjs .newsstand-cloud-intake/state.json "$RUNNER_TEMP/intake-state-transfer/state.enc"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: newsstand-intake-state-${{ github.run_id }}
+          path: ${{ runner.temp }}/intake-state-transfer
+          if-no-files-found: error
+          retention-days: 1
+      - name: Remove temporary state
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/intake-state-transfer" .newsstand-cloud-intake
