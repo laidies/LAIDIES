@@ -12,7 +12,8 @@ const expected={
   'CQX-GOOD-NEWS-002':{sha256:'102a4299dcb922f6fcdad44bdf30257f42ebfe6a381efe378bf99fc1fb3c7f83',evidenceSha256:'726ebfafa2b88f5780a3f52938ac2936c9e066d1bb24b45a31e57a09e6ba5fab'}
 };
 function check(base,id){
-  const item=JSON.parse(fs.readFileSync(path.join(base,registry))).positiveExemplars.find(x=>x.id===id);
+  const entry=JSON.parse(fs.readFileSync(path.join(base,registry))).positiveExemplars.find(x=>x.id===id);
+  const item=id==='CQX-GOOD-NEWS-001'?entry.historicalFrozen:entry;
   assert.ok(item.path.includes('/quality-exemplars/'));
   assert.ok(item.evidencePath.includes('/quality-exemplars/'));
   assert.equal(item.sha256,expected[id].sha256);
@@ -21,6 +22,10 @@ function check(base,id){
   assert.equal(sha(fs.readFileSync(path.join(base,item.evidencePath))),item.evidenceSha256);
   return item;
 }
+const newsReferences=JSON.parse(fs.readFileSync(path.join(root,registry))).positiveExemplars.filter(item=>item.id.startsWith('CQX-GOOD-NEWS-'));
+assert.deepEqual(newsReferences.filter(item=>item.useFor.includes('NEWS')).map(item=>item.id),['CQX-GOOD-NEWS-003']);
+assert.equal(newsReferences.find(item=>item.id==='CQX-GOOD-NEWS-002').supersededBy,'CQX-GOOD-NEWS-003');
+assert.equal(newsReferences.find(item=>item.id==='CQX-GOOD-NEWS-001').path,'operations/product-stewards/learning-content-ecosystem/quality-exemplars/eu-ai-act-transparency-starts-positive.md');
 const items=Object.keys(expected).map(id=>check(root,id)),temp=fs.mkdtempSync(path.join(os.tmpdir(),'frozen-news-calibration-'));
 for(const p of [registry,...items.flatMap(item=>[item.path,item.evidencePath])]){fs.mkdirSync(path.dirname(path.join(temp,p)),{recursive:true});fs.copyFileSync(path.join(root,p),path.join(temp,p));}
 fs.mkdirSync(path.join(temp,'content'),{recursive:true});
