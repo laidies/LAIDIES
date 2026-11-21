@@ -132,6 +132,8 @@ jobs:
           set -euo pipefail
           mkdir -m 700 "$RUNNER_TEMP/newsstand-semantic" "$RUNNER_TEMP/newsstand-semantic/codex"
           node scripts/restore-newsstand-cloud-custody.mjs "$RUNNER_TEMP/newsstand-semantic/codex"
+      - name: Install pinned isolated producer
+        run: npm install --global @openai/codex@0.153.4
       - name: Run exact source-bound pinned semantic producer
         id: semantic
         env:
@@ -153,7 +155,6 @@ jobs:
           NEWSSTAND_SEMANTIC_PART_12: ${{ secrets.NEWSSTAND_SEMANTIC_PART_12 }}
         run: |
           set -euo pipefail
-          npm install --global @openai/codex@0.153.4
           node scripts/run-newsstand-hosted-semantic-input.mjs "$RUNNER_TEMP/newsstand-semantic" "$RUNNER_TEMP/newsstand-semantic/result.enc"
       - name: Preserve encrypted semantic result
         if: always() && steps.semantic.outcome != 'skipped'
