@@ -92,7 +92,7 @@ jobs:
       - name: Restore the migrated encrypted dedicated session
         id: restore_migration
         env:
-          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_AUTH_MIGRATION_KEY_B64 }}
+          NEWSSTAND_PRIVATE_HANDOFF_KEY_B64: ${{ secrets.NEWSSTAND_PRIVATE_HANDOFF_KEY_B64 }}
           CODEX_AUTH_CAPSULE_B64: ${{ secrets.CODEX_AUTH_CAPSULE_B64 }}
           CODEX_AUTH_CAPSULE_METADATA_B64: ${{ secrets.CODEX_AUTH_CAPSULE_METADATA_B64 }}
         run: |
