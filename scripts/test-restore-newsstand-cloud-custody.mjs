@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+const script=path.join(path.dirname(fileURLToPath(import.meta.url)),'restore-newsstand-cloud-custody.mjs');
+const dir=fs.mkdtempSync(path.join(os.tmpdir(),'cloud-custody-test-'));const bin=path.join(dir,'bin'),target=path.join(dir,'target');fs.mkdirSync(bin);fs.mkdirSync(target,{mode:0o700});fs.mkdirSync(path.join(dir,'scripts'));
+const sidecar={version:1,workflowId:'111',runId:'444',runStartedAt:'2026-11-21T17:00:00Z',sourceCommit:'a'.repeat(40),sourceRef:'refs/heads/ops/newsstand-hosted-20260926'};
+fs.writeFileSync(path.join(dir,'sidecar.json'),JSON.stringify(sidecar));
+const gh=`#!/usr/bin/env node\nconst x=process.argv[3];let y;if(x.endsWith('/workflows/newsstand-hosted-production.yml'))y={id:111};else if(x.endsWith('/workflows/newsstand-cloud-intake.yml'))y={id:222};else if(x.includes('/artifacts?'))y={artifacts:process.env.EMPTY_ARTIFACTS?[]:[{name:'newsstand-codex-auth-migration',id:333,expired:false,size_in_bytes:123,created_at:'2026-11-21T17:01:00Z',workflow_run:{id:444}}]};else if(x.endsWith('/runs/444/artifacts'))y={artifacts:[{name:'newsstand-codex-auth-migration',id:333,expired:true,size_in_bytes:123,workflow_run:{id:444}}]};else if(x.endsWith('/runs/444'))y={id:444,workflow_id:111,status:'completed',conclusion:'success',head_branch:'ops/newsstand-hosted-20260926',head_sha:'a'.repeat(40),created_at:'2026-11-21T17:00:00Z'};else if(x.endsWith('/artifacts/333/zip')){process.stdout.write('encrypted fixture');process.exit(0)}else process.exit(2);process.stdout.write(JSON.stringify(y));`;
+const unzip=`#!/usr/bin/env node\nconst fs=require('fs');if(process.argv[2]==='-Z1')process.stdout.write('auth.enc\\nauth-meta.json\\n');else if(process.argv[4]==='auth-meta.json')process.stdout.write(fs.readFileSync(process.env.SIDECAR));else process.stdout.write('ciphertext fixture');`;
+fs.writeFileSync(path.join(bin,'gh'),gh,{mode:0o700});fs.writeFileSync(path.join(bin,'unzip'),unzip,{mode:0o700});fs.writeFileSync(path.join(dir,'scripts/custody-codex-auth.mjs'),`import fs from 'node:fs';fs.writeFileSync(process.argv[4],'private fixture',{mode:0o600,flag:'wx'});`);
+const env={...process.env,PATH:`${bin}:${process.env.PATH}`,SIDECAR:path.join(dir,'sidecar.json'),GITHUB_REPOSITORY:'laidies/LAIDIES',GITHUB_ACTIONS:'true',GITHUB_WORKFLOW_REF:'laidies/LAIDIES/.github/workflows/newsstand-cloud-intake.yml@refs/heads/main'};
+function run(e=env){return spawnSync(process.execPath,[script,target],{cwd:dir,env:e,encoding:'utf8'})}
+let result=run();assert.equal(result.status,0,result.stderr);assert.ok(fs.existsSync(path.join(target,'auth.json')));
+result=run({...env,GITHUB_WORKFLOW_REF:'laidies/LAIDIES/.github/workflows/other.yml@refs/heads/main'});assert.equal(result.status,2);
+fs.writeFileSync(path.join(dir,'sidecar.json'),JSON.stringify({...sidecar,sourceCommit:'b'.repeat(40)}));fs.unlinkSync(path.join(target,'auth.json'));result=run();assert.equal(result.status,2);assert.equal(fs.existsSync(path.join(target,'auth.json')),false);
+fs.writeFileSync(path.join(dir,'sidecar.json'),JSON.stringify(sidecar));
+const fallback={...env,EMPTY_ARTIFACTS:'1',CODEX_AUTH_CAPSULE_METADATA_B64:Buffer.from(JSON.stringify(sidecar)).toString('base64'),CODEX_AUTH_CAPSULE_B64:Buffer.from('ciphertext fixture').toString('base64')};
+result=run(fallback);assert.equal(result.status,0,result.stderr);assert.ok(fs.existsSync(path.join(target,'auth.json')));
+fs.unlinkSync(path.join(target,'auth.json'));result=run({...fallback,CODEX_AUTH_CAPSULE_METADATA_B64:Buffer.from(JSON.stringify({...sidecar,sourceCommit:'b'.repeat(40)})).toString('base64')});assert.equal(result.status,2);assert.equal(fs.existsSync(path.join(target,'auth.json')),false);
+console.log('PASS retrieval lifecycle: artifact, verified expired-artifact bootstrap, unauthorized recipient, forged sidecars');
